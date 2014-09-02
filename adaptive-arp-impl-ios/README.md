@@ -2,7 +2,7 @@
 # iOS Implementation
 
 
-## Building
+## Building & Cocoapods
 
 1. Ensure you have Cocoapods installed; issuing a ```$ pod``` command from a shell should yield a help message. If not, install cocoapods with ```$ sudo gem install cocoapods```.
 2. From shell, goto the project directory (containing the .xcodeproj file) and issue a ```$ pod install``` command. 
