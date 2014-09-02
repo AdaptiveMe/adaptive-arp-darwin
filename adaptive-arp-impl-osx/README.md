@@ -1,12 +1,12 @@
 ## Adaptive Runtime Platform (ARP)
-# iOS Implementation
+# OSX Implementation
 
 
 ## Building & Cocoapods
 
 1. Ensure you have Cocoapods installed; issuing a ```$ pod``` command from a shell should yield a help message. If not, install cocoapods with ```$ sudo gem install cocoapods```.
 2. From shell, goto the project directory (containing the .xcodeproj file) and issue a ```$ pod install``` command. 
-3. If the setup goes as expected, you should have a ```AdaptiveArpImplIos.xcworkspace``` file created in your project directory. Open this to perform the next configuration task.
+3. If the setup goes as expected, you should have a ```AdaptiveArpImplOsx.xcworkspace``` file created in your project directory. Open this to perform the next configuration task.
 4. In the ```Pods``` project, select each target and change the building settings parameter ```Mach-O type``` from ```Static Library```to ```Dynamic Library```.
 5. The project should now compile without issues. The reason for this issue is that Swift does not yet fully support static library linking.
 
