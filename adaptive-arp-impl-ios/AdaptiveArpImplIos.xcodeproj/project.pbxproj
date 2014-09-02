@@ -7,17 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4E83DC9B19B635AA002B9764 /* AdaptiveArpImplIos.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E83DC9A19B635AA002B9764 /* AdaptiveArpImplIos.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4E83DCA519B635AA002B9764 /* AdaptiveArpImplIosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83DCA419B635AA002B9764 /* AdaptiveArpImplIosTests.swift */; };
+		4E83DCCB19B63E7D002B9764 /* libPods-AdaptiveArpImplIos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6FDC20795F2401E96A8DC88 /* libPods-AdaptiveArpImplIos.a */; };
+		F6D488C71E8445ED98E04A8D /* libPods-AdaptiveArpImplIosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A9B6D9B33B4A36BFF941D3 /* libPods-AdaptiveArpImplIosTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		27A9B6D9B33B4A36BFF941D3 /* libPods-AdaptiveArpImplIosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AdaptiveArpImplIosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E83DC9519B635AA002B9764 /* AdaptiveArpImplIos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdaptiveArpImplIos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E83DC9919B635AA002B9764 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4E83DC9A19B635AA002B9764 /* AdaptiveArpImplIos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdaptiveArpImplIos.h; sourceTree = "<group>"; };
 		4E83DCA019B635AA002B9764 /* AdaptiveArpImplIosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdaptiveArpImplIosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E83DCA319B635AA002B9764 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E83DCA419B635AA002B9764 /* AdaptiveArpImplIosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveArpImplIosTests.swift; sourceTree = "<group>"; };
+		D6FDC20795F2401E96A8DC88 /* libPods-AdaptiveArpImplIos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AdaptiveArpImplIos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -25,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E83DCCB19B63E7D002B9764 /* libPods-AdaptiveArpImplIos.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -32,18 +35,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6D488C71E8445ED98E04A8D /* libPods-AdaptiveArpImplIosTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		030C22BC28D0463282C94C33 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D6FDC20795F2401E96A8DC88 /* libPods-AdaptiveArpImplIos.a */,
+				27A9B6D9B33B4A36BFF941D3 /* libPods-AdaptiveArpImplIosTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4E83DC8B19B635AA002B9764 = {
 			isa = PBXGroup;
 			children = (
 				4E83DC9719B635AA002B9764 /* AdaptiveArpImplIos */,
 				4E83DCA119B635AA002B9764 /* AdaptiveArpImplIosTests */,
 				4E83DC9619B635AA002B9764 /* Products */,
+				030C22BC28D0463282C94C33 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,7 +73,6 @@
 		4E83DC9719B635AA002B9764 /* AdaptiveArpImplIos */ = {
 			isa = PBXGroup;
 			children = (
-				4E83DC9A19B635AA002B9764 /* AdaptiveArpImplIos.h */,
 				4E83DC9819B635AA002B9764 /* Supporting Files */,
 			);
 			path = AdaptiveArpImplIos;
@@ -97,7 +110,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E83DC9B19B635AA002B9764 /* AdaptiveArpImplIos.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,10 +120,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4E83DCA819B635AA002B9764 /* Build configuration list for PBXNativeTarget "AdaptiveArpImplIos" */;
 			buildPhases = (
+				8E31455781B14B41A5759A8B /* Check Pods Manifest.lock */,
 				4E83DC9019B635AA002B9764 /* Sources */,
 				4E83DC9119B635AA002B9764 /* Frameworks */,
 				4E83DC9219B635AA002B9764 /* Headers */,
 				4E83DC9319B635AA002B9764 /* Resources */,
+				C6BCF0C96A9F463686706A7A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -126,9 +140,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4E83DCAB19B635AA002B9764 /* Build configuration list for PBXNativeTarget "AdaptiveArpImplIosTests" */;
 			buildPhases = (
+				B8AAA08E2ACA42E6BA78D111 /* Check Pods Manifest.lock */,
 				4E83DC9C19B635AA002B9764 /* Sources */,
 				4E83DC9D19B635AA002B9764 /* Frameworks */,
 				4E83DC9E19B635AA002B9764 /* Resources */,
+				7A0FD202A8AD46369A583C8B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -190,6 +206,69 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7A0FD202A8AD46369A583C8B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-AdaptiveArpImplIosTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E31455781B14B41A5759A8B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B8AAA08E2ACA42E6BA78D111 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C6BCF0C96A9F463686706A7A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-AdaptiveArpImplIos-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4E83DC9019B635AA002B9764 /* Sources */ = {
@@ -374,6 +453,7 @@
 				4E83DCAA19B635AA002B9764 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4E83DCAB19B635AA002B9764 /* Build configuration list for PBXNativeTarget "AdaptiveArpImplIosTests" */ = {
 			isa = XCConfigurationList;
@@ -382,6 +462,7 @@
 				4E83DCAD19B635AA002B9764 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
