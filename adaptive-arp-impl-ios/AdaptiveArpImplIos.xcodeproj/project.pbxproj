@@ -120,12 +120,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4E83DCA819B635AA002B9764 /* Build configuration list for PBXNativeTarget "AdaptiveArpImplIos" */;
 			buildPhases = (
-				8E31455781B14B41A5759A8B /* Check Pods Manifest.lock */,
 				4E83DC9019B635AA002B9764 /* Sources */,
 				4E83DC9119B635AA002B9764 /* Frameworks */,
 				4E83DC9219B635AA002B9764 /* Headers */,
 				4E83DC9319B635AA002B9764 /* Resources */,
-				C6BCF0C96A9F463686706A7A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -140,11 +138,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4E83DCAB19B635AA002B9764 /* Build configuration list for PBXNativeTarget "AdaptiveArpImplIosTests" */;
 			buildPhases = (
-				B8AAA08E2ACA42E6BA78D111 /* Check Pods Manifest.lock */,
 				4E83DC9C19B635AA002B9764 /* Sources */,
 				4E83DC9D19B635AA002B9764 /* Frameworks */,
 				4E83DC9E19B635AA002B9764 /* Resources */,
-				7A0FD202A8AD46369A583C8B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -206,69 +202,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		7A0FD202A8AD46369A583C8B /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-AdaptiveArpImplIosTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8E31455781B14B41A5759A8B /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		B8AAA08E2ACA42E6BA78D111 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		C6BCF0C96A9F463686706A7A /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-AdaptiveArpImplIos-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4E83DC9019B635AA002B9764 /* Sources */ = {
