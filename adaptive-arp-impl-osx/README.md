@@ -9,7 +9,7 @@
 3. If the setup goes as expected, you should have a ```AdaptiveArpImplOsx.xcworkspace``` file created in your project directory. Open this to perform the next configuration task.
 4. In the ```Pods``` project, select each target and change the building settings parameter ```Mach-O type``` from ```Static Library```to ```Dynamic Library```.
 5. The project should now compile without issues. The reason for this issue is that Swift does not yet fully support static library linking.
-
+6. **IMPORTANT**: to update Cocoapods, use the command ```pod update --no-integrate``` otherwise you'll have to repeat steps 2 to 5 :stuck_out_tongue_winking_eye:. You've been warned.
 ## Contributing
 We'd *love to accept your patches and contributions to this project*.  There are a just a few small guidelines you need to follow to ensure that you and/or your company and our project are safeguarded from inadvertent copyright infringement. I know, this can be a pain but we want fair-play from the very start so that we're all on the same page. Please refer to the [project site](http://adaptiveme.github.io) for more information.
 
