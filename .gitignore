@@ -19,3 +19,4 @@ adaptive-arp-impl-osx/Podfile.lock
 adaptive-arp-impl-osx/Pods/
 
 adaptive-arp-rt-osx/AdaptiveArpRtOsx/AdaptiveArpRtOsx.xcodeproj/xcuserdata/
+adaptive-arp-rt-osx/AdaptiveArpRtOsx/AdaptiveArpRtOsx.xcodeproj/project.xcworkspace/xcuserdata/
