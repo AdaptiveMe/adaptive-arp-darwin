@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>6614DD50-CE5D-47FA-AAD1-675FCB54950D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>AdaptiveArpRtOsx</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>EAF2577DF30172B66D9C68E6417F0EC9F4C22E29</key>
+		<string>https://github.com/AdaptiveMe/adaptive-arp-darwin.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>adaptive-arp-rt-osx/AdaptiveArpRtOsx/AdaptiveArpRtOsx.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>EAF2577DF30172B66D9C68E6417F0EC9F4C22E29</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/AdaptiveMe/adaptive-arp-darwin.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EAF2577DF30172B66D9C68E6417F0EC9F4C22E29</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EAF2577DF30172B66D9C68E6417F0EC9F4C22E29</string>
+			<key>IDESourceControlWCCName</key>
+			<string>adaptive-arp-darwin</string>
+		</dict>
+	</array>
+</dict>
+</plist>
