@@ -36,6 +36,7 @@ class HttpServer
     var acceptSocket: CInt = -1
     let matchingOptions = NSMatchingOptions(0)
     let expressionOptions = NSRegularExpressionOptions(0)
+    var currentRequests : Int = 0;
     
     subscript (path: String) -> Handler? {
         get {
@@ -76,6 +77,10 @@ class HttpServer
         }
     }
     
+    func activeRequests() -> Int {
+        return self.currentRequests
+    }
+    
     func routes() -> Array<String> {
         var results = [String]()
         for (expression,_) in handlers { results.append(expression.pattern) }
@@ -90,6 +95,7 @@ class HttpServer
                 while let socket = Socket.acceptClientSocket(self.acceptSocket) {
                     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
                         let parser = HttpParser()
+                        self.currentRequests++
                         while let request = parser.nextHttpRequest(socket) {
                             let keepAlive = parser.supportsKeepAlive(request.headers)
                             if let handler: Handler = self[request.url] {
@@ -99,6 +105,7 @@ class HttpServer
                             }
                             if !keepAlive { break }
                         }
+                        self.currentRequests--
                         Socket.release(socket)
                     });
                 }
