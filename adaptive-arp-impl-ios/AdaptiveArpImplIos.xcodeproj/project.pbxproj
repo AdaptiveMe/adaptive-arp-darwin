@@ -202,11 +202,14 @@
 		4E26F34619BE0021008FA728 /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26F34119BE0021008FA728 /* HttpResponse.swift */; };
 		4E26F34719BE0021008FA728 /* HttpServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26F34219BE0021008FA728 /* HttpServer.swift */; };
 		4E26F34819BE0021008FA728 /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26F34319BE0021008FA728 /* Socket.swift */; };
+		4E26F35E19BE0FD9008FA728 /* AppServerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26F35C19BE0FD9008FA728 /* AppServerImpl.swift */; };
+		4E26F35F19BE0FD9008FA728 /* AppServerManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26F35D19BE0FD9008FA728 /* AppServerManagerImpl.swift */; };
 		4E83DCA519B635AA002B9764 /* AdaptiveArpImplIosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83DCA419B635AA002B9764 /* AdaptiveArpImplIosTests.swift */; };
 		F6D488C71E8445ED98E04A8D /* libPods-AdaptiveArpImplIosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A9B6D9B33B4A36BFF941D3 /* libPods-AdaptiveArpImplIosTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C5D888D2C344F66A866530E /* Pods-AdaptiveArpImplIos.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdaptiveArpImplIos.xcconfig"; path = "Pods/Pods-AdaptiveArpImplIos.xcconfig"; sourceTree = "<group>"; };
 		27A9B6D9B33B4A36BFF941D3 /* libPods-AdaptiveArpImplIosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AdaptiveArpImplIosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E2206C019BDF42900BC4819 /* Acceleration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Acceleration.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/Acceleration.swift"; sourceTree = SOURCE_ROOT; };
 		4E2206C119BDF42900BC4819 /* AttachmentData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttachmentData.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/AttachmentData.swift"; sourceTree = SOURCE_ROOT; };
@@ -403,6 +406,8 @@
 		4E26F34119BE0021008FA728 /* HttpResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
 		4E26F34219BE0021008FA728 /* HttpServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpServer.swift; sourceTree = "<group>"; };
 		4E26F34319BE0021008FA728 /* Socket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
+		4E26F35C19BE0FD9008FA728 /* AppServerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppServerImpl.swift; path = "../../adaptive-arp-impl-universal/AppServerImpl.swift"; sourceTree = "<group>"; };
+		4E26F35D19BE0FD9008FA728 /* AppServerManagerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppServerManagerImpl.swift; path = "../../adaptive-arp-impl-universal/AppServerManagerImpl.swift"; sourceTree = "<group>"; };
 		4E83DC9519B635AA002B9764 /* AdaptiveArpImplIos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdaptiveArpImplIos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E83DC9919B635AA002B9764 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E83DCA019B635AA002B9764 /* AdaptiveArpImplIosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdaptiveArpImplIosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -437,13 +442,6 @@
 				27A9B6D9B33B4A36BFF941D3 /* libPods-AdaptiveArpImplIosTests.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		4E2206BE19BDF40E00BC4819 /* IMPL */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = IMPL;
 			sourceTree = "<group>";
 		};
 		4E2206BF19BDF41700BC4819 /* API */ = {
@@ -646,6 +644,8 @@
 		4E26F33D19BE0006008FA728 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4E26F35C19BE0FD9008FA728 /* AppServerImpl.swift */,
+				4E26F35D19BE0FD9008FA728 /* AppServerManagerImpl.swift */,
 				4E26F33E19BE0021008FA728 /* listener_http */,
 			);
 			name = Common;
@@ -664,6 +664,13 @@
 			path = "../../adaptive-arp-impl-universal/listener_http";
 			sourceTree = "<group>";
 		};
+		4E26F35719BE0D01008FA728 /* IMPL */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = IMPL;
+			sourceTree = SOURCE_ROOT;
+		};
 		4E83DC8B19B635AA002B9764 = {
 			isa = PBXGroup;
 			children = (
@@ -671,6 +678,7 @@
 				4E83DCA119B635AA002B9764 /* AdaptiveArpImplIosTests */,
 				4E83DC9619B635AA002B9764 /* Products */,
 				030C22BC28D0463282C94C33 /* Frameworks */,
+				0C5D888D2C344F66A866530E /* Pods-AdaptiveArpImplIos.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -686,9 +694,9 @@
 		4E83DC9719B635AA002B9764 /* AdaptiveArpImplIos */ = {
 			isa = PBXGroup;
 			children = (
+				4E26F35719BE0D01008FA728 /* IMPL */,
 				4E26F33D19BE0006008FA728 /* Common */,
 				4E2206BF19BDF41700BC4819 /* API */,
-				4E2206BE19BDF40E00BC4819 /* IMPL */,
 				4E83DC9819B635AA002B9764 /* Supporting Files */,
 			);
 			path = AdaptiveArpImplIos;
@@ -736,10 +744,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4E83DCA819B635AA002B9764 /* Build configuration list for PBXNativeTarget "AdaptiveArpImplIos" */;
 			buildPhases = (
+				61E0E8E9AA3A4069BA21B7D7 /* Check Pods Manifest.lock */,
 				4E83DC9019B635AA002B9764 /* Sources */,
 				4E83DC9119B635AA002B9764 /* Frameworks */,
 				4E83DC9219B635AA002B9764 /* Headers */,
 				4E83DC9319B635AA002B9764 /* Resources */,
+				5FB7A55FC78748B995C816E2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -819,6 +829,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5FB7A55FC78748B995C816E2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-AdaptiveArpImplIos-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		61E0E8E9AA3A4069BA21B7D7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4E83DC9019B635AA002B9764 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -831,6 +874,7 @@
 				4E22079F19BDF42900BC4819 /* IAppRegistry.swift in Sources */,
 				4E22082519BDF42900BC4819 /* IStore.swift in Sources */,
 				4E2207E919BDF42900BC4819 /* IFileListResultCallbackWarning.swift in Sources */,
+				4E26F35F19BE0FD9008FA728 /* AppServerManagerImpl.swift in Sources */,
 				4E22078519BDF42900BC4819 /* ContactPersonalInfo.swift in Sources */,
 				4E22082119BDF42900BC4819 /* IServiceResultCallbackWarning.swift in Sources */,
 				4E22080619BDF42900BC4819 /* IMessagingCallbackWarning.swift in Sources */,
@@ -948,6 +992,7 @@
 				4E22078019BDF42900BC4819 /* Button.swift in Sources */,
 				4E2207CC19BDF42900BC4819 /* ICapabilitiesSensor.swift in Sources */,
 				4E22079A19BDF42900BC4819 /* IAlarm.swift in Sources */,
+				4E26F35E19BE0FD9008FA728 /* AppServerImpl.swift in Sources */,
 				4E22079C19BDF42900BC4819 /* IAnalytics.swift in Sources */,
 				4E2207CB19BDF42900BC4819 /* ICapabilitiesNotification.swift in Sources */,
 				4E2207C119BDF42900BC4819 /* IButtonListenerError.swift in Sources */,
@@ -1120,6 +1165,7 @@
 		};
 		4E83DCA919B635AA002B9764 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C5D888D2C344F66A866530E /* Pods-AdaptiveArpImplIos.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1135,6 +1181,7 @@
 		};
 		4E83DCAA19B635AA002B9764 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C5D888D2C344F66A866530E /* Pods-AdaptiveArpImplIos.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;

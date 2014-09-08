@@ -203,6 +203,9 @@
 		4E26F35319BE032C008FA728 /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26F34E19BE032C008FA728 /* HttpResponse.swift */; };
 		4E26F35419BE032C008FA728 /* HttpServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26F34F19BE032C008FA728 /* HttpServer.swift */; };
 		4E26F35519BE032C008FA728 /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26F35019BE032C008FA728 /* Socket.swift */; };
+		4E26F36219BE0FE7008FA728 /* AppServerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26F36019BE0FE7008FA728 /* AppServerImpl.swift */; };
+		4E26F36319BE0FE7008FA728 /* AppServerManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26F36119BE0FE7008FA728 /* AppServerManagerImpl.swift */; };
+		4E26F36519BE4DAB008FA728 /* LoggingImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26F36419BE4DAB008FA728 /* LoggingImpl.swift */; };
 		DB6FC289ADAF4FB9AF7D421F /* libPods-AdaptiveArpImplOsxTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B2804A30894D05B64FBA37 /* libPods-AdaptiveArpImplOsxTests.a */; };
 /* End PBXBuildFile section */
 
@@ -408,6 +411,9 @@
 		4E26F34E19BE032C008FA728 /* HttpResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
 		4E26F34F19BE032C008FA728 /* HttpServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpServer.swift; sourceTree = "<group>"; };
 		4E26F35019BE032C008FA728 /* Socket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
+		4E26F36019BE0FE7008FA728 /* AppServerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppServerImpl.swift; path = "../../adaptive-arp-impl-universal/AppServerImpl.swift"; sourceTree = "<group>"; };
+		4E26F36119BE0FE7008FA728 /* AppServerManagerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppServerManagerImpl.swift; path = "../../adaptive-arp-impl-universal/AppServerManagerImpl.swift"; sourceTree = "<group>"; };
+		4E26F36419BE4DAB008FA728 /* LoggingImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingImpl.swift; sourceTree = "<group>"; };
 		A1635F59408747D888C22C4C /* Pods-AdaptiveArpImplOsx.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdaptiveArpImplOsx.xcconfig"; path = "Pods/Pods-AdaptiveArpImplOsx.xcconfig"; sourceTree = "<group>"; };
 		B0A06319874D4A43B58EA23C /* libPods-AdaptiveArpImplOsx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AdaptiveArpImplOsx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B75D8097578A4F06A48490F9 /* Pods-AdaptiveArpImplOsxTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdaptiveArpImplOsxTests.xcconfig"; path = "Pods/Pods-AdaptiveArpImplOsxTests.xcconfig"; sourceTree = "<group>"; };
@@ -432,13 +438,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4E22054019BDF3A300BC4819 /* IMPL */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = IMPL;
-			sourceTree = "<group>";
-		};
 		4E22054119BDF3C000BC4819 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -660,9 +659,9 @@
 		4E238F9C19B6516900DEDCB8 /* AdaptiveArpImplOsx */ = {
 			isa = PBXGroup;
 			children = (
+				4E26F35619BE0CF2008FA728 /* IMPL */,
 				4E26F34A19BE031F008FA728 /* Common */,
 				4E22054119BDF3C000BC4819 /* API */,
-				4E22054019BDF3A300BC4819 /* IMPL */,
 				4E238F9D19B6516900DEDCB8 /* Supporting Files */,
 			);
 			path = AdaptiveArpImplOsx;
@@ -696,6 +695,8 @@
 		4E26F34A19BE031F008FA728 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4E26F36019BE0FE7008FA728 /* AppServerImpl.swift */,
+				4E26F36119BE0FE7008FA728 /* AppServerManagerImpl.swift */,
 				4E26F34B19BE032C008FA728 /* listener_http */,
 			);
 			name = Common;
@@ -713,6 +714,14 @@
 			name = listener_http;
 			path = "../../adaptive-arp-impl-universal/listener_http";
 			sourceTree = "<group>";
+		};
+		4E26F35619BE0CF2008FA728 /* IMPL */ = {
+			isa = PBXGroup;
+			children = (
+				4E26F36419BE4DAB008FA728 /* LoggingImpl.swift */,
+			);
+			path = IMPL;
+			sourceTree = SOURCE_ROOT;
 		};
 		BE66325BC3D142B9A8C717F4 /* Frameworks */ = {
 			isa = PBXGroup;
@@ -902,6 +911,7 @@
 				4E22062119BDF3DC00BC4819 /* IAppRegistry.swift in Sources */,
 				4E2206A719BDF3DC00BC4819 /* IStore.swift in Sources */,
 				4E22066B19BDF3DC00BC4819 /* IFileListResultCallbackWarning.swift in Sources */,
+				4E26F36319BE0FE7008FA728 /* AppServerManagerImpl.swift in Sources */,
 				4E22060719BDF3DC00BC4819 /* ContactPersonalInfo.swift in Sources */,
 				4E2206A319BDF3DC00BC4819 /* IServiceResultCallbackWarning.swift in Sources */,
 				4E22068819BDF3DC00BC4819 /* IMessagingCallbackWarning.swift in Sources */,
@@ -1019,6 +1029,7 @@
 				4E22060219BDF3DC00BC4819 /* Button.swift in Sources */,
 				4E22064E19BDF3DC00BC4819 /* ICapabilitiesSensor.swift in Sources */,
 				4E22061C19BDF3DC00BC4819 /* IAlarm.swift in Sources */,
+				4E26F36219BE0FE7008FA728 /* AppServerImpl.swift in Sources */,
 				4E22061E19BDF3DC00BC4819 /* IAnalytics.swift in Sources */,
 				4E22064D19BDF3DC00BC4819 /* ICapabilitiesNotification.swift in Sources */,
 				4E22064319BDF3DC00BC4819 /* IButtonListenerError.swift in Sources */,
@@ -1076,6 +1087,7 @@
 				4E22060019BDF3DC00BC4819 /* Acceleration.swift in Sources */,
 				4E22068119BDF3DC00BC4819 /* IMagnetometer.swift in Sources */,
 				4E22065A19BDF3DC00BC4819 /* IContactResultCallbackWarning.swift in Sources */,
+				4E26F36519BE4DAB008FA728 /* LoggingImpl.swift in Sources */,
 				4E22065D19BDF3DC00BC4819 /* IDatabaseResultCallback.swift in Sources */,
 				4E22064A19BDF3DC00BC4819 /* ICapabilitiesData.swift in Sources */,
 				4E22062A19BDF3DC00BC4819 /* IAppServer.swift in Sources */,
@@ -1138,6 +1150,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1177,6 +1190,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
