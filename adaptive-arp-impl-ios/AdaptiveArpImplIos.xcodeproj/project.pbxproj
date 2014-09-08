@@ -7,13 +7,392 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E22077E19BDF42900BC4819 /* Acceleration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206C019BDF42900BC4819 /* Acceleration.swift */; };
+		4E22077F19BDF42900BC4819 /* AttachmentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206C119BDF42900BC4819 /* AttachmentData.swift */; };
+		4E22078019BDF42900BC4819 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206C219BDF42900BC4819 /* Button.swift */; };
+		4E22078119BDF42900BC4819 /* Column.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206C319BDF42900BC4819 /* Column.swift */; };
+		4E22078219BDF42900BC4819 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206C419BDF42900BC4819 /* Contact.swift */; };
+		4E22078319BDF42900BC4819 /* ContactAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206C519BDF42900BC4819 /* ContactAddress.swift */; };
+		4E22078419BDF42900BC4819 /* ContactEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206C619BDF42900BC4819 /* ContactEmail.swift */; };
+		4E22078519BDF42900BC4819 /* ContactPersonalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206C719BDF42900BC4819 /* ContactPersonalInfo.swift */; };
+		4E22078619BDF42900BC4819 /* ContactPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206C819BDF42900BC4819 /* ContactPhone.swift */; };
+		4E22078719BDF42900BC4819 /* ContactProfessionalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206C919BDF42900BC4819 /* ContactProfessionalInfo.swift */; };
+		4E22078819BDF42900BC4819 /* ContactSocial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206CA19BDF42900BC4819 /* ContactSocial.swift */; };
+		4E22078919BDF42900BC4819 /* ContactTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206CB19BDF42900BC4819 /* ContactTag.swift */; };
+		4E22078A19BDF42900BC4819 /* ContactUid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206CC19BDF42900BC4819 /* ContactUid.swift */; };
+		4E22078B19BDF42900BC4819 /* ContactWebsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206CD19BDF42900BC4819 /* ContactWebsite.swift */; };
+		4E22078C19BDF42900BC4819 /* Cookie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206CE19BDF42900BC4819 /* Cookie.swift */; };
+		4E22078D19BDF42900BC4819 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206CF19BDF42900BC4819 /* Database.swift */; };
+		4E22078E19BDF42900BC4819 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206D019BDF42900BC4819 /* DeviceInfo.swift */; };
+		4E22078F19BDF42900BC4819 /* Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206D119BDF42900BC4819 /* Email.swift */; };
+		4E22079019BDF42900BC4819 /* EmailAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206D219BDF42900BC4819 /* EmailAddress.swift */; };
+		4E22079119BDF42900BC4819 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206D319BDF42900BC4819 /* Endpoint.swift */; };
+		4E22079219BDF42900BC4819 /* Geolocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206D419BDF42900BC4819 /* Geolocation.swift */; };
+		4E22079319BDF42900BC4819 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206D519BDF42900BC4819 /* Header.swift */; };
+		4E22079419BDF42900BC4819 /* IAccelerationListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206D619BDF42900BC4819 /* IAccelerationListener.swift */; };
+		4E22079519BDF42900BC4819 /* IAccelerationListenerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206D719BDF42900BC4819 /* IAccelerationListenerError.swift */; };
+		4E22079619BDF42900BC4819 /* IAccelerationListenerWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206D819BDF42900BC4819 /* IAccelerationListenerWarning.swift */; };
+		4E22079719BDF42900BC4819 /* IAccelerometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206D919BDF42900BC4819 /* IAccelerometer.swift */; };
+		4E22079819BDF42900BC4819 /* IAdaptiveRP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206DA19BDF42900BC4819 /* IAdaptiveRP.swift */; };
+		4E22079919BDF42900BC4819 /* IAds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206DB19BDF42900BC4819 /* IAds.swift */; };
+		4E22079A19BDF42900BC4819 /* IAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206DC19BDF42900BC4819 /* IAlarm.swift */; };
+		4E22079B19BDF42900BC4819 /* IAmbientLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206DD19BDF42900BC4819 /* IAmbientLight.swift */; };
+		4E22079C19BDF42900BC4819 /* IAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206DE19BDF42900BC4819 /* IAnalytics.swift */; };
+		4E22079D19BDF42900BC4819 /* IAppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206DF19BDF42900BC4819 /* IAppContext.swift */; };
+		4E22079E19BDF42900BC4819 /* IAppContextType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206E019BDF42900BC4819 /* IAppContextType.swift */; };
+		4E22079F19BDF42900BC4819 /* IAppRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206E119BDF42900BC4819 /* IAppRegistry.swift */; };
+		4E2207A019BDF42900BC4819 /* IAppResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206E219BDF42900BC4819 /* IAppResource.swift */; };
+		4E2207A119BDF42900BC4819 /* IAppResourceCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206E319BDF42900BC4819 /* IAppResourceCallback.swift */; };
+		4E2207A219BDF42900BC4819 /* IAppResourceCallbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206E419BDF42900BC4819 /* IAppResourceCallbackError.swift */; };
+		4E2207A319BDF42900BC4819 /* IAppResourceCallbackWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206E519BDF42900BC4819 /* IAppResourceCallbackWarning.swift */; };
+		4E2207A419BDF42900BC4819 /* IAppResourceFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206E619BDF42900BC4819 /* IAppResourceFormat.swift */; };
+		4E2207A519BDF42900BC4819 /* IAppResourceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206E719BDF42900BC4819 /* IAppResourceHandler.swift */; };
+		4E2207A619BDF42900BC4819 /* IAppResourcePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206E819BDF42900BC4819 /* IAppResourcePayload.swift */; };
+		4E2207A719BDF42900BC4819 /* IAppResourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206E919BDF42900BC4819 /* IAppResourceType.swift */; };
+		4E2207A819BDF42900BC4819 /* IAppServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206EA19BDF42900BC4819 /* IAppServer.swift */; };
+		4E2207A919BDF42900BC4819 /* IAppServerListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206EB19BDF42900BC4819 /* IAppServerListener.swift */; };
+		4E2207AA19BDF42900BC4819 /* IAppServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206EC19BDF42900BC4819 /* IAppServerManager.swift */; };
+		4E2207AB19BDF42900BC4819 /* IAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206ED19BDF42900BC4819 /* IAudio.swift */; };
+		4E2207AC19BDF42900BC4819 /* IBarcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206EE19BDF42900BC4819 /* IBarcode.swift */; };
+		4E2207AD19BDF42900BC4819 /* IBarometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206EF19BDF42900BC4819 /* IBarometer.swift */; };
+		4E2207AE19BDF42900BC4819 /* IBaseApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206F019BDF42900BC4819 /* IBaseApplication.swift */; };
+		4E2207AF19BDF42900BC4819 /* IBaseCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206F119BDF42900BC4819 /* IBaseCallback.swift */; };
+		4E2207B019BDF42900BC4819 /* IBaseCommerce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206F219BDF42900BC4819 /* IBaseCommerce.swift */; };
+		4E2207B119BDF42900BC4819 /* IBaseCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206F319BDF42900BC4819 /* IBaseCommunication.swift */; };
+		4E2207B219BDF42900BC4819 /* IBaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206F419BDF42900BC4819 /* IBaseData.swift */; };
+		4E2207B319BDF42900BC4819 /* IBaseListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206F519BDF42900BC4819 /* IBaseListener.swift */; };
+		4E2207B419BDF42900BC4819 /* IBaseMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206F619BDF42900BC4819 /* IBaseMedia.swift */; };
+		4E2207B519BDF42900BC4819 /* IBaseNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206F719BDF42900BC4819 /* IBaseNotification.swift */; };
+		4E2207B619BDF42900BC4819 /* IBasePIM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206F819BDF42900BC4819 /* IBasePIM.swift */; };
+		4E2207B719BDF42900BC4819 /* IBaseReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206F919BDF42900BC4819 /* IBaseReader.swift */; };
+		4E2207B819BDF42900BC4819 /* IBaseSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206FA19BDF42900BC4819 /* IBaseSecurity.swift */; };
+		4E2207B919BDF42900BC4819 /* IBaseSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206FB19BDF42900BC4819 /* IBaseSensor.swift */; };
+		4E2207BA19BDF42900BC4819 /* IBaseSocial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206FC19BDF42900BC4819 /* IBaseSocial.swift */; };
+		4E2207BB19BDF42900BC4819 /* IBaseSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206FD19BDF42900BC4819 /* IBaseSystem.swift */; };
+		4E2207BC19BDF42900BC4819 /* IBaseUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206FE19BDF42900BC4819 /* IBaseUI.swift */; };
+		4E2207BD19BDF42900BC4819 /* IBaseUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206FF19BDF42900BC4819 /* IBaseUtil.swift */; };
+		4E2207BE19BDF42900BC4819 /* IBluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22070019BDF42900BC4819 /* IBluetooth.swift */; };
+		4E2207BF19BDF42900BC4819 /* IBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22070119BDF42900BC4819 /* IBrowser.swift */; };
+		4E2207C019BDF42900BC4819 /* IButtonListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22070219BDF42900BC4819 /* IButtonListener.swift */; };
+		4E2207C119BDF42900BC4819 /* IButtonListenerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22070319BDF42900BC4819 /* IButtonListenerError.swift */; };
+		4E2207C219BDF42900BC4819 /* IButtonListenerWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22070419BDF42900BC4819 /* IButtonListenerWarning.swift */; };
+		4E2207C319BDF42900BC4819 /* ICalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22070519BDF42900BC4819 /* ICalendar.swift */; };
+		4E2207C419BDF42900BC4819 /* ICamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22070619BDF42900BC4819 /* ICamera.swift */; };
+		4E2207C519BDF42900BC4819 /* ICapabilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22070719BDF42900BC4819 /* ICapabilities.swift */; };
+		4E2207C619BDF42900BC4819 /* ICapabilitiesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22070819BDF42900BC4819 /* ICapabilitiesButton.swift */; };
+		4E2207C719BDF42900BC4819 /* ICapabilitiesCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22070919BDF42900BC4819 /* ICapabilitiesCommunication.swift */; };
+		4E2207C819BDF42900BC4819 /* ICapabilitiesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22070A19BDF42900BC4819 /* ICapabilitiesData.swift */; };
+		4E2207C919BDF42900BC4819 /* ICapabilitiesMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22070B19BDF42900BC4819 /* ICapabilitiesMedia.swift */; };
+		4E2207CA19BDF42900BC4819 /* ICapabilitiesNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22070C19BDF42900BC4819 /* ICapabilitiesNet.swift */; };
+		4E2207CB19BDF42900BC4819 /* ICapabilitiesNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22070D19BDF42900BC4819 /* ICapabilitiesNotification.swift */; };
+		4E2207CC19BDF42900BC4819 /* ICapabilitiesSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22070E19BDF42900BC4819 /* ICapabilitiesSensor.swift */; };
+		4E2207CD19BDF42900BC4819 /* ICloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22070F19BDF42900BC4819 /* ICloud.swift */; };
+		4E2207CE19BDF42900BC4819 /* ICompression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22071019BDF42900BC4819 /* ICompression.swift */; };
+		4E2207CF19BDF42900BC4819 /* IConcurrent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22071119BDF42900BC4819 /* IConcurrent.swift */; };
+		4E2207D019BDF42900BC4819 /* IContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22071219BDF42900BC4819 /* IContact.swift */; };
+		4E2207D119BDF42900BC4819 /* IContactFieldGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22071319BDF42900BC4819 /* IContactFieldGroup.swift */; };
+		4E2207D219BDF42900BC4819 /* IContactFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22071419BDF42900BC4819 /* IContactFilter.swift */; };
+		4E2207D319BDF42900BC4819 /* IContactPhotoResultCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22071519BDF42900BC4819 /* IContactPhotoResultCallback.swift */; };
+		4E2207D419BDF42900BC4819 /* IContactPhotoResultCallbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22071619BDF42900BC4819 /* IContactPhotoResultCallbackError.swift */; };
+		4E2207D519BDF42900BC4819 /* IContactPhotoResultCallbackWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22071719BDF42900BC4819 /* IContactPhotoResultCallbackWarning.swift */; };
+		4E2207D619BDF42900BC4819 /* IContactResultCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22071819BDF42900BC4819 /* IContactResultCallback.swift */; };
+		4E2207D719BDF42900BC4819 /* IContactResultCallbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22071919BDF42900BC4819 /* IContactResultCallbackError.swift */; };
+		4E2207D819BDF42900BC4819 /* IContactResultCallbackWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22071A19BDF42900BC4819 /* IContactResultCallbackWarning.swift */; };
+		4E2207D919BDF42900BC4819 /* ICrypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22071B19BDF42900BC4819 /* ICrypto.swift */; };
+		4E2207DA19BDF42900BC4819 /* IDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22071C19BDF42900BC4819 /* IDatabase.swift */; };
+		4E2207DB19BDF42900BC4819 /* IDatabaseResultCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22071D19BDF42900BC4819 /* IDatabaseResultCallback.swift */; };
+		4E2207DC19BDF42900BC4819 /* IDatabaseResultCallbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22071E19BDF42900BC4819 /* IDatabaseResultCallbackError.swift */; };
+		4E2207DD19BDF42900BC4819 /* IDatabaseResultCallbackWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22071F19BDF42900BC4819 /* IDatabaseResultCallbackWarning.swift */; };
+		4E2207DE19BDF42900BC4819 /* IDataStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22072019BDF42900BC4819 /* IDataStream.swift */; };
+		4E2207DF19BDF42900BC4819 /* IDesktop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22072119BDF42900BC4819 /* IDesktop.swift */; };
+		4E2207E019BDF42900BC4819 /* IDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22072219BDF42900BC4819 /* IDevice.swift */; };
+		4E2207E119BDF42900BC4819 /* IDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22072319BDF42900BC4819 /* IDisplay.swift */; };
+		4E2207E219BDF42900BC4819 /* IFacebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22072419BDF42900BC4819 /* IFacebook.swift */; };
+		4E2207E319BDF42900BC4819 /* IFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22072519BDF42900BC4819 /* IFile.swift */; };
+		4E2207E419BDF42900BC4819 /* IFileDataResultCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22072619BDF42900BC4819 /* IFileDataResultCallback.swift */; };
+		4E2207E519BDF42900BC4819 /* IFileDataResultCallbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22072719BDF42900BC4819 /* IFileDataResultCallbackError.swift */; };
+		4E2207E619BDF42900BC4819 /* IFileDataResultCallbackWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22072819BDF42900BC4819 /* IFileDataResultCallbackWarning.swift */; };
+		4E2207E719BDF42900BC4819 /* IFileListResultCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22072919BDF42900BC4819 /* IFileListResultCallback.swift */; };
+		4E2207E819BDF42900BC4819 /* IFileListResultCallbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22072A19BDF42900BC4819 /* IFileListResultCallbackError.swift */; };
+		4E2207E919BDF42900BC4819 /* IFileListResultCallbackWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22072B19BDF42900BC4819 /* IFileListResultCallbackWarning.swift */; };
+		4E2207EA19BDF42900BC4819 /* IFilePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22072C19BDF42900BC4819 /* IFilePath.swift */; };
+		4E2207EB19BDF42900BC4819 /* IFileResultCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22072D19BDF42900BC4819 /* IFileResultCallback.swift */; };
+		4E2207EC19BDF42900BC4819 /* IFileResultCallbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22072E19BDF42900BC4819 /* IFileResultCallbackError.swift */; };
+		4E2207ED19BDF42900BC4819 /* IFileResultCallbackWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22072F19BDF42900BC4819 /* IFileResultCallbackWarning.swift */; };
+		4E2207EE19BDF42900BC4819 /* IFileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22073019BDF42900BC4819 /* IFileSystem.swift */; };
+		4E2207EF19BDF42900BC4819 /* IGeolocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22073119BDF42900BC4819 /* IGeolocation.swift */; };
+		4E2207F019BDF42900BC4819 /* IGeolocationListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22073219BDF42900BC4819 /* IGeolocationListener.swift */; };
+		4E2207F119BDF42900BC4819 /* IGeolocationListenerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22073319BDF42900BC4819 /* IGeolocationListenerError.swift */; };
+		4E2207F219BDF42900BC4819 /* IGeolocationListenerWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22073419BDF42900BC4819 /* IGeolocationListenerWarning.swift */; };
+		4E2207F319BDF42900BC4819 /* IGlobalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22073519BDF42900BC4819 /* IGlobalization.swift */; };
+		4E2207F419BDF42900BC4819 /* IGooglePlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22073619BDF42900BC4819 /* IGooglePlus.swift */; };
+		4E2207F519BDF42900BC4819 /* IGyroscope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22073719BDF42900BC4819 /* IGyroscope.swift */; };
+		4E2207F619BDF42900BC4819 /* IImaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22073819BDF42900BC4819 /* IImaging.swift */; };
+		4E2207F719BDF42900BC4819 /* IInternalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22073919BDF42900BC4819 /* IInternalStorage.swift */; };
+		4E2207F819BDF42900BC4819 /* ILifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22073A19BDF42900BC4819 /* ILifecycle.swift */; };
+		4E2207F919BDF42900BC4819 /* ILifecycleListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22073B19BDF42900BC4819 /* ILifecycleListener.swift */; };
+		4E2207FA19BDF42900BC4819 /* ILifecycleListenerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22073C19BDF42900BC4819 /* ILifecycleListenerError.swift */; };
+		4E2207FB19BDF42900BC4819 /* ILifecycleListenerWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22073D19BDF42900BC4819 /* ILifecycleListenerWarning.swift */; };
+		4E2207FC19BDF42900BC4819 /* ILinkedIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22073E19BDF42900BC4819 /* ILinkedIn.swift */; };
+		4E2207FD19BDF42900BC4819 /* ILogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22073F19BDF42900BC4819 /* ILogging.swift */; };
+		4E2207FE19BDF42900BC4819 /* ILoggingLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22074019BDF42900BC4819 /* ILoggingLogLevel.swift */; };
+		4E2207FF19BDF42900BC4819 /* IMagnetometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22074119BDF42900BC4819 /* IMagnetometer.swift */; };
+		4E22080019BDF42900BC4819 /* IMail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22074219BDF42900BC4819 /* IMail.swift */; };
+		4E22080119BDF42900BC4819 /* IManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22074319BDF42900BC4819 /* IManagement.swift */; };
+		4E22080219BDF42900BC4819 /* IMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22074419BDF42900BC4819 /* IMap.swift */; };
+		4E22080319BDF42900BC4819 /* IMessaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22074519BDF42900BC4819 /* IMessaging.swift */; };
+		4E22080419BDF42900BC4819 /* IMessagingCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22074619BDF42900BC4819 /* IMessagingCallback.swift */; };
+		4E22080519BDF42900BC4819 /* IMessagingCallbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22074719BDF42900BC4819 /* IMessagingCallbackError.swift */; };
+		4E22080619BDF42900BC4819 /* IMessagingCallbackWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22074819BDF42900BC4819 /* IMessagingCallbackWarning.swift */; };
+		4E22080719BDF42900BC4819 /* INetworkInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22074919BDF42900BC4819 /* INetworkInfo.swift */; };
+		4E22080819BDF42900BC4819 /* INetworkNaming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22074A19BDF42900BC4819 /* INetworkNaming.swift */; };
+		4E22080919BDF42900BC4819 /* INetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22074B19BDF42900BC4819 /* INetworkReachability.swift */; };
+		4E22080A19BDF42900BC4819 /* INetworkReachabilityCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22074C19BDF42900BC4819 /* INetworkReachabilityCallback.swift */; };
+		4E22080B19BDF42900BC4819 /* INetworkReachabilityCallbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22074D19BDF42900BC4819 /* INetworkReachabilityCallbackError.swift */; };
+		4E22080C19BDF42900BC4819 /* INetworkReachabilityCallbackWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22074E19BDF42900BC4819 /* INetworkReachabilityCallbackWarning.swift */; };
+		4E22080D19BDF42900BC4819 /* INetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22074F19BDF42900BC4819 /* INetworkStatus.swift */; };
+		4E22080E19BDF42900BC4819 /* INFC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22075019BDF42900BC4819 /* INFC.swift */; };
+		4E22080F19BDF42900BC4819 /* INotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22075119BDF42900BC4819 /* INotification.swift */; };
+		4E22081019BDF42900BC4819 /* INotificationLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22075219BDF42900BC4819 /* INotificationLocal.swift */; };
+		4E22081119BDF42900BC4819 /* IOAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22075319BDF42900BC4819 /* IOAuth.swift */; };
+		4E22081219BDF42900BC4819 /* IOCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22075419BDF42900BC4819 /* IOCR.swift */; };
+		4E22081319BDF42900BC4819 /* IOpenId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22075519BDF42900BC4819 /* IOpenId.swift */; };
+		4E22081419BDF42900BC4819 /* IOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22075619BDF42900BC4819 /* IOS.swift */; };
+		4E22081519BDF42900BC4819 /* IPrinting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22075719BDF42900BC4819 /* IPrinting.swift */; };
+		4E22081619BDF42900BC4819 /* IProximity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22075819BDF42900BC4819 /* IProximity.swift */; };
+		4E22081719BDF42900BC4819 /* IQRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22075919BDF42900BC4819 /* IQRCode.swift */; };
+		4E22081819BDF42900BC4819 /* IRSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22075A19BDF42900BC4819 /* IRSS.swift */; };
+		4E22081919BDF42900BC4819 /* IRuntime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22075B19BDF42900BC4819 /* IRuntime.swift */; };
+		4E22081A19BDF42900BC4819 /* ISecureKVResultCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22075C19BDF42900BC4819 /* ISecureKVResultCallback.swift */; };
+		4E22081B19BDF42900BC4819 /* ISecureKVResultCallbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22075D19BDF42900BC4819 /* ISecureKVResultCallbackError.swift */; };
+		4E22081C19BDF42900BC4819 /* ISecureKVResultCallbackWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22075E19BDF42900BC4819 /* ISecureKVResultCallbackWarning.swift */; };
+		4E22081D19BDF42900BC4819 /* ISecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22075F19BDF42900BC4819 /* ISecurity.swift */; };
+		4E22081E19BDF42900BC4819 /* IService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22076019BDF42900BC4819 /* IService.swift */; };
+		4E22081F19BDF42900BC4819 /* IServiceResultCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22076119BDF42900BC4819 /* IServiceResultCallback.swift */; };
+		4E22082019BDF42900BC4819 /* IServiceResultCallbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22076219BDF42900BC4819 /* IServiceResultCallbackError.swift */; };
+		4E22082119BDF42900BC4819 /* IServiceResultCallbackWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22076319BDF42900BC4819 /* IServiceResultCallbackWarning.swift */; };
+		4E22082219BDF42900BC4819 /* ISession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22076419BDF42900BC4819 /* ISession.swift */; };
+		4E22082319BDF42900BC4819 /* ISettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22076519BDF42900BC4819 /* ISettings.swift */; };
+		4E22082419BDF42900BC4819 /* ISocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22076619BDF42900BC4819 /* ISocket.swift */; };
+		4E22082519BDF42900BC4819 /* IStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22076719BDF42900BC4819 /* IStore.swift */; };
+		4E22082619BDF42900BC4819 /* ITableResultCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22076819BDF42900BC4819 /* ITableResultCallback.swift */; };
+		4E22082719BDF42900BC4819 /* ITableResultCallbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22076919BDF42900BC4819 /* ITableResultCallbackError.swift */; };
+		4E22082819BDF42900BC4819 /* ITableResultCallbackWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22076A19BDF42900BC4819 /* ITableResultCallbackWarning.swift */; };
+		4E22082919BDF42900BC4819 /* ITelephony.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22076B19BDF42900BC4819 /* ITelephony.swift */; };
+		4E22082A19BDF42900BC4819 /* ITelephonyStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22076C19BDF42900BC4819 /* ITelephonyStatus.swift */; };
+		4E22082B19BDF42900BC4819 /* ITimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22076D19BDF42900BC4819 /* ITimer.swift */; };
+		4E22082C19BDF42900BC4819 /* ITwitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22076E19BDF42900BC4819 /* ITwitter.swift */; };
+		4E22082D19BDF42900BC4819 /* IUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22076F19BDF42900BC4819 /* IUI.swift */; };
+		4E22082E19BDF42900BC4819 /* IUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22077019BDF42900BC4819 /* IUpdate.swift */; };
+		4E22082F19BDF42900BC4819 /* IVibration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22077119BDF42900BC4819 /* IVibration.swift */; };
+		4E22083019BDF42900BC4819 /* IVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22077219BDF42900BC4819 /* IVideo.swift */; };
+		4E22083119BDF42900BC4819 /* IWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22077319BDF42900BC4819 /* IWallet.swift */; };
+		4E22083219BDF42900BC4819 /* IXML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22077419BDF42900BC4819 /* IXML.swift */; };
+		4E22083319BDF42900BC4819 /* Lifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22077519BDF42900BC4819 /* Lifecycle.swift */; };
+		4E22083419BDF42A00BC4819 /* Locale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22077619BDF42900BC4819 /* Locale.swift */; };
+		4E22083519BDF42A00BC4819 /* OSInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22077719BDF42900BC4819 /* OSInfo.swift */; };
+		4E22083619BDF42A00BC4819 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22077819BDF42900BC4819 /* Row.swift */; };
+		4E22083719BDF42A00BC4819 /* SecureKeyPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22077919BDF42900BC4819 /* SecureKeyPair.swift */; };
+		4E22083819BDF42A00BC4819 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22077A19BDF42900BC4819 /* Service.swift */; };
+		4E22083919BDF42A00BC4819 /* ServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22077B19BDF42900BC4819 /* ServiceRequest.swift */; };
+		4E22083A19BDF42A00BC4819 /* ServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22077C19BDF42900BC4819 /* ServiceResponse.swift */; };
+		4E22083B19BDF42A00BC4819 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22077D19BDF42900BC4819 /* Table.swift */; };
 		4E83DCA519B635AA002B9764 /* AdaptiveArpImplIosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83DCA419B635AA002B9764 /* AdaptiveArpImplIosTests.swift */; };
-		4E83DCCB19B63E7D002B9764 /* libPods-AdaptiveArpImplIos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6FDC20795F2401E96A8DC88 /* libPods-AdaptiveArpImplIos.a */; };
 		F6D488C71E8445ED98E04A8D /* libPods-AdaptiveArpImplIosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A9B6D9B33B4A36BFF941D3 /* libPods-AdaptiveArpImplIosTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		27A9B6D9B33B4A36BFF941D3 /* libPods-AdaptiveArpImplIosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AdaptiveArpImplIosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E2206C019BDF42900BC4819 /* Acceleration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Acceleration.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/Acceleration.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206C119BDF42900BC4819 /* AttachmentData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttachmentData.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/AttachmentData.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206C219BDF42900BC4819 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Button.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/Button.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206C319BDF42900BC4819 /* Column.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Column.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/Column.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206C419BDF42900BC4819 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Contact.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/Contact.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206C519BDF42900BC4819 /* ContactAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactAddress.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ContactAddress.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206C619BDF42900BC4819 /* ContactEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactEmail.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ContactEmail.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206C719BDF42900BC4819 /* ContactPersonalInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactPersonalInfo.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ContactPersonalInfo.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206C819BDF42900BC4819 /* ContactPhone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactPhone.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ContactPhone.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206C919BDF42900BC4819 /* ContactProfessionalInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactProfessionalInfo.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ContactProfessionalInfo.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206CA19BDF42900BC4819 /* ContactSocial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactSocial.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ContactSocial.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206CB19BDF42900BC4819 /* ContactTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactTag.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ContactTag.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206CC19BDF42900BC4819 /* ContactUid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactUid.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ContactUid.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206CD19BDF42900BC4819 /* ContactWebsite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactWebsite.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ContactWebsite.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206CE19BDF42900BC4819 /* Cookie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cookie.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/Cookie.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206CF19BDF42900BC4819 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Database.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/Database.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206D019BDF42900BC4819 /* DeviceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeviceInfo.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/DeviceInfo.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206D119BDF42900BC4819 /* Email.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Email.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/Email.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206D219BDF42900BC4819 /* EmailAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmailAddress.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/EmailAddress.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206D319BDF42900BC4819 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Endpoint.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/Endpoint.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206D419BDF42900BC4819 /* Geolocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geolocation.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/Geolocation.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206D519BDF42900BC4819 /* Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Header.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/Header.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206D619BDF42900BC4819 /* IAccelerationListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAccelerationListener.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IAccelerationListener.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206D719BDF42900BC4819 /* IAccelerationListenerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAccelerationListenerError.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IAccelerationListenerError.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206D819BDF42900BC4819 /* IAccelerationListenerWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAccelerationListenerWarning.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IAccelerationListenerWarning.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206D919BDF42900BC4819 /* IAccelerometer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAccelerometer.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IAccelerometer.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206DA19BDF42900BC4819 /* IAdaptiveRP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAdaptiveRP.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IAdaptiveRP.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206DB19BDF42900BC4819 /* IAds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAds.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IAds.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206DC19BDF42900BC4819 /* IAlarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAlarm.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IAlarm.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206DD19BDF42900BC4819 /* IAmbientLight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAmbientLight.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IAmbientLight.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206DE19BDF42900BC4819 /* IAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAnalytics.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IAnalytics.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206DF19BDF42900BC4819 /* IAppContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAppContext.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IAppContext.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206E019BDF42900BC4819 /* IAppContextType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAppContextType.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IAppContextType.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206E119BDF42900BC4819 /* IAppRegistry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAppRegistry.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IAppRegistry.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206E219BDF42900BC4819 /* IAppResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAppResource.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IAppResource.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206E319BDF42900BC4819 /* IAppResourceCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAppResourceCallback.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IAppResourceCallback.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206E419BDF42900BC4819 /* IAppResourceCallbackError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAppResourceCallbackError.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IAppResourceCallbackError.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206E519BDF42900BC4819 /* IAppResourceCallbackWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAppResourceCallbackWarning.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IAppResourceCallbackWarning.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206E619BDF42900BC4819 /* IAppResourceFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAppResourceFormat.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IAppResourceFormat.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206E719BDF42900BC4819 /* IAppResourceHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAppResourceHandler.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IAppResourceHandler.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206E819BDF42900BC4819 /* IAppResourcePayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAppResourcePayload.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IAppResourcePayload.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206E919BDF42900BC4819 /* IAppResourceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAppResourceType.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IAppResourceType.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206EA19BDF42900BC4819 /* IAppServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAppServer.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IAppServer.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206EB19BDF42900BC4819 /* IAppServerListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAppServerListener.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IAppServerListener.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206EC19BDF42900BC4819 /* IAppServerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAppServerManager.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IAppServerManager.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206ED19BDF42900BC4819 /* IAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAudio.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IAudio.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206EE19BDF42900BC4819 /* IBarcode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IBarcode.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IBarcode.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206EF19BDF42900BC4819 /* IBarometer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IBarometer.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IBarometer.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206F019BDF42900BC4819 /* IBaseApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IBaseApplication.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IBaseApplication.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206F119BDF42900BC4819 /* IBaseCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IBaseCallback.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IBaseCallback.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206F219BDF42900BC4819 /* IBaseCommerce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IBaseCommerce.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IBaseCommerce.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206F319BDF42900BC4819 /* IBaseCommunication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IBaseCommunication.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IBaseCommunication.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206F419BDF42900BC4819 /* IBaseData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IBaseData.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IBaseData.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206F519BDF42900BC4819 /* IBaseListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IBaseListener.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IBaseListener.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206F619BDF42900BC4819 /* IBaseMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IBaseMedia.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IBaseMedia.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206F719BDF42900BC4819 /* IBaseNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IBaseNotification.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IBaseNotification.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206F819BDF42900BC4819 /* IBasePIM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IBasePIM.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IBasePIM.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206F919BDF42900BC4819 /* IBaseReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IBaseReader.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IBaseReader.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206FA19BDF42900BC4819 /* IBaseSecurity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IBaseSecurity.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IBaseSecurity.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206FB19BDF42900BC4819 /* IBaseSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IBaseSensor.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IBaseSensor.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206FC19BDF42900BC4819 /* IBaseSocial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IBaseSocial.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IBaseSocial.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206FD19BDF42900BC4819 /* IBaseSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IBaseSystem.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IBaseSystem.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206FE19BDF42900BC4819 /* IBaseUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IBaseUI.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IBaseUI.swift"; sourceTree = SOURCE_ROOT; };
+		4E2206FF19BDF42900BC4819 /* IBaseUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IBaseUtil.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IBaseUtil.swift"; sourceTree = SOURCE_ROOT; };
+		4E22070019BDF42900BC4819 /* IBluetooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IBluetooth.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IBluetooth.swift"; sourceTree = SOURCE_ROOT; };
+		4E22070119BDF42900BC4819 /* IBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IBrowser.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IBrowser.swift"; sourceTree = SOURCE_ROOT; };
+		4E22070219BDF42900BC4819 /* IButtonListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IButtonListener.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IButtonListener.swift"; sourceTree = SOURCE_ROOT; };
+		4E22070319BDF42900BC4819 /* IButtonListenerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IButtonListenerError.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IButtonListenerError.swift"; sourceTree = SOURCE_ROOT; };
+		4E22070419BDF42900BC4819 /* IButtonListenerWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IButtonListenerWarning.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IButtonListenerWarning.swift"; sourceTree = SOURCE_ROOT; };
+		4E22070519BDF42900BC4819 /* ICalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ICalendar.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ICalendar.swift"; sourceTree = SOURCE_ROOT; };
+		4E22070619BDF42900BC4819 /* ICamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ICamera.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ICamera.swift"; sourceTree = SOURCE_ROOT; };
+		4E22070719BDF42900BC4819 /* ICapabilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ICapabilities.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ICapabilities.swift"; sourceTree = SOURCE_ROOT; };
+		4E22070819BDF42900BC4819 /* ICapabilitiesButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ICapabilitiesButton.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ICapabilitiesButton.swift"; sourceTree = SOURCE_ROOT; };
+		4E22070919BDF42900BC4819 /* ICapabilitiesCommunication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ICapabilitiesCommunication.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ICapabilitiesCommunication.swift"; sourceTree = SOURCE_ROOT; };
+		4E22070A19BDF42900BC4819 /* ICapabilitiesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ICapabilitiesData.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ICapabilitiesData.swift"; sourceTree = SOURCE_ROOT; };
+		4E22070B19BDF42900BC4819 /* ICapabilitiesMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ICapabilitiesMedia.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ICapabilitiesMedia.swift"; sourceTree = SOURCE_ROOT; };
+		4E22070C19BDF42900BC4819 /* ICapabilitiesNet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ICapabilitiesNet.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ICapabilitiesNet.swift"; sourceTree = SOURCE_ROOT; };
+		4E22070D19BDF42900BC4819 /* ICapabilitiesNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ICapabilitiesNotification.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ICapabilitiesNotification.swift"; sourceTree = SOURCE_ROOT; };
+		4E22070E19BDF42900BC4819 /* ICapabilitiesSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ICapabilitiesSensor.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ICapabilitiesSensor.swift"; sourceTree = SOURCE_ROOT; };
+		4E22070F19BDF42900BC4819 /* ICloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ICloud.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ICloud.swift"; sourceTree = SOURCE_ROOT; };
+		4E22071019BDF42900BC4819 /* ICompression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ICompression.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ICompression.swift"; sourceTree = SOURCE_ROOT; };
+		4E22071119BDF42900BC4819 /* IConcurrent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IConcurrent.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IConcurrent.swift"; sourceTree = SOURCE_ROOT; };
+		4E22071219BDF42900BC4819 /* IContact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IContact.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IContact.swift"; sourceTree = SOURCE_ROOT; };
+		4E22071319BDF42900BC4819 /* IContactFieldGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IContactFieldGroup.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IContactFieldGroup.swift"; sourceTree = SOURCE_ROOT; };
+		4E22071419BDF42900BC4819 /* IContactFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IContactFilter.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IContactFilter.swift"; sourceTree = SOURCE_ROOT; };
+		4E22071519BDF42900BC4819 /* IContactPhotoResultCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IContactPhotoResultCallback.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IContactPhotoResultCallback.swift"; sourceTree = SOURCE_ROOT; };
+		4E22071619BDF42900BC4819 /* IContactPhotoResultCallbackError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IContactPhotoResultCallbackError.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IContactPhotoResultCallbackError.swift"; sourceTree = SOURCE_ROOT; };
+		4E22071719BDF42900BC4819 /* IContactPhotoResultCallbackWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IContactPhotoResultCallbackWarning.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IContactPhotoResultCallbackWarning.swift"; sourceTree = SOURCE_ROOT; };
+		4E22071819BDF42900BC4819 /* IContactResultCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IContactResultCallback.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IContactResultCallback.swift"; sourceTree = SOURCE_ROOT; };
+		4E22071919BDF42900BC4819 /* IContactResultCallbackError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IContactResultCallbackError.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IContactResultCallbackError.swift"; sourceTree = SOURCE_ROOT; };
+		4E22071A19BDF42900BC4819 /* IContactResultCallbackWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IContactResultCallbackWarning.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IContactResultCallbackWarning.swift"; sourceTree = SOURCE_ROOT; };
+		4E22071B19BDF42900BC4819 /* ICrypto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ICrypto.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ICrypto.swift"; sourceTree = SOURCE_ROOT; };
+		4E22071C19BDF42900BC4819 /* IDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IDatabase.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IDatabase.swift"; sourceTree = SOURCE_ROOT; };
+		4E22071D19BDF42900BC4819 /* IDatabaseResultCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IDatabaseResultCallback.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IDatabaseResultCallback.swift"; sourceTree = SOURCE_ROOT; };
+		4E22071E19BDF42900BC4819 /* IDatabaseResultCallbackError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IDatabaseResultCallbackError.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IDatabaseResultCallbackError.swift"; sourceTree = SOURCE_ROOT; };
+		4E22071F19BDF42900BC4819 /* IDatabaseResultCallbackWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IDatabaseResultCallbackWarning.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IDatabaseResultCallbackWarning.swift"; sourceTree = SOURCE_ROOT; };
+		4E22072019BDF42900BC4819 /* IDataStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IDataStream.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IDataStream.swift"; sourceTree = SOURCE_ROOT; };
+		4E22072119BDF42900BC4819 /* IDesktop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IDesktop.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IDesktop.swift"; sourceTree = SOURCE_ROOT; };
+		4E22072219BDF42900BC4819 /* IDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IDevice.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IDevice.swift"; sourceTree = SOURCE_ROOT; };
+		4E22072319BDF42900BC4819 /* IDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IDisplay.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IDisplay.swift"; sourceTree = SOURCE_ROOT; };
+		4E22072419BDF42900BC4819 /* IFacebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IFacebook.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IFacebook.swift"; sourceTree = SOURCE_ROOT; };
+		4E22072519BDF42900BC4819 /* IFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IFile.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IFile.swift"; sourceTree = SOURCE_ROOT; };
+		4E22072619BDF42900BC4819 /* IFileDataResultCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IFileDataResultCallback.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IFileDataResultCallback.swift"; sourceTree = SOURCE_ROOT; };
+		4E22072719BDF42900BC4819 /* IFileDataResultCallbackError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IFileDataResultCallbackError.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IFileDataResultCallbackError.swift"; sourceTree = SOURCE_ROOT; };
+		4E22072819BDF42900BC4819 /* IFileDataResultCallbackWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IFileDataResultCallbackWarning.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IFileDataResultCallbackWarning.swift"; sourceTree = SOURCE_ROOT; };
+		4E22072919BDF42900BC4819 /* IFileListResultCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IFileListResultCallback.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IFileListResultCallback.swift"; sourceTree = SOURCE_ROOT; };
+		4E22072A19BDF42900BC4819 /* IFileListResultCallbackError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IFileListResultCallbackError.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IFileListResultCallbackError.swift"; sourceTree = SOURCE_ROOT; };
+		4E22072B19BDF42900BC4819 /* IFileListResultCallbackWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IFileListResultCallbackWarning.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IFileListResultCallbackWarning.swift"; sourceTree = SOURCE_ROOT; };
+		4E22072C19BDF42900BC4819 /* IFilePath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IFilePath.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IFilePath.swift"; sourceTree = SOURCE_ROOT; };
+		4E22072D19BDF42900BC4819 /* IFileResultCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IFileResultCallback.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IFileResultCallback.swift"; sourceTree = SOURCE_ROOT; };
+		4E22072E19BDF42900BC4819 /* IFileResultCallbackError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IFileResultCallbackError.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IFileResultCallbackError.swift"; sourceTree = SOURCE_ROOT; };
+		4E22072F19BDF42900BC4819 /* IFileResultCallbackWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IFileResultCallbackWarning.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IFileResultCallbackWarning.swift"; sourceTree = SOURCE_ROOT; };
+		4E22073019BDF42900BC4819 /* IFileSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IFileSystem.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IFileSystem.swift"; sourceTree = SOURCE_ROOT; };
+		4E22073119BDF42900BC4819 /* IGeolocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IGeolocation.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IGeolocation.swift"; sourceTree = SOURCE_ROOT; };
+		4E22073219BDF42900BC4819 /* IGeolocationListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IGeolocationListener.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IGeolocationListener.swift"; sourceTree = SOURCE_ROOT; };
+		4E22073319BDF42900BC4819 /* IGeolocationListenerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IGeolocationListenerError.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IGeolocationListenerError.swift"; sourceTree = SOURCE_ROOT; };
+		4E22073419BDF42900BC4819 /* IGeolocationListenerWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IGeolocationListenerWarning.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IGeolocationListenerWarning.swift"; sourceTree = SOURCE_ROOT; };
+		4E22073519BDF42900BC4819 /* IGlobalization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IGlobalization.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IGlobalization.swift"; sourceTree = SOURCE_ROOT; };
+		4E22073619BDF42900BC4819 /* IGooglePlus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IGooglePlus.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IGooglePlus.swift"; sourceTree = SOURCE_ROOT; };
+		4E22073719BDF42900BC4819 /* IGyroscope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IGyroscope.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IGyroscope.swift"; sourceTree = SOURCE_ROOT; };
+		4E22073819BDF42900BC4819 /* IImaging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IImaging.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IImaging.swift"; sourceTree = SOURCE_ROOT; };
+		4E22073919BDF42900BC4819 /* IInternalStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IInternalStorage.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IInternalStorage.swift"; sourceTree = SOURCE_ROOT; };
+		4E22073A19BDF42900BC4819 /* ILifecycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ILifecycle.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ILifecycle.swift"; sourceTree = SOURCE_ROOT; };
+		4E22073B19BDF42900BC4819 /* ILifecycleListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ILifecycleListener.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ILifecycleListener.swift"; sourceTree = SOURCE_ROOT; };
+		4E22073C19BDF42900BC4819 /* ILifecycleListenerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ILifecycleListenerError.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ILifecycleListenerError.swift"; sourceTree = SOURCE_ROOT; };
+		4E22073D19BDF42900BC4819 /* ILifecycleListenerWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ILifecycleListenerWarning.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ILifecycleListenerWarning.swift"; sourceTree = SOURCE_ROOT; };
+		4E22073E19BDF42900BC4819 /* ILinkedIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ILinkedIn.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ILinkedIn.swift"; sourceTree = SOURCE_ROOT; };
+		4E22073F19BDF42900BC4819 /* ILogging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ILogging.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ILogging.swift"; sourceTree = SOURCE_ROOT; };
+		4E22074019BDF42900BC4819 /* ILoggingLogLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ILoggingLogLevel.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ILoggingLogLevel.swift"; sourceTree = SOURCE_ROOT; };
+		4E22074119BDF42900BC4819 /* IMagnetometer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IMagnetometer.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IMagnetometer.swift"; sourceTree = SOURCE_ROOT; };
+		4E22074219BDF42900BC4819 /* IMail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IMail.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IMail.swift"; sourceTree = SOURCE_ROOT; };
+		4E22074319BDF42900BC4819 /* IManagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IManagement.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IManagement.swift"; sourceTree = SOURCE_ROOT; };
+		4E22074419BDF42900BC4819 /* IMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IMap.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IMap.swift"; sourceTree = SOURCE_ROOT; };
+		4E22074519BDF42900BC4819 /* IMessaging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IMessaging.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IMessaging.swift"; sourceTree = SOURCE_ROOT; };
+		4E22074619BDF42900BC4819 /* IMessagingCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IMessagingCallback.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IMessagingCallback.swift"; sourceTree = SOURCE_ROOT; };
+		4E22074719BDF42900BC4819 /* IMessagingCallbackError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IMessagingCallbackError.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IMessagingCallbackError.swift"; sourceTree = SOURCE_ROOT; };
+		4E22074819BDF42900BC4819 /* IMessagingCallbackWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IMessagingCallbackWarning.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IMessagingCallbackWarning.swift"; sourceTree = SOURCE_ROOT; };
+		4E22074919BDF42900BC4819 /* INetworkInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = INetworkInfo.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/INetworkInfo.swift"; sourceTree = SOURCE_ROOT; };
+		4E22074A19BDF42900BC4819 /* INetworkNaming.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = INetworkNaming.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/INetworkNaming.swift"; sourceTree = SOURCE_ROOT; };
+		4E22074B19BDF42900BC4819 /* INetworkReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = INetworkReachability.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/INetworkReachability.swift"; sourceTree = SOURCE_ROOT; };
+		4E22074C19BDF42900BC4819 /* INetworkReachabilityCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = INetworkReachabilityCallback.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/INetworkReachabilityCallback.swift"; sourceTree = SOURCE_ROOT; };
+		4E22074D19BDF42900BC4819 /* INetworkReachabilityCallbackError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = INetworkReachabilityCallbackError.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/INetworkReachabilityCallbackError.swift"; sourceTree = SOURCE_ROOT; };
+		4E22074E19BDF42900BC4819 /* INetworkReachabilityCallbackWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = INetworkReachabilityCallbackWarning.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/INetworkReachabilityCallbackWarning.swift"; sourceTree = SOURCE_ROOT; };
+		4E22074F19BDF42900BC4819 /* INetworkStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = INetworkStatus.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/INetworkStatus.swift"; sourceTree = SOURCE_ROOT; };
+		4E22075019BDF42900BC4819 /* INFC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = INFC.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/INFC.swift"; sourceTree = SOURCE_ROOT; };
+		4E22075119BDF42900BC4819 /* INotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = INotification.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/INotification.swift"; sourceTree = SOURCE_ROOT; };
+		4E22075219BDF42900BC4819 /* INotificationLocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = INotificationLocal.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/INotificationLocal.swift"; sourceTree = SOURCE_ROOT; };
+		4E22075319BDF42900BC4819 /* IOAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IOAuth.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IOAuth.swift"; sourceTree = SOURCE_ROOT; };
+		4E22075419BDF42900BC4819 /* IOCR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IOCR.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IOCR.swift"; sourceTree = SOURCE_ROOT; };
+		4E22075519BDF42900BC4819 /* IOpenId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IOpenId.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IOpenId.swift"; sourceTree = SOURCE_ROOT; };
+		4E22075619BDF42900BC4819 /* IOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IOS.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IOS.swift"; sourceTree = SOURCE_ROOT; };
+		4E22075719BDF42900BC4819 /* IPrinting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IPrinting.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IPrinting.swift"; sourceTree = SOURCE_ROOT; };
+		4E22075819BDF42900BC4819 /* IProximity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IProximity.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IProximity.swift"; sourceTree = SOURCE_ROOT; };
+		4E22075919BDF42900BC4819 /* IQRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IQRCode.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IQRCode.swift"; sourceTree = SOURCE_ROOT; };
+		4E22075A19BDF42900BC4819 /* IRSS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IRSS.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IRSS.swift"; sourceTree = SOURCE_ROOT; };
+		4E22075B19BDF42900BC4819 /* IRuntime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IRuntime.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IRuntime.swift"; sourceTree = SOURCE_ROOT; };
+		4E22075C19BDF42900BC4819 /* ISecureKVResultCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ISecureKVResultCallback.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ISecureKVResultCallback.swift"; sourceTree = SOURCE_ROOT; };
+		4E22075D19BDF42900BC4819 /* ISecureKVResultCallbackError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ISecureKVResultCallbackError.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ISecureKVResultCallbackError.swift"; sourceTree = SOURCE_ROOT; };
+		4E22075E19BDF42900BC4819 /* ISecureKVResultCallbackWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ISecureKVResultCallbackWarning.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ISecureKVResultCallbackWarning.swift"; sourceTree = SOURCE_ROOT; };
+		4E22075F19BDF42900BC4819 /* ISecurity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ISecurity.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ISecurity.swift"; sourceTree = SOURCE_ROOT; };
+		4E22076019BDF42900BC4819 /* IService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IService.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IService.swift"; sourceTree = SOURCE_ROOT; };
+		4E22076119BDF42900BC4819 /* IServiceResultCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IServiceResultCallback.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IServiceResultCallback.swift"; sourceTree = SOURCE_ROOT; };
+		4E22076219BDF42900BC4819 /* IServiceResultCallbackError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IServiceResultCallbackError.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IServiceResultCallbackError.swift"; sourceTree = SOURCE_ROOT; };
+		4E22076319BDF42900BC4819 /* IServiceResultCallbackWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IServiceResultCallbackWarning.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IServiceResultCallbackWarning.swift"; sourceTree = SOURCE_ROOT; };
+		4E22076419BDF42900BC4819 /* ISession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ISession.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ISession.swift"; sourceTree = SOURCE_ROOT; };
+		4E22076519BDF42900BC4819 /* ISettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ISettings.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ISettings.swift"; sourceTree = SOURCE_ROOT; };
+		4E22076619BDF42900BC4819 /* ISocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ISocket.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ISocket.swift"; sourceTree = SOURCE_ROOT; };
+		4E22076719BDF42900BC4819 /* IStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IStore.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IStore.swift"; sourceTree = SOURCE_ROOT; };
+		4E22076819BDF42900BC4819 /* ITableResultCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ITableResultCallback.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ITableResultCallback.swift"; sourceTree = SOURCE_ROOT; };
+		4E22076919BDF42900BC4819 /* ITableResultCallbackError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ITableResultCallbackError.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ITableResultCallbackError.swift"; sourceTree = SOURCE_ROOT; };
+		4E22076A19BDF42900BC4819 /* ITableResultCallbackWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ITableResultCallbackWarning.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ITableResultCallbackWarning.swift"; sourceTree = SOURCE_ROOT; };
+		4E22076B19BDF42900BC4819 /* ITelephony.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ITelephony.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ITelephony.swift"; sourceTree = SOURCE_ROOT; };
+		4E22076C19BDF42900BC4819 /* ITelephonyStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ITelephonyStatus.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ITelephonyStatus.swift"; sourceTree = SOURCE_ROOT; };
+		4E22076D19BDF42900BC4819 /* ITimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ITimer.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ITimer.swift"; sourceTree = SOURCE_ROOT; };
+		4E22076E19BDF42900BC4819 /* ITwitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ITwitter.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ITwitter.swift"; sourceTree = SOURCE_ROOT; };
+		4E22076F19BDF42900BC4819 /* IUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IUI.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IUI.swift"; sourceTree = SOURCE_ROOT; };
+		4E22077019BDF42900BC4819 /* IUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IUpdate.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IUpdate.swift"; sourceTree = SOURCE_ROOT; };
+		4E22077119BDF42900BC4819 /* IVibration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IVibration.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IVibration.swift"; sourceTree = SOURCE_ROOT; };
+		4E22077219BDF42900BC4819 /* IVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IVideo.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IVideo.swift"; sourceTree = SOURCE_ROOT; };
+		4E22077319BDF42900BC4819 /* IWallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IWallet.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IWallet.swift"; sourceTree = SOURCE_ROOT; };
+		4E22077419BDF42900BC4819 /* IXML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IXML.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IXML.swift"; sourceTree = SOURCE_ROOT; };
+		4E22077519BDF42900BC4819 /* Lifecycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Lifecycle.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/Lifecycle.swift"; sourceTree = SOURCE_ROOT; };
+		4E22077619BDF42900BC4819 /* Locale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Locale.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/Locale.swift"; sourceTree = SOURCE_ROOT; };
+		4E22077719BDF42900BC4819 /* OSInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OSInfo.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/OSInfo.swift"; sourceTree = SOURCE_ROOT; };
+		4E22077819BDF42900BC4819 /* Row.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Row.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/Row.swift"; sourceTree = SOURCE_ROOT; };
+		4E22077919BDF42900BC4819 /* SecureKeyPair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecureKeyPair.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/SecureKeyPair.swift"; sourceTree = SOURCE_ROOT; };
+		4E22077A19BDF42900BC4819 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Service.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/Service.swift"; sourceTree = SOURCE_ROOT; };
+		4E22077B19BDF42900BC4819 /* ServiceRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServiceRequest.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ServiceRequest.swift"; sourceTree = SOURCE_ROOT; };
+		4E22077C19BDF42900BC4819 /* ServiceResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServiceResponse.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/ServiceResponse.swift"; sourceTree = SOURCE_ROOT; };
+		4E22077D19BDF42900BC4819 /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Table.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/Table.swift"; sourceTree = SOURCE_ROOT; };
 		4E83DC9519B635AA002B9764 /* AdaptiveArpImplIos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdaptiveArpImplIos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E83DC9919B635AA002B9764 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E83DCA019B635AA002B9764 /* AdaptiveArpImplIosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdaptiveArpImplIosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -27,7 +406,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E83DCCB19B63E7D002B9764 /* libPods-AdaptiveArpImplIos.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,6 +427,210 @@
 				27A9B6D9B33B4A36BFF941D3 /* libPods-AdaptiveArpImplIosTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4E2206BE19BDF40E00BC4819 /* IMPL */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = IMPL;
+			sourceTree = "<group>";
+		};
+		4E2206BF19BDF41700BC4819 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				4E2206C019BDF42900BC4819 /* Acceleration.swift */,
+				4E2206C119BDF42900BC4819 /* AttachmentData.swift */,
+				4E2206C219BDF42900BC4819 /* Button.swift */,
+				4E2206C319BDF42900BC4819 /* Column.swift */,
+				4E2206C419BDF42900BC4819 /* Contact.swift */,
+				4E2206C519BDF42900BC4819 /* ContactAddress.swift */,
+				4E2206C619BDF42900BC4819 /* ContactEmail.swift */,
+				4E2206C719BDF42900BC4819 /* ContactPersonalInfo.swift */,
+				4E2206C819BDF42900BC4819 /* ContactPhone.swift */,
+				4E2206C919BDF42900BC4819 /* ContactProfessionalInfo.swift */,
+				4E2206CA19BDF42900BC4819 /* ContactSocial.swift */,
+				4E2206CB19BDF42900BC4819 /* ContactTag.swift */,
+				4E2206CC19BDF42900BC4819 /* ContactUid.swift */,
+				4E2206CD19BDF42900BC4819 /* ContactWebsite.swift */,
+				4E2206CE19BDF42900BC4819 /* Cookie.swift */,
+				4E2206CF19BDF42900BC4819 /* Database.swift */,
+				4E2206D019BDF42900BC4819 /* DeviceInfo.swift */,
+				4E2206D119BDF42900BC4819 /* Email.swift */,
+				4E2206D219BDF42900BC4819 /* EmailAddress.swift */,
+				4E2206D319BDF42900BC4819 /* Endpoint.swift */,
+				4E2206D419BDF42900BC4819 /* Geolocation.swift */,
+				4E2206D519BDF42900BC4819 /* Header.swift */,
+				4E2206D619BDF42900BC4819 /* IAccelerationListener.swift */,
+				4E2206D719BDF42900BC4819 /* IAccelerationListenerError.swift */,
+				4E2206D819BDF42900BC4819 /* IAccelerationListenerWarning.swift */,
+				4E2206D919BDF42900BC4819 /* IAccelerometer.swift */,
+				4E2206DA19BDF42900BC4819 /* IAdaptiveRP.swift */,
+				4E2206DB19BDF42900BC4819 /* IAds.swift */,
+				4E2206DC19BDF42900BC4819 /* IAlarm.swift */,
+				4E2206DD19BDF42900BC4819 /* IAmbientLight.swift */,
+				4E2206DE19BDF42900BC4819 /* IAnalytics.swift */,
+				4E2206DF19BDF42900BC4819 /* IAppContext.swift */,
+				4E2206E019BDF42900BC4819 /* IAppContextType.swift */,
+				4E2206E119BDF42900BC4819 /* IAppRegistry.swift */,
+				4E2206E219BDF42900BC4819 /* IAppResource.swift */,
+				4E2206E319BDF42900BC4819 /* IAppResourceCallback.swift */,
+				4E2206E419BDF42900BC4819 /* IAppResourceCallbackError.swift */,
+				4E2206E519BDF42900BC4819 /* IAppResourceCallbackWarning.swift */,
+				4E2206E619BDF42900BC4819 /* IAppResourceFormat.swift */,
+				4E2206E719BDF42900BC4819 /* IAppResourceHandler.swift */,
+				4E2206E819BDF42900BC4819 /* IAppResourcePayload.swift */,
+				4E2206E919BDF42900BC4819 /* IAppResourceType.swift */,
+				4E2206EA19BDF42900BC4819 /* IAppServer.swift */,
+				4E2206EB19BDF42900BC4819 /* IAppServerListener.swift */,
+				4E2206EC19BDF42900BC4819 /* IAppServerManager.swift */,
+				4E2206ED19BDF42900BC4819 /* IAudio.swift */,
+				4E2206EE19BDF42900BC4819 /* IBarcode.swift */,
+				4E2206EF19BDF42900BC4819 /* IBarometer.swift */,
+				4E2206F019BDF42900BC4819 /* IBaseApplication.swift */,
+				4E2206F119BDF42900BC4819 /* IBaseCallback.swift */,
+				4E2206F219BDF42900BC4819 /* IBaseCommerce.swift */,
+				4E2206F319BDF42900BC4819 /* IBaseCommunication.swift */,
+				4E2206F419BDF42900BC4819 /* IBaseData.swift */,
+				4E2206F519BDF42900BC4819 /* IBaseListener.swift */,
+				4E2206F619BDF42900BC4819 /* IBaseMedia.swift */,
+				4E2206F719BDF42900BC4819 /* IBaseNotification.swift */,
+				4E2206F819BDF42900BC4819 /* IBasePIM.swift */,
+				4E2206F919BDF42900BC4819 /* IBaseReader.swift */,
+				4E2206FA19BDF42900BC4819 /* IBaseSecurity.swift */,
+				4E2206FB19BDF42900BC4819 /* IBaseSensor.swift */,
+				4E2206FC19BDF42900BC4819 /* IBaseSocial.swift */,
+				4E2206FD19BDF42900BC4819 /* IBaseSystem.swift */,
+				4E2206FE19BDF42900BC4819 /* IBaseUI.swift */,
+				4E2206FF19BDF42900BC4819 /* IBaseUtil.swift */,
+				4E22070019BDF42900BC4819 /* IBluetooth.swift */,
+				4E22070119BDF42900BC4819 /* IBrowser.swift */,
+				4E22070219BDF42900BC4819 /* IButtonListener.swift */,
+				4E22070319BDF42900BC4819 /* IButtonListenerError.swift */,
+				4E22070419BDF42900BC4819 /* IButtonListenerWarning.swift */,
+				4E22070519BDF42900BC4819 /* ICalendar.swift */,
+				4E22070619BDF42900BC4819 /* ICamera.swift */,
+				4E22070719BDF42900BC4819 /* ICapabilities.swift */,
+				4E22070819BDF42900BC4819 /* ICapabilitiesButton.swift */,
+				4E22070919BDF42900BC4819 /* ICapabilitiesCommunication.swift */,
+				4E22070A19BDF42900BC4819 /* ICapabilitiesData.swift */,
+				4E22070B19BDF42900BC4819 /* ICapabilitiesMedia.swift */,
+				4E22070C19BDF42900BC4819 /* ICapabilitiesNet.swift */,
+				4E22070D19BDF42900BC4819 /* ICapabilitiesNotification.swift */,
+				4E22070E19BDF42900BC4819 /* ICapabilitiesSensor.swift */,
+				4E22070F19BDF42900BC4819 /* ICloud.swift */,
+				4E22071019BDF42900BC4819 /* ICompression.swift */,
+				4E22071119BDF42900BC4819 /* IConcurrent.swift */,
+				4E22071219BDF42900BC4819 /* IContact.swift */,
+				4E22071319BDF42900BC4819 /* IContactFieldGroup.swift */,
+				4E22071419BDF42900BC4819 /* IContactFilter.swift */,
+				4E22071519BDF42900BC4819 /* IContactPhotoResultCallback.swift */,
+				4E22071619BDF42900BC4819 /* IContactPhotoResultCallbackError.swift */,
+				4E22071719BDF42900BC4819 /* IContactPhotoResultCallbackWarning.swift */,
+				4E22071819BDF42900BC4819 /* IContactResultCallback.swift */,
+				4E22071919BDF42900BC4819 /* IContactResultCallbackError.swift */,
+				4E22071A19BDF42900BC4819 /* IContactResultCallbackWarning.swift */,
+				4E22071B19BDF42900BC4819 /* ICrypto.swift */,
+				4E22071C19BDF42900BC4819 /* IDatabase.swift */,
+				4E22071D19BDF42900BC4819 /* IDatabaseResultCallback.swift */,
+				4E22071E19BDF42900BC4819 /* IDatabaseResultCallbackError.swift */,
+				4E22071F19BDF42900BC4819 /* IDatabaseResultCallbackWarning.swift */,
+				4E22072019BDF42900BC4819 /* IDataStream.swift */,
+				4E22072119BDF42900BC4819 /* IDesktop.swift */,
+				4E22072219BDF42900BC4819 /* IDevice.swift */,
+				4E22072319BDF42900BC4819 /* IDisplay.swift */,
+				4E22072419BDF42900BC4819 /* IFacebook.swift */,
+				4E22072519BDF42900BC4819 /* IFile.swift */,
+				4E22072619BDF42900BC4819 /* IFileDataResultCallback.swift */,
+				4E22072719BDF42900BC4819 /* IFileDataResultCallbackError.swift */,
+				4E22072819BDF42900BC4819 /* IFileDataResultCallbackWarning.swift */,
+				4E22072919BDF42900BC4819 /* IFileListResultCallback.swift */,
+				4E22072A19BDF42900BC4819 /* IFileListResultCallbackError.swift */,
+				4E22072B19BDF42900BC4819 /* IFileListResultCallbackWarning.swift */,
+				4E22072C19BDF42900BC4819 /* IFilePath.swift */,
+				4E22072D19BDF42900BC4819 /* IFileResultCallback.swift */,
+				4E22072E19BDF42900BC4819 /* IFileResultCallbackError.swift */,
+				4E22072F19BDF42900BC4819 /* IFileResultCallbackWarning.swift */,
+				4E22073019BDF42900BC4819 /* IFileSystem.swift */,
+				4E22073119BDF42900BC4819 /* IGeolocation.swift */,
+				4E22073219BDF42900BC4819 /* IGeolocationListener.swift */,
+				4E22073319BDF42900BC4819 /* IGeolocationListenerError.swift */,
+				4E22073419BDF42900BC4819 /* IGeolocationListenerWarning.swift */,
+				4E22073519BDF42900BC4819 /* IGlobalization.swift */,
+				4E22073619BDF42900BC4819 /* IGooglePlus.swift */,
+				4E22073719BDF42900BC4819 /* IGyroscope.swift */,
+				4E22073819BDF42900BC4819 /* IImaging.swift */,
+				4E22073919BDF42900BC4819 /* IInternalStorage.swift */,
+				4E22073A19BDF42900BC4819 /* ILifecycle.swift */,
+				4E22073B19BDF42900BC4819 /* ILifecycleListener.swift */,
+				4E22073C19BDF42900BC4819 /* ILifecycleListenerError.swift */,
+				4E22073D19BDF42900BC4819 /* ILifecycleListenerWarning.swift */,
+				4E22073E19BDF42900BC4819 /* ILinkedIn.swift */,
+				4E22073F19BDF42900BC4819 /* ILogging.swift */,
+				4E22074019BDF42900BC4819 /* ILoggingLogLevel.swift */,
+				4E22074119BDF42900BC4819 /* IMagnetometer.swift */,
+				4E22074219BDF42900BC4819 /* IMail.swift */,
+				4E22074319BDF42900BC4819 /* IManagement.swift */,
+				4E22074419BDF42900BC4819 /* IMap.swift */,
+				4E22074519BDF42900BC4819 /* IMessaging.swift */,
+				4E22074619BDF42900BC4819 /* IMessagingCallback.swift */,
+				4E22074719BDF42900BC4819 /* IMessagingCallbackError.swift */,
+				4E22074819BDF42900BC4819 /* IMessagingCallbackWarning.swift */,
+				4E22074919BDF42900BC4819 /* INetworkInfo.swift */,
+				4E22074A19BDF42900BC4819 /* INetworkNaming.swift */,
+				4E22074B19BDF42900BC4819 /* INetworkReachability.swift */,
+				4E22074C19BDF42900BC4819 /* INetworkReachabilityCallback.swift */,
+				4E22074D19BDF42900BC4819 /* INetworkReachabilityCallbackError.swift */,
+				4E22074E19BDF42900BC4819 /* INetworkReachabilityCallbackWarning.swift */,
+				4E22074F19BDF42900BC4819 /* INetworkStatus.swift */,
+				4E22075019BDF42900BC4819 /* INFC.swift */,
+				4E22075119BDF42900BC4819 /* INotification.swift */,
+				4E22075219BDF42900BC4819 /* INotificationLocal.swift */,
+				4E22075319BDF42900BC4819 /* IOAuth.swift */,
+				4E22075419BDF42900BC4819 /* IOCR.swift */,
+				4E22075519BDF42900BC4819 /* IOpenId.swift */,
+				4E22075619BDF42900BC4819 /* IOS.swift */,
+				4E22075719BDF42900BC4819 /* IPrinting.swift */,
+				4E22075819BDF42900BC4819 /* IProximity.swift */,
+				4E22075919BDF42900BC4819 /* IQRCode.swift */,
+				4E22075A19BDF42900BC4819 /* IRSS.swift */,
+				4E22075B19BDF42900BC4819 /* IRuntime.swift */,
+				4E22075C19BDF42900BC4819 /* ISecureKVResultCallback.swift */,
+				4E22075D19BDF42900BC4819 /* ISecureKVResultCallbackError.swift */,
+				4E22075E19BDF42900BC4819 /* ISecureKVResultCallbackWarning.swift */,
+				4E22075F19BDF42900BC4819 /* ISecurity.swift */,
+				4E22076019BDF42900BC4819 /* IService.swift */,
+				4E22076119BDF42900BC4819 /* IServiceResultCallback.swift */,
+				4E22076219BDF42900BC4819 /* IServiceResultCallbackError.swift */,
+				4E22076319BDF42900BC4819 /* IServiceResultCallbackWarning.swift */,
+				4E22076419BDF42900BC4819 /* ISession.swift */,
+				4E22076519BDF42900BC4819 /* ISettings.swift */,
+				4E22076619BDF42900BC4819 /* ISocket.swift */,
+				4E22076719BDF42900BC4819 /* IStore.swift */,
+				4E22076819BDF42900BC4819 /* ITableResultCallback.swift */,
+				4E22076919BDF42900BC4819 /* ITableResultCallbackError.swift */,
+				4E22076A19BDF42900BC4819 /* ITableResultCallbackWarning.swift */,
+				4E22076B19BDF42900BC4819 /* ITelephony.swift */,
+				4E22076C19BDF42900BC4819 /* ITelephonyStatus.swift */,
+				4E22076D19BDF42900BC4819 /* ITimer.swift */,
+				4E22076E19BDF42900BC4819 /* ITwitter.swift */,
+				4E22076F19BDF42900BC4819 /* IUI.swift */,
+				4E22077019BDF42900BC4819 /* IUpdate.swift */,
+				4E22077119BDF42900BC4819 /* IVibration.swift */,
+				4E22077219BDF42900BC4819 /* IVideo.swift */,
+				4E22077319BDF42900BC4819 /* IWallet.swift */,
+				4E22077419BDF42900BC4819 /* IXML.swift */,
+				4E22077519BDF42900BC4819 /* Lifecycle.swift */,
+				4E22077619BDF42900BC4819 /* Locale.swift */,
+				4E22077719BDF42900BC4819 /* OSInfo.swift */,
+				4E22077819BDF42900BC4819 /* Row.swift */,
+				4E22077919BDF42900BC4819 /* SecureKeyPair.swift */,
+				4E22077A19BDF42900BC4819 /* Service.swift */,
+				4E22077B19BDF42900BC4819 /* ServiceRequest.swift */,
+				4E22077C19BDF42900BC4819 /* ServiceResponse.swift */,
+				4E22077D19BDF42900BC4819 /* Table.swift */,
+			);
+			name = API;
 			sourceTree = "<group>";
 		};
 		4E83DC8B19B635AA002B9764 = {
@@ -73,6 +655,8 @@
 		4E83DC9719B635AA002B9764 /* AdaptiveArpImplIos */ = {
 			isa = PBXGroup;
 			children = (
+				4E2206BF19BDF41700BC4819 /* API */,
+				4E2206BE19BDF40E00BC4819 /* IMPL */,
 				4E83DC9819B635AA002B9764 /* Supporting Files */,
 			);
 			path = AdaptiveArpImplIos;
@@ -208,6 +792,196 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E22082219BDF42900BC4819 /* ISession.swift in Sources */,
+				4E22081319BDF42900BC4819 /* IOpenId.swift in Sources */,
+				4E2207D019BDF42900BC4819 /* IContact.swift in Sources */,
+				4E2207F319BDF42900BC4819 /* IGlobalization.swift in Sources */,
+				4E22079F19BDF42900BC4819 /* IAppRegistry.swift in Sources */,
+				4E22082519BDF42900BC4819 /* IStore.swift in Sources */,
+				4E2207E919BDF42900BC4819 /* IFileListResultCallbackWarning.swift in Sources */,
+				4E22078519BDF42900BC4819 /* ContactPersonalInfo.swift in Sources */,
+				4E22082119BDF42900BC4819 /* IServiceResultCallbackWarning.swift in Sources */,
+				4E22080619BDF42900BC4819 /* IMessagingCallbackWarning.swift in Sources */,
+				4E2207C719BDF42900BC4819 /* ICapabilitiesCommunication.swift in Sources */,
+				4E2207B819BDF42900BC4819 /* IBaseSecurity.swift in Sources */,
+				4E22078A19BDF42900BC4819 /* ContactUid.swift in Sources */,
+				4E22079419BDF42900BC4819 /* IAccelerationListener.swift in Sources */,
+				4E2207C319BDF42900BC4819 /* ICalendar.swift in Sources */,
+				4E22078B19BDF42900BC4819 /* ContactWebsite.swift in Sources */,
+				4E2207BE19BDF42900BC4819 /* IBluetooth.swift in Sources */,
+				4E22081419BDF42900BC4819 /* IOS.swift in Sources */,
+				4E2207EB19BDF42900BC4819 /* IFileResultCallback.swift in Sources */,
+				4E2207B019BDF42900BC4819 /* IBaseCommerce.swift in Sources */,
+				4E2207F619BDF42900BC4819 /* IImaging.swift in Sources */,
+				4E2207B219BDF42900BC4819 /* IBaseData.swift in Sources */,
+				4E22079519BDF42900BC4819 /* IAccelerationListenerError.swift in Sources */,
+				4E22079B19BDF42900BC4819 /* IAmbientLight.swift in Sources */,
+				4E2207D619BDF42900BC4819 /* IContactResultCallback.swift in Sources */,
+				4E2207DD19BDF42900BC4819 /* IDatabaseResultCallbackWarning.swift in Sources */,
+				4E2207A019BDF42900BC4819 /* IAppResource.swift in Sources */,
+				4E2207B119BDF42900BC4819 /* IBaseCommunication.swift in Sources */,
+				4E2207BD19BDF42900BC4819 /* IBaseUtil.swift in Sources */,
+				4E22080E19BDF42900BC4819 /* INFC.swift in Sources */,
+				4E22078419BDF42900BC4819 /* ContactEmail.swift in Sources */,
+				4E2207AC19BDF42900BC4819 /* IBarcode.swift in Sources */,
+				4E2207A719BDF42900BC4819 /* IAppResourceType.swift in Sources */,
+				4E22081619BDF42900BC4819 /* IProximity.swift in Sources */,
+				4E2207D519BDF42900BC4819 /* IContactPhotoResultCallbackWarning.swift in Sources */,
+				4E22080A19BDF42900BC4819 /* INetworkReachabilityCallback.swift in Sources */,
+				4E22082919BDF42900BC4819 /* ITelephony.swift in Sources */,
+				4E22083519BDF42A00BC4819 /* OSInfo.swift in Sources */,
+				4E2207E619BDF42900BC4819 /* IFileDataResultCallbackWarning.swift in Sources */,
+				4E22083419BDF42A00BC4819 /* Locale.swift in Sources */,
+				4E22082719BDF42900BC4819 /* ITableResultCallbackError.swift in Sources */,
+				4E2207C219BDF42900BC4819 /* IButtonListenerWarning.swift in Sources */,
+				4E2207D319BDF42900BC4819 /* IContactPhotoResultCallback.swift in Sources */,
+				4E2207AF19BDF42900BC4819 /* IBaseCallback.swift in Sources */,
+				4E22082F19BDF42900BC4819 /* IVibration.swift in Sources */,
+				4E2207B719BDF42900BC4819 /* IBaseReader.swift in Sources */,
+				4E22077F19BDF42900BC4819 /* AttachmentData.swift in Sources */,
+				4E22081519BDF42900BC4819 /* IPrinting.swift in Sources */,
+				4E22081A19BDF42900BC4819 /* ISecureKVResultCallback.swift in Sources */,
+				4E22082E19BDF42900BC4819 /* IUpdate.swift in Sources */,
+				4E2207E119BDF42900BC4819 /* IDisplay.swift in Sources */,
+				4E22078E19BDF42900BC4819 /* DeviceInfo.swift in Sources */,
+				4E2207FC19BDF42900BC4819 /* ILinkedIn.swift in Sources */,
+				4E2207AE19BDF42900BC4819 /* IBaseApplication.swift in Sources */,
+				4E22079E19BDF42900BC4819 /* IAppContextType.swift in Sources */,
+				4E22081019BDF42900BC4819 /* INotificationLocal.swift in Sources */,
+				4E22081919BDF42900BC4819 /* IRuntime.swift in Sources */,
+				4E2207E219BDF42900BC4819 /* IFacebook.swift in Sources */,
+				4E22078919BDF42900BC4819 /* ContactTag.swift in Sources */,
+				4E2207E019BDF42900BC4819 /* IDevice.swift in Sources */,
+				4E22079819BDF42900BC4819 /* IAdaptiveRP.swift in Sources */,
+				4E2207B519BDF42900BC4819 /* IBaseNotification.swift in Sources */,
+				4E22078719BDF42900BC4819 /* ContactProfessionalInfo.swift in Sources */,
+				4E22081B19BDF42900BC4819 /* ISecureKVResultCallbackError.swift in Sources */,
+				4E2207CE19BDF42900BC4819 /* ICompression.swift in Sources */,
+				4E2207A319BDF42900BC4819 /* IAppResourceCallbackWarning.swift in Sources */,
+				4E2207E719BDF42900BC4819 /* IFileListResultCallback.swift in Sources */,
+				4E2207EA19BDF42900BC4819 /* IFilePath.swift in Sources */,
+				4E22083319BDF42900BC4819 /* Lifecycle.swift in Sources */,
+				4E2207FA19BDF42900BC4819 /* ILifecycleListenerError.swift in Sources */,
+				4E22080719BDF42900BC4819 /* INetworkInfo.swift in Sources */,
+				4E22082419BDF42900BC4819 /* ISocket.swift in Sources */,
+				4E22080219BDF42900BC4819 /* IMap.swift in Sources */,
+				4E22081C19BDF42900BC4819 /* ISecureKVResultCallbackWarning.swift in Sources */,
+				4E22080B19BDF42900BC4819 /* INetworkReachabilityCallbackError.swift in Sources */,
+				4E22082319BDF42900BC4819 /* ISettings.swift in Sources */,
+				4E2207D119BDF42900BC4819 /* IContactFieldGroup.swift in Sources */,
+				4E22080919BDF42900BC4819 /* INetworkReachability.swift in Sources */,
+				4E2207D719BDF42900BC4819 /* IContactResultCallbackError.swift in Sources */,
+				4E22081819BDF42900BC4819 /* IRSS.swift in Sources */,
+				4E2207D919BDF42900BC4819 /* ICrypto.swift in Sources */,
+				4E22078C19BDF42900BC4819 /* Cookie.swift in Sources */,
+				4E2207A919BDF42900BC4819 /* IAppServerListener.swift in Sources */,
+				4E22079719BDF42900BC4819 /* IAccelerometer.swift in Sources */,
+				4E2207D219BDF42900BC4819 /* IContactFilter.swift in Sources */,
+				4E22081219BDF42900BC4819 /* IOCR.swift in Sources */,
+				4E2207C919BDF42900BC4819 /* ICapabilitiesMedia.swift in Sources */,
+				4E2207C519BDF42900BC4819 /* ICapabilities.swift in Sources */,
+				4E22082819BDF42900BC4819 /* ITableResultCallbackWarning.swift in Sources */,
+				4E2207BB19BDF42900BC4819 /* IBaseSystem.swift in Sources */,
+				4E2207EC19BDF42900BC4819 /* IFileResultCallbackError.swift in Sources */,
+				4E22083019BDF42900BC4819 /* IVideo.swift in Sources */,
+				4E22079019BDF42900BC4819 /* EmailAddress.swift in Sources */,
+				4E22083619BDF42A00BC4819 /* Row.swift in Sources */,
+				4E22078819BDF42900BC4819 /* ContactSocial.swift in Sources */,
+				4E2207BF19BDF42900BC4819 /* IBrowser.swift in Sources */,
+				4E22083B19BDF42A00BC4819 /* Table.swift in Sources */,
+				4E22083819BDF42A00BC4819 /* Service.swift in Sources */,
+				4E2207E319BDF42900BC4819 /* IFile.swift in Sources */,
+				4E22078119BDF42900BC4819 /* Column.swift in Sources */,
+				4E2207C619BDF42900BC4819 /* ICapabilitiesButton.swift in Sources */,
+				4E2207F519BDF42900BC4819 /* IGyroscope.swift in Sources */,
+				4E2207A119BDF42900BC4819 /* IAppResourceCallback.swift in Sources */,
+				4E22082019BDF42900BC4819 /* IServiceResultCallbackError.swift in Sources */,
+				4E22083119BDF42900BC4819 /* IWallet.swift in Sources */,
+				4E2207B319BDF42900BC4819 /* IBaseListener.swift in Sources */,
+				4E2207AB19BDF42900BC4819 /* IAudio.swift in Sources */,
+				4E22078219BDF42900BC4819 /* Contact.swift in Sources */,
+				4E2207A219BDF42900BC4819 /* IAppResourceCallbackError.swift in Sources */,
+				4E2207BA19BDF42900BC4819 /* IBaseSocial.swift in Sources */,
+				4E22083719BDF42A00BC4819 /* SecureKeyPair.swift in Sources */,
+				4E22080019BDF42900BC4819 /* IMail.swift in Sources */,
+				4E2207D419BDF42900BC4819 /* IContactPhotoResultCallbackError.swift in Sources */,
+				4E22081E19BDF42900BC4819 /* IService.swift in Sources */,
+				4E22082A19BDF42900BC4819 /* ITelephonyStatus.swift in Sources */,
+				4E2207B619BDF42900BC4819 /* IBasePIM.swift in Sources */,
+				4E22082B19BDF42900BC4819 /* ITimer.swift in Sources */,
+				4E22078019BDF42900BC4819 /* Button.swift in Sources */,
+				4E2207CC19BDF42900BC4819 /* ICapabilitiesSensor.swift in Sources */,
+				4E22079A19BDF42900BC4819 /* IAlarm.swift in Sources */,
+				4E22079C19BDF42900BC4819 /* IAnalytics.swift in Sources */,
+				4E2207CB19BDF42900BC4819 /* ICapabilitiesNotification.swift in Sources */,
+				4E2207C119BDF42900BC4819 /* IButtonListenerError.swift in Sources */,
+				4E2207A419BDF42900BC4819 /* IAppResourceFormat.swift in Sources */,
+				4E22083A19BDF42A00BC4819 /* ServiceResponse.swift in Sources */,
+				4E2207DE19BDF42900BC4819 /* IDataStream.swift in Sources */,
+				4E2207CA19BDF42900BC4819 /* ICapabilitiesNet.swift in Sources */,
+				4E22083919BDF42A00BC4819 /* ServiceRequest.swift in Sources */,
+				4E22080319BDF42900BC4819 /* IMessaging.swift in Sources */,
+				4E2207F719BDF42900BC4819 /* IInternalStorage.swift in Sources */,
+				4E2207F219BDF42900BC4819 /* IGeolocationListenerWarning.swift in Sources */,
+				4E2207F819BDF42900BC4819 /* ILifecycle.swift in Sources */,
+				4E22082C19BDF42900BC4819 /* ITwitter.swift in Sources */,
+				4E22083219BDF42900BC4819 /* IXML.swift in Sources */,
+				4E22081D19BDF42900BC4819 /* ISecurity.swift in Sources */,
+				4E2207F019BDF42900BC4819 /* IGeolocationListener.swift in Sources */,
+				4E2207A519BDF42900BC4819 /* IAppResourceHandler.swift in Sources */,
+				4E22080F19BDF42900BC4819 /* INotification.swift in Sources */,
+				4E22080819BDF42900BC4819 /* INetworkNaming.swift in Sources */,
+				4E22081119BDF42900BC4819 /* IOAuth.swift in Sources */,
+				4E22079119BDF42900BC4819 /* Endpoint.swift in Sources */,
+				4E2207CF19BDF42900BC4819 /* IConcurrent.swift in Sources */,
+				4E22080519BDF42900BC4819 /* IMessagingCallbackError.swift in Sources */,
+				4E22079619BDF42900BC4819 /* IAccelerationListenerWarning.swift in Sources */,
+				4E22078619BDF42900BC4819 /* ContactPhone.swift in Sources */,
+				4E22081F19BDF42900BC4819 /* IServiceResultCallback.swift in Sources */,
+				4E2207E519BDF42900BC4819 /* IFileDataResultCallbackError.swift in Sources */,
+				4E2207BC19BDF42900BC4819 /* IBaseUI.swift in Sources */,
+				4E2207DA19BDF42900BC4819 /* IDatabase.swift in Sources */,
+				4E22079319BDF42900BC4819 /* Header.swift in Sources */,
+				4E2207AD19BDF42900BC4819 /* IBarometer.swift in Sources */,
+				4E2207B419BDF42900BC4819 /* IBaseMedia.swift in Sources */,
+				4E2207F119BDF42900BC4819 /* IGeolocationListenerError.swift in Sources */,
+				4E22079919BDF42900BC4819 /* IAds.swift in Sources */,
+				4E2207B919BDF42900BC4819 /* IBaseSensor.swift in Sources */,
+				4E22080C19BDF42900BC4819 /* INetworkReachabilityCallbackWarning.swift in Sources */,
+				4E2207FB19BDF42900BC4819 /* ILifecycleListenerWarning.swift in Sources */,
+				4E2207ED19BDF42900BC4819 /* IFileResultCallbackWarning.swift in Sources */,
+				4E22079219BDF42900BC4819 /* Geolocation.swift in Sources */,
+				4E2207EF19BDF42900BC4819 /* IGeolocation.swift in Sources */,
+				4E22082619BDF42900BC4819 /* ITableResultCallback.swift in Sources */,
+				4E2207F419BDF42900BC4819 /* IGooglePlus.swift in Sources */,
+				4E2207DC19BDF42900BC4819 /* IDatabaseResultCallbackError.swift in Sources */,
+				4E2207EE19BDF42900BC4819 /* IFileSystem.swift in Sources */,
+				4E22079D19BDF42900BC4819 /* IAppContext.swift in Sources */,
+				4E2207FE19BDF42900BC4819 /* ILoggingLogLevel.swift in Sources */,
+				4E22080419BDF42900BC4819 /* IMessagingCallback.swift in Sources */,
+				4E2207E419BDF42900BC4819 /* IFileDataResultCallback.swift in Sources */,
+				4E22078F19BDF42900BC4819 /* Email.swift in Sources */,
+				4E22082D19BDF42900BC4819 /* IUI.swift in Sources */,
+				4E2207C019BDF42900BC4819 /* IButtonListener.swift in Sources */,
+				4E2207DF19BDF42900BC4819 /* IDesktop.swift in Sources */,
+				4E2207CD19BDF42900BC4819 /* ICloud.swift in Sources */,
+				4E22077E19BDF42900BC4819 /* Acceleration.swift in Sources */,
+				4E2207FF19BDF42900BC4819 /* IMagnetometer.swift in Sources */,
+				4E2207D819BDF42900BC4819 /* IContactResultCallbackWarning.swift in Sources */,
+				4E2207DB19BDF42900BC4819 /* IDatabaseResultCallback.swift in Sources */,
+				4E2207C819BDF42900BC4819 /* ICapabilitiesData.swift in Sources */,
+				4E2207A819BDF42900BC4819 /* IAppServer.swift in Sources */,
+				4E22080D19BDF42900BC4819 /* INetworkStatus.swift in Sources */,
+				4E22078D19BDF42900BC4819 /* Database.swift in Sources */,
+				4E2207FD19BDF42900BC4819 /* ILogging.swift in Sources */,
+				4E2207C419BDF42900BC4819 /* ICamera.swift in Sources */,
+				4E2207E819BDF42900BC4819 /* IFileListResultCallbackError.swift in Sources */,
+				4E2207AA19BDF42900BC4819 /* IAppServerManager.swift in Sources */,
+				4E22078319BDF42900BC4819 /* ContactAddress.swift in Sources */,
+				4E2207F919BDF42900BC4819 /* ILifecycleListener.swift in Sources */,
+				4E22081719BDF42900BC4819 /* IQRCode.swift in Sources */,
+				4E22080119BDF42900BC4819 /* IManagement.swift in Sources */,
+				4E2207A619BDF42900BC4819 /* IAppResourcePayload.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
