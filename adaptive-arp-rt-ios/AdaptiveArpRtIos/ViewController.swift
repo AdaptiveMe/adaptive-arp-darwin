@@ -17,6 +17,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        #if os(OSX)
+            println("Running on OSX")
+        #elseif os(iOS)
+            println("Running on iOS")
+        #endif
         // Do any additional setup after loading the view, typically from a nib.
         var url = NSURL(string:"http://google.com/")
         var req = NSURLRequest(URL:url)
