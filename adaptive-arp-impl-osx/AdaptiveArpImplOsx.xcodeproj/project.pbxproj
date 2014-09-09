@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E6BAE2519BF01DF00DE2FE2 /* LoggingImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6BAE2419BF01DF00DE2FE2 /* LoggingImpl.swift */; };
 		4E22060019BDF3DC00BC4819 /* Acceleration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22054219BDF3DB00BC4819 /* Acceleration.swift */; };
 		4E22060119BDF3DC00BC4819 /* AttachmentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22054319BDF3DB00BC4819 /* AttachmentData.swift */; };
 		4E22060219BDF3DC00BC4819 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22054419BDF3DB00BC4819 /* Button.swift */; };
@@ -207,11 +206,12 @@
 		4E26F36219BE0FE7008FA728 /* AppServerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26F36019BE0FE7008FA728 /* AppServerImpl.swift */; };
 		4E26F36319BE0FE7008FA728 /* AppServerManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26F36119BE0FE7008FA728 /* AppServerManagerImpl.swift */; };
 		4E26F36919BF5BC0008FA728 /* IAppContextWebview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26F36819BF5BC0008FA728 /* IAppContextWebview.swift */; };
+		4E5C317019BF920100400BE5 /* AppRegistryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C316E19BF920100400BE5 /* AppRegistryImpl.swift */; };
+		4E5C317119BF920100400BE5 /* LoggingImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C316F19BF920100400BE5 /* LoggingImpl.swift */; };
 		CACE947BCCE545E19FC6AD4E /* libPods-AdaptiveArpImplOsxTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B230DDE7B0D4582B123EBBB /* libPods-AdaptiveArpImplOsxTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0E6BAE2419BF01DF00DE2FE2 /* LoggingImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoggingImpl.swift; path = "../../adaptive-arp-impl-universal/LoggingImpl.swift"; sourceTree = "<group>"; };
 		4B230DDE7B0D4582B123EBBB /* libPods-AdaptiveArpImplOsxTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AdaptiveArpImplOsxTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E22054219BDF3DB00BC4819 /* Acceleration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Acceleration.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/Acceleration.swift"; sourceTree = SOURCE_ROOT; };
 		4E22054319BDF3DB00BC4819 /* AttachmentData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttachmentData.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/AttachmentData.swift"; sourceTree = SOURCE_ROOT; };
@@ -416,6 +416,8 @@
 		4E26F36019BE0FE7008FA728 /* AppServerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppServerImpl.swift; path = "../../adaptive-arp-impl-universal/AppServerImpl.swift"; sourceTree = "<group>"; };
 		4E26F36119BE0FE7008FA728 /* AppServerManagerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppServerManagerImpl.swift; path = "../../adaptive-arp-impl-universal/AppServerManagerImpl.swift"; sourceTree = "<group>"; };
 		4E26F36819BF5BC0008FA728 /* IAppContextWebview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAppContextWebview.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IAppContextWebview.swift"; sourceTree = SOURCE_ROOT; };
+		4E5C316E19BF920100400BE5 /* AppRegistryImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppRegistryImpl.swift; path = "../../adaptive-arp-impl-universal/AppRegistryImpl.swift"; sourceTree = "<group>"; };
+		4E5C316F19BF920100400BE5 /* LoggingImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoggingImpl.swift; path = "../../adaptive-arp-impl-universal/LoggingImpl.swift"; sourceTree = "<group>"; };
 		7D350725847D45408CE3BA7F /* libPods-AdaptiveArpImplOsx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AdaptiveArpImplOsx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1635F59408747D888C22C4C /* Pods-AdaptiveArpImplOsx.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdaptiveArpImplOsx.xcconfig"; path = "Pods/Pods-AdaptiveArpImplOsx.xcconfig"; sourceTree = "<group>"; };
 		B75D8097578A4F06A48490F9 /* Pods-AdaptiveArpImplOsxTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdaptiveArpImplOsxTests.xcconfig"; path = "Pods/Pods-AdaptiveArpImplOsxTests.xcconfig"; sourceTree = "<group>"; };
@@ -698,6 +700,8 @@
 		4E26F34A19BE031F008FA728 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4E5C316E19BF920100400BE5 /* AppRegistryImpl.swift */,
+				4E5C316F19BF920100400BE5 /* LoggingImpl.swift */,
 				4E26F36019BE0FE7008FA728 /* AppServerImpl.swift */,
 				4E26F36119BE0FE7008FA728 /* AppServerManagerImpl.swift */,
 				4E26F34B19BE032C008FA728 /* listener_http */,
@@ -721,7 +725,6 @@
 		4E26F35619BE0CF2008FA728 /* IMPL */ = {
 			isa = PBXGroup;
 			children = (
-				0E6BAE2419BF01DF00DE2FE2 /* LoggingImpl.swift */,
 			);
 			path = IMPL;
 			sourceTree = SOURCE_ROOT;
@@ -928,6 +931,7 @@
 				4E22069619BDF3DC00BC4819 /* IOS.swift in Sources */,
 				4E22066D19BDF3DC00BC4819 /* IFileResultCallback.swift in Sources */,
 				4E22063219BDF3DC00BC4819 /* IBaseCommerce.swift in Sources */,
+				4E5C317119BF920100400BE5 /* LoggingImpl.swift in Sources */,
 				4E22067819BDF3DC00BC4819 /* IImaging.swift in Sources */,
 				4E22063419BDF3DC00BC4819 /* IBaseData.swift in Sources */,
 				4E22061719BDF3DC00BC4819 /* IAccelerationListenerError.swift in Sources */,
@@ -969,6 +973,7 @@
 				4E22063019BDF3DC00BC4819 /* IBaseApplication.swift in Sources */,
 				4E22062019BDF3DC00BC4819 /* IAppContextType.swift in Sources */,
 				4E22069219BDF3DC00BC4819 /* INotificationLocal.swift in Sources */,
+				4E5C317019BF920100400BE5 /* AppRegistryImpl.swift in Sources */,
 				4E22069B19BDF3DC00BC4819 /* IRuntime.swift in Sources */,
 				4E22066419BDF3DC00BC4819 /* IFacebook.swift in Sources */,
 				4E22060B19BDF3DC00BC4819 /* ContactTag.swift in Sources */,
@@ -1091,7 +1096,6 @@
 				4E22060019BDF3DC00BC4819 /* Acceleration.swift in Sources */,
 				4E22068119BDF3DC00BC4819 /* IMagnetometer.swift in Sources */,
 				4E22065A19BDF3DC00BC4819 /* IContactResultCallbackWarning.swift in Sources */,
-				0E6BAE2519BF01DF00DE2FE2 /* LoggingImpl.swift in Sources */,
 				4E22065D19BDF3DC00BC4819 /* IDatabaseResultCallback.swift in Sources */,
 				4E22064A19BDF3DC00BC4819 /* ICapabilitiesData.swift in Sources */,
 				4E22062A19BDF3DC00BC4819 /* IAppServer.swift in Sources */,
