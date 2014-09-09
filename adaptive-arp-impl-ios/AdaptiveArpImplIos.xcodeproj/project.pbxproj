@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EF9237A19BF0266005DD234 /* LoggingImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9237919BF0266005DD234 /* LoggingImpl.swift */; };
 		4E22077E19BDF42900BC4819 /* Acceleration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206C019BDF42900BC4819 /* Acceleration.swift */; };
 		4E22077F19BDF42900BC4819 /* AttachmentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206C119BDF42900BC4819 /* AttachmentData.swift */; };
 		4E22078019BDF42900BC4819 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206C219BDF42900BC4819 /* Button.swift */; };
@@ -205,12 +206,11 @@
 		4E26F35E19BE0FD9008FA728 /* AppServerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26F35C19BE0FD9008FA728 /* AppServerImpl.swift */; };
 		4E26F35F19BE0FD9008FA728 /* AppServerManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26F35D19BE0FD9008FA728 /* AppServerManagerImpl.swift */; };
 		4E83DCA519B635AA002B9764 /* AdaptiveArpImplIosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83DCA419B635AA002B9764 /* AdaptiveArpImplIosTests.swift */; };
-		F6D488C71E8445ED98E04A8D /* libPods-AdaptiveArpImplIosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A9B6D9B33B4A36BFF941D3 /* libPods-AdaptiveArpImplIosTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0C5D888D2C344F66A866530E /* Pods-AdaptiveArpImplIos.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdaptiveArpImplIos.xcconfig"; path = "Pods/Pods-AdaptiveArpImplIos.xcconfig"; sourceTree = "<group>"; };
-		27A9B6D9B33B4A36BFF941D3 /* libPods-AdaptiveArpImplIosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AdaptiveArpImplIosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EF9237919BF0266005DD234 /* LoggingImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoggingImpl.swift; path = "../../adaptive-arp-impl-universal/LoggingImpl.swift"; sourceTree = "<group>"; };
 		4E2206C019BDF42900BC4819 /* Acceleration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Acceleration.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/Acceleration.swift"; sourceTree = SOURCE_ROOT; };
 		4E2206C119BDF42900BC4819 /* AttachmentData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttachmentData.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/AttachmentData.swift"; sourceTree = SOURCE_ROOT; };
 		4E2206C219BDF42900BC4819 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Button.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/Button.swift"; sourceTree = SOURCE_ROOT; };
@@ -413,7 +413,6 @@
 		4E83DCA019B635AA002B9764 /* AdaptiveArpImplIosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdaptiveArpImplIosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E83DCA319B635AA002B9764 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E83DCA419B635AA002B9764 /* AdaptiveArpImplIosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveArpImplIosTests.swift; sourceTree = "<group>"; };
-		D6FDC20795F2401E96A8DC88 /* libPods-AdaptiveArpImplIos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AdaptiveArpImplIos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -428,7 +427,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6D488C71E8445ED98E04A8D /* libPods-AdaptiveArpImplIosTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,11 +436,17 @@
 		030C22BC28D0463282C94C33 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D6FDC20795F2401E96A8DC88 /* libPods-AdaptiveArpImplIos.a */,
-				27A9B6D9B33B4A36BFF941D3 /* libPods-AdaptiveArpImplIosTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
+		};
+		0EF9237819BF025D005DD234 /* IMPL */ = {
+			isa = PBXGroup;
+			children = (
+				0EF9237919BF0266005DD234 /* LoggingImpl.swift */,
+			);
+			path = IMPL;
+			sourceTree = SOURCE_ROOT;
 		};
 		4E2206BF19BDF41700BC4819 /* API */ = {
 			isa = PBXGroup;
@@ -664,13 +668,6 @@
 			path = "../../adaptive-arp-impl-universal/listener_http";
 			sourceTree = "<group>";
 		};
-		4E26F35719BE0D01008FA728 /* IMPL */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = IMPL;
-			sourceTree = SOURCE_ROOT;
-		};
 		4E83DC8B19B635AA002B9764 = {
 			isa = PBXGroup;
 			children = (
@@ -694,7 +691,7 @@
 		4E83DC9719B635AA002B9764 /* AdaptiveArpImplIos */ = {
 			isa = PBXGroup;
 			children = (
-				4E26F35719BE0D01008FA728 /* IMPL */,
+				0EF9237819BF025D005DD234 /* IMPL */,
 				4E26F33D19BE0006008FA728 /* Common */,
 				4E2206BF19BDF41700BC4819 /* API */,
 				4E83DC9819B635AA002B9764 /* Supporting Files */,
@@ -1050,6 +1047,7 @@
 				4E22077E19BDF42900BC4819 /* Acceleration.swift in Sources */,
 				4E2207FF19BDF42900BC4819 /* IMagnetometer.swift in Sources */,
 				4E2207D819BDF42900BC4819 /* IContactResultCallbackWarning.swift in Sources */,
+				0EF9237A19BF0266005DD234 /* LoggingImpl.swift in Sources */,
 				4E2207DB19BDF42900BC4819 /* IDatabaseResultCallback.swift in Sources */,
 				4E2207C819BDF42900BC4819 /* ICapabilitiesData.swift in Sources */,
 				4E2207A819BDF42900BC4819 /* IAppServer.swift in Sources */,
