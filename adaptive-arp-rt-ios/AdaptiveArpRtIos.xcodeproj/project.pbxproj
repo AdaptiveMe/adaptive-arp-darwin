@@ -34,6 +34,9 @@
 		4E22085719BDF51500BC4819 /* AdaptiveArpRtIosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdaptiveArpRtIosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E22085C19BDF51500BC4819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E22085D19BDF51500BC4819 /* AdaptiveArpRtIosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveArpRtIosTests.swift; sourceTree = "<group>"; };
+		4E5C316119BF6A1600400BE5 /* adaptive-arp-impl-universal */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "adaptive-arp-impl-universal"; path = "../adaptive-arp-impl-universal"; sourceTree = "<group>"; };
+		4E5C316319BF6A5F00400BE5 /* adaptive-arp-api-swift */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "adaptive-arp-api-swift"; path = "../adaptive-arp-impl-ios/Pods/AdaptiveArpApi/adaptive-arp-api-swift"; sourceTree = "<group>"; };
+		4E5C316A19BF6DDD00400BE5 /* adaptive-arp-impl-ios */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "adaptive-arp-impl-ios"; path = "../adaptive-arp-impl-ios"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +60,9 @@
 		4E22083C19BDF51500BC4819 = {
 			isa = PBXGroup;
 			children = (
+				4E5C316319BF6A5F00400BE5 /* adaptive-arp-api-swift */,
+				4E5C316119BF6A1600400BE5 /* adaptive-arp-impl-universal */,
+				4E5C316A19BF6DDD00400BE5 /* adaptive-arp-impl-ios */,
 				4E22084719BDF51500BC4819 /* AdaptiveArpRtIos */,
 				4E22085A19BDF51500BC4819 /* AdaptiveArpRtIosTests */,
 				4E22084619BDF51500BC4819 /* Products */,
@@ -331,6 +337,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AdaptiveArpRtIos/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -345,6 +352,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AdaptiveArpRtIos/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -404,6 +412,7 @@
 				4E22086319BDF51500BC4819 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4E22086419BDF51500BC4819 /* Build configuration list for PBXNativeTarget "AdaptiveArpRtIosTests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +421,7 @@
 				4E22086619BDF51500BC4819 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

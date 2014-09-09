@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0EF9237A19BF0266005DD234 /* LoggingImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9237919BF0266005DD234 /* LoggingImpl.swift */; };
 		4E22077E19BDF42900BC4819 /* Acceleration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206C019BDF42900BC4819 /* Acceleration.swift */; };
 		4E22077F19BDF42900BC4819 /* AttachmentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206C119BDF42900BC4819 /* AttachmentData.swift */; };
 		4E22078019BDF42900BC4819 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2206C219BDF42900BC4819 /* Button.swift */; };
@@ -206,13 +205,14 @@
 		4E26F35E19BE0FD9008FA728 /* AppServerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26F35C19BE0FD9008FA728 /* AppServerImpl.swift */; };
 		4E26F35F19BE0FD9008FA728 /* AppServerManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26F35D19BE0FD9008FA728 /* AppServerManagerImpl.swift */; };
 		4E26F36719BF5BAA008FA728 /* IAppContextWebview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26F36619BF5BAA008FA728 /* IAppContextWebview.swift */; };
+		4E5C316619BF6BC700400BE5 /* LoggingImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C316519BF6BC700400BE5 /* LoggingImpl.swift */; };
+		4E5C316D19BF723400400BE5 /* AppRegistryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C316C19BF723400400BE5 /* AppRegistryImpl.swift */; };
 		4E83DCA519B635AA002B9764 /* AdaptiveArpImplIosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83DCA419B635AA002B9764 /* AdaptiveArpImplIosTests.swift */; };
 		C0CB9D185D7848B2899849D4 /* libPods-AdaptiveArpImplIosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 313F1F810DA14669B95006AB /* libPods-AdaptiveArpImplIosTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0C5D888D2C344F66A866530E /* Pods-AdaptiveArpImplIos.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdaptiveArpImplIos.xcconfig"; path = "Pods/Pods-AdaptiveArpImplIos.xcconfig"; sourceTree = "<group>"; };
-		0EF9237919BF0266005DD234 /* LoggingImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoggingImpl.swift; path = "../../adaptive-arp-impl-universal/LoggingImpl.swift"; sourceTree = "<group>"; };
 		313F1F810DA14669B95006AB /* libPods-AdaptiveArpImplIosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AdaptiveArpImplIosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E2206C019BDF42900BC4819 /* Acceleration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Acceleration.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/Acceleration.swift"; sourceTree = SOURCE_ROOT; };
 		4E2206C119BDF42900BC4819 /* AttachmentData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttachmentData.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/AttachmentData.swift"; sourceTree = SOURCE_ROOT; };
@@ -412,6 +412,8 @@
 		4E26F35C19BE0FD9008FA728 /* AppServerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppServerImpl.swift; path = "../../adaptive-arp-impl-universal/AppServerImpl.swift"; sourceTree = "<group>"; };
 		4E26F35D19BE0FD9008FA728 /* AppServerManagerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppServerManagerImpl.swift; path = "../../adaptive-arp-impl-universal/AppServerManagerImpl.swift"; sourceTree = "<group>"; };
 		4E26F36619BF5BAA008FA728 /* IAppContextWebview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAppContextWebview.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IAppContextWebview.swift"; sourceTree = SOURCE_ROOT; };
+		4E5C316519BF6BC700400BE5 /* LoggingImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoggingImpl.swift; path = "../../adaptive-arp-impl-universal/LoggingImpl.swift"; sourceTree = "<group>"; };
+		4E5C316C19BF723400400BE5 /* AppRegistryImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppRegistryImpl.swift; path = "../../adaptive-arp-impl-universal/AppRegistryImpl.swift"; sourceTree = "<group>"; };
 		4E83DC9519B635AA002B9764 /* AdaptiveArpImplIos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdaptiveArpImplIos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E83DC9919B635AA002B9764 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E83DCA019B635AA002B9764 /* AdaptiveArpImplIosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdaptiveArpImplIosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -452,7 +454,6 @@
 		0EF9237819BF025D005DD234 /* IMPL */ = {
 			isa = PBXGroup;
 			children = (
-				0EF9237919BF0266005DD234 /* LoggingImpl.swift */,
 			);
 			path = IMPL;
 			sourceTree = SOURCE_ROOT;
@@ -460,7 +461,6 @@
 		4E2206BF19BDF41700BC4819 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				4E26F36619BF5BAA008FA728 /* IAppContextWebview.swift */,
 				4E2206C019BDF42900BC4819 /* Acceleration.swift */,
 				4E2206C119BDF42900BC4819 /* AttachmentData.swift */,
 				4E2206C219BDF42900BC4819 /* Button.swift */,
@@ -494,6 +494,7 @@
 				4E2206DE19BDF42900BC4819 /* IAnalytics.swift */,
 				4E2206DF19BDF42900BC4819 /* IAppContext.swift */,
 				4E2206E019BDF42900BC4819 /* IAppContextType.swift */,
+				4E26F36619BF5BAA008FA728 /* IAppContextWebview.swift */,
 				4E2206E119BDF42900BC4819 /* IAppRegistry.swift */,
 				4E2206E219BDF42900BC4819 /* IAppResource.swift */,
 				4E2206E319BDF42900BC4819 /* IAppResourceCallback.swift */,
@@ -658,6 +659,8 @@
 		4E26F33D19BE0006008FA728 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4E5C316C19BF723400400BE5 /* AppRegistryImpl.swift */,
+				4E5C316519BF6BC700400BE5 /* LoggingImpl.swift */,
 				4E26F35C19BE0FD9008FA728 /* AppServerImpl.swift */,
 				4E26F35D19BE0FD9008FA728 /* AppServerManagerImpl.swift */,
 				4E26F33E19BE0021008FA728 /* listener_http */,
@@ -919,6 +922,7 @@
 				4E22082119BDF42900BC4819 /* IServiceResultCallbackWarning.swift in Sources */,
 				4E22080619BDF42900BC4819 /* IMessagingCallbackWarning.swift in Sources */,
 				4E2207C719BDF42900BC4819 /* ICapabilitiesCommunication.swift in Sources */,
+				4E5C316D19BF723400400BE5 /* AppRegistryImpl.swift in Sources */,
 				4E2207B819BDF42900BC4819 /* IBaseSecurity.swift in Sources */,
 				4E22078A19BDF42900BC4819 /* ContactUid.swift in Sources */,
 				4E22079419BDF42900BC4819 /* IAccelerationListener.swift in Sources */,
@@ -935,6 +939,7 @@
 				4E2207D619BDF42900BC4819 /* IContactResultCallback.swift in Sources */,
 				4E2207DD19BDF42900BC4819 /* IDatabaseResultCallbackWarning.swift in Sources */,
 				4E2207A019BDF42900BC4819 /* IAppResource.swift in Sources */,
+				4E5C316619BF6BC700400BE5 /* LoggingImpl.swift in Sources */,
 				4E2207B119BDF42900BC4819 /* IBaseCommunication.swift in Sources */,
 				4E2207BD19BDF42900BC4819 /* IBaseUtil.swift in Sources */,
 				4E22080E19BDF42900BC4819 /* INFC.swift in Sources */,
@@ -1091,7 +1096,6 @@
 				4E22077E19BDF42900BC4819 /* Acceleration.swift in Sources */,
 				4E2207FF19BDF42900BC4819 /* IMagnetometer.swift in Sources */,
 				4E2207D819BDF42900BC4819 /* IContactResultCallbackWarning.swift in Sources */,
-				0EF9237A19BF0266005DD234 /* LoggingImpl.swift in Sources */,
 				4E2207DB19BDF42900BC4819 /* IDatabaseResultCallback.swift in Sources */,
 				4E2207C819BDF42900BC4819 /* ICapabilitiesData.swift in Sources */,
 				4E2207A819BDF42900BC4819 /* IAppServer.swift in Sources */,
