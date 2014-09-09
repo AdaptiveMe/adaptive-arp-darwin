@@ -208,6 +208,15 @@
 		4E5C316619BF6BC700400BE5 /* LoggingImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C316519BF6BC700400BE5 /* LoggingImpl.swift */; };
 		4E5C316D19BF723400400BE5 /* AppRegistryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C316C19BF723400400BE5 /* AppRegistryImpl.swift */; };
 		4E5C317519BF92A600400BE5 /* AppContextImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C317419BF92A600400BE5 /* AppContextImpl.swift */; };
+		4E5C317B19BFA51400400BE5 /* OSImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C317A19BFA51400400BE5 /* OSImpl.swift */; };
+		4E5C318419BFAA8B00400BE5 /* AppContextWebviewImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C317C19BFAA8B00400BE5 /* AppContextWebviewImpl.swift */; };
+		4E5C318519BFAA8B00400BE5 /* AppResourceHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C317D19BFAA8B00400BE5 /* AppResourceHandlerImpl.swift */; };
+		4E5C318619BFAA8B00400BE5 /* CapabilitiesImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C317E19BFAA8B00400BE5 /* CapabilitiesImpl.swift */; };
+		4E5C318719BFAA8B00400BE5 /* DeviceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C317F19BFAA8B00400BE5 /* DeviceImpl.swift */; };
+		4E5C318819BFAA8B00400BE5 /* DisplayImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C318019BFAA8B00400BE5 /* DisplayImpl.swift */; };
+		4E5C318919BFAA8B00400BE5 /* GlobalizationImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C318119BFAA8B00400BE5 /* GlobalizationImpl.swift */; };
+		4E5C318A19BFAA8B00400BE5 /* LifecycleImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C318219BFAA8B00400BE5 /* LifecycleImpl.swift */; };
+		4E5C318B19BFAA8B00400BE5 /* RuntimeImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C318319BFAA8B00400BE5 /* RuntimeImpl.swift */; };
 		4E83DCA519B635AA002B9764 /* AdaptiveArpImplIosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83DCA419B635AA002B9764 /* AdaptiveArpImplIosTests.swift */; };
 		C0CB9D185D7848B2899849D4 /* libPods-AdaptiveArpImplIosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 313F1F810DA14669B95006AB /* libPods-AdaptiveArpImplIosTests.a */; };
 /* End PBXBuildFile section */
@@ -416,6 +425,15 @@
 		4E5C316519BF6BC700400BE5 /* LoggingImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoggingImpl.swift; path = "../../adaptive-arp-impl-universal/LoggingImpl.swift"; sourceTree = "<group>"; };
 		4E5C316C19BF723400400BE5 /* AppRegistryImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppRegistryImpl.swift; path = "../../adaptive-arp-impl-universal/AppRegistryImpl.swift"; sourceTree = "<group>"; };
 		4E5C317419BF92A600400BE5 /* AppContextImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppContextImpl.swift; path = "../../adaptive-arp-impl-universal/AppContextImpl.swift"; sourceTree = "<group>"; };
+		4E5C317A19BFA51400400BE5 /* OSImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OSImpl.swift; path = "../../adaptive-arp-impl-universal/OSImpl.swift"; sourceTree = "<group>"; };
+		4E5C317C19BFAA8B00400BE5 /* AppContextWebviewImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppContextWebviewImpl.swift; path = "../../adaptive-arp-impl-universal/AppContextWebviewImpl.swift"; sourceTree = "<group>"; };
+		4E5C317D19BFAA8B00400BE5 /* AppResourceHandlerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppResourceHandlerImpl.swift; path = "../../adaptive-arp-impl-universal/AppResourceHandlerImpl.swift"; sourceTree = "<group>"; };
+		4E5C317E19BFAA8B00400BE5 /* CapabilitiesImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CapabilitiesImpl.swift; path = "../../adaptive-arp-impl-universal/CapabilitiesImpl.swift"; sourceTree = "<group>"; };
+		4E5C317F19BFAA8B00400BE5 /* DeviceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeviceImpl.swift; path = "../../adaptive-arp-impl-universal/DeviceImpl.swift"; sourceTree = "<group>"; };
+		4E5C318019BFAA8B00400BE5 /* DisplayImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DisplayImpl.swift; path = "../../adaptive-arp-impl-universal/DisplayImpl.swift"; sourceTree = "<group>"; };
+		4E5C318119BFAA8B00400BE5 /* GlobalizationImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalizationImpl.swift; path = "../../adaptive-arp-impl-universal/GlobalizationImpl.swift"; sourceTree = "<group>"; };
+		4E5C318219BFAA8B00400BE5 /* LifecycleImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LifecycleImpl.swift; path = "../../adaptive-arp-impl-universal/LifecycleImpl.swift"; sourceTree = "<group>"; };
+		4E5C318319BFAA8B00400BE5 /* RuntimeImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RuntimeImpl.swift; path = "../../adaptive-arp-impl-universal/RuntimeImpl.swift"; sourceTree = "<group>"; };
 		4E83DC9519B635AA002B9764 /* AdaptiveArpImplIos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdaptiveArpImplIos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E83DC9919B635AA002B9764 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E83DCA019B635AA002B9764 /* AdaptiveArpImplIosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdaptiveArpImplIosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -661,6 +679,15 @@
 		4E26F33D19BE0006008FA728 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4E5C317C19BFAA8B00400BE5 /* AppContextWebviewImpl.swift */,
+				4E5C317D19BFAA8B00400BE5 /* AppResourceHandlerImpl.swift */,
+				4E5C317E19BFAA8B00400BE5 /* CapabilitiesImpl.swift */,
+				4E5C317F19BFAA8B00400BE5 /* DeviceImpl.swift */,
+				4E5C318019BFAA8B00400BE5 /* DisplayImpl.swift */,
+				4E5C318119BFAA8B00400BE5 /* GlobalizationImpl.swift */,
+				4E5C318219BFAA8B00400BE5 /* LifecycleImpl.swift */,
+				4E5C318319BFAA8B00400BE5 /* RuntimeImpl.swift */,
+				4E5C317A19BFA51400400BE5 /* OSImpl.swift */,
 				4E5C317419BF92A600400BE5 /* AppContextImpl.swift */,
 				4E5C316C19BF723400400BE5 /* AppRegistryImpl.swift */,
 				4E5C316519BF6BC700400BE5 /* LoggingImpl.swift */,
@@ -937,6 +964,7 @@
 				4E2207B019BDF42900BC4819 /* IBaseCommerce.swift in Sources */,
 				4E2207F619BDF42900BC4819 /* IImaging.swift in Sources */,
 				4E2207B219BDF42900BC4819 /* IBaseData.swift in Sources */,
+				4E5C318B19BFAA8B00400BE5 /* RuntimeImpl.swift in Sources */,
 				4E22079519BDF42900BC4819 /* IAccelerationListenerError.swift in Sources */,
 				4E22079B19BDF42900BC4819 /* IAmbientLight.swift in Sources */,
 				4E2207D619BDF42900BC4819 /* IContactResultCallback.swift in Sources */,
@@ -945,6 +973,7 @@
 				4E5C316619BF6BC700400BE5 /* LoggingImpl.swift in Sources */,
 				4E2207B119BDF42900BC4819 /* IBaseCommunication.swift in Sources */,
 				4E2207BD19BDF42900BC4819 /* IBaseUtil.swift in Sources */,
+				4E5C318519BFAA8B00400BE5 /* AppResourceHandlerImpl.swift in Sources */,
 				4E22080E19BDF42900BC4819 /* INFC.swift in Sources */,
 				4E22078419BDF42900BC4819 /* ContactEmail.swift in Sources */,
 				4E2207AC19BDF42900BC4819 /* IBarcode.swift in Sources */,
@@ -958,6 +987,7 @@
 				4E22083519BDF42A00BC4819 /* OSInfo.swift in Sources */,
 				4E2207E619BDF42900BC4819 /* IFileDataResultCallbackWarning.swift in Sources */,
 				4E26F34719BE0021008FA728 /* HttpServer.swift in Sources */,
+				4E5C317B19BFA51400400BE5 /* OSImpl.swift in Sources */,
 				4E5C317519BF92A600400BE5 /* AppContextImpl.swift in Sources */,
 				4E22083419BDF42A00BC4819 /* Locale.swift in Sources */,
 				4E22082719BDF42900BC4819 /* ITableResultCallbackError.swift in Sources */,
@@ -999,10 +1029,12 @@
 				4E22080B19BDF42900BC4819 /* INetworkReachabilityCallbackError.swift in Sources */,
 				4E22082319BDF42900BC4819 /* ISettings.swift in Sources */,
 				4E2207D119BDF42900BC4819 /* IContactFieldGroup.swift in Sources */,
+				4E5C318619BFAA8B00400BE5 /* CapabilitiesImpl.swift in Sources */,
 				4E22080919BDF42900BC4819 /* INetworkReachability.swift in Sources */,
 				4E2207D719BDF42900BC4819 /* IContactResultCallbackError.swift in Sources */,
 				4E22081819BDF42900BC4819 /* IRSS.swift in Sources */,
 				4E2207D919BDF42900BC4819 /* ICrypto.swift in Sources */,
+				4E5C318819BFAA8B00400BE5 /* DisplayImpl.swift in Sources */,
 				4E22078C19BDF42900BC4819 /* Cookie.swift in Sources */,
 				4E2207A919BDF42900BC4819 /* IAppServerListener.swift in Sources */,
 				4E22079719BDF42900BC4819 /* IAccelerometer.swift in Sources */,
@@ -1072,12 +1104,14 @@
 				4E22081F19BDF42900BC4819 /* IServiceResultCallback.swift in Sources */,
 				4E2207E519BDF42900BC4819 /* IFileDataResultCallbackError.swift in Sources */,
 				4E2207BC19BDF42900BC4819 /* IBaseUI.swift in Sources */,
+				4E5C318919BFAA8B00400BE5 /* GlobalizationImpl.swift in Sources */,
 				4E2207DA19BDF42900BC4819 /* IDatabase.swift in Sources */,
 				4E22079319BDF42900BC4819 /* Header.swift in Sources */,
 				4E2207AD19BDF42900BC4819 /* IBarometer.swift in Sources */,
 				4E2207B419BDF42900BC4819 /* IBaseMedia.swift in Sources */,
 				4E2207F119BDF42900BC4819 /* IGeolocationListenerError.swift in Sources */,
 				4E22079919BDF42900BC4819 /* IAds.swift in Sources */,
+				4E5C318A19BFAA8B00400BE5 /* LifecycleImpl.swift in Sources */,
 				4E2207B919BDF42900BC4819 /* IBaseSensor.swift in Sources */,
 				4E22080C19BDF42900BC4819 /* INetworkReachabilityCallbackWarning.swift in Sources */,
 				4E2207FB19BDF42900BC4819 /* ILifecycleListenerWarning.swift in Sources */,
@@ -1096,6 +1130,7 @@
 				4E22082D19BDF42900BC4819 /* IUI.swift in Sources */,
 				4E2207C019BDF42900BC4819 /* IButtonListener.swift in Sources */,
 				4E2207DF19BDF42900BC4819 /* IDesktop.swift in Sources */,
+				4E5C318419BFAA8B00400BE5 /* AppContextWebviewImpl.swift in Sources */,
 				4E2207CD19BDF42900BC4819 /* ICloud.swift in Sources */,
 				4E22077E19BDF42900BC4819 /* Acceleration.swift in Sources */,
 				4E2207FF19BDF42900BC4819 /* IMagnetometer.swift in Sources */,
@@ -1112,6 +1147,7 @@
 				4E22078319BDF42900BC4819 /* ContactAddress.swift in Sources */,
 				4E2207F919BDF42900BC4819 /* ILifecycleListener.swift in Sources */,
 				4E22081719BDF42900BC4819 /* IQRCode.swift in Sources */,
+				4E5C318719BFAA8B00400BE5 /* DeviceImpl.swift in Sources */,
 				4E22080119BDF42900BC4819 /* IManagement.swift in Sources */,
 				4E2207A619BDF42900BC4819 /* IAppResourcePayload.swift in Sources */,
 			);

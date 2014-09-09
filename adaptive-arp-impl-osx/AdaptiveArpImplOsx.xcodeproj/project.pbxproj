@@ -209,6 +209,15 @@
 		4E5C317019BF920100400BE5 /* AppRegistryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C316E19BF920100400BE5 /* AppRegistryImpl.swift */; };
 		4E5C317119BF920100400BE5 /* LoggingImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C316F19BF920100400BE5 /* LoggingImpl.swift */; };
 		4E5C317719BF92B400400BE5 /* AppContextImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C317619BF92B400400BE5 /* AppContextImpl.swift */; };
+		4E5C319519BFAE0B00400BE5 /* AppContextWebviewImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C318C19BFAE0B00400BE5 /* AppContextWebviewImpl.swift */; };
+		4E5C319619BFAE0B00400BE5 /* AppResourceHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C318D19BFAE0B00400BE5 /* AppResourceHandlerImpl.swift */; };
+		4E5C319719BFAE0B00400BE5 /* CapabilitiesImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C318E19BFAE0B00400BE5 /* CapabilitiesImpl.swift */; };
+		4E5C319819BFAE0B00400BE5 /* DeviceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C318F19BFAE0B00400BE5 /* DeviceImpl.swift */; };
+		4E5C319919BFAE0B00400BE5 /* DisplayImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C319019BFAE0B00400BE5 /* DisplayImpl.swift */; };
+		4E5C319A19BFAE0B00400BE5 /* GlobalizationImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C319119BFAE0B00400BE5 /* GlobalizationImpl.swift */; };
+		4E5C319B19BFAE0B00400BE5 /* LifecycleImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C319219BFAE0B00400BE5 /* LifecycleImpl.swift */; };
+		4E5C319C19BFAE0B00400BE5 /* OSImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C319319BFAE0B00400BE5 /* OSImpl.swift */; };
+		4E5C319D19BFAE0B00400BE5 /* RuntimeImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C319419BFAE0B00400BE5 /* RuntimeImpl.swift */; };
 		CACE947BCCE545E19FC6AD4E /* libPods-AdaptiveArpImplOsxTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B230DDE7B0D4582B123EBBB /* libPods-AdaptiveArpImplOsxTests.a */; };
 /* End PBXBuildFile section */
 
@@ -420,6 +429,15 @@
 		4E5C316E19BF920100400BE5 /* AppRegistryImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppRegistryImpl.swift; path = "../../adaptive-arp-impl-universal/AppRegistryImpl.swift"; sourceTree = "<group>"; };
 		4E5C316F19BF920100400BE5 /* LoggingImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoggingImpl.swift; path = "../../adaptive-arp-impl-universal/LoggingImpl.swift"; sourceTree = "<group>"; };
 		4E5C317619BF92B400400BE5 /* AppContextImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppContextImpl.swift; path = "../../adaptive-arp-impl-universal/AppContextImpl.swift"; sourceTree = "<group>"; };
+		4E5C318C19BFAE0B00400BE5 /* AppContextWebviewImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppContextWebviewImpl.swift; path = "../../adaptive-arp-impl-universal/AppContextWebviewImpl.swift"; sourceTree = "<group>"; };
+		4E5C318D19BFAE0B00400BE5 /* AppResourceHandlerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppResourceHandlerImpl.swift; path = "../../adaptive-arp-impl-universal/AppResourceHandlerImpl.swift"; sourceTree = "<group>"; };
+		4E5C318E19BFAE0B00400BE5 /* CapabilitiesImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CapabilitiesImpl.swift; path = "../../adaptive-arp-impl-universal/CapabilitiesImpl.swift"; sourceTree = "<group>"; };
+		4E5C318F19BFAE0B00400BE5 /* DeviceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeviceImpl.swift; path = "../../adaptive-arp-impl-universal/DeviceImpl.swift"; sourceTree = "<group>"; };
+		4E5C319019BFAE0B00400BE5 /* DisplayImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DisplayImpl.swift; path = "../../adaptive-arp-impl-universal/DisplayImpl.swift"; sourceTree = "<group>"; };
+		4E5C319119BFAE0B00400BE5 /* GlobalizationImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalizationImpl.swift; path = "../../adaptive-arp-impl-universal/GlobalizationImpl.swift"; sourceTree = "<group>"; };
+		4E5C319219BFAE0B00400BE5 /* LifecycleImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LifecycleImpl.swift; path = "../../adaptive-arp-impl-universal/LifecycleImpl.swift"; sourceTree = "<group>"; };
+		4E5C319319BFAE0B00400BE5 /* OSImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OSImpl.swift; path = "../../adaptive-arp-impl-universal/OSImpl.swift"; sourceTree = "<group>"; };
+		4E5C319419BFAE0B00400BE5 /* RuntimeImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RuntimeImpl.swift; path = "../../adaptive-arp-impl-universal/RuntimeImpl.swift"; sourceTree = "<group>"; };
 		7D350725847D45408CE3BA7F /* libPods-AdaptiveArpImplOsx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AdaptiveArpImplOsx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1635F59408747D888C22C4C /* Pods-AdaptiveArpImplOsx.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdaptiveArpImplOsx.xcconfig"; path = "Pods/Pods-AdaptiveArpImplOsx.xcconfig"; sourceTree = "<group>"; };
 		B75D8097578A4F06A48490F9 /* Pods-AdaptiveArpImplOsxTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdaptiveArpImplOsxTests.xcconfig"; path = "Pods/Pods-AdaptiveArpImplOsxTests.xcconfig"; sourceTree = "<group>"; };
@@ -702,6 +720,15 @@
 		4E26F34A19BE031F008FA728 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4E5C318C19BFAE0B00400BE5 /* AppContextWebviewImpl.swift */,
+				4E5C318D19BFAE0B00400BE5 /* AppResourceHandlerImpl.swift */,
+				4E5C318E19BFAE0B00400BE5 /* CapabilitiesImpl.swift */,
+				4E5C318F19BFAE0B00400BE5 /* DeviceImpl.swift */,
+				4E5C319019BFAE0B00400BE5 /* DisplayImpl.swift */,
+				4E5C319119BFAE0B00400BE5 /* GlobalizationImpl.swift */,
+				4E5C319219BFAE0B00400BE5 /* LifecycleImpl.swift */,
+				4E5C319319BFAE0B00400BE5 /* OSImpl.swift */,
+				4E5C319419BFAE0B00400BE5 /* RuntimeImpl.swift */,
 				4E5C317619BF92B400400BE5 /* AppContextImpl.swift */,
 				4E5C316E19BF920100400BE5 /* AppRegistryImpl.swift */,
 				4E5C316F19BF920100400BE5 /* LoggingImpl.swift */,
@@ -913,6 +940,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E5C319B19BFAE0B00400BE5 /* LifecycleImpl.swift in Sources */,
 				4E2206A419BDF3DC00BC4819 /* ISession.swift in Sources */,
 				4E22069519BDF3DC00BC4819 /* IOpenId.swift in Sources */,
 				4E22065219BDF3DC00BC4819 /* IContact.swift in Sources */,
@@ -933,8 +961,10 @@
 				4E22064019BDF3DC00BC4819 /* IBluetooth.swift in Sources */,
 				4E22069619BDF3DC00BC4819 /* IOS.swift in Sources */,
 				4E22066D19BDF3DC00BC4819 /* IFileResultCallback.swift in Sources */,
+				4E5C319919BFAE0B00400BE5 /* DisplayImpl.swift in Sources */,
 				4E22063219BDF3DC00BC4819 /* IBaseCommerce.swift in Sources */,
 				4E5C317119BF920100400BE5 /* LoggingImpl.swift in Sources */,
+				4E5C319D19BFAE0B00400BE5 /* RuntimeImpl.swift in Sources */,
 				4E22067819BDF3DC00BC4819 /* IImaging.swift in Sources */,
 				4E22063419BDF3DC00BC4819 /* IBaseData.swift in Sources */,
 				4E22061719BDF3DC00BC4819 /* IAccelerationListenerError.swift in Sources */,
@@ -980,6 +1010,7 @@
 				4E5C317019BF920100400BE5 /* AppRegistryImpl.swift in Sources */,
 				4E22069B19BDF3DC00BC4819 /* IRuntime.swift in Sources */,
 				4E22066419BDF3DC00BC4819 /* IFacebook.swift in Sources */,
+				4E5C319C19BFAE0B00400BE5 /* OSImpl.swift in Sources */,
 				4E22060B19BDF3DC00BC4819 /* ContactTag.swift in Sources */,
 				4E22066219BDF3DC00BC4819 /* IDevice.swift in Sources */,
 				4E22061A19BDF3DC00BC4819 /* IAdaptiveRP.swift in Sources */,
@@ -1002,6 +1033,7 @@
 				4E22068B19BDF3DC00BC4819 /* INetworkReachability.swift in Sources */,
 				4E22065919BDF3DC00BC4819 /* IContactResultCallbackError.swift in Sources */,
 				4E22069A19BDF3DC00BC4819 /* IRSS.swift in Sources */,
+				4E5C319819BFAE0B00400BE5 /* DeviceImpl.swift in Sources */,
 				4E22065B19BDF3DC00BC4819 /* ICrypto.swift in Sources */,
 				4E22060E19BDF3DC00BC4819 /* Cookie.swift in Sources */,
 				4E22062B19BDF3DC00BC4819 /* IAppServerListener.swift in Sources */,
@@ -1024,6 +1056,7 @@
 				4E22060319BDF3DC00BC4819 /* Column.swift in Sources */,
 				4E22064819BDF3DC00BC4819 /* ICapabilitiesButton.swift in Sources */,
 				4E22067719BDF3DC00BC4819 /* IGyroscope.swift in Sources */,
+				4E5C319519BFAE0B00400BE5 /* AppContextWebviewImpl.swift in Sources */,
 				4E22062319BDF3DC00BC4819 /* IAppResourceCallback.swift in Sources */,
 				4E2206A219BDF3DC00BC4819 /* IServiceResultCallbackError.swift in Sources */,
 				4E2206B319BDF3DC00BC4819 /* IWallet.swift in Sources */,
@@ -1041,10 +1074,12 @@
 				4E2206AD19BDF3DC00BC4819 /* ITimer.swift in Sources */,
 				4E22060219BDF3DC00BC4819 /* Button.swift in Sources */,
 				4E22064E19BDF3DC00BC4819 /* ICapabilitiesSensor.swift in Sources */,
+				4E5C319719BFAE0B00400BE5 /* CapabilitiesImpl.swift in Sources */,
 				4E22061C19BDF3DC00BC4819 /* IAlarm.swift in Sources */,
 				4E26F36219BE0FE7008FA728 /* AppServerImpl.swift in Sources */,
 				4E22061E19BDF3DC00BC4819 /* IAnalytics.swift in Sources */,
 				4E22064D19BDF3DC00BC4819 /* ICapabilitiesNotification.swift in Sources */,
+				4E5C319A19BFAE0B00400BE5 /* GlobalizationImpl.swift in Sources */,
 				4E22064319BDF3DC00BC4819 /* IButtonListenerError.swift in Sources */,
 				4E22062619BDF3DC00BC4819 /* IAppResourceFormat.swift in Sources */,
 				4E2206BC19BDF3DC00BC4819 /* ServiceResponse.swift in Sources */,
@@ -1068,6 +1103,7 @@
 				4E22065119BDF3DC00BC4819 /* IConcurrent.swift in Sources */,
 				4E22068719BDF3DC00BC4819 /* IMessagingCallbackError.swift in Sources */,
 				4E22061819BDF3DC00BC4819 /* IAccelerationListenerWarning.swift in Sources */,
+				4E5C319619BFAE0B00400BE5 /* AppResourceHandlerImpl.swift in Sources */,
 				4E22060819BDF3DC00BC4819 /* ContactPhone.swift in Sources */,
 				4E2206A119BDF3DC00BC4819 /* IServiceResultCallback.swift in Sources */,
 				4E22066719BDF3DC00BC4819 /* IFileDataResultCallbackError.swift in Sources */,

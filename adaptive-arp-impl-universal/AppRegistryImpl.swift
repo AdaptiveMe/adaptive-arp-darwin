@@ -53,18 +53,18 @@ public class AppRegistryImpl : IAppRegistry {
     var os : IOS
     var runtime : IRuntime
     
-    init(globalization : IGlobalization, lifecycle : ILifecycle, context : IAppContext, contextWeb : IAppContextWebview, resourceHandler: IAppResourceHandler, capabilities : ICapabilities, device : IDevice, display : IDisplay, os : IOS, runtime : IRuntime) {
+    init(context : IAppContext) {
         
-        self.globalization = globalization
-        self.lifecycle = lifecycle
+        self.globalization = GlobalizationImpl()
+        self.lifecycle = LifecycleImpl()
         self.context = context
-        self.contextWeb = contextWeb
-        self.resourceHandler = resourceHandler
-        self.capabilities = capabilities
-        self.device = device
-        self.display = display
-        self.os = os
-        self.runtime = runtime
+        self.contextWeb = AppContextWebviewImpl()
+        self.resourceHandler = AppResourceHandlerImpl()
+        self.capabilities = CapabilitiesImpl()
+        self.device = DeviceImpl()
+        self.display = DisplayImpl()
+        self.os = OSImpl()
+        self.runtime = RuntimeImpl()
     }
     
     public func getApplicationAnalytics() -> IAnalytics {
