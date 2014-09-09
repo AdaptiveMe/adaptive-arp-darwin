@@ -207,6 +207,7 @@
 		4E26F36719BF5BAA008FA728 /* IAppContextWebview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26F36619BF5BAA008FA728 /* IAppContextWebview.swift */; };
 		4E5C316619BF6BC700400BE5 /* LoggingImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C316519BF6BC700400BE5 /* LoggingImpl.swift */; };
 		4E5C316D19BF723400400BE5 /* AppRegistryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C316C19BF723400400BE5 /* AppRegistryImpl.swift */; };
+		4E5C317519BF92A600400BE5 /* AppContextImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C317419BF92A600400BE5 /* AppContextImpl.swift */; };
 		4E83DCA519B635AA002B9764 /* AdaptiveArpImplIosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83DCA419B635AA002B9764 /* AdaptiveArpImplIosTests.swift */; };
 		C0CB9D185D7848B2899849D4 /* libPods-AdaptiveArpImplIosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 313F1F810DA14669B95006AB /* libPods-AdaptiveArpImplIosTests.a */; };
 /* End PBXBuildFile section */
@@ -414,6 +415,7 @@
 		4E26F36619BF5BAA008FA728 /* IAppContextWebview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAppContextWebview.swift; path = "Pods/AdaptiveArpApi/adaptive-arp-api-swift/ARP/IAppContextWebview.swift"; sourceTree = SOURCE_ROOT; };
 		4E5C316519BF6BC700400BE5 /* LoggingImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoggingImpl.swift; path = "../../adaptive-arp-impl-universal/LoggingImpl.swift"; sourceTree = "<group>"; };
 		4E5C316C19BF723400400BE5 /* AppRegistryImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppRegistryImpl.swift; path = "../../adaptive-arp-impl-universal/AppRegistryImpl.swift"; sourceTree = "<group>"; };
+		4E5C317419BF92A600400BE5 /* AppContextImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppContextImpl.swift; path = "../../adaptive-arp-impl-universal/AppContextImpl.swift"; sourceTree = "<group>"; };
 		4E83DC9519B635AA002B9764 /* AdaptiveArpImplIos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdaptiveArpImplIos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E83DC9919B635AA002B9764 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E83DCA019B635AA002B9764 /* AdaptiveArpImplIosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdaptiveArpImplIosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -659,6 +661,7 @@
 		4E26F33D19BE0006008FA728 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4E5C317419BF92A600400BE5 /* AppContextImpl.swift */,
 				4E5C316C19BF723400400BE5 /* AppRegistryImpl.swift */,
 				4E5C316519BF6BC700400BE5 /* LoggingImpl.swift */,
 				4E26F35C19BE0FD9008FA728 /* AppServerImpl.swift */,
@@ -955,6 +958,7 @@
 				4E22083519BDF42A00BC4819 /* OSInfo.swift in Sources */,
 				4E2207E619BDF42900BC4819 /* IFileDataResultCallbackWarning.swift in Sources */,
 				4E26F34719BE0021008FA728 /* HttpServer.swift in Sources */,
+				4E5C317519BF92A600400BE5 /* AppContextImpl.swift in Sources */,
 				4E22083419BDF42A00BC4819 /* Locale.swift in Sources */,
 				4E22082719BDF42900BC4819 /* ITableResultCallbackError.swift in Sources */,
 				4E2207C219BDF42900BC4819 /* IButtonListenerWarning.swift in Sources */,
