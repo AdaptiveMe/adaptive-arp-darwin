@@ -36,7 +36,7 @@ public class OSImpl : IOS {
         var osName : String
         #if os(iOS)
             osName = "iOS"
-        #else
+        #elseif os(OSX)
             osName = "OSX"
         #endif
         var processInfoOs : NSOperatingSystemVersion = NSProcessInfo.processInfo().operatingSystemVersion
