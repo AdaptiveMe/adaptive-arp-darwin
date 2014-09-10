@@ -27,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		492C7DAEA7F447C5872D2873 /* libPods-AdaptiveArpRtOsx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AdaptiveArpRtOsx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E22051019BA387C00BC4819 /* AdaptiveArpRtOsx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdaptiveArpRtOsx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E22051419BA387C00BC4819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E22051519BA387C00BC4819 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -38,6 +39,9 @@
 		4E22052819BA387C00BC4819 /* AdaptiveArpRtOsxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveArpRtOsxTests.swift; sourceTree = "<group>"; };
 		4E22053219BA38AE00BC4819 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		4E22053519BA458D00BC4819 /* WindowDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowDelegate.swift; sourceTree = "<group>"; };
+		9D1BAE9608ED40E081FD137B /* libPods-AdaptiveArpRtOsxTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AdaptiveArpRtOsxTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8B9C6B39A964F8AB7A9F5C0 /* Pods-AdaptiveArpRtOsxTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdaptiveArpRtOsxTests.xcconfig"; path = "Pods/Pods-AdaptiveArpRtOsxTests.xcconfig"; sourceTree = "<group>"; };
+		F1E6E74F26484CA5B13C91BE /* Pods-AdaptiveArpRtOsx.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdaptiveArpRtOsx.xcconfig"; path = "Pods/Pods-AdaptiveArpRtOsx.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 				4E22052519BA387C00BC4819 /* AdaptiveArpRtOsxTests */,
 				4E22051119BA387C00BC4819 /* Products */,
 				4E22053419BA38C100BC4819 /* Frameworks */,
+				F1E6E74F26484CA5B13C91BE /* Pods-AdaptiveArpRtOsx.xcconfig */,
+				B8B9C6B39A964F8AB7A9F5C0 /* Pods-AdaptiveArpRtOsxTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -120,6 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				4E22053219BA38AE00BC4819 /* WebKit.framework */,
+				492C7DAEA7F447C5872D2873 /* libPods-AdaptiveArpRtOsx.a */,
+				9D1BAE9608ED40E081FD137B /* libPods-AdaptiveArpRtOsxTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -131,6 +139,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4E22052C19BA387C00BC4819 /* Build configuration list for PBXNativeTarget "AdaptiveArpRtOsx" */;
 			buildPhases = (
+				594C0B009B5C4B6DB097CA6B /* Check Pods Manifest.lock */,
 				4E22050C19BA387C00BC4819 /* Sources */,
 				4E22050D19BA387C00BC4819 /* Frameworks */,
 				4E22050E19BA387C00BC4819 /* Resources */,
@@ -148,6 +157,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4E22052F19BA387C00BC4819 /* Build configuration list for PBXNativeTarget "AdaptiveArpRtOsxTests" */;
 			buildPhases = (
+				B62A892EF8D8457688D1A42D /* Check Pods Manifest.lock */,
 				4E22051E19BA387C00BC4819 /* Sources */,
 				4E22051F19BA387C00BC4819 /* Frameworks */,
 				4E22052019BA387C00BC4819 /* Resources */,
@@ -217,6 +227,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		594C0B009B5C4B6DB097CA6B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B62A892EF8D8457688D1A42D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4E22050C19BA387C00BC4819 /* Sources */ = {
@@ -338,6 +381,7 @@
 		};
 		4E22052D19BA387C00BC4819 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1E6E74F26484CA5B13C91BE /* Pods-AdaptiveArpRtOsx.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -349,6 +393,7 @@
 		};
 		4E22052E19BA387C00BC4819 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1E6E74F26484CA5B13C91BE /* Pods-AdaptiveArpRtOsx.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -360,6 +405,7 @@
 		};
 		4E22053019BA387C00BC4819 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8B9C6B39A964F8AB7A9F5C0 /* Pods-AdaptiveArpRtOsxTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -380,6 +426,7 @@
 		};
 		4E22053119BA387C00BC4819 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8B9C6B39A964F8AB7A9F5C0 /* Pods-AdaptiveArpRtOsxTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -413,6 +460,7 @@
 				4E22052E19BA387C00BC4819 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4E22052F19BA387C00BC4819 /* Build configuration list for PBXNativeTarget "AdaptiveArpRtOsxTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +469,7 @@
 				4E22053119BA387C00BC4819 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
