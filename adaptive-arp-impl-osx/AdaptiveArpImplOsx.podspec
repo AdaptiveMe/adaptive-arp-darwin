@@ -48,5 +48,6 @@ s.social_media_url = 'https://twitter.com/adaptivecoder'
 s.osx.deployment_target = '10.10'
 s.framework     = 'Foundation'
 s.requires_arc     = true
-s.source_files     = 'adaptive-arp-impl-universal/*.swift', 'adaptive-arp-impl-osx/ARP/*'
+s.dependency 'AdaptiveArpApi', '~> 1.0'
+s.source_files     = 'adaptive-arp-impl-universal/*.swift', 'adaptive-arp-impl-universal/**/*.swift', 'adaptive-arp-impl-osx/ARP/*'
 end
