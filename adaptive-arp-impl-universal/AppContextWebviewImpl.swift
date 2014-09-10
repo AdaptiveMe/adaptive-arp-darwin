@@ -27,27 +27,97 @@
 */
 
 import Foundation
+import WebKit
+#if os(iOS)
+import UIKit
+#elseif os(OSX)
+import Cocoa
+#endif
 
 public class AppContextWebviewImpl : IAppContextWebview {
     
+    
+    var primaryView : AnyObject?
+    var webViewList : [AnyObject]
+    
     init() {
-        
+        webViewList = []
     }
     
-    public func addWebview(webView : AnyObject) {
+    public func addWebview(webViewInstance : AnyObject) {
+        var exists = false;
         
+        #if os(iOS)
+            if let uiWebView = webViewInstance as? WKWebView {
+                for webView in webViewList {
+                    if (webView as NSObject == webViewInstance as NSObject) {
+                        exists = true
+                        break
+                    }
+                }
+            }
+        #elseif os(OSX)
+            if let webView = webViewInstance as? WebView {
+                for webView in webViewList {
+                    if (webView as NSObject == webViewInstance as NSObject) {
+                        exists = true
+                        break
+                    }
+                }
+            }
+        #endif
+        
+        // Avoid duplicate entries.
+        if !exists {
+           webViewList.append(webViewInstance)
+        }
     }
+    
+    #if os(iOS)
+    
+    func setWebviewPrimary(webView : WKWebView) {
+        self.primaryView = webView
+    }
+    
+    #elseif os(OSX)
+    
+    func setWebviewPrimary(webView : WebView) {
+        self.primaryView = webView
+    }
+    
+    #endif
     
     public func getWebviewPrimary() -> AnyObject {
-        return ""
+        return self.primaryView!
     }
     
     public func getWebviews() -> [AnyObject] {
-        return []
+        var webViewListFull : [AnyObject] = []
+        
+        if (self.primaryView != nil) {
+           webViewListFull.append(self.primaryView!)
+        }
+        for webView in self.webViewList {
+           webViewListFull.append(webView)
+        }
+        return webViewListFull
     }
     
-    public func removeWebview(webView : AnyObject) {
+    public func removeWebview(webViewInstance : AnyObject) {
+        var removeIndex : Int = 0
+        var remove : Bool = false
         
+        for webView in self.webViewList {
+            if (webView as NSObject == webViewInstance as NSObject) {
+                remove = true
+                break
+            }
+            removeIndex++
+        }
+        
+        if (remove) {
+            self.webViewList.removeAtIndex(removeIndex)
+        }
     }
     
 }
