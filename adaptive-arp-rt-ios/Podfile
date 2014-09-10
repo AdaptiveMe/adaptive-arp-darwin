@@ -1,0 +1,12 @@
+# Uncomment this line to define a global platform for your project
+
+target 'AdaptiveArpRtIos' do
+    platform :ios, '8.0'
+    pod 'AdaptiveArpImplIos', '~> 1.0'
+end
+
+target 'AdaptiveArpRtIosTests' do
+    platform :ios, '8.0'
+    pod 'AdaptiveArpImplIos', '~> 1.0'
+end
+
