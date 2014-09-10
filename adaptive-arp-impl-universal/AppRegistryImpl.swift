@@ -31,6 +31,16 @@ import Foundation
 public class AppRegistryImpl : IAppRegistry {
     
     /*
+        Extremely PORK singleton declaration... imho
+    */
+    class var sharedInstance : IAppRegistry {
+        struct Static {
+            static let instance : IAppRegistry = AppRegistryImpl()
+        }
+        return Static.instance
+    }
+    
+    /*
         Optional Implementations
     */
     var analitics : IAnalytics?
@@ -53,11 +63,11 @@ public class AppRegistryImpl : IAppRegistry {
     var os : IOS
     var runtime : IRuntime
     
-    init(context : IAppContext) {
+    private init() {
         
         self.globalization = GlobalizationImpl()
         self.lifecycle = LifecycleImpl()
-        self.context = context
+        self.context = AppContextImpl()
         self.contextWeb = AppContextWebviewImpl()
         self.resourceHandler = AppResourceHandlerImpl()
         self.capabilities = CapabilitiesImpl()

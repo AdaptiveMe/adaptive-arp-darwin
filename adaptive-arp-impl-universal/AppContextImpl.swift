@@ -27,18 +27,23 @@
 */
 
 import Foundation
-
+#if os(iOS)
+import UIKit
+#elseif os(OSX)
+import Cocoa
+#endif
 public class AppContextImpl : IAppContext {
     
     var context : AnyObject
     var type: IAppContextType
     
-    init(context: AnyObject) {
-        self.context = context
+    init() {
 #if os(iOS)
         self.type = IAppContextType.iOS
+        self.context = UIApplication.sharedApplication()
 #elseif os(OSX)
         self.type = IAppContextType.OSX
+        self.context = NSApplication.sharedApplication()
 #endif
     }
     
