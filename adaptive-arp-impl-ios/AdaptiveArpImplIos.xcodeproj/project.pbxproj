@@ -219,6 +219,7 @@
 		4E5C318B19BFAA8B00400BE5 /* RuntimeImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C318319BFAA8B00400BE5 /* RuntimeImpl.swift */; };
 		4E83DCA519B635AA002B9764 /* AdaptiveArpImplIosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83DCA419B635AA002B9764 /* AdaptiveArpImplIosTests.swift */; };
 		C0CB9D185D7848B2899849D4 /* libPods-AdaptiveArpImplIosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 313F1F810DA14669B95006AB /* libPods-AdaptiveArpImplIosTests.a */; };
+		C3803B3919C060B900DE9B75 /* NetworkReachabilityImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3803B3819C060B900DE9B75 /* NetworkReachabilityImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -441,6 +442,7 @@
 		4E83DCA419B635AA002B9764 /* AdaptiveArpImplIosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveArpImplIosTests.swift; sourceTree = "<group>"; };
 		80755E929E37466989F59D40 /* libPods-AdaptiveArpImplIos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AdaptiveArpImplIos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE435E214E92462B87F3D1DD /* Pods-AdaptiveArpImplIosTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdaptiveArpImplIosTests.xcconfig"; path = "Pods/Pods-AdaptiveArpImplIosTests.xcconfig"; sourceTree = "<group>"; };
+		C3803B3819C060B900DE9B75 /* NetworkReachabilityImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityImpl.swift; path = "../../adaptive-arp-impl-universal/NetworkReachabilityImpl.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -694,6 +696,7 @@
 				4E26F35C19BE0FD9008FA728 /* AppServerImpl.swift */,
 				4E26F35D19BE0FD9008FA728 /* AppServerManagerImpl.swift */,
 				4E26F33E19BE0021008FA728 /* listener_http */,
+				C3803B3819C060B900DE9B75 /* NetworkReachabilityImpl.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -1143,6 +1146,7 @@
 				4E2207FD19BDF42900BC4819 /* ILogging.swift in Sources */,
 				4E2207C419BDF42900BC4819 /* ICamera.swift in Sources */,
 				4E2207E819BDF42900BC4819 /* IFileListResultCallbackError.swift in Sources */,
+				C3803B3919C060B900DE9B75 /* NetworkReachabilityImpl.swift in Sources */,
 				4E2207AA19BDF42900BC4819 /* IAppServerManager.swift in Sources */,
 				4E22078319BDF42900BC4819 /* ContactAddress.swift in Sources */,
 				4E2207F919BDF42900BC4819 /* ILifecycleListener.swift in Sources */,
