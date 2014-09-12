@@ -21,7 +21,10 @@
 *
 * Contributors:
 *
-*     *
+*     * Ferran Vila Conesa
+*                 <http://github.com/fnva>
+*                 <http://twitter.com/ferran_vila>
+*                 <mailto:ferran.vila.conesa@gmail.com>
 *
 * =====================================================================================================================
 */
@@ -30,21 +33,52 @@ import Foundation
 
 class LoggingImpl : ILogging {
     
+    /**
+    Class constructor
+    */
+    init() {
+        
+    }
+    
+    /**
+    Logs the given message, with the given log level if specified, to the standard platform/environment.
+    
+    :param: level   Log level
+    :param: message Message to be logged
+    :author: Carlos Lozano Diez
+    :since: ARP1.0
+    */
     func log(level : ILoggingLogLevel, message : String) {
+        
         log(level, category: "GENERAL", message: message);
     }
     
+    /**
+    Logs the given message, with the given log level if specified, to the standard platform/environment.
+    
+    :param: level    Log level
+    :param: category Category/tag name to identify/filter the log.
+    :param: message  Message to be logged
+    :author: Carlos Lozano Diez
+    :since: ARP1.0
+    */
     func log(level : ILoggingLogLevel, category : String, message : String) {
-        if (level == ILoggingLogLevel.DEBUG) {
+        
+        switch level {
+            
+        case ILoggingLogLevel.DEBUG:
             #if DEBUG
-            println("DEBUG - "+category+": "+message)
+                NSLog("[DEBUG - \(category)] \(message)")
             #endif
-        } else if (level == ILoggingLogLevel.ERROR) {
-            println("ERROR - "+category+": "+message)
-        } else if (level == ILoggingLogLevel.WARN) {
-            println("WARN - "+category+": "+message)
-        } else {
-            println("INFO - "+category+": "+message)
+            
+        case ILoggingLogLevel.INFO:
+            NSLog("[INFO - \(category)] \(message)")
+            
+        case ILoggingLogLevel.WARN:
+            NSLog("[WARN - \(category)] \(message)")
+            
+        case ILoggingLogLevel.ERROR:
+            NSLog("[ERROR - \(category)] \(message)")
         }
     }
     
