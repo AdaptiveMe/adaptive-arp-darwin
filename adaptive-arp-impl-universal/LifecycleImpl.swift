@@ -21,7 +21,10 @@
 *
 * Contributors:
 *
-*     *
+*     * Ferran Vila Conesa
+*                 <http://github.com/fnva>
+*                 <http://twitter.com/ferran_vila>
+*                 <mailto:ferran.vila.conesa@gmail.com>
 *
 * =====================================================================================================================
 */
@@ -30,15 +33,30 @@ import Foundation
 
 public class LifecycleImpl : ILifecycle {
     
+    /// Logging variable
+    let logger : ILogging = LoggingImpl()
+    
+    /**
+    Class constructor
+    */
     init() {
         
     }
     
     public func addLifecycleListener(listener : ILifecycleListener) {
         
+        // TODO
     }
     
+    /**
+    Whether the application is in background or not
+    
+    :returns: true if the application is in background;false otherwise
+    */
     public func isBackground() -> Bool {
+        
+        // TODO
+        
         return false
     }
     
