@@ -19,11 +19,9 @@
 		4EDD2F0719C055F2003C85D1 /* DisplayImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDD2EF319C055F2003C85D1 /* DisplayImpl.swift */; };
 		4EDD2F0819C055F2003C85D1 /* GlobalizationImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDD2EF419C055F2003C85D1 /* GlobalizationImpl.swift */; };
 		4EDD2F0919C055F2003C85D1 /* LifecycleImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDD2EF519C055F2003C85D1 /* LifecycleImpl.swift */; };
-		4EDD2F0A19C055F2003C85D1 /* HttpParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDD2EF719C055F2003C85D1 /* HttpParser.swift */; };
 		4EDD2F0B19C055F2003C85D1 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDD2EF819C055F2003C85D1 /* HttpRequest.swift */; };
 		4EDD2F0C19C055F2003C85D1 /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDD2EF919C055F2003C85D1 /* HttpResponse.swift */; };
 		4EDD2F0D19C055F2003C85D1 /* HttpServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDD2EFA19C055F2003C85D1 /* HttpServer.swift */; };
-		4EDD2F0E19C055F2003C85D1 /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDD2EFB19C055F2003C85D1 /* Socket.swift */; };
 		4EDD2F0F19C055F2003C85D1 /* LoggingImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDD2EFC19C055F2003C85D1 /* LoggingImpl.swift */; };
 		4EDD2F1019C055F2003C85D1 /* OSImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDD2EFD19C055F2003C85D1 /* OSImpl.swift */; };
 		4EDD2F1119C055F2003C85D1 /* RuntimeImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDD2EFE19C055F2003C85D1 /* RuntimeImpl.swift */; };
@@ -220,6 +218,8 @@
 		4EDD309119C05602003C85D1 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDD2FD219C05602003C85D1 /* Table.swift */; };
 		4EDD309419C0560B003C85D1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4EDD309319C0560B003C85D1 /* LICENSE */; };
 		C0CB9D185D7848B2899849D4 /* libPods-AdaptiveArpImplIosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 313F1F810DA14669B95006AB /* libPods-AdaptiveArpImplIosTests.a */; };
+		C308CA4D19C2CE570097D92C /* HttpParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C308CA4B19C2CE570097D92C /* HttpParser.swift */; };
+		C308CA4E19C2CE570097D92C /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = C308CA4C19C2CE570097D92C /* Socket.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -241,11 +241,9 @@
 		4EDD2EF319C055F2003C85D1 /* DisplayImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayImpl.swift; sourceTree = "<group>"; };
 		4EDD2EF419C055F2003C85D1 /* GlobalizationImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalizationImpl.swift; sourceTree = "<group>"; };
 		4EDD2EF519C055F2003C85D1 /* LifecycleImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifecycleImpl.swift; sourceTree = "<group>"; };
-		4EDD2EF719C055F2003C85D1 /* HttpParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpParser.swift; sourceTree = "<group>"; };
 		4EDD2EF819C055F2003C85D1 /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
 		4EDD2EF919C055F2003C85D1 /* HttpResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
 		4EDD2EFA19C055F2003C85D1 /* HttpServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpServer.swift; sourceTree = "<group>"; };
-		4EDD2EFB19C055F2003C85D1 /* Socket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
 		4EDD2EFC19C055F2003C85D1 /* LoggingImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingImpl.swift; sourceTree = "<group>"; };
 		4EDD2EFD19C055F2003C85D1 /* OSImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSImpl.swift; sourceTree = "<group>"; };
 		4EDD2EFE19C055F2003C85D1 /* RuntimeImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuntimeImpl.swift; sourceTree = "<group>"; };
@@ -443,6 +441,8 @@
 		4EDD309319C0560B003C85D1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		80755E929E37466989F59D40 /* libPods-AdaptiveArpImplIos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AdaptiveArpImplIos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE435E214E92462B87F3D1DD /* Pods-AdaptiveArpImplIosTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdaptiveArpImplIosTests.xcconfig"; path = "Pods/Pods-AdaptiveArpImplIosTests.xcconfig"; sourceTree = "<group>"; };
+		C308CA4B19C2CE570097D92C /* HttpParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpParser.swift; sourceTree = "<group>"; };
+		C308CA4C19C2CE570097D92C /* Socket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -556,11 +556,11 @@
 		4EDD2EF619C055F2003C85D1 /* listener_http */ = {
 			isa = PBXGroup;
 			children = (
-				4EDD2EF719C055F2003C85D1 /* HttpParser.swift */,
+				C308CA4B19C2CE570097D92C /* HttpParser.swift */,
+				C308CA4C19C2CE570097D92C /* Socket.swift */,
 				4EDD2EF819C055F2003C85D1 /* HttpRequest.swift */,
 				4EDD2EF919C055F2003C85D1 /* HttpResponse.swift */,
 				4EDD2EFA19C055F2003C85D1 /* HttpServer.swift */,
-				4EDD2EFB19C055F2003C85D1 /* Socket.swift */,
 			);
 			path = listener_http;
 			sourceTree = "<group>";
@@ -955,7 +955,6 @@
 			files = (
 				4EDD300819C05602003C85D1 /* IBaseData.swift in Sources */,
 				4EDD2FF419C05602003C85D1 /* IAppContextWebview.swift in Sources */,
-				4EDD2F0E19C055F2003C85D1 /* Socket.swift in Sources */,
 				4EDD300219C05602003C85D1 /* IBarcode.swift in Sources */,
 				4EDD304019C05602003C85D1 /* IFilePath.swift in Sources */,
 				4EDD307B19C05602003C85D1 /* IStore.swift in Sources */,
@@ -1008,7 +1007,6 @@
 				4EDD302519C05602003C85D1 /* IConcurrent.swift in Sources */,
 				4EDD302019C05602003C85D1 /* ICapabilitiesNet.swift in Sources */,
 				4EDD2F0719C055F2003C85D1 /* DisplayImpl.swift in Sources */,
-				4EDD2F0A19C055F2003C85D1 /* HttpParser.swift in Sources */,
 				4EDD308619C05602003C85D1 /* IVideo.swift in Sources */,
 				4EDD2FE119C05602003C85D1 /* Cookie.swift in Sources */,
 				4EDD305A19C05602003C85D1 /* IMessagingCallback.swift in Sources */,
@@ -1047,6 +1045,7 @@
 				4EDD308F19C05602003C85D1 /* ServiceRequest.swift in Sources */,
 				4EDD303919C05602003C85D1 /* IFile.swift in Sources */,
 				4EDD303619C05602003C85D1 /* IDevice.swift in Sources */,
+				C308CA4E19C2CE570097D92C /* Socket.swift in Sources */,
 				4EDD306A19C05602003C85D1 /* IOS.swift in Sources */,
 				4EDD300B19C05602003C85D1 /* IBaseNotification.swift in Sources */,
 				4EDD303519C05602003C85D1 /* IDesktop.swift in Sources */,
@@ -1058,6 +1057,7 @@
 				4EDD300719C05602003C85D1 /* IBaseCommunication.swift in Sources */,
 				4EDD300119C05602003C85D1 /* IAudio.swift in Sources */,
 				4EDD302819C05602003C85D1 /* IContactFilter.swift in Sources */,
+				C308CA4D19C2CE570097D92C /* HttpParser.swift in Sources */,
 				4EDD305619C05602003C85D1 /* IMail.swift in Sources */,
 				4EDD305519C05602003C85D1 /* IMagnetometer.swift in Sources */,
 				4EDD2F0919C055F2003C85D1 /* LifecycleImpl.swift in Sources */,
