@@ -31,7 +31,7 @@
 
 import Foundation
 
-class NetworkReachabilityImpl : INetworkReachability {
+public class NetworkReachabilityImpl : INetworkReachability {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
@@ -48,13 +48,15 @@ class NetworkReachabilityImpl : INetworkReachability {
     
     :param: url      url to look for
     :param: callback Callback called at the end
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
     */
-    func isNetworkReachable(url : String, callback : INetworkReachabilityCallback) {
+    public func isNetworkReachable(url : String, callback : INetworkReachabilityCallback) {
         
         // TODO: handle http status WARNING codes for: NotRegisteredService, NotTrusted, IncorrectScheme
         
         // Check the url for malforming
-        if(self.validateUrl(url)){
+        if(Utils.validateUrl(url)){
             callback.onError(INetworkReachabilityCallbackError.MalformedUrl)
             self.logger.log(ILoggingLogLevel.ERROR, category: "NetworkReachabilityImpl", message: "Url malformed: \(url)")
             return
@@ -125,21 +127,5 @@ class NetworkReachabilityImpl : INetworkReachability {
                 }
             }
         })
-    }
-    
-    /**
-    Function that checks if an url has the correct sintaxis
-    
-    :param: stringURL url to check
-    
-    :returns: true if correct, false otherwise
-    */
-    private func validateUrl (stringURL : NSString) -> Bool {
-        
-        var urlRegEx = "((https|http)://)((\\w|-)+)(([.]|[/])((\\w|-)+))+"
-        let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray:[urlRegEx])
-        var urlTest = NSPredicate.predicateWithSubstitutionVariables(predicate)
-        
-        return predicate.evaluateWithObject(stringURL)
     }
 }
