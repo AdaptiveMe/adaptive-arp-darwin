@@ -80,7 +80,7 @@ public class NetworkReachabilityImpl : INetworkReachability {
                 
             } else {
                 
-                let httpResponse = response as NSHTTPURLResponse
+                let httpResponse: NSHTTPURLResponse = response as NSHTTPURLResponse
                 
                 //Converting data to String
                 let responseText:NSString = NSString(data:responseData, encoding:NSUTF8StringEncoding)
