@@ -31,7 +31,7 @@
 
 import Foundation
 
-class LoggingImpl : ILogging {
+public class LoggingImpl : ILogging {
     
     /**
     Class constructor
@@ -48,7 +48,7 @@ class LoggingImpl : ILogging {
     :author: Carlos Lozano Diez
     :since: ARP1.0
     */
-    func log(level : ILoggingLogLevel, message : String) {
+    public func log(level : ILoggingLogLevel, message : String) {
         
         log(level, category: "GENERAL", message: message);
     }
@@ -62,7 +62,7 @@ class LoggingImpl : ILogging {
     :author: Carlos Lozano Diez
     :since: ARP1.0
     */
-    func log(level : ILoggingLogLevel, category : String, message : String) {
+    public func log(level : ILoggingLogLevel, category : String, message : String) {
         
         switch level {
             

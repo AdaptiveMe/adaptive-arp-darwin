@@ -61,6 +61,8 @@ public class OSImpl : IOS {
     Returns the OSInfo for the current operating system.
     
     :returns: OSInfo with name, version and vendor of the OS.
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
     */
     public func getOSInfo() -> OSInfo {
         

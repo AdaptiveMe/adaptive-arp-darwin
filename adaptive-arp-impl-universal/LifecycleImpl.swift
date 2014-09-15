@@ -52,6 +52,8 @@ public class LifecycleImpl : ILifecycle {
     Whether the application is in background or not
     
     :returns: true if the application is in background;false otherwise
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
     */
     public func isBackground() -> Bool {
         

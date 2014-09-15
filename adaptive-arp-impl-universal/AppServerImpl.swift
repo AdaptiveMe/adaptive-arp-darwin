@@ -28,7 +28,7 @@
 
 import Foundation
 
-class AppServerImpl : IAppServer {
+public class AppServerImpl : IAppServer {
     
     private var baseURI : String
     private var host : String
@@ -46,35 +46,35 @@ class AppServerImpl : IAppServer {
         self.manager = manager;
     }
     
-    func getBaseURI() -> String {
+    public func getBaseURI() -> String {
         return self.baseURI
     }
     
-    func getHost() -> String {
+    public func getHost() -> String {
         return self.host
     }
     
-    func getPath() -> String {
+    public func getPath() -> String {
         return self.path
     }
     
-    func getPort() -> Int {
+    public func getPort() -> Int {
         return self.port
     }
     
-    func getScheme() -> String {
+    public func getScheme() -> String {
         return self.scheme
     }
     
-    func pauseServer() {
+    public func pauseServer() {
         manager.pauseServer(self)
     }
     
-    func resumeServer() {
+    public func resumeServer() {
         manager.resumeServer(self)
     }
     
-    func stopServer() {
+    public func stopServer() {
         manager.stopServer(self)
     }
 }

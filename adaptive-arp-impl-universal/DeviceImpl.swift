@@ -76,6 +76,8 @@ public class DeviceImpl : IDevice {
     Gets the current Locale for the device.
     
     :returns: The current Locale information.
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
     */
     public func getLocaleCurrent() -> Locale {
         
