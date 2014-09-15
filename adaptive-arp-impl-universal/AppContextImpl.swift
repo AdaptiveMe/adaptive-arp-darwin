@@ -38,13 +38,13 @@ public class AppContextImpl : IAppContext {
     var type: IAppContextType
     
     init() {
-#if os(iOS)
-        self.type = IAppContextType.iOS
-        self.context = UIApplication.sharedApplication()
-#elseif os(OSX)
-        self.type = IAppContextType.OSX
-        self.context = NSApplication.sharedApplication()
-#endif
+        #if os(iOS)
+            self.type = IAppContextType.iOS
+            self.context = UIApplication.sharedApplication()
+        #elseif os(OSX)
+            self.type = IAppContextType.OSX
+            self.context = NSApplication.sharedApplication()
+        #endif
     }
     
     public func getContext() -> AnyObject {

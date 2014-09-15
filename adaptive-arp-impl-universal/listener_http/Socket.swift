@@ -35,9 +35,11 @@ struct Socket {
     static func socketLastError(reason:String) -> NSError {
         let errorCode = errno
         if let errorText = String.fromCString(UnsafePointer(strerror(errorCode))) {
-            return NSError.errorWithDomain("SOCKET", code: Int(errorCode), userInfo: [NSLocalizedFailureReasonErrorKey : reason, NSLocalizedDescriptionKey : errorText])
+            //return NSError.errorWithDomain("SOCKET", code: Int(errorCode), userInfo: [NSLocalizedFailureReasonErrorKey : reason, NSLocalizedDescriptionKey : errorText])
+            return NSError(domain: "SOCKET", code: Int(errorCode), userInfo: [NSLocalizedFailureReasonErrorKey : reason, NSLocalizedDescriptionKey : errorText])
         }
-        return NSError.errorWithDomain("SOCKET", code: Int(errorCode), userInfo: nil)
+        //return NSError.errorWithDomain("SOCKET", code: Int(errorCode), userInfo: nil)
+        return NSError(domain: "SOCKET", code: Int(errorCode), userInfo: nil)
     }
     
     static func tcpForListen(port: in_port_t = 8080, error:NSErrorPointer = nil) -> CInt? {

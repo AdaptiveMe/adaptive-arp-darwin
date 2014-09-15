@@ -31,28 +31,25 @@
 
 import Foundation
 
-public class RuntimeImpl : IRuntime {
-    
-    /// Logging variable
-    let logger : ILogging = LoggingImpl()
+public struct Utils {
     
     /**
-    Class constructor
+    Function that checks if an url has the correct sintaxis
+    
+    :param: stringURL url to check
+    
+    :returns: true if correct, false otherwise
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
     */
-    init() {
+    public static func validateUrl (stringURL : NSString) -> Bool {
         
+        var urlRegEx = "((https|http)://)((\\w|-)+)(([.]|[/])((\\w|-)+))+"
+        let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray:[urlRegEx])
+        var urlTest = NSPredicate.predicateWithSubstitutionVariables(predicate)
+        
+        return predicate.evaluateWithObject(stringURL)
     }
-    
-    public func dismissApplication() {
-        
-        // TODO
-    }
-    
-    public func dismissSplashScreen() -> Bool {
-        
-        // TODO
-        
-        return false
-    }
-    
 }
+
+

@@ -28,7 +28,7 @@
 
 import Foundation
 
-class AppServerManagerImpl : IAppServerManager {
+public class AppServerManagerImpl : IAppServerManager {
     
     var listenerList : [IAppServerListener]
     var serverList : [IAppServer]
@@ -41,7 +41,7 @@ class AppServerManagerImpl : IAppServerManager {
         self.serverRegistry = Dictionary<String, HttpServer>()
     }
     
-    func addServerListener(listener : IAppServerListener) {
+    public func addServerListener(listener : IAppServerListener) {
         var exists : Bool = false
         for existingListener in self.listenerList {
             if (existingListener.toString() == listener.toString()) {
@@ -55,12 +55,12 @@ class AppServerManagerImpl : IAppServerManager {
         }
     }
     
-    func getServers() -> [IAppServer] {
+    public func getServers() -> [IAppServer] {
         let servers : [IAppServer] = self.serverList
         return servers
     }
     
-    func removeServerListener(listener : IAppServerListener) {
+    public func removeServerListener(listener : IAppServerListener) {
         var index : Int = 0
         var exists : Bool = false;
         for existingListener in listenerList {
@@ -77,13 +77,13 @@ class AppServerManagerImpl : IAppServerManager {
         }
     }
     
-    func removeServerListeners() {
+    public func removeServerListeners() {
         debug("removeServerListeners.")
         listenerList.removeAll(keepCapacity: false)
     }
     
     
-    func startServer() {
+    public func startServer() {
         // Before Start
         var httpServer : HttpServer = HttpServer()
         var httpError : NSErrorPointer = NSErrorPointer()
@@ -104,7 +104,7 @@ class AppServerManagerImpl : IAppServerManager {
         }
     }
     
-    func stopServer(server : IAppServer) {
+    public func stopServer(server : IAppServer) {
         // Before
         for listener in listenerList {
             debug("stopServer "+server.getBaseURI()+".")
@@ -128,7 +128,7 @@ class AppServerManagerImpl : IAppServerManager {
         }
     }
     
-    func pauseServer(server : IAppServer) {
+    public func pauseServer(server : IAppServer) {
         // Before
         for listener in listenerList {
             debug("pauseServer onPausing notify listener "+listener.toString()+".")
@@ -151,7 +151,7 @@ class AppServerManagerImpl : IAppServerManager {
         }
     }
     
-    func resumeServer(server: IAppServer) {
+    public func resumeServer(server: IAppServer) {
         // Before
         for listener in listenerList {
             debug("resumeServer onResuming notify listener "+listener.toString()+".")
@@ -179,7 +179,7 @@ class AppServerManagerImpl : IAppServerManager {
         }
     }
     
-    func stopServers() {
+    public func stopServers() {
         for server in serverList {
             stopServer(server)
         }

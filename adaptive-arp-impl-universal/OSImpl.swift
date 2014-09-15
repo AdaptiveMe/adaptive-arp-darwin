@@ -21,7 +21,10 @@
 *
 * Contributors:
 *
-*     *
+*     * Ferran Vila Conesa
+*                 <http://github.com/fnva>
+*                 <http://twitter.com/ferran_vila>
+*                 <mailto:ferran.vila.conesa@gmail.com>
 *
 * =====================================================================================================================
 */
@@ -30,8 +33,15 @@ import Foundation
 
 public class OSImpl : IOS {
     
+    /// Logging variable
+    let logger : ILogging = LoggingImpl()
+    
+    /// Variable to store OSInfo object
     var osInfo : OSInfo
     
+    /**
+    Class constructor. Loads all information of the operating system
+    */
     init() {
         var osName : String
         #if os(iOS)
@@ -47,7 +57,17 @@ public class OSImpl : IOS {
         self.osInfo = OSInfo(name: osName, version: osVersion, vendor: "Apple")
     }
     
+    /**
+    Returns the OSInfo for the current operating system.
+    
+    :returns: OSInfo with name, version and vendor of the OS.
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
+    */
     public func getOSInfo() -> OSInfo {
+        
+        logger.log(ILoggingLogLevel.INFO, category: "OSImpl", message: "name: \(self.osInfo.getName()), version: \(self.osInfo.getVersion()), vendor: \(self.osInfo.getVendor())")
+        
         return self.osInfo
     }
 }

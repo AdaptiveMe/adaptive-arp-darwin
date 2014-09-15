@@ -31,28 +31,32 @@
 
 import Foundation
 
-public class RuntimeImpl : IRuntime {
+public struct Await<T> {
     
-    /// Logging variable
-    let logger : ILogging = LoggingImpl()
+    /// private properties
+    let group: dispatch_group_t
+    let getResult: () -> T
     
-    /**
-    Class constructor
-    */
-    init() {
-        
+    // public methods
+    func await() -> T {
+        return getResult()
     }
+}
+
+/**
+Method for calling async methods in Swift
+
+:param: queue Common queue to execute methods
+:param: block Block lines
+
+:returns: Block return value
+*/
+public func async<T>(queue: dispatch_queue_t, block: () -> T) -> Await<T> {
     
-    public func dismissApplication() {
-        
-        // TODO
+    let group = dispatch_group_create()
+    var result: T?
+    dispatch_group_async(group, queue) {
+        result = block()
     }
-    
-    public func dismissSplashScreen() -> Bool {
-        
-        // TODO
-        
-        return false
-    }
-    
+    return Await(group: group, getResult: { dispatch_group_wait(group, DISPATCH_TIME_FOREVER); return result! })
 }
