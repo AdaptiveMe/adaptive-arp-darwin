@@ -221,6 +221,10 @@
 		C308CA6019C2CF030097D92C /* LifecycleImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C308CA5619C2CF030097D92C /* LifecycleImpl.swift */; };
 		C308CA6119C2CF030097D92C /* GlobalizationImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C308CA5719C2CF030097D92C /* GlobalizationImpl.swift */; };
 		C308CA6219C2CF030097D92C /* LoggingImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C308CA5819C2CF030097D92C /* LoggingImpl.swift */; };
+		C308CA6419C2D0DB0097D92C /* ServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C308CA6319C2D0DB0097D92C /* ServiceImpl.swift */; };
+		C308CA6619C2F7C70097D92C /* TelephonyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C308CA6519C2F7C70097D92C /* TelephonyImpl.swift */; };
+		C308CA6C19C310F40097D92C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C308CA6B19C310F40097D92C /* Utils.swift */; };
+		C308CA6E19C314B10097D92C /* Await.swift in Sources */ = {isa = PBXBuildFile; fileRef = C308CA6D19C314B10097D92C /* Await.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -445,6 +449,10 @@
 		C308CA5619C2CF030097D92C /* LifecycleImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifecycleImpl.swift; sourceTree = "<group>"; };
 		C308CA5719C2CF030097D92C /* GlobalizationImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalizationImpl.swift; sourceTree = "<group>"; };
 		C308CA5819C2CF030097D92C /* LoggingImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingImpl.swift; sourceTree = "<group>"; };
+		C308CA6319C2D0DB0097D92C /* ServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceImpl.swift; sourceTree = "<group>"; };
+		C308CA6519C2F7C70097D92C /* TelephonyImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TelephonyImpl.swift; sourceTree = "<group>"; };
+		C308CA6B19C310F40097D92C /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		C308CA6D19C314B10097D92C /* Await.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Await.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -478,12 +486,12 @@
 		4E83DC8B19B635AA002B9764 = {
 			isa = PBXGroup;
 			children = (
-				4E83DC9719B635AA002B9764 /* AdaptiveArpImplIos */,
-				4E83DCA119B635AA002B9764 /* AdaptiveArpImplIosTests */,
-				4E83DC9619B635AA002B9764 /* Products */,
-				030C22BC28D0463282C94C33 /* Frameworks */,
 				0C5D888D2C344F66A866530E /* Pods-AdaptiveArpImplIos.xcconfig */,
 				BE435E214E92462B87F3D1DD /* Pods-AdaptiveArpImplIosTests.xcconfig */,
+				4E83DC9719B635AA002B9764 /* AdaptiveArpImplIos */,
+				4E83DCA119B635AA002B9764 /* AdaptiveArpImplIosTests */,
+				030C22BC28D0463282C94C33 /* Frameworks */,
+				4E83DC9619B635AA002B9764 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -538,19 +546,21 @@
 				C308CA4F19C2CF030097D92C /* AppContextImpl.swift */,
 				C308CA5019C2CF030097D92C /* AppContextWebviewImpl.swift */,
 				C308CA5119C2CF030097D92C /* AppRegistryImpl.swift */,
-				C308CA5219C2CF030097D92C /* OSImpl.swift */,
-				C308CA5319C2CF030097D92C /* NetworkReachabilityImpl.swift */,
-				C308CA5419C2CF030097D92C /* DeviceImpl.swift */,
-				C308CA5519C2CF030097D92C /* RuntimeImpl.swift */,
-				C308CA5619C2CF030097D92C /* LifecycleImpl.swift */,
-				C308CA5719C2CF030097D92C /* GlobalizationImpl.swift */,
-				C308CA5819C2CF030097D92C /* LoggingImpl.swift */,
 				4EDD2EEE19C055F2003C85D1 /* AppResourceHandlerImpl.swift */,
 				4EDD2EEF19C055F2003C85D1 /* AppServerImpl.swift */,
 				4EDD2EF019C055F2003C85D1 /* AppServerManagerImpl.swift */,
 				4EDD2EF119C055F2003C85D1 /* CapabilitiesImpl.swift */,
+				C308CA5419C2CF030097D92C /* DeviceImpl.swift */,
 				4EDD2EF319C055F2003C85D1 /* DisplayImpl.swift */,
+				C308CA5719C2CF030097D92C /* GlobalizationImpl.swift */,
+				C308CA5619C2CF030097D92C /* LifecycleImpl.swift */,
+				C308CA5819C2CF030097D92C /* LoggingImpl.swift */,
+				C308CA5319C2CF030097D92C /* NetworkReachabilityImpl.swift */,
+				C308CA5219C2CF030097D92C /* OSImpl.swift */,
+				C308CA5519C2CF030097D92C /* RuntimeImpl.swift */,
+				C308CA6319C2D0DB0097D92C /* ServiceImpl.swift */,
 				4EDD2EF619C055F2003C85D1 /* listener_http */,
+				C308CA6A19C310D30097D92C /* utils */,
 			);
 			name = "adaptive-arp-impl-universal";
 			path = "../../adaptive-arp-impl-universal";
@@ -779,9 +789,19 @@
 			isa = PBXGroup;
 			children = (
 				4EDD309319C0560B003C85D1 /* LICENSE */,
+				C308CA6519C2F7C70097D92C /* TelephonyImpl.swift */,
 			);
 			path = ARP;
 			sourceTree = SOURCE_ROOT;
+		};
+		C308CA6A19C310D30097D92C /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				C308CA6B19C310F40097D92C /* Utils.swift */,
+				C308CA6D19C314B10097D92C /* Await.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -991,6 +1011,7 @@
 				4EDD307819C05602003C85D1 /* ISession.swift in Sources */,
 				4EDD302D19C05602003C85D1 /* IContactResultCallbackError.swift in Sources */,
 				4EDD303D19C05602003C85D1 /* IFileListResultCallback.swift in Sources */,
+				C308CA6C19C310F40097D92C /* Utils.swift in Sources */,
 				4EDD309119C05602003C85D1 /* Table.swift in Sources */,
 				4EDD305B19C05602003C85D1 /* IMessagingCallbackError.swift in Sources */,
 				4EDD305C19C05602003C85D1 /* IMessagingCallbackWarning.swift in Sources */,
@@ -1010,6 +1031,7 @@
 				4EDD2F0719C055F2003C85D1 /* DisplayImpl.swift in Sources */,
 				4EDD308619C05602003C85D1 /* IVideo.swift in Sources */,
 				4EDD2FE119C05602003C85D1 /* Cookie.swift in Sources */,
+				C308CA6E19C314B10097D92C /* Await.swift in Sources */,
 				4EDD305A19C05602003C85D1 /* IMessagingCallback.swift in Sources */,
 				4EDD301719C05602003C85D1 /* IButtonListenerError.swift in Sources */,
 				4EDD2FEB19C05602003C85D1 /* IAccelerationListenerWarning.swift in Sources */,
@@ -1079,7 +1101,9 @@
 				4EDD2FEF19C05602003C85D1 /* IAlarm.swift in Sources */,
 				4EDD306019C05602003C85D1 /* INetworkReachabilityCallback.swift in Sources */,
 				4EDD2FE819C05602003C85D1 /* Header.swift in Sources */,
+				C308CA6419C2D0DB0097D92C /* ServiceImpl.swift in Sources */,
 				4EDD303319C05602003C85D1 /* IDatabaseResultCallbackWarning.swift in Sources */,
+				C308CA6619C2F7C70097D92C /* TelephonyImpl.swift in Sources */,
 				4EDD305819C05602003C85D1 /* IMap.swift in Sources */,
 				4EDD306319C05602003C85D1 /* INetworkStatus.swift in Sources */,
 				4EDD2FF119C05602003C85D1 /* IAnalytics.swift in Sources */,
