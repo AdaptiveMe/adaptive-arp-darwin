@@ -78,8 +78,29 @@ public class BrowserImpl : IBrowser {
             return false
         }
         
-        // Open the browser with the url 
-        application.openURL(NSURL(string: url)!)
+        // Check the correct format of the number
+        if !Utils.validateUrl(url) {
+            
+            logger.log(ILoggingLogLevel.ERROR, category: "BrowserImpl", message: "The url: \(url) has an incorrect format")
+            return false
+        }
+        
+        let url: NSURL = NSURL(string: url)!
+        
+        // Check if it is possible to open the url
+        if !application.canOpenURL(url) {
+            
+            logger.log(ILoggingLogLevel.ERROR, category: "BrowserImpl", message: "The url: \(url) is not possible to open by the application")
+            return false
+        }
+        
+        // Make the call
+        let result: Bool =  application.openURL(url)
+        
+        if !result {
+            logger.log(ILoggingLogLevel.ERROR, category: "BrowserImpl", message: "It is not posible to open the url")
+            return false
+        }
         
         return true
     }
