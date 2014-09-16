@@ -225,6 +225,8 @@
 		C308CA6619C2F7C70097D92C /* TelephonyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C308CA6519C2F7C70097D92C /* TelephonyImpl.swift */; };
 		C308CA6C19C310F40097D92C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C308CA6B19C310F40097D92C /* Utils.swift */; };
 		C308CA6E19C314B10097D92C /* Await.swift in Sources */ = {isa = PBXBuildFile; fileRef = C308CA6D19C314B10097D92C /* Await.swift */; };
+		C319BD7919C82C2200E3A6D2 /* MessagingImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C319BD7819C82C2200E3A6D2 /* MessagingImpl.swift */; };
+		C353FCCA19C87CC600350640 /* BrowserImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C353FCC919C87CC600350640 /* BrowserImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -453,6 +455,8 @@
 		C308CA6519C2F7C70097D92C /* TelephonyImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TelephonyImpl.swift; sourceTree = "<group>"; };
 		C308CA6B19C310F40097D92C /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		C308CA6D19C314B10097D92C /* Await.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Await.swift; sourceTree = "<group>"; };
+		C319BD7819C82C2200E3A6D2 /* MessagingImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagingImpl.swift; sourceTree = "<group>"; };
+		C353FCC919C87CC600350640 /* BrowserImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -549,6 +553,7 @@
 				4EDD2EEE19C055F2003C85D1 /* AppResourceHandlerImpl.swift */,
 				4EDD2EEF19C055F2003C85D1 /* AppServerImpl.swift */,
 				4EDD2EF019C055F2003C85D1 /* AppServerManagerImpl.swift */,
+				C353FCC919C87CC600350640 /* BrowserImpl.swift */,
 				4EDD2EF119C055F2003C85D1 /* CapabilitiesImpl.swift */,
 				C308CA5419C2CF030097D92C /* DeviceImpl.swift */,
 				4EDD2EF319C055F2003C85D1 /* DisplayImpl.swift */,
@@ -790,6 +795,7 @@
 			children = (
 				4EDD309319C0560B003C85D1 /* LICENSE */,
 				C308CA6519C2F7C70097D92C /* TelephonyImpl.swift */,
+				C319BD7819C82C2200E3A6D2 /* MessagingImpl.swift */,
 			);
 			path = ARP;
 			sourceTree = SOURCE_ROOT;
@@ -1105,6 +1111,7 @@
 				4EDD303319C05602003C85D1 /* IDatabaseResultCallbackWarning.swift in Sources */,
 				C308CA6619C2F7C70097D92C /* TelephonyImpl.swift in Sources */,
 				4EDD305819C05602003C85D1 /* IMap.swift in Sources */,
+				C353FCCA19C87CC600350640 /* BrowserImpl.swift in Sources */,
 				4EDD306319C05602003C85D1 /* INetworkStatus.swift in Sources */,
 				4EDD2FF119C05602003C85D1 /* IAnalytics.swift in Sources */,
 				4EDD306719C05602003C85D1 /* IOAuth.swift in Sources */,
@@ -1158,6 +1165,7 @@
 				C308CA6219C2CF030097D92C /* LoggingImpl.swift in Sources */,
 				4EDD308A19C05602003C85D1 /* Locale.swift in Sources */,
 				4EDD307319C05602003C85D1 /* ISecurity.swift in Sources */,
+				C319BD7919C82C2200E3A6D2 /* MessagingImpl.swift in Sources */,
 				4EDD301519C05602003C85D1 /* IBrowser.swift in Sources */,
 				4EDD2F0C19C055F2003C85D1 /* HttpResponse.swift in Sources */,
 				4EDD303219C05602003C85D1 /* IDatabaseResultCallbackError.swift in Sources */,
