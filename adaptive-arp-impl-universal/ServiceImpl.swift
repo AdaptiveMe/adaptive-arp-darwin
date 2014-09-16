@@ -166,7 +166,7 @@ public class ServiceImpl : IService {
         // TODO: The session attribute of Service Request is not used
         
         // Create and prepare the request and the sesion
-        var request = NSMutableURLRequest(URL: NSURL(string: url))
+        var request = NSMutableURLRequest(URL: NSURL(string: url)!)
         var session = NSURLSession.sharedSession()
         
         // Prepare the Service Request
@@ -199,7 +199,7 @@ public class ServiceImpl : IService {
             else {
                 
                 //Converting data to String
-                let responseText:NSString = NSString(data:data, encoding:NSUTF8StringEncoding)
+                let responseText:NSString = NSString(data:data, encoding:NSUTF8StringEncoding)!
                 
                 // Check for Not secured url
                 if (url as NSString).containsString("https://") {

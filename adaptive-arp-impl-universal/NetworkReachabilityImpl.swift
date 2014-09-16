@@ -62,7 +62,7 @@ public class NetworkReachabilityImpl : INetworkReachability {
             return
         }
         
-        var nsUrl:NSURL = NSURL(string: url)
+        var nsUrl:NSURL = NSURL(string: url)!
         var request = NSURLRequest(URL: nsUrl)
         
         // Creating NSOperationQueue to which the handler block is dispatched when the request completes or failed
@@ -83,7 +83,7 @@ public class NetworkReachabilityImpl : INetworkReachability {
                 let httpResponse: NSHTTPURLResponse = response as NSHTTPURLResponse
                 
                 //Converting data to String
-                let responseText:NSString = NSString(data:responseData, encoding:NSUTF8StringEncoding)
+                let responseText:NSString = NSString(data:responseData, encoding:NSUTF8StringEncoding)!
                 
                 // Check for Not secured url
                 if (url as NSString).containsString("https://") {

@@ -65,7 +65,7 @@ public class TelephonyImpl : ITelephony {
             return ITelephonyStatus.Failed
         }
         
-        let url: NSURL = NSURL(string: "tel://\(number)")
+        let url: NSURL = NSURL(string: "tel://\(number)")!
         
         // Check if it is possible to open the url
         if !application.canOpenURL(url) {
@@ -95,9 +95,9 @@ public class TelephonyImpl : ITelephony {
         
         var urlRegEx = "((\\+[1-9]{3,4}|0[1-9]{4}|00[1-9]{3})\\-?)?\\d{8,20}"
         let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray:[urlRegEx])
-        var urlTest = NSPredicate.predicateWithSubstitutionVariables(predicate)
+        var urlTest = NSPredicate.predicateWithSubstitutionVariables(predicate!)
         
-        return predicate.evaluateWithObject(phoneNumber)
+        return predicate!.evaluateWithObject(phoneNumber)
         
     }
 }

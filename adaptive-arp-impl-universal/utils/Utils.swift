@@ -46,9 +46,9 @@ public struct Utils {
         
         var urlRegEx = "((https|http)://)((\\w|-)+)(([.]|[/])((\\w|-)+))+"
         let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray:[urlRegEx])
-        var urlTest = NSPredicate.predicateWithSubstitutionVariables(predicate)
+        var urlTest = NSPredicate.predicateWithSubstitutionVariables(predicate!)
         
-        return predicate.evaluateWithObject(stringURL)
+        return predicate!.evaluateWithObject(stringURL)
     }
 }
 

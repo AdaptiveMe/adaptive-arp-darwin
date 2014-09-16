@@ -49,7 +49,9 @@ class HttpServer
             return nil
         }
         set ( newValue ) {
-            if let regex: NSRegularExpression = NSRegularExpression.regularExpressionWithPattern(path, options: expressionOptions, error: nil) {
+            // ferran.vila: 16/09/2014 Modifications due to Swift changes method signature
+            // if let regex: NSRegularExpression = NSRegularExpression.regularExpressionWithPattern(path, options: expressionOptions, error: nil) {
+            if let regex: NSRegularExpression = NSRegularExpression(pattern: path, options: expressionOptions, error: nil) {
                 if let newHandler = newValue {
                     handlers.append(expression: regex, handler: newHandler)
                 }
@@ -62,14 +64,22 @@ class HttpServer
             return path
         }
         set ( directoryPath ) {
-            if let regex = NSRegularExpression.regularExpressionWithPattern(path, options: expressionOptions, error: nil) {
+            // ferran.vila: 16/09/2014 Modifications due to Swift changes method signature
+            // if let regex = NSRegularExpression.regularExpressionWithPattern(path, options: expressionOptions, error: nil) {
+            if let regex = NSRegularExpression(pattern: path, options: expressionOptions, error: nil) {
                 handlers.append(expression: regex, handler: { request in
                     let result : NSTextCheckingResult = regex.firstMatchInString(request.url, options: self.matchingOptions, range: NSMakeRange(0, request.url.lengthOfBytesUsingEncoding(NSASCIIStringEncoding)))!
                     let nsPath: NSString = request.url
                     let filesPath = directoryPath.stringByExpandingTildeInPath
                         .stringByAppendingPathComponent(nsPath.substringWithRange(result.rangeAtIndex(1)))
-                    if let fileBody = String.stringWithContentsOfFile(filesPath, encoding: NSASCIIStringEncoding, error: nil) {
+                    // ferran.vila: 16/09/2014 Modifications due to Swift changes method signature
+                    /*if let fileBody = String.stringWithContentsOfFile(filesPath, encoding: NSASCIIStringEncoding, error: nil) {
                         return HttpResponse.OK(.RAW(fileBody))
+                    }*/
+                    let data: NSData? = NSData(contentsOfFile: filesPath)
+                    if data != nil {
+                        let content = NSString(data: data!, encoding:NSUTF8StringEncoding) as String
+                        return HttpResponse.OK(.RAW(content))
                     }
                     return HttpResponse.NotFound
                 })
