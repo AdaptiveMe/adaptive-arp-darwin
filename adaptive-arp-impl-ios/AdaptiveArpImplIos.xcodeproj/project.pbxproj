@@ -227,6 +227,7 @@
 		C308CA6E19C314B10097D92C /* Await.swift in Sources */ = {isa = PBXBuildFile; fileRef = C308CA6D19C314B10097D92C /* Await.swift */; };
 		C319BD7919C82C2200E3A6D2 /* MessagingImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C319BD7819C82C2200E3A6D2 /* MessagingImpl.swift */; };
 		C353FCCA19C87CC600350640 /* BrowserImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C353FCC919C87CC600350640 /* BrowserImpl.swift */; };
+		C353FCCC19C96A3B00350640 /* SecurityImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C353FCCB19C96A3B00350640 /* SecurityImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -457,6 +458,7 @@
 		C308CA6D19C314B10097D92C /* Await.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Await.swift; sourceTree = "<group>"; };
 		C319BD7819C82C2200E3A6D2 /* MessagingImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagingImpl.swift; sourceTree = "<group>"; };
 		C353FCC919C87CC600350640 /* BrowserImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserImpl.swift; sourceTree = "<group>"; };
+		C353FCCB19C96A3B00350640 /* SecurityImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -563,6 +565,7 @@
 				C308CA5319C2CF030097D92C /* NetworkReachabilityImpl.swift */,
 				C308CA5219C2CF030097D92C /* OSImpl.swift */,
 				C308CA5519C2CF030097D92C /* RuntimeImpl.swift */,
+				C353FCCB19C96A3B00350640 /* SecurityImpl.swift */,
 				C308CA6319C2D0DB0097D92C /* ServiceImpl.swift */,
 				4EDD2EF619C055F2003C85D1 /* listener_http */,
 				C308CA6A19C310D30097D92C /* utils */,
@@ -1003,6 +1006,7 @@
 				4EDD307719C05602003C85D1 /* IServiceResultCallbackWarning.swift in Sources */,
 				4EDD300F19C05602003C85D1 /* IBaseSensor.swift in Sources */,
 				4EDD305719C05602003C85D1 /* IManagement.swift in Sources */,
+				C353FCCC19C96A3B00350640 /* SecurityImpl.swift in Sources */,
 				4EDD2F0D19C055F2003C85D1 /* HttpServer.swift in Sources */,
 				4EDD2FD619C05602003C85D1 /* Column.swift in Sources */,
 				4EDD308B19C05602003C85D1 /* OSInfo.swift in Sources */,
