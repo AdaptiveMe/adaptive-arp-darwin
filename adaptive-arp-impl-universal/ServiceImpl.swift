@@ -186,7 +186,6 @@ public class ServiceImpl : IService {
             // Cast the response and the errors
             let httpResponse: NSHTTPURLResponse = response as NSHTTPURLResponse
             
-            // TODO: inspect the error and determine what to do
             let nsError: NSError? = error as NSError
             
             // There was an error on the data task

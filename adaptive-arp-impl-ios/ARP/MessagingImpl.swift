@@ -124,8 +124,8 @@ public class MessagingImpl : NSObject, IMessaging, MFMessageComposeViewControlle
             
         }
         
-        // TODO: Open the view to compose the mail with the fields setted
-        // self.presentViewController(mail, animated: true, completion: nil)
+        // Open the view to compose the mail with the fields setted
+        wkWebView.window?.rootViewController?.presentViewController(mail, animated: true, completion: nil)
         
     }
     
@@ -159,8 +159,8 @@ public class MessagingImpl : NSObject, IMessaging, MFMessageComposeViewControlle
         messageController.body = text
         messageController.recipients = [number]
         
-        // TODO: Open the view to compose the message with the fields setted
-        // self.presentViewController(messageController, animated:true, completion:nil)
+        // Open the view to compose the message with the fields setted
+        wkWebView.window?.rootViewController?.presentViewController(messageController, animated: true, completion: nil)
     }
     
     /**
