@@ -227,6 +227,7 @@
 		C308CA6E19C314B10097D92C /* Await.swift in Sources */ = {isa = PBXBuildFile; fileRef = C308CA6D19C314B10097D92C /* Await.swift */; };
 		C319BD7919C82C2200E3A6D2 /* MessagingImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C319BD7819C82C2200E3A6D2 /* MessagingImpl.swift */; };
 		C347132519CAD04A00129847 /* SessionImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347132419CAD04A00129847 /* SessionImpl.swift */; };
+		C347132919CAEBC700129847 /* VideoImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347132819CAEBC700129847 /* VideoImpl.swift */; };
 		C353FCCA19C87CC600350640 /* BrowserImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C353FCC919C87CC600350640 /* BrowserImpl.swift */; };
 		C353FCCC19C96A3B00350640 /* SecurityImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C353FCCB19C96A3B00350640 /* SecurityImpl.swift */; };
 /* End PBXBuildFile section */
@@ -459,6 +460,7 @@
 		C308CA6D19C314B10097D92C /* Await.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Await.swift; sourceTree = "<group>"; };
 		C319BD7819C82C2200E3A6D2 /* MessagingImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagingImpl.swift; sourceTree = "<group>"; };
 		C347132419CAD04A00129847 /* SessionImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionImpl.swift; sourceTree = "<group>"; };
+		C347132819CAEBC700129847 /* VideoImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoImpl.swift; sourceTree = "<group>"; };
 		C353FCC919C87CC600350640 /* BrowserImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserImpl.swift; sourceTree = "<group>"; };
 		C353FCCB19C96A3B00350640 /* SecurityImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -799,6 +801,7 @@
 		4EDD309219C0560B003C85D1 /* ARP */ = {
 			isa = PBXGroup;
 			children = (
+				C347132819CAEBC700129847 /* VideoImpl.swift */,
 				4EDD309319C0560B003C85D1 /* LICENSE */,
 				C308CA6519C2F7C70097D92C /* TelephonyImpl.swift */,
 				C319BD7819C82C2200E3A6D2 /* MessagingImpl.swift */,
@@ -1027,6 +1030,7 @@
 				C308CA6C19C310F40097D92C /* Utils.swift in Sources */,
 				4EDD309119C05602003C85D1 /* Table.swift in Sources */,
 				4EDD305B19C05602003C85D1 /* IMessagingCallbackError.swift in Sources */,
+				C347132919CAEBC700129847 /* VideoImpl.swift in Sources */,
 				4EDD305C19C05602003C85D1 /* IMessagingCallbackWarning.swift in Sources */,
 				4EDD2FE319C05602003C85D1 /* DeviceInfo.swift in Sources */,
 				4EDD302219C05602003C85D1 /* ICapabilitiesSensor.swift in Sources */,
