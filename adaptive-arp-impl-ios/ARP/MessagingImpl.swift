@@ -35,7 +35,7 @@ import UIKit
 import WebKit
 
 /**
-This class implements also the MFMessageComposeViewControllerDelegate in order to handle the callbacks from a sms call
+This class implements also the MFMessageComposeViewControllerDelegate in order to handle the callbacks from a sms call and the MFMailComposeViewControllerDelegate to handle mail callbacks
 :see: https://github.com/hectorlr/Reddit-Scan-Swift/blob/master/Reddit%20Scan%20Swift/Views/ShareCard.swift
 */
 public class MessagingImpl : NSObject, IMessaging, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate {
