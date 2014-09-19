@@ -230,6 +230,7 @@
 		C347132919CAEBC700129847 /* VideoImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347132819CAEBC700129847 /* VideoImpl.swift */; };
 		C353FCCA19C87CC600350640 /* BrowserImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C353FCC919C87CC600350640 /* BrowserImpl.swift */; };
 		C353FCCC19C96A3B00350640 /* SecurityImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C353FCCB19C96A3B00350640 /* SecurityImpl.swift */; };
+		C3FFDF2D19CC3A48000BB47C /* I18NParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FFDF2C19CC3A48000BB47C /* I18NParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -463,6 +464,7 @@
 		C347132819CAEBC700129847 /* VideoImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoImpl.swift; sourceTree = "<group>"; };
 		C353FCC919C87CC600350640 /* BrowserImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserImpl.swift; sourceTree = "<group>"; };
 		C353FCCB19C96A3B00350640 /* SecurityImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityImpl.swift; sourceTree = "<group>"; };
+		C3FFDF2C19CC3A48000BB47C /* I18NParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = I18NParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -801,10 +803,10 @@
 		4EDD309219C0560B003C85D1 /* ARP */ = {
 			isa = PBXGroup;
 			children = (
-				C347132819CAEBC700129847 /* VideoImpl.swift */,
 				4EDD309319C0560B003C85D1 /* LICENSE */,
-				C308CA6519C2F7C70097D92C /* TelephonyImpl.swift */,
 				C319BD7819C82C2200E3A6D2 /* MessagingImpl.swift */,
+				C308CA6519C2F7C70097D92C /* TelephonyImpl.swift */,
+				C347132819CAEBC700129847 /* VideoImpl.swift */,
 			);
 			path = ARP;
 			sourceTree = SOURCE_ROOT;
@@ -814,6 +816,7 @@
 			children = (
 				C308CA6B19C310F40097D92C /* Utils.swift */,
 				C308CA6D19C314B10097D92C /* Await.swift */,
+				C3FFDF2C19CC3A48000BB47C /* I18NParser.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -1145,6 +1148,7 @@
 				4EDD303019C05602003C85D1 /* IDatabase.swift in Sources */,
 				4EDD306919C05602003C85D1 /* IOpenId.swift in Sources */,
 				4EDD304319C05602003C85D1 /* IFileResultCallbackWarning.swift in Sources */,
+				C3FFDF2D19CC3A48000BB47C /* I18NParser.swift in Sources */,
 				C308CA5F19C2CF030097D92C /* RuntimeImpl.swift in Sources */,
 				4EDD302A19C05602003C85D1 /* IContactPhotoResultCallbackError.swift in Sources */,
 				4EDD301C19C05602003C85D1 /* ICapabilitiesButton.swift in Sources */,
