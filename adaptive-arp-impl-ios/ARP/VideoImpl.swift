@@ -86,10 +86,7 @@ public class VideoImpl : IVideo {
         
         wkWebView.addSubview(moviePlayer.view)
         
-        //self.view.addSubview(moviePlayer.view)
-        
-        moviePlayer.fullscreen = true
-        
+        moviePlayer.fullscreen = true        
         moviePlayer.controlStyle = MPMovieControlStyle.Embedded
     }
 }
