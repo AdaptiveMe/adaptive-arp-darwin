@@ -57,7 +57,8 @@ public class NetworkReachabilityImpl : INetworkReachability {
         
         // Check the url for malforming
         if(Utils.validateUrl(url)){
-            callback.onError(INetworkReachabilityCallbackError.MalformedUrl)
+            // TODO: INetworkReachabilityCallbackError.MalformedUrl
+            callback.onError(INetworkReachabilityCallbackError.Forbidden)
             self.logger.log(ILoggingLogLevel.ERROR, category: "NetworkReachabilityImpl", message: "Url malformed: \(url)")
             return
         }

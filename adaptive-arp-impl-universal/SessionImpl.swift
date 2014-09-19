@@ -135,7 +135,7 @@ public class SessionImpl : ISession {
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    public func getAttribute(name : String) -> AnyObject? {
+    public func getAttribute(name : String) -> AnyObject {
         
         for (key, value) in self.attributes {
             if key == name {
@@ -146,7 +146,8 @@ public class SessionImpl : ISession {
         
         logger.log(ILoggingLogLevel.WARN, category: "SessionImpl", message: "The attribute with name \(name) does not exist. Returning nil")
         
-        return nil
+        // TODO return nil
+        return ""
     }
     
     /**

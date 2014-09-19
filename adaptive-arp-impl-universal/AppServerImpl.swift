@@ -74,6 +74,10 @@ public class AppServerImpl : IAppServer {
         manager.resumeServer(self)
     }
     
+    public func startServer() {
+        manager.startServer()
+    }
+    
     public func stopServer() {
         manager.stopServer(self)
     }

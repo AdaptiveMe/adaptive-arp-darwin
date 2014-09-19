@@ -95,8 +95,8 @@ public class ServiceImpl : IService {
         let t = async(q) { () -> String? in
             
             if(!self.isRegistered(service)){
-                
-                callback.onError(IServiceResultCallbackError.ServiceNotRegistered)
+                // TODO: IServiceResultCallbackError.ServiceNotRegistered
+                callback.onError(IServiceResultCallbackError.Forbidden)
                 self.logger.log(ILoggingLogLevel.ERROR, category: "ServiceImpl", message: "\(service.getName()) is not registered on the pull")
                 return nil
             }
@@ -109,7 +109,8 @@ public class ServiceImpl : IService {
             
             // Check the url for malforming
             if(Utils.validateUrl(url)){
-                callback.onError(IServiceResultCallbackError.MalformedUrl)
+                // TODO: IServiceResultCallbackError.MalformedUrl
+                callback.onError(IServiceResultCallbackError.Forbidden)
                 self.logger.log(ILoggingLogLevel.ERROR, category: "ServiceImpl", message: "Malformed url: \(url)")
                 return nil
             }
@@ -217,7 +218,8 @@ public class ServiceImpl : IService {
                 case 300..<399:
                     postCompleted(succeeded: 1, responseContent: responseText, warning: IServiceResultCallbackWarning.Redirected, error: nil)
                 case 400:
-                    postCompleted(succeeded: 2, responseContent: nil, warning: nil, error: IServiceResultCallbackError.Wrong_Params)
+                    // TODO: IServiceResultCallbackError.Wrong_Params
+                    postCompleted(succeeded: 2, responseContent: nil, warning: nil, error: IServiceResultCallbackError.NotAuthenticated)
                 case 401:
                     postCompleted(succeeded: 2, responseContent: nil, warning: nil, error: IServiceResultCallbackError.NotAuthenticated)
                 case 403:
