@@ -68,6 +68,8 @@ public class BrowserImpl : IBrowser {
     :param: buttonText text of the close button
     
     :returns: true if the new window opens;false otherwise
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
     */
     public func openBrowser(url : String, title : String, buttonText : String) -> Bool {
         
