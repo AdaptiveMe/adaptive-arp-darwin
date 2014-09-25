@@ -230,6 +230,7 @@
 		C347132919CAEBC700129847 /* VideoImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347132819CAEBC700129847 /* VideoImpl.swift */; };
 		C353FCCA19C87CC600350640 /* BrowserImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C353FCC919C87CC600350640 /* BrowserImpl.swift */; };
 		C353FCCC19C96A3B00350640 /* SecurityImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C353FCCB19C96A3B00350640 /* SecurityImpl.swift */; };
+		C3DB94B019D00F9C000294DC /* ContactImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DB94AF19D00F9C000294DC /* ContactImpl.swift */; };
 		C3FFDF2D19CC3A48000BB47C /* I18NParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FFDF2C19CC3A48000BB47C /* I18NParser.swift */; };
 /* End PBXBuildFile section */
 
@@ -464,6 +465,7 @@
 		C347132819CAEBC700129847 /* VideoImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoImpl.swift; sourceTree = "<group>"; };
 		C353FCC919C87CC600350640 /* BrowserImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserImpl.swift; sourceTree = "<group>"; };
 		C353FCCB19C96A3B00350640 /* SecurityImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityImpl.swift; sourceTree = "<group>"; };
+		C3DB94AF19D00F9C000294DC /* ContactImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactImpl.swift; sourceTree = "<group>"; };
 		C3FFDF2C19CC3A48000BB47C /* I18NParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = I18NParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -563,6 +565,7 @@
 				4EDD2EF019C055F2003C85D1 /* AppServerManagerImpl.swift */,
 				C353FCC919C87CC600350640 /* BrowserImpl.swift */,
 				4EDD2EF119C055F2003C85D1 /* CapabilitiesImpl.swift */,
+				C3DB94AF19D00F9C000294DC /* ContactImpl.swift */,
 				C308CA5419C2CF030097D92C /* DeviceImpl.swift */,
 				4EDD2EF319C055F2003C85D1 /* DisplayImpl.swift */,
 				C308CA5719C2CF030097D92C /* GlobalizationImpl.swift */,
@@ -1148,6 +1151,7 @@
 				4EDD303019C05602003C85D1 /* IDatabase.swift in Sources */,
 				4EDD306919C05602003C85D1 /* IOpenId.swift in Sources */,
 				4EDD304319C05602003C85D1 /* IFileResultCallbackWarning.swift in Sources */,
+				C3DB94B019D00F9C000294DC /* ContactImpl.swift in Sources */,
 				C3FFDF2D19CC3A48000BB47C /* I18NParser.swift in Sources */,
 				C308CA5F19C2CF030097D92C /* RuntimeImpl.swift in Sources */,
 				4EDD302A19C05602003C85D1 /* IContactPhotoResultCallbackError.swift in Sources */,
