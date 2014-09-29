@@ -61,6 +61,8 @@ public class VideoImpl : IVideo {
     Play url video stream
     
     :param: url url of the video
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
     */
     public func playStream(url : String) {
         

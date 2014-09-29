@@ -1,10 +1,33 @@
-//
-//  GeolocationDelegate.swift
-//  AdaptiveArpImplIos
-//
-//  Created by Administrator on 29/09/14.
-//  Copyright (c) 2014 Carlos Lozano Diez. All rights reserved.
-//
+/*
+* =| ADAPTIVE RUNTIME PLATFORM |=======================================================================================
+*
+* (C) Copyright 2013-2014 Carlos Lozano Diez t/a Adaptive.me <http://adaptive.me>.
+*
+* Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+* the License. You may obtain a copy of the License at
+*
+*     http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+* an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+* specific language governing permissions and limitations under the License.
+*
+* Original author:
+*
+*     * Carlos Lozano Diez
+*                 <http://github.com/carloslozano>
+*                 <http://twitter.com/adaptivecoder>
+*                 <mailto:carlos@adaptive.me>
+*
+* Contributors:
+*
+*     * Ferran Vila Conesa
+*                 <http://github.com/fnva>
+*                 <http://twitter.com/ferran_vila>
+*                 <mailto:ferran.vila.conesa@gmail.com>
+*
+* =====================================================================================================================
+*/
 
 import Foundation
 import CoreLocation
@@ -24,12 +47,20 @@ public class GeolocationDelegate: NSObject, CLLocationManagerDelegate {
     Class constructor
     
     :param: listener Geolocation listener
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
     */
     init(listener: IGeolocationListener) {
         
         self.listener = listener
     }
     
+    /**
+    Starts the Location Manager
+    
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
+    */
     func initLocationManager() {
         
         locationManager = CLLocationManager()
@@ -43,6 +74,8 @@ public class GeolocationDelegate: NSObject, CLLocationManagerDelegate {
     
     :param: manager   Location Manager
     :param: locations Locations
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
     */
     public func locationManager(manager: CLLocationManager, didUpdateLocations locations: [AnyObject]) {
         
@@ -70,6 +103,8 @@ public class GeolocationDelegate: NSObject, CLLocationManagerDelegate {
     
     :param: manager Location manager
     :param: error   Error produced
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
     */
     public func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         
@@ -84,6 +119,8 @@ public class GeolocationDelegate: NSObject, CLLocationManagerDelegate {
     
     :param: manager Location manager
     :param: status  Status of the location manager start
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
     */
     public func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
                 
@@ -123,6 +160,9 @@ public class GeolocationDelegate: NSObject, CLLocationManagerDelegate {
     
     /**
     Method that stops the geolocation updates
+    
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
     */
     public func stopUpdatingLocation() {
         
@@ -135,6 +175,8 @@ public class GeolocationDelegate: NSObject, CLLocationManagerDelegate {
     Method that returns the listener of this delegate
     
     :returns: Returns the listener
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
     */
     public func getListener() -> IGeolocationListener {
         

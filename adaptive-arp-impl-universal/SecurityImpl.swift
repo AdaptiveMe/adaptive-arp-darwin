@@ -89,6 +89,8 @@ public class SecurityImpl : ISecurity {
     Returns if the device has been modified in anyhow
     
     :returns: true if the device has been modified; false otherwise
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
     */
     public func isDeviceModified() -> Bool {
         
@@ -120,6 +122,8 @@ public class SecurityImpl : ISecurity {
     :param: keys             Array with the key names to delete.
     :param: publicAccessName The name of the shared internal storage object (if needed).
     :param: callback         callback to be executed upon function result.
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
     */
     public func deleteSecureKeyValuePairs(keys : [String], publicAccessName : String, callback : ISecureKVResultCallback) {
         
@@ -164,6 +168,8 @@ public class SecurityImpl : ISecurity {
     :param: keys             Array with the key names to retrieve.
     :param: publicAccessName The name of the shared internal storage object (if needed).
     :param: callback         callback to be executed upon function result.
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
     */
     public func getSecureKeyValuePairs(keys : [String], publicAccessName : String, callback : ISecureKVResultCallback) {
         
@@ -209,6 +215,8 @@ public class SecurityImpl : ISecurity {
     :param: keyValues        Array containing the items to store on the device internal memory.
     :param: publicAccessName The name of the shared internal storage object (if needed).
     :param: callback         callback to be executed upon function result.
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
     */
     public func setSecureKeyValuePairs(keyValues : [SecureKeyPair], publicAccessName : String, callback : ISecureKVResultCallback) {
         
@@ -255,6 +263,8 @@ public class SecurityImpl : ISecurity {
     :returns: 
         :param: pair    response pair
         :param: success result (0:succes, 1: warning, otherwise: error)
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
     */
     public func handleSecurityResponse(response: Int, pair: SecureKeyPair, callback: ISecureKVResultCallback) -> (pair: SecureKeyPair, success: Int) {
         
@@ -323,6 +333,8 @@ public class SecurityImpl : ISecurity {
     :param: service Service in order to save the pair
     :param: key     key value
     :param: data    data value
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
     */
     public func save(service: NSString, key: String, data: NSString, callback: ISecureKVResultCallback) -> Int {
         
@@ -363,6 +375,8 @@ public class SecurityImpl : ISecurity {
     :param: key     key value
     
     :returns: Value of the key pair
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
     */
     public func load(service: NSString, key: String) -> (data: NSString?, status: Int) {
         
@@ -403,6 +417,8 @@ public class SecurityImpl : ISecurity {
     :param: key     key value
     
     :returns: Result of the operation
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
     */
     public func delete(service: NSString, key: String) -> Int {
         

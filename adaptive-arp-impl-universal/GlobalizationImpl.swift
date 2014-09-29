@@ -78,6 +78,8 @@ public class GlobalizationImpl : IGlobalization {
     Method that return the full path for the i18n config path
     
     :returns: Full path of config i18n
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
     */
     private func getConfigFilePath() -> String {
         return "\(I18N_PATH)/\(I18N_CONFIG_FILE)"
@@ -89,6 +91,8 @@ public class GlobalizationImpl : IGlobalization {
     :param: locale Locale bean
     
     :returns: Full path of language file
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
     */
     private func getLanguageFilePath(locale: Locale) -> String {
         return "\(I18N_PATH)/\(locale.getLanguage())-\(locale.getCountry())\(I18N_LANG_FILE)"
@@ -98,6 +102,8 @@ public class GlobalizationImpl : IGlobalization {
     List of supported locales for the application
     
     :returns: List of locales (only locale descriptor string, such as "en-US").
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
     */
     public func getLocaleSupportedDescriptors() -> [String] {
         
@@ -132,6 +138,8 @@ public class GlobalizationImpl : IGlobalization {
     :param: locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
     
     :returns: Localized text.
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
     */
     public func getResourceLiteral(key : String, locale : Locale) -> String {
         
@@ -181,6 +189,8 @@ public class GlobalizationImpl : IGlobalization {
     :param: locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
     
     :returns: Localized texts in the form of an object (you could get the value of a keyed literal using resourceLiteralDictionary.MY_KEY or resourceLiteralDictionary["MY_KEY"]).
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
     */
     public func getResourceLiterals(locale : Locale) -> Dictionary<String,String> {
         
