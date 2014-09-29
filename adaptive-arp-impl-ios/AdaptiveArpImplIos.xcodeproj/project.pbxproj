@@ -230,6 +230,8 @@
 		C347132919CAEBC700129847 /* VideoImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347132819CAEBC700129847 /* VideoImpl.swift */; };
 		C353FCCA19C87CC600350640 /* BrowserImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C353FCC919C87CC600350640 /* BrowserImpl.swift */; };
 		C353FCCC19C96A3B00350640 /* SecurityImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C353FCCB19C96A3B00350640 /* SecurityImpl.swift */; };
+		C393162219D54399006A1FB7 /* GeolocationImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C393162119D54399006A1FB7 /* GeolocationImpl.swift */; };
+		C39CADB119D99BB6002FFFCD /* GeolocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39CADB019D99BB6002FFFCD /* GeolocationDelegate.swift */; };
 		C3DB94B019D00F9C000294DC /* ContactImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DB94AF19D00F9C000294DC /* ContactImpl.swift */; };
 		C3FFDF2D19CC3A48000BB47C /* I18NParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FFDF2C19CC3A48000BB47C /* I18NParser.swift */; };
 /* End PBXBuildFile section */
@@ -465,6 +467,8 @@
 		C347132819CAEBC700129847 /* VideoImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoImpl.swift; sourceTree = "<group>"; };
 		C353FCC919C87CC600350640 /* BrowserImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserImpl.swift; sourceTree = "<group>"; };
 		C353FCCB19C96A3B00350640 /* SecurityImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityImpl.swift; sourceTree = "<group>"; };
+		C393162119D54399006A1FB7 /* GeolocationImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeolocationImpl.swift; sourceTree = "<group>"; };
+		C39CADB019D99BB6002FFFCD /* GeolocationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeolocationDelegate.swift; sourceTree = "<group>"; };
 		C3DB94AF19D00F9C000294DC /* ContactImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactImpl.swift; sourceTree = "<group>"; };
 		C3FFDF2C19CC3A48000BB47C /* I18NParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = I18NParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -568,6 +572,7 @@
 				C3DB94AF19D00F9C000294DC /* ContactImpl.swift */,
 				C308CA5419C2CF030097D92C /* DeviceImpl.swift */,
 				4EDD2EF319C055F2003C85D1 /* DisplayImpl.swift */,
+				C393162119D54399006A1FB7 /* GeolocationImpl.swift */,
 				C308CA5719C2CF030097D92C /* GlobalizationImpl.swift */,
 				C308CA5619C2CF030097D92C /* LifecycleImpl.swift */,
 				C308CA5819C2CF030097D92C /* LoggingImpl.swift */,
@@ -820,6 +825,7 @@
 				C308CA6B19C310F40097D92C /* Utils.swift */,
 				C308CA6D19C314B10097D92C /* Await.swift */,
 				C3FFDF2C19CC3A48000BB47C /* I18NParser.swift */,
+				C39CADB019D99BB6002FFFCD /* GeolocationDelegate.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -1032,6 +1038,7 @@
 				4EDD305319C05602003C85D1 /* ILogging.swift in Sources */,
 				4EDD307819C05602003C85D1 /* ISession.swift in Sources */,
 				4EDD302D19C05602003C85D1 /* IContactResultCallbackError.swift in Sources */,
+				C393162219D54399006A1FB7 /* GeolocationImpl.swift in Sources */,
 				4EDD303D19C05602003C85D1 /* IFileListResultCallback.swift in Sources */,
 				C308CA6C19C310F40097D92C /* Utils.swift in Sources */,
 				4EDD309119C05602003C85D1 /* Table.swift in Sources */,
@@ -1095,6 +1102,7 @@
 				4EDD303619C05602003C85D1 /* IDevice.swift in Sources */,
 				C308CA4E19C2CE570097D92C /* Socket.swift in Sources */,
 				4EDD306A19C05602003C85D1 /* IOS.swift in Sources */,
+				C39CADB119D99BB6002FFFCD /* GeolocationDelegate.swift in Sources */,
 				4EDD300B19C05602003C85D1 /* IBaseNotification.swift in Sources */,
 				4EDD303519C05602003C85D1 /* IDesktop.swift in Sources */,
 				4EDD308819C05602003C85D1 /* IXML.swift in Sources */,
