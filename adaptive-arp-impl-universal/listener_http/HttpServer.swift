@@ -38,10 +38,10 @@ class HttpServer
     let expressionOptions = NSRegularExpressionOptions(0)
     var currentRequests : Int = 0;
     
-    subscript (path: String) -> Handler? {
+    subscript (path: String?) -> Handler? {
         get {
             for (expression, handler) in handlers {
-                let numberOfMatches: Int = expression.numberOfMatchesInString(path, options: matchingOptions, range: NSMakeRange(0, path.lengthOfBytesUsingEncoding(NSASCIIStringEncoding)))
+                let numberOfMatches: Int = expression.numberOfMatchesInString(path!, options: matchingOptions, range: NSMakeRange(0, path!.lengthOfBytesUsingEncoding(NSASCIIStringEncoding)))
                 if ( numberOfMatches > 0 ) {
                     return handler
                 }
@@ -51,7 +51,7 @@ class HttpServer
         set ( newValue ) {
             // ferran.vila: 16/09/2014 Modifications due to Swift changes method signature
             // if let regex: NSRegularExpression = NSRegularExpression.regularExpressionWithPattern(path, options: expressionOptions, error: nil) {
-            if let regex: NSRegularExpression = NSRegularExpression(pattern: path, options: expressionOptions, error: nil) {
+            if let regex: NSRegularExpression = NSRegularExpression(pattern: path!, options: expressionOptions, error: nil) {
                 if let newHandler = newValue {
                     handlers.append(expression: regex, handler: newHandler)
                 }

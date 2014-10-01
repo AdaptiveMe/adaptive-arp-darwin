@@ -78,6 +78,19 @@ public class SecurityImpl : ISecurity {
     let kSecReturnDataValue = kSecReturnData as NSString
     let kSecMatchLimitOneValue = kSecMatchLimitOne as NSString
     
+    let securityResponsesErrorCodes = [
+        errSecSuccess : 0, /* No error. */
+        errSecUnimplemented : -4, /* Function or operation not implemented. */
+        errSecParam : -50, /* One or more parameters passed to a function where not valid. */
+        errSecAllocate : -108, /* Failed to allocate memory. */
+        errSecNotAvailable : -25291, /* No keychain is available. You may need to restart your computer. */
+        errSecDuplicateItem : -25299, /* The specified item already exists in the keychain. */
+        errSecItemNotFound : -25300, /* The specified item could not be found in the keychain. */
+        errSecInteractionNotAllowed : -25308, /* User interaction is not allowed. */
+        errSecDecode : -26275, /* Unable to decode the provided data. */
+        errSecAuthFailed : -25293, /* The user name or passphrase you entered is not correct. */
+    ]
+    
     /**
     Class constructor
     */
@@ -271,52 +284,52 @@ public class SecurityImpl : ISecurity {
         var savedPair: SecureKeyPair = SecureKeyPair()
         
         switch(response){
-        case errSecSuccess:
+        case securityResponsesErrorCodes[errSecSuccess]!:
             logger.log(ILoggingLogLevel.DEBUG, category: "SecurityImpl", message: "The key: \(pair.getKey()) with value: \(pair.getValue()) was saved.")
             savedPair.setKey(pair.getKey())
             return (savedPair, 0)
             
-        case errSecUnimplemented:
+        case securityResponsesErrorCodes[errSecUnimplemented]!:
             logger.log(ILoggingLogLevel.ERROR, category: "SecurityImpl", message: "Function or operation not implemented.")
             callback.onError(ISecureKVResultCallbackError.NoPermission)
             return (savedPair, -1)
             
-        case errSecParam:
+        case securityResponsesErrorCodes[errSecParam]!:
             logger.log(ILoggingLogLevel.ERROR, category: "SecurityImpl", message: "One or more parameters passed to the function were not valid.")
             callback.onError(ISecureKVResultCallbackError.NoPermission)
             return (savedPair, -1)
             
-        case errSecAllocate:
+        case securityResponsesErrorCodes[errSecAllocate]!:
             logger.log(ILoggingLogLevel.ERROR, category: "SecurityImpl", message: "Failed to allocate memory.")
             callback.onError(ISecureKVResultCallbackError.NoPermission)
             return (savedPair, -1)
             
-        case errSecNotAvailable:
+        case securityResponsesErrorCodes[errSecNotAvailable]!:
             logger.log(ILoggingLogLevel.ERROR, category: "SecurityImpl", message: "No trust results are available.")
             callback.onError(ISecureKVResultCallbackError.NoPermission)
             return (savedPair, -1)
             
-        case errSecAuthFailed:
+        case securityResponsesErrorCodes[errSecAuthFailed]!:
             logger.log(ILoggingLogLevel.ERROR, category: "SecurityImpl", message: "Authorization/Authentication failed.")
             callback.onError(ISecureKVResultCallbackError.NoPermission)
             return (savedPair, -1)
             
-        case errSecDuplicateItem:
+        case securityResponsesErrorCodes[errSecDuplicateItem]!:
             logger.log(ILoggingLogLevel.WARN, category: "SecurityImpl", message: "The item already exists.")
             savedPair.setKey(pair.getKey())
             return (savedPair, 1)
             
-        case errSecItemNotFound:
+        case securityResponsesErrorCodes[errSecItemNotFound]!:
             logger.log(ILoggingLogLevel.ERROR, category: "SecurityImpl", message: "The item cannot be found.")
             callback.onError(ISecureKVResultCallbackError.NoMatchesFound)
             return (savedPair, -1)
             
-        case errSecInteractionNotAllowed:
+        case securityResponsesErrorCodes[errSecInteractionNotAllowed]!:
             logger.log(ILoggingLogLevel.ERROR, category: "SecurityImpl", message: "Interaction with the Security Server is not allowed.")
             callback.onError(ISecureKVResultCallbackError.NoPermission)
             return (savedPair, -1)
             
-        case errSecDecode:
+        case securityResponsesErrorCodes[errSecDecode]!:
             logger.log(ILoggingLogLevel.ERROR, category: "SecurityImpl", message: "Unable to decode the provided data.")
             callback.onError(ISecureKVResultCallbackError.NoPermission)
             return (savedPair, -1)
@@ -342,7 +355,7 @@ public class SecurityImpl : ISecurity {
         
         // If the data parameter is empty return errSecParam
         if data == "" {
-            return errSecParam
+            return securityResponsesErrorCodes[errSecParam]!
         }
         
         var dataFromString: NSData = data.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
@@ -362,7 +375,7 @@ public class SecurityImpl : ISecurity {
         var status: OSStatus = SecItemAdd(keychainQuery as CFDictionaryRef, nil)
         
         if exists {
-            return errSecDuplicateItem
+            return securityResponsesErrorCodes[errSecDuplicateItem]!
         } else {
             return Int(status)
         }

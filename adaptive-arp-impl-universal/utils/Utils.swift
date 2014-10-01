@@ -46,9 +46,26 @@ public struct Utils {
         
         var urlRegEx = "((https|http)://)((\\w|-)+)(([.]|[/])((\\w|-)+))+"
         let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray:[urlRegEx])
-        var urlTest = NSPredicate.predicateWithSubstitutionVariables(predicate!)
+        var urlTest = NSPredicate.predicateWithSubstitutionVariables(predicate)
         
-        return predicate!.evaluateWithObject(stringURL)
+        return predicate.evaluateWithObject(stringURL)
+    }
+    
+    /**
+    Function that validates the format of a phone number
+    
+    :param: phoneNumber Phone number to check
+    
+    :returns: true if its valid, else otherwise
+    */
+    public static func isPhoneNumberCorrect(phoneNumber: NSString) -> Bool {
+        
+        var urlRegEx = "((\\+[1-9]{3,4}|0[1-9]{4}|00[1-9]{3})\\-?)?\\d{8,20}"
+        let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray:[urlRegEx])
+        var urlTest = NSPredicate.predicateWithSubstitutionVariables(predicate)
+        
+        return predicate.evaluateWithObject(phoneNumber)
+        
     }
 }
 

@@ -48,15 +48,18 @@ public class DeviceImpl : IDevice {
     init() {
         
         #if os(iOS)
-            let device: UIDevice = UIDevice.currentDevice()
             
+            let device: UIDevice = UIDevice.currentDevice()
             deviceInfo = DeviceInfo(name: device.name, model: device.model, vendor: "Apple", uuid: NSUUID().UUIDString)
-        #else
+            
+        #elseif os(OSX)
+            
             let host: NSHost = NSHost.currentHost()
             
             // TODO: find a better way to do this and get the model identifier in osx
             
             deviceInfo = DeviceInfo(name: host.name!, model: "", vendor: "Apple", uuid: NSUUID().UUIDString)
+            
         #endif
     }
     
