@@ -225,6 +225,7 @@
 		C308CA6619C2F7C70097D92C /* TelephonyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C308CA6519C2F7C70097D92C /* TelephonyImpl.swift */; };
 		C308CA6C19C310F40097D92C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C308CA6B19C310F40097D92C /* Utils.swift */; };
 		C308CA6E19C314B10097D92C /* Await.swift in Sources */ = {isa = PBXBuildFile; fileRef = C308CA6D19C314B10097D92C /* Await.swift */; };
+		C30B5D0719DC1A5C00299670 /* DatabaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30B5D0619DC1A5C00299670 /* DatabaseImpl.swift */; };
 		C319BD7919C82C2200E3A6D2 /* MessagingImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C319BD7819C82C2200E3A6D2 /* MessagingImpl.swift */; };
 		C347132519CAD04A00129847 /* SessionImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347132419CAD04A00129847 /* SessionImpl.swift */; };
 		C347132919CAEBC700129847 /* VideoImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347132819CAEBC700129847 /* VideoImpl.swift */; };
@@ -462,6 +463,7 @@
 		C308CA6519C2F7C70097D92C /* TelephonyImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TelephonyImpl.swift; sourceTree = "<group>"; };
 		C308CA6B19C310F40097D92C /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		C308CA6D19C314B10097D92C /* Await.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Await.swift; sourceTree = "<group>"; };
+		C30B5D0619DC1A5C00299670 /* DatabaseImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseImpl.swift; sourceTree = "<group>"; };
 		C319BD7819C82C2200E3A6D2 /* MessagingImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagingImpl.swift; sourceTree = "<group>"; };
 		C347132419CAD04A00129847 /* SessionImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionImpl.swift; sourceTree = "<group>"; };
 		C347132819CAEBC700129847 /* VideoImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoImpl.swift; sourceTree = "<group>"; };
@@ -570,6 +572,7 @@
 				C353FCC919C87CC600350640 /* BrowserImpl.swift */,
 				4EDD2EF119C055F2003C85D1 /* CapabilitiesImpl.swift */,
 				C3DB94AF19D00F9C000294DC /* ContactImpl.swift */,
+				C30B5D0619DC1A5C00299670 /* DatabaseImpl.swift */,
 				C308CA5419C2CF030097D92C /* DeviceImpl.swift */,
 				4EDD2EF319C055F2003C85D1 /* DisplayImpl.swift */,
 				C393162119D54399006A1FB7 /* GeolocationImpl.swift */,
@@ -822,10 +825,10 @@
 		C308CA6A19C310D30097D92C /* utils */ = {
 			isa = PBXGroup;
 			children = (
-				C308CA6B19C310F40097D92C /* Utils.swift */,
 				C308CA6D19C314B10097D92C /* Await.swift */,
-				C3FFDF2C19CC3A48000BB47C /* I18NParser.swift */,
 				C39CADB019D99BB6002FFFCD /* GeolocationDelegate.swift */,
+				C3FFDF2C19CC3A48000BB47C /* I18NParser.swift */,
+				C308CA6B19C310F40097D92C /* Utils.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -1119,6 +1122,7 @@
 				4EDD305519C05602003C85D1 /* IMagnetometer.swift in Sources */,
 				4EDD2FDC19C05602003C85D1 /* ContactProfessionalInfo.swift in Sources */,
 				4EDD307019C05602003C85D1 /* ISecureKVResultCallback.swift in Sources */,
+				C30B5D0719DC1A5C00299670 /* DatabaseImpl.swift in Sources */,
 				4EDD307919C05602003C85D1 /* ISettings.swift in Sources */,
 				4EDD304519C05602003C85D1 /* IGeolocation.swift in Sources */,
 				4EDD308C19C05602003C85D1 /* Row.swift in Sources */,
