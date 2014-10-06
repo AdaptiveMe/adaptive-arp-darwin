@@ -78,8 +78,7 @@ public class MessagingImpl : NSObject, IMessaging, MFMessageComposeViewControlle
             
             logger.log(ILoggingLogLevel.ERROR, category: "MessagingImpl", message: "The device cannot send a mail. Check the device")
             
-            // TODO: IMessagingCallbackError.Not_Supported
-            callback.onError(IMessagingCallbackError.Email_Account_Not_Found)
+            callback.onError(IMessagingCallbackError.Not_Supported)
             return
         }
         
@@ -148,8 +147,7 @@ public class MessagingImpl : NSObject, IMessaging, MFMessageComposeViewControlle
             
             logger.log(ILoggingLogLevel.ERROR, category: "MessagingImpl", message: "The device cannot send SMS. Check the device")
             
-            // TODO: IMessagingCallbackError.Not_Supported
-            callback.onError(IMessagingCallbackError.Email_Account_Not_Found)
+            callback.onError(IMessagingCallbackError.Not_Supported)
             return
         }
         

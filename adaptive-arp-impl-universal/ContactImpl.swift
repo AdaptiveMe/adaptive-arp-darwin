@@ -388,7 +388,6 @@ public class ContactImpl : IContact {
                         for record:ABRecordRef in filteredContacts {
                             
                             // Iterate all the contacts and check if the term exists in the display Name
-                            // TODO: check all the fields that has to find
                             var displayName: String = ABRecordCopyCompositeName(record).takeRetainedValue()
                             
                             if displayName.rangeOfString(term) != nil{
@@ -415,7 +414,6 @@ public class ContactImpl : IContact {
                         for record:ABRecordRef in contactList {
                             
                             // Iterate all the contacts and check if the term exists in the display Name
-                            // TODO: check all the fields that has to find
                             var displayName: String = ABRecordCopyCompositeName(record).takeRetainedValue()
                             
                             if displayName.rangeOfString(term) != nil{
@@ -829,8 +827,7 @@ public class ContactImpl : IContact {
             // If the person has no photo
             if !ABPersonHasImageData(person) {
                 logger.log(ILoggingLogLevel.ERROR, category: "ContactImpl", message: "The contact with id: \(id) has NO photo")
-                // TODO: change for the no-photo callback
-                callback.onError(IContactPhotoResultCallbackError.Wrong_Params)
+                callback.onError(IContactPhotoResultCallbackError.No_Photo)
                 return
             }
             

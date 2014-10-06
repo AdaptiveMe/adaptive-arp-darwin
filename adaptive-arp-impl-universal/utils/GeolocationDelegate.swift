@@ -128,23 +128,17 @@ public class GeolocationDelegate: NSObject, CLLocationManagerDelegate {
         case CLAuthorizationStatus.Restricted:
             
             logger.log(ILoggingLogLevel.ERROR, category: "GeolocationDelegate", message: "Restricted Access to location")
-            
-            // TODO: launch the listener with the correspondidng error
-            // listener.onError(IGeolocationListenerError.RestrictedAccess)
+            listener.onError(IGeolocationListenerError.RestrictedAccess)
             
         case CLAuthorizationStatus.Denied:
             
             logger.log(ILoggingLogLevel.ERROR, category: "GeolocationDelegate", message: "User denied access to location")
-            
-            // TODO: launch the listener with the correspondidng error
-            // listener.onError(IGeolocationListenerError.DeniedAccess)
+            listener.onError(IGeolocationListenerError.DeniedAccess)
             
         case CLAuthorizationStatus.NotDetermined:
             
             logger.log(ILoggingLogLevel.ERROR, category: "GeolocationDelegate", message: "Status not determined")
-            
-            // TODO: launch the listener with the correspondidng error
-            // listener.onError(IGeolocationListenerError.StatusNotDetermined)
+            listener.onError(IGeolocationListenerError.StatusNotDetermined)
             
         case CLAuthorizationStatus.Authorized, CLAuthorizationStatus.AuthorizedWhenInUse:
             

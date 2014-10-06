@@ -74,6 +74,7 @@ public class BrowserImpl : IBrowser {
     public func openBrowser(url : String, title : String, buttonText : String) -> Bool {
         
         // TODO: use the title and the button text attibutes
+        // TODO: check if the browser has to be embedded into a webview inside the application
         
         // Check if the string is empty
         if url.isEmpty {

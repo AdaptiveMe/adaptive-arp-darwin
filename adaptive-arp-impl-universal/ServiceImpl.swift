@@ -109,8 +109,7 @@ public class ServiceImpl : IService {
             
             // Check the url for malforming
             if(Utils.validateUrl(url)){
-                // TODO: IServiceResultCallbackError.MalformedUrl
-                callback.onError(IServiceResultCallbackError.Forbidden)
+                callback.onError(IServiceResultCallbackError.MalformedUrl)
                 self.logger.log(ILoggingLogLevel.ERROR, category: "ServiceImpl", message: "Malformed url: \(url)")
                 return nil
             }
