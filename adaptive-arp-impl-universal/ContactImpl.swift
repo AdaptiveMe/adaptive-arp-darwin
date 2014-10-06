@@ -574,7 +574,21 @@ public class ContactImpl : IContact {
                             var socialURl:String = social["url"] as String
                             
                             contactSocial.setProfileUrl(socialURl)
-                            contactSocial.setSocialNetwork(socialNetwork)
+                            
+                            switch(socialNetwork){
+                            case "facebook":
+                                contactSocial.setSocialNetwork(ContactSocial.SocialNetwork.Facebook)
+                            case "flickr":
+                                contactSocial.setSocialNetwork(ContactSocial.SocialNetwork.Flickr)
+                            case "google+":
+                                contactSocial.setSocialNetwork(ContactSocial.SocialNetwork.GooglePlus)
+                            case "linkedin":
+                                contactSocial.setSocialNetwork(ContactSocial.SocialNetwork.LinkedIn)
+                            case "twitter":
+                                contactSocial.setSocialNetwork(ContactSocial.SocialNetwork.Twitter)
+                            default:
+                                logger.log(ILoggingLogLevel.WARN, category: "ContactImpl", message: "The social network: \(socialNetwork) is not supported by the system")
+                            }
                             
                             contactSocialList.append(contactSocial)
                         }

@@ -43,23 +43,49 @@ public class LifecycleImpl : ILifecycle {
         
     }
     
-    public func addLifecycleListener(listener : ILifecycleListener) {
-        
-        // TODO
-    }
-    
     /**
-    Whether the application is in background or not
-    
-    :returns: true if the application is in background;false otherwise
-    :author: Ferran Vila Conesa
-    :since: ARP1.0
+    * Whether the application is in background or not
+    *
+    * @return true if the application is in background;false otherwise
+    * @since ARP1.0
     */
     public func isBackground() -> Bool {
         
         // TODO
         
         return false
+    }
+    
+    /**
+    * Add the listener for the lifecycle of the app
+    *
+    * @param listener
+    * @since ARP1.0
+    */
+    public func addLifecycleListener(listener : ILifecycleListener) {
+        
+        // TODO
+    }
+    
+    /**
+    * Un-registers an existing listener from receiving lifecycle events.
+    *
+    * @param listener
+    * @since ARP1.0
+    */
+    public func removeLifecycleListener(listener : ILifecycleListener) {
+        
+        // TODO
+    }
+    
+    /**
+    * Removes all existing listeners from receiving lifecycle events.
+    *
+    * @since ARP1.0
+    */
+    public func removeLifecycleListeners() {
+        
+        // TODO
     }
     
 }

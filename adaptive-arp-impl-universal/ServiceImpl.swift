@@ -59,7 +59,7 @@ public class ServiceImpl : IService {
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    public func getService(serviceName : String) -> Service? {
+    public func getService(serviceName : String) -> Service {
         
         for service in services {
             
@@ -72,7 +72,7 @@ public class ServiceImpl : IService {
         
         logger.log(ILoggingLogLevel.WARN, category: "ServiceImpl", message: "\(serviceName) is not founded on the pull")
         
-        return nil
+        return Service()
     }
     
     /**
@@ -264,7 +264,9 @@ public class ServiceImpl : IService {
         // TODO: now we are comparing the services by name, but the correct way is doing by a comparison using a extensing. But the element Service has to implement the Equatable interface
         // :see: http://stackoverflow.com/questions/24102024/how-to-check-if-an-element-is-in-an-array
         
-        return self.getService(service.getName()) != nil ? true : false
+        // TODO: change this when the getService method could return optionals
+        //return self.getService(service.getName()) != nil ? true : false
+        return false
     }
     
     /**
@@ -281,7 +283,9 @@ public class ServiceImpl : IService {
         // TODO: now we are comparing the services by name, but the correct way is doing by a comparison using a extensing. But the element Service has to implement the Equatable interface
         // :see: http://stackoverflow.com/questions/24102024/how-to-check-if-an-element-is-in-an-array
         
-        return self.getService(serviceName) != nil ? true : false
+        // TODO: change this when the getService method could return optionals
+        //return self.getService(serviceName) != nil ? true : false
+        return false
     }
     
     /**
