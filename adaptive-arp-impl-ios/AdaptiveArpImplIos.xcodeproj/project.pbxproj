@@ -233,9 +233,48 @@
 		C353FCCC19C96A3B00350640 /* SecurityImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C353FCCB19C96A3B00350640 /* SecurityImpl.swift */; };
 		C393162219D54399006A1FB7 /* GeolocationImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C393162119D54399006A1FB7 /* GeolocationImpl.swift */; };
 		C39CADB119D99BB6002FFFCD /* GeolocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39CADB019D99BB6002FFFCD /* GeolocationDelegate.swift */; };
+		C3BFA61719ED0424000D5507 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BFA60E19ED03DF000D5507 /* SQLite.framework */; };
 		C3DB94B019D00F9C000294DC /* ContactImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DB94AF19D00F9C000294DC /* ContactImpl.swift */; };
 		C3FFDF2D19CC3A48000BB47C /* I18NParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FFDF2C19CC3A48000BB47C /* I18NParser.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C3BFA60D19ED03DF000D5507 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3BFA60619ED03DF000D5507 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DC3773F319C8CBB3004FCF85;
+			remoteInfo = "SQLite iOS";
+		};
+		C3BFA60F19ED03DF000D5507 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3BFA60619ED03DF000D5507 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DC3773FE19C8CBB3004FCF85;
+			remoteInfo = "SQLite iOS Tests";
+		};
+		C3BFA61119ED03DF000D5507 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3BFA60619ED03DF000D5507 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DC37741419C8CC2F004FCF85;
+			remoteInfo = "SQLite Mac";
+		};
+		C3BFA61319ED03DF000D5507 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3BFA60619ED03DF000D5507 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DC37741E19C8CC2F004FCF85;
+			remoteInfo = "SQLite Mac Tests";
+		};
+		C3BFA61519ED0417000D5507 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3BFA60619ED03DF000D5507 /* SQLite.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = DC3773F219C8CBB3004FCF85;
+			remoteInfo = "SQLite iOS";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0C5D888D2C344F66A866530E /* Pods-AdaptiveArpImplIos.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdaptiveArpImplIos.xcconfig"; path = "Pods/Pods-AdaptiveArpImplIos.xcconfig"; sourceTree = "<group>"; };
@@ -471,6 +510,9 @@
 		C353FCCB19C96A3B00350640 /* SecurityImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityImpl.swift; sourceTree = "<group>"; };
 		C393162119D54399006A1FB7 /* GeolocationImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeolocationImpl.swift; sourceTree = "<group>"; };
 		C39CADB019D99BB6002FFFCD /* GeolocationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeolocationDelegate.swift; sourceTree = "<group>"; };
+		C3A3ED7319EBB2D7006FE11A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		C3A3ED7519EBB33F006FE11A /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		C3BFA60619ED03DF000D5507 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = Pods/../../SQLite.swift/SQLite.xcodeproj; sourceTree = "<group>"; };
 		C3DB94AF19D00F9C000294DC /* ContactImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactImpl.swift; sourceTree = "<group>"; };
 		C3FFDF2C19CC3A48000BB47C /* I18NParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = I18NParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -480,6 +522,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3BFA61719ED0424000D5507 /* SQLite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,6 +540,8 @@
 		030C22BC28D0463282C94C33 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C3A3ED7519EBB33F006FE11A /* libsqlite3.0.dylib */,
+				C3A3ED7319EBB2D7006FE11A /* libsqlite3.dylib */,
 				80755E929E37466989F59D40 /* libPods-AdaptiveArpImplIos.a */,
 				313F1F810DA14669B95006AB /* libPods-AdaptiveArpImplIosTests.a */,
 			);
@@ -506,6 +551,7 @@
 		4E83DC8B19B635AA002B9764 = {
 			isa = PBXGroup;
 			children = (
+				C3BFA60619ED03DF000D5507 /* SQLite.xcodeproj */,
 				0C5D888D2C344F66A866530E /* Pods-AdaptiveArpImplIos.xcconfig */,
 				BE435E214E92462B87F3D1DD /* Pods-AdaptiveArpImplIosTests.xcconfig */,
 				4E83DC9719B635AA002B9764 /* AdaptiveArpImplIos */,
@@ -833,6 +879,17 @@
 			path = utils;
 			sourceTree = "<group>";
 		};
+		C3BFA60719ED03DF000D5507 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C3BFA60E19ED03DF000D5507 /* SQLite.framework */,
+				C3BFA61019ED03DF000D5507 /* SQLite iOS Tests.xctest */,
+				C3BFA61219ED03DF000D5507 /* SQLite.framework */,
+				C3BFA61419ED03DF000D5507 /* SQLite Mac Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -860,6 +917,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C3BFA61619ED0417000D5507 /* PBXTargetDependency */,
 			);
 			name = AdaptiveArpImplIos;
 			productName = AdaptiveArpImplIos;
@@ -912,6 +970,12 @@
 			mainGroup = 4E83DC8B19B635AA002B9764;
 			productRefGroup = 4E83DC9619B635AA002B9764 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C3BFA60719ED03DF000D5507 /* Products */;
+					ProjectRef = C3BFA60619ED03DF000D5507 /* SQLite.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				4E83DC9419B635AA002B9764 /* AdaptiveArpImplIos */,
@@ -919,6 +983,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C3BFA60E19ED03DF000D5507 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = C3BFA60D19ED03DF000D5507 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C3BFA61019ED03DF000D5507 /* SQLite iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLite iOS Tests.xctest";
+			remoteRef = C3BFA60F19ED03DF000D5507 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C3BFA61219ED03DF000D5507 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = C3BFA61119ED03DF000D5507 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C3BFA61419ED03DF000D5507 /* SQLite Mac Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLite Mac Tests.xctest";
+			remoteRef = C3BFA61319ED03DF000D5507 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		4E83DC9319B635AA002B9764 /* Resources */ = {
@@ -1244,6 +1339,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		C3BFA61619ED0417000D5507 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SQLite iOS";
+			targetProxy = C3BFA61519ED0417000D5507 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		4E83DCA619B635AA002B9764 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1338,8 +1441,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"/Users/administrator/Documents/projects/adaptive.me/adaptive-arp-darwin",
+				);
 				INFOPLIST_FILE = AdaptiveArpImplIos/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1354,8 +1463,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"/Users/administrator/Documents/projects/adaptive.me/adaptive-arp-darwin",
+				);
 				INFOPLIST_FILE = AdaptiveArpImplIos/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1369,6 +1484,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1387,6 +1503,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = AdaptiveArpImplIosTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

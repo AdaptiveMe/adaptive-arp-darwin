@@ -219,6 +219,7 @@
 		4EDD2EE519C0558B003C85D1 /* ServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDD2E2619C0558A003C85D1 /* ServiceResponse.swift */; };
 		4EDD2EE619C0558B003C85D1 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDD2E2719C0558A003C85D1 /* Table.swift */; };
 		4EDD2EE919C055AF003C85D1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4EDD2EE819C055AF003C85D1 /* LICENSE */; };
+		C3A3ED7D19EBB587006FE11A /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3A3ED7C19EBB587006FE11A /* SQLite.framework */; };
 		CACE947BCCE545E19FC6AD4E /* libPods-AdaptiveArpImplOsxTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B230DDE7B0D4582B123EBBB /* libPods-AdaptiveArpImplOsxTests.a */; };
 /* End PBXBuildFile section */
 
@@ -443,6 +444,7 @@
 		7D350725847D45408CE3BA7F /* libPods-AdaptiveArpImplOsx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AdaptiveArpImplOsx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1635F59408747D888C22C4C /* Pods-AdaptiveArpImplOsx.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdaptiveArpImplOsx.xcconfig"; path = "Pods/Pods-AdaptiveArpImplOsx.xcconfig"; sourceTree = "<group>"; };
 		B75D8097578A4F06A48490F9 /* Pods-AdaptiveArpImplOsxTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdaptiveArpImplOsxTests.xcconfig"; path = "Pods/Pods-AdaptiveArpImplOsxTests.xcconfig"; sourceTree = "<group>"; };
+		C3A3ED7C19EBB587006FE11A /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SQLite.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -450,6 +452,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3A3ED7D19EBB587006FE11A /* SQLite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +470,7 @@
 		4E238F9019B6516900DEDCB8 = {
 			isa = PBXGroup;
 			children = (
+				C3A3ED7C19EBB587006FE11A /* SQLite.framework */,
 				4E238F9C19B6516900DEDCB8 /* AdaptiveArpImplOsx */,
 				4E238FA619B6516900DEDCB8 /* AdaptiveArpImplOsxTests */,
 				4E238F9B19B6516900DEDCB8 /* Products */,
@@ -1269,6 +1273,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = AdaptiveArpImplOsx/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1287,6 +1295,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = AdaptiveArpImplOsx/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";

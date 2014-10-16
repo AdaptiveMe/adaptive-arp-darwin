@@ -69,4 +69,29 @@ public struct Utils {
     }
 }
 
+extension String {
+    func rangesOfString(findStr:String) -> [Range<String.Index>] {
+        var arr = [Range<String.Index>]()
+        var startInd = self.startIndex
+        var i = 0
+        // test first of all whether the string is likely to appear at all
+        if contains(self, first(findStr)!) {
+            startInd = find(self,first(findStr)!)!
+        }
+        else {
+            return arr
+        }
+        // set starting point for search based on the finding of the first character
+        i = distance(self.startIndex, startInd)
+        while i<=countElements(self)-countElements(findStr) {
+            if self[advance(self.startIndex, i)..<advance(self.startIndex, i+countElements(findStr))] == findStr {
+                arr.append(Range(start:advance(self.startIndex, i),end:advance(self.startIndex, i+countElements(findStr))))
+                i = i+countElements(findStr)
+            }
+            i++
+        }
+        return arr
+    } // try further optimization by repeating the initial act of finding first character after each found string
+}
+
 
