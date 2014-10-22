@@ -61,6 +61,8 @@ public class ServiceImpl : IService {
     */
     public func getService(serviceName : String) -> Service {
         
+        // TODO: now we are comparing the services by name, but the correct way is doing by a comparison using a extensing. But the element Service has to implement the Equatable interface
+        
         for service in services {
             
             if(service.getName() == serviceName) {
@@ -73,6 +75,101 @@ public class ServiceImpl : IService {
         logger.log(ILoggingLogLevel.WARN, category: "ServiceImpl", message: "\(serviceName) is not founded on the pull")
         
         return Service()
+    }
+    
+    /**
+    Check whether a service by the given service is already registered.
+    
+    :param: service Service to check
+    
+    :returns: True if the service is registered, false otherwise.
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
+    */
+    public func isRegistered(service : Service) -> Bool {
+        
+        // TODO: now we are comparing the services by name, but the correct way is doing by a comparison using a extensing. But the element Service has to implement the Equatable interface
+        // :see: http://stackoverflow.com/questions/24102024/how-to-check-if-an-element-is-in-an-array
+        
+        // TODO: change this when the getService method could return optionals
+        //return self.getService(service.getName()) != nil ? true : false
+        return false
+    }
+    
+    /**
+    Check whether a service by the given name is registered.
+    
+    :param: serviceName Service name to call
+    
+    :returns: True if the service is registered, false otherwise.
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
+    */
+    public func isRegistered(serviceName : String) -> Bool {
+        
+        // TODO: now we are comparing the services by name, but the correct way is doing by a comparison using a extensing. But the element Service has to implement the Equatable interface
+        // :see: http://stackoverflow.com/questions/24102024/how-to-check-if-an-element-is-in-an-array
+        
+        // TODO: change this when the getService method could return optionals
+        //return self.getService(serviceName) != nil ? true : false
+        return false
+    }
+    
+    /**
+    Register a new service
+    
+    :param: service Service to register
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
+    */
+    public func registerService(service : Service) {
+        
+        if service.getName() == "" || service.getName().isEmpty {
+            
+            logger.log(ILoggingLogLevel.ERROR, category: "ServiceImpl", message: "The service has no name. Impossible to add to the pull")
+        } else {
+            
+            services.append(service)
+            logger.log(ILoggingLogLevel.DEBUG, category: "ServiceImpl", message: "Adding \(service.getName()) to the service pull")
+        }
+    }
+    
+    /**
+    Unregister a service
+    
+    :param: service service to unregister
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
+    */
+    public func unregisterService(service : Service) {
+        
+        // TODO: now we are comparing the services by name, but the correct way is doing by a comparison using a extensing. But the element Service has to implement the Equatable interface
+        
+        for (index, s) in enumerate(services) {
+            
+            if(s.getName() == service.getName()) {
+                
+                services.removeAtIndex(index)
+                
+                logger.log(ILoggingLogLevel.DEBUG, category: "ServiceImpl", message: "Removing \(service.getName()) to the service pull")
+                
+                return
+            }
+        }
+        
+        logger.log(ILoggingLogLevel.WARN, category: "ServiceImpl", message: "\(service.getName()) is not founded in the pull for removing")
+    }
+    
+    /**
+    Unregister all services.
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
+    */
+    public func unregisterServices() {
+        
+        logger.log(ILoggingLogLevel.DEBUG, category: "ServiceImpl", message: "Removing all services from thee service pull")
+        
+        services.removeAll(keepCapacity: false)
     }
     
     /**
@@ -247,94 +344,6 @@ public class ServiceImpl : IService {
         
         // Start the task
         task.resume()
-    }
-    
-    /**
-    Check whether a service by the given service is already registered.
-    
-    :param: service Service to check
-    
-    :returns: True if the service is registered, false otherwise.
-    :author: Ferran Vila Conesa
-    :since: ARP1.0
-    */
-    public func isRegistered(service : Service) -> Bool {
-        
-        // TODO: now we are comparing the services by name, but the correct way is doing by a comparison using a extensing. But the element Service has to implement the Equatable interface
-        // :see: http://stackoverflow.com/questions/24102024/how-to-check-if-an-element-is-in-an-array
-        
-        // TODO: change this when the getService method could return optionals
-        //return self.getService(service.getName()) != nil ? true : false
-        return false
-    }
-    
-    /**
-    Check whether a service by the given name is registered.
-    
-    :param: serviceName Service name to call
-    
-    :returns: True if the service is registered, false otherwise.
-    :author: Ferran Vila Conesa
-    :since: ARP1.0
-    */
-    public func isRegistered(serviceName : String) -> Bool {
-        
-        // TODO: now we are comparing the services by name, but the correct way is doing by a comparison using a extensing. But the element Service has to implement the Equatable interface
-        // :see: http://stackoverflow.com/questions/24102024/how-to-check-if-an-element-is-in-an-array
-        
-        // TODO: change this when the getService method could return optionals
-        //return self.getService(serviceName) != nil ? true : false
-        return false
-    }
-    
-    /**
-    Register a new service
-    
-    :param: service Service to register
-    :author: Ferran Vila Conesa
-    :since: ARP1.0
-    */
-    public func registerService(service : Service) {
-        
-        services.append(service)
-        
-        logger.log(ILoggingLogLevel.DEBUG, category: "ServiceImpl", message: "Adding \(service.getName()) to the service pull")
-    }
-    
-    /**
-    Unregister a service
-    
-    :param: service service to unregister
-    :author: Ferran Vila Conesa
-    :since: ARP1.0
-    */
-    public func unregisterService(service : Service) {
-        
-        for (index, s) in enumerate(services) {
-            
-            if(s.getName() == service.getName()) {
-                
-                services.removeAtIndex(index)
-                
-                logger.log(ILoggingLogLevel.DEBUG, category: "ServiceImpl", message: "Removing \(service.getName()) to the service pull")
-                
-                return
-            }
-        }
-        
-        logger.log(ILoggingLogLevel.WARN, category: "ServiceImpl", message: "\(service.getName()) is not founded in the pull for removing")
-    }
-    
-    /**
-    Unregister all services.
-    :author: Ferran Vila Conesa
-    :since: ARP1.0
-    */
-    public func unregisterServices() {
-        
-        logger.log(ILoggingLogLevel.DEBUG, category: "ServiceImpl", message: "Removing all services from thee service pull")
-        
-        services.removeAll(keepCapacity: false)
     }
     
 }

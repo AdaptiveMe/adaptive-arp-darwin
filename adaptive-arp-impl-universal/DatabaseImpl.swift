@@ -497,26 +497,23 @@ public class DatabaseImpl : IDatabase {
             }
             
             // Start transaction
-            self.db.run("BEGIN TRANSACTION")
             
-            // Iterate for every query and do a rollback if an error occurs
+            // Start transaction
+            var txn = self.db.prepare("BEGIN TRANSACTION")
             for query in statements {
-                
-                var stmt = self.db.run(query)
-                
-                if stmt.failed {
-                    self.db.run("ROLLBACK")
-                    self.logger.log(ILoggingLogLevel.ERROR, category: "DatabaseImpl", message: "Error executing the statement. Reason: \(stmt.reason)")
-                    callback.onError(ITableResultCallbackError.SqlException)
-                    return
-                } else {
-                    self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Statement executed correctlly: \(query)")
-                    self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Total changes: \(self.db.totalChanges)")
-                }
+                txn = txn && self.db.prepare(query)
             }
             
-            // End transaction
-            self.db.run("END TRANSACTION")
+            if txn.failed {
+                self.db.run("ROLLBACK TRANSACTION")
+                self.logger.log(ILoggingLogLevel.ERROR, category: "DatabaseImpl", message: "Error executing the statement. Reason: \(txn.reason)")
+                callback.onError(ITableResultCallbackError.SqlException)
+                return
+            } else {
+                self.db.run("COMMIT TRANSACTION")
+                self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Transaction commited correctlly")
+                self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Total changes: \(self.db.totalChanges)")
+            }
             
             // TODO: the table is empty
             callback.onResult(Table())
