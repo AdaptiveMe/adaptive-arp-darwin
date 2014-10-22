@@ -30,62 +30,65 @@
 */
 
 import Foundation
+import MediaPlayer
+import UIKit
+import WebKit
 
-public class LifecycleImpl : ILifecycle {
+public class VideoImpl : IVideo {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
+    
+    /// Movie player
+    var moviePlayer:MPMoviePlayerController!
+    
+    /// Primary webview
+    var wkWebView:WKWebView
+    
+    /// Aplication
+    var application:UIApplication
     
     /**
     Class constructor
     */
     init() {
         
+        wkWebView = AppContextWebviewImpl().getWebviewPrimary() as WKWebView
+        application = AppContextImpl().getContext() as UIApplication
     }
     
     /**
-    * Whether the application is in background or not
-    *
-    * @return true if the application is in background;false otherwise
-    * @since ARP1.0
-    */
-    public func isBackground() -> Bool {
-        
-        // TODO
-        
-        return false
-    }
+    Play url video stream
     
-    /**
-    * Add the listener for the lifecycle of the app
-    *
-    * @param listener
-    * @since ARP1.0
+    :param: url url of the video
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
     */
-    public func addLifecycleListener(listener : ILifecycleListener) {
+    public func playStream(url : String) {
         
-        // TODO
-    }
-    
-    /**
-    * Un-registers an existing listener from receiving lifecycle events.
-    *
-    * @param listener
-    * @since ARP1.0
-    */
-    public func removeLifecycleListener(listener : ILifecycleListener) {
+        // Check the url for malforming
+        if(Utils.validateUrl(url)){
+            self.logger.log(ILoggingLogLevel.ERROR, category: "VideoImpl", message: "Url malformed: \(url)")
+            return
+        }
         
-        // TODO
-    }
-    
-    /**
-    * Removes all existing listeners from receiving lifecycle events.
-    *
-    * @since ARP1.0
-    */
-    public func removeLifecycleListeners() {
+        var url:NSURL = NSURL(string: url)!
         
-        // TODO
+        // Check if it is possible to open the url
+        if !application.canOpenURL(url) {
+            
+            logger.log(ILoggingLogLevel.ERROR, category: "VideoImpl", message: "The url: \(url) is not possible to open by the application")
+            return
+        }
+        
+        moviePlayer = MPMoviePlayerController(contentURL: url)
+        
+        // TODO: check this magic numbers
+        moviePlayer.view.frame = CGRect(x: 20, y: 100, width: 200, height: 150)
+        
+        wkWebView.addSubview(moviePlayer.view)
+        
+        moviePlayer.fullscreen = true        
+        moviePlayer.controlStyle = MPMovieControlStyle.Embedded
     }
-    
 }

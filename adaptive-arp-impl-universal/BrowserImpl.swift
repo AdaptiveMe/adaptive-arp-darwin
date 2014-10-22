@@ -30,57 +30,81 @@
 */
 
 import Foundation
-import UIKit
+#if os(iOS)
+    import UIKit
+#elseif os(OSX)
+    import Cocoa
+#endif
 
-public class TelephonyImpl : ITelephony {
+public class BrowserImpl : IBrowser {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
     
-    var application:UIApplication
+    #if os(iOS)
+        var application:UIApplication
+    #elseif os(OSX)
+        var application:NSApplication
+    #endif
     
     /**
     Class constructor
     */
     init() {
         
-        application = AppContextImpl().getContext() as UIApplication
+        #if os(iOS)
+            application = AppContextImpl().getContext() as UIApplication
+        #elseif os(OSX)
+            application = AppContextImpl().getContext() as NSApplication
+        #endif
+        
     }
     
     /**
-    Invoke a phone call
+    Open a new window showing the url webpage with a title and a close button displaying the desired text
     
-    :param: number number to call
+    :param: url        to open
+    :param: title      of the new window
+    :param: buttonText text of the close button
     
-    :returns: Status of the call
+    :returns: true if the new window opens;false otherwise
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    public func call(number : String) -> ITelephonyStatus {
+    public func openBrowser(url : String, title : String, buttonText : String) -> Bool {
         
-        // Check the correct format of the number
-        if !Utils.isPhoneNumberCorrect(number) {
-            
-            logger.log(ILoggingLogLevel.ERROR, category: "TelephonyImpl", message: "The number: \(number) has an incorrect format")
-            return ITelephonyStatus.Failed
+        // TODO: use the title and the button text attibutes
+        // TODO: check if the browser has to be embedded into a webview inside the application
+        
+        // Check if the string is empty
+        if url.isEmpty {
+            return false
         }
         
-        let url: NSURL = NSURL(string: "tel://\(number)")!
+        // Check the correct format of the number
+        if !Utils.validateUrl(url) {
+            
+            logger.log(ILoggingLogLevel.ERROR, category: "BrowserImpl", message: "The url: \(url) has an incorrect format")
+            return false
+        }
+        
+        let url: NSURL = NSURL(string: url)!
         
         // Check if it is possible to open the url
         if !application.canOpenURL(url) {
             
-            logger.log(ILoggingLogLevel.ERROR, category: "TelephonyImpl", message: "The url: \(url) is not possible to open by the application")
-            return ITelephonyStatus.Failed
+            logger.log(ILoggingLogLevel.ERROR, category: "BrowserImpl", message: "The url: \(url) is not possible to open by the application")
+            return false
         }
         
         // Make the call
         let result: Bool =  application.openURL(url)
         
         if !result {
-            logger.log(ILoggingLogLevel.ERROR, category: "TelephonyImpl", message: "It is not posible to make the call")
+            logger.log(ILoggingLogLevel.ERROR, category: "BrowserImpl", message: "It is not posible to open the url")
+            return false
         }
         
-        return result ? ITelephonyStatus.Dialing : ITelephonyStatus.Failed
+        return true
     }
 }
