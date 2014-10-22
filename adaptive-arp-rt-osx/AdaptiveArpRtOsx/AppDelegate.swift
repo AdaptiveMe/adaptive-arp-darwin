@@ -43,7 +43,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         // Insert code here to initialize your application
         println("applicationDidFinishLaunching");
-        var requestUrl : NSURL = NSURL(string : "http://google.com")
+        var requestUrl : NSURL! = NSURL(string : "http://google.com")
         var request : NSURLRequest = NSURLRequest(URL: requestUrl)
         //webview.customUserAgent = "Mozilla/5.0 (Windows; U; MSIE 9.0; WIndows NT 10.0; en-US))"
         webview.mainFrame.loadRequest(request)

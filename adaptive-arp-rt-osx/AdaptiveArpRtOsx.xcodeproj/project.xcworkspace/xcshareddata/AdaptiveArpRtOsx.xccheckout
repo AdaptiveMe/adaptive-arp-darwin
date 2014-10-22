@@ -14,11 +14,11 @@
 		<string>https://github.com/AdaptiveMe/adaptive-arp-darwin.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>adaptive-arp-rt-osx/AdaptiveArpRtOsx/AdaptiveArpRtOsx.xcodeproj</string>
+	<string>adaptive-arp-rt-osx/AdaptiveArpRtOsx.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>EAF2577DF30172B66D9C68E6417F0EC9F4C22E29</key>
-		<string>../../../..</string>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/AdaptiveMe/adaptive-arp-darwin.git</string>
