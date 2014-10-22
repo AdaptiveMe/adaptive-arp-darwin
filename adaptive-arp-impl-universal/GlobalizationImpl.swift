@@ -119,9 +119,9 @@ public class GlobalizationImpl : IGlobalization {
         
         // Create the parser and parse the xml
         var xmlParser = NSXMLParser(data: data)
-        xmlParser?.delegate = parserDelegate
+        xmlParser.delegate = parserDelegate
         
-        if let result = xmlParser?.parse() {
+        if xmlParser.parse() {
             logger.log(ILoggingLogLevel.DEBUG, category: "GlobalizationImpl", message: "Returning locales \(parserDelegate.getLocales())")
             return parserDelegate.getLocales()
         } else {
