@@ -44,7 +44,7 @@ public class MessagingImpl : NSObject, IMessaging, MFMessageComposeViewControlle
     let logger : ILogging = LoggingImpl()
     
     var application:UIApplication
-    var wkWebView:WKWebView
+    var webView:UIView
     
     /// Callback for returning the sms responses
     var smsCallback: IMessagingCallback?
@@ -58,7 +58,7 @@ public class MessagingImpl : NSObject, IMessaging, MFMessageComposeViewControlle
     override init() {
         
         application = AppContextImpl().getContext() as UIApplication
-        wkWebView = AppContextWebviewImpl().getWebviewPrimary() as WKWebView
+        webView = AppContextWebviewImpl().getWebviewPrimary() as UIView
     }
     
     /**
@@ -125,7 +125,7 @@ public class MessagingImpl : NSObject, IMessaging, MFMessageComposeViewControlle
         }
         
         // Open the view to compose the mail with the fields setted
-        wkWebView.window?.rootViewController?.presentViewController(mail, animated: true, completion: nil)
+        webView.window?.rootViewController?.presentViewController(mail, animated: true, completion: nil)
         
     }
     
@@ -160,7 +160,7 @@ public class MessagingImpl : NSObject, IMessaging, MFMessageComposeViewControlle
         messageController.recipients = [number]
         
         // Open the view to compose the message with the fields setted
-        wkWebView.window?.rootViewController?.presentViewController(messageController, animated: true, completion: nil)
+        webView.window?.rootViewController?.presentViewController(messageController, animated: true, completion: nil)
     }
     
     /**

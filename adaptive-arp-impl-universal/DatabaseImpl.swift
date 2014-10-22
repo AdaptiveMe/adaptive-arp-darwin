@@ -30,7 +30,7 @@
 */
 
 import Foundation
-import SQLite
+//import SQLite
 
 public class DatabaseImpl : IDatabase {
     
@@ -44,7 +44,7 @@ public class DatabaseImpl : IDatabase {
     // var queue:dispatch_queue_t
     
     /// SQLite database instance
-    var db:SQLite.Database = SQLite.Database("")
+    //var db:SQLite.Database = SQLite.Database("")
     
     /// Label for the queue
     let QUEUE_LABEL = "SQLiteDB"
@@ -118,7 +118,7 @@ public class DatabaseImpl : IDatabase {
                     self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Creating database file (\(dbName)) and setting a new database connection...")
                     
                     // Creating database
-                    self.db = SQLite.Database(path)
+                    //self.db = SQLite.Database(path)
                     
                     callback.onResult(database)
                     
@@ -129,7 +129,7 @@ public class DatabaseImpl : IDatabase {
                     self.logger.log(ILoggingLogLevel.WARN, category: "DatabaseImpl", message: "The database file, alredy exists (\(dbName)) opening a new database connection...")
                     
                     // Opening database
-                    self.db = SQLite.Database(path)
+                    //self.db = SQLite.Database(path)
                     
                     callback.onWarning(database, warning: IDatabaseResultCallbackWarning.DatabaseExists)
                 }
@@ -251,7 +251,7 @@ public class DatabaseImpl : IDatabase {
             let path:String = self.docDir.stringByAppendingPathComponent(dbName + self.DB_EXT_FILE)
             
             // Opening database
-            self.db = SQLite.Database(path)
+            //self.db = SQLite.Database(path)
             
         //} else {
             
@@ -291,16 +291,17 @@ public class DatabaseImpl : IDatabase {
                 columns += column.getName()
             }
             
-            let stmt = self.db.prepare("CREATE TABLE IF NOT EXISTS \(table.getName()) (\(columns))")
+            //let stmt = self.db.prepare("CREATE TABLE IF NOT EXISTS \(table.getName()) (\(columns))")
             
             // Query only for logging purposes
             var query:String = "CREATE TABLE IF NOT EXISTS \(table.getName()) (\(columns))"
             self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Query: \(query)")            
             
             // Run the prepared statement
-            stmt.run("")
+            //stmt.run("")
             
             // Handle errors
+            /*
             if stmt.failed {
                 self.logger.log(ILoggingLogLevel.ERROR, category: "DatabaseImpl", message: "Error during the creation of the table. Reason: \(stmt.reason)")
                 callback.onError(ITableResultCallbackError.SqlException)
@@ -309,6 +310,7 @@ public class DatabaseImpl : IDatabase {
                 self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Total changes: \(self.db.totalChanges)")
                 callback.onResult(table)
             }
+            */
         }
     }
     
@@ -335,7 +337,7 @@ public class DatabaseImpl : IDatabase {
             
             
             if self.existsTable(database, table: table) {
-                let stmt = self.db.prepare("DROP TABLE \(table.getName())")
+                //let stmt = self.db.prepare("DROP TABLE \(table.getName())")
                 
                 // Query only for logging purposes
                 var query:String = "DROP TABLE \(table.getName())"
@@ -345,6 +347,7 @@ public class DatabaseImpl : IDatabase {
                 // stmt.run("")
                 
                 // Handle errors
+                /*
                 if stmt.failed {
                     self.logger.log(ILoggingLogLevel.ERROR, category: "DatabaseImpl", message: "Error droping the table. Reason: \(stmt.reason)")
                     callback.onError(ITableResultCallbackError.SqlException)
@@ -353,6 +356,7 @@ public class DatabaseImpl : IDatabase {
                     self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Total changes: \(self.db.totalChanges)")
                     callback.onResult(table)
                 }
+                */
                 
             } else {
                 // TODO: change by NoTableFound
@@ -380,16 +384,16 @@ public class DatabaseImpl : IDatabase {
         }
         
         // Prepare query
-        let sqlite_master:Query = self.db["sqlite_master"]
+        //let sqlite_master:Query = self.db["sqlite_master"]
             
-        let tables:Query = sqlite_master.filter("tbl_name = ?", table.getName()).order("tbl_name").limit(1)
-        self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Query: \(tables)")
-        
+        //let tables:Query = sqlite_master.filter("tbl_name = ?", table.getName()).order("tbl_name").limit(1)
+        //self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Query: \(tables)")
+        /*
         for row in tables {
             self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Founded one table with name: \(table.getName())")
             return true
         }
-        
+        */
         return false
     }
     
@@ -448,12 +452,13 @@ public class DatabaseImpl : IDatabase {
             var sql = self.replaceReplacements(statement, replacements: replacements)
             
             // run the statement
-            let stmt = self.db.prepare(sql)
+            //let stmt = self.db.prepare(sql)
             
             // Prepare the table for the result
-            var table:Table = self.prepareTable(stmt)
+            //var table:Table = self.prepareTable(stmt)
             
             // Handle errors
+            /*
             if stmt.failed {
                 self.logger.log(ILoggingLogLevel.ERROR, category: "DatabaseImpl", message: "Error executing the statement. Reason: \(stmt.reason)")
                 callback.onError(ITableResultCallbackError.SqlException)
@@ -468,6 +473,7 @@ public class DatabaseImpl : IDatabase {
                     callback.onResult(table)
                 }
             }
+            */
         }
     }
     
@@ -499,6 +505,7 @@ public class DatabaseImpl : IDatabase {
             // Start transaction
             
             // Start transaction
+            /*
             var txn = self.db.prepare("BEGIN TRANSACTION")
             for query in statements {
                 txn = txn && self.db.prepare(query)
@@ -514,7 +521,7 @@ public class DatabaseImpl : IDatabase {
                 self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Transaction commited correctlly")
                 self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Total changes: \(self.db.totalChanges)")
             }
-            
+            */
             // TODO: the table is empty
             callback.onResult(Table())
         }
@@ -541,6 +548,7 @@ public class DatabaseImpl : IDatabase {
     }
     
     /// Compose a Table object with the result set of the statement
+    /*
     private func prepareTable(stmt:Statement) -> Table {
         
         // TODO: extract table name from statement
@@ -570,4 +578,5 @@ public class DatabaseImpl : IDatabase {
         
         return table
     }
+    */
 }

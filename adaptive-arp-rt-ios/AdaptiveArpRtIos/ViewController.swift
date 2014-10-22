@@ -11,8 +11,9 @@ import WebKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet var containerView : UIView! = nil
-    var webView : WKWebView?    
+    var webView : UIView?
+    
+    @IBOutlet weak var webViewContainer: UIView!
     
     
     override func viewDidLoad() {
@@ -28,7 +29,9 @@ class ViewController: UIViewController {
         println(NSProcessInfo.processInfo().activeProcessorCount)
         println(NSProcessInfo.processInfo().processorCount)
         println(NSProcessInfo.processInfo().hostName)
+        /*
         println(NSProcessInfo.processInfo().isOperatingSystemAtLeastVersion(NSOperatingSystemVersion(majorVersion: 8, minorVersion: 0, patchVersion: 0)))
+
         var processInfoOs : NSOperatingSystemVersion = NSProcessInfo.processInfo().operatingSystemVersion
         var osVersion : String = "\(processInfoOs.majorVersion).\(processInfoOs.minorVersion)"
         if (processInfoOs.patchVersion>0) {
@@ -36,10 +39,18 @@ class ViewController: UIViewController {
         }
 
         println(osVersion)
+        */
+        
         // Do any additional setup after loading the view, typically from a nib.
-        var url = NSURL(string:"http://google.com/")
+        var url : NSURL! = NSURL(string:"http://google.com/")
         var req = NSURLRequest(URL:url)
-        self.webView!.loadRequest(req)
+        
+        if (NSClassFromString("WKWebView") != nil) {
+            (self.webView! as WKWebView).loadRequest(req)
+        } else {
+            (self.webView! as UIWebView).loadRequest(req)
+        }
+        
 
     }
 
@@ -50,8 +61,21 @@ class ViewController: UIViewController {
 
     override func loadView() {
         super.loadView()
-        self.webView = WKWebView()
-        self.view = self.webView!
+        
+        if (NSClassFromString("WKWebView") != nil) {
+            self.webView = WKWebView(frame: self.webViewContainer.bounds)
+            println("Using WKWebView")
+        } else {
+            self.webView = UIWebView(frame: self.webViewContainer.bounds)
+            println("Using UIWebView")
+        }
+        //
+        
+
+        self.webView?.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+        self.webViewContainer.addSubview(self.webView!)
+        
+        //self.view = self.webView!
     }
 }
 

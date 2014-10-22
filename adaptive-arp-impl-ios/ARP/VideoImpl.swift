@@ -43,7 +43,7 @@ public class VideoImpl : IVideo {
     var moviePlayer:MPMoviePlayerController!
     
     /// Primary webview
-    var wkWebView:WKWebView
+    var webView:UIView
     
     /// Aplication
     var application:UIApplication
@@ -53,7 +53,7 @@ public class VideoImpl : IVideo {
     */
     init() {
         
-        wkWebView = AppContextWebviewImpl().getWebviewPrimary() as WKWebView
+        webView = AppContextWebviewImpl().getWebviewPrimary() as UIView
         application = AppContextImpl().getContext() as UIApplication
     }
     
@@ -86,7 +86,7 @@ public class VideoImpl : IVideo {
         // TODO: check this magic numbers
         moviePlayer.view.frame = CGRect(x: 20, y: 100, width: 200, height: 150)
         
-        wkWebView.addSubview(moviePlayer.view)
+        webView.addSubview(moviePlayer.view)
         
         moviePlayer.fullscreen = true        
         moviePlayer.controlStyle = MPMovieControlStyle.Embedded

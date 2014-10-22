@@ -48,7 +48,16 @@ public class AppContextWebviewImpl : IAppContextWebview {
         var exists = false;
         
         #if os(iOS)
-            if let uiWebView = webViewInstance as? WKWebView {
+            if (NSClassFromString("WKWebView") != nil) {
+                let uiWebView = webViewInstance as? UIView
+                for webView in webViewList {
+                    if (webView as NSObject == webViewInstance as NSObject) {
+                        exists = true
+                        break
+                    }
+                }
+            } else {
+                let uiWebView = webViewInstance as? UIView
                 for webView in webViewList {
                     if (webView as NSObject == webViewInstance as NSObject) {
                         exists = true
@@ -75,7 +84,7 @@ public class AppContextWebviewImpl : IAppContextWebview {
     
     #if os(iOS)
     
-    func setWebviewPrimary(webView : WKWebView) {
+    func setWebviewPrimary(webView : AnyObject) {
         self.primaryView = webView
     }
     
