@@ -12,6 +12,8 @@
 	<dict>
 		<key>3AE8ED2E684071AF4FB151FA51BF266B82FF45BD</key>
 		<string>https://github.com/stephencelis/SQLite.swift.git</string>
+		<key>6F60443C0E2F7258B4D1DE6093E5F920529C92D6</key>
+		<string>https://github.com/fnva/adaptive-arp-api.git</string>
 		<key>EAF2577DF30172B66D9C68E6417F0EC9F4C22E29</key>
 		<string>https://github.com/fnva/adaptive-arp-darwin.git</string>
 	</dict>
@@ -21,6 +23,8 @@
 	<dict>
 		<key>3AE8ED2E684071AF4FB151FA51BF266B82FF45BD</key>
 		<string>../../../../Desktop/SQLite.swift</string>
+		<key>6F60443C0E2F7258B4D1DE6093E5F920529C92D6</key>
+		<string>../../../../adaptive-arp-api</string>
 		<key>EAF2577DF30172B66D9C68E6417F0EC9F4C22E29</key>
 		<string>../../..</string>
 	</dict>
@@ -32,6 +36,14 @@
 	<string>EAF2577DF30172B66D9C68E6417F0EC9F4C22E29</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6F60443C0E2F7258B4D1DE6093E5F920529C92D6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>adaptive-arp-api</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
