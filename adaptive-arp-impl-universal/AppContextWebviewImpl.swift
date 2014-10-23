@@ -84,13 +84,13 @@ public class AppContextWebviewImpl : IAppContextWebview {
     
     #if os(iOS)
     
-    func setWebviewPrimary(webView : AnyObject) {
+    public func setWebviewPrimary(webView : AnyObject) {
         self.primaryView = webView
     }
     
     #elseif os(OSX)
     
-    func setWebviewPrimary(webView : WebView) {
+    public func setWebviewPrimary(webView : WebView) {
         self.primaryView = webView
     }
     

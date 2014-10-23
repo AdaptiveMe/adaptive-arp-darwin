@@ -45,3 +45,5 @@ adaptive-arp-rt-ios/AdaptiveArpRtIos.xcodeproj/project.xcworkspace/xcuserdata
 adaptive-arp-rt-osx/AdaptiveArpRtOsx.xcodeproj/project.xcworkspace/xcuserdata/clozano.xcuserdatad/UserInterfaceState.xcuserstate
 
 adaptive-arp-impl-ios/.idea/
+
+*.xccheckout
