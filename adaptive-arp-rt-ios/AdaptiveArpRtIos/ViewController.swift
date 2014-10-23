@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     
     var webView : UIView?
     
+    var appContextWebview:AppContextWebviewImpl?
+    
     @IBOutlet weak var webViewContainer: UIView!
     
     
@@ -62,11 +64,15 @@ class ViewController: UIViewController {
     override func loadView() {
         super.loadView()
         
+        appContextWebview = AppContextWebviewImpl()
+        
         if (NSClassFromString("WKWebView") != nil) {
             self.webView = WKWebView(frame: self.webViewContainer.bounds)
+            appContextWebview!.setWebviewPrimary(self.webView!)
             println("Using WKWebView")
         } else {
             self.webView = UIWebView(frame: self.webViewContainer.bounds)
+            appContextWebview!.setWebviewPrimary(self.webView!)
             println("Using UIWebView")
         }
         //
