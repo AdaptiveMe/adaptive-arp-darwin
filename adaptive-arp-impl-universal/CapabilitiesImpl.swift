@@ -36,7 +36,9 @@ import Foundation
     import MessageUI
     import AddressBook
     import CoreLocation
-#elseif os(OSX)
+    #elseif os(OSX)
+    import AppKit
+    import CoreLocation
 #endif
 
 

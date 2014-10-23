@@ -40,10 +40,10 @@ public class DeviceImpl : IDevice {
     let logger : ILogging = LoggingImpl()
     
     /// Variable that stores the device information
-    var deviceInfo:DeviceInfo
+    var deviceInfo:DeviceInfo?
     
     /// Array of Listeners
-    var listeners: [IButtonListener]
+    var listeners: [IButtonListener]?
     
     /**
     Class constructor
@@ -74,9 +74,9 @@ public class DeviceImpl : IDevice {
     */
     public func getDeviceInfo() -> DeviceInfo {
         
-        logger.log(ILoggingLogLevel.INFO, category: "DeviceImpl", message: "name: \(self.deviceInfo.getName()), model: \(self.deviceInfo.getModel()), vendor: \(self.deviceInfo.getVendor()), uuid: \(self.deviceInfo.getUuid())")
+        logger.log(ILoggingLogLevel.INFO, category: "DeviceImpl", message: "name: \(self.deviceInfo!.getName()), model: \(self.deviceInfo!.getModel()), vendor: \(self.deviceInfo!.getVendor()), uuid: \(self.deviceInfo!.getUuid())")
         
-        return self.deviceInfo
+        return self.deviceInfo!
     }
     
     /**
@@ -113,7 +113,7 @@ public class DeviceImpl : IDevice {
         
         #if os(iOS)
             
-            for list in listeners {
+            for list in listeners! {
                 if list.toString() == listener.toString() {
                     
                     // If the listener has alredy registered
@@ -124,7 +124,7 @@ public class DeviceImpl : IDevice {
             }
             
             // Register the listener
-            listeners.append(listener)
+            listeners!.append(listener)
             logger.log(ILoggingLogLevel.DEBUG, category: "DeviceImpl", message: "Listener \(listener.toString()) registered")
             
         #elseif os(OSX)
@@ -146,11 +146,11 @@ public class DeviceImpl : IDevice {
         
         #if os(iOS)
             
-            for (index, list) in enumerate(listeners) {
+            for (index, list) in enumerate(listeners!) {
                 if list.toString() == listener.toString() {
                     
                     // Remove the listener
-                    listeners.removeAtIndex(index)
+                    listeners!.removeAtIndex(index)
                     
                     logger.log(ILoggingLogLevel.DEBUG, category: "DeviceImpl", message: "The listener \(listener.toString()) it has been removed")
                     return
@@ -178,10 +178,10 @@ public class DeviceImpl : IDevice {
         
         #if os(iOS)
             
-            var listCount:Int = listeners.count
+            var listCount:Int = listeners!.count
             
             // Remove all the listeners
-            listeners.removeAll(keepCapacity: false)
+            listeners!.removeAll(keepCapacity: false)
             
             logger.log(ILoggingLogLevel.DEBUG, category: "DeviceImpl", message: "Removed \(listCount) listeners from the system")
             
