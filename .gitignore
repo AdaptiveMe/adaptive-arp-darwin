@@ -47,3 +47,8 @@ adaptive-arp-rt-osx/AdaptiveArpRtOsx.xcodeproj/project.xcworkspace/xcuserdata/cl
 adaptive-arp-impl-ios/.idea/
 
 *.xccheckout
+*.xcbkptlist
+
+*.xcscheme
+
+adaptive-arp-rt-ios/AdaptiveArpRtIos.xcodeproj/xcuserdata/administrator.xcuserdatad/xcschemes/xcschememanagement.plist

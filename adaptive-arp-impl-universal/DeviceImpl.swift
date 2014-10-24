@@ -74,7 +74,7 @@ public class DeviceImpl : IDevice {
     */
     public func getDeviceInfo() -> DeviceInfo {
         
-        logger.log(ILoggingLogLevel.INFO, category: "DeviceImpl", message: "name: \(self.deviceInfo!.getName()), model: \(self.deviceInfo!.getModel()), vendor: \(self.deviceInfo!.getVendor()), uuid: \(self.deviceInfo!.getUuid())")
+        logger.log(ILoggingLogLevel.DEBUG, category: "DeviceImpl", message: "name: \(self.deviceInfo!.getName()), model: \(self.deviceInfo!.getModel()), vendor: \(self.deviceInfo!.getVendor()), uuid: \(self.deviceInfo!.getUuid())")
         
         return self.deviceInfo!
     }
