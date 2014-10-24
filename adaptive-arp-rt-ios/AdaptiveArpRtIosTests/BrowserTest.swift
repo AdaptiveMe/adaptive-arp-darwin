@@ -42,8 +42,6 @@ class BrowserTest: XCTestCase {
     let WRONG_URL_1:String = "google"
     let WRONG_URL_2:String = "www.google.com"
     let WRONG_URL_3:String = "google.com"
-    
-    let MSG_OPENBROWSER = "The URL should not be empty and must have a correct format."
 
     override func setUp() {
         super.setUp()
@@ -57,12 +55,12 @@ class BrowserTest: XCTestCase {
 
     func testOpenBrowser() {
         
-        XCTAssertTrue(self.browserImpl!.openBrowser(CORRECT_URL_1, title : "", buttonText : ""), MSG_OPENBROWSER)
-        XCTAssertTrue(self.browserImpl!.openBrowser(CORRECT_URL_2, title : "", buttonText : ""), MSG_OPENBROWSER)
-        XCTAssertFalse(self.browserImpl!.openBrowser(EMPTY_URL, title : "", buttonText : ""), MSG_OPENBROWSER)
-        XCTAssertFalse(self.browserImpl!.openBrowser(WRONG_URL_1, title : "", buttonText : ""), MSG_OPENBROWSER)
-        XCTAssertFalse(self.browserImpl!.openBrowser(WRONG_URL_2, title : "", buttonText : ""), MSG_OPENBROWSER)
-        XCTAssertFalse(self.browserImpl!.openBrowser(WRONG_URL_3, title : "", buttonText : ""), MSG_OPENBROWSER)
+        XCTAssertTrue(self.browserImpl!.openBrowser(CORRECT_URL_1, title : "", buttonText : ""), "")
+        XCTAssertTrue(self.browserImpl!.openBrowser(CORRECT_URL_2, title : "", buttonText : ""), "")
+        XCTAssertFalse(self.browserImpl!.openBrowser(EMPTY_URL, title : "", buttonText : ""), "")
+        XCTAssertFalse(self.browserImpl!.openBrowser(WRONG_URL_1, title : "", buttonText : ""), "")
+        XCTAssertFalse(self.browserImpl!.openBrowser(WRONG_URL_2, title : "", buttonText : ""), "")
+        XCTAssertFalse(self.browserImpl!.openBrowser(WRONG_URL_3, title : "", buttonText : ""), "")
     }
 
     func testPerformanceOpenBrowser() {
