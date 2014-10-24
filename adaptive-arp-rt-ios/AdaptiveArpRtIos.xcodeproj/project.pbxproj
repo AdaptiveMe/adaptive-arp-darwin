@@ -233,6 +233,7 @@
 		4ECC8A3819F8E64500C9272D /* ServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECC897919F8E64500C9272D /* ServiceResponse.swift */; };
 		4ECC8A3919F8E64500C9272D /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECC897A19F8E64500C9272D /* Table.swift */; };
 		C33BDB1919F8EEEF003D60EA /* BrowserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33BDB1819F8EEEF003D60EA /* BrowserTest.swift */; };
+		C39ABF5E19FA3BD300200F0C /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39ABF5D19FA3BD300200F0C /* Session.swift */; };
 		C39FED0E19F910FC00125277 /* BrowserImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39FED0919F910FC00125277 /* BrowserImpl.swift */; };
 		C39FED0F19F910FC00125277 /* BrowserImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39FED0919F910FC00125277 /* BrowserImpl.swift */; };
 		C39FED1019F910FC00125277 /* ContactImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39FED0A19F910FC00125277 /* ContactImpl.swift */; };
@@ -709,6 +710,7 @@
 		4ECC897A19F8E64500C9272D /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
 		90A8F269EA454B419D1F95DA /* libPods-AdaptiveArpRtIos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AdaptiveArpRtIos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C33BDB1819F8EEEF003D60EA /* BrowserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserTest.swift; sourceTree = "<group>"; };
+		C39ABF5D19FA3BD300200F0C /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		C39FED0919F910FC00125277 /* BrowserImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserImpl.swift; sourceTree = "<group>"; };
 		C39FED0A19F910FC00125277 /* ContactImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactImpl.swift; sourceTree = "<group>"; };
 		C39FED0B19F910FC00125277 /* MessagingImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagingImpl.swift; sourceTree = "<group>"; };
@@ -786,6 +788,7 @@
 			children = (
 				C33BDB1819F8EEEF003D60EA /* BrowserTest.swift */,
 				C39FED1C19F926C500125277 /* DeviceTest.swift */,
+				C39ABF5D19FA3BD300200F0C /* Session.swift */,
 				4E22085B19BDF51500BC4819 /* Supporting Files */,
 			);
 			path = AdaptiveArpRtIosTests;
@@ -1477,6 +1480,7 @@
 				C3B10E6019F8ECAF0070A67B /* IBaseData.swift in Sources */,
 				C3B10E5319F8ECAF0070A67B /* IAppResourceHandler.swift in Sources */,
 				C3B10E4E19F8ECAF0070A67B /* IAppResource.swift in Sources */,
+				C39ABF5E19FA3BD300200F0C /* Session.swift in Sources */,
 				C3B10E6119F8ECAF0070A67B /* IBaseListener.swift in Sources */,
 				C3B10E4819F8ECAF0070A67B /* IAmbientLight.swift in Sources */,
 				C3B10E3319F8ECAF0070A67B /* ContactPhone.swift in Sources */,
@@ -1695,7 +1699,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "-DDebug -DStaging";
@@ -1733,7 +1737,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_SWIFT_FLAGS = "-DRelease -DProduction";
 				SDKROOT = iphoneos;
@@ -1750,7 +1754,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AdaptiveArpRtIos/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1765,7 +1769,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AdaptiveArpRtIos/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

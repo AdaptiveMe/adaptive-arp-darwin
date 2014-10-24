@@ -182,7 +182,7 @@ public class SessionImpl : ISession {
         
         logger.log(ILoggingLogLevel.DEBUG, category: "SessionImpl", message: "Setting attribute with name: \(name) and value: \(value)")
         
-        self.attributes.updateValue(value, forKey: name)!
+        self.attributes.updateValue(value, forKey: name)
     }
     
     /**
@@ -234,6 +234,6 @@ public class SessionImpl : ISession {
         
         logger.log(ILoggingLogLevel.DEBUG, category: "SessionImpl", message: "Removing all attributes")
         
-        self.removeAttributes()
+        self.attributes.removeAll(keepCapacity: false)
     }
 }
