@@ -37,7 +37,6 @@ class BrowserTest: XCTestCase {
     var browserImpl:BrowserImpl?
     
     let CORRECT_URL_1:String = "http://www.google.com"
-    let CORRECT_URL_2:String = "https://www.google.com"
     let EMPTY_URL:String = ""
     let WRONG_URL_1:String = "google"
     let WRONG_URL_2:String = "www.google.com"
@@ -56,7 +55,6 @@ class BrowserTest: XCTestCase {
     func testOpenBrowser() {
         
         XCTAssertTrue(self.browserImpl!.openBrowser(CORRECT_URL_1, title : "", buttonText : ""), "")
-        XCTAssertTrue(self.browserImpl!.openBrowser(CORRECT_URL_2, title : "", buttonText : ""), "")
         XCTAssertFalse(self.browserImpl!.openBrowser(EMPTY_URL, title : "", buttonText : ""), "")
         XCTAssertFalse(self.browserImpl!.openBrowser(WRONG_URL_1, title : "", buttonText : ""), "")
         XCTAssertFalse(self.browserImpl!.openBrowser(WRONG_URL_2, title : "", buttonText : ""), "")
