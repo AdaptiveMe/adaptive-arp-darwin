@@ -234,6 +234,8 @@
 		4ECC8A3919F8E64500C9272D /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECC897A19F8E64500C9272D /* Table.swift */; };
 		C33BDB1919F8EEEF003D60EA /* BrowserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33BDB1819F8EEEF003D60EA /* BrowserTest.swift */; };
 		C39ABF5E19FA3BD300200F0C /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39ABF5D19FA3BD300200F0C /* Session.swift */; };
+		C39EEC3A19FE2BFE00E6D581 /* OSTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39EEC3919FE2BFE00E6D581 /* OSTest.swift */; };
+		C39EEC3C19FE2DB500E6D581 /* LoggingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39EEC3B19FE2DB500E6D581 /* LoggingTest.swift */; };
 		C39FED0E19F910FC00125277 /* BrowserImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39FED0919F910FC00125277 /* BrowserImpl.swift */; };
 		C39FED0F19F910FC00125277 /* BrowserImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39FED0919F910FC00125277 /* BrowserImpl.swift */; };
 		C39FED1019F910FC00125277 /* ContactImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39FED0A19F910FC00125277 /* ContactImpl.swift */; };
@@ -712,6 +714,8 @@
 		90A8F269EA454B419D1F95DA /* libPods-AdaptiveArpRtIos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AdaptiveArpRtIos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C33BDB1819F8EEEF003D60EA /* BrowserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserTest.swift; sourceTree = "<group>"; };
 		C39ABF5D19FA3BD300200F0C /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		C39EEC3919FE2BFE00E6D581 /* OSTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSTest.swift; sourceTree = "<group>"; };
+		C39EEC3B19FE2DB500E6D581 /* LoggingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingTest.swift; sourceTree = "<group>"; };
 		C39FED0919F910FC00125277 /* BrowserImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserImpl.swift; sourceTree = "<group>"; };
 		C39FED0A19F910FC00125277 /* ContactImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactImpl.swift; sourceTree = "<group>"; };
 		C39FED0B19F910FC00125277 /* MessagingImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagingImpl.swift; sourceTree = "<group>"; };
@@ -790,6 +794,8 @@
 			children = (
 				C33BDB1819F8EEEF003D60EA /* BrowserTest.swift */,
 				C39FED1C19F926C500125277 /* DeviceTest.swift */,
+				C39EEC3B19FE2DB500E6D581 /* LoggingTest.swift */,
+				C39EEC3919FE2BFE00E6D581 /* OSTest.swift */,
 				C3C6C3CA19FA44D5002602C1 /* SecurityTest.swift */,
 				C39ABF5D19FA3BD300200F0C /* Session.swift */,
 				4E22085B19BDF51500BC4819 /* Supporting Files */,
@@ -1437,6 +1443,7 @@
 				C3B10E3619F8ECAF0070A67B /* ContactTag.swift in Sources */,
 				C3B10E4619F8ECAF0070A67B /* IAds.swift in Sources */,
 				C3B10E6819F8ECAF0070A67B /* IBaseSocial.swift in Sources */,
+				C39EEC3A19FE2BFE00E6D581 /* OSTest.swift in Sources */,
 				C3B10EA119F8ECAF0070A67B /* IGlobalization.swift in Sources */,
 				C3B10E1E19F8EC930070A67B /* HttpServer.swift in Sources */,
 				C3B10E6619F8ECAF0070A67B /* IBaseSecurity.swift in Sources */,
@@ -1447,6 +1454,7 @@
 				C3B10E7F19F8ECAF0070A67B /* IContactFieldGroup.swift in Sources */,
 				C3B10E2519F8EC970070A67B /* ServiceImpl.swift in Sources */,
 				C3B10EB319F8ECAF0070A67B /* IMessagingCallbackError.swift in Sources */,
+				C39EEC3C19FE2DB500E6D581 /* LoggingTest.swift in Sources */,
 				C3B10E8319F8ECAF0070A67B /* IContactPhotoResultCallbackWarning.swift in Sources */,
 				C3B10E2B19F8ECAF0070A67B /* Acceleration.swift in Sources */,
 				C3B10EDD19F8ECAF0070A67B /* IVibration.swift in Sources */,
