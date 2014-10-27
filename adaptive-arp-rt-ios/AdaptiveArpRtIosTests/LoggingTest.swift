@@ -32,40 +32,33 @@
 import UIKit
 import XCTest
 
-class BrowserTest: XCTestCase {
+class LoggingTest: XCTestCase {
     
-    var browserImpl:BrowserImpl?
+    var loggingImpl:LoggingImpl?
     
-    let CORRECT_URL_1:String = "http://www.google.com"
-    let EMPTY_URL:String = ""
-    let WRONG_URL_1:String = "google"
-    let WRONG_URL_2:String = "www.google.com"
-    let WRONG_URL_3:String = "google.com"
-
     override func setUp() {
         super.setUp()
         
-        browserImpl = BrowserImpl()
+        loggingImpl = LoggingImpl()
     }
     
     override func tearDown() {
         super.tearDown()
     }
-
-    func testOpenBrowser() {
+    
+    func testGetOSInfo() {
         
-        XCTAssertTrue(self.browserImpl!.openBrowser(CORRECT_URL_1, title : "", buttonText : ""), "")
-        XCTAssertFalse(self.browserImpl!.openBrowser(EMPTY_URL, title : "", buttonText : ""), "")
-        XCTAssertFalse(self.browserImpl!.openBrowser(WRONG_URL_1, title : "", buttonText : ""), "")
-        XCTAssertFalse(self.browserImpl!.openBrowser(WRONG_URL_2, title : "", buttonText : ""), "")
-        XCTAssertFalse(self.browserImpl!.openBrowser(WRONG_URL_3, title : "", buttonText : ""), "")
+        XCTAssert(loggingImpl?.log(ILoggingLogLevel.DEBUG, message: "Logging test") != nil, "")
+        XCTAssert(loggingImpl?.log(ILoggingLogLevel.DEBUG, category: "Logging Category", message: "Logging test") != nil, "")
     }
-
-    func testPerformanceOpenBrowser() {
+    
+    func testPerformanceGetOSInfo() {
         
         self.measureBlock() {
-            var result = self.browserImpl!.openBrowser(self.CORRECT_URL_1, title : "", buttonText : "")
+            
+            self.loggingImpl?.log(ILoggingLogLevel.DEBUG, message: "Logging test")
+            self.loggingImpl?.log(ILoggingLogLevel.DEBUG, category: "Logging Category", message: "Logging test")
         }
     }
-
+    
 }

@@ -32,39 +32,30 @@
 import UIKit
 import XCTest
 
-class BrowserTest: XCTestCase {
+class OSTest: XCTestCase {
     
-    var browserImpl:BrowserImpl?
-    
-    let CORRECT_URL_1:String = "http://www.google.com"
-    let EMPTY_URL:String = ""
-    let WRONG_URL_1:String = "google"
-    let WRONG_URL_2:String = "www.google.com"
-    let WRONG_URL_3:String = "google.com"
+    var osImpl:OSImpl?
 
     override func setUp() {
         super.setUp()
         
-        browserImpl = BrowserImpl()
+        osImpl = OSImpl()
     }
     
     override func tearDown() {
         super.tearDown()
     }
 
-    func testOpenBrowser() {
+    func testGetOSInfo() {
         
-        XCTAssertTrue(self.browserImpl!.openBrowser(CORRECT_URL_1, title : "", buttonText : ""), "")
-        XCTAssertFalse(self.browserImpl!.openBrowser(EMPTY_URL, title : "", buttonText : ""), "")
-        XCTAssertFalse(self.browserImpl!.openBrowser(WRONG_URL_1, title : "", buttonText : ""), "")
-        XCTAssertFalse(self.browserImpl!.openBrowser(WRONG_URL_2, title : "", buttonText : ""), "")
-        XCTAssertFalse(self.browserImpl!.openBrowser(WRONG_URL_3, title : "", buttonText : ""), "")
+        XCTAssertTrue(osImpl?.getOSInfo().getVendor() == "Apple", "The vendor of the device should be Apple")
     }
 
-    func testPerformanceOpenBrowser() {
+    func testPerformanceGetOSInfo() {
         
         self.measureBlock() {
-            var result = self.browserImpl!.openBrowser(self.CORRECT_URL_1, title : "", buttonText : "")
+            
+            var osInfo = self.osImpl?.getOSInfo()
         }
     }
 

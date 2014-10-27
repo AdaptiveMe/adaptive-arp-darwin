@@ -36,7 +36,7 @@ import Foundation
     import MessageUI
     import AddressBook
     import CoreLocation
-    #elseif os(OSX)
+#elseif os(OSX)
     import AppKit
     import CoreLocation
 #endif
@@ -128,7 +128,8 @@ public class CapabilitiesImpl : ICapabilities {
         case ICapabilitiesCommunication.Contact:
             
             #if os(iOS)
-                return MFMailComposeViewController.canSendMail()
+                //TODO
+                return false
             #elseif os(OSX)
                 //TODO
                 return false

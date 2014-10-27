@@ -66,7 +66,7 @@ public class SecurityImpl : ISecurity {
     ]
     
     /// Foundation expected path
-    let foundationPath: String = "/System/Library/Frameworks/Foundation.framework/Foundation"
+    //let foundationPath: String = "/System/Library/Frameworks/Foundation.framework/Foundation"
     
     /// Security key chain default values
     let kSecClassValue = kSecClass as NSString
@@ -118,11 +118,11 @@ public class SecurityImpl : ISecurity {
         }
         
         // If the Foundation path is not on the expected path, the device is jailbraked
-        let data: NSData? = NSData(contentsOfFile: foundationPath)
+        /*let data: NSData? = NSData(contentsOfFile: foundationPath)
         if data == nil {
             logger.log(ILoggingLogLevel.ERROR, category: "SecurityImpl", message: "The device is rooted. Because the Foundation Library path is not the expected")
             return true
-        }
+        }*/
         
         logger.log(ILoggingLogLevel.DEBUG, category: "SecurityImpl", message: "The device is not rooted.")
         
@@ -279,7 +279,7 @@ public class SecurityImpl : ISecurity {
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    public func handleSecurityResponse(response: Int, pair: SecureKeyPair, callback: ISecureKVResultCallback) -> (pair: SecureKeyPair, success: Int) {
+    private func handleSecurityResponse(response: Int, pair: SecureKeyPair, callback: ISecureKVResultCallback) -> (pair: SecureKeyPair, success: Int) {
         
         var savedPair: SecureKeyPair = SecureKeyPair()
         
@@ -349,7 +349,7 @@ public class SecurityImpl : ISecurity {
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    public func save(service: NSString, key: String, data: NSString, callback: ISecureKVResultCallback) -> Int {
+    private func save(service: NSString, key: String, data: NSString, callback: ISecureKVResultCallback) -> Int {
         
         var exists:Bool = false
         
@@ -391,7 +391,7 @@ public class SecurityImpl : ISecurity {
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    public func load(service: NSString, key: String) -> (data: NSString?, status: Int) {
+    private func load(service: NSString, key: String) -> (data: NSString?, status: Int) {
         
         // Instantiate a new default keychain query
         // Tell the query to return a result
@@ -433,10 +433,10 @@ public class SecurityImpl : ISecurity {
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    public func delete(service: NSString, key: String) -> Int {
+    private func delete(service: NSString, key: String) -> Int {
         
         // Instantiate a new default keychain query
-        var keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [kSecClassGenericPasswordValue, service, key], forKeys: [kSecClassValue, kSecAttrServiceValue, kSecAttrAccountValue, kSecValueDataValue])
+        var keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [kSecClassGenericPasswordValue, service, key], forKeys: [kSecClassValue, kSecAttrServiceValue, kSecAttrAccountValue])
         
         var status: OSStatus = SecItemDelete(keychainQuery as CFDictionaryRef)
         
