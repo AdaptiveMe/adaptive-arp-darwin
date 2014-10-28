@@ -36,7 +36,7 @@ import Foundation
     import Cocoa
 #endif
 
-public class BrowserImpl : IBrowser {
+public class BrowserImpl : NSObject, IBrowser {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
@@ -50,7 +50,7 @@ public class BrowserImpl : IBrowser {
     /**
     Class constructor
     */
-    init() {
+    override init() {
         
         #if os(iOS)
             application = AppContextImpl().getContext() as UIApplication

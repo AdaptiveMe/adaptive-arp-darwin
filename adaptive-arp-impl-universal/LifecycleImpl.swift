@@ -31,7 +31,7 @@
 
 import Foundation
 
-public class LifecycleImpl : ILifecycle {
+public class LifecycleImpl : NSObject, ILifecycle {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
@@ -39,7 +39,7 @@ public class LifecycleImpl : ILifecycle {
     /**
     Class constructor
     */
-    init() {
+    override init() {
         
     }
     

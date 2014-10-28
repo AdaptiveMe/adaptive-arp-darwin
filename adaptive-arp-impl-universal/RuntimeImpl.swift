@@ -31,7 +31,7 @@
 
 import Foundation
 
-public class RuntimeImpl : IRuntime {
+public class RuntimeImpl : NSObject, IRuntime {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
@@ -39,7 +39,7 @@ public class RuntimeImpl : IRuntime {
     /**
     Class constructor
     */
-    init() {
+    override init() {
         
     }
     

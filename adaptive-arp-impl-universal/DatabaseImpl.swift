@@ -32,7 +32,7 @@
 import Foundation
 //import SQLite
 
-public class DatabaseImpl : IDatabase {
+public class DatabaseImpl : NSObject, IDatabase {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
@@ -55,7 +55,7 @@ public class DatabaseImpl : IDatabase {
     /**
     Class constructor
     */
-    init() {
+    override init() {
         
         // Getting the "documents" directory
         docDir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
@@ -67,7 +67,7 @@ public class DatabaseImpl : IDatabase {
     /// Check if the database name is a valida
     private func checkDatabaseName(database: Database) -> Bool {
         
-        if(database.getName().isEmpty || database.getName() == ""){
+        if(database.getName()!.isEmpty || database.getName() == ""){
             
             self.logger.log(ILoggingLogLevel.ERROR, category: "DatabaseImpl", message: "The name of the database could not be empty")
             return false
@@ -96,7 +96,7 @@ public class DatabaseImpl : IDatabase {
                 return
             }
             
-            let dbName:String = String.fromCString(database.getName())!
+            let dbName:String = String.fromCString(database.getName()!)!
             let path:String = self.docDir.stringByAppendingPathComponent(dbName + self.DB_EXT_FILE)
             
             self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Path of the database file: \(path)")
@@ -153,7 +153,7 @@ public class DatabaseImpl : IDatabase {
             return false
         }
         
-        let dbName:String = String.fromCString(database.getName())!
+        let dbName:String = String.fromCString(database.getName()!)!
         let path:String = self.docDir.stringByAppendingPathComponent(dbName + self.DB_EXT_FILE)
         
         self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Path of the database file: \(path)")
@@ -188,7 +188,7 @@ public class DatabaseImpl : IDatabase {
                 return
             }
             
-            let dbName:String = String.fromCString(database.getName())!
+            let dbName:String = String.fromCString(database.getName()!)!
             let path:String = self.docDir.stringByAppendingPathComponent(dbName + self.DB_EXT_FILE)
             
             self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Path of the database file: \(path)")
@@ -247,7 +247,7 @@ public class DatabaseImpl : IDatabase {
         // We always open the database
         //if (self.db == nil) {
             
-            let dbName:String = String.fromCString(database.getName())!
+            let dbName:String = String.fromCString(database.getName()!)!
             let path:String = self.docDir.stringByAppendingPathComponent(dbName + self.DB_EXT_FILE)
             
             // Opening database
@@ -284,11 +284,11 @@ public class DatabaseImpl : IDatabase {
             
             var columns:String = ""
             
-            for (index, column:Column) in enumerate(table.getColumns()) {
+            for (index, column:Column) in enumerate(table.getColumns()!) {
                 if index != 0 {
                     columns += ","
                 }
-                columns += column.getName()
+                columns += column.getName()!
             }
             
             //let stmt = self.db.prepare("CREATE TABLE IF NOT EXISTS \(table.getName()) (\(columns))")

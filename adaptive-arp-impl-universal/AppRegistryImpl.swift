@@ -28,7 +28,7 @@
 
 import Foundation
 
-public class AppRegistryImpl : IAppRegistry {
+public class AppRegistryImpl : NSObject, IAppRegistry {
     
     /*
         Extremely PORK singleton declaration... imho
@@ -63,7 +63,7 @@ public class AppRegistryImpl : IAppRegistry {
     var os : IOS
     var runtime : IRuntime
     
-    private init() {
+    override init() {
         
         self.globalization = GlobalizationImpl()
         self.lifecycle = LifecycleImpl()
@@ -77,7 +77,7 @@ public class AppRegistryImpl : IAppRegistry {
         self.runtime = RuntimeImpl()
     }
     
-    public func getApplicationAnalytics() -> IAnalytics {
+    public func getApplicationAnalytics() -> IAnalytics? {
         return analitics!
     }
     
@@ -85,15 +85,15 @@ public class AppRegistryImpl : IAppRegistry {
         self.analitics = analitics
     }
     
-    public func getApplicationGlobalization() -> IGlobalization {
+    public func getApplicationGlobalization() -> IGlobalization? {
         return globalization
     }
     
-    public func getApplicationLifecycle() -> ILifecycle {
+    public func getApplicationLifecycle() -> ILifecycle? {
         return lifecycle
     }
     
-    public func getApplicationManagement() -> IManagement {
+    public func getApplicationManagement() -> IManagement? {
         return management!
     }
     
@@ -101,7 +101,7 @@ public class AppRegistryImpl : IAppRegistry {
         self.management = management
     }
     
-    public func getApplicationPrinting() -> IPrinting {
+    public func getApplicationPrinting() -> IPrinting? {
         return printing!
     }
     
@@ -109,7 +109,7 @@ public class AppRegistryImpl : IAppRegistry {
         self.printing = printing
     }
     
-    public func getApplicationSettings() -> ISettings {
+    public func getApplicationSettings() -> ISettings? {
         return settings!
     }
     
@@ -117,7 +117,7 @@ public class AppRegistryImpl : IAppRegistry {
         self.settings = settings
     }
     
-    public func getApplicationUpdate() -> IUpdate {
+    public func getApplicationUpdate() -> IUpdate? {
         return update!
     }
     
@@ -125,35 +125,35 @@ public class AppRegistryImpl : IAppRegistry {
         self.update = update
     }
     
-    public func getPlatformContext() -> IAppContext {
+    public func getPlatformContext() -> IAppContext? {
         return context
     }
     
-    public func getPlatformContextWeb() -> IAppContextWebview {
+    public func getPlatformContextWeb() -> IAppContextWebview? {
         return contextWeb
     }
     
-    public func getPlatformResourceHandler() -> IAppResourceHandler {
+    public func getPlatformResourceHandler() -> IAppResourceHandler? {
         return resourceHandler
     }
     
-    public func getSystemCapabilities() -> ICapabilities {
+    public func getSystemCapabilities() -> ICapabilities? {
         return capabilities
     }
     
-    public func getSystemDevice() -> IDevice {
+    public func getSystemDevice() -> IDevice? {
         return device
     }
     
-    public func getSystemDisplay() -> IDisplay {
+    public func getSystemDisplay() -> IDisplay? {
         return display
     }
     
-    public func getSystemOS() -> IOS {
+    public func getSystemOS() -> IOS? {
         return os
     }
     
-    public func getSystemRuntime() -> IRuntime {
+    public func getSystemRuntime() -> IRuntime? {
         return runtime
     }
 }

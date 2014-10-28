@@ -34,7 +34,7 @@ import Foundation
 import UIKit
 #endif
 
-public class DeviceImpl : IDevice {    
+public class DeviceImpl : NSObject, IDevice {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
@@ -48,7 +48,7 @@ public class DeviceImpl : IDevice {
     /**
     Class constructor
     */
-    init() {
+    override init() {
         
         #if os(iOS)
             
@@ -72,7 +72,7 @@ public class DeviceImpl : IDevice {
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    public func getDeviceInfo() -> DeviceInfo {
+    public func getDeviceInfo() -> DeviceInfo? {
         
         logger.log(ILoggingLogLevel.DEBUG, category: "DeviceImpl", message: "name: \(self.deviceInfo!.getName()), model: \(self.deviceInfo!.getModel()), vendor: \(self.deviceInfo!.getVendor()), uuid: \(self.deviceInfo!.getUuid())")
         
@@ -86,7 +86,7 @@ public class DeviceImpl : IDevice {
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    public func getLocaleCurrent() -> Locale {
+    public func getLocaleCurrent() -> Locale? {
         
         // Gets the current locale of the device
         let currentLocale: NSLocale = NSLocale.currentLocale()
@@ -99,7 +99,7 @@ public class DeviceImpl : IDevice {
         logger.log(ILoggingLogLevel.DEBUG, category: "DeviceImpl", message: "Country=\(country)")
         logger.log(ILoggingLogLevel.DEBUG, category: "DeviceImpl", message: "Language=\(language)")
         
-        return Locale(country: country, language: language)
+        return Locale(language: language, country: country)
     }
     
     /**

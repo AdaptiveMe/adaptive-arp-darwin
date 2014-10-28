@@ -42,7 +42,7 @@ import Foundation
 #endif
 
 
-public class CapabilitiesImpl : ICapabilities {
+public class CapabilitiesImpl : NSObject, ICapabilities {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
@@ -58,7 +58,7 @@ public class CapabilitiesImpl : ICapabilities {
     /**
     Class constructor
     */
-    init() {
+    override init() {
         
         #if os(iOS)
             application = AppContextImpl().getContext() as UIApplication

@@ -31,7 +31,7 @@
 
 import Foundation
 
-public class NetworkReachabilityImpl : INetworkReachability {
+public class NetworkReachabilityImpl : NSObject, INetworkReachability {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
@@ -39,8 +39,13 @@ public class NetworkReachabilityImpl : INetworkReachability {
     /**
     Class constructor
     */
-    init() {
+    override init() {
         
+    }
+    
+    public func isNetworkServiceReachable(url : String, callback : INetworkReachabilityCallback) {
+        
+        // TODO: check the method comment and determine functionality of two methods
     }
     
     /**
@@ -51,19 +56,19 @@ public class NetworkReachabilityImpl : INetworkReachability {
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    public func isNetworkReachable(url : String, callback : INetworkReachabilityCallback) {
+    public func isNetworkReachable(host : String, callback : INetworkReachabilityCallback) {
         
         // TODO: handle http status WARNING codes for: NotRegisteredService, NotTrusted, IncorrectScheme
         
         // Check the url for malforming
-        if(Utils.validateUrl(url)){
+        if(Utils.validateUrl(host)){
             // TODO: INetworkReachabilityCallbackError.MalformedUrl
             callback.onError(INetworkReachabilityCallbackError.Forbidden)
-            self.logger.log(ILoggingLogLevel.ERROR, category: "NetworkReachabilityImpl", message: "Url malformed: \(url)")
+            self.logger.log(ILoggingLogLevel.ERROR, category: "NetworkReachabilityImpl", message: "Url malformed: \(host)")
             return
         }
         
-        var nsUrl:NSURL = NSURL(string: url)!
+        var nsUrl:NSURL = NSURL(string: host)!
         var request = NSURLRequest(URL: nsUrl)
         
         // Creating NSOperationQueue to which the handler block is dispatched when the request completes or failed
@@ -87,10 +92,10 @@ public class NetworkReachabilityImpl : INetworkReachability {
                 let responseText:NSString = NSString(data:responseData, encoding:NSUTF8StringEncoding)!
                 
                 // Check for Not secured url
-                if (url as NSString).containsString("https://") {
-                    self.logger.log(ILoggingLogLevel.DEBUG, category: "NetworkReachabilityImpl", message: "Secured URL (https): \(url)")
+                if (host as NSString).containsString("https://") {
+                    self.logger.log(ILoggingLogLevel.DEBUG, category: "NetworkReachabilityImpl", message: "Secured URL (https): \(host)")
                 } else {
-                    self.logger.log(ILoggingLogLevel.WARN, category: "NetworkReachabilityImpl", message: "NOT Secured URL (https): \(url)")
+                    self.logger.log(ILoggingLogLevel.WARN, category: "NetworkReachabilityImpl", message: "NOT Secured URL (https): \(host)")
                     
                     callback.onWarning(responseText, warning: INetworkReachabilityCallbackWarning.NotSecure)
                 }

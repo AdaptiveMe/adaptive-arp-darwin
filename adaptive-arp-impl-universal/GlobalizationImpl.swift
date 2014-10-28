@@ -56,7 +56,7 @@ import Foundation
 *
 * =====================================================================================================================
 */
-public class GlobalizationImpl : IGlobalization {
+public class GlobalizationImpl : NSObject, IGlobalization {
     
     /// i18n config file
     // TODO: refactor with the relative paths of the RT project
@@ -70,7 +70,7 @@ public class GlobalizationImpl : IGlobalization {
     /**
     Class constructor
     */
-    init() {
+    override init() {
         
     }
     
@@ -105,14 +105,13 @@ public class GlobalizationImpl : IGlobalization {
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    public func getLocaleSupportedDescriptors() -> [String] {
+    public func getLocaleSupportedDescriptors() -> [String]? {
         
         // Read the i18n config file
         let data: NSData? = NSData(contentsOfFile: getConfigFilePath())
         if data == nil {
             logger.log(ILoggingLogLevel.ERROR, category: "GlobalizationImpl", message: "Error reading i18n config file: \(getConfigFilePath())")
-            // TODO: return nil (optional)
-            return [String]()
+            return nil
         }
         
         var parserDelegate:I18NParser = I18NParser()
@@ -126,8 +125,7 @@ public class GlobalizationImpl : IGlobalization {
             return parserDelegate.getLocales()
         } else {
             logger.log(ILoggingLogLevel.ERROR, category: "GlobalizationImpl", message: "Error parsing i18n config file: \(getConfigFilePath())")
-            // TODO: return nil (optional)
-            return [String]()
+            return nil
         }
     }
     
@@ -141,7 +139,7 @@ public class GlobalizationImpl : IGlobalization {
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    public func getResourceLiteral(key : String, locale : Locale) -> String {
+    public func getResourceLiteral(key : String, locale : Locale) -> String? {
         
         var filePath:String = getLanguageFilePath(locale)
         
@@ -150,8 +148,7 @@ public class GlobalizationImpl : IGlobalization {
         
         if data == nil {
             logger.log(ILoggingLogLevel.ERROR, category: "GlobalizationImpl", message: "Error reading i18n LANGUAGE file: \(filePath)")
-            // TODO: return nil (optional)
-            return ""
+            return nil
         }
         
         let dict : AnyObject! = NSPropertyListSerialization.propertyListWithData(data!, options: 0,format: nil, error: &anError)
@@ -167,20 +164,18 @@ public class GlobalizationImpl : IGlobalization {
                     if key == stringKey {
                         
                         logger.log(ILoggingLogLevel.DEBUG, category: "GlobalizationImpl", message: "Returning value: \(ocDictionary[stringKey]) for key: \(stringKey)")
-                        return ocDictionary[stringKey] as String
+                        return (ocDictionary[stringKey] as String)
                     }
                 }
             } else {
                 logger.log(ILoggingLogLevel.ERROR, category: "GlobalizationImpl", message: "Sorry, couldn't read the file \(filePath.lastPathComponent)")
-                // TODO: return nil (optional)
-                return ""
+                return nil
             }
         } else if let theError = anError {
             logger.log(ILoggingLogLevel.ERROR, category: "GlobalizationImpl", message: "Sorry, couldn't read the file \(filePath.lastPathComponent):\n\t"+theError.localizedDescription)
         }
         
-        // TODO: return nil (optional)
-        return ""
+        return nil
     }
     
     /**
@@ -192,7 +187,7 @@ public class GlobalizationImpl : IGlobalization {
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    public func getResourceLiterals(locale : Locale) -> Dictionary<String,String> {
+    public func getResourceLiterals(locale : Locale) -> Dictionary<String,String>? {
         
         var swiftDict : Dictionary<String,String> = Dictionary<String,String>()
         
@@ -203,8 +198,7 @@ public class GlobalizationImpl : IGlobalization {
         
         if data == nil {
             logger.log(ILoggingLogLevel.ERROR, category: "GlobalizationImpl", message: "Error reading i18n LANGUAGE file: \(filePath)")
-            // TODO: return nil (optional)
-            return swiftDict
+            return nil
         }
         
         let dict : AnyObject! = NSPropertyListSerialization.propertyListWithData(data!, options: 0,format: nil, error: &anError)
@@ -220,15 +214,13 @@ public class GlobalizationImpl : IGlobalization {
                 }
             } else {
                 logger.log(ILoggingLogLevel.ERROR, category: "GlobalizationImpl", message: "Sorry, couldn't read the file \(filePath.lastPathComponent)")
-                // TODO: return nil (optional)
-                return swiftDict
+                return nil
             }
         } else if let theError = anError {
             logger.log(ILoggingLogLevel.ERROR, category: "GlobalizationImpl", message: "Sorry, couldn't read the file \(filePath.lastPathComponent):\n\t"+theError.localizedDescription)
         }
         
-        // TODO: return nil (optional)
-        return swiftDict
+        return nil
     }
     
 }
