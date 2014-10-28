@@ -28,9 +28,9 @@
 
 import Foundation
 
-public class AppResourceHandlerImpl : IAppResourceHandler {
+public class AppResourceHandlerImpl : NSObject, IAppResourceHandler {
     
-    init() {
+    override init() {
         
     }
     

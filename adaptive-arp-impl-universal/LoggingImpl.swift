@@ -31,12 +31,12 @@
 
 import Foundation
 
-public class LoggingImpl : ILogging {
+public class LoggingImpl : NSObject, ILogging {
     
     /**
     Class constructor
     */
-    init() {
+    override init() {
         
     }
     

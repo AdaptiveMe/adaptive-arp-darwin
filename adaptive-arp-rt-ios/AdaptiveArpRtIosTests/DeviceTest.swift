@@ -47,11 +47,11 @@ class DeviceTest: XCTestCase {
     }
     
     func testGetDeviceInfo() {
-        XCTAssert(self.deviceImpl?.getDeviceInfo().getModel() != nil, "")
+        XCTAssert(self.deviceImpl?.getDeviceInfo()!.getModel() != nil, "")
     }
     
     func testGeLocaleCurrent() {
-        XCTAssert(self.deviceImpl?.getLocaleCurrent().getLanguage() != nil, "")
+        XCTAssert(self.deviceImpl?.getLocaleCurrent()!.getLanguage() != nil, "")
     }
     
     // TODO: validate button listeners

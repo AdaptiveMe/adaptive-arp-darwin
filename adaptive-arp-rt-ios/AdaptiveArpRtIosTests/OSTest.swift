@@ -48,7 +48,7 @@ class OSTest: XCTestCase {
 
     func testGetOSInfo() {
         
-        XCTAssertTrue(osImpl?.getOSInfo().getVendor() == "Apple", "The vendor of the device should be Apple")
+        XCTAssertTrue(osImpl?.getOSInfo()!.getVendor() == "Apple", "The vendor of the device should be Apple")
     }
 
     func testPerformanceGetOSInfo() {

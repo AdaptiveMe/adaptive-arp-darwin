@@ -454,6 +454,9 @@
 		C35F734A19F9084F0053A356 /* ContactImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35F734819F9084F0053A356 /* ContactImpl.swift */; };
 		C35F734C19F90A300053A356 /* BrowserImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35F734B19F90A300053A356 /* BrowserImpl.swift */; };
 		C35F734D19F90A300053A356 /* BrowserImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35F734B19F90A300053A356 /* BrowserImpl.swift */; };
+		C37C11C319FFC879006FF65B /* MessagingImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C319BD7819C82C2200E3A6D2 /* MessagingImpl.swift */; };
+		C37C11C419FFC879006FF65B /* TelephonyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C308CA6519C2F7C70097D92C /* TelephonyImpl.swift */; };
+		C37C11C519FFC879006FF65B /* VideoImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347132819CAEBC700129847 /* VideoImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1392,6 +1395,7 @@
 				C3407AC919F9024E0050DECC /* IBaseCommerce.swift in Sources */,
 				C3407AEF19F9024E0050DECC /* IContactResultCallback.swift in Sources */,
 				C3407ADF19F9024E0050DECC /* ICapabilitiesButton.swift in Sources */,
+				C37C11C419FFC879006FF65B /* TelephonyImpl.swift in Sources */,
 				C3407AFB19F9024E0050DECC /* IFacebook.swift in Sources */,
 				C3407AAE19F9024E0050DECC /* IAccelerationListenerWarning.swift in Sources */,
 				C3407B2319F9024E0050DECC /* INetworkReachabilityCallback.swift in Sources */,
@@ -1431,6 +1435,7 @@
 				C3407AA119F9024E0050DECC /* ContactTag.swift in Sources */,
 				C3407A9919F9024E0050DECC /* Column.swift in Sources */,
 				C3407B3A19F9024E0050DECC /* IServiceResultCallbackWarning.swift in Sources */,
+				C37C11C519FFC879006FF65B /* VideoImpl.swift in Sources */,
 				C3407B4B19F9024E0050DECC /* IXML.swift in Sources */,
 				C3407AE219F9024E0050DECC /* ICapabilitiesMedia.swift in Sources */,
 				C3407B1519F9024E0050DECC /* ILinkedIn.swift in Sources */,
@@ -1521,6 +1526,7 @@
 				C3407B0D19F9024E0050DECC /* IGooglePlus.swift in Sources */,
 				C3407B2219F9024E0050DECC /* INetworkReachability.swift in Sources */,
 				C3407B1819F9024E0050DECC /* IMagnetometer.swift in Sources */,
+				C37C11C319FFC879006FF65B /* MessagingImpl.swift in Sources */,
 				C3407B0F19F9024E0050DECC /* IImaging.swift in Sources */,
 				C3407B4D19F9024E0050DECC /* Locale.swift in Sources */,
 				C35F734A19F9084F0053A356 /* ContactImpl.swift in Sources */,

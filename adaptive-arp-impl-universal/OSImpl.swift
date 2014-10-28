@@ -31,7 +31,7 @@
 
 import Foundation
 
-public class OSImpl : IOS {
+public class OSImpl : NSObject, IOS {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
@@ -42,7 +42,7 @@ public class OSImpl : IOS {
     /**
     Class constructor. Loads all information of the operating system
     */
-    init() {
+    override init() {
         var osName : String
         #if os(iOS)
             osName = "iOS"
@@ -64,7 +64,7 @@ public class OSImpl : IOS {
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    public func getOSInfo() -> OSInfo {
+    public func getOSInfo() -> OSInfo? {
         
         logger.log(ILoggingLogLevel.INFO, category: "OSImpl", message: "name: \(self.osInfo.getName()), version: \(self.osInfo.getVersion()), vendor: \(self.osInfo.getVendor())")
         

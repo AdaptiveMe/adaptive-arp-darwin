@@ -28,6 +28,6 @@
 
 import Foundation
 
-public class DisplayImpl : IDisplay {
+public class DisplayImpl : NSObject, IDisplay {
     
 }

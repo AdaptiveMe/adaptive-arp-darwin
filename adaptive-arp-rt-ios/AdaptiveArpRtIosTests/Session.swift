@@ -53,19 +53,19 @@ class Session: XCTestCase {
         
         // Set a cookie in the dictionary and check
         sessionImpl!.setCookie(cookie1)
-        XCTAssertTrue(sessionImpl?.getCookies().count == 1, "")
+        XCTAssertTrue(sessionImpl?.getCookies()!.count == 1, "")
         
         // Remove a cookie and check
         sessionImpl!.removeCookie(cookie1)
-        XCTAssertTrue(sessionImpl?.getCookies().count == 0, "")
+        XCTAssertTrue(sessionImpl?.getCookies()!.count == 0, "")
         
         // Set a bunch of cookies
         sessionImpl!.setCookies([cookie1, cookie2])
-        XCTAssertTrue(sessionImpl?.getCookies().count == 2, "")
+        XCTAssertTrue(sessionImpl?.getCookies()!.count == 2, "")
         
         // Remove a bunch of cookies
         sessionImpl!.removeCookies([cookie1, cookie2])
-        XCTAssertTrue(sessionImpl?.getCookies().count == 0, "")
+        XCTAssertTrue(sessionImpl?.getCookies()!.count == 0, "")
     }
     
     func testAttributes() {
@@ -77,28 +77,28 @@ class Session: XCTestCase {
         
         // Set a attribute in the dictionary and check
         sessionImpl!.setAttribute(attribute1.name, value: attribute1.value)
-        XCTAssertTrue(sessionImpl?.getAttributes().count == 1, "")
+        XCTAssertTrue(sessionImpl?.getAttributes()!.count == 1, "")
         
         // Check the duplicity of names
         sessionImpl!.setAttribute(attribute2.name, value: attribute2.value)
-        XCTAssertTrue(sessionImpl?.getAttributes().count == 1, "")
+        XCTAssertTrue(sessionImpl?.getAttributes()!.count == 1, "")
         
         // Get attribute by name
         // TODO: change this by nil, when the return type of this method could be optional
         XCTAssertTrue(sessionImpl?.getAttribute(attribute2.name) as NSString != "", "")
         
         // Check the attributes names
-        XCTAssertTrue(sessionImpl?.listAttributeNames().count == 1, "")
+        XCTAssertTrue(sessionImpl?.listAttributeNames()!.count == 1, "")
         
         // Remove one attribute and check
         sessionImpl!.removeAttribute(attribute2.name)
-        XCTAssertTrue(sessionImpl?.getAttributes().count == 0, "")
+        XCTAssertTrue(sessionImpl?.getAttributes()!.count == 0, "")
         
         // Remove all the attributes and check
         sessionImpl!.setAttribute(attribute3.name, value: attribute3.value)
         sessionImpl!.setAttribute(attribute4.name, value: attribute4.value)
         sessionImpl!.removeAttributes()
-        XCTAssertTrue(sessionImpl?.getAttributes().count == 0, "")
+        XCTAssertTrue(sessionImpl?.getAttributes()!.count == 0, "")
         
         
         

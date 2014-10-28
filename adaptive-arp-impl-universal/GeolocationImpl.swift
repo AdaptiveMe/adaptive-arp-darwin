@@ -31,7 +31,7 @@
 
 import Foundation
 
-public class GeolocationImpl : IGeolocation {
+public class GeolocationImpl : NSObject, IGeolocation {
     
     // TODO: in order to work in background, in the plist has to be defined: 
     // <key>UIBackgroundModes</key><array><string>location</string></array>
@@ -48,7 +48,7 @@ public class GeolocationImpl : IGeolocation {
     /**
     Class constructor
     */
-    init() {
+    override init() {
         delegates = [GeolocationDelegate]()
     }
     

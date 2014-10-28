@@ -31,7 +31,7 @@
 
 import Foundation
 
-public class ServiceImpl : IService {
+public class ServiceImpl : NSObject, IService {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
@@ -45,7 +45,7 @@ public class ServiceImpl : IService {
     /**
     Class constructor
     */
-    init() {
+    override init() {
         
         services = [Service]()
     }
@@ -59,7 +59,7 @@ public class ServiceImpl : IService {
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    public func getService(serviceName : String) -> Service {
+    public func getService(serviceName : String) -> Service? {
         
         // TODO: now we are comparing the services by name, but the correct way is doing by a comparison using a extensing. But the element Service has to implement the Equatable interface
         
@@ -74,7 +74,7 @@ public class ServiceImpl : IService {
         
         logger.log(ILoggingLogLevel.WARN, category: "ServiceImpl", message: "\(serviceName) is not founded on the pull")
         
-        return Service()
+        return nil
     }
     
     /**
@@ -124,7 +124,7 @@ public class ServiceImpl : IService {
     */
     public func registerService(service : Service) {
         
-        if service.getName() == "" || service.getName().isEmpty {
+        if service.getName() == "" || service.getName()!.isEmpty {
             
             logger.log(ILoggingLogLevel.ERROR, category: "ServiceImpl", message: "The service has no name. Impossible to add to the pull")
         } else {
@@ -199,8 +199,11 @@ public class ServiceImpl : IService {
             }
             
             // Prepare the url with all the parameters of the endpoint
-            let endpoint: Endpoint = service.getEndpoint()
-            let  url: String = endpoint.getScheme() + "://" + endpoint.getHost() + ":" + String(endpoint.getPort()) + endpoint.getPath()
+            let endpoint: Endpoint = service.getEndpoint()!
+            var url: String = endpoint.getScheme()!
+            url = url + "://"
+            url = url + endpoint.getHost()! + ":" + String(endpoint.getPort())
+            url = url + endpoint.getPath()!
             
             self.logger.log(ILoggingLogLevel.DEBUG, category: "ServiceImpl", message: "The url of the request is: \(url)")
             
@@ -211,10 +214,11 @@ public class ServiceImpl : IService {
                 return nil
             }
             
-            let data: NSData = (serviceRequest.getContent() as NSString).dataUsingEncoding(NSUTF8StringEncoding)!
+            let stringData:String = serviceRequest.getContent()!
+            let data: NSData = stringData.dataUsingEncoding(NSUTF8StringEncoding)!
             
             // Call the function that composes the Request
-            self.post(url, method: service.getMethod(), contentType: serviceRequest.getContentType(), contentLenght: serviceRequest.getContentLength(), content: NSInputStream(data: data)) { (succeeded: UInt, responseContent: NSString?, warning: IServiceResultCallbackWarning?, error: IServiceResultCallbackError?) -> () in
+            self.post(url, method: service.getMethod(), contentType: serviceRequest.getContentType()!, contentLenght: serviceRequest.getContentLength(), content: NSInputStream(data: data)) { (succeeded: UInt, responseContent: NSString?, warning: IServiceResultCallbackWarning?, error: IServiceResultCallbackError?) -> () in
                 
                 if(succeeded == 0) {
                     

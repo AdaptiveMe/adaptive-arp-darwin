@@ -32,12 +32,12 @@ import UIKit
 #elseif os(OSX)
 import Cocoa
 #endif
-public class AppContextImpl : IAppContext {
+public class AppContextImpl : NSObject, IAppContext {
     
     var context : AnyObject
     var type: IAppContextType
     
-    init() {
+    override init() {
         #if os(iOS)
             self.type = IAppContextType.iOS
             self.context = UIApplication.sharedApplication()
@@ -47,7 +47,7 @@ public class AppContextImpl : IAppContext {
         #endif
     }
     
-    public func getContext() -> AnyObject {
+    public func getContext() -> AnyObject? {
         return self.context
     }
     

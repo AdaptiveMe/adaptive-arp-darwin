@@ -78,7 +78,7 @@ public class MessagingImpl : NSObject, IMessaging, MFMessageComposeViewControlle
             
             logger.log(ILoggingLogLevel.ERROR, category: "MessagingImpl", message: "The device cannot send a mail. Check the device")
             
-            callback.onError(IMessagingCallbackError.Not_Supported)
+            callback.onError(IMessagingCallbackError.NotSupported)
             return
         }
         
@@ -90,22 +90,22 @@ public class MessagingImpl : NSObject, IMessaging, MFMessageComposeViewControlle
         
         // addresses (to)
         var recipientsTo: [String] = [String]()
-        for mail:EmailAddress in data.getToRecipients(){
-            recipientsTo.append(mail.getAddress())
+        for mail:EmailAddress in data.getToRecipients()!{
+            recipientsTo.append(mail.getAddress()!)
         }
         mail.setToRecipients(recipientsTo)
         
         // addresses (cc)
         var recipientsCc: [String] = [String]()
-        for mail:EmailAddress in data.getCcRecipients(){
-            recipientsCc.append(mail.getAddress())
+        for mail:EmailAddress in data.getCcRecipients()!{
+            recipientsCc.append(mail.getAddress()!)
         }
         mail.setToRecipients(recipientsCc)
         
         // addresses (bcc)
         var recipientsBcc: [String] = [String]()
-        for mail:EmailAddress in data.getBccRecipients(){
-            recipientsBcc.append(mail.getAddress())
+        for mail:EmailAddress in data.getBccRecipients()!{
+            recipientsBcc.append(mail.getAddress()!)
         }
         mail.setToRecipients(recipientsBcc)
         
@@ -116,9 +116,9 @@ public class MessagingImpl : NSObject, IMessaging, MFMessageComposeViewControlle
         
         // atachments
         
-        for attachment: AttachmentData in data.getAttachmentData() {
+        for attachment: AttachmentData in data.getAttachmentData()! {
             
-            var nsData:NSData = NSData(bytes: attachment.getData() as [Byte], length: Int(attachment.getDataSize()))
+            var nsData:NSData = NSData(bytes: attachment.getData()! as [Byte], length: Int(attachment.getDataSize()))
             
             mail.addAttachmentData(nsData, mimeType: attachment.getMimeType(), fileName: attachment.getFileName())
             
@@ -147,7 +147,7 @@ public class MessagingImpl : NSObject, IMessaging, MFMessageComposeViewControlle
             
             logger.log(ILoggingLogLevel.ERROR, category: "MessagingImpl", message: "The device cannot send SMS. Check the device")
             
-            callback.onError(IMessagingCallbackError.Not_Supported)
+            callback.onError(IMessagingCallbackError.NotSupported)
             return
         }
         
@@ -183,7 +183,7 @@ public class MessagingImpl : NSObject, IMessaging, MFMessageComposeViewControlle
             
         case MessageComposeResultFailed.value :
             logger.log(ILoggingLogLevel.ERROR, category: "MessagingImpl", message: "Message not send due to an error")
-            smsCallback!.onError(IMessagingCallbackError.Not_Sent)
+            smsCallback!.onError(IMessagingCallbackError.NotSent)
             
         default:
             logger.log(ILoggingLogLevel.ERROR, category: "MessagingImpl", message: "The message delegeate received an unsuported result")
@@ -212,7 +212,7 @@ public class MessagingImpl : NSObject, IMessaging, MFMessageComposeViewControlle
             
         case MFMailComposeResultFailed.value:
             logger.log(ILoggingLogLevel.ERROR, category: "MessagingImpl", message: "Mail not send due to an error: \(error.localizedDescription)")
-            mailCallback!.onError(IMessagingCallbackError.Not_Sent)
+            mailCallback!.onError(IMessagingCallbackError.NotSent)
             
         default:
             logger.log(ILoggingLogLevel.ERROR, category: "MessagingImpl", message: "The mail delegeate received an unsuported result")

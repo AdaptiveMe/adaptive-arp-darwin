@@ -28,14 +28,14 @@
 
 import Foundation
 
-public class AppServerManagerImpl : IAppServerManager {
+public class AppServerManagerImpl : NSObject, IAppServerManager {
     
     var listenerList : [IAppServerListener]
     var serverList : [IAppServer]
     var serverRegistry : Dictionary<String, HttpServer>
     let logger : ILogging = LoggingImpl()
     
-    init() {
+    override init() {
         self.listenerList = []
         self.serverList = []
         self.serverRegistry = Dictionary<String, HttpServer>()
@@ -50,12 +50,12 @@ public class AppServerManagerImpl : IAppServerManager {
             }
         }
         if (!exists) {
-            debug("addServerListener "+listener.toString()+".")
+            debug("addServerListener "+listener.toString()!+".")
             self.listenerList.append(listener)
         }
     }
     
-    public func getServers() -> [IAppServer] {
+    public func getServers() -> [IAppServer]? {
         let servers : [IAppServer] = self.serverList
         return servers
     }
@@ -72,7 +72,7 @@ public class AppServerManagerImpl : IAppServerManager {
             }
         }
         if (exists) {
-            debug("removeServerListener "+listener.toString()+".")
+            debug("removeServerListener "+listener.toString()!+".")
             listenerList.removeAtIndex(index)
         }
     }
@@ -91,14 +91,14 @@ public class AppServerManagerImpl : IAppServerManager {
         for port in 1025...22000 {
             if (httpServer.start(listenPort: UInt16(port), error: httpError)) {
                 appServer = AppServerImpl(scheme: "http", host: "127.0.0.1", port: port, path: "/", manager: self)
-                debug("startServer "+appServer!.getBaseURI()+".")
+                debug("startServer "+appServer!.getBaseURI()!+".")
             }
         }
         // After Start
         if (appServer != nil) {
-            self.serverRegistry[appServer!.getBaseURI()] = httpServer
+            self.serverRegistry[appServer!.getBaseURI()!] = httpServer
             for listener in listenerList {
-                debug("startServer onStart notify listener "+listener.toString()+".")
+                debug("startServer onStart notify listener "+listener.toString()!+".")
                 listener.onStart(appServer!)
             }
         }
@@ -107,13 +107,13 @@ public class AppServerManagerImpl : IAppServerManager {
     public func stopServer(server : IAppServer) {
         // Before
         for listener in listenerList {
-            debug("stopServer "+server.getBaseURI()+".")
+            debug("stopServer "+server.getBaseURI()!+".")
             listener.onStopping(server)
         }
         
         // Stop Server
-        debug("stopServer "+server.getBaseURI()+".")
-        var httpServer : HttpServer? = self.serverRegistry.removeValueForKey(server.getBaseURI())
+        debug("stopServer "+server.getBaseURI()!+".")
+        var httpServer : HttpServer? = self.serverRegistry.removeValueForKey(server.getBaseURI()!)
         while (httpServer!.activeRequests()>0) {
             sleep(100)
             debug("stopServer - waiting - "+String(httpServer!.activeRequests())+" pending.")
@@ -122,7 +122,7 @@ public class AppServerManagerImpl : IAppServerManager {
 
         // After
         for listener in listenerList {
-            debug("stopServer onStopped notify listener "+listener.toString()+".")
+            debug("stopServer onStopped notify listener "+listener.toString()!+".")
             listener.onStopped(server)
             
         }
@@ -131,13 +131,13 @@ public class AppServerManagerImpl : IAppServerManager {
     public func pauseServer(server : IAppServer) {
         // Before
         for listener in listenerList {
-            debug("pauseServer onPausing notify listener "+listener.toString()+".")
+            debug("pauseServer onPausing notify listener "+listener.toString()!+".")
             listener.onPausing(server)
         }
         
         // Stop Server
-        debug("pauseServer "+server.getBaseURI()+".")
-        var httpServer : HttpServer? = self.serverRegistry[server.getBaseURI()]
+        debug("pauseServer "+server.getBaseURI()!+".")
+        var httpServer : HttpServer? = self.serverRegistry[server.getBaseURI()!]
         while (httpServer!.activeRequests()>0) {
             sleep(100)
             debug("pauseServer - waiting - "+String(httpServer!.activeRequests())+" pending.")
@@ -146,7 +146,7 @@ public class AppServerManagerImpl : IAppServerManager {
         
         // After
         for listener in listenerList {
-            debug("pauseServer onPaused notify listener "+listener.toString()+".")
+            debug("pauseServer onPaused notify listener "+listener.toString()!+".")
             listener.onPaused(server)
         }
     }
@@ -154,7 +154,7 @@ public class AppServerManagerImpl : IAppServerManager {
     public func resumeServer(server: IAppServer) {
         // Before
         for listener in listenerList {
-            debug("resumeServer onResuming notify listener "+listener.toString()+".")
+            debug("resumeServer onResuming notify listener "+listener.toString()!+".")
             listener.onResuming(server)
         }
         
@@ -164,17 +164,17 @@ public class AppServerManagerImpl : IAppServerManager {
         for port in 1025...22000 {
             if (httpServer.start(listenPort: UInt16(port), error: httpError)) {
                 appServer = AppServerImpl(scheme: "http", host: "127.0.0.1", port: port, path: "/", manager: self)
-                debug("resumeServer "+server.getBaseURI()+".")
+                debug("resumeServer "+server.getBaseURI()!+".")
             }
         }
         // After Start
         if (appServer != nil) {
-            self.serverRegistry[appServer!.getBaseURI()] = httpServer
+            self.serverRegistry[appServer!.getBaseURI()!] = httpServer
         }
         
         // After
         for listener in listenerList {
-            debug("resumeServer onResumed notify listener "+listener.toString()+".")
+            debug("resumeServer onResumed notify listener "+listener.toString()!+".")
             listener.onResumed(appServer!)
         }
     }

@@ -31,7 +31,7 @@
 
 import Foundation
 
-public class SessionImpl : ISession {
+public class SessionImpl : NSObject, ISession {
     
     /// Array of cookies
     var cookies: [Cookie]
@@ -45,7 +45,7 @@ public class SessionImpl : ISession {
     /**
     Class constructor. Loads all information of the operating system
     */
-    init() {
+    override init() {
         
         cookies = [Cookie]()
         attributes = [String: AnyObject]()
@@ -58,7 +58,7 @@ public class SessionImpl : ISession {
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    public func getCookies() -> [Cookie] {
+    public func getCookies() -> [Cookie]? {
         
         logger.log(ILoggingLogLevel.DEBUG, category: "SessionImpl", message: "Returning all cookies: \(self.cookies)")
         
@@ -135,7 +135,7 @@ public class SessionImpl : ISession {
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    public func getAttribute(name : String) -> AnyObject {
+    public func getAttribute(name : String) -> AnyObject? {
         
         for (key, value) in self.attributes {
             if key == name {
@@ -146,8 +146,7 @@ public class SessionImpl : ISession {
         
         logger.log(ILoggingLogLevel.WARN, category: "SessionImpl", message: "The attribute with name \(name) does not exist. Returning nil")
         
-        // TODO return nil
-        return ""
+        return nil
     }
     
     /**
@@ -157,7 +156,7 @@ public class SessionImpl : ISession {
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    public func getAttributes() -> [AnyObject] {
+    public func getAttributes() -> [AnyObject]? {
         
         var ret: [AnyObject] = [AnyObject]()
         
@@ -192,7 +191,7 @@ public class SessionImpl : ISession {
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    public func listAttributeNames() -> [String] {
+    public func listAttributeNames() -> [String]? {
         
         var ret: [String] = [String]()
         

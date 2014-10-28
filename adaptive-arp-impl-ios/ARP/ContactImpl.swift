@@ -32,7 +32,7 @@
 import Foundation
 import AddressBook
 
-public class ContactImpl : IContact {
+public class ContactImpl : NSObject, IContact {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
@@ -98,7 +98,7 @@ public class ContactImpl : IContact {
     /**
     Class constructor
     */
-    init() {
+    override init() {
         
         self.ret = false
     }

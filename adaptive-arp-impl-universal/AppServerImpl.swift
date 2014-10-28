@@ -28,7 +28,7 @@
 
 import Foundation
 
-public class AppServerImpl : IAppServer {
+public class AppServerImpl : NSObject, IAppServer {
     
     private var baseURI : String
     private var host : String
@@ -46,15 +46,15 @@ public class AppServerImpl : IAppServer {
         self.manager = manager;
     }
     
-    public func getBaseURI() -> String {
+    public func getBaseURI() -> String? {
         return self.baseURI
     }
     
-    public func getHost() -> String {
+    public func getHost() -> String? {
         return self.host
     }
     
-    public func getPath() -> String {
+    public func getPath() -> String? {
         return self.path
     }
     
@@ -62,7 +62,7 @@ public class AppServerImpl : IAppServer {
         return self.port
     }
     
-    public func getScheme() -> String {
+    public func getScheme() -> String? {
         return self.scheme
     }
     

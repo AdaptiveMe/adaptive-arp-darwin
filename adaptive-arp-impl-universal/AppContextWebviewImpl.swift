@@ -34,13 +34,13 @@ import UIKit
 import Cocoa
 #endif
 
-public class AppContextWebviewImpl : IAppContextWebview {
+public class AppContextWebviewImpl : NSObject, IAppContextWebview {
     
     
     var primaryView : AnyObject?
     var webViewList : [AnyObject]
     
-    init() {
+    override init() {
         webViewList = []
     }
     
@@ -96,11 +96,11 @@ public class AppContextWebviewImpl : IAppContextWebview {
     
     #endif
     
-    public func getWebviewPrimary() -> AnyObject {
+    public func getWebviewPrimary() -> AnyObject? {
         return self.primaryView!
     }
     
-    public func getWebviews() -> [AnyObject] {
+    public func getWebviews() -> [AnyObject]? {
         var webViewListFull : [AnyObject] = []
         
         if (self.primaryView != nil) {

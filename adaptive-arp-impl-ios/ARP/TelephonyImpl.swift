@@ -32,7 +32,7 @@
 import Foundation
 import UIKit
 
-public class TelephonyImpl : ITelephony {
+public class TelephonyImpl : NSObject, ITelephony {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
@@ -42,7 +42,7 @@ public class TelephonyImpl : ITelephony {
     /**
     Class constructor
     */
-    init() {
+    override init() {
         
         application = AppContextImpl().getContext() as UIApplication
     }

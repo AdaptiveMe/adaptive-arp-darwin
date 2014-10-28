@@ -35,7 +35,7 @@ import Security
 /**
 *  :see: https://developer.apple.com/library/ios/documentation/Security/Reference/keychainservices/Reference/reference.html for posible return values
 */
-public class SecurityImpl : ISecurity {
+public class SecurityImpl : NSObject, ISecurity {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
@@ -94,7 +94,7 @@ public class SecurityImpl : ISecurity {
     /**
     Class constructor
     */
-    init() {
+    override init() {
         
     }
     
@@ -242,7 +242,7 @@ public class SecurityImpl : ISecurity {
         for pair:SecureKeyPair in keyValues {
             
             // save the key
-            response = self.save(publicAccessName, key: pair.getKey(), data: pair.getValue(), callback: callback)
+            response = self.save(publicAccessName, key: pair.getKey()!, data: pair.getValue()!, callback: callback)
             
             var tuple: (pair: SecureKeyPair, success: Int) = self.handleSecurityResponse(response, pair: pair, callback: callback)
             
@@ -286,7 +286,7 @@ public class SecurityImpl : ISecurity {
         switch(response){
         case securityResponsesErrorCodes[errSecSuccess]!:
             logger.log(ILoggingLogLevel.DEBUG, category: "SecurityImpl", message: "The key: \(pair.getKey()) with value: \(pair.getValue()) was saved.")
-            savedPair.setKey(pair.getKey())
+            savedPair.setKey(pair.getKey()!)
             return (savedPair, 0)
             
         case securityResponsesErrorCodes[errSecUnimplemented]!:
@@ -316,7 +316,7 @@ public class SecurityImpl : ISecurity {
             
         case securityResponsesErrorCodes[errSecDuplicateItem]!:
             logger.log(ILoggingLogLevel.WARN, category: "SecurityImpl", message: "The item already exists.")
-            savedPair.setKey(pair.getKey())
+            savedPair.setKey(pair.getKey()!)
             return (savedPair, 1)
             
         case securityResponsesErrorCodes[errSecItemNotFound]!:
