@@ -50,6 +50,8 @@ public class DeviceImpl : NSObject, IDevice {
     */
     override init() {
         
+        super.init()
+        
         #if os(iOS)
             
             listeners = [IButtonListener]()
