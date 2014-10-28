@@ -90,15 +90,15 @@ class SecurityTest: XCTestCase {
         securityImpl!.setSecureKeyValuePairs([secureKeyPair1, secureKeyPair2], publicAccessName: "storage", callback: iSecureKVResultCallbackImpl)
         
         // Get the value of SecureKeyPair
-        securityImpl!.getSecureKeyValuePairs([secureKeyPair1.getKey(), secureKeyPair2.getKey()], publicAccessName: "storage", callback: iSecureKVResultCallbackImpl)
+        securityImpl!.getSecureKeyValuePairs([secureKeyPair1.getKey()!, secureKeyPair2.getKey()!], publicAccessName: "storage", callback: iSecureKVResultCallbackImpl)
         
         // Delete a SecureKeyPair
-        securityImpl!.deleteSecureKeyValuePairs([secureKeyPair1.getKey(), secureKeyPair2.getKey()], publicAccessName: "storage", callback: iSecureKVResultCallbackImpl)
+        securityImpl!.deleteSecureKeyValuePairs([secureKeyPair1.getKey()!, secureKeyPair2.getKey()!], publicAccessName: "storage", callback: iSecureKVResultCallbackImpl)
     }
 }
 
 /// Dummy implementation of the callback in order to run the tests
-class ISecureKVResultCallbackImpl: ISecureKVResultCallback {
+class ISecureKVResultCallbackImpl: NSObject, ISecureKVResultCallback {
     
     func onError(error : ISecureKVResultCallbackError) {
         XCTAssert(false, "\(error)")
@@ -115,7 +115,7 @@ class ISecureKVResultCallbackImpl: ISecureKVResultCallback {
             XCTAssert(true, "key: \(pair.getKey()), value: \(pair.getValue()), message: \(warning)")
         }
     }
-    func toString() -> String {
+    func toString() -> String? {
         return ""
     }
 }

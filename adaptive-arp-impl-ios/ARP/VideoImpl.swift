@@ -34,7 +34,7 @@ import MediaPlayer
 import UIKit
 import WebKit
 
-public class VideoImpl : IVideo {
+public class VideoImpl : NSObject, IVideo {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
@@ -51,7 +51,7 @@ public class VideoImpl : IVideo {
     /**
     Class constructor
     */
-    init() {
+    override init() {
         
         webView = AppContextWebviewImpl().getWebviewPrimary() as UIView
         application = AppContextImpl().getContext() as UIApplication
