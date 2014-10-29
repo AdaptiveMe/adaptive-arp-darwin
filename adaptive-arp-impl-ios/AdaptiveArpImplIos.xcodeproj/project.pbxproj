@@ -997,7 +997,6 @@
 				C3407A4119F901620050DECC /* GeolocationImpl.swift */,
 				C3407A4219F901620050DECC /* GlobalizationImpl.swift */,
 				C3407A4319F901620050DECC /* LifecycleImpl.swift */,
-				C3407A4419F901620050DECC /* listener_http */,
 				C3407A4A19F901620050DECC /* LoggingImpl.swift */,
 				C3407A4B19F901620050DECC /* NetworkReachabilityImpl.swift */,
 				C3407A4C19F901620050DECC /* OSImpl.swift */,
@@ -1005,6 +1004,7 @@
 				C3407A4E19F901620050DECC /* SecurityImpl.swift */,
 				C3407A4F19F901620050DECC /* ServiceImpl.swift */,
 				C3407A5019F901620050DECC /* SessionImpl.swift */,
+				C3407A4419F901620050DECC /* listener_http */,
 				C3407A5119F901620050DECC /* utils */,
 			);
 			name = "adaptive-arp-impl-universal";

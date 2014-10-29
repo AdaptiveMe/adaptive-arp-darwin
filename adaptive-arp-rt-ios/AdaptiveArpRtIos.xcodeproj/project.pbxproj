@@ -711,7 +711,6 @@
 		4ECC897819F8E64500C9272D /* ServiceRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceRequest.swift; sourceTree = "<group>"; };
 		4ECC897919F8E64500C9272D /* ServiceResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceResponse.swift; sourceTree = "<group>"; };
 		4ECC897A19F8E64500C9272D /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
-		90A8F269EA454B419D1F95DA /* libPods-AdaptiveArpRtIos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AdaptiveArpRtIos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C33BDB1819F8EEEF003D60EA /* BrowserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserTest.swift; sourceTree = "<group>"; };
 		C39ABF5D19FA3BD300200F0C /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		C39EEC3919FE2BFE00E6D581 /* OSTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSTest.swift; sourceTree = "<group>"; };
@@ -724,7 +723,6 @@
 		C39FED1C19F926C500125277 /* DeviceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceTest.swift; sourceTree = "<group>"; };
 		C3ADF0EA19F9302000BB1D0C /* DisplayImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayImpl.swift; sourceTree = "<group>"; };
 		C3C6C3CA19FA44D5002602C1 /* SecurityTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityTest.swift; sourceTree = "<group>"; };
-		E60A91CC59B74ECB8BE915AA /* libPods-AdaptiveArpRtIosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AdaptiveArpRtIosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1081,8 +1079,6 @@
 			children = (
 				4E15C2D219F7D946005AC50B /* UIKit.framework */,
 				4E15C2D019F7D93A005AC50B /* WebKit.framework */,
-				90A8F269EA454B419D1F95DA /* libPods-AdaptiveArpRtIos.a */,
-				E60A91CC59B74ECB8BE915AA /* libPods-AdaptiveArpRtIosTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
