@@ -9,8 +9,8 @@ Please refer to the [project site](http://adaptiveme.github.io) for more informa
 
 ## Projects
 
-* **iOS Implementation** in Swift [/adaptive-arp-impl-ios](https://github.com/AdaptiveMe/adaptive-arp-darwin/tree/master/adaptive-arp-impl-ios).
-* **OSX Implementation** in Swift [/adaptive-arp-impl-osx](https://github.com/AdaptiveMe/adaptive-arp-darwin/tree/master/adaptive-arp-impl-osx).
+* **iOS & OSX Implementation** in Swift [/adaptive-arp-impl](https://github.com/AdaptiveMe/adaptive-arp-darwin/tree/master/adaptive-arp-impl).
+* **iOS & OSX Runtime** in Swift [/adaptive-arp-rt](https://github.com/AdaptiveMe/adaptive-arp-darwin/tree/master/adaptive-arp-rt).
 
 ## Contributing
 We'd *love to accept your patches and contributions to this project*.  There are a just a few small guidelines you need to follow to ensure that you and/or your company and our project are safeguarded from inadvertent copyright infringement. I know, this can be a pain but we want fair-play from the very start so that we're all on the same page. Please refer to the [project site](http://adaptiveme.github.io) for more information.
