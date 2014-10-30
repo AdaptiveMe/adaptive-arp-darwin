@@ -102,9 +102,6 @@ class Session: XCTestCase {
         sessionImpl!.removeAttributes()
         XCTAssertTrue(sessionImpl?.getAttributes()!.count == 0, "")
         
-        
-        
-        
     }
 
 }
