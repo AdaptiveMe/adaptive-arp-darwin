@@ -42,7 +42,7 @@ public class AppContextWebviewImpl : NSObject, IAppContextWebview {
     var primaryView : AnyObject?
     var webViewList : [AnyObject]
     
-    override init() {
+    override public init() {
         webViewList = []
     }
     

@@ -13,6 +13,9 @@
 		4E9FE0891A02A71A0017970F /* OSTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0831A02A71A0017970F /* OSTest.swift */; };
 		4E9FE08A1A02A71A0017970F /* SecurityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0841A02A71A0017970F /* SecurityTest.swift */; };
 		4E9FE08B1A02A71A0017970F /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0851A02A71A0017970F /* Session.swift */; };
+		4ED4D1C71A02C5EB00CC854E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED4D1C61A02C5EB00CC854E /* WebKit.framework */; };
+		4ED4D1C81A02C5FC00CC854E /* AdaptiveArpImpliOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB4ED01A029063008A2C4F /* AdaptiveArpImpliOS.framework */; };
+		4ED4D1CA1A02C5FC00CC854E /* AdaptiveArpApiiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED4D1C91A02C5FC00CC854E /* AdaptiveArpApiiOS.framework */; };
 		4EDB4E531A028C89008A2C4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB4E521A028C89008A2C4F /* AppDelegate.swift */; };
 		4EDB4E551A028C89008A2C4F /* AdaptiveArpRtiOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB4E541A028C89008A2C4F /* AdaptiveArpRtiOS.xcdatamodeld */; };
 		4EDB4E571A028C89008A2C4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB4E561A028C89008A2C4F /* ViewController.swift */; };
@@ -26,11 +29,17 @@
 		4EDB4E811A028C9A008A2C4F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB4E801A028C9A008A2C4F /* Images.xcassets */; };
 		4EDB4E841A028C9A008A2C4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB4E821A028C9A008A2C4F /* Main.storyboard */; };
 		4EDB4E901A028C9A008A2C4F /* AdaptiveArpRtOSXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB4E8F1A028C9A008A2C4F /* AdaptiveArpRtOSXTests.swift */; };
-		4EDB4ED31A02910E008A2C4F /* AdaptiveArpImpliOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB4ED01A029063008A2C4F /* AdaptiveArpImpliOS.framework */; };
 		4EDB4ED41A029119008A2C4F /* AdaptiveArpImplOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB4ECC1A029063008A2C4F /* AdaptiveArpImplOSX.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4ED4D1C41A02C47800CC854E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4EDB4EC41A029062008A2C4F /* adaptive-arp-impl.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4EDB53F61A029910008A2C4F;
+			remoteInfo = AdaptiveArpImpliOS;
+		};
 		4EDB4E651A028C89008A2C4F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4E722D481A02827C00004247 /* Project object */;
@@ -80,13 +89,6 @@
 			remoteGlobalIDString = 4EDB53D81A0298E8008A2C4F;
 			remoteInfo = AdaptiveArpImplOSX;
 		};
-		4EDB4ED91A0292EA008A2C4F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4EDB4EC41A029062008A2C4F /* adaptive-arp-impl.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 4EDB53F61A029910008A2C4F;
-			remoteInfo = AdaptiveArpImpliOS;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +98,8 @@
 		4E9FE0831A02A71A0017970F /* OSTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSTest.swift; sourceTree = "<group>"; };
 		4E9FE0841A02A71A0017970F /* SecurityTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityTest.swift; sourceTree = "<group>"; };
 		4E9FE0851A02A71A0017970F /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		4ED4D1C61A02C5EB00CC854E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		4ED4D1C91A02C5FC00CC854E /* AdaptiveArpApiiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdaptiveArpApiiOS.framework; path = "../../../../Library/Developer/Xcode/DerivedData/adaptive-arp-rt-gkgvcxelfjqfzveakignyteutvtw/Build/Products/Debug-iphoneos/AdaptiveArpApiiOS.framework"; sourceTree = "<group>"; };
 		4EDB4E4E1A028C89008A2C4F /* AdaptiveArpRtiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdaptiveArpRtiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EDB4E511A028C89008A2C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EDB4E521A028C89008A2C4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,7 +127,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EDB4ED31A02910E008A2C4F /* AdaptiveArpImpliOS.framework in Frameworks */,
+				4ED4D1CA1A02C5FC00CC854E /* AdaptiveArpApiiOS.framework in Frameworks */,
+				4ED4D1C81A02C5FC00CC854E /* AdaptiveArpImpliOS.framework in Frameworks */,
+				4ED4D1C71A02C5EB00CC854E /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +161,8 @@
 		4E722D471A02827C00004247 = {
 			isa = PBXGroup;
 			children = (
+				4ED4D1C91A02C5FC00CC854E /* AdaptiveArpApiiOS.framework */,
+				4ED4D1C61A02C5EB00CC854E /* WebKit.framework */,
 				4EDB4E4F1A028C89008A2C4F /* AdaptiveArpRtiOS */,
 				4EDB4E671A028C89008A2C4F /* AdaptiveArpRtiOSTests */,
 				4EDB4E771A028C9A008A2C4F /* AdaptiveArpRtOSX */,
@@ -283,7 +291,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				4EDB4EDA1A0292EA008A2C4F /* PBXTargetDependency */,
+				4ED4D1C51A02C47800CC854E /* PBXTargetDependency */,
 			);
 			name = AdaptiveArpRtiOS;
 			productName = AdaptiveArpRtiOS;
@@ -509,6 +517,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4ED4D1C51A02C47800CC854E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AdaptiveArpImpliOS;
+			targetProxy = 4ED4D1C41A02C47800CC854E /* PBXContainerItemProxy */;
+		};
 		4EDB4E661A028C89008A2C4F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4EDB4E4D1A028C89008A2C4F /* AdaptiveArpRtiOS */;
@@ -523,11 +536,6 @@
 			isa = PBXTargetDependency;
 			name = AdaptiveArpImplOSX;
 			targetProxy = 4EDB4ED51A029228008A2C4F /* PBXContainerItemProxy */;
-		};
-		4EDB4EDA1A0292EA008A2C4F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = AdaptiveArpImpliOS;
-			targetProxy = 4EDB4ED91A0292EA008A2C4F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -650,13 +658,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/adaptive-arp-rt-gkgvcxelfjqfzveakignyteutvtw/Build/Products/Debug-iphoneos",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = AdaptiveArpRtiOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -666,9 +677,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/adaptive-arp-rt-gkgvcxelfjqfzveakignyteutvtw/Build/Products/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = AdaptiveArpRtiOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
