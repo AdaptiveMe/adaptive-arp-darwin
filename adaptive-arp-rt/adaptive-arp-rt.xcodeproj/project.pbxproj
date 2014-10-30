@@ -155,12 +155,12 @@
 		4E722D471A02827C00004247 = {
 			isa = PBXGroup;
 			children = (
-				4EDB4EC41A029062008A2C4F /* adaptive-arp-impl.xcodeproj */,
 				4EDB4E4F1A028C89008A2C4F /* AdaptiveArpRtiOS */,
 				4EDB4E671A028C89008A2C4F /* AdaptiveArpRtiOSTests */,
 				4EDB4E771A028C9A008A2C4F /* AdaptiveArpRtOSX */,
 				4EDB4E8C1A028C9A008A2C4F /* AdaptiveArpRtOSXTests */,
 				4E722D521A02827D00004247 /* Products */,
+				4EDB4EC41A029062008A2C4F /* adaptive-arp-impl.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
