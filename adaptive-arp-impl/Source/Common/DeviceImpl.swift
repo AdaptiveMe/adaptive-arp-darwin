@@ -52,7 +52,7 @@ public class DeviceImpl : NSObject, IDevice {
     /**
     Class constructor
     */
-    override init() {
+    override public init() {
         
         super.init()
         

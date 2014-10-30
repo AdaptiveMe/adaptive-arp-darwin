@@ -31,6 +31,8 @@
 
 import UIKit
 import XCTest
+import AdaptiveArpImpliOS
+import AdaptiveArpApiiOS
 
 class LoggingTest: XCTestCase {
     

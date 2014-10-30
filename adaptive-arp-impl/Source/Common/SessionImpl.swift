@@ -50,7 +50,7 @@ public class SessionImpl : NSObject, ISession {
     /**
     Class constructor. Loads all information of the operating system
     */
-    override init() {
+    override public init() {
         
         cookies = [Cookie]()
         attributes = [String: AnyObject]()

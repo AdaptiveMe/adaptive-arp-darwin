@@ -47,7 +47,7 @@ public class OSImpl : NSObject, IOS {
     /**
     Class constructor. Loads all information of the operating system
     */
-    override init() {
+    override public init() {
         var osName : String
         #if os(iOS)
             osName = "iOS"

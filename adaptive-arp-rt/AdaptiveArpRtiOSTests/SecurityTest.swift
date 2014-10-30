@@ -31,6 +31,8 @@
 
 import UIKit
 import XCTest
+import AdaptiveArpImpliOS
+import AdaptiveArpApiiOS
 
 class SecurityTest: XCTestCase {
     
@@ -47,12 +49,12 @@ class SecurityTest: XCTestCase {
         securityImpl = SecurityImpl()
         
         // Create a secure key pair
-        secureKeyPair1.setKey("name1")
-        secureKeyPair1.setValue("value1")
+        secureKeyPair1.setSecureKey("name1")
+        secureKeyPair1.setSecureData("value1")
         
         // Create a secure key pair
-        secureKeyPair2.setKey("name2")
-        secureKeyPair2.setValue("value2")
+        secureKeyPair2.setSecureKey("name2")
+        secureKeyPair2.setSecureData("value2")
     }
     
     override func tearDown() {
@@ -90,10 +92,10 @@ class SecurityTest: XCTestCase {
         securityImpl!.setSecureKeyValuePairs([secureKeyPair1, secureKeyPair2], publicAccessName: "storage", callback: iSecureKVResultCallbackImpl)
         
         // Get the value of SecureKeyPair
-        securityImpl!.getSecureKeyValuePairs([secureKeyPair1.getKey()!, secureKeyPair2.getKey()!], publicAccessName: "storage", callback: iSecureKVResultCallbackImpl)
+        securityImpl!.getSecureKeyValuePairs([secureKeyPair1.getSecureKey()!, secureKeyPair2.getSecureKey()!], publicAccessName: "storage", callback: iSecureKVResultCallbackImpl)
         
         // Delete a SecureKeyPair
-        securityImpl!.deleteSecureKeyValuePairs([secureKeyPair1.getKey()!, secureKeyPair2.getKey()!], publicAccessName: "storage", callback: iSecureKVResultCallbackImpl)
+        securityImpl!.deleteSecureKeyValuePairs([secureKeyPair1.getSecureKey()!, secureKeyPair2.getSecureKey()!], publicAccessName: "storage", callback: iSecureKVResultCallbackImpl)
     }
 }
 
@@ -106,13 +108,13 @@ class ISecureKVResultCallbackImpl: NSObject, ISecureKVResultCallback {
     func onResult(keyValues : [SecureKeyPair]) {
         
         for pair:SecureKeyPair in keyValues {
-            XCTAssert(true, "key: \(pair.getKey()), value: \(pair.getValue())")
+            XCTAssert(true, "key: \(pair.getSecureKey()), value: \(pair.getSecureData())")
         }
     }
     func onWarning(keyValues : [SecureKeyPair], warning : ISecureKVResultCallbackWarning) {
         
         for pair:SecureKeyPair in keyValues {
-            XCTAssert(true, "key: \(pair.getKey()), value: \(pair.getValue()), message: \(warning)")
+            XCTAssert(true, "key: \(pair.getSecureKey()), value: \(pair.getSecureData()), message: \(warning)")
         }
     }
     func toString() -> String? {

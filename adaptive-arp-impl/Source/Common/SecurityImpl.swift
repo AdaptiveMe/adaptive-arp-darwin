@@ -99,7 +99,7 @@ public class SecurityImpl : NSObject, ISecurity {
     /**
     Class constructor
     */
-    override init() {
+    override public init() {
         
     }
     

@@ -52,7 +52,7 @@ public class BrowserImpl : NSObject, IBrowser {
     /**
     Class constructor
     */
-    override init() {
+    override public init() {
         
         #if os(iOS)
             application = AppContextImpl().getContext() as UIApplication

@@ -41,7 +41,7 @@ public class LoggingImpl : NSObject, ILogging {
     /**
     Class constructor
     */
-    override init() {
+    override public init() {
         
     }
     

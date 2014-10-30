@@ -31,6 +31,8 @@
 
 import UIKit
 import XCTest
+import AdaptiveArpImpliOS
+import AdaptiveArpApiiOS
 
 class Session: XCTestCase {
     
@@ -48,8 +50,8 @@ class Session: XCTestCase {
 
     func testCookies() {
         
-        var cookie1:Cookie = Cookie(name: "name", value: "value")
-        var cookie2:Cookie = Cookie(name: "name", value: "value")
+        var cookie1:Cookie = Cookie(name: "name", data: "value")
+        var cookie2:Cookie = Cookie(name: "name", data: "value")
         
         // Set a cookie in the dictionary and check
         sessionImpl!.setCookie(cookie1)

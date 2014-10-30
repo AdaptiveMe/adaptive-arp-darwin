@@ -9,10 +9,8 @@
 /* Begin PBXBuildFile section */
 		4E9FE07A1A02A6120017970F /* BrowserImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0791A02A6120017970F /* BrowserImpl.swift */; };
 		4E9FE07B1A02A6120017970F /* BrowserImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0791A02A6120017970F /* BrowserImpl.swift */; };
-		4EDB53DE1A0298E8008A2C4F /* AdaptiveArpImplOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EDB53DD1A0298E8008A2C4F /* AdaptiveArpImplOSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4EDB53E41A0298E8008A2C4F /* AdaptiveArpImplOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB53D91A0298E8008A2C4F /* AdaptiveArpImplOSX.framework */; };
 		4EDB53EB1A0298E8008A2C4F /* AdaptiveArpImplOSXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB53EA1A0298E8008A2C4F /* AdaptiveArpImplOSXTests.swift */; };
-		4EDB53FC1A029910008A2C4F /* AdaptiveArpImpliOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EDB53FB1A029910008A2C4F /* AdaptiveArpImpliOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4EDB54021A029910008A2C4F /* AdaptiveArpImpliOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB53F71A029910008A2C4F /* AdaptiveArpImpliOS.framework */; };
 		4EDB54091A029910008A2C4F /* AdaptiveArpImpliOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB54081A029910008A2C4F /* AdaptiveArpImpliOSTests.swift */; };
 		4EDB54101A029920008A2C4F /* Await.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB51C31A029566008A2C4F /* Await.swift */; };
@@ -160,13 +158,11 @@
 		4EDB51CF1A029653008A2C4F /* adaptive-arp-api-swift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "adaptive-arp-api-swift.xcodeproj"; path = "../../adaptive-arp-api/adaptive-arp-api-swift/adaptive-arp-api-swift.xcodeproj"; sourceTree = "<group>"; };
 		4EDB53D91A0298E8008A2C4F /* AdaptiveArpImplOSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdaptiveArpImplOSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EDB53DC1A0298E8008A2C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4EDB53DD1A0298E8008A2C4F /* AdaptiveArpImplOSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdaptiveArpImplOSX.h; sourceTree = "<group>"; };
 		4EDB53E31A0298E8008A2C4F /* AdaptiveArpImplOSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdaptiveArpImplOSXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EDB53E91A0298E8008A2C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EDB53EA1A0298E8008A2C4F /* AdaptiveArpImplOSXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveArpImplOSXTests.swift; sourceTree = "<group>"; };
 		4EDB53F71A029910008A2C4F /* AdaptiveArpImpliOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdaptiveArpImpliOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EDB53FA1A029910008A2C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4EDB53FB1A029910008A2C4F /* AdaptiveArpImpliOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdaptiveArpImpliOS.h; sourceTree = "<group>"; };
 		4EDB54011A029910008A2C4F /* AdaptiveArpImpliOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdaptiveArpImpliOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EDB54071A029910008A2C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EDB54081A029910008A2C4F /* AdaptiveArpImpliOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveArpImpliOSTests.swift; sourceTree = "<group>"; };
@@ -306,7 +302,6 @@
 		4EDB53DA1A0298E8008A2C4F /* AdaptiveArpImplOSX */ = {
 			isa = PBXGroup;
 			children = (
-				4EDB53DD1A0298E8008A2C4F /* AdaptiveArpImplOSX.h */,
 				4EDB53DB1A0298E8008A2C4F /* Supporting Files */,
 			);
 			path = AdaptiveArpImplOSX;
@@ -340,7 +335,6 @@
 		4EDB53F81A029910008A2C4F /* AdaptiveArpImpliOS */ = {
 			isa = PBXGroup;
 			children = (
-				4EDB53FB1A029910008A2C4F /* AdaptiveArpImpliOS.h */,
 				4EDB53F91A029910008A2C4F /* Supporting Files */,
 			);
 			path = AdaptiveArpImpliOS;
@@ -398,7 +392,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EDB53DE1A0298E8008A2C4F /* AdaptiveArpImplOSX.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,7 +399,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EDB53FC1A029910008A2C4F /* AdaptiveArpImpliOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
