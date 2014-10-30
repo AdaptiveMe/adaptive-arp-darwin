@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4E9FE07A1A02A6120017970F /* BrowserImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0791A02A6120017970F /* BrowserImpl.swift */; };
 		4E9FE07B1A02A6120017970F /* BrowserImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0791A02A6120017970F /* BrowserImpl.swift */; };
+		4ED4D1CC1A02CA4000CC854E /* HttpInterceptorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4D1CB1A02CA4000CC854E /* HttpInterceptorProtocol.swift */; };
+		4ED4D1CD1A02CA4100CC854E /* HttpInterceptorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4D1CB1A02CA4000CC854E /* HttpInterceptorProtocol.swift */; };
 		4EDB53E41A0298E8008A2C4F /* AdaptiveArpImplOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB53D91A0298E8008A2C4F /* AdaptiveArpImplOSX.framework */; };
 		4EDB53EB1A0298E8008A2C4F /* AdaptiveArpImplOSXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB53EA1A0298E8008A2C4F /* AdaptiveArpImplOSXTests.swift */; };
 		4EDB54021A029910008A2C4F /* AdaptiveArpImpliOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB53F71A029910008A2C4F /* AdaptiveArpImpliOS.framework */; };
@@ -126,6 +128,7 @@
 
 /* Begin PBXFileReference section */
 		4E9FE0791A02A6120017970F /* BrowserImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserImpl.swift; sourceTree = "<group>"; };
+		4ED4D1CB1A02CA4000CC854E /* HttpInterceptorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpInterceptorProtocol.swift; sourceTree = "<group>"; };
 		4EDB516A1A029446008A2C4F /* AppContextImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContextImpl.swift; sourceTree = "<group>"; };
 		4EDB516B1A029446008A2C4F /* AppContextWebviewImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContextWebviewImpl.swift; sourceTree = "<group>"; };
 		4EDB516C1A029446008A2C4F /* AppRegistryImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRegistryImpl.swift; sourceTree = "<group>"; };
@@ -237,6 +240,7 @@
 		4EDB51691A029446008A2C4F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4ED4D1CB1A02CA4000CC854E /* HttpInterceptorProtocol.swift */,
 				4E9FE0791A02A6120017970F /* BrowserImpl.swift */,
 				4EDB51C21A029566008A2C4F /* utils */,
 				4EDB516A1A029446008A2C4F /* AppContextImpl.swift */,
@@ -615,6 +619,7 @@
 				4EDB54461A02992F008A2C4F /* RuntimeImpl.swift in Sources */,
 				4EDB54321A029929008A2C4F /* HttpParser.swift in Sources */,
 				4EDB54471A02992F008A2C4F /* SecurityImpl.swift in Sources */,
+				4ED4D1CC1A02CA4000CC854E /* HttpInterceptorProtocol.swift in Sources */,
 				4EDB54151A029921008A2C4F /* GeolocationDelegate.swift in Sources */,
 				4EDB54171A029921008A2C4F /* Utils.swift in Sources */,
 				4EDB542D1A029926008A2C4F /* DeviceImpl.swift in Sources */,
@@ -662,6 +667,7 @@
 				4EDB54371A02992A008A2C4F /* HttpParser.swift in Sources */,
 				4EDB54401A02992E008A2C4F /* SecurityImpl.swift in Sources */,
 				4EDB54111A029920008A2C4F /* GeolocationDelegate.swift in Sources */,
+				4ED4D1CD1A02CA4100CC854E /* HttpInterceptorProtocol.swift in Sources */,
 				4EDB54131A029920008A2C4F /* Utils.swift in Sources */,
 				4EDB54201A029925008A2C4F /* DeviceImpl.swift in Sources */,
 				4EDB541F1A029925008A2C4F /* DatabaseImpl.swift in Sources */,

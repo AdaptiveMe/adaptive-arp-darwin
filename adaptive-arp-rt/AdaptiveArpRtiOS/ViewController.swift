@@ -13,7 +13,6 @@ import AdaptiveArpImpliOS
 class ViewController: UIViewController {
     
     var webView : UIView?
-    
     var appContextWebview:AppContextWebviewImpl?
     
     @IBOutlet weak var webViewContainer: UIView!
@@ -48,11 +47,12 @@ class ViewController: UIViewController {
         var url : NSURL! = NSURL(string:"http://google.com/")
         var req = NSURLRequest(URL:url)
 
-        if (NSClassFromString("WKWebView") != nil) {
-            (self.webView! as WKWebView).loadRequest(req)
-        } else {
+        // TODO: Waiting on Bug fix to support NSProtocol
+        //if (NSClassFromString("WKWebView") != nil) {
+        //    (self.webView! as WKWebView).loadRequest(req)
+        //} else {
             (self.webView! as UIWebView).loadRequest(req)
-        }
+        //}
         
 
     }
@@ -66,16 +66,16 @@ class ViewController: UIViewController {
         super.loadView()
         
         appContextWebview = AppContextWebviewImpl()
-        
-        if (NSClassFromString("WKWebView") != nil) {
-            self.webView = WKWebView(frame: self.webViewContainer.bounds)
-            appContextWebview!.setWebviewPrimary(self.webView!)
-            println("Using WKWebView")
-        } else {
+        // TODO: Waiting on Bug fix to support NSProtocol
+        //if (NSClassFromString("WKWebView") != nil) {
+        //    self.webView = WKWebView(frame: self.webViewContainer.bounds)
+        //    appContextWebview!.setWebviewPrimary(self.webView!)
+        //    println("Using WKWebView")
+        //} else {
             self.webView = UIWebView(frame: self.webViewContainer.bounds)
             appContextWebview!.setWebviewPrimary(self.webView!)
             println("Using UIWebView")
-        }
+        //}
         
         
 
