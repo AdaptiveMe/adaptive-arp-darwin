@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "0610"
+   version = "1.8">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4EDB4E4D1A028C89008A2C4F"
+               BuildableName = "AdaptiveArpRtiOS.app"
+               BlueprintName = "AdaptiveArpRtiOS"
+               ReferencedContainer = "container:adaptive-arp-rt.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4EDB52021A029801008A2C4F"
+               BuildableName = "AdaptiveArpApiOSX.framework"
+               BlueprintName = "AdaptiveArpApiOSX"
+               ReferencedContainer = "container:../../adaptive-arp-api/adaptive-arp-api-swift/adaptive-arp-api-swift.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4EDB520C1A029801008A2C4F"
+               BuildableName = "AdaptiveArpApiOSXTests.xctest"
+               BlueprintName = "AdaptiveArpApiOSXTests"
+               ReferencedContainer = "container:../../adaptive-arp-api/adaptive-arp-api-swift/adaptive-arp-api-swift.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4EDB51E41A0297E7008A2C4F"
+               BuildableName = "AdaptiveArpApiiOS.framework"
+               BlueprintName = "AdaptiveArpApiiOS"
+               ReferencedContainer = "container:../../adaptive-arp-api/adaptive-arp-api-swift/adaptive-arp-api-swift.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4EDB51EE1A0297E7008A2C4F"
+               BuildableName = "AdaptiveArpApiiOSTests.xctest"
+               BlueprintName = "AdaptiveArpApiiOSTests"
+               ReferencedContainer = "container:../../adaptive-arp-api/adaptive-arp-api-swift/adaptive-arp-api-swift.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4EDB53D81A0298E8008A2C4F"
+               BuildableName = "AdaptiveArpImplOSX.framework"
+               BlueprintName = "AdaptiveArpImplOSX"
+               ReferencedContainer = "container:../adaptive-arp-impl/adaptive-arp-impl.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4EDB53E21A0298E8008A2C4F"
+               BuildableName = "AdaptiveArpImplOSXTests.xctest"
+               BlueprintName = "AdaptiveArpImplOSXTests"
+               ReferencedContainer = "container:../adaptive-arp-impl/adaptive-arp-impl.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4EDB53F61A029910008A2C4F"
+               BuildableName = "AdaptiveArpImpliOS.framework"
+               BlueprintName = "AdaptiveArpImpliOS"
+               ReferencedContainer = "container:../adaptive-arp-impl/adaptive-arp-impl.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4EDB54001A029910008A2C4F"
+               BuildableName = "AdaptiveArpImpliOSTests.xctest"
+               BlueprintName = "AdaptiveArpImpliOSTests"
+               ReferencedContainer = "container:../adaptive-arp-impl/adaptive-arp-impl.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4EDB4E751A028C99008A2C4F"
+               BuildableName = "AdaptiveArpRtOSX.app"
+               BlueprintName = "AdaptiveArpRtOSX"
+               ReferencedContainer = "container:adaptive-arp-rt.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4EDB4E881A028C9A008A2C4F"
+               BuildableName = "AdaptiveArpRtOSXTests.xctest"
+               BlueprintName = "AdaptiveArpRtOSXTests"
+               ReferencedContainer = "container:adaptive-arp-rt.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4EDB4E631A028C89008A2C4F"
+               BuildableName = "AdaptiveArpRtiOSTests.xctest"
+               BlueprintName = "AdaptiveArpRtiOSTests"
+               ReferencedContainer = "container:adaptive-arp-rt.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      buildConfiguration = "Debug">
+      <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4EDB520C1A029801008A2C4F"
+               BuildableName = "AdaptiveArpApiOSXTests.xctest"
+               BlueprintName = "AdaptiveArpApiOSXTests"
+               ReferencedContainer = "container:../../adaptive-arp-api/adaptive-arp-api-swift/adaptive-arp-api-swift.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4EDB51EE1A0297E7008A2C4F"
+               BuildableName = "AdaptiveArpApiiOSTests.xctest"
+               BlueprintName = "AdaptiveArpApiiOSTests"
+               ReferencedContainer = "container:../../adaptive-arp-api/adaptive-arp-api-swift/adaptive-arp-api-swift.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4EDB53E21A0298E8008A2C4F"
+               BuildableName = "AdaptiveArpImplOSXTests.xctest"
+               BlueprintName = "AdaptiveArpImplOSXTests"
+               ReferencedContainer = "container:../adaptive-arp-impl/adaptive-arp-impl.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4EDB54001A029910008A2C4F"
+               BuildableName = "AdaptiveArpImpliOSTests.xctest"
+               BlueprintName = "AdaptiveArpImpliOSTests"
+               ReferencedContainer = "container:../adaptive-arp-impl/adaptive-arp-impl.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4EDB4E881A028C9A008A2C4F"
+               BuildableName = "AdaptiveArpRtOSXTests.xctest"
+               BlueprintName = "AdaptiveArpRtOSXTests"
+               ReferencedContainer = "container:adaptive-arp-rt.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4EDB4E631A028C89008A2C4F"
+               BuildableName = "AdaptiveArpRtiOSTests.xctest"
+               BlueprintName = "AdaptiveArpRtiOSTests"
+               ReferencedContainer = "container:adaptive-arp-rt.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "4EDB4E4D1A028C89008A2C4F"
+            BuildableName = "AdaptiveArpRtiOS.app"
+            BlueprintName = "AdaptiveArpRtiOS"
+            ReferencedContainer = "container:adaptive-arp-rt.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+   </TestAction>
+   <LaunchAction
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      launchStyle = "0"
+      askForAppToLaunch = "Yes"
+      useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Release"
+      ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      allowLocationSimulation = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "4EDB4E4D1A028C89008A2C4F"
+            BuildableName = "AdaptiveArpRtiOS.app"
+            BlueprintName = "AdaptiveArpRtiOS"
+            ReferencedContainer = "container:adaptive-arp-rt.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+      <AdditionalOptions>
+      </AdditionalOptions>
+      <IDERemoteRunnable
+         RemotePath = "/Users/clozano/Library/Developer/CoreSimulator/Devices/6720DC2E-5135-4FDC-9619-FC82B5F6601D/data/Containers/Bundle/Application/4F9D2E82-176E-4CDD-91D0-F318137C6754/AdaptiveArpRtiOS.app"
+         BundleIdentifier = "/Users/clozano/Library/Developer/CoreSimulator/Devices/6720DC2E-5135-4FDC-9619-FC82B5F6601D/data/Containers/Bundle/Application/4F9D2E82-176E-4CDD-91D0-F318137C6754/AdaptiveArpRtiOS.app">
+      </IDERemoteRunnable>
+   </LaunchAction>
+   <ProfileAction
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Release"
+      debugDocumentVersioning = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "4EDB4E4D1A028C89008A2C4F"
+            BuildableName = "AdaptiveArpRtiOS.app"
+            BlueprintName = "AdaptiveArpRtiOS"
+            ReferencedContainer = "container:adaptive-arp-rt.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Debug">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "YES">
+   </ArchiveAction>
+</Scheme>
