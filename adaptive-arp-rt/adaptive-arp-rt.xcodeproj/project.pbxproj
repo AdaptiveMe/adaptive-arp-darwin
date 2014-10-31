@@ -19,6 +19,8 @@
 		4E04DB0D1A03CF3C00DC4908 /* AdaptiveArpApiOSX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04DAFE1A03CECF00DC4908 /* AdaptiveArpApiOSX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4E04DB0E1A03CF3C00DC4908 /* AdaptiveArpImplOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04DAFF1A03CECF00DC4908 /* AdaptiveArpImplOSX.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4E04DB0F1A03CF3C00DC4908 /* AdaptiveArpImplOSX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04DAFF1A03CECF00DC4908 /* AdaptiveArpImplOSX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4E04DB161A03D3E900DC4908 /* App in Resources */ = {isa = PBXBuildFile; fileRef = 4E04DB151A03D3E900DC4908 /* App */; };
+		4E04DB171A03D3E900DC4908 /* App in Resources */ = {isa = PBXBuildFile; fileRef = 4E04DB151A03D3E900DC4908 /* App */; };
 		4E9FE0861A02A71A0017970F /* BrowserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0801A02A71A0017970F /* BrowserTest.swift */; };
 		4E9FE0871A02A71A0017970F /* DeviceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0811A02A71A0017970F /* DeviceTest.swift */; };
 		4E9FE0881A02A71A0017970F /* LoggingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0821A02A71A0017970F /* LoggingTest.swift */; };
@@ -133,6 +135,8 @@
 		4E04DB001A03CECF00DC4908 /* AdaptiveArpApiiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdaptiveArpApiiOS.framework; path = "DerivedData/Build/Products/Release-iphoneos/AdaptiveArpApiiOS.framework"; sourceTree = "<group>"; };
 		4E04DB011A03CECF00DC4908 /* AdaptiveArpImpliOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdaptiveArpImpliOS.framework; path = "DerivedData/Build/Products/Release-iphoneos/AdaptiveArpImpliOS.framework"; sourceTree = "<group>"; };
 		4E04DB0A1A03CF2100DC4908 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
+		4E04DB141A03D3DA00DC4908 /* App.Source */ = {isa = PBXFileReference; lastKnownFileType = folder; path = App.Source; sourceTree = "<group>"; };
+		4E04DB151A03D3E900DC4908 /* App */ = {isa = PBXFileReference; lastKnownFileType = folder; path = App; sourceTree = "<group>"; };
 		4E9FE0801A02A71A0017970F /* BrowserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserTest.swift; sourceTree = "<group>"; };
 		4E9FE0811A02A71A0017970F /* DeviceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceTest.swift; sourceTree = "<group>"; };
 		4E9FE0821A02A71A0017970F /* LoggingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingTest.swift; sourceTree = "<group>"; };
@@ -223,6 +227,8 @@
 				4EDB4E8C1A028C9A008A2C4F /* AdaptiveArpRtOSXTests */,
 				4E722D521A02827D00004247 /* Products */,
 				4E04DAFC1A03CE6500DC4908 /* Frameworks */,
+				4E04DB151A03D3E900DC4908 /* App */,
+				4E04DB141A03D3DA00DC4908 /* App.Source */,
 				4EDB4EC41A029062008A2C4F /* adaptive-arp-impl.xcodeproj */,
 			);
 			sourceTree = "<group>";
@@ -497,6 +503,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E04DB161A03D3E900DC4908 /* App in Resources */,
 				4EDB4E5A1A028C89008A2C4F /* Main.storyboard in Resources */,
 				4EDB4E5F1A028C89008A2C4F /* LaunchScreen.xib in Resources */,
 				4EDB4E5C1A028C89008A2C4F /* Images.xcassets in Resources */,
@@ -514,6 +521,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E04DB171A03D3E900DC4908 /* App in Resources */,
 				4EDB4E811A028C9A008A2C4F /* Images.xcassets in Resources */,
 				4EDB4E841A028C9A008A2C4F /* Main.storyboard in Resources */,
 			);
