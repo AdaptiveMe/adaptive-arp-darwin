@@ -7,17 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4E2EA9151A039F6E00A1A8AD /* AdaptiveArpApiiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E2EA90D1A039F2E00A1A8AD /* AdaptiveArpApiiOS.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		4E2EA9161A039F6E00A1A8AD /* AdaptiveArpApiiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E2EA90D1A039F2E00A1A8AD /* AdaptiveArpApiiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4E2EA9181A039F8600A1A8AD /* AdaptiveArpImpliOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB4ED01A029063008A2C4F /* AdaptiveArpImpliOS.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		4E2EA9191A039F8600A1A8AD /* AdaptiveArpImpliOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB4ED01A029063008A2C4F /* AdaptiveArpImpliOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4E04DAFD1A03CE8E00DC4908 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04DAFA1A03CE5C00DC4908 /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		4E04DB041A03CECF00DC4908 /* AdaptiveArpApiiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04DB001A03CECF00DC4908 /* AdaptiveArpApiiOS.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		4E04DB051A03CECF00DC4908 /* AdaptiveArpImpliOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04DB011A03CECF00DC4908 /* AdaptiveArpImpliOS.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		4E04DB061A03CF0100DC4908 /* AdaptiveArpApiiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04DB001A03CECF00DC4908 /* AdaptiveArpApiiOS.framework */; };
+		4E04DB071A03CF0100DC4908 /* AdaptiveArpApiiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04DB001A03CECF00DC4908 /* AdaptiveArpApiiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4E04DB081A03CF0100DC4908 /* AdaptiveArpImpliOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04DB011A03CECF00DC4908 /* AdaptiveArpImpliOS.framework */; };
+		4E04DB091A03CF0100DC4908 /* AdaptiveArpImpliOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04DB011A03CECF00DC4908 /* AdaptiveArpImpliOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4E04DB0B1A03CF2100DC4908 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04DB0A1A03CF2100DC4908 /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		4E04DB0C1A03CF3C00DC4908 /* AdaptiveArpApiOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04DAFE1A03CECF00DC4908 /* AdaptiveArpApiOSX.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		4E04DB0D1A03CF3C00DC4908 /* AdaptiveArpApiOSX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04DAFE1A03CECF00DC4908 /* AdaptiveArpApiOSX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4E04DB0E1A03CF3C00DC4908 /* AdaptiveArpImplOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04DAFF1A03CECF00DC4908 /* AdaptiveArpImplOSX.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		4E04DB0F1A03CF3C00DC4908 /* AdaptiveArpImplOSX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04DAFF1A03CECF00DC4908 /* AdaptiveArpImplOSX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4E9FE0861A02A71A0017970F /* BrowserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0801A02A71A0017970F /* BrowserTest.swift */; };
 		4E9FE0871A02A71A0017970F /* DeviceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0811A02A71A0017970F /* DeviceTest.swift */; };
 		4E9FE0881A02A71A0017970F /* LoggingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0821A02A71A0017970F /* LoggingTest.swift */; };
 		4E9FE0891A02A71A0017970F /* OSTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0831A02A71A0017970F /* OSTest.swift */; };
 		4E9FE08A1A02A71A0017970F /* SecurityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0841A02A71A0017970F /* SecurityTest.swift */; };
 		4E9FE08B1A02A71A0017970F /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0851A02A71A0017970F /* Session.swift */; };
-		4ED4D1C71A02C5EB00CC854E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED4D1C61A02C5EB00CC854E /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4EDB4E531A028C89008A2C4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB4E521A028C89008A2C4F /* AppDelegate.swift */; };
 		4EDB4E551A028C89008A2C4F /* AdaptiveArpRtiOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB4E541A028C89008A2C4F /* AdaptiveArpRtiOS.xcdatamodeld */; };
 		4EDB4E571A028C89008A2C4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB4E561A028C89008A2C4F /* ViewController.swift */; };
@@ -31,17 +38,9 @@
 		4EDB4E811A028C9A008A2C4F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB4E801A028C9A008A2C4F /* Images.xcassets */; };
 		4EDB4E841A028C9A008A2C4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB4E821A028C9A008A2C4F /* Main.storyboard */; };
 		4EDB4E901A028C9A008A2C4F /* AdaptiveArpRtOSXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB4E8F1A028C9A008A2C4F /* AdaptiveArpRtOSXTests.swift */; };
-		4EDB4ED41A029119008A2C4F /* AdaptiveArpImplOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB4ECC1A029063008A2C4F /* AdaptiveArpImplOSX.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4E2EA9131A039F4F00A1A8AD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4EDB4EC41A029062008A2C4F /* adaptive-arp-impl.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 4EDB53F61A029910008A2C4F;
-			remoteInfo = AdaptiveArpImpliOS;
-		};
 		4E2EA91A1A039F8600A1A8AD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4EDB4EC41A029062008A2C4F /* adaptive-arp-impl.xcodeproj */;
@@ -101,14 +100,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		4E2EA9171A039F6E00A1A8AD /* Embed Frameworks */ = {
+		4E04DAF61A03CE1300DC4908 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4E2EA9191A039F8600A1A8AD /* AdaptiveArpImpliOS.framework in Embed Frameworks */,
-				4E2EA9161A039F6E00A1A8AD /* AdaptiveArpApiiOS.framework in Embed Frameworks */,
+				4E04DB091A03CF0100DC4908 /* AdaptiveArpImpliOS.framework in Embed Frameworks */,
+				4E04DB071A03CF0100DC4908 /* AdaptiveArpApiiOS.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E04DB101A03CF3C00DC4908 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4E04DB0D1A03CF3C00DC4908 /* AdaptiveArpApiOSX.framework in Embed Frameworks */,
+				4E04DB0F1A03CF3C00DC4908 /* AdaptiveArpImplOSX.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -116,15 +127,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4E2EA90D1A039F2E00A1A8AD /* AdaptiveArpApiiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = AdaptiveArpApiiOS.framework; path = "/Users/clozano/Library/Developer/Xcode/DerivedData/adaptive-arp-rt-gkgvcxelfjqfzveakignyteutvtw/Build/Products/Release-iphoneos/AdaptiveArpApiiOS.framework"; sourceTree = "<absolute>"; };
+		4E04DAFA1A03CE5C00DC4908 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		4E04DAFE1A03CECF00DC4908 /* AdaptiveArpApiOSX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdaptiveArpApiOSX.framework; path = DerivedData/Build/Products/Release/AdaptiveArpApiOSX.framework; sourceTree = "<group>"; };
+		4E04DAFF1A03CECF00DC4908 /* AdaptiveArpImplOSX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdaptiveArpImplOSX.framework; path = DerivedData/Build/Products/Release/AdaptiveArpImplOSX.framework; sourceTree = "<group>"; };
+		4E04DB001A03CECF00DC4908 /* AdaptiveArpApiiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdaptiveArpApiiOS.framework; path = "DerivedData/Build/Products/Release-iphoneos/AdaptiveArpApiiOS.framework"; sourceTree = "<group>"; };
+		4E04DB011A03CECF00DC4908 /* AdaptiveArpImpliOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdaptiveArpImpliOS.framework; path = "DerivedData/Build/Products/Release-iphoneos/AdaptiveArpImpliOS.framework"; sourceTree = "<group>"; };
+		4E04DB0A1A03CF2100DC4908 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
 		4E9FE0801A02A71A0017970F /* BrowserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserTest.swift; sourceTree = "<group>"; };
 		4E9FE0811A02A71A0017970F /* DeviceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceTest.swift; sourceTree = "<group>"; };
 		4E9FE0821A02A71A0017970F /* LoggingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingTest.swift; sourceTree = "<group>"; };
 		4E9FE0831A02A71A0017970F /* OSTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSTest.swift; sourceTree = "<group>"; };
 		4E9FE0841A02A71A0017970F /* SecurityTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityTest.swift; sourceTree = "<group>"; };
 		4E9FE0851A02A71A0017970F /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
-		4ED4D1C61A02C5EB00CC854E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		4ED4D1C91A02C5FC00CC854E /* AdaptiveArpApiiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdaptiveArpApiiOS.framework; path = "../../../../Library/Developer/Xcode/DerivedData/adaptive-arp-rt-gkgvcxelfjqfzveakignyteutvtw/Build/Products/Debug-iphoneos/AdaptiveArpApiiOS.framework"; sourceTree = "<group>"; };
 		4EDB4E4E1A028C89008A2C4F /* AdaptiveArpRtiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdaptiveArpRtiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EDB4E511A028C89008A2C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EDB4E521A028C89008A2C4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -152,9 +166,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4ED4D1C71A02C5EB00CC854E /* WebKit.framework in Frameworks */,
-				4E2EA9151A039F6E00A1A8AD /* AdaptiveArpApiiOS.framework in Frameworks */,
-				4E2EA9181A039F8600A1A8AD /* AdaptiveArpImpliOS.framework in Frameworks */,
+				4E04DB041A03CECF00DC4908 /* AdaptiveArpApiiOS.framework in Frameworks */,
+				4E04DB061A03CF0100DC4908 /* AdaptiveArpApiiOS.framework in Frameworks */,
+				4E04DB081A03CF0100DC4908 /* AdaptiveArpImpliOS.framework in Frameworks */,
+				4E04DB051A03CECF00DC4908 /* AdaptiveArpImpliOS.framework in Frameworks */,
+				4E04DAFD1A03CE8E00DC4908 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,7 +185,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EDB4ED41A029119008A2C4F /* AdaptiveArpImplOSX.framework in Frameworks */,
+				4E04DB0E1A03CF3C00DC4908 /* AdaptiveArpImplOSX.framework in Frameworks */,
+				4E04DB0C1A03CF3C00DC4908 /* AdaptiveArpApiOSX.framework in Frameworks */,
+				4E04DB0B1A03CF2100DC4908 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,17 +201,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E04DAFC1A03CE6500DC4908 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4E04DB0A1A03CF2100DC4908 /* WebKit.framework */,
+				4E04DAFE1A03CECF00DC4908 /* AdaptiveArpApiOSX.framework */,
+				4E04DAFF1A03CECF00DC4908 /* AdaptiveArpImplOSX.framework */,
+				4E04DB001A03CECF00DC4908 /* AdaptiveArpApiiOS.framework */,
+				4E04DB011A03CECF00DC4908 /* AdaptiveArpImpliOS.framework */,
+				4E04DAFA1A03CE5C00DC4908 /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4E722D471A02827C00004247 = {
 			isa = PBXGroup;
 			children = (
-				4E2EA90D1A039F2E00A1A8AD /* AdaptiveArpApiiOS.framework */,
-				4ED4D1C91A02C5FC00CC854E /* AdaptiveArpApiiOS.framework */,
-				4ED4D1C61A02C5EB00CC854E /* WebKit.framework */,
 				4EDB4E4F1A028C89008A2C4F /* AdaptiveArpRtiOS */,
 				4EDB4E671A028C89008A2C4F /* AdaptiveArpRtiOSTests */,
 				4EDB4E771A028C9A008A2C4F /* AdaptiveArpRtOSX */,
 				4EDB4E8C1A028C9A008A2C4F /* AdaptiveArpRtOSXTests */,
 				4E722D521A02827D00004247 /* Products */,
+				4E04DAFC1A03CE6500DC4908 /* Frameworks */,
 				4EDB4EC41A029062008A2C4F /* adaptive-arp-impl.xcodeproj */,
 			);
 			sourceTree = "<group>";
@@ -313,12 +342,11 @@
 				4EDB4E4A1A028C89008A2C4F /* Sources */,
 				4EDB4E4B1A028C89008A2C4F /* Frameworks */,
 				4EDB4E4C1A028C89008A2C4F /* Resources */,
-				4E2EA9171A039F6E00A1A8AD /* Embed Frameworks */,
+				4E04DAF61A03CE1300DC4908 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				4E2EA9141A039F4F00A1A8AD /* PBXTargetDependency */,
 				4E2EA91B1A039F8600A1A8AD /* PBXTargetDependency */,
 			);
 			name = AdaptiveArpRtiOS;
@@ -351,6 +379,7 @@
 				4EDB4E721A028C99008A2C4F /* Sources */,
 				4EDB4E731A028C99008A2C4F /* Frameworks */,
 				4EDB4E741A028C99008A2C4F /* Resources */,
+				4E04DB101A03CF3C00DC4908 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -545,11 +574,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4E2EA9141A039F4F00A1A8AD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = AdaptiveArpImpliOS;
-			targetProxy = 4E2EA9131A039F4F00A1A8AD /* PBXContainerItemProxy */;
-		};
 		4E2EA91B1A039F8600A1A8AD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = AdaptiveArpImpliOS;
@@ -695,11 +719,12 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/adaptive-arp-rt-gkgvcxelfjqfzveakignyteutvtw/Build/Products/Debug-iphoneos",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/adaptive-arp-rt-gkgvcxelfjqfzveakignyteutvtw/Build/Products/Release-iphoneos",
+					"$(PROJECT_DIR)/DerivedData/Build/Products/Release-iphoneos",
+					"$(PROJECT_DIR)/DerivedData/Build/Products/Release",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -718,11 +743,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/adaptive-arp-rt-gkgvcxelfjqfzveakignyteutvtw/Build/Products/Debug-iphoneos",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/adaptive-arp-rt-gkgvcxelfjqfzveakignyteutvtw/Build/Products/Release-iphoneos",
+					"$(PROJECT_DIR)/DerivedData/Build/Products/Release-iphoneos",
+					"$(PROJECT_DIR)/DerivedData/Build/Products/Release",
 				);
 				INFOPLIST_FILE = AdaptiveArpRtiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -774,7 +800,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DerivedData/Build/Products/Release",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -795,7 +824,10 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DerivedData/Build/Products/Release",
+				);
 				INFOPLIST_FILE = AdaptiveArpRtOSX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
