@@ -59,3 +59,7 @@ adaptive-arp-rt/adaptive-arp-rt.xcodeproj/project.xcworkspace/xcuserdata/clozano
 
 adaptive-arp-impl/adaptive-arp-impl.xcodeproj/xcuserdata/clozano.xcuserdatad/
 adaptive-arp-rt/adaptive-arp-rt.xcodeproj/xcuserdata/clozano.xcuserdatad/
+
+adaptive-arp-rt/DerivedData/adaptive-arp-rt/
+
+adaptive-arp-rt/DerivedData/ModuleCache/

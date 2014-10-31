@@ -14,11 +14,6 @@
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
-		<key>adaptive-arp-impl.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
