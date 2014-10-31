@@ -35,6 +35,14 @@ public class HttpInterceptorProtocol : NSURLProtocol {
     
     var connection: NSURLConnection!
     
+    override public init() {
+        super.init()
+    }
+    
+    override public init(request: NSURLRequest, cachedResponse: NSCachedURLResponse?, client: NSURLProtocolClient?) {
+        super.init(request: request, cachedResponse: cachedResponse, client: client)
+    }
+    
     override public class func canInitWithRequest(request: NSURLRequest) -> Bool {
         
         
@@ -57,7 +65,7 @@ public class HttpInterceptorProtocol : NSURLProtocol {
     }
     
     override public func startLoading() {
-        var newRequest : NSMutableURLRequest = self.request.copy() as NSMutableURLRequest
+        var newRequest : NSMutableURLRequest = self.request.mutableCopy() as NSMutableURLRequest
         // How to override headers
         /*
         var newHeaders = NSMutableDictionary(dictionary: newRequest.allHTTPHeaderFields!)
