@@ -99,7 +99,7 @@ public class ContactImpl : NSObject, IContact {
     /**
     Class constructor
     */
-    override init() {
+    public override init() {
         
         self.ret = false
     }
@@ -307,7 +307,7 @@ public class ContactImpl : NSObject, IContact {
                 */
                 
                 // Query only for one contact
-                var id: ABRecordID = ABRecordGetRecordID(contact.getContactId())
+                var id:Int32 = Int32(contact.getContactId()!.toInt()!)
                 
                 if(ABAddressBookGetPersonWithRecordID(addressBook, id) == nil) {
                     logger.log(ILoggingLogLevel.WARN, category: "ContactImpl", message: "The contact with id: \(id) is not founded in the address book")
@@ -333,7 +333,7 @@ public class ContactImpl : NSObject, IContact {
                     var allContacts:[ABRecordRef] = ABAddressBookCopyArrayOfAllPeople(addressBook).takeRetainedValue()
                     var filteredContacts: [ABRecordRef] = [ABRecordRef]()
                     
-                    for record:ABRecordRef in contactList {
+                    for record:ABRecordRef in allContacts {
                         
                         var addrNum: Int = ABMultiValueGetCount(Unmanaged.fromOpaque(ABRecordCopyValue(record, kABPersonAddressProperty).toOpaque()).takeUnretainedValue() as NSObject as ABMultiValueRef)
                         var mailNum: Int = ABMultiValueGetCount(Unmanaged.fromOpaque(ABRecordCopyValue(record, kABPersonEmailProperty).toOpaque()).takeUnretainedValue() as NSObject as ABMultiValueRef)
@@ -391,7 +391,7 @@ public class ContactImpl : NSObject, IContact {
                             // Iterate all the contacts and check if the term exists in the display Name
                             var displayName: String = ABRecordCopyCompositeName(record).takeRetainedValue()
                             
-                            if displayName.rangeOfString(term) != nil{
+                            if Utils.normalizeString(displayName).rangeOfString(Utils.normalizeString(term)) != nil{
                                 contactList.append(record)
                             }
                         }
@@ -412,12 +412,12 @@ public class ContactImpl : NSObject, IContact {
                         // Query for all the contacts
                         var allContacts:[ABRecordRef] = ABAddressBookCopyArrayOfAllPeople(addressBook).takeRetainedValue()
                         
-                        for record:ABRecordRef in contactList {
+                        for record:ABRecordRef in allContacts {
                             
                             // Iterate all the contacts and check if the term exists in the display Name
                             var displayName: String = ABRecordCopyCompositeName(record).takeRetainedValue()
                             
-                            if displayName.rangeOfString(term) != nil{
+                            if Utils.normalizeString(displayName).rangeOfString(Utils.normalizeString(term)) != nil{
                                 contactList.append(record)
                             }
                         }
@@ -447,7 +447,7 @@ public class ContactImpl : NSObject, IContact {
             // Iterate all over contacts
             for record:ABRecordRef in contactList {
                 
-                logger.log(ILoggingLogLevel.WARN, category: "ContactImpl", message: "Getting information from: \(ABRecordCopyCompositeName(record).takeRetainedValue())")
+                logger.log(ILoggingLogLevel.DEBUG, category: "ContactImpl", message: "Getting information from: \(ABRecordCopyCompositeName(record).takeRetainedValue())")
                 
                 var contact: Contact = Contact()
                 
@@ -530,7 +530,6 @@ public class ContactImpl : NSObject, IContact {
                 if var group = fields {
                     if ((find(group,IContactFieldGroup.PHONES)) != nil) {
                         
-                        
                         var contactPhoneList: [ContactPhone] = [ContactPhone]()
                         
                         var phones: ABMultiValueRef = Unmanaged.fromOpaque(ABRecordCopyValue(record, kABPersonPhoneProperty).toOpaque()).takeUnretainedValue() as NSObject as ABMultiValueRef
@@ -557,7 +556,6 @@ public class ContactImpl : NSObject, IContact {
                 
                 if var group = fields {
                     if ((find(group,IContactFieldGroup.SOCIALS)) != nil) {
-                        
                         
                         var contactSocialList: [ContactSocial] = [ContactSocial]()
                         
@@ -615,7 +613,6 @@ public class ContactImpl : NSObject, IContact {
                 if var group = fields {
                     if ((find(group,IContactFieldGroup.WEBSITES)) != nil) {
                         
-                        
                         var contactWebsiteList: [ContactWebsite] = [ContactWebsite]()
                         
                         var websites: ABMultiValueRef = Unmanaged.fromOpaque(ABRecordCopyValue(record, kABPersonURLProperty).toOpaque()).takeUnretainedValue() as NSObject as ABMultiValueRef
@@ -640,7 +637,6 @@ public class ContactImpl : NSObject, IContact {
                 
                 if var group = fields {
                     if ((find(group,IContactFieldGroup.PERSONAL_INFO)) != nil) {
-                        
                         
                         var contactPersonalInfo:ContactPersonalInfo = ContactPersonalInfo()
                         
@@ -691,11 +687,11 @@ public class ContactImpl : NSObject, IContact {
                         contactProfessionalInfo.setJobTitle(jobTitle)
                         
                         contact.setProfessionalInfo(contactProfessionalInfo)
-                        
-                        // Save the contact in the return list
-                        contacts.append(contact)
                     }
                 }
+                
+                // Save the contact in the return list
+                contacts.append(contact)
                 
             } // for record:ABRecordRef in contactList
             
@@ -812,10 +808,10 @@ public class ContactImpl : NSObject, IContact {
             
             // Get the address book and the contact list
             var addressBook: ABAddressBookRef? = extractABAddressBookRef(ABAddressBookCreateWithOptions(nil, nil))
-        
+            
             // Get the ID for the contact
-            var id: ABRecordID = ABRecordGetRecordID(contact.getContactId())
-        
+            var id:Int32 = Int32(contact.getContactId()!.toInt()!)
+            
             if(ABAddressBookGetPersonWithRecordID(addressBook, id) == nil) {
                 logger.log(ILoggingLogLevel.WARN, category: "ContactImpl", message: "The contact with id: \(id) is not founded in the address book for getting the picture")
                 callback.onWarning([Byte](), warning: IContactPhotoResultCallbackWarning.No_Matches)
@@ -835,8 +831,9 @@ public class ContactImpl : NSObject, IContact {
             var image:NSData = Unmanaged.fromOpaque(ABPersonCopyImageData(person).toOpaque()).takeUnretainedValue()
             
             // Create an array and get the bytes for the image
-            var array:[Byte] = [Byte]()
-            image.getBytes(&array, length: image.length)
+            let count = image.length
+            var array = [Byte](count: count, repeatedValue: 0)
+            image.getBytes(&array, length:count * sizeof(UInt32))
             
             // call the result callback
             callback.onResult(array)
@@ -861,7 +858,7 @@ public class ContactImpl : NSObject, IContact {
             var addressBook: ABAddressBookRef? = extractABAddressBookRef(ABAddressBookCreateWithOptions(nil, nil))
             
             // Get the ID for the contact
-            var id: ABRecordID = ABRecordGetRecordID(contact.getContactId())
+            var id:Int32 = Int32(contact.getContactId()!.toInt()!)
             
             if(ABAddressBookGetPersonWithRecordID(addressBook, id) == nil) {
                 logger.log(ILoggingLogLevel.WARN, category: "ContactImpl", message: "The contact with id: \(id) is not founded in the address book for setting the picture")
@@ -871,15 +868,28 @@ public class ContactImpl : NSObject, IContact {
             var person:ABRecordRef = Unmanaged.fromOpaque(ABAddressBookGetPersonWithRecordID(addressBook, id).toOpaque()).takeUnretainedValue()
             logger.log(ILoggingLogLevel.DEBUG, category: "ContactImpl", message: "Quering for one person id: \(id)")
             
-            var data: NSData = NSData(bytes: pngImage as [Byte], length: pngImage.count)
+            var data: NSData = NSData(bytes: pngImage, length: pngImage.count)
             
-            var result:Bool = ABPersonSetImageData(person, data, nil)
             
-            if !result {
+            if ABPersonSetImageData(person, data, nil) {
+                
+                if ABAddressBookHasUnsavedChanges(addressBook){
+                    
+                    if ABAddressBookSave(addressBook, nil) {
+                        return true
+                    } else {
+                        logger.log(ILoggingLogLevel.ERROR, category: "ContactImpl", message: "There is an error saving the address book")
+                        return false
+                    }
+                } else {
+                    logger.log(ILoggingLogLevel.ERROR, category: "ContactImpl", message: "There are no changes to save in the address book")
+                    return false
+                }
+            } else {
+                
                 logger.log(ILoggingLogLevel.ERROR, category: "ContactImpl", message: "There is an error trying to set the image for a contact")
+                return false
             }
-            
-            return result
             
         } else {
             
