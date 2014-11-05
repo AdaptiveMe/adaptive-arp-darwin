@@ -38,6 +38,7 @@
 		4EDB4E7F1A028C9A008A2C4F /* AdaptiveArpRtOSX.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB4E7E1A028C9A008A2C4F /* AdaptiveArpRtOSX.xcdatamodeld */; };
 		4EDB4E811A028C9A008A2C4F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB4E801A028C9A008A2C4F /* Images.xcassets */; };
 		4EDB4E841A028C9A008A2C4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB4E821A028C9A008A2C4F /* Main.storyboard */; };
+		C36A59B01A0A203000C38C4A /* ContactTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36A59AF1A0A203000C38C4A /* ContactTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +160,7 @@
 		4EDB4E891A028C9A008A2C4F /* AdaptiveArpRtOSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdaptiveArpRtOSXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EDB4E8E1A028C9A008A2C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EDB4EC41A029062008A2C4F /* adaptive-arp-impl.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "adaptive-arp-impl.xcodeproj"; path = "../adaptive-arp-impl/adaptive-arp-impl.xcodeproj"; sourceTree = "<group>"; };
+		C36A59AF1A0A203000C38C4A /* ContactTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +267,7 @@
 		4EDB4E671A028C89008A2C4F /* AdaptiveArpRtiOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				C36A59AF1A0A203000C38C4A /* ContactTest.swift */,
 				4E9FE0801A02A71A0017970F /* BrowserTest.swift */,
 				4E9FE0811A02A71A0017970F /* DeviceTest.swift */,
 				4E9FE0821A02A71A0017970F /* LoggingTest.swift */,
@@ -547,6 +550,7 @@
 			files = (
 				4E9FE08B1A02A71A0017970F /* Session.swift in Sources */,
 				4E9FE0871A02A71A0017970F /* DeviceTest.swift in Sources */,
+				C36A59B01A0A203000C38C4A /* ContactTest.swift in Sources */,
 				4E9FE0861A02A71A0017970F /* BrowserTest.swift in Sources */,
 				4E9FE0891A02A71A0017970F /* OSTest.swift in Sources */,
 				4E9FE0881A02A71A0017970F /* LoggingTest.swift in Sources */,
