@@ -84,6 +84,9 @@ public class LoggingImpl : NSObject, ILogging {
             
         case ILoggingLogLevel.ERROR:
             NSLog("[ERROR - \(category)] \(message)")
+
+        case ILoggingLogLevel.Unknown:
+            NSLog("[INFO - \(category)] \(message)")
         }
     }
     
