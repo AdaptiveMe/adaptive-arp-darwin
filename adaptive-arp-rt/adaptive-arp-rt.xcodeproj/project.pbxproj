@@ -33,13 +33,11 @@
 		4EDB4E5A1A028C89008A2C4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB4E581A028C89008A2C4F /* Main.storyboard */; };
 		4EDB4E5C1A028C89008A2C4F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB4E5B1A028C89008A2C4F /* Images.xcassets */; };
 		4EDB4E5F1A028C89008A2C4F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB4E5D1A028C89008A2C4F /* LaunchScreen.xib */; };
-		4EDB4E6B1A028C89008A2C4F /* AdaptiveArpRtiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB4E6A1A028C89008A2C4F /* AdaptiveArpRtiOSTests.swift */; };
 		4EDB4E7B1A028C9A008A2C4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB4E7A1A028C9A008A2C4F /* AppDelegate.swift */; };
 		4EDB4E7D1A028C9A008A2C4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB4E7C1A028C9A008A2C4F /* ViewController.swift */; };
 		4EDB4E7F1A028C9A008A2C4F /* AdaptiveArpRtOSX.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB4E7E1A028C9A008A2C4F /* AdaptiveArpRtOSX.xcdatamodeld */; };
 		4EDB4E811A028C9A008A2C4F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB4E801A028C9A008A2C4F /* Images.xcassets */; };
 		4EDB4E841A028C9A008A2C4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB4E821A028C9A008A2C4F /* Main.storyboard */; };
-		4EDB4E901A028C9A008A2C4F /* AdaptiveArpRtOSXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB4E8F1A028C9A008A2C4F /* AdaptiveArpRtOSXTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,7 +150,6 @@
 		4EDB4E5E1A028C89008A2C4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4EDB4E641A028C89008A2C4F /* AdaptiveArpRtiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdaptiveArpRtiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EDB4E691A028C89008A2C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4EDB4E6A1A028C89008A2C4F /* AdaptiveArpRtiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveArpRtiOSTests.swift; sourceTree = "<group>"; };
 		4EDB4E761A028C99008A2C4F /* AdaptiveArpRtOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdaptiveArpRtOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EDB4E791A028C9A008A2C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EDB4E7A1A028C9A008A2C4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -161,7 +158,6 @@
 		4EDB4E831A028C9A008A2C4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4EDB4E891A028C9A008A2C4F /* AdaptiveArpRtOSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdaptiveArpRtOSXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EDB4E8E1A028C9A008A2C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4EDB4E8F1A028C9A008A2C4F /* AdaptiveArpRtOSXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveArpRtOSXTests.swift; sourceTree = "<group>"; };
 		4EDB4EC41A029062008A2C4F /* adaptive-arp-impl.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "adaptive-arp-impl.xcodeproj"; path = "../adaptive-arp-impl/adaptive-arp-impl.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -275,7 +271,6 @@
 				4E9FE0831A02A71A0017970F /* OSTest.swift */,
 				4E9FE0841A02A71A0017970F /* SecurityTest.swift */,
 				4E9FE0851A02A71A0017970F /* Session.swift */,
-				4EDB4E6A1A028C89008A2C4F /* AdaptiveArpRtiOSTests.swift */,
 				4EDB4E681A028C89008A2C4F /* Supporting Files */,
 			);
 			path = AdaptiveArpRtiOSTests;
@@ -313,7 +308,6 @@
 		4EDB4E8C1A028C9A008A2C4F /* AdaptiveArpRtOSXTests */ = {
 			isa = PBXGroup;
 			children = (
-				4EDB4E8F1A028C9A008A2C4F /* AdaptiveArpRtOSXTests.swift */,
 				4EDB4E8D1A028C9A008A2C4F /* Supporting Files */,
 			);
 			path = AdaptiveArpRtOSXTests;
@@ -554,7 +548,6 @@
 				4E9FE08B1A02A71A0017970F /* Session.swift in Sources */,
 				4E9FE0871A02A71A0017970F /* DeviceTest.swift in Sources */,
 				4E9FE0861A02A71A0017970F /* BrowserTest.swift in Sources */,
-				4EDB4E6B1A028C89008A2C4F /* AdaptiveArpRtiOSTests.swift in Sources */,
 				4E9FE0891A02A71A0017970F /* OSTest.swift in Sources */,
 				4E9FE0881A02A71A0017970F /* LoggingTest.swift in Sources */,
 				4E9FE08A1A02A71A0017970F /* SecurityTest.swift in Sources */,
@@ -575,7 +568,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EDB4E901A028C9A008A2C4F /* AdaptiveArpRtOSXTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
