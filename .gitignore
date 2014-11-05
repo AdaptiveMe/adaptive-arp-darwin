@@ -2,3 +2,8 @@
 *.xcbkptlist
 
 adaptive-arp-rt/DerivedData/
+
+adaptive-arp-impl/adaptive-arp-impl.xcodeproj/project.xcworkspace/xcuserdata/
+adaptive-arp-impl/adaptive-arp-impl.xcodeproj/xcuserdata/
+adaptive-arp-rt/adaptive-arp-rt.xcodeproj/project.xcworkspace/xcuserdata/
+adaptive-arp-rt/adaptive-arp-rt.xcodeproj/xcuserdata/

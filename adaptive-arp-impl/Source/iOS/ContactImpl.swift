@@ -99,7 +99,7 @@ public class ContactImpl : NSObject, IContact {
     /**
     Class constructor
     */
-    override init() {
+    override public init() {
         
         self.ret = false
     }
