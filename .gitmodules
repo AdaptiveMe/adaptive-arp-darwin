@@ -4,3 +4,12 @@
 [submodule "adaptive-arp-impl/Modules/adaptive-arp-api"]
 	path = adaptive-arp-impl/Modules/adaptive-arp-api
 	url = https://github.com/AdaptiveMe/adaptive-arp-api.git
+[submodule "adaptive-arp-impl/ThirdParty/CryptoSwift"]
+	path = adaptive-arp-impl/ThirdParty/CryptoSwift
+	url = https://github.com/AdaptiveMe/CryptoSwift.git
+[submodule "adaptive-arp-impl/ThirdParty/SQLite.swift"]
+	path = adaptive-arp-impl/ThirdParty/SQLite.swift
+	url = https://github.com/AdaptiveMe/SQLite.swift.git
+[submodule "adaptive-arp-impl/ThirdParty/SwiftyJSON"]
+	path = adaptive-arp-impl/ThirdParty/SwiftyJSON
+	url = https://github.com/AdaptiveMe/SwiftyJSON.git
