@@ -67,6 +67,11 @@ public struct Utils {
         return predicate.evaluateWithObject(phoneNumber)
         
     }
+    
+    public static func normalizeString(m: String) -> String {
+        
+        return m.lowercaseString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+    }
 }
 
 extension String {

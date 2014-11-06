@@ -107,6 +107,9 @@ public class CapabilitiesImpl : NSObject, ICapabilities {
                 return false
             #endif
             
+        case ICapabilitiesButton.Unknown:
+            return false
+            
         }
     }
     
@@ -164,6 +167,9 @@ public class CapabilitiesImpl : NSObject, ICapabilities {
                 return false
             #endif
             
+        case ICapabilitiesCommunication.Unknown:
+            return false
+            
         }
 
     }
@@ -189,6 +195,9 @@ public class CapabilitiesImpl : NSObject, ICapabilities {
             return false
         case ICapabilitiesData.Cloud:
             // TODO
+            return false
+            
+        case ICapabilitiesData.Unknown:
             return false
         }
     }
@@ -227,6 +236,9 @@ public class CapabilitiesImpl : NSObject, ICapabilities {
         case ICapabilitiesMedia.Video_Recording:
             // TODO
             return false
+            
+        case ICapabilitiesMedia.Unknown:
+            return false
         }
     }
     
@@ -261,6 +273,9 @@ public class CapabilitiesImpl : NSObject, ICapabilities {
         case ICapabilitiesNet.Ethernet:
             // TODO
             return false
+            
+        case ICapabilitiesNet.Unknown:
+            return false
         }
     }
     
@@ -288,6 +303,9 @@ public class CapabilitiesImpl : NSObject, ICapabilities {
             return false
         case ICapabilitiesNotification.Vibration:
             // TODO
+            return false
+            
+        case ICapabilitiesNotification.Unknown:
             return false
         }
     }
@@ -362,6 +380,9 @@ public class CapabilitiesImpl : NSObject, ICapabilities {
             #elseif os(OSX)
                 return false
             #endif
+            
+        case ICapabilitiesSensor.Unknown:
+            return false
             
         }
     }

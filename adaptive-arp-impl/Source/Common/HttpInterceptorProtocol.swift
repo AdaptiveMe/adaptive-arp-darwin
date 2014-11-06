@@ -21,102 +21,164 @@
 *
 * Contributors:
 *
-*     *
+*     * Ferran Vila Conesa
+*                 <http://github.com/fnva>
+*                 <http://twitter.com/ferran_vila>
+*                 <mailto:ferran.vila.conesa@gmail.com>
 *
 * =====================================================================================================================
 */
 
 import Foundation
+#if os(iOS)
+    import AdaptiveArpApiiOS
+#elseif os(OSX)
+    import AdaptiveArpApiOSX
+#endif
 
-var requestCount : Int = 0
-let httpInterceptorKey : String = "HttpInterceptorProtocolHandledKey"
-
-public class HttpInterceptorProtocol : NSURLProtocol {
+public class HttpInterceptorProtocol : NSURLProtocol {    
     
+    /// Logging variable
+    let logger:ILogging = LoggingImpl()
+    
+    /// Connection
     var connection: NSURLConnection!
     
+    /// Key for intercepting the requests
+    public class var httpInterceptorKey: String {
+        return "HttpInterceptorProtocolHandledKey"
+    }
+    
+    /// Base path for adaptive requests
+    let adaptiveBasePath:String = "http://adaptive/"
+    
+    /// Constructor
     override public init() {
         super.init()
     }
     
+    /// Initializes an NSURLProtocol object.
     override public init(request: NSURLRequest, cachedResponse: NSCachedURLResponse?, client: NSURLProtocolClient?) {
         super.init(request: request, cachedResponse: cachedResponse, client: client)
     }
     
+    /// Returns whether the protocol subclass can handle the specified request.
     override public class func canInitWithRequest(request: NSURLRequest) -> Bool {
         
+        let logger:ILogging = LoggingImpl()
         
-        if NSURLProtocol.propertyForKey(httpInterceptorKey, inRequest: request) != nil {
+        var method = request.HTTPMethod
+        var url = request.URL.absoluteString
+        
+        if NSURLProtocol.propertyForKey(HttpInterceptorProtocol.httpInterceptorKey, inRequest: request) != nil {
             return false
         } else {
-            println("------- #\(requestCount++): \(request.HTTPMethod!) = \(request.URL.absoluteString!)")
+            logger.log(ILoggingLogLevel.DEBUG, category:"HttpInterceptorProtocol", message: "[\(method)]: \(url!)")
             return true
         }
     }
     
-    override public class func canonicalRequestForRequest(request: NSURLRequest) -> NSURLRequest {
-        return request
-    }
-    
-    override public class func requestIsCacheEquivalent(aRequest: NSURLRequest,
-        toRequest bRequest: NSURLRequest) -> Bool {
-            return false
-            //return super.requestIsCacheEquivalent(aRequest, toRequest:bRequest)
-    }
-    
+    /// Starts protocol-specific loading of the request. When this method is called, the subclass implementation should start loading the request, providing feedback to the URL loading system via the NSURLProtocolClient protocol.
     override public func startLoading() {
-        var newRequest : NSMutableURLRequest = self.request.mutableCopy() as NSMutableURLRequest
-        // How to override headers
-        /*
-        var newHeaders = NSMutableDictionary(dictionary: newRequest.allHTTPHeaderFields!)
-        newHeaders.setValue("Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)", forKey: "User-Agent") // IExplorer... lol!
-        newRequest.allHTTPHeaderFields = newHeaders
-        */
-        println("Loading #\(requestCount++): \(newRequest.HTTPMethod) = \(newRequest.URL!.absoluteString!)")
-        NSURLProtocol.setProperty(true, forKey: httpInterceptorKey, inRequest: newRequest)
         
-        var referrer :String? = request.valueForHTTPHeaderField("referer")
-        if referrer == nil {
-            referrer = "None"
-        }
-        if (newRequest.URL!.absoluteString!.rangeOfString("http://html5test.com") != nil || newRequest.URL!.absoluteString!.rangeOfString("https://html5test.com") != nil) {
-            // Intercept Start
-            var htmlBody = "<html><body><h1>Intercepted!</h1><p>The request to <a href=\"\(newRequest.URL!.absoluteString!)\">\(newRequest.URL!.absoluteString!)</a> was intercepted by HttpInterceptorProtocol. This request came from the following referrer: <a href=\"\( referrer! )\">\( referrer! )</a>.</p><p>Return to <a href=\"http://www.google.com.\">Google</a></body></html>"
-            var data = htmlBody.dataUsingEncoding(NSUTF8StringEncoding)
-            var mimeType = "text/html"
-            var encoding = "utf-8"
+        var newRequest:NSMutableURLRequest = self.request.mutableCopy() as NSMutableURLRequest
+        
+        var method = newRequest.HTTPMethod
+        var url = newRequest.URL!.absoluteString
+        
+        // HOWTO override headers
+        // var newHeaders = NSMutableDictionary(dictionary: newRequest.allHTTPHeaderFields!)
+        // newHeaders.setValue("Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)", forKey: "User-Agent")
+        // newRequest.allHTTPHeaderFields = newHeaders
+        
+        NSURLProtocol.setProperty(true, forKey: HttpInterceptorProtocol.httpInterceptorKey, inRequest: newRequest)
+        
+        // HOWTO: referer
+        // var referer:String? = request.valueForHTTPHeaderField("referer")
+        // logger.log(ILoggingLogLevel.INFO, category:"HttpInterceptorProtocol", message: "referer: \(referer)")
+        
+        if let url = url {
             
-            var response = NSURLResponse(URL: self.request.URL, MIMEType: mimeType, expectedContentLength: data!.length, textEncodingName: encoding)
+            logger.log(ILoggingLogLevel.DEBUG, category:"HttpInterceptorProtocol", message: "[\(method)]: \(url)")
             
-            self.client!.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: .NotAllowed)
-            self.client!.URLProtocol(self, didLoadData: data!)
-            self.client!.URLProtocolDidFinishLoading(self)
-            // Intercept End
+            if url.rangeOfString(adaptiveBasePath) != nil {
+                
+                // Adaptive Native calls
+                
+                var htmlBody = "echo from Adaptive Core"
+                var data = htmlBody.dataUsingEncoding(NSUTF8StringEncoding)!
+                // TODO: change by JSON
+                //var jsonBody = NSJSONSerialization.dataWithJSONObject(htmlBody.dataUsingEncoding(NSUTF8StringEncoding)!, options: NSJSONWritingOptions.allZeros, error: nil)
+                var mimeType = "application/javascript"
+                var encoding = "utf-8"
+                var response = NSURLResponse(URL: self.request.URL, MIMEType: mimeType, expectedContentLength: data.length, textEncodingName: encoding)
+                self.client!.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: .NotAllowed)
+                self.client!.URLProtocol(self, didLoadData: data)
+                self.client!.URLProtocolDidFinishLoading(self)
+                
+            } else {
+                
+                // Other resources (file://)
+                
+                self.connection = NSURLConnection(request: newRequest, delegate: self)
+            }
         } else {
-            self.connection = NSURLConnection(request: newRequest, delegate: self)
+            logger.log(ILoggingLogLevel.ERROR, category:"HttpInterceptorProtocol", message: "The url recived is null")
         }
+        
+        
+        // HOWTO: override response
+        // var htmlBody = "<html><body><h1>Intercepted!</h1></body></html>"
+        // var data = htmlBody.dataUsingEncoding(NSUTF8StringEncoding)
+        // var mimeType = "text/html"
+        // var encoding = "utf-8"
+        // var response = NSURLResponse(URL: self.request.URL, MIMEType: mimeType, expectedContentLength: data!.length, textEncodingName: encoding)
+        // self.client!.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: .NotAllowed)
+        // self.client!.URLProtocol(self, didLoadData: data!)
+        // self.client!.URLProtocolDidFinishLoading(self)
+        
     }
     
+    /// Stops protocol-specific loading of the request.
     override public func stopLoading() {
+        
         if self.connection != nil {
             self.connection.cancel()
         }
         self.connection = nil
-        //NSURLProtocol.removePropertyForKey(handlerKey, inRequest: self.request as NSMutableURLRequest)
     }
     
+    /// Returns a canonical version of the specified request. It is up to each concrete protocol implementation to define what “canonical” means. A protocol should guarantee that the same input request always yields the same canonical form.
+    override public class func canonicalRequestForRequest(request: NSURLRequest) -> NSURLRequest {
+        
+        return request
+    }
+    
+    /// Returns whether two requests are equivalent for cache purposes.
+    override public class func requestIsCacheEquivalent(aRequest: NSURLRequest, toRequest bRequest: NSURLRequest) -> Bool {
+        
+        return false
+    }
+    
+    /// Sent when the connection has received sufficient data to construct the URL response for its request.
     func connection(connection: NSURLConnection!, didReceiveResponse response: NSURLResponse!) {
+        
         self.client!.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: .NotAllowed)
     }
     
+    /// Sent as a connection loads data incrementally.
     func connection(connection: NSURLConnection!, didReceiveData data: NSData!) {
+        
         self.client!.URLProtocol(self, didLoadData: data)
     }
     
+    /// Sent when a connection has finished loading successfully.
     func connectionDidFinishLoading(connection: NSURLConnection!) {
+        
         self.client!.URLProtocolDidFinishLoading(self)
     }
     
+    /// Sent when a connection fails to load its request successfully.
     func connection(connection: NSURLConnection!, didFailWithError error: NSError!) {
         self.client!.URLProtocol(self, didFailWithError: error)
     }
