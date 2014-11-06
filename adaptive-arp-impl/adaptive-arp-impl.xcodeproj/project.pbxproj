@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4E9FE07A1A02A6120017970F /* BrowserImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0791A02A6120017970F /* BrowserImpl.swift */; };
 		4E9FE07B1A02A6120017970F /* BrowserImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0791A02A6120017970F /* BrowserImpl.swift */; };
+		4EC1C0F51A0BE35E0026ED0B /* AdaptiveArpApiOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C0F21A0BE3470026ED0B /* AdaptiveArpApiOSX.framework */; };
+		4EC1C0F61A0BE3690026ED0B /* AdaptiveArpApiiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C0EE1A0BE3470026ED0B /* AdaptiveArpApiiOS.framework */; };
 		4ED4D1CC1A02CA4000CC854E /* HttpInterceptorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4D1CB1A02CA4000CC854E /* HttpInterceptorProtocol.swift */; };
 		4ED4D1CD1A02CA4100CC854E /* HttpInterceptorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4D1CB1A02CA4000CC854E /* HttpInterceptorProtocol.swift */; };
 		4EDB53E41A0298E8008A2C4F /* AdaptiveArpImplOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB53D91A0298E8008A2C4F /* AdaptiveArpImplOSX.framework */; };
@@ -75,38 +77,50 @@
 		4EDB54581A0299B1008A2C4F /* MessagingImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB544E1A0299A8008A2C4F /* MessagingImpl.swift */; };
 		4EDB54591A0299B1008A2C4F /* TelephonyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB544F1A0299A8008A2C4F /* TelephonyImpl.swift */; };
 		4EDB545A1A0299B1008A2C4F /* VideoImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB54501A0299A8008A2C4F /* VideoImpl.swift */; };
-		4EDB545B1A029A3F008A2C4F /* AdaptiveArpApiOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB53D11A0298D8008A2C4F /* AdaptiveArpApiOSX.framework */; };
-		4EDB545C1A029A45008A2C4F /* AdaptiveArpApiiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB53CD1A0298D8008A2C4F /* AdaptiveArpApiiOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4EDB53CC1A0298D8008A2C4F /* PBXContainerItemProxy */ = {
+		4EC1C0ED1A0BE3470026ED0B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 4EDB51CF1A029653008A2C4F /* adaptive-arp-api-swift.xcodeproj */;
+			containerPortal = 4EC1C0E61A0BE3470026ED0B /* adaptive-arp-api-swift.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 4EDB51E51A0297E7008A2C4F;
 			remoteInfo = AdaptiveArpApiiOS;
 		};
-		4EDB53CE1A0298D8008A2C4F /* PBXContainerItemProxy */ = {
+		4EC1C0EF1A0BE3470026ED0B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 4EDB51CF1A029653008A2C4F /* adaptive-arp-api-swift.xcodeproj */;
+			containerPortal = 4EC1C0E61A0BE3470026ED0B /* adaptive-arp-api-swift.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 4EDB51EF1A0297E7008A2C4F;
 			remoteInfo = AdaptiveArpApiiOSTests;
 		};
-		4EDB53D01A0298D8008A2C4F /* PBXContainerItemProxy */ = {
+		4EC1C0F11A0BE3470026ED0B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 4EDB51CF1A029653008A2C4F /* adaptive-arp-api-swift.xcodeproj */;
+			containerPortal = 4EC1C0E61A0BE3470026ED0B /* adaptive-arp-api-swift.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 4EDB52031A029801008A2C4F;
 			remoteInfo = AdaptiveArpApiOSX;
 		};
-		4EDB53D21A0298D8008A2C4F /* PBXContainerItemProxy */ = {
+		4EC1C0F31A0BE3470026ED0B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 4EDB51CF1A029653008A2C4F /* adaptive-arp-api-swift.xcodeproj */;
+			containerPortal = 4EC1C0E61A0BE3470026ED0B /* adaptive-arp-api-swift.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 4EDB520D1A029801008A2C4F;
 			remoteInfo = AdaptiveArpApiOSXTests;
+		};
+		4EC1C0F71A0BE3830026ED0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4EC1C0E61A0BE3470026ED0B /* adaptive-arp-api-swift.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4EDB51E41A0297E7008A2C4F;
+			remoteInfo = AdaptiveArpApiiOS;
+		};
+		4EC1C0F91A0BE38F0026ED0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4EC1C0E61A0BE3470026ED0B /* adaptive-arp-api-swift.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4EDB52021A029801008A2C4F;
+			remoteInfo = AdaptiveArpApiOSX;
 		};
 		4EDB53E51A0298E8008A2C4F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -126,6 +140,7 @@
 
 /* Begin PBXFileReference section */
 		4E9FE0791A02A6120017970F /* BrowserImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserImpl.swift; sourceTree = "<group>"; };
+		4EC1C0E61A0BE3470026ED0B /* adaptive-arp-api-swift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "adaptive-arp-api-swift.xcodeproj"; path = "Modules/adaptive-arp-api/adaptive-arp-api-swift/adaptive-arp-api-swift.xcodeproj"; sourceTree = "<group>"; };
 		4ED4D1CB1A02CA4000CC854E /* HttpInterceptorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpInterceptorProtocol.swift; sourceTree = "<group>"; };
 		4EDB516A1A029446008A2C4F /* AppContextImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContextImpl.swift; sourceTree = "<group>"; };
 		4EDB516B1A029446008A2C4F /* AppContextWebviewImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContextWebviewImpl.swift; sourceTree = "<group>"; };
@@ -156,7 +171,6 @@
 		4EDB51C41A029566008A2C4F /* GeolocationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeolocationDelegate.swift; sourceTree = "<group>"; };
 		4EDB51C51A029566008A2C4F /* I18NParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = I18NParser.swift; sourceTree = "<group>"; };
 		4EDB51C61A029566008A2C4F /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		4EDB51CF1A029653008A2C4F /* adaptive-arp-api-swift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "adaptive-arp-api-swift.xcodeproj"; path = "../../adaptive-arp-api/adaptive-arp-api-swift/adaptive-arp-api-swift.xcodeproj"; sourceTree = "<group>"; };
 		4EDB53D91A0298E8008A2C4F /* AdaptiveArpImplOSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdaptiveArpImplOSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EDB53DC1A0298E8008A2C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EDB53E31A0298E8008A2C4F /* AdaptiveArpImplOSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdaptiveArpImplOSXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,7 +190,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EDB545B1A029A3F008A2C4F /* AdaptiveArpApiOSX.framework in Frameworks */,
+				4EC1C0F51A0BE35E0026ED0B /* AdaptiveArpApiOSX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,7 +206,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EDB545C1A029A45008A2C4F /* AdaptiveArpApiiOS.framework in Frameworks */,
+				4EC1C0F61A0BE3690026ED0B /* AdaptiveArpApiiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,7 +232,7 @@
 				4EDB53F81A029910008A2C4F /* AdaptiveArpImpliOS */,
 				4EDB54051A029910008A2C4F /* AdaptiveArpImpliOSTests */,
 				4E722CF01A02815A00004247 /* Products */,
-				4EDB51CF1A029653008A2C4F /* adaptive-arp-api-swift.xcodeproj */,
+				4EC1C0E61A0BE3470026ED0B /* adaptive-arp-api-swift.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -229,6 +243,17 @@
 				4EDB53E31A0298E8008A2C4F /* AdaptiveArpImplOSXTests.xctest */,
 				4EDB53F71A029910008A2C4F /* AdaptiveArpImpliOS.framework */,
 				4EDB54011A029910008A2C4F /* AdaptiveArpImpliOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4EC1C0E71A0BE3470026ED0B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4EC1C0EE1A0BE3470026ED0B /* AdaptiveArpApiiOS.framework */,
+				4EC1C0F01A0BE3470026ED0B /* AdaptiveArpApiiOSTests.xctest */,
+				4EC1C0F21A0BE3470026ED0B /* AdaptiveArpApiOSX.framework */,
+				4EC1C0F41A0BE3470026ED0B /* AdaptiveArpApiOSXTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -286,17 +311,6 @@
 				4EDB51C61A029566008A2C4F /* Utils.swift */,
 			);
 			path = utils;
-			sourceTree = "<group>";
-		};
-		4EDB51D01A029653008A2C4F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				4EDB53CD1A0298D8008A2C4F /* AdaptiveArpApiiOS.framework */,
-				4EDB53CF1A0298D8008A2C4F /* AdaptiveArpApiiOSTests.xctest */,
-				4EDB53D11A0298D8008A2C4F /* AdaptiveArpApiOSX.framework */,
-				4EDB53D31A0298D8008A2C4F /* AdaptiveArpApiOSXTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		4EDB53DA1A0298E8008A2C4F /* AdaptiveArpImplOSX */ = {
@@ -415,6 +429,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				4EC1C0FA1A0BE38F0026ED0B /* PBXTargetDependency */,
 			);
 			name = AdaptiveArpImplOSX;
 			productName = AdaptiveArpImplOSX;
@@ -451,6 +466,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				4EC1C0F81A0BE3830026ED0B /* PBXTargetDependency */,
 			);
 			name = AdaptiveArpImpliOS;
 			productName = AdaptiveArpImpliOS;
@@ -511,8 +527,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 4EDB51D01A029653008A2C4F /* Products */;
-					ProjectRef = 4EDB51CF1A029653008A2C4F /* adaptive-arp-api-swift.xcodeproj */;
+					ProductGroup = 4EC1C0E71A0BE3470026ED0B /* Products */;
+					ProjectRef = 4EC1C0E61A0BE3470026ED0B /* adaptive-arp-api-swift.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -526,32 +542,32 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		4EDB53CD1A0298D8008A2C4F /* AdaptiveArpApiiOS.framework */ = {
+		4EC1C0EE1A0BE3470026ED0B /* AdaptiveArpApiiOS.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = AdaptiveArpApiiOS.framework;
-			remoteRef = 4EDB53CC1A0298D8008A2C4F /* PBXContainerItemProxy */;
+			remoteRef = 4EC1C0ED1A0BE3470026ED0B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4EDB53CF1A0298D8008A2C4F /* AdaptiveArpApiiOSTests.xctest */ = {
+		4EC1C0F01A0BE3470026ED0B /* AdaptiveArpApiiOSTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = AdaptiveArpApiiOSTests.xctest;
-			remoteRef = 4EDB53CE1A0298D8008A2C4F /* PBXContainerItemProxy */;
+			remoteRef = 4EC1C0EF1A0BE3470026ED0B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4EDB53D11A0298D8008A2C4F /* AdaptiveArpApiOSX.framework */ = {
+		4EC1C0F21A0BE3470026ED0B /* AdaptiveArpApiOSX.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = AdaptiveArpApiOSX.framework;
-			remoteRef = 4EDB53D01A0298D8008A2C4F /* PBXContainerItemProxy */;
+			remoteRef = 4EC1C0F11A0BE3470026ED0B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4EDB53D31A0298D8008A2C4F /* AdaptiveArpApiOSXTests.xctest */ = {
+		4EC1C0F41A0BE3470026ED0B /* AdaptiveArpApiOSXTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = AdaptiveArpApiOSXTests.xctest;
-			remoteRef = 4EDB53D21A0298D8008A2C4F /* PBXContainerItemProxy */;
+			remoteRef = 4EC1C0F31A0BE3470026ED0B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -685,6 +701,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4EC1C0F81A0BE3830026ED0B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AdaptiveArpApiiOS;
+			targetProxy = 4EC1C0F71A0BE3830026ED0B /* PBXContainerItemProxy */;
+		};
+		4EC1C0FA1A0BE38F0026ED0B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AdaptiveArpApiOSX;
+			targetProxy = 4EC1C0F91A0BE38F0026ED0B /* PBXContainerItemProxy */;
+		};
 		4EDB53E61A0298E8008A2C4F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4EDB53D81A0298E8008A2C4F /* AdaptiveArpImplOSX */;
