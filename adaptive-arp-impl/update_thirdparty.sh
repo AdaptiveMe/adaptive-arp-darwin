@@ -36,4 +36,5 @@ do
     git status
     git add $project
     git commit -m "$project sub-module updated."
+    cd ..
 done
