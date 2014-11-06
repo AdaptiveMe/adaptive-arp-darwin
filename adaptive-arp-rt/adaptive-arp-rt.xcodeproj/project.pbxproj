@@ -981,6 +981,7 @@
 				4E7F6EAE1A0B8AF4004EB6A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4EDB4E6C1A028C89008A2C4F /* Build configuration list for PBXNativeTarget "AdaptiveArpRtiOS" */ = {
 			isa = XCConfigurationList;
