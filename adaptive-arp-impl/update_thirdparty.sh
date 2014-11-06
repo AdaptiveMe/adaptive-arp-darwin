@@ -26,7 +26,7 @@
 #
 # =====================================================================================================================
 
-array=( realm-cocoa )
+array=( CryptoSwift realm-cocoa SQLite.swift SwiftyJSON )
 for project in "${array[@]}"
 do
     echo Processing third-party module $project .
@@ -35,5 +35,5 @@ do
     cd ..
     git status
     git add $project
-    git commit -m "$project submodule updated."
+    git commit -m "$project sub-module updated."
 done
