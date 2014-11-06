@@ -492,6 +492,7 @@
 					};
 					4EDB53F61A029910008A2C4F = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 2G3S9L8W64;
 					};
 					4EDB54001A029910008A2C4F = {
 						CreatedOnToolsVersion = 6.1;
@@ -869,6 +870,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -891,6 +893,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;

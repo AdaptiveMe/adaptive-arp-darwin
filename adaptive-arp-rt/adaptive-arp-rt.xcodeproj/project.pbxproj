@@ -21,6 +21,8 @@
 		4E04DB0F1A03CF3C00DC4908 /* AdaptiveArpImplOSX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04DAFF1A03CECF00DC4908 /* AdaptiveArpImplOSX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4E04DB161A03D3E900DC4908 /* App in Resources */ = {isa = PBXBuildFile; fileRef = 4E04DB151A03D3E900DC4908 /* App */; };
 		4E04DB171A03D3E900DC4908 /* App in Resources */ = {isa = PBXBuildFile; fileRef = 4E04DB151A03D3E900DC4908 /* App */; };
+		4E7F6EB31A0B9B15004EB6A5 /* App.Source in Resources */ = {isa = PBXBuildFile; fileRef = 4E04DB141A03D3DA00DC4908 /* App.Source */; };
+		4E7F6EB41A0B9B16004EB6A5 /* App.Source in Resources */ = {isa = PBXBuildFile; fileRef = 4E04DB141A03D3DA00DC4908 /* App.Source */; };
 		4E9FE0861A02A71A0017970F /* BrowserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0801A02A71A0017970F /* BrowserTest.swift */; };
 		4E9FE0871A02A71A0017970F /* DeviceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0811A02A71A0017970F /* DeviceTest.swift */; };
 		4E9FE0881A02A71A0017970F /* LoggingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0821A02A71A0017970F /* LoggingTest.swift */; };
@@ -39,8 +41,6 @@
 		4EDB4E811A028C9A008A2C4F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB4E801A028C9A008A2C4F /* Images.xcassets */; };
 		4EDB4E841A028C9A008A2C4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB4E821A028C9A008A2C4F /* Main.storyboard */; };
 		C34E61E51A0A4A240039A104 /* ContactTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34E61E41A0A4A240039A104 /* ContactTest.swift */; };
-		C35BD0181A0A8B6C009992BF /* App.Source in Resources */ = {isa = PBXBuildFile; fileRef = 4E04DB141A03D3DA00DC4908 /* App.Source */; };
-		C35BD0191A0A8B71009992BF /* App.Source in Resources */ = {isa = PBXBuildFile; fileRef = 4E04DB141A03D3DA00DC4908 /* App.Source */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +50,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 4EDB53F61A029910008A2C4F;
 			remoteInfo = AdaptiveArpImpliOS;
+		};
+		4E7F6EAF1A0B8B5C004EB6A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E722D481A02827C00004247 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4E7F6EAB1A0B8AF4004EB6A5;
+			remoteInfo = AdaptivePackaging;
+		};
+		4E7F6EB11A0B8B63004EB6A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E722D481A02827C00004247 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4E7F6EAB1A0B8AF4004EB6A5;
+			remoteInfo = AdaptivePackaging;
 		};
 		4EDB4E651A028C89008A2C4F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -339,6 +353,23 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXLegacyTarget section */
+		4E7F6EAB1A0B8AF4004EB6A5 /* AdaptivePackaging */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$SRCROOT $ACTION";
+			buildConfigurationList = 4E7F6EAC1A0B8AF4004EB6A5 /* Build configuration list for PBXLegacyTarget "AdaptivePackaging" */;
+			buildPhases = (
+			);
+			buildToolPath = ./package.sh;
+			buildWorkingDirectory = "";
+			dependencies = (
+			);
+			name = AdaptivePackaging;
+			passBuildSettingsInEnvironment = 1;
+			productName = AdaptivePackaging;
+		};
+/* End PBXLegacyTarget section */
+
 /* Begin PBXNativeTarget section */
 		4EDB4E4D1A028C89008A2C4F /* AdaptiveArpRtiOS */ = {
 			isa = PBXNativeTarget;
@@ -352,6 +383,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				4E7F6EB01A0B8B5C004EB6A5 /* PBXTargetDependency */,
 				4E2EA91B1A039F8600A1A8AD /* PBXTargetDependency */,
 			);
 			name = AdaptiveArpRtiOS;
@@ -389,6 +421,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				4E7F6EB21A0B8B63004EB6A5 /* PBXTargetDependency */,
 				4EDB4ED61A029228008A2C4F /* PBXTargetDependency */,
 			);
 			name = AdaptiveArpRtOSX;
@@ -423,8 +456,12 @@
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Carlos Lozano Diez";
 				TargetAttributes = {
+					4E7F6EAB1A0B8AF4004EB6A5 = {
+						CreatedOnToolsVersion = 6.1;
+					};
 					4EDB4E4D1A028C89008A2C4F = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 2G3S9L8W64;
 					};
 					4EDB4E631A028C89008A2C4F = {
 						CreatedOnToolsVersion = 6.1;
@@ -462,6 +499,7 @@
 				4EDB4E631A028C89008A2C4F /* AdaptiveArpRtiOSTests */,
 				4EDB4E751A028C99008A2C4F /* AdaptiveArpRtOSX */,
 				4EDB4E881A028C9A008A2C4F /* AdaptiveArpRtOSXTests */,
+				4E7F6EAB1A0B8AF4004EB6A5 /* AdaptivePackaging */,
 			);
 		};
 /* End PBXProject section */
@@ -504,7 +542,7 @@
 			files = (
 				4E04DB161A03D3E900DC4908 /* App in Resources */,
 				4EDB4E5A1A028C89008A2C4F /* Main.storyboard in Resources */,
-				C35BD0181A0A8B6C009992BF /* App.Source in Resources */,
+				4E7F6EB31A0B9B15004EB6A5 /* App.Source in Resources */,
 				4EDB4E5F1A028C89008A2C4F /* LaunchScreen.xib in Resources */,
 				4EDB4E5C1A028C89008A2C4F /* Images.xcassets in Resources */,
 			);
@@ -523,7 +561,7 @@
 			files = (
 				4E04DB171A03D3E900DC4908 /* App in Resources */,
 				4EDB4E811A028C9A008A2C4F /* Images.xcassets in Resources */,
-				C35BD0191A0A8B71009992BF /* App.Source in Resources */,
+				4E7F6EB41A0B9B16004EB6A5 /* App.Source in Resources */,
 				4EDB4E841A028C9A008A2C4F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -586,6 +624,16 @@
 			isa = PBXTargetDependency;
 			name = AdaptiveArpImpliOS;
 			targetProxy = 4E2EA91A1A039F8600A1A8AD /* PBXContainerItemProxy */;
+		};
+		4E7F6EB01A0B8B5C004EB6A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4E7F6EAB1A0B8AF4004EB6A5 /* AdaptivePackaging */;
+			targetProxy = 4E7F6EAF1A0B8B5C004EB6A5 /* PBXContainerItemProxy */;
+		};
+		4E7F6EB21A0B8B63004EB6A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4E7F6EAB1A0B8AF4004EB6A5 /* AdaptivePackaging */;
+			targetProxy = 4E7F6EB11A0B8B63004EB6A5 /* PBXContainerItemProxy */;
 		};
 		4EDB4E661A028C89008A2C4F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -721,12 +769,42 @@
 			};
 			name = Release;
 		};
+		4E7F6EAD1A0B8AF4004EB6A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUGGING_SYMBOLS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		4E7F6EAE1A0B8AF4004EB6A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		4EDB4E6D1A028C89008A2C4F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/adaptive-arp-rt-gkgvcxelfjqfzveakignyteutvtw/Build/Products/Debug-iphoneos",
@@ -751,6 +829,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/adaptive-arp-rt-gkgvcxelfjqfzveakignyteutvtw/Build/Products/Debug-iphoneos",
@@ -894,6 +973,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		4E7F6EAC1A0B8AF4004EB6A5 /* Build configuration list for PBXLegacyTarget "AdaptivePackaging" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E7F6EAD1A0B8AF4004EB6A5 /* Debug */,
+				4E7F6EAE1A0B8AF4004EB6A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		4EDB4E6C1A028C89008A2C4F /* Build configuration list for PBXNativeTarget "AdaptiveArpRtiOS" */ = {
 			isa = XCConfigurationList;
