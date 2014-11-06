@@ -50,7 +50,7 @@ public class HttpInterceptorProtocol : NSURLProtocol {
     }
     
     /// Base path for adaptive requests
-    let adaptiveBasePath:String = "http://adaptive/"
+    let adaptiveBasePath:NSString = "http://adaptive/"
     
     /// Constructor
     override public init() {
@@ -105,10 +105,25 @@ public class HttpInterceptorProtocol : NSURLProtocol {
                 
                 // Adaptive Native calls
                 
+                var params:[String] = url.componentsSeparatedByString("/")
+                var service = params[3]
+                var method = params[4]
+                var argsEncoded = NSString(data: newRequest.HTTPBody!, encoding: NSUTF8StringEncoding)!
+                var argsDecoded = CFURLCreateStringByReplacingPercentEscapes(nil, argsEncoded, "")
+                
+                println("service: \(service)")
+                println("method: \(method)")
+                println("args: \(argsEncoded)")
+                println("args: \(argsDecoded)")
+                
+                //println(NSString(data: newRequest.HTTPBody!, encoding: NSUTF8StringEncoding))
+                
                 var htmlBody = "echo from Adaptive Core"
                 var data = htmlBody.dataUsingEncoding(NSUTF8StringEncoding)!
+                //var dataArray:NSArray = [data]
                 // TODO: change by JSON
-                //var jsonBody = NSJSONSerialization.dataWithJSONObject(htmlBody.dataUsingEncoding(NSUTF8StringEncoding)!, options: NSJSONWritingOptions.allZeros, error: nil)
+                //var jsonBody = NSJSONSerialization.dataWithJSONObject(dataArray, options: NSJSONWritingOptions.allZeros, error: nil)!
+                //let json = JSON(data).rawData(options: NSJSONWritingOptions.PrettyPrinted, error: nil)!
                 var mimeType = "application/javascript"
                 var encoding = "utf-8"
                 var response = NSURLResponse(URL: self.request.URL, MIMEType: mimeType, expectedContentLength: data.length, textEncodingName: encoding)
