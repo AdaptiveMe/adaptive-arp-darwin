@@ -1,11 +1,15 @@
-/*NativeBridge.call("getModel", ["arg1", "arg2"], function(response) {
-                  
-    // Native log
-    NativeBridge.call("log", [response])
-                  
-    // Set the model to the screen
-    document.querySelector("#name").innerHTML="model: " + response;
-});*/
 
-document.querySelector("#name").innerHTML=Adaptive.callSync("test");
+
+
+/* SYNC */
+var syncResponse = Adaptive.callSync("ILogging", "log", ["Hello from Javascript", true, 3]);
+document.querySelector("#content").innerHTML = syncResponse;
+
+
+
+
+/* CALLBACK */
+Adaptive.callAsyncCallback("ILogging", "log", ["Hello from Javascript"], function(response) {
+    document.querySelector("#content").innerHTML = response;
+});
 

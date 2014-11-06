@@ -1,44 +1,59 @@
+/*
+ * =| ADAPTIVE RUNTIME PLATFORM |=======================================================================================
+ *
+ * (C) Copyright 2013-2014 Carlos Lozano Diez t/a Adaptive.me <http://adaptive.me>.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ *
+ * Original author:
+ *
+ *     * Carlos Lozano Diez
+ *                 <http://github.com/carloslozano>
+ *                 <http://twitter.com/adaptivecoder>
+ *                 <mailto:carlos@adaptive.me>
+ *
+ * Contributors:
+ *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ * =====================================================================================================================
+ */
+
 var Adaptive = {
     
     version: "1.0",
     
     basePath: "http://adaptive/",
     
-    callbacksCount : 1,
+    callbacksCount : 0,
     callbacks : {},
     
     /**
      * Use this in javascript to request native syncronous methods
+     *
      * @version 1.0
      * @param {String} service The service name
+     * @param {String} method The method name
      * @param {String} args The JSON string request with the params needed for method invocation
-     * @return {Object} Service invocation returned object (javacript object).
      */
-    callSync : function call(service, args) {
+    callSync : function callSync(service, method, args) {
         
-        var path = Adaptive.basePath + service;
+        var path = Adaptive.basePath + service + "/" + method;
         
-        var xhr = new XMLHttpRequest();
-        
-        // Prepare the request
-        xhr.open("POST", path, false);
-        xhr.setRequestHeader("Content-type", "application/json");
-        
-        // Prepare the Arguments
-        var reqData = null;
-        if (!(typeof args === 'undefined')) {
-            reqData = encodeURIComponent(JSON.stringify(args))
-        }
-        
-        // Send the request
-        try {
-            xhr.send(reqData);
-        } catch (e) {
-            return null;
-        }
+        var request = Adaptive.prepareRequest(path, "POST", false, args)
         
         // Read the response
-        var responseText = xhr.responseText;
+        var responseText = request.responseText;
         
         if (responseText != '') {
             try {
@@ -53,21 +68,16 @@ var Adaptive = {
         }
     },
     
-    // Automatically called by native layer when a result is available
-    resultForCallback : function resultForCallback(callbackId, resultArray) {
-        try {
-            var callback = NativeBridge.callbacks[callbackId];
-            if (!callback) return;
-            
-            callback.apply(null,resultArray);
-        } catch(e) {alert(e)}
-    },
-    
-    // Use this in javascript to request native objective-c code
-    // functionName : string (I think the name is explicit :p)
-    // args : array of arguments
-    // callback : function with n-arguments that is going to be called when the native code returned
-    /*call : function call(functionName, args, callback) {
+    /**
+     * Use this in javascript to request native asyncronous methods with a callback
+     *
+     * @version 1.0
+     * @param {String} service The service name
+     * @param {String} method The method name
+     * @param {String} args The JSON string request with the params needed for method invocation
+     * @param {function} callback Function with n-arguments that is going to be called when the native code returned
+     */
+    callAsyncCallback : function callAsyncCallback(service, method, args, callback) {
         
         var hasCallback = callback && typeof callback == "function";
         var callbackId = hasCallback ? NativeBridge.callbacksCount++ : 0;
@@ -75,22 +85,60 @@ var Adaptive = {
         if (hasCallback)
             NativeBridge.callbacks[callbackId] = callback;
         
-        var iframe = document.createElement("IFRAME");
+        var path = Adaptive.basePath + service + "/" + method;
         
-        var message = "hybrid:" + functionName + ":" + callbackId+ ":" + encodeURIComponent(JSON.stringify(args))
+        var request = Adaptive.prepareRequest(path, "POST", false, args)
+    },
+    
+    /**
+     * This function is the responsible for preparing the request
+     *
+     * @version 1.0
+     * @param {String} url The url for calling the service
+     * @param {String} method The HTTP method for making the request POST or GET
+     * @param {Boolean} asyncronous True if the call is asyncronous, syncronous otherwise
+     * @param {Array} arguments Array of argument to pass to native
+     */
+    prepareRequest : function prepareRequest(url, method, asyncronous, arguments) {
         
-        iframe.setAttribute("src", message);
-        // For some reason we need to set a non-empty size for the iOS6 simulator...
-        iframe.setAttribute("height", "1px");
-        iframe.setAttribute("width", "1px");
-        document.documentElement.appendChild(iframe);
-        iframe.parentNode.removeChild(iframe);
-        iframe = null;
+        var xhr = new XMLHttpRequest();
         
-        if (!(typeof webkit === 'undefined')) {
-            // Call for wkWebKit
-            webkit.messageHandlers.callbackHandler.postMessage(message);
+        // Prepare the request
+        xhr.open(method, url, asyncronous);
+        xhr.setRequestHeader("Content-type", "application/javascript; charset=utf-8");
+        
+        // Prepare the Arguments
+        var data = null;
+        if (!(typeof arguments === 'undefined')) {
+            data = encodeURIComponent(JSON.stringify(arguments))
         }
-    }*/
+        
+        // Send the request
+        try {
+            xhr.send(data);
+        } catch (e) {
+            return null;
+        }
+        
+        return xhr
+    },
+    
+    /**
+     * Automatically called by native layer when a result is available
+     *
+     * @version 1.0
+     * @param {Integer} callbackId The callback identifier
+     * @param {Array} resultArray Array with the result
+     */
+    resultForCallback : function resultForCallback(callbackId, resultArray) {
+        try {
+            var callback = NativeBridge.callbacks[callbackId];
+            if (!callback) return;
+            
+            callback.apply(null,resultArray);
+        } catch(e) {
+            return null;
+        }
+    }
     
 };
