@@ -1,3 +1,6 @@
 [submodule "adaptive-arp-impl/ThirdParty/realm-cocoa"]
 	path = adaptive-arp-impl/ThirdParty/realm-cocoa
 	url = https://github.com/AdaptiveMe/realm-cocoa.git
+[submodule "adaptive-arp-impl/Modules/adaptive-arp-api"]
+	path = adaptive-arp-impl/Modules/adaptive-arp-api
+	url = https://github.com/AdaptiveMe/adaptive-arp-api.git
