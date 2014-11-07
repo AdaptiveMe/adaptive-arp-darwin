@@ -81,6 +81,8 @@
 		4EDB54581A0299B1008A2C4F /* MessagingImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB544E1A0299A8008A2C4F /* MessagingImpl.swift */; };
 		4EDB54591A0299B1008A2C4F /* TelephonyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB544F1A0299A8008A2C4F /* TelephonyImpl.swift */; };
 		4EDB545A1A0299B1008A2C4F /* VideoImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB54501A0299A8008A2C4F /* VideoImpl.swift */; };
+		4EDE72971A0CE37A00948F6E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C1191A0BEC760026ED0B /* Realm.framework */; };
+		4EDE729A1A0CE39000948F6E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C1191A0BEC760026ED0B /* Realm.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -322,6 +324,20 @@
 			remoteGlobalIDString = 4EDB53F61A029910008A2C4F;
 			remoteInfo = AdaptiveArpImpliOS;
 		};
+		4EDE72811A0CE37000948F6E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4EC1C10D1A0BEC760026ED0B /* Realm.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E8D89B971955FC6D00CF2B9A;
+			remoteInfo = OSX;
+		};
+		4EDE72981A0CE38600948F6E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4EC1C10D1A0BEC760026ED0B /* Realm.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E856D1D4195614A300FB2FCF;
+			remoteInfo = iOS;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -381,6 +397,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EDE72971A0CE37A00948F6E /* Realm.framework in Frameworks */,
 				4EC1C1FA1A0C1E210026ED0B /* SwiftyJSON.framework in Frameworks */,
 				4EC1C17B1A0C05F90026ED0B /* Alamofire.framework in Frameworks */,
 				4EC1C0F51A0BE35E0026ED0B /* AdaptiveArpApiOSX.framework in Frameworks */,
@@ -399,6 +416,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EDE729A1A0CE39000948F6E /* Realm.framework in Frameworks */,
 				4EC1C1FD1A0C1E370026ED0B /* SwiftyJSON.framework in Frameworks */,
 				4EC1C17F1A0C06BC0026ED0B /* Alamofire.framework in Frameworks */,
 				4EC1C0F61A0BE3690026ED0B /* AdaptiveArpApiiOS.framework in Frameworks */,
@@ -686,6 +704,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				4EDE72821A0CE37000948F6E /* PBXTargetDependency */,
 				4EC1C1F31A0C1E170026ED0B /* PBXTargetDependency */,
 				4EC1C1741A0C05E80026ED0B /* PBXTargetDependency */,
 				4EC1C0FA1A0BE38F0026ED0B /* PBXTargetDependency */,
@@ -725,6 +744,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				4EDE72991A0CE38600948F6E /* PBXTargetDependency */,
 				4EC1C1FC1A0C1E2B0026ED0B /* PBXTargetDependency */,
 				4EC1C17D1A0C060B0026ED0B /* PBXTargetDependency */,
 				4EC1C0F81A0BE3830026ED0B /* PBXTargetDependency */,
@@ -1176,6 +1196,16 @@
 			target = 4EDB53F61A029910008A2C4F /* AdaptiveArpImpliOS */;
 			targetProxy = 4EDB54031A029910008A2C4F /* PBXContainerItemProxy */;
 		};
+		4EDE72821A0CE37000948F6E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OSX;
+			targetProxy = 4EDE72811A0CE37000948F6E /* PBXContainerItemProxy */;
+		};
+		4EDE72991A0CE38600948F6E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = iOS;
+			targetProxy = 4EDE72981A0CE38600948F6E /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -1196,8 +1226,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1222,7 +1250,6 @@
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "arm64 armv7 armv7s x86_64 i386";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1245,8 +1272,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1264,7 +1289,6 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "arm64 armv7 armv7s x86_64 i386";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1286,7 +1310,6 @@
 				INFOPLIST_FILE = AdaptiveArpImplOSX/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -1350,8 +1373,6 @@
 		4EDB540B1A029910008A2C4F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1363,18 +1384,14 @@
 				INFOPLIST_FILE = AdaptiveArpImpliOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				VALID_ARCHS = "arm64 armv7 armv7s x86_64 i386";
 			};
 			name = Debug;
 		};
 		4EDB540C1A029910008A2C4F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1382,10 +1399,8 @@
 				INFOPLIST_FILE = AdaptiveArpImpliOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				VALID_ARCHS = "arm64 armv7 armv7s x86_64 i386";
 			};
 			name = Release;
 		};
