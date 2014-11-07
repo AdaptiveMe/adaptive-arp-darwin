@@ -83,6 +83,10 @@
 		4EDB545A1A0299B1008A2C4F /* VideoImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB54501A0299A8008A2C4F /* VideoImpl.swift */; };
 		4EDE72971A0CE37A00948F6E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C1191A0BEC760026ED0B /* Realm.framework */; };
 		4EDE729A1A0CE39000948F6E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C1191A0BEC760026ED0B /* Realm.framework */; };
+		4EE6E4271A0CE6F500354446 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C1341A0BEC7D0026ED0B /* SQLite.framework */; };
+		4EE6E4371A0CE70400354446 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE6E4361A0CE70400354446 /* libsqlite3.dylib */; };
+		4EE6E43C1A0CE74A00354446 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C1301A0BEC7D0026ED0B /* SQLite.framework */; };
+		4EE6E43E1A0CE75200354446 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE6E43D1A0CE75200354446 /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -338,6 +342,20 @@
 			remoteGlobalIDString = E856D1D4195614A300FB2FCF;
 			remoteInfo = iOS;
 		};
+		4EE6E4381A0CE71B00354446 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4EC1C1281A0BEC7D0026ED0B /* SQLite.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = DC37741319C8CC2F004FCF85;
+			remoteInfo = "SQLite Mac";
+		};
+		4EE6E43A1A0CE74200354446 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4EC1C1281A0BEC7D0026ED0B /* SQLite.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = DC3773F219C8CBB3004FCF85;
+			remoteInfo = "SQLite iOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -390,6 +408,8 @@
 		4EDB544E1A0299A8008A2C4F /* MessagingImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagingImpl.swift; sourceTree = "<group>"; };
 		4EDB544F1A0299A8008A2C4F /* TelephonyImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TelephonyImpl.swift; sourceTree = "<group>"; };
 		4EDB54501A0299A8008A2C4F /* VideoImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoImpl.swift; sourceTree = "<group>"; };
+		4EE6E4361A0CE70400354446 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/libsqlite3.dylib; sourceTree = DEVELOPER_DIR; };
+		4EE6E43D1A0CE75200354446 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -397,6 +417,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EE6E4371A0CE70400354446 /* libsqlite3.dylib in Frameworks */,
+				4EE6E4271A0CE6F500354446 /* SQLite.framework in Frameworks */,
 				4EDE72971A0CE37A00948F6E /* Realm.framework in Frameworks */,
 				4EC1C1FA1A0C1E210026ED0B /* SwiftyJSON.framework in Frameworks */,
 				4EC1C17B1A0C05F90026ED0B /* Alamofire.framework in Frameworks */,
@@ -416,6 +438,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EE6E43E1A0CE75200354446 /* libsqlite3.dylib in Frameworks */,
+				4EE6E43C1A0CE74A00354446 /* SQLite.framework in Frameworks */,
 				4EDE729A1A0CE39000948F6E /* Realm.framework in Frameworks */,
 				4EC1C1FD1A0C1E370026ED0B /* SwiftyJSON.framework in Frameworks */,
 				4EC1C17F1A0C06BC0026ED0B /* Alamofire.framework in Frameworks */,
@@ -437,6 +461,8 @@
 		4E722CE51A02815A00004247 = {
 			isa = PBXGroup;
 			children = (
+				4EE6E43D1A0CE75200354446 /* libsqlite3.dylib */,
+				4EE6E4361A0CE70400354446 /* libsqlite3.dylib */,
 				4EDB51691A029446008A2C4F /* Common */,
 				4EDB544B1A02995B008A2C4F /* OSX */,
 				4EDB544A1A029943008A2C4F /* iOS */,
@@ -704,6 +730,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				4EE6E4391A0CE71B00354446 /* PBXTargetDependency */,
 				4EDE72821A0CE37000948F6E /* PBXTargetDependency */,
 				4EC1C1F31A0C1E170026ED0B /* PBXTargetDependency */,
 				4EC1C1741A0C05E80026ED0B /* PBXTargetDependency */,
@@ -744,6 +771,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				4EE6E43B1A0CE74200354446 /* PBXTargetDependency */,
 				4EDE72991A0CE38600948F6E /* PBXTargetDependency */,
 				4EC1C1FC1A0C1E2B0026ED0B /* PBXTargetDependency */,
 				4EC1C17D1A0C060B0026ED0B /* PBXTargetDependency */,
@@ -1205,6 +1233,16 @@
 			isa = PBXTargetDependency;
 			name = iOS;
 			targetProxy = 4EDE72981A0CE38600948F6E /* PBXContainerItemProxy */;
+		};
+		4EE6E4391A0CE71B00354446 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SQLite Mac";
+			targetProxy = 4EE6E4381A0CE71B00354446 /* PBXContainerItemProxy */;
+		};
+		4EE6E43B1A0CE74200354446 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SQLite iOS";
+			targetProxy = 4EE6E43A1A0CE74200354446 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
