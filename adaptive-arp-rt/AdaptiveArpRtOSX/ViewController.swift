@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-import AdaptiveArpImplOSX
+import AdaptiveArpImpl
 import WebKit
 
 class ViewController: NSViewController {

@@ -31,7 +31,7 @@
 
 import UIKit
 import XCTest
-import AdaptiveArpImpliOS
+import AdaptiveArpImpl
 
 class DeviceTest: XCTestCase {
     

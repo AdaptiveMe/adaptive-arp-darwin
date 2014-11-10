@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-import AdaptiveArpImplOSX
+import AdaptiveArpImpl
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {

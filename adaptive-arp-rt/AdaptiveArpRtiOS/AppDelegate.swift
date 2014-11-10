@@ -30,8 +30,8 @@
 */
 
 import UIKit
-import AdaptiveArpImpliOS
-import AdaptiveArpApiiOS
+import AdaptiveArpImpl
+import AdaptiveArpApi
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
