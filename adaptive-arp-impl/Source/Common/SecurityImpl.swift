@@ -31,11 +31,8 @@
 
 import Foundation
 import Security
-#if os(iOS)
-    import AdaptiveArpApiiOS
-    #elseif os(OSX)
-    import AdaptiveArpApiOSX
-#endif
+import AdaptiveArpApi
+
 
 /**
 *  :see: https://developer.apple.com/library/ios/documentation/Security/Reference/keychainservices/Reference/reference.html for posible return values

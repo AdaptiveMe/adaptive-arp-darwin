@@ -28,13 +28,8 @@
 
 import Foundation
 import WebKit
-#if os(iOS)
-    import UIKit
-    import AdaptiveArpApiiOS
-#elseif os(OSX)
-    import Cocoa
-    import AdaptiveArpApiOSX
-#endif
+import AdaptiveArpApi
+
 
 public class AppContextWebviewImpl : NSObject, IAppContextWebview {
     

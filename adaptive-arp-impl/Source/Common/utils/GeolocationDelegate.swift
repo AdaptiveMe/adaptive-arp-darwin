@@ -31,11 +31,8 @@
 
 import Foundation
 import CoreLocation
-#if os(iOS)
-    import AdaptiveArpApiiOS
-    #elseif os(OSX)
-    import AdaptiveArpApiOSX
-#endif
+import AdaptiveArpApi
+
 
 public class GeolocationDelegate: NSObject, CLLocationManagerDelegate {
     

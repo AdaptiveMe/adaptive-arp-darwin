@@ -31,7 +31,7 @@
 
 import Foundation
 import UIKit
-import AdaptiveArpApiiOS
+import AdaptiveArpApi
 
 public class TelephonyImpl : NSObject, ITelephony {
     

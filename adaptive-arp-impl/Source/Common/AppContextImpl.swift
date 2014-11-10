@@ -27,12 +27,11 @@
 */
 
 import Foundation
+import AdaptiveArpApi
 #if os(iOS)
     import UIKit
-    import AdaptiveArpApiiOS
 #elseif os(OSX)
     import Cocoa
-    import AdaptiveArpApiOSX
 #endif
 
 public class AppContextImpl : NSObject, IAppContext {

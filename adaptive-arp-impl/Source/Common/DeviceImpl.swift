@@ -30,11 +30,10 @@
 */
 
 import Foundation
+import AdaptiveArpApi
 #if os(iOS)
-    import AdaptiveArpApiiOS
     import UIKit
     #elseif os(OSX)
-    import AdaptiveArpApiOSX
     import Cocoa
 #endif
 
@@ -92,7 +91,7 @@ public class DeviceImpl : NSObject, IDevice {
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    public func getLocaleCurrent() -> Locale? {
+    public func getLocaleCurrent() -> AdaptiveArpApi.Locale? {
         
         // Gets the current locale of the device
         let currentLocale: NSLocale = NSLocale.currentLocale()

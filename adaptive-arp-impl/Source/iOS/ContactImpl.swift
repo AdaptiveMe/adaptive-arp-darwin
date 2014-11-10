@@ -31,7 +31,7 @@
 
 import Foundation
 import AddressBook
-import AdaptiveArpApiiOS
+import AdaptiveArpApi
 
 public class ContactImpl : NSObject, IContact {
     

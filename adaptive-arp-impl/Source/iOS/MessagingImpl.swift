@@ -33,7 +33,7 @@ import Foundation
 import MessageUI
 import UIKit
 import WebKit
-import AdaptiveArpApiiOS
+import AdaptiveArpApi
 
 /**
 This class implements also the MFMessageComposeViewControllerDelegate in order to handle the callbacks from a sms call and the MFMailComposeViewControllerDelegate to handle mail callbacks

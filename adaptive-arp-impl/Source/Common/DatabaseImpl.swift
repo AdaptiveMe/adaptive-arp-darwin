@@ -30,11 +30,8 @@
 */
 
 import Foundation
-#if os(iOS)
-    import AdaptiveArpApiiOS
-    #elseif os(OSX)
-    import AdaptiveArpApiOSX
-#endif
+import AdaptiveArpApi
+
 //import SQLite
 
 public class DatabaseImpl : NSObject, IDatabase {

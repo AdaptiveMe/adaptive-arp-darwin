@@ -33,7 +33,7 @@ import Foundation
 import MediaPlayer
 import UIKit
 import WebKit
-import AdaptiveArpApiiOS
+import AdaptiveArpApi
 
 public class VideoImpl : NSObject, IVideo {
     

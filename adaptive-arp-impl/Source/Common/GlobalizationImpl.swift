@@ -29,12 +29,8 @@
 * =====================================================================================================================
 */
 
+import AdaptiveArpApi
 import Foundation
-#if os(iOS)
-    import AdaptiveArpApiiOS
-    #elseif os(OSX)
-    import AdaptiveArpApiOSX
-#endif
 
 /*
 * = | i18n CONFIG (i18n-config.xml)  |=================================================================================
@@ -99,7 +95,7 @@ public class GlobalizationImpl : NSObject, IGlobalization {
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    private func getLanguageFilePath(locale: Locale) -> String {
+    private func getLanguageFilePath(locale: AdaptiveArpApi.Locale) -> String {
         return "\(I18N_PATH)/\(locale.getLanguage())-\(locale.getCountry())\(I18N_LANG_FILE)"
     }
     
@@ -113,7 +109,7 @@ public class GlobalizationImpl : NSObject, IGlobalization {
     public func getLocaleSupportedDescriptors() -> [String]? {
         
         // Read the i18n config file
-        let data: NSData? = NSData(contentsOfFile: getConfigFilePath())
+        let data: Foundation.NSData? = NSData(contentsOfFile: getConfigFilePath())
         if data == nil {
             logger.log(ILoggingLogLevel.ERROR, category: "GlobalizationImpl", message: "Error reading i18n config file: \(getConfigFilePath())")
             return nil
@@ -144,7 +140,7 @@ public class GlobalizationImpl : NSObject, IGlobalization {
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    public func getResourceLiteral(key : String, locale : Locale) -> String? {
+    public func getResourceLiteral(key : String, locale : AdaptiveArpApi.Locale) -> String? {
         
         var filePath:String = getLanguageFilePath(locale)
         
@@ -192,7 +188,7 @@ public class GlobalizationImpl : NSObject, IGlobalization {
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    public func getResourceLiterals(locale : Locale) -> Dictionary<String,String>? {
+    public func getResourceLiterals(locale : AdaptiveArpApi.Locale) -> Dictionary<String,String>? {
         
         var swiftDict : Dictionary<String,String> = Dictionary<String,String>()
         

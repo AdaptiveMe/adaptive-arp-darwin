@@ -30,17 +30,16 @@
 */
 
 import Foundation
+import AdaptiveArpApi
 #if os(iOS)
     import UIKit
     import CoreMotion
     import MessageUI
     import AddressBook
     import CoreLocation
-    import AdaptiveArpApiiOS
 #elseif os(OSX)
     import AppKit
     import CoreLocation
-    import AdaptiveArpApiOSX
 #endif
 
 
