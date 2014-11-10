@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4E7F6EAB1A0B8AF4004EB6A5"
-               BuildableName = "AdaptivePackaging"
-               BlueprintName = "AdaptivePackaging"
+               BlueprintIdentifier = "4E0B322B1A1135DB00A4EDB1"
+               BuildableName = "Packaging OSX"
+               BlueprintName = "Packaging OSX"
                ReferencedContainer = "container:adaptive-arp-rt.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4E7F6EAB1A0B8AF4004EB6A5"
-            BuildableName = "AdaptivePackaging"
-            BlueprintName = "AdaptivePackaging"
+            BlueprintIdentifier = "4E0B322B1A1135DB00A4EDB1"
+            BuildableName = "Packaging OSX"
+            BlueprintName = "Packaging OSX"
             ReferencedContainer = "container:adaptive-arp-rt.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -60,9 +60,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4E7F6EAB1A0B8AF4004EB6A5"
-            BuildableName = "AdaptivePackaging"
-            BlueprintName = "AdaptivePackaging"
+            BlueprintIdentifier = "4E0B322B1A1135DB00A4EDB1"
+            BuildableName = "Packaging OSX"
+            BlueprintName = "Packaging OSX"
             ReferencedContainer = "container:adaptive-arp-rt.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

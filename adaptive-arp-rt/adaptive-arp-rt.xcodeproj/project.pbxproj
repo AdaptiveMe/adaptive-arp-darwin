@@ -36,6 +36,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4E0B322F1A1135FD00A4EDB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E722D481A02827C00004247 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4E0B322B1A1135DB00A4EDB1;
+			remoteInfo = "Packaging OSX";
+		};
 		4E59C62A1A10E24100FFAE2F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4EDB4EC41A029062008A2C4F /* adaptive-arp-impl.xcodeproj */;
@@ -51,13 +58,6 @@
 			remoteInfo = AdaptiveArpImplOSX;
 		};
 		4E7F6EAF1A0B8B5C004EB6A5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4E722D481A02827C00004247 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4E7F6EAB1A0B8AF4004EB6A5;
-			remoteInfo = AdaptivePackaging;
-		};
-		4E7F6EB11A0B8B63004EB6A5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4E722D481A02827C00004247 /* Project object */;
 			proxyType = 1;
@@ -330,17 +330,31 @@
 /* End PBXGroup section */
 
 /* Begin PBXLegacyTarget section */
-		4E7F6EAB1A0B8AF4004EB6A5 /* AdaptivePackaging */ = {
+		4E0B322B1A1135DB00A4EDB1 /* Packaging OSX */ = {
 			isa = PBXLegacyTarget;
 			buildArgumentsString = "$SRCROOT $ACTION";
-			buildConfigurationList = 4E7F6EAC1A0B8AF4004EB6A5 /* Build configuration list for PBXLegacyTarget "AdaptivePackaging" */;
+			buildConfigurationList = 4E0B322C1A1135DB00A4EDB1 /* Build configuration list for PBXLegacyTarget "Packaging OSX" */;
 			buildPhases = (
 			);
 			buildToolPath = ./package.sh;
 			buildWorkingDirectory = "";
 			dependencies = (
 			);
-			name = AdaptivePackaging;
+			name = "Packaging OSX";
+			passBuildSettingsInEnvironment = 1;
+			productName = AdaptivePackaging;
+		};
+		4E7F6EAB1A0B8AF4004EB6A5 /* Packaging iOS */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$SRCROOT $ACTION";
+			buildConfigurationList = 4E7F6EAC1A0B8AF4004EB6A5 /* Build configuration list for PBXLegacyTarget "Packaging iOS" */;
+			buildPhases = (
+			);
+			buildToolPath = ./package.sh;
+			buildWorkingDirectory = "";
+			dependencies = (
+			);
+			name = "Packaging iOS";
 			passBuildSettingsInEnvironment = 1;
 			productName = AdaptivePackaging;
 		};
@@ -359,8 +373,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				4E59C62B1A10E24100FFAE2F /* PBXTargetDependency */,
 				4E7F6EB01A0B8B5C004EB6A5 /* PBXTargetDependency */,
+				4E59C62B1A10E24100FFAE2F /* PBXTargetDependency */,
 			);
 			name = AdaptiveArpRtiOS;
 			productName = AdaptiveArpRtiOS;
@@ -397,8 +411,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				4E0B32301A1135FD00A4EDB1 /* PBXTargetDependency */,
 				4E59C62E1A10E2AB00FFAE2F /* PBXTargetDependency */,
-				4E7F6EB21A0B8B63004EB6A5 /* PBXTargetDependency */,
 			);
 			name = AdaptiveArpRtOSX;
 			productName = AdaptiveArpRtOSX;
@@ -437,7 +451,6 @@
 					};
 					4EDB4E4D1A028C89008A2C4F = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 2G3S9L8W64;
 					};
 					4EDB4E631A028C89008A2C4F = {
 						CreatedOnToolsVersion = 6.1;
@@ -475,7 +488,8 @@
 				4EDB4E631A028C89008A2C4F /* AdaptiveArpRtiOSTests */,
 				4EDB4E751A028C99008A2C4F /* AdaptiveArpRtOSX */,
 				4EDB4E881A028C9A008A2C4F /* AdaptiveArpRtOSXTests */,
-				4E7F6EAB1A0B8AF4004EB6A5 /* AdaptivePackaging */,
+				4E7F6EAB1A0B8AF4004EB6A5 /* Packaging iOS */,
+				4E0B322B1A1135DB00A4EDB1 /* Packaging OSX */,
 			);
 		};
 /* End PBXProject section */
@@ -596,6 +610,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4E0B32301A1135FD00A4EDB1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4E0B322B1A1135DB00A4EDB1 /* Packaging OSX */;
+			targetProxy = 4E0B322F1A1135FD00A4EDB1 /* PBXContainerItemProxy */;
+		};
 		4E59C62B1A10E24100FFAE2F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = AdaptiveArpImpliOS;
@@ -608,13 +627,8 @@
 		};
 		4E7F6EB01A0B8B5C004EB6A5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4E7F6EAB1A0B8AF4004EB6A5 /* AdaptivePackaging */;
+			target = 4E7F6EAB1A0B8AF4004EB6A5 /* Packaging iOS */;
 			targetProxy = 4E7F6EAF1A0B8B5C004EB6A5 /* PBXContainerItemProxy */;
-		};
-		4E7F6EB21A0B8B63004EB6A5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4E7F6EAB1A0B8AF4004EB6A5 /* AdaptivePackaging */;
-			targetProxy = 4E7F6EB11A0B8B63004EB6A5 /* PBXContainerItemProxy */;
 		};
 		4EDB4E661A028C89008A2C4F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -656,6 +670,37 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4E0B322D1A1135DB00A4EDB1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUGGING_SYMBOLS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = macosx;
+			};
+			name = Debug;
+		};
+		4E0B322E1A1135DB00A4EDB1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = macosx;
+			};
+			name = Release;
+		};
 		4E722D651A02827D00004247 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -675,7 +720,6 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -692,12 +736,11 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -722,7 +765,6 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -733,10 +775,9 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -757,7 +798,7 @@
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -768,7 +809,7 @@
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
@@ -777,14 +818,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/adaptive-arp-rt-gkgvcxelfjqfzveakignyteutvtw/Build/Products/Debug-iphoneos",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/adaptive-arp-rt-gkgvcxelfjqfzveakignyteutvtw/Build/Products/Release-iphoneos",
-					"$(PROJECT_DIR)/DerivedData/Build/Products/Release-iphoneos",
-					"$(PROJECT_DIR)/DerivedData/Build/Products/Release",
-				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -792,6 +825,7 @@
 				INFOPLIST_FILE = AdaptiveArpRtiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 			};
 			name = Debug;
 		};
@@ -800,17 +834,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/adaptive-arp-rt-gkgvcxelfjqfzveakignyteutvtw/Build/Products/Debug-iphoneos",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/adaptive-arp-rt-gkgvcxelfjqfzveakignyteutvtw/Build/Products/Release-iphoneos",
-					"$(PROJECT_DIR)/DerivedData/Build/Products/Release-iphoneos",
-					"$(PROJECT_DIR)/DerivedData/Build/Products/Release",
-				);
 				INFOPLIST_FILE = AdaptiveArpRtiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 			};
 			name = Release;
 		};
@@ -827,9 +854,9 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = AdaptiveArpRtiOSTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AdaptiveArpRtiOS.app/AdaptiveArpRtiOS";
 			};
 			name = Debug;
@@ -843,9 +870,9 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = AdaptiveArpRtiOSTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AdaptiveArpRtiOS.app/AdaptiveArpRtiOS";
 			};
 			name = Release;
@@ -866,7 +893,6 @@
 				);
 				INFOPLIST_FILE = AdaptiveArpRtOSX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = macosx;
@@ -936,6 +962,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4E0B322C1A1135DB00A4EDB1 /* Build configuration list for PBXLegacyTarget "Packaging OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E0B322D1A1135DB00A4EDB1 /* Debug */,
+				4E0B322E1A1135DB00A4EDB1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4E722D4B1A02827C00004247 /* Build configuration list for PBXProject "adaptive-arp-rt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -945,7 +980,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4E7F6EAC1A0B8AF4004EB6A5 /* Build configuration list for PBXLegacyTarget "AdaptivePackaging" */ = {
+		4E7F6EAC1A0B8AF4004EB6A5 /* Build configuration list for PBXLegacyTarget "Packaging iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4E7F6EAD1A0B8AF4004EB6A5 /* Debug */,
