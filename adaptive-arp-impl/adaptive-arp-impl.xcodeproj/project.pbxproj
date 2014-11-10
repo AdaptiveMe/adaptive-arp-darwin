@@ -17,12 +17,12 @@
 		4E95238A1A113B91009C4295 /* SQLite.framework in Embed Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C1301A0BEC7D0026ED0B /* SQLite.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4E95238B1A113B91009C4295 /* SwiftyJSON.framework in Embed Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C13D1A0BEC870026ED0B /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4E95238C1A113B91009C4295 /* Alamofire.framework in Embed Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C1461A0BEC910026ED0B /* Alamofire.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		4E95238E1A113BA6009C4295 /* Realm.framework in Embed Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C11D1A0BEC760026ED0B /* Realm.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4E95238F1A113BAD009C4295 /* CryptoSwift.framework in Embed Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C10A1A0BEC590026ED0B /* CryptoSwift.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4E9523901A113BBA009C4295 /* AdaptiveArpApi.framework in Embed Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C0EE1A0BE3470026ED0B /* AdaptiveArpApi.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4E9523911A113C01009C4295 /* AdaptiveArpApi.framework in Embedded Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C0EE1A0BE3470026ED0B /* AdaptiveArpApi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4E9FE07A1A02A6120017970F /* BrowserImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0791A02A6120017970F /* BrowserImpl.swift */; };
 		4E9FE07B1A02A6120017970F /* BrowserImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0791A02A6120017970F /* BrowserImpl.swift */; };
+		4EA025291A114D6E00DAFC15 /* Realm.framework in Embed Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C11F1A0BEC760026ED0B /* Realm.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4EC1C0F51A0BE35E0026ED0B /* AdaptiveArpApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C0F21A0BE3470026ED0B /* AdaptiveArpApi.framework */; };
 		4EC1C0F61A0BE3690026ED0B /* AdaptiveArpApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C0EE1A0BE3470026ED0B /* AdaptiveArpApi.framework */; };
 		4EC1C17B1A0C05F90026ED0B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C1781A0C05E80026ED0B /* Alamofire.framework */; };
@@ -115,6 +115,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 754BE45419693E190098E6F3;
 			remoteInfo = CryptoSwift;
+		};
+		4EA0252A1A114DCF00DAFC15 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4EC1C10D1A0BEC760026ED0B /* Realm.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F6B894319EF3C06004E8EA8;
+			remoteInfo = "iOS 8";
 		};
 		4EC1C0ED1A0BE3470026ED0B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -361,13 +368,6 @@
 			remoteGlobalIDString = E8D89B971955FC6D00CF2B9A;
 			remoteInfo = OSX;
 		};
-		4EDE72981A0CE38600948F6E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4EC1C10D1A0BEC760026ED0B /* Realm.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = E856D1D4195614A300FB2FCF;
-			remoteInfo = iOS;
-		};
 		4EE6E4381A0CE71B00354446 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4EC1C1281A0BEC7D0026ED0B /* SQLite.xcodeproj */;
@@ -407,9 +407,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				4EA025291A114D6E00DAFC15 /* Realm.framework in Embed Dependencies */,
 				4E9523901A113BBA009C4295 /* AdaptiveArpApi.framework in Embed Dependencies */,
 				4E95238F1A113BAD009C4295 /* CryptoSwift.framework in Embed Dependencies */,
-				4E95238E1A113BA6009C4295 /* Realm.framework in Embed Dependencies */,
 				4E95238A1A113B91009C4295 /* SQLite.framework in Embed Dependencies */,
 				4E95238B1A113B91009C4295 /* SwiftyJSON.framework in Embed Dependencies */,
 				4E95238C1A113B91009C4295 /* Alamofire.framework in Embed Dependencies */,
@@ -815,9 +815,9 @@
 			buildRules = (
 			);
 			dependencies = (
+				4EA0252B1A114DCF00DAFC15 /* PBXTargetDependency */,
 				4E1164AD1A0CF46100EC842A /* PBXTargetDependency */,
 				4EE6E43B1A0CE74200354446 /* PBXTargetDependency */,
-				4EDE72991A0CE38600948F6E /* PBXTargetDependency */,
 				4EC1C1FC1A0C1E2B0026ED0B /* PBXTargetDependency */,
 				4EC1C17D1A0C060B0026ED0B /* PBXTargetDependency */,
 				4EC1C0F81A0BE3830026ED0B /* PBXTargetDependency */,
@@ -1237,6 +1237,11 @@
 			name = CryptoSwift;
 			targetProxy = 4E1164AC1A0CF46100EC842A /* PBXContainerItemProxy */;
 		};
+		4EA0252B1A114DCF00DAFC15 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "iOS 8";
+			targetProxy = 4EA0252A1A114DCF00DAFC15 /* PBXContainerItemProxy */;
+		};
 		4EC1C0F81A0BE3830026ED0B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = AdaptiveArpApiiOS;
@@ -1282,11 +1287,6 @@
 			name = OSX;
 			targetProxy = 4EDE72811A0CE37000948F6E /* PBXContainerItemProxy */;
 		};
-		4EDE72991A0CE38600948F6E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = iOS;
-			targetProxy = 4EDE72981A0CE38600948F6E /* PBXContainerItemProxy */;
-		};
 		4EE6E4391A0CE71B00354446 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "SQLite Mac";
@@ -1317,6 +1317,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1363,6 +1364,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1388,6 +1390,7 @@
 		4EDB53ED1A0298E8008A2C4F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1411,6 +1414,7 @@
 		4EDB53EE1A0298E8008A2C4F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
