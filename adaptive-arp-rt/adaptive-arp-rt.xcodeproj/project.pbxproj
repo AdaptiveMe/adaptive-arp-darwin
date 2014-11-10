@@ -8,19 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		4E04DAFD1A03CE8E00DC4908 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04DAFA1A03CE5C00DC4908 /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		4E04DB041A03CECF00DC4908 /* AdaptiveArpApiiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04DB001A03CECF00DC4908 /* AdaptiveArpApiiOS.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		4E04DB051A03CECF00DC4908 /* AdaptiveArpImpliOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04DB011A03CECF00DC4908 /* AdaptiveArpImpliOS.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		4E04DB061A03CF0100DC4908 /* AdaptiveArpApiiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04DB001A03CECF00DC4908 /* AdaptiveArpApiiOS.framework */; };
-		4E04DB071A03CF0100DC4908 /* AdaptiveArpApiiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04DB001A03CECF00DC4908 /* AdaptiveArpApiiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4E04DB081A03CF0100DC4908 /* AdaptiveArpImpliOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04DB011A03CECF00DC4908 /* AdaptiveArpImpliOS.framework */; };
-		4E04DB091A03CF0100DC4908 /* AdaptiveArpImpliOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04DB011A03CECF00DC4908 /* AdaptiveArpImpliOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4E04DB0B1A03CF2100DC4908 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04DB0A1A03CF2100DC4908 /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		4E04DB0C1A03CF3C00DC4908 /* AdaptiveArpApiOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04DAFE1A03CECF00DC4908 /* AdaptiveArpApiOSX.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		4E04DB0D1A03CF3C00DC4908 /* AdaptiveArpApiOSX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04DAFE1A03CECF00DC4908 /* AdaptiveArpApiOSX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4E04DB0E1A03CF3C00DC4908 /* AdaptiveArpImplOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04DAFF1A03CECF00DC4908 /* AdaptiveArpImplOSX.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		4E04DB0F1A03CF3C00DC4908 /* AdaptiveArpImplOSX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04DAFF1A03CECF00DC4908 /* AdaptiveArpImplOSX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4E04DB161A03D3E900DC4908 /* App in Resources */ = {isa = PBXBuildFile; fileRef = 4E04DB151A03D3E900DC4908 /* App */; };
 		4E04DB171A03D3E900DC4908 /* App in Resources */ = {isa = PBXBuildFile; fileRef = 4E04DB151A03D3E900DC4908 /* App */; };
+		4E59C62C1A10E24B00FFAE2F /* AdaptiveArpImpl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB4ED01A029063008A2C4F /* AdaptiveArpImpl.framework */; };
+		4E59C62F1A10E2B300FFAE2F /* AdaptiveArpImpl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB4ECC1A029063008A2C4F /* AdaptiveArpImpl.framework */; };
 		4E7F6EB31A0B9B15004EB6A5 /* App.Source in Resources */ = {isa = PBXBuildFile; fileRef = 4E04DB141A03D3DA00DC4908 /* App.Source */; };
 		4E7F6EB41A0B9B16004EB6A5 /* App.Source in Resources */ = {isa = PBXBuildFile; fileRef = 4E04DB141A03D3DA00DC4908 /* App.Source */; };
 		4E9FE0861A02A71A0017970F /* BrowserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0801A02A71A0017970F /* BrowserTest.swift */; };
@@ -44,12 +36,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4E2EA91A1A039F8600A1A8AD /* PBXContainerItemProxy */ = {
+		4E59C62A1A10E24100FFAE2F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4EDB4EC41A029062008A2C4F /* adaptive-arp-impl.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 4EDB53F61A029910008A2C4F;
 			remoteInfo = AdaptiveArpImpliOS;
+		};
+		4E59C62D1A10E2AB00FFAE2F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4EDB4EC41A029062008A2C4F /* adaptive-arp-impl.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4EDB53D81A0298E8008A2C4F;
+			remoteInfo = AdaptiveArpImplOSX;
 		};
 		4E7F6EAF1A0B8B5C004EB6A5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -107,13 +106,6 @@
 			remoteGlobalIDString = 4E722D381A0281C000004247;
 			remoteInfo = AdaptiveArpImpliOSTests;
 		};
-		4EDB4ED51A029228008A2C4F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4EDB4EC41A029062008A2C4F /* adaptive-arp-impl.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 4EDB53D81A0298E8008A2C4F;
-			remoteInfo = AdaptiveArpImplOSX;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -123,8 +115,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4E04DB091A03CF0100DC4908 /* AdaptiveArpImpliOS.framework in Embed Frameworks */,
-				4E04DB071A03CF0100DC4908 /* AdaptiveArpApiiOS.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,8 +125,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4E04DB0D1A03CF3C00DC4908 /* AdaptiveArpApiOSX.framework in Embed Frameworks */,
-				4E04DB0F1A03CF3C00DC4908 /* AdaptiveArpImplOSX.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -184,10 +172,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E04DB041A03CECF00DC4908 /* AdaptiveArpApiiOS.framework in Frameworks */,
-				4E04DB061A03CF0100DC4908 /* AdaptiveArpApiiOS.framework in Frameworks */,
-				4E04DB081A03CF0100DC4908 /* AdaptiveArpImpliOS.framework in Frameworks */,
-				4E04DB051A03CECF00DC4908 /* AdaptiveArpImpliOS.framework in Frameworks */,
+				4E59C62C1A10E24B00FFAE2F /* AdaptiveArpImpl.framework in Frameworks */,
 				4E04DAFD1A03CE8E00DC4908 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,8 +188,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E04DB0E1A03CF3C00DC4908 /* AdaptiveArpImplOSX.framework in Frameworks */,
-				4E04DB0C1A03CF3C00DC4908 /* AdaptiveArpApiOSX.framework in Frameworks */,
+				4E59C62F1A10E2B300FFAE2F /* AdaptiveArpImpl.framework in Frameworks */,
 				4E04DB0B1A03CF2100DC4908 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,9 +327,9 @@
 		4EDB4EC51A029062008A2C4F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4EDB4ECC1A029063008A2C4F /* AdaptiveArpImplOSX.framework */,
+				4EDB4ECC1A029063008A2C4F /* AdaptiveArpImpl.framework */,
 				4EDB4ECE1A029063008A2C4F /* AdaptiveArpImplOSXTests.xctest */,
-				4EDB4ED01A029063008A2C4F /* AdaptiveArpImpliOS.framework */,
+				4EDB4ED01A029063008A2C4F /* AdaptiveArpImpl.framework */,
 				4EDB4ED21A029063008A2C4F /* AdaptiveArpImpliOSTests.xctest */,
 			);
 			name = Products;
@@ -383,8 +367,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				4E59C62B1A10E24100FFAE2F /* PBXTargetDependency */,
 				4E7F6EB01A0B8B5C004EB6A5 /* PBXTargetDependency */,
-				4E2EA91B1A039F8600A1A8AD /* PBXTargetDependency */,
 			);
 			name = AdaptiveArpRtiOS;
 			productName = AdaptiveArpRtiOS;
@@ -421,8 +405,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				4E59C62E1A10E2AB00FFAE2F /* PBXTargetDependency */,
 				4E7F6EB21A0B8B63004EB6A5 /* PBXTargetDependency */,
-				4EDB4ED61A029228008A2C4F /* PBXTargetDependency */,
 			);
 			name = AdaptiveArpRtOSX;
 			productName = AdaptiveArpRtOSX;
@@ -505,10 +489,10 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		4EDB4ECC1A029063008A2C4F /* AdaptiveArpImplOSX.framework */ = {
+		4EDB4ECC1A029063008A2C4F /* AdaptiveArpImpl.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = AdaptiveArpImplOSX.framework;
+			path = AdaptiveArpImpl.framework;
 			remoteRef = 4EDB4ECB1A029063008A2C4F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -519,10 +503,10 @@
 			remoteRef = 4EDB4ECD1A029063008A2C4F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4EDB4ED01A029063008A2C4F /* AdaptiveArpImpliOS.framework */ = {
+		4EDB4ED01A029063008A2C4F /* AdaptiveArpImpl.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = AdaptiveArpImpliOS.framework;
+			path = AdaptiveArpImpl.framework;
 			remoteRef = 4EDB4ECF1A029063008A2C4F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -620,10 +604,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4E2EA91B1A039F8600A1A8AD /* PBXTargetDependency */ = {
+		4E59C62B1A10E24100FFAE2F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = AdaptiveArpImpliOS;
-			targetProxy = 4E2EA91A1A039F8600A1A8AD /* PBXContainerItemProxy */;
+			targetProxy = 4E59C62A1A10E24100FFAE2F /* PBXContainerItemProxy */;
+		};
+		4E59C62E1A10E2AB00FFAE2F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AdaptiveArpImplOSX;
+			targetProxy = 4E59C62D1A10E2AB00FFAE2F /* PBXContainerItemProxy */;
 		};
 		4E7F6EB01A0B8B5C004EB6A5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -644,11 +633,6 @@
 			isa = PBXTargetDependency;
 			target = 4EDB4E751A028C99008A2C4F /* AdaptiveArpRtOSX */;
 			targetProxy = 4EDB4E8A1A028C9A008A2C4F /* PBXContainerItemProxy */;
-		};
-		4EDB4ED61A029228008A2C4F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = AdaptiveArpImplOSX;
-			targetProxy = 4EDB4ED51A029228008A2C4F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -718,11 +702,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "arm64 armv7 armv7s x86_64 i386";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -763,7 +745,6 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "arm64 armv7 armv7s x86_64 i386";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -801,7 +782,6 @@
 		4EDB4E6D1A028C89008A2C4F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -818,9 +798,10 @@
 				);
 				INFOPLIST_FILE = AdaptiveArpRtiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				VALID_ARCHS = "armv7s armv7 arm64 x86_64 i386";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 			};
 			name = Debug;
 		};
@@ -839,9 +820,9 @@
 				);
 				INFOPLIST_FILE = AdaptiveArpRtiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				VALID_ARCHS = "armv7s armv7 arm64 x86_64 i386";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 			};
 			name = Release;
 		};
@@ -897,10 +878,10 @@
 				);
 				INFOPLIST_FILE = AdaptiveArpRtOSX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				VALID_ARCHS = "i386 x86_64 armv7s armv7 arm64";
+				SUPPORTED_PLATFORMS = macosx;
 			};
 			name = Debug;
 		};
@@ -919,7 +900,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				VALID_ARCHS = "i386 x86_64 armv7s armv7 arm64";
+				SUPPORTED_PLATFORMS = macosx;
 			};
 			name = Release;
 		};
@@ -940,6 +921,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = macosx;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AdaptiveArpRtOSX.app/Contents/MacOS/AdaptiveArpRtOSX";
 			};
 			name = Debug;
@@ -958,6 +940,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = macosx;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AdaptiveArpRtOSX.app/Contents/MacOS/AdaptiveArpRtOSX";
 			};
 			name = Release;
