@@ -15,6 +15,8 @@
 		4E59C62F1A10E2B300FFAE2F /* AdaptiveArpImpl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB4ECC1A029063008A2C4F /* AdaptiveArpImpl.framework */; };
 		4E7F6EB31A0B9B15004EB6A5 /* App.Source in Resources */ = {isa = PBXBuildFile; fileRef = 4E04DB141A03D3DA00DC4908 /* App.Source */; };
 		4E7F6EB41A0B9B16004EB6A5 /* App.Source in Resources */ = {isa = PBXBuildFile; fileRef = 4E04DB141A03D3DA00DC4908 /* App.Source */; };
+		4E9523661A113A15009C4295 /* AdaptiveArpImpl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB4ECC1A029063008A2C4F /* AdaptiveArpImpl.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4E95239C1A113C8A009C4295 /* AdaptiveArpImpl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB4ED01A029063008A2C4F /* AdaptiveArpImpl.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4E9FE0861A02A71A0017970F /* BrowserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0801A02A71A0017970F /* BrowserTest.swift */; };
 		4E9FE0871A02A71A0017970F /* DeviceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0811A02A71A0017970F /* DeviceTest.swift */; };
 		4E9FE0881A02A71A0017970F /* LoggingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0821A02A71A0017970F /* LoggingTest.swift */; };
@@ -115,6 +117,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				4E95239C1A113C8A009C4295 /* AdaptiveArpImpl.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -125,6 +128,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				4E9523661A113A15009C4295 /* AdaptiveArpImpl.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -881,7 +885,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -903,7 +906,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (

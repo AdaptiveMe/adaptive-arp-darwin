@@ -9,10 +9,22 @@
 /* Begin PBXBuildFile section */
 		4E1164AB1A0CF44800EC842A /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C10A1A0BEC590026ED0B /* CryptoSwift.framework */; };
 		4E1164AE1A0CF46700EC842A /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C10A1A0BEC590026ED0B /* CryptoSwift.framework */; };
+		4E95237F1A113AD8009C4295 /* Alamofire.framework in Embedded Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C1781A0C05E80026ED0B /* Alamofire.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4E9523801A113AE1009C4295 /* SwiftyJSON.framework in Embedded Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C1F71A0C1E170026ED0B /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4E9523811A113AED009C4295 /* SQLite.framework in Embedded Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C1341A0BEC7D0026ED0B /* SQLite.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4E9523841A113B25009C4295 /* Realm.framework in Embedded Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C1191A0BEC760026ED0B /* Realm.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4E9523861A113B47009C4295 /* CryptoSwift.framework in Embedded Dependencies */ = {isa = PBXBuildFile; fileRef = 4E11649E1A0CF43C00EC842A /* CryptoSwift.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4E95238A1A113B91009C4295 /* SQLite.framework in Embed Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C1301A0BEC7D0026ED0B /* SQLite.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4E95238B1A113B91009C4295 /* SwiftyJSON.framework in Embed Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C13D1A0BEC870026ED0B /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4E95238C1A113B91009C4295 /* Alamofire.framework in Embed Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C1461A0BEC910026ED0B /* Alamofire.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4E95238E1A113BA6009C4295 /* Realm.framework in Embed Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C11D1A0BEC760026ED0B /* Realm.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4E95238F1A113BAD009C4295 /* CryptoSwift.framework in Embed Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C10A1A0BEC590026ED0B /* CryptoSwift.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4E9523901A113BBA009C4295 /* AdaptiveArpApi.framework in Embed Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C0EE1A0BE3470026ED0B /* AdaptiveArpApi.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4E9523911A113C01009C4295 /* AdaptiveArpApi.framework in Embedded Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C0EE1A0BE3470026ED0B /* AdaptiveArpApi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4E9FE07A1A02A6120017970F /* BrowserImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0791A02A6120017970F /* BrowserImpl.swift */; };
 		4E9FE07B1A02A6120017970F /* BrowserImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0791A02A6120017970F /* BrowserImpl.swift */; };
-		4EC1C0F51A0BE35E0026ED0B /* AdaptiveArpApiOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C0F21A0BE3470026ED0B /* AdaptiveArpApiOSX.framework */; };
-		4EC1C0F61A0BE3690026ED0B /* AdaptiveArpApiiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C0EE1A0BE3470026ED0B /* AdaptiveArpApiiOS.framework */; };
+		4EC1C0F51A0BE35E0026ED0B /* AdaptiveArpApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C0F21A0BE3470026ED0B /* AdaptiveArpApi.framework */; };
+		4EC1C0F61A0BE3690026ED0B /* AdaptiveArpApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C0EE1A0BE3470026ED0B /* AdaptiveArpApi.framework */; };
 		4EC1C17B1A0C05F90026ED0B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C1781A0C05E80026ED0B /* Alamofire.framework */; };
 		4EC1C17F1A0C06BC0026ED0B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C1461A0BEC910026ED0B /* Alamofire.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		4EC1C1FA1A0C1E210026ED0B /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C1F71A0C1E170026ED0B /* SwiftyJSON.framework */; };
@@ -372,6 +384,41 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4E95236D1A113A8E009C4295 /* Embedded Dependencies */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4E9523911A113C01009C4295 /* AdaptiveArpApi.framework in Embedded Dependencies */,
+				4E9523861A113B47009C4295 /* CryptoSwift.framework in Embedded Dependencies */,
+				4E9523841A113B25009C4295 /* Realm.framework in Embedded Dependencies */,
+				4E9523811A113AED009C4295 /* SQLite.framework in Embedded Dependencies */,
+				4E9523801A113AE1009C4295 /* SwiftyJSON.framework in Embedded Dependencies */,
+				4E95237F1A113AD8009C4295 /* Alamofire.framework in Embedded Dependencies */,
+			);
+			name = "Embedded Dependencies";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E9523881A113B68009C4295 /* Embed Dependencies */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4E9523901A113BBA009C4295 /* AdaptiveArpApi.framework in Embed Dependencies */,
+				4E95238F1A113BAD009C4295 /* CryptoSwift.framework in Embed Dependencies */,
+				4E95238E1A113BA6009C4295 /* Realm.framework in Embed Dependencies */,
+				4E95238A1A113B91009C4295 /* SQLite.framework in Embed Dependencies */,
+				4E95238B1A113B91009C4295 /* SwiftyJSON.framework in Embed Dependencies */,
+				4E95238C1A113B91009C4295 /* Alamofire.framework in Embed Dependencies */,
+			);
+			name = "Embed Dependencies";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		4E9FE0791A02A6120017970F /* BrowserImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserImpl.swift; sourceTree = "<group>"; };
 		4EC1C0E61A0BE3470026ED0B /* adaptive-arp-api-swift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "adaptive-arp-api-swift.xcodeproj"; path = "Modules/adaptive-arp-api/adaptive-arp-api-swift/adaptive-arp-api-swift.xcodeproj"; sourceTree = "<group>"; };
@@ -429,7 +476,7 @@
 				4EDE72971A0CE37A00948F6E /* Realm.framework in Frameworks */,
 				4EC1C1FA1A0C1E210026ED0B /* SwiftyJSON.framework in Frameworks */,
 				4EC1C17B1A0C05F90026ED0B /* Alamofire.framework in Frameworks */,
-				4EC1C0F51A0BE35E0026ED0B /* AdaptiveArpApiOSX.framework in Frameworks */,
+				4EC1C0F51A0BE35E0026ED0B /* AdaptiveArpApi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,7 +498,7 @@
 				4EDE729A1A0CE39000948F6E /* Realm.framework in Frameworks */,
 				4EC1C1FD1A0C1E370026ED0B /* SwiftyJSON.framework in Frameworks */,
 				4EC1C17F1A0C06BC0026ED0B /* Alamofire.framework in Frameworks */,
-				4EC1C0F61A0BE3690026ED0B /* AdaptiveArpApiiOS.framework in Frameworks */,
+				4EC1C0F61A0BE3690026ED0B /* AdaptiveArpApi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,9 +549,9 @@
 		4EC1C0E71A0BE3470026ED0B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4EC1C0EE1A0BE3470026ED0B /* AdaptiveArpApiiOS.framework */,
+				4EC1C0EE1A0BE3470026ED0B /* AdaptiveArpApi.framework */,
 				4EC1C0F01A0BE3470026ED0B /* AdaptiveArpApiiOSTests.xctest */,
-				4EC1C0F21A0BE3470026ED0B /* AdaptiveArpApiOSX.framework */,
+				4EC1C0F21A0BE3470026ED0B /* AdaptiveArpApi.framework */,
 				4EC1C0F41A0BE3470026ED0B /* AdaptiveArpApiOSXTests.xctest */,
 			);
 			name = Products;
@@ -720,6 +767,7 @@
 				4EDB53D51A0298E8008A2C4F /* Frameworks */,
 				4EDB53D61A0298E8008A2C4F /* Headers */,
 				4EDB53D71A0298E8008A2C4F /* Resources */,
+				4E95236D1A113A8E009C4295 /* Embedded Dependencies */,
 			);
 			buildRules = (
 			);
@@ -762,6 +810,7 @@
 				4EDB53F31A029910008A2C4F /* Frameworks */,
 				4EDB53F41A029910008A2C4F /* Headers */,
 				4EDB53F51A029910008A2C4F /* Resources */,
+				4E9523881A113B68009C4295 /* Embed Dependencies */,
 			);
 			buildRules = (
 			);
@@ -881,10 +930,10 @@
 			remoteRef = 4E11649F1A0CF43C00EC842A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4EC1C0EE1A0BE3470026ED0B /* AdaptiveArpApiiOS.framework */ = {
+		4EC1C0EE1A0BE3470026ED0B /* AdaptiveArpApi.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = AdaptiveArpApiiOS.framework;
+			path = AdaptiveArpApi.framework;
 			remoteRef = 4EC1C0ED1A0BE3470026ED0B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -895,10 +944,10 @@
 			remoteRef = 4EC1C0EF1A0BE3470026ED0B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4EC1C0F21A0BE3470026ED0B /* AdaptiveArpApiOSX.framework */ = {
+		4EC1C0F21A0BE3470026ED0B /* AdaptiveArpApi.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = AdaptiveArpApiOSX.framework;
+			path = AdaptiveArpApi.framework;
 			remoteRef = 4EC1C0F11A0BE3470026ED0B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
