@@ -19,8 +19,8 @@
 		4EC1C1FD1A0C1E370026ED0B /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C13D1A0BEC870026ED0B /* SwiftyJSON.framework */; };
 		4ED4D1CC1A02CA4000CC854E /* HttpInterceptorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4D1CB1A02CA4000CC854E /* HttpInterceptorProtocol.swift */; };
 		4ED4D1CD1A02CA4100CC854E /* HttpInterceptorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4D1CB1A02CA4000CC854E /* HttpInterceptorProtocol.swift */; };
-		4EDB53E41A0298E8008A2C4F /* AdaptiveArpImplOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB53D91A0298E8008A2C4F /* AdaptiveArpImplOSX.framework */; };
-		4EDB54021A029910008A2C4F /* AdaptiveArpImpliOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB53F71A029910008A2C4F /* AdaptiveArpImpliOS.framework */; };
+		4EDB53E41A0298E8008A2C4F /* AdaptiveArpImpl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB53D91A0298E8008A2C4F /* AdaptiveArpImpl.framework */; };
+		4EDB54021A029910008A2C4F /* AdaptiveArpImpl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB53F71A029910008A2C4F /* AdaptiveArpImpl.framework */; };
 		4EDB54101A029920008A2C4F /* Await.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB51C31A029566008A2C4F /* Await.swift */; };
 		4EDB54111A029920008A2C4F /* GeolocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB51C41A029566008A2C4F /* GeolocationDelegate.swift */; };
 		4EDB54121A029920008A2C4F /* I18NParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB51C51A029566008A2C4F /* I18NParser.swift */; };
@@ -426,11 +426,11 @@
 		4EDB51C41A029566008A2C4F /* GeolocationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeolocationDelegate.swift; sourceTree = "<group>"; };
 		4EDB51C51A029566008A2C4F /* I18NParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = I18NParser.swift; sourceTree = "<group>"; };
 		4EDB51C61A029566008A2C4F /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		4EDB53D91A0298E8008A2C4F /* AdaptiveArpImplOSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdaptiveArpImplOSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EDB53D91A0298E8008A2C4F /* AdaptiveArpImpl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdaptiveArpImpl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EDB53DC1A0298E8008A2C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EDB53E31A0298E8008A2C4F /* AdaptiveArpImplOSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdaptiveArpImplOSXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EDB53E91A0298E8008A2C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4EDB53F71A029910008A2C4F /* AdaptiveArpImpliOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdaptiveArpImpliOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EDB53F71A029910008A2C4F /* AdaptiveArpImpl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdaptiveArpImpl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EDB53FA1A029910008A2C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EDB54011A029910008A2C4F /* AdaptiveArpImpliOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdaptiveArpImpliOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EDB54071A029910008A2C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -461,7 +461,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EDB53E41A0298E8008A2C4F /* AdaptiveArpImplOSX.framework in Frameworks */,
+				4EDB53E41A0298E8008A2C4F /* AdaptiveArpImpl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,7 +483,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EDB54021A029910008A2C4F /* AdaptiveArpImpliOS.framework in Frameworks */,
+				4EDB54021A029910008A2C4F /* AdaptiveArpImpl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,9 +515,9 @@
 		4E722CF01A02815A00004247 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4EDB53D91A0298E8008A2C4F /* AdaptiveArpImplOSX.framework */,
+				4EDB53D91A0298E8008A2C4F /* AdaptiveArpImpl.framework */,
 				4EDB53E31A0298E8008A2C4F /* AdaptiveArpImplOSXTests.xctest */,
-				4EDB53F71A029910008A2C4F /* AdaptiveArpImpliOS.framework */,
+				4EDB53F71A029910008A2C4F /* AdaptiveArpImpl.framework */,
 				4EDB54011A029910008A2C4F /* AdaptiveArpImpliOSTests.xctest */,
 			);
 			name = Products;
@@ -773,7 +773,7 @@
 			);
 			name = AdaptiveArpImplOSX;
 			productName = AdaptiveArpImplOSX;
-			productReference = 4EDB53D91A0298E8008A2C4F /* AdaptiveArpImplOSX.framework */;
+			productReference = 4EDB53D91A0298E8008A2C4F /* AdaptiveArpImpl.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		4EDB53E21A0298E8008A2C4F /* AdaptiveArpImplOSXTests */ = {
@@ -815,7 +815,7 @@
 			);
 			name = AdaptiveArpImpliOS;
 			productName = AdaptiveArpImpliOS;
-			productReference = 4EDB53F71A029910008A2C4F /* AdaptiveArpImpliOS.framework */;
+			productReference = 4EDB53F71A029910008A2C4F /* AdaptiveArpImpl.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		4EDB54001A029910008A2C4F /* AdaptiveArpImpliOSTests */ = {
@@ -1408,7 +1408,8 @@
 				INFOPLIST_FILE = AdaptiveArpImplOSX/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = AdaptiveArpImpl;
+				PRODUCT_NAME = AdaptiveArpImpl;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 			};
@@ -1427,7 +1428,8 @@
 				INFOPLIST_FILE = AdaptiveArpImplOSX/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = AdaptiveArpImpl;
+				PRODUCT_NAME = AdaptiveArpImpl;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 			};
@@ -1482,7 +1484,8 @@
 				INFOPLIST_FILE = AdaptiveArpImpliOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = AdaptiveArpImpl;
+				PRODUCT_NAME = AdaptiveArpImpl;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -1497,7 +1500,8 @@
 				INFOPLIST_FILE = AdaptiveArpImpliOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = AdaptiveArpImpl;
+				PRODUCT_NAME = AdaptiveArpImpl;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
