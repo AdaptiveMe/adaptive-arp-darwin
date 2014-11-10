@@ -32,9 +32,6 @@
 		4EDB54181A029925008A2C4F /* AppContextImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB516A1A029446008A2C4F /* AppContextImpl.swift */; };
 		4EDB54191A029925008A2C4F /* AppContextWebviewImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB516B1A029446008A2C4F /* AppContextWebviewImpl.swift */; };
 		4EDB541A1A029925008A2C4F /* AppRegistryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB516C1A029446008A2C4F /* AppRegistryImpl.swift */; };
-		4EDB541B1A029925008A2C4F /* AppResourceHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB516D1A029446008A2C4F /* AppResourceHandlerImpl.swift */; };
-		4EDB541C1A029925008A2C4F /* AppServerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB516E1A029446008A2C4F /* AppServerImpl.swift */; };
-		4EDB541D1A029925008A2C4F /* AppServerManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB516F1A029446008A2C4F /* AppServerManagerImpl.swift */; };
 		4EDB541E1A029925008A2C4F /* CapabilitiesImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB51701A029446008A2C4F /* CapabilitiesImpl.swift */; };
 		4EDB541F1A029925008A2C4F /* DatabaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB51711A029446008A2C4F /* DatabaseImpl.swift */; };
 		4EDB54201A029925008A2C4F /* DeviceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB51721A029446008A2C4F /* DeviceImpl.swift */; };
@@ -45,9 +42,6 @@
 		4EDB54251A029926008A2C4F /* AppContextImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB516A1A029446008A2C4F /* AppContextImpl.swift */; };
 		4EDB54261A029926008A2C4F /* AppContextWebviewImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB516B1A029446008A2C4F /* AppContextWebviewImpl.swift */; };
 		4EDB54271A029926008A2C4F /* AppRegistryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB516C1A029446008A2C4F /* AppRegistryImpl.swift */; };
-		4EDB54281A029926008A2C4F /* AppResourceHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB516D1A029446008A2C4F /* AppResourceHandlerImpl.swift */; };
-		4EDB54291A029926008A2C4F /* AppServerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB516E1A029446008A2C4F /* AppServerImpl.swift */; };
-		4EDB542A1A029926008A2C4F /* AppServerManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB516F1A029446008A2C4F /* AppServerManagerImpl.swift */; };
 		4EDB542B1A029926008A2C4F /* CapabilitiesImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB51701A029446008A2C4F /* CapabilitiesImpl.swift */; };
 		4EDB542C1A029926008A2C4F /* DatabaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB51711A029446008A2C4F /* DatabaseImpl.swift */; };
 		4EDB542D1A029926008A2C4F /* DeviceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB51721A029446008A2C4F /* DeviceImpl.swift */; };
@@ -55,16 +49,6 @@
 		4EDB542F1A029926008A2C4F /* GeolocationImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB51741A029446008A2C4F /* GeolocationImpl.swift */; };
 		4EDB54301A029926008A2C4F /* GlobalizationImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB51751A029446008A2C4F /* GlobalizationImpl.swift */; };
 		4EDB54311A029926008A2C4F /* LifecycleImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB51761A029446008A2C4F /* LifecycleImpl.swift */; };
-		4EDB54321A029929008A2C4F /* HttpParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB51781A029446008A2C4F /* HttpParser.swift */; };
-		4EDB54331A029929008A2C4F /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB51791A029446008A2C4F /* HttpRequest.swift */; };
-		4EDB54341A029929008A2C4F /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB517A1A029446008A2C4F /* HttpResponse.swift */; };
-		4EDB54351A029929008A2C4F /* HttpServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB517B1A029446008A2C4F /* HttpServer.swift */; };
-		4EDB54361A029929008A2C4F /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB517C1A029446008A2C4F /* Socket.swift */; };
-		4EDB54371A02992A008A2C4F /* HttpParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB51781A029446008A2C4F /* HttpParser.swift */; };
-		4EDB54381A02992A008A2C4F /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB51791A029446008A2C4F /* HttpRequest.swift */; };
-		4EDB54391A02992A008A2C4F /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB517A1A029446008A2C4F /* HttpResponse.swift */; };
-		4EDB543A1A02992A008A2C4F /* HttpServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB517B1A029446008A2C4F /* HttpServer.swift */; };
-		4EDB543B1A02992A008A2C4F /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB517C1A029446008A2C4F /* Socket.swift */; };
 		4EDB543C1A02992E008A2C4F /* LoggingImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB517D1A029446008A2C4F /* LoggingImpl.swift */; };
 		4EDB543D1A02992E008A2C4F /* NetworkReachabilityImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB517E1A029446008A2C4F /* NetworkReachabilityImpl.swift */; };
 		4EDB543E1A02992E008A2C4F /* OSImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB517F1A029446008A2C4F /* OSImpl.swift */; };
@@ -400,9 +384,6 @@
 		4EDB516A1A029446008A2C4F /* AppContextImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContextImpl.swift; sourceTree = "<group>"; };
 		4EDB516B1A029446008A2C4F /* AppContextWebviewImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContextWebviewImpl.swift; sourceTree = "<group>"; };
 		4EDB516C1A029446008A2C4F /* AppRegistryImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRegistryImpl.swift; sourceTree = "<group>"; };
-		4EDB516D1A029446008A2C4F /* AppResourceHandlerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppResourceHandlerImpl.swift; sourceTree = "<group>"; };
-		4EDB516E1A029446008A2C4F /* AppServerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppServerImpl.swift; sourceTree = "<group>"; };
-		4EDB516F1A029446008A2C4F /* AppServerManagerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppServerManagerImpl.swift; sourceTree = "<group>"; };
 		4EDB51701A029446008A2C4F /* CapabilitiesImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapabilitiesImpl.swift; sourceTree = "<group>"; };
 		4EDB51711A029446008A2C4F /* DatabaseImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseImpl.swift; sourceTree = "<group>"; };
 		4EDB51721A029446008A2C4F /* DeviceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceImpl.swift; sourceTree = "<group>"; };
@@ -410,11 +391,6 @@
 		4EDB51741A029446008A2C4F /* GeolocationImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeolocationImpl.swift; sourceTree = "<group>"; };
 		4EDB51751A029446008A2C4F /* GlobalizationImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalizationImpl.swift; sourceTree = "<group>"; };
 		4EDB51761A029446008A2C4F /* LifecycleImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifecycleImpl.swift; sourceTree = "<group>"; };
-		4EDB51781A029446008A2C4F /* HttpParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpParser.swift; sourceTree = "<group>"; };
-		4EDB51791A029446008A2C4F /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
-		4EDB517A1A029446008A2C4F /* HttpResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
-		4EDB517B1A029446008A2C4F /* HttpServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpServer.swift; sourceTree = "<group>"; };
-		4EDB517C1A029446008A2C4F /* Socket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
 		4EDB517D1A029446008A2C4F /* LoggingImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingImpl.swift; sourceTree = "<group>"; };
 		4EDB517E1A029446008A2C4F /* NetworkReachabilityImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityImpl.swift; sourceTree = "<group>"; };
 		4EDB517F1A029446008A2C4F /* OSImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSImpl.swift; sourceTree = "<group>"; };
@@ -599,9 +575,6 @@
 				4EDB516A1A029446008A2C4F /* AppContextImpl.swift */,
 				4EDB516B1A029446008A2C4F /* AppContextWebviewImpl.swift */,
 				4EDB516C1A029446008A2C4F /* AppRegistryImpl.swift */,
-				4EDB516D1A029446008A2C4F /* AppResourceHandlerImpl.swift */,
-				4EDB516E1A029446008A2C4F /* AppServerImpl.swift */,
-				4EDB516F1A029446008A2C4F /* AppServerManagerImpl.swift */,
 				4E9FE0791A02A6120017970F /* BrowserImpl.swift */,
 				4EDB51701A029446008A2C4F /* CapabilitiesImpl.swift */,
 				4EDB51711A029446008A2C4F /* DatabaseImpl.swift */,
@@ -618,23 +591,10 @@
 				4EDB51811A029446008A2C4F /* SecurityImpl.swift */,
 				4EDB51821A029446008A2C4F /* ServiceImpl.swift */,
 				4EDB51831A029446008A2C4F /* SessionImpl.swift */,
-				4EDB51771A029446008A2C4F /* listener_http */,
 				4EDB51C21A029566008A2C4F /* utils */,
 			);
 			name = Common;
 			path = Source/Common;
-			sourceTree = "<group>";
-		};
-		4EDB51771A029446008A2C4F /* listener_http */ = {
-			isa = PBXGroup;
-			children = (
-				4EDB51781A029446008A2C4F /* HttpParser.swift */,
-				4EDB51791A029446008A2C4F /* HttpRequest.swift */,
-				4EDB517A1A029446008A2C4F /* HttpResponse.swift */,
-				4EDB517B1A029446008A2C4F /* HttpServer.swift */,
-				4EDB517C1A029446008A2C4F /* Socket.swift */,
-			);
-			path = listener_http;
 			sourceTree = "<group>";
 		};
 		4EDB51C21A029566008A2C4F /* utils */ = {
@@ -1141,17 +1101,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EDB54341A029929008A2C4F /* HttpResponse.swift in Sources */,
-				4EDB54281A029926008A2C4F /* AppResourceHandlerImpl.swift in Sources */,
 				4E9FE07A1A02A6120017970F /* BrowserImpl.swift in Sources */,
 				4EDB542F1A029926008A2C4F /* GeolocationImpl.swift in Sources */,
 				4EDB54481A02992F008A2C4F /* ServiceImpl.swift in Sources */,
 				4EDB54431A02992F008A2C4F /* LoggingImpl.swift in Sources */,
-				4EDB54331A029929008A2C4F /* HttpRequest.swift in Sources */,
 				4EDB54141A029921008A2C4F /* Await.swift in Sources */,
 				4EDB54451A02992F008A2C4F /* OSImpl.swift in Sources */,
 				4EDB54301A029926008A2C4F /* GlobalizationImpl.swift in Sources */,
-				4EDB54361A029929008A2C4F /* Socket.swift in Sources */,
 				4EDB542E1A029926008A2C4F /* DisplayImpl.swift in Sources */,
 				4EDB54311A029926008A2C4F /* LifecycleImpl.swift in Sources */,
 				4EDB54261A029926008A2C4F /* AppContextWebviewImpl.swift in Sources */,
@@ -1159,17 +1115,13 @@
 				4EDB54271A029926008A2C4F /* AppRegistryImpl.swift in Sources */,
 				4EDB54161A029921008A2C4F /* I18NParser.swift in Sources */,
 				4EDB54441A02992F008A2C4F /* NetworkReachabilityImpl.swift in Sources */,
-				4EDB54291A029926008A2C4F /* AppServerImpl.swift in Sources */,
 				4EDB54461A02992F008A2C4F /* RuntimeImpl.swift in Sources */,
-				4EDB54321A029929008A2C4F /* HttpParser.swift in Sources */,
 				4EDB54471A02992F008A2C4F /* SecurityImpl.swift in Sources */,
 				4ED4D1CC1A02CA4000CC854E /* HttpInterceptorProtocol.swift in Sources */,
 				4EDB54151A029921008A2C4F /* GeolocationDelegate.swift in Sources */,
 				4EDB54171A029921008A2C4F /* Utils.swift in Sources */,
 				4EDB542D1A029926008A2C4F /* DeviceImpl.swift in Sources */,
 				4EDB542C1A029926008A2C4F /* DatabaseImpl.swift in Sources */,
-				4EDB54351A029929008A2C4F /* HttpServer.swift in Sources */,
-				4EDB542A1A029926008A2C4F /* AppServerManagerImpl.swift in Sources */,
 				4EDB542B1A029926008A2C4F /* CapabilitiesImpl.swift in Sources */,
 				4EDB54251A029926008A2C4F /* AppContextImpl.swift in Sources */,
 			);
@@ -1186,17 +1138,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EDB54391A02992A008A2C4F /* HttpResponse.swift in Sources */,
-				4EDB541B1A029925008A2C4F /* AppResourceHandlerImpl.swift in Sources */,
 				4EDB54221A029925008A2C4F /* GeolocationImpl.swift in Sources */,
 				4EDB54411A02992E008A2C4F /* ServiceImpl.swift in Sources */,
 				4EDB543C1A02992E008A2C4F /* LoggingImpl.swift in Sources */,
-				4EDB54381A02992A008A2C4F /* HttpRequest.swift in Sources */,
 				4EDB54101A029920008A2C4F /* Await.swift in Sources */,
 				4EDB543E1A02992E008A2C4F /* OSImpl.swift in Sources */,
 				4E9FE07B1A02A6120017970F /* BrowserImpl.swift in Sources */,
 				4EDB54231A029925008A2C4F /* GlobalizationImpl.swift in Sources */,
-				4EDB543B1A02992A008A2C4F /* Socket.swift in Sources */,
 				4EDB54211A029925008A2C4F /* DisplayImpl.swift in Sources */,
 				4EDB54241A029925008A2C4F /* LifecycleImpl.swift in Sources */,
 				4EDB54191A029925008A2C4F /* AppContextWebviewImpl.swift in Sources */,
@@ -1205,17 +1153,13 @@
 				4EDB541A1A029925008A2C4F /* AppRegistryImpl.swift in Sources */,
 				4EDB54121A029920008A2C4F /* I18NParser.swift in Sources */,
 				4EDB543D1A02992E008A2C4F /* NetworkReachabilityImpl.swift in Sources */,
-				4EDB541C1A029925008A2C4F /* AppServerImpl.swift in Sources */,
 				4EDB543F1A02992E008A2C4F /* RuntimeImpl.swift in Sources */,
-				4EDB54371A02992A008A2C4F /* HttpParser.swift in Sources */,
 				4EDB54401A02992E008A2C4F /* SecurityImpl.swift in Sources */,
 				4EDB54111A029920008A2C4F /* GeolocationDelegate.swift in Sources */,
 				4ED4D1CD1A02CA4100CC854E /* HttpInterceptorProtocol.swift in Sources */,
 				4EDB54131A029920008A2C4F /* Utils.swift in Sources */,
 				4EDB54201A029925008A2C4F /* DeviceImpl.swift in Sources */,
 				4EDB541F1A029925008A2C4F /* DatabaseImpl.swift in Sources */,
-				4EDB543A1A02992A008A2C4F /* HttpServer.swift in Sources */,
-				4EDB541D1A029925008A2C4F /* AppServerManagerImpl.swift in Sources */,
 				4EDB541E1A029925008A2C4F /* CapabilitiesImpl.swift in Sources */,
 				4EDB54571A0299B1008A2C4F /* ContactImpl.swift in Sources */,
 				4EDB545A1A0299B1008A2C4F /* VideoImpl.swift in Sources */,

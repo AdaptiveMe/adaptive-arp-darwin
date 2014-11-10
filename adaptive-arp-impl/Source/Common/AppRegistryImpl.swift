@@ -58,7 +58,6 @@ public class AppRegistryImpl : NSObject, IAppRegistry {
     var lifecycle : ILifecycle
     var context : IAppContext
     var contextWeb : IAppContextWebview
-    var resourceHandler : IAppResourceHandler
     var capabilities : ICapabilities
     var device : IDevice
     var display : IDisplay
@@ -71,7 +70,6 @@ public class AppRegistryImpl : NSObject, IAppRegistry {
         self.lifecycle = LifecycleImpl()
         self.context = AppContextImpl()
         self.contextWeb = AppContextWebviewImpl()
-        self.resourceHandler = AppResourceHandlerImpl()
         self.capabilities = CapabilitiesImpl()
         self.device = DeviceImpl()
         self.display = DisplayImpl()
@@ -133,10 +131,6 @@ public class AppRegistryImpl : NSObject, IAppRegistry {
     
     public func getPlatformContextWeb() -> IAppContextWebview? {
         return contextWeb
-    }
-    
-    public func getPlatformResourceHandler() -> IAppResourceHandler? {
-        return resourceHandler
     }
     
     public func getSystemCapabilities() -> ICapabilities? {
