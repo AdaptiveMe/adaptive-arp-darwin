@@ -133,10 +133,6 @@
 
 /* Begin PBXFileReference section */
 		4E04DAFA1A03CE5C00DC4908 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		4E04DAFE1A03CECF00DC4908 /* AdaptiveArpApiOSX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdaptiveArpApiOSX.framework; path = DerivedData/Build/Products/Release/AdaptiveArpApiOSX.framework; sourceTree = "<group>"; };
-		4E04DAFF1A03CECF00DC4908 /* AdaptiveArpImplOSX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdaptiveArpImplOSX.framework; path = DerivedData/Build/Products/Release/AdaptiveArpImplOSX.framework; sourceTree = "<group>"; };
-		4E04DB001A03CECF00DC4908 /* AdaptiveArpApiiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdaptiveArpApiiOS.framework; path = "DerivedData/Build/Products/Release-iphoneos/AdaptiveArpApiiOS.framework"; sourceTree = "<group>"; };
-		4E04DB011A03CECF00DC4908 /* AdaptiveArpImpliOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdaptiveArpImpliOS.framework; path = "DerivedData/Build/Products/Release-iphoneos/AdaptiveArpImpliOS.framework"; sourceTree = "<group>"; };
 		4E04DB0A1A03CF2100DC4908 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
 		4E04DB141A03D3DA00DC4908 /* App.Source */ = {isa = PBXFileReference; lastKnownFileType = folder; path = App.Source; sourceTree = "<group>"; };
 		4E04DB151A03D3E900DC4908 /* App */ = {isa = PBXFileReference; lastKnownFileType = folder; path = App; sourceTree = "<group>"; };
@@ -207,10 +203,6 @@
 			isa = PBXGroup;
 			children = (
 				4E04DB0A1A03CF2100DC4908 /* WebKit.framework */,
-				4E04DAFE1A03CECF00DC4908 /* AdaptiveArpApiOSX.framework */,
-				4E04DAFF1A03CECF00DC4908 /* AdaptiveArpImplOSX.framework */,
-				4E04DB001A03CECF00DC4908 /* AdaptiveArpApiiOS.framework */,
-				4E04DB011A03CECF00DC4908 /* AdaptiveArpImpliOS.framework */,
 				4E04DAFA1A03CE5C00DC4908 /* WebKit.framework */,
 			);
 			name = Frameworks;
@@ -681,9 +673,9 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -702,6 +694,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -727,9 +720,9 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -798,10 +791,7 @@
 				);
 				INFOPLIST_FILE = AdaptiveArpRtiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 			};
 			name = Debug;
 		};
@@ -821,8 +811,6 @@
 				INFOPLIST_FILE = AdaptiveArpRtiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 			};
 			name = Release;
 		};
