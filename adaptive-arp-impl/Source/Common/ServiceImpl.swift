@@ -63,8 +63,6 @@ public class ServiceImpl : NSObject, IService {
     */
     public func getService(serviceName : String) -> Service? {
         
-        // TODO: now we are comparing the services by name, but the correct way is doing by a comparison using a extensing. But the element Service has to implement the Equatable interface
-        
         for service in services {
             
             if(service.getName() == serviceName) {
@@ -90,12 +88,7 @@ public class ServiceImpl : NSObject, IService {
     */
     public func isRegistered(service : Service) -> Bool {
         
-        // TODO: now we are comparing the services by name, but the correct way is doing by a comparison using a extensing. But the element Service has to implement the Equatable interface
-        // :see: http://stackoverflow.com/questions/24102024/how-to-check-if-an-element-is-in-an-array
-        
-        // TODO: change this when the getService method could return optionals
-        //return self.getService(service.getName()) != nil ? true : false
-        return false
+        return self.getService(service.getName()!) != nil ? true : false
     }
     
     /**
@@ -109,12 +102,7 @@ public class ServiceImpl : NSObject, IService {
     */
     public func isRegistered(serviceName : String) -> Bool {
         
-        // TODO: now we are comparing the services by name, but the correct way is doing by a comparison using a extensing. But the element Service has to implement the Equatable interface
-        // :see: http://stackoverflow.com/questions/24102024/how-to-check-if-an-element-is-in-an-array
-        
-        // TODO: change this when the getService method could return optionals
-        //return self.getService(serviceName) != nil ? true : false
-        return false
+        return self.getService(serviceName) != nil ? true : false
     }
     
     /**
@@ -145,11 +133,9 @@ public class ServiceImpl : NSObject, IService {
     */
     public func unregisterService(service : Service) {
         
-        // TODO: now we are comparing the services by name, but the correct way is doing by a comparison using a extensing. But the element Service has to implement the Equatable interface
-        
         for (index, s) in enumerate(services) {
             
-            if(s.getName() == service.getName()) {
+            if(s == service) {
                 
                 services.removeAtIndex(index)
                 
@@ -194,8 +180,7 @@ public class ServiceImpl : NSObject, IService {
         let t = async(q) { () -> String? in
             
             if(!self.isRegistered(service)){
-                // TODO: IServiceResultCallbackError.ServiceNotRegistered
-                callback.onError(IServiceResultCallbackError.Forbidden)
+                callback.onError(IServiceResultCallbackError.NotRegisteredService)
                 self.logger.log(ILoggingLogLevel.ERROR, category: "ServiceImpl", message: "\(service.getName()) is not registered on the pull")
                 return nil
             }
@@ -320,8 +305,7 @@ public class ServiceImpl : NSObject, IService {
                 case 300..<399:
                     postCompleted(succeeded: 1, responseContent: responseText, warning: IServiceResultCallbackWarning.Redirected, error: nil)
                 case 400:
-                    // TODO: IServiceResultCallbackError.Wrong_Params
-                    postCompleted(succeeded: 2, responseContent: nil, warning: nil, error: IServiceResultCallbackError.NotAuthenticated)
+                    postCompleted(succeeded: 1, responseContent: responseText, warning: IServiceResultCallbackWarning.Wrong_Params, error: nil)
                 case 401:
                     postCompleted(succeeded: 2, responseContent: nil, warning: nil, error: IServiceResultCallbackError.NotAuthenticated)
                 case 403:

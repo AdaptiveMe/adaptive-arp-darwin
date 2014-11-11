@@ -37,8 +37,6 @@ public class GeolocationImpl : NSObject, IGeolocation {
     
     // TODO: in order to work in background, in the plist has to be defined: 
     // <key>UIBackgroundModes</key><array><string>location</string></array>
-    
-    // TODO: check the functionality on a device.
     // TODO: temporize the updates by a timer
     
     /// Logging variable
