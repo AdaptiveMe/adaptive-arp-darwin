@@ -28,20 +28,7 @@
 		4EDB4E7F1A028C9A008A2C4F /* AdaptiveArpRtOSX.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB4E7E1A028C9A008A2C4F /* AdaptiveArpRtOSX.xcdatamodeld */; };
 		4EDB4E811A028C9A008A2C4F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB4E801A028C9A008A2C4F /* Images.xcassets */; };
 		4EDB4E841A028C9A008A2C4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB4E821A028C9A008A2C4F /* Main.storyboard */; };
-		C3BB4BE91A11F545005C177C /* DatabaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BE01A11F4AA005C177C /* DatabaseTest.swift */; };
-		C3BB4BEA1A11F547005C177C /* DatabaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BE01A11F4AA005C177C /* DatabaseTest.swift */; };
-		C3BB4BEB1A122B34005C177C /* ContactTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34E61E41A0A4A240039A104 /* ContactTest.swift */; };
-		C3BB4BF21A122B41005C177C /* BrowserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BEC1A122B41005C177C /* BrowserTest.swift */; };
-		C3BB4BF41A122B41005C177C /* DeviceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BED1A122B41005C177C /* DeviceTest.swift */; };
-		C3BB4BF51A122B41005C177C /* DeviceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BED1A122B41005C177C /* DeviceTest.swift */; };
-		C3BB4BF61A122B41005C177C /* LoggingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BEE1A122B41005C177C /* LoggingTest.swift */; };
-		C3BB4BF71A122B41005C177C /* LoggingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BEE1A122B41005C177C /* LoggingTest.swift */; };
-		C3BB4BF81A122B41005C177C /* OSTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BEF1A122B41005C177C /* OSTest.swift */; };
-		C3BB4BF91A122B41005C177C /* OSTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BEF1A122B41005C177C /* OSTest.swift */; };
-		C3BB4BFA1A122B41005C177C /* SecurityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BF01A122B41005C177C /* SecurityTest.swift */; };
-		C3BB4BFB1A122B41005C177C /* SecurityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BF01A122B41005C177C /* SecurityTest.swift */; };
-		C3BB4BFC1A122B41005C177C /* SessionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BF11A122B41005C177C /* SessionTest.swift */; };
-		C3BB4BFD1A122B41005C177C /* SessionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BF11A122B41005C177C /* SessionTest.swift */; };
+		C3BB4C211A126FAF005C177C /* TelephonyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4C201A126FAE005C177C /* TelephonyTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,12 +154,14 @@
 		4EDB4EC41A029062008A2C4F /* adaptive-arp-impl.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "adaptive-arp-impl.xcodeproj"; path = "../adaptive-arp-impl/adaptive-arp-impl.xcodeproj"; sourceTree = "<group>"; };
 		C34E61E41A0A4A240039A104 /* ContactTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTest.swift; sourceTree = "<group>"; };
 		C3BB4BE01A11F4AA005C177C /* DatabaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseTest.swift; sourceTree = "<group>"; };
-		C3BB4BEC1A122B41005C177C /* BrowserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BrowserTest.swift; path = ../AdaptiveArpRtTests/BrowserTest.swift; sourceTree = "<group>"; };
 		C3BB4BED1A122B41005C177C /* DeviceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceTest.swift; sourceTree = "<group>"; };
 		C3BB4BEE1A122B41005C177C /* LoggingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingTest.swift; sourceTree = "<group>"; };
 		C3BB4BEF1A122B41005C177C /* OSTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSTest.swift; sourceTree = "<group>"; };
 		C3BB4BF01A122B41005C177C /* SecurityTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityTest.swift; sourceTree = "<group>"; };
 		C3BB4BF11A122B41005C177C /* SessionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionTest.swift; sourceTree = "<group>"; };
+		C3BB4C111A126171005C177C /* MessagingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagingTest.swift; sourceTree = "<group>"; };
+		C3BB4C131A126199005C177C /* BrowserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserTest.swift; sourceTree = "<group>"; };
+		C3BB4C201A126FAE005C177C /* TelephonyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TelephonyTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,9 +261,11 @@
 		4EDB4E671A028C89008A2C4F /* AdaptiveArpRtiOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				C3BB4BEC1A122B41005C177C /* BrowserTest.swift */,
+				C3BB4C131A126199005C177C /* BrowserTest.swift */,
 				C34E61E41A0A4A240039A104 /* ContactTest.swift */,
+				C3BB4C111A126171005C177C /* MessagingTest.swift */,
 				4EDB4E681A028C89008A2C4F /* Supporting Files */,
+				C3BB4C201A126FAE005C177C /* TelephonyTest.swift */,
 			);
 			path = AdaptiveArpRtiOSTests;
 			sourceTree = "<group>";
@@ -601,14 +592,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3BB4BFC1A122B41005C177C /* SessionTest.swift in Sources */,
-				C3BB4BF61A122B41005C177C /* LoggingTest.swift in Sources */,
-				C3BB4BF21A122B41005C177C /* BrowserTest.swift in Sources */,
-				C3BB4BFA1A122B41005C177C /* SecurityTest.swift in Sources */,
-				C3BB4BEB1A122B34005C177C /* ContactTest.swift in Sources */,
-				C3BB4BE91A11F545005C177C /* DatabaseTest.swift in Sources */,
-				C3BB4BF41A122B41005C177C /* DeviceTest.swift in Sources */,
-				C3BB4BF81A122B41005C177C /* OSTest.swift in Sources */,
+				C3BB4C211A126FAF005C177C /* TelephonyTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,12 +610,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3BB4BF51A122B41005C177C /* DeviceTest.swift in Sources */,
-				C3BB4BEA1A11F547005C177C /* DatabaseTest.swift in Sources */,
-				C3BB4BFD1A122B41005C177C /* SessionTest.swift in Sources */,
-				C3BB4BF91A122B41005C177C /* OSTest.swift in Sources */,
-				C3BB4BF71A122B41005C177C /* LoggingTest.swift in Sources */,
-				C3BB4BFB1A122B41005C177C /* SecurityTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -875,6 +853,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -887,6 +866,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AdaptiveArpRtiOS.app/AdaptiveArpRtiOS";
 			};
 			name = Debug;
@@ -895,6 +875,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
