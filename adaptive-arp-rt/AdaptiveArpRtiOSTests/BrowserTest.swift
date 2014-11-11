@@ -35,16 +35,10 @@ import AdaptiveArpImpl
 class BrowserTest: XCTestCase {
     
     var browserImpl:BrowserImpl?
-    
     let CORRECT_URL_1:String = "http://www.google.com"
-    let EMPTY_URL:String = ""
-    let WRONG_URL_1:String = "google"
-    let WRONG_URL_2:String = "www.google.com"
-    let WRONG_URL_3:String = "google.com"
 
     override func setUp() {
-        super.setUp()
-        
+        super.setUp()        
         browserImpl = BrowserImpl()
     }
     
@@ -55,10 +49,6 @@ class BrowserTest: XCTestCase {
     func testOpenBrowser() {
         
         XCTAssertTrue(self.browserImpl!.openBrowser(CORRECT_URL_1, title : "", buttonText : ""), "")
-        XCTAssertFalse(self.browserImpl!.openBrowser(EMPTY_URL, title : "", buttonText : ""), "")
-        XCTAssertFalse(self.browserImpl!.openBrowser(WRONG_URL_1, title : "", buttonText : ""), "")
-        XCTAssertFalse(self.browserImpl!.openBrowser(WRONG_URL_2, title : "", buttonText : ""), "")
-        XCTAssertFalse(self.browserImpl!.openBrowser(WRONG_URL_3, title : "", buttonText : ""), "")
     }
 
     func testPerformanceOpenBrowser() {
