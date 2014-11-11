@@ -20,8 +20,6 @@
 		4E95238F1A113BAD009C4295 /* CryptoSwift.framework in Embed Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C10A1A0BEC590026ED0B /* CryptoSwift.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4E9523901A113BBA009C4295 /* AdaptiveArpApi.framework in Embed Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C0EE1A0BE3470026ED0B /* AdaptiveArpApi.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4E9523911A113C01009C4295 /* AdaptiveArpApi.framework in Embedded Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C0EE1A0BE3470026ED0B /* AdaptiveArpApi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4E9FE07A1A02A6120017970F /* BrowserImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0791A02A6120017970F /* BrowserImpl.swift */; };
-		4E9FE07B1A02A6120017970F /* BrowserImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FE0791A02A6120017970F /* BrowserImpl.swift */; };
 		4EA025291A114D6E00DAFC15 /* Realm.framework in Embed Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C11F1A0BEC760026ED0B /* Realm.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4EC1C0F51A0BE35E0026ED0B /* AdaptiveArpApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C0F21A0BE3470026ED0B /* AdaptiveArpApi.framework */; };
 		4EC1C0F61A0BE3690026ED0B /* AdaptiveArpApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C0EE1A0BE3470026ED0B /* AdaptiveArpApi.framework */; };
@@ -85,6 +83,7 @@
 		4EE6E4371A0CE70400354446 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE6E4361A0CE70400354446 /* libsqlite3.dylib */; };
 		4EE6E43C1A0CE74A00354446 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C1301A0BEC7D0026ED0B /* SQLite.framework */; };
 		4EE6E43E1A0CE75200354446 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE6E43D1A0CE75200354446 /* libsqlite3.dylib */; };
+		C3BB4C101A124D44005C177C /* BrowserImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4C0E1A124CD4005C177C /* BrowserImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -420,7 +419,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4E9FE0791A02A6120017970F /* BrowserImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserImpl.swift; sourceTree = "<group>"; };
 		4EC1C0E61A0BE3470026ED0B /* adaptive-arp-api-swift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "adaptive-arp-api-swift.xcodeproj"; path = "Modules/adaptive-arp-api/adaptive-arp-api-swift/adaptive-arp-api-swift.xcodeproj"; sourceTree = "<group>"; };
 		4EC1C1041A0BEC590026ED0B /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = ThirdParty/CryptoSwift/CryptoSwift.xcodeproj; sourceTree = "<group>"; };
 		4EC1C10D1A0BEC760026ED0B /* Realm.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Realm.xcodeproj; path = "ThirdParty/realm-cocoa/Realm.xcodeproj"; sourceTree = "<group>"; };
@@ -463,6 +461,7 @@
 		4EDB54501A0299A8008A2C4F /* VideoImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoImpl.swift; sourceTree = "<group>"; };
 		4EE6E4361A0CE70400354446 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/libsqlite3.dylib; sourceTree = DEVELOPER_DIR; };
 		4EE6E43D1A0CE75200354446 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		C3BB4C0E1A124CD4005C177C /* BrowserImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -622,7 +621,6 @@
 				4EDB516A1A029446008A2C4F /* AppContextImpl.swift */,
 				4EDB516B1A029446008A2C4F /* AppContextWebviewImpl.swift */,
 				4EDB516C1A029446008A2C4F /* AppRegistryImpl.swift */,
-				4E9FE0791A02A6120017970F /* BrowserImpl.swift */,
 				4EDB51701A029446008A2C4F /* CapabilitiesImpl.swift */,
 				4EDB51711A029446008A2C4F /* DatabaseImpl.swift */,
 				4EDB51721A029446008A2C4F /* DeviceImpl.swift */,
@@ -722,6 +720,7 @@
 		4EDB544A1A029943008A2C4F /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				C3BB4C0E1A124CD4005C177C /* BrowserImpl.swift */,
 				4EDB544D1A0299A8008A2C4F /* ContactImpl.swift */,
 				4EDB544E1A0299A8008A2C4F /* MessagingImpl.swift */,
 				4EDB544F1A0299A8008A2C4F /* TelephonyImpl.swift */,
@@ -1150,7 +1149,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E9FE07A1A02A6120017970F /* BrowserImpl.swift in Sources */,
 				4EDB542F1A029926008A2C4F /* GeolocationImpl.swift in Sources */,
 				4EDB54481A02992F008A2C4F /* ServiceImpl.swift in Sources */,
 				4EDB54431A02992F008A2C4F /* LoggingImpl.swift in Sources */,
@@ -1192,7 +1190,6 @@
 				4EDB543C1A02992E008A2C4F /* LoggingImpl.swift in Sources */,
 				4EDB54101A029920008A2C4F /* Await.swift in Sources */,
 				4EDB543E1A02992E008A2C4F /* OSImpl.swift in Sources */,
-				4E9FE07B1A02A6120017970F /* BrowserImpl.swift in Sources */,
 				4EDB54231A029925008A2C4F /* GlobalizationImpl.swift in Sources */,
 				4EDB54211A029925008A2C4F /* DisplayImpl.swift in Sources */,
 				4EDB54241A029925008A2C4F /* LifecycleImpl.swift in Sources */,
@@ -1211,6 +1208,7 @@
 				4EDB541F1A029925008A2C4F /* DatabaseImpl.swift in Sources */,
 				4EDB541E1A029925008A2C4F /* CapabilitiesImpl.swift in Sources */,
 				4EDB54571A0299B1008A2C4F /* ContactImpl.swift in Sources */,
+				C3BB4C101A124D44005C177C /* BrowserImpl.swift in Sources */,
 				4EDB545A1A0299B1008A2C4F /* VideoImpl.swift in Sources */,
 				4EDB54581A0299B1008A2C4F /* MessagingImpl.swift in Sources */,
 				4EDB54181A029925008A2C4F /* AppContextImpl.swift in Sources */,

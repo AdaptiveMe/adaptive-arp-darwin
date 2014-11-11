@@ -32,7 +32,6 @@
 		C3BB4BEA1A11F547005C177C /* DatabaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BE01A11F4AA005C177C /* DatabaseTest.swift */; };
 		C3BB4BEB1A122B34005C177C /* ContactTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34E61E41A0A4A240039A104 /* ContactTest.swift */; };
 		C3BB4BF21A122B41005C177C /* BrowserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BEC1A122B41005C177C /* BrowserTest.swift */; };
-		C3BB4BF31A122B41005C177C /* BrowserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BEC1A122B41005C177C /* BrowserTest.swift */; };
 		C3BB4BF41A122B41005C177C /* DeviceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BED1A122B41005C177C /* DeviceTest.swift */; };
 		C3BB4BF51A122B41005C177C /* DeviceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BED1A122B41005C177C /* DeviceTest.swift */; };
 		C3BB4BF61A122B41005C177C /* LoggingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BEE1A122B41005C177C /* LoggingTest.swift */; };
@@ -168,7 +167,7 @@
 		4EDB4EC41A029062008A2C4F /* adaptive-arp-impl.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "adaptive-arp-impl.xcodeproj"; path = "../adaptive-arp-impl/adaptive-arp-impl.xcodeproj"; sourceTree = "<group>"; };
 		C34E61E41A0A4A240039A104 /* ContactTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTest.swift; sourceTree = "<group>"; };
 		C3BB4BE01A11F4AA005C177C /* DatabaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseTest.swift; sourceTree = "<group>"; };
-		C3BB4BEC1A122B41005C177C /* BrowserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserTest.swift; sourceTree = "<group>"; };
+		C3BB4BEC1A122B41005C177C /* BrowserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BrowserTest.swift; path = ../AdaptiveArpRtTests/BrowserTest.swift; sourceTree = "<group>"; };
 		C3BB4BED1A122B41005C177C /* DeviceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceTest.swift; sourceTree = "<group>"; };
 		C3BB4BEE1A122B41005C177C /* LoggingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingTest.swift; sourceTree = "<group>"; };
 		C3BB4BEF1A122B41005C177C /* OSTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSTest.swift; sourceTree = "<group>"; };
@@ -273,6 +272,7 @@
 		4EDB4E671A028C89008A2C4F /* AdaptiveArpRtiOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				C3BB4BEC1A122B41005C177C /* BrowserTest.swift */,
 				C34E61E41A0A4A240039A104 /* ContactTest.swift */,
 				4EDB4E681A028C89008A2C4F /* Supporting Files */,
 			);
@@ -338,7 +338,6 @@
 		C3BB4BDF1A11F4AA005C177C /* AdaptiveArpRtTests */ = {
 			isa = PBXGroup;
 			children = (
-				C3BB4BEC1A122B41005C177C /* BrowserTest.swift */,
 				C3BB4BE01A11F4AA005C177C /* DatabaseTest.swift */,
 				C3BB4BED1A122B41005C177C /* DeviceTest.swift */,
 				C3BB4BEE1A122B41005C177C /* LoggingTest.swift */,
@@ -628,7 +627,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3BB4BF51A122B41005C177C /* DeviceTest.swift in Sources */,
-				C3BB4BF31A122B41005C177C /* BrowserTest.swift in Sources */,
 				C3BB4BEA1A11F547005C177C /* DatabaseTest.swift in Sources */,
 				C3BB4BFD1A122B41005C177C /* SessionTest.swift in Sources */,
 				C3BB4BF91A122B41005C177C /* OSTest.swift in Sources */,
