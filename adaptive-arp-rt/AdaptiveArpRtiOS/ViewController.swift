@@ -42,7 +42,7 @@ class ViewController: UIViewController {
     let logger:ILogging = LoggingImpl()
     
     /// Webview
-    var webView : UIView?
+    var webView:UIView?
     
     /// Aplication Context Webview
     //var appContextWebview:AppContextWebviewImpl?
@@ -54,8 +54,7 @@ class ViewController: UIViewController {
         // Create the webview
         self.webView = UIWebView(frame: self.webViewContainer.bounds)
         
-        //appContextWebview = AppContextWebviewImpl()
-        //appContextWebview!.setWebviewPrimary(self.webView!)
+        AppContextWebviewImpl.sharedInstance.setWebviewPrimary(self.webView!)
         
         self.webView?.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
         self.webViewContainer.addSubview(self.webView!)
