@@ -186,6 +186,7 @@ class IContactResultCallbackImpl: NSObject, IContactResultCallback {
     }
 }
 
+/// Dummy implementation of the callback in order to run the tests
 class IContactPhotoResultCallbackImpl: NSObject, IContactPhotoResultCallback {
     
     var contactImpl:ContactImpl = ContactImpl()
