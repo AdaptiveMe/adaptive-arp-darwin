@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<i18n-config>
+	<default language="en" country="EN"/>
+	<supportedLanguages>
+		<supportedLanguage language="en" country="EN" />
+        <supportedLanguage language="es" country="ES" />
+	</supportedLanguages>
+</i18n-config>

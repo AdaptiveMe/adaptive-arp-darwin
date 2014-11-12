@@ -60,9 +60,9 @@ import Foundation
 public class GlobalizationImpl : NSObject, IGlobalization {
     
     /// i18n config file
-    // TODO: refactor with the relative paths of the RT project
-    let I18N_PATH: String = "/Users/administrator/Documents/projects/adaptive.me/config"
-    let I18N_CONFIG_FILE: String = "i18n-config.xml";
+    let I18N_CONFIG_FILE: String = "i18n-config";
+    let I18N_CONFIG_FILE_EXTENSION: String = ".xml";
+    let I18N_CONFIG_FILE_DIRECTORY: String = "App.Source/config";
     let I18N_LANG_FILE: String = ".plist";
     
     /// Logging variable
@@ -71,7 +71,7 @@ public class GlobalizationImpl : NSObject, IGlobalization {
     /**
     Class constructor
     */
-    override init() {
+    public override init() {
         
     }
     
@@ -83,7 +83,7 @@ public class GlobalizationImpl : NSObject, IGlobalization {
     :since: ARP1.0
     */
     private func getConfigFilePath() -> String {
-        return "\(I18N_PATH)/\(I18N_CONFIG_FILE)"
+        return NSBundle.mainBundle().pathForResource(I18N_CONFIG_FILE, ofType: I18N_CONFIG_FILE_EXTENSION, inDirectory: I18N_CONFIG_FILE_DIRECTORY)!
     }
     
     /**
@@ -96,7 +96,7 @@ public class GlobalizationImpl : NSObject, IGlobalization {
     :since: ARP1.0
     */
     private func getLanguageFilePath(locale: AdaptiveArpApi.Locale) -> String {
-        return "\(I18N_PATH)/\(locale.getLanguage())-\(locale.getCountry())\(I18N_LANG_FILE)"
+        return NSBundle.mainBundle().pathForResource("\(locale.getLanguage()!)-\(locale.getCountry()!)", ofType: I18N_LANG_FILE, inDirectory: I18N_CONFIG_FILE_DIRECTORY)!
     }
     
     /**
@@ -221,7 +221,7 @@ public class GlobalizationImpl : NSObject, IGlobalization {
             logger.log(ILoggingLogLevel.ERROR, category: "GlobalizationImpl", message: "Sorry, couldn't read the file \(filePath.lastPathComponent):\n\t"+theError.localizedDescription)
         }
         
-        return nil
+        return swiftDict
     }
     
 }
