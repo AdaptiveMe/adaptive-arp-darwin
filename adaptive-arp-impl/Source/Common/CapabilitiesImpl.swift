@@ -50,10 +50,9 @@ public class CapabilitiesImpl : NSObject, ICapabilities {
     
     /// Application
     #if os(iOS)
-        var application:UIApplication
         var device:UIDevice
     #elseif os(OSX)
-        var application:NSApplication
+
     #endif
     
     /**
@@ -62,10 +61,9 @@ public class CapabilitiesImpl : NSObject, ICapabilities {
     override init() {
         
         #if os(iOS)
-            application = (AppRegistryImpl.sharedInstance.getPlatformContext()! as AppContextImpl).getContext() as UIApplication
             device = UIDevice.currentDevice()
         #elseif os(OSX)
-            application = (AppRegistryImpl.sharedInstance.getPlatformContext()! as AppContextImpl).getContext() as NSApplication
+            
         #endif
     }
     
@@ -160,7 +158,9 @@ public class CapabilitiesImpl : NSObject, ICapabilities {
         case ICapabilitiesCommunication.Telephony:
             
             #if os(iOS)
-                return self.application.canOpenURL(NSURL(string: "tel://")!)
+                var application = (AppRegistryImpl.sharedInstance.getPlatformContext()! as AppContextImpl).getContext() as UIApplication
+
+                return application.canOpenURL(NSURL(string: "tel://")!)
             #elseif os(OSX)
                 //TODO
                 return false

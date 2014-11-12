@@ -65,7 +65,7 @@ class ViewController: UIViewController {
         
         super.viewDidLoad()
         
-        let path = NSBundle.mainBundle().pathForResource("index", ofType: ".html", inDirectory: "App.Source")
+        let path = NSBundle.mainBundle().pathForResource("index", ofType: ".html", inDirectory: "App.Source/www")
         var req = NSURLRequest(URL:NSURL(fileURLWithPath: path!)!)
         (self.webView! as UIWebView).loadRequest(req)
 
