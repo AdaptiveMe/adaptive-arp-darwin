@@ -32,44 +32,40 @@ import AdaptiveArpApi
 
 public class AppRegistryImpl : NSObject, IAppRegistry {
     
-    /*
-        Extremely PORK singleton declaration... imho
-    */
-    class var sharedInstance : IAppRegistry {
+    /// Singleton instance
+    public class var sharedInstance : AppRegistryImpl {
         struct Static {
-            static let instance : IAppRegistry = AppRegistryImpl()
+            static let instance : AppRegistryImpl = AppRegistryImpl()
         }
         return Static.instance
     }
     
-    /*
-        Optional Implementations
-    */
+    /// Mandatory Implementations
+    
+    var globalization:IGlobalization!
+    var lifecycle:ILifecycle!
+    var context:IAppContext!
+    var contextWebview:IAppContextWebview!
+    var capabilities:ICapabilities!
+    var device:IDevice!
+    var display:IDisplay!
+    var os:IOS!
+    var runtime:IRuntime!
+    
+    /// Optional Implementations
+    
     var analitics : IAnalytics?
     var management : IManagement?
     var printing : IPrinting?
     var settings : ISettings?
     var update : IUpdate?
     
-    /*
-        Mandatory Implementations
-    */
-    var globalization : IGlobalization
-    var lifecycle : ILifecycle
-    var context : IAppContext
-    var contextWeb : IAppContextWebview
-    var capabilities : ICapabilities
-    var device : IDevice
-    var display : IDisplay
-    var os : IOS
-    var runtime : IRuntime
-    
     override init() {
         
         self.globalization = GlobalizationImpl()
         self.lifecycle = LifecycleImpl()
-        self.context = AppContextImpl()
-        self.contextWeb = AppContextWebviewImpl()
+        self.context = AppContextImpl.sharedInstance
+        self.contextWebview = AppContextWebviewImpl.sharedInstance
         self.capabilities = CapabilitiesImpl()
         self.device = DeviceImpl()
         self.display = DisplayImpl()
@@ -77,13 +73,7 @@ public class AppRegistryImpl : NSObject, IAppRegistry {
         self.runtime = RuntimeImpl()
     }
     
-    public func getApplicationAnalytics() -> IAnalytics? {
-        return analitics!
-    }
-    
-    func setApplicationAnalytics(analitics : IAnalytics) {
-        self.analitics = analitics
-    }
+    /// Mandatory Getters
     
     public func getApplicationGlobalization() -> IGlobalization? {
         return globalization
@@ -93,44 +83,12 @@ public class AppRegistryImpl : NSObject, IAppRegistry {
         return lifecycle
     }
     
-    public func getApplicationManagement() -> IManagement? {
-        return management!
-    }
-    
-    func setApplicationManagement(management : IManagement) {
-        self.management = management
-    }
-    
-    public func getApplicationPrinting() -> IPrinting? {
-        return printing!
-    }
-    
-    func setApplicationPrinting(printing : IPrinting) {
-        self.printing = printing
-    }
-    
-    public func getApplicationSettings() -> ISettings? {
-        return settings!
-    }
-    
-    func setApplicationSettings(settings : ISettings) {
-        self.settings = settings
-    }
-    
-    public func getApplicationUpdate() -> IUpdate? {
-        return update!
-    }
-    
-    func setApplicationUpdate(update : IUpdate) {
-        self.update = update
-    }
-    
     public func getPlatformContext() -> IAppContext? {
         return context
     }
     
     public func getPlatformContextWeb() -> IAppContextWebview? {
-        return contextWeb
+        return contextWebview
     }
     
     public func getSystemCapabilities() -> ICapabilities? {
@@ -151,5 +109,47 @@ public class AppRegistryImpl : NSObject, IAppRegistry {
     
     public func getSystemRuntime() -> IRuntime? {
         return runtime
+    }
+    
+    /// Optional Getters and Setters
+    
+    public func getApplicationAnalytics() -> IAnalytics? {
+        return analitics
+    }
+    
+    func setApplicationAnalytics(analitics : IAnalytics) {
+        self.analitics = analitics
+    }
+    
+    public func getApplicationManagement() -> IManagement? {
+        return management
+    }
+    
+    func setApplicationManagement(management : IManagement) {
+        self.management = management
+    }
+    
+    public func getApplicationPrinting() -> IPrinting? {
+        return printing
+    }
+    
+    func setApplicationPrinting(printing : IPrinting) {
+        self.printing = printing
+    }
+    
+    public func getApplicationSettings() -> ISettings? {
+        return settings
+    }
+    
+    func setApplicationSettings(settings : ISettings) {
+        self.settings = settings
+    }
+    
+    public func getApplicationUpdate() -> IUpdate? {
+        return update
+    }
+    
+    func setApplicationUpdate(update : IUpdate) {
+        self.update = update
     }
 }

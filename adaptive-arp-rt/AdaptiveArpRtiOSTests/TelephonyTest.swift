@@ -29,33 +29,38 @@
 * =====================================================================================================================
 */
 
+import UIKit
 import XCTest
 import AdaptiveArpImpl
+import AdaptiveArpApi
 
-class BrowserTest: XCTestCase {
+class TelephonyTest: XCTestCase {
     
-    var browserImpl:BrowserImpl?
-    let CORRECT_URL_1:String = "http://www.google.com"
-
+    var telephonyImpl:ITelephony!
+    
     override func setUp() {
-        super.setUp()        
-        browserImpl = BrowserImpl()
+        super.setUp()
+        
+        telephonyImpl = TelephonyImpl()
     }
     
     override func tearDown() {
         super.tearDown()
     }
-
-    func testOpenBrowser() {
+    
+    /// Test for making a call
+    func testCall() {
         
-        XCTAssertTrue(self.browserImpl!.openBrowser(CORRECT_URL_1, title : "", buttonText : ""), "")
-    }
-
-    func testPerformanceOpenBrowser() {
+        var status:ITelephonyStatus = telephonyImpl.call("123456789")
         
-        self.measureBlock() {
-            var result = self.browserImpl!.openBrowser(self.CORRECT_URL_1, title : "", buttonText : "")
+        switch status {
+        case ITelephonyStatus.Dialing:
+            XCTAssert(true, "")
+        case ITelephonyStatus.Failed:
+            XCTAssert(false, "")
+        case ITelephonyStatus.Unknown:
+            XCTAssert(false, "")
         }
     }
-
+    
 }

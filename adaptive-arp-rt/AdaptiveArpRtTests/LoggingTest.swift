@@ -29,32 +29,37 @@
 * =====================================================================================================================
 */
 
-import UIKit
 import XCTest
 import AdaptiveArpImpl
+import AdaptiveArpApi
 
-class DeviceTest: XCTestCase {
+class LoggingTest: XCTestCase {
     
-    var deviceImpl:DeviceImpl?
-
+    var loggingImpl:LoggingImpl?
+    
     override func setUp() {
         super.setUp()
         
-        deviceImpl = DeviceImpl()
+        loggingImpl = LoggingImpl()
     }
     
     override func tearDown() {
         super.tearDown()
     }
     
-    func testGetDeviceInfo() {
-        XCTAssert(self.deviceImpl?.getDeviceInfo()!.getModel() != nil, "")
+    func testGetOSInfo() {
+        
+        XCTAssert(loggingImpl?.log(ILoggingLogLevel.DEBUG, message: "Logging test") != nil, "")
+        XCTAssert(loggingImpl?.log(ILoggingLogLevel.DEBUG, category: "Logging Category", message: "Logging test") != nil, "")
     }
     
-    func testGeLocaleCurrent() {
-        XCTAssert(self.deviceImpl?.getLocaleCurrent()!.getLanguage() != nil, "")
+    func testPerformanceGetOSInfo() {
+        
+        self.measureBlock() {
+            
+            self.loggingImpl?.log(ILoggingLogLevel.DEBUG, message: "Logging test")
+            self.loggingImpl?.log(ILoggingLogLevel.DEBUG, category: "Logging Category", message: "Logging test")
+        }
     }
     
-    // TODO: validate button listeners
-
 }

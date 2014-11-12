@@ -32,30 +32,28 @@
 import XCTest
 import AdaptiveArpImpl
 
-class BrowserTest: XCTestCase {
+class DeviceTest: XCTestCase {
     
-    var browserImpl:BrowserImpl?
-    let CORRECT_URL_1:String = "http://www.google.com"
+    var deviceImpl:DeviceImpl?
 
     override func setUp() {
-        super.setUp()        
-        browserImpl = BrowserImpl()
+        super.setUp()
+        
+        deviceImpl = DeviceImpl()
     }
     
     override func tearDown() {
         super.tearDown()
     }
-
-    func testOpenBrowser() {
-        
-        XCTAssertTrue(self.browserImpl!.openBrowser(CORRECT_URL_1, title : "", buttonText : ""), "")
+    
+    func testGetDeviceInfo() {
+        XCTAssert(self.deviceImpl?.getDeviceInfo()!.getModel() != nil, "")
     }
-
-    func testPerformanceOpenBrowser() {
-        
-        self.measureBlock() {
-            var result = self.browserImpl!.openBrowser(self.CORRECT_URL_1, title : "", buttonText : "")
-        }
+    
+    func testGeLocaleCurrent() {
+        XCTAssert(self.deviceImpl?.getLocaleCurrent()!.getLanguage() != nil, "")
     }
+    
+    // TODO: validate button listeners
 
 }

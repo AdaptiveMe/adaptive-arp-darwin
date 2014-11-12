@@ -29,7 +29,6 @@
 * =====================================================================================================================
 */
 
-import UIKit
 import XCTest
 import AdaptiveArpImpl
 import AdaptiveArpApi
@@ -86,8 +85,7 @@ class Session: XCTestCase {
         XCTAssertTrue(sessionImpl?.getAttributes()!.count == 1, "")
         
         // Get attribute by name
-        // TODO: change this by nil, when the return type of this method could be optional
-        XCTAssertTrue(sessionImpl?.getAttribute(attribute2.name) as NSString != "", "")
+        XCTAssertTrue(sessionImpl?.getAttribute(attribute2.name) != nil, "")
         
         // Check the attributes names
         XCTAssertTrue(sessionImpl?.listAttributeNames()!.count == 1, "")

@@ -43,7 +43,7 @@ public class TelephonyImpl : NSObject, ITelephony {
     /**
     Class constructor
     */
-    override init() {
+    public override init() {
         
         application = AppContextImpl().getContext() as UIApplication
     }

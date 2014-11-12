@@ -44,8 +44,8 @@ public class MessagingImpl : NSObject, IMessaging, MFMessageComposeViewControlle
     /// Logging variable
     let logger : ILogging = LoggingImpl()
     
-    var application:UIApplication
-    var webView:UIView
+    var application:UIApplication!
+    var webView:UIView!
     
     /// Callback for returning the sms responses
     var smsCallback: IMessagingCallback?
@@ -56,10 +56,10 @@ public class MessagingImpl : NSObject, IMessaging, MFMessageComposeViewControlle
     /**
     Class constructor
     */
-    override init() {
+    public override init() {
         
-        application = AppContextImpl().getContext() as UIApplication
-        webView = AppContextWebviewImpl().getWebviewPrimary() as UIView
+        application = AppContextImpl.sharedInstance.getContext() as UIApplication
+        webView = AppContextWebviewImpl.sharedInstance.getWebviewPrimary() as UIView
     }
     
     /**
@@ -127,7 +127,6 @@ public class MessagingImpl : NSObject, IMessaging, MFMessageComposeViewControlle
         
         // Open the view to compose the mail with the fields setted
         webView.window?.rootViewController?.presentViewController(mail, animated: true, completion: nil)
-        
     }
     
     /**

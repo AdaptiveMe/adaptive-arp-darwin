@@ -30,48 +30,48 @@ import Foundation
 import WebKit
 import AdaptiveArpApi
 
-
 public class AppContextWebviewImpl : NSObject, IAppContextWebview {
     
+    var primaryView:AnyObject?
+    var webViewList:[AnyObject]
     
-    var primaryView : AnyObject?
-    var webViewList : [AnyObject]
-    
-    override public init() {
-        webViewList = []
+    /// Singleton instance
+    public class var sharedInstance : AppContextWebviewImpl {
+        struct Static {
+            static let instance : AppContextWebviewImpl = AppContextWebviewImpl()
+        }
+        return Static.instance
     }
     
+    /// Constructor
+    override public init() {
+        webViewList = [AnyObject]()
+    }
+    
+    /// Set the primary webview
+    public func setWebviewPrimary(webView : AnyObject) {
+        self.primaryView = webView
+    }
+    
+    /// Get the primary webview
+    public func getWebviewPrimary() -> AnyObject? {
+        return self.primaryView!
+    }
+    
+    /// Add a webview in the list
     public func addWebview(webViewInstance : AnyObject) {
+        
         var exists = false;
         
-        #if os(iOS)
-            if (NSClassFromString("WKWebView") != nil) {
-                let uiWebView = webViewInstance as? UIView
-                for webView in webViewList {
-                    if (webView as NSObject == webViewInstance as NSObject) {
-                        exists = true
-                        break
-                    }
-                }
-            } else {
-                let uiWebView = webViewInstance as? UIView
-                for webView in webViewList {
-                    if (webView as NSObject == webViewInstance as NSObject) {
-                        exists = true
-                        break
-                    }
+        // Check if the webview is alredy in the array
+        if let instance:AnyObject = webViewInstance as AnyObject? {
+            for w in webViewList {
+                if (w as NSObject == instance as NSObject) {
+                    exists = true
+                    break
                 }
             }
-        #elseif os(OSX)
-            if let webView = webViewInstance as? WebView {
-                for webView in webViewList {
-                    if (webView as NSObject == webViewInstance as NSObject) {
-                        exists = true
-                        break
-                    }
-                }
-            }
-        #endif
+        }
         
         // Avoid duplicate entries.
         if !exists {
@@ -79,54 +79,32 @@ public class AppContextWebviewImpl : NSObject, IAppContextWebview {
         }
     }
     
-    #if os(iOS)
-    
-    public func setWebviewPrimary(webView : AnyObject) {
-        self.primaryView = webView
-    }
-    
-    #elseif os(OSX)
-    
-    public func setWebviewPrimary(webView : WKWebView) {
-        self.primaryView = webView
-    }
-    
-    public func setWebviewPrimary(webView : WebView) {
-        self.primaryView = webView
-    }
-    
-    #endif
-    
-    public func getWebviewPrimary() -> AnyObject? {
-        return self.primaryView!
-    }
-    
+    /// Returns all the webviews
     public func getWebviews() -> [AnyObject]? {
-        var webViewListFull : [AnyObject] = []
         
+        var webViewListFull:[AnyObject] = [AnyObject]()
+        
+        // Primary webview
         if (self.primaryView != nil) {
            webViewListFull.append(self.primaryView!)
         }
+        
+        // Other webviews
         for webView in self.webViewList {
            webViewListFull.append(webView)
         }
+        
         return webViewListFull
     }
     
+    /// Remove one webview
     public func removeWebview(webViewInstance : AnyObject) {
-        var removeIndex : Int = 0
-        var remove : Bool = false
         
-        for webView in self.webViewList {
+        for (index, webView) in enumerate(self.webViewList) {
             if (webView as NSObject == webViewInstance as NSObject) {
-                remove = true
-                break
+                self.webViewList.removeAtIndex(index)
+                return
             }
-            removeIndex++
-        }
-        
-        if (remove) {
-            self.webViewList.removeAtIndex(removeIndex)
         }
     }
     

@@ -31,34 +31,21 @@
 
 import Foundation
 import AdaptiveArpApi
-#if os(iOS)
-    import UIKit
-#elseif os(OSX)
-    import Cocoa
-#endif
+import UIKit
 
 public class BrowserImpl : NSObject, IBrowser {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
     
-    #if os(iOS)
-        var application:UIApplication
-    #elseif os(OSX)
-        var application:NSApplication
-    #endif
+    var application:UIApplication
     
     /**
     Class constructor
     */
     override public init() {
         
-        #if os(iOS)
-            application = AppContextImpl().getContext() as UIApplication
-        #elseif os(OSX)
-            application = AppContextImpl().getContext() as NSApplication
-        #endif
-        
+        application = AppContextImpl().getContext() as UIApplication
     }
     
     /**
@@ -91,7 +78,6 @@ public class BrowserImpl : NSObject, IBrowser {
         
         let url: NSURL = NSURL(string: url)!
         
-#if os(iOS)
         // Check if it is possible to open the url
         if !application.canOpenURL(url) {
             
@@ -107,9 +93,5 @@ public class BrowserImpl : NSObject, IBrowser {
         }
         
         return true
-#elseif os(OSX)
-        // TODO: Implement OSX equivalent.
-        return false
-#endif
     }
 }

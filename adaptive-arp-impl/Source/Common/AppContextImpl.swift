@@ -36,9 +36,18 @@ import AdaptiveArpApi
 
 public class AppContextImpl : NSObject, IAppContext {
     
-    var context : AnyObject
-    var type: IAppContextType
+    var context:AnyObject!
+    var type:IAppContextType!
     
+    /// Singleton instance
+    public class var sharedInstance : AppContextImpl {
+        struct Static {
+            static let instance : AppContextImpl = AppContextImpl()
+        }
+        return Static.instance
+    }
+    
+    /// init
     override init() {
         #if os(iOS)
             self.type = IAppContextType.iOS
@@ -49,10 +58,12 @@ public class AppContextImpl : NSObject, IAppContext {
         #endif
     }
     
+    /// Returns the main context
     public func getContext() -> AnyObject? {
         return self.context
     }
     
+    /// Returns the context type
     public func getContextType() -> IAppContextType {
         return self.type
     }

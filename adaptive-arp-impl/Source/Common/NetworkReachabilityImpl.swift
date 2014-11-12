@@ -64,8 +64,7 @@ public class NetworkReachabilityImpl : NSObject, INetworkReachability {
         
         // Check the url for malforming
         if(Utils.validateUrl(host)){
-            // TODO: INetworkReachabilityCallbackError.MalformedUrl
-            callback.onError(INetworkReachabilityCallbackError.Forbidden)
+            callback.onError(INetworkReachabilityCallbackError.MalformedUrl)
             self.logger.log(ILoggingLogLevel.ERROR, category: "NetworkReachabilityImpl", message: "Url malformed: \(host)")
             return
         }
