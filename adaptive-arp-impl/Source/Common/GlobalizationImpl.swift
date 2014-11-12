@@ -60,8 +60,6 @@ import Foundation
 public class GlobalizationImpl : NSObject, IGlobalization {
     
     /// i18n config file
-    // TODO: refactor with the relative paths of the RT project
-    //let I18N_PATH: String = "/Users/administrator/Documents/projects/adaptive.me/config"
     let I18N_CONFIG_FILE: String = "i18n-config";
     let I18N_CONFIG_FILE_EXTENSION: String = ".xml";
     let I18N_CONFIG_FILE_DIRECTORY: String = "App.Source/config";
