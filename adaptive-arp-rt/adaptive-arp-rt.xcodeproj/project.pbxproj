@@ -264,8 +264,8 @@
 				C3BB4C131A126199005C177C /* BrowserTest.swift */,
 				C34E61E41A0A4A240039A104 /* ContactTest.swift */,
 				C3BB4C111A126171005C177C /* MessagingTest.swift */,
-				4EDB4E681A028C89008A2C4F /* Supporting Files */,
 				C3BB4C201A126FAE005C177C /* TelephonyTest.swift */,
+				4EDB4E681A028C89008A2C4F /* Supporting Files */,
 			);
 			path = AdaptiveArpRtiOSTests;
 			sourceTree = "<group>";
