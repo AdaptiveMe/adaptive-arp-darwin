@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E0F6BF81A1351EF005FF51C /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C11F1A0BEC760026ED0B /* Realm.framework */; };
+		4E0F6BFA1A13520E005FF51C /* Realm.framework in Embed Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C11F1A0BEC760026ED0B /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4E1164AB1A0CF44800EC842A /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C10A1A0BEC590026ED0B /* CryptoSwift.framework */; };
 		4E1164AE1A0CF46700EC842A /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C10A1A0BEC590026ED0B /* CryptoSwift.framework */; };
 		4E95237F1A113AD8009C4295 /* Alamofire.framework in Embedded Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C1781A0C05E80026ED0B /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -20,7 +22,6 @@
 		4E95238F1A113BAD009C4295 /* CryptoSwift.framework in Embed Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C10A1A0BEC590026ED0B /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4E9523901A113BBA009C4295 /* AdaptiveArpApi.framework in Embed Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C0EE1A0BE3470026ED0B /* AdaptiveArpApi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4E9523911A113C01009C4295 /* AdaptiveArpApi.framework in Embedded Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C0EE1A0BE3470026ED0B /* AdaptiveArpApi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4EA025291A114D6E00DAFC15 /* Realm.framework in Embed Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C11F1A0BEC760026ED0B /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4EC1C0F51A0BE35E0026ED0B /* AdaptiveArpApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C0F21A0BE3470026ED0B /* AdaptiveArpApi.framework */; };
 		4EC1C0F61A0BE3690026ED0B /* AdaptiveArpApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C0EE1A0BE3470026ED0B /* AdaptiveArpApi.framework */; };
 		4EC1C17B1A0C05F90026ED0B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C1781A0C05E80026ED0B /* Alamofire.framework */; };
@@ -78,7 +79,6 @@
 		4EDB54591A0299B1008A2C4F /* TelephonyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB544F1A0299A8008A2C4F /* TelephonyImpl.swift */; };
 		4EDB545A1A0299B1008A2C4F /* VideoImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB54501A0299A8008A2C4F /* VideoImpl.swift */; };
 		4EDE72971A0CE37A00948F6E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C1191A0BEC760026ED0B /* Realm.framework */; };
-		4EDE729A1A0CE39000948F6E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C1191A0BEC760026ED0B /* Realm.framework */; };
 		4EE6E4271A0CE6F500354446 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C1341A0BEC7D0026ED0B /* SQLite.framework */; };
 		4EE6E4371A0CE70400354446 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE6E4361A0CE70400354446 /* libsqlite3.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4EE6E43C1A0CE74A00354446 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C1301A0BEC7D0026ED0B /* SQLite.framework */; };
@@ -406,7 +406,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4EA025291A114D6E00DAFC15 /* Realm.framework in Embed Dependencies */,
+				4E0F6BFA1A13520E005FF51C /* Realm.framework in Embed Dependencies */,
 				4E9523901A113BBA009C4295 /* AdaptiveArpApi.framework in Embed Dependencies */,
 				4E95238F1A113BAD009C4295 /* CryptoSwift.framework in Embed Dependencies */,
 				4E95238A1A113B91009C4295 /* SQLite.framework in Embed Dependencies */,
@@ -491,10 +491,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E0F6BF81A1351EF005FF51C /* Realm.framework in Frameworks */,
 				4E1164AE1A0CF46700EC842A /* CryptoSwift.framework in Frameworks */,
 				4EE6E43E1A0CE75200354446 /* libsqlite3.dylib in Frameworks */,
 				4EE6E43C1A0CE74A00354446 /* SQLite.framework in Frameworks */,
-				4EDE729A1A0CE39000948F6E /* Realm.framework in Frameworks */,
 				4EC1C1FD1A0C1E370026ED0B /* SwiftyJSON.framework in Frameworks */,
 				4EC1C17F1A0C06BC0026ED0B /* Alamofire.framework in Frameworks */,
 				4EC1C0F61A0BE3690026ED0B /* AdaptiveArpApi.framework in Frameworks */,
