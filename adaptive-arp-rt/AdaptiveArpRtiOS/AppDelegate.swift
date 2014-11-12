@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         logger.log(ILoggingLogLevel.INFO, message: "application:willFinishLaunchingWithOptions")
         
-        logger.log(ILoggingLogLevel.INFO, message: OSImpl().getOSInfo()!.getVersion()!)
+        logger.log(ILoggingLogLevel.INFO, message: AppRegistryImpl.sharedInstance.getSystemOS()!.getOSInfo()!.getVersion()!)
         
         NSURLProtocol.registerClass(HttpInterceptorProtocol)
         
