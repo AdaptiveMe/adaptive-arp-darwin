@@ -17,6 +17,22 @@
 		4E7F6EB41A0B9B16004EB6A5 /* App.Source in Resources */ = {isa = PBXBuildFile; fileRef = 4E04DB141A03D3DA00DC4908 /* App.Source */; };
 		4E9523661A113A15009C4295 /* AdaptiveArpImpl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB4ECC1A029063008A2C4F /* AdaptiveArpImpl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4E95239C1A113C8A009C4295 /* AdaptiveArpImpl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB4ED01A029063008A2C4F /* AdaptiveArpImpl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4EABF3031A1355550021CD16 /* BrowserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4C131A126199005C177C /* BrowserTest.swift */; };
+		4EABF3041A1355550021CD16 /* ContactTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34E61E41A0A4A240039A104 /* ContactTest.swift */; };
+		4EABF3051A1355550021CD16 /* MessagingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4C111A126171005C177C /* MessagingTest.swift */; };
+		4EABF3061A1355550021CD16 /* TelephonyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4C201A126FAE005C177C /* TelephonyTest.swift */; };
+		4EABF30D1A1355680021CD16 /* DatabaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BE01A11F4AA005C177C /* DatabaseTest.swift */; };
+		4EABF30E1A1355680021CD16 /* DeviceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BED1A122B41005C177C /* DeviceTest.swift */; };
+		4EABF30F1A1355680021CD16 /* LoggingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BEE1A122B41005C177C /* LoggingTest.swift */; };
+		4EABF3101A1355680021CD16 /* OSTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BEF1A122B41005C177C /* OSTest.swift */; };
+		4EABF3111A1355680021CD16 /* SecurityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BF01A122B41005C177C /* SecurityTest.swift */; };
+		4EABF3121A1355680021CD16 /* SessionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BF11A122B41005C177C /* SessionTest.swift */; };
+		4EABF3131A13556B0021CD16 /* DatabaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BE01A11F4AA005C177C /* DatabaseTest.swift */; };
+		4EABF3141A13556B0021CD16 /* DeviceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BED1A122B41005C177C /* DeviceTest.swift */; };
+		4EABF3151A13556B0021CD16 /* LoggingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BEE1A122B41005C177C /* LoggingTest.swift */; };
+		4EABF3161A13556B0021CD16 /* OSTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BEF1A122B41005C177C /* OSTest.swift */; };
+		4EABF3171A13556B0021CD16 /* SecurityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BF01A122B41005C177C /* SecurityTest.swift */; };
+		4EABF3181A13556B0021CD16 /* SessionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BF11A122B41005C177C /* SessionTest.swift */; };
 		4EDB4E531A028C89008A2C4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB4E521A028C89008A2C4F /* AppDelegate.swift */; };
 		4EDB4E551A028C89008A2C4F /* AdaptiveArpRtiOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB4E541A028C89008A2C4F /* AdaptiveArpRtiOS.xcdatamodeld */; };
 		4EDB4E571A028C89008A2C4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB4E561A028C89008A2C4F /* ViewController.swift */; };
@@ -28,7 +44,6 @@
 		4EDB4E7F1A028C9A008A2C4F /* AdaptiveArpRtOSX.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB4E7E1A028C9A008A2C4F /* AdaptiveArpRtOSX.xcdatamodeld */; };
 		4EDB4E811A028C9A008A2C4F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB4E801A028C9A008A2C4F /* Images.xcassets */; };
 		4EDB4E841A028C9A008A2C4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB4E821A028C9A008A2C4F /* Main.storyboard */; };
-		C3BB4C211A126FAF005C177C /* TelephonyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4C201A126FAE005C177C /* TelephonyTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -592,7 +607,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3BB4C211A126FAF005C177C /* TelephonyTest.swift in Sources */,
+				4EABF3041A1355550021CD16 /* ContactTest.swift in Sources */,
+				4EABF3101A1355680021CD16 /* OSTest.swift in Sources */,
+				4EABF3111A1355680021CD16 /* SecurityTest.swift in Sources */,
+				4EABF3031A1355550021CD16 /* BrowserTest.swift in Sources */,
+				4EABF3061A1355550021CD16 /* TelephonyTest.swift in Sources */,
+				4EABF30E1A1355680021CD16 /* DeviceTest.swift in Sources */,
+				4EABF30D1A1355680021CD16 /* DatabaseTest.swift in Sources */,
+				4EABF3051A1355550021CD16 /* MessagingTest.swift in Sources */,
+				4EABF3121A1355680021CD16 /* SessionTest.swift in Sources */,
+				4EABF30F1A1355680021CD16 /* LoggingTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,6 +634,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EABF3131A13556B0021CD16 /* DatabaseTest.swift in Sources */,
+				4EABF3161A13556B0021CD16 /* OSTest.swift in Sources */,
+				4EABF3151A13556B0021CD16 /* LoggingTest.swift in Sources */,
+				4EABF3171A13556B0021CD16 /* SecurityTest.swift in Sources */,
+				4EABF3181A13556B0021CD16 /* SessionTest.swift in Sources */,
+				4EABF3141A13556B0021CD16 /* DeviceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
