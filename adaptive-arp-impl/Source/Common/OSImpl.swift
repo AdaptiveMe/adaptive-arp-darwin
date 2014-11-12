@@ -31,6 +31,11 @@
 
 import Foundation
 import AdaptiveArpApi
+#if os(iOS)
+    import UIKit
+#elseif os(OSX)
+    import Cocoa
+#endif
 
 
 public class OSImpl : NSObject, IOS {
@@ -48,14 +53,21 @@ public class OSImpl : NSObject, IOS {
         var osName : String
         #if os(iOS)
             osName = "iOS"
+            
+            // FIX: operatingSystemVersion not available in iOS 7.1
+            //var processInfoOs : NSOperatingSystemVersion = NSProcessInfo.processInfo().operatingSystemVersion
+            var osVersion = UIDevice.currentDevice().systemVersion
+            
         #elseif os(OSX)
             osName = "OSX"
-        #endif
-        var processInfoOs : NSOperatingSystemVersion = NSProcessInfo.processInfo().operatingSystemVersion
-        var osVersion : String = "\(processInfoOs.majorVersion).\(processInfoOs.minorVersion)"
-        if (processInfoOs.patchVersion>0) {
+            
+            var processInfoOs : NSOperatingSystemVersion = NSProcessInfo.processInfo().operatingSystemVersion
+            var osVersion : String = "\(processInfoOs.majorVersion).\(processInfoOs.minorVersion)"
+            if (processInfoOs.patchVersion>0) {
             osVersion+=".\(processInfoOs.patchVersion)"
-        }
+            }
+        #endif
+        
         self.osInfo = OSInfo(name: osName, version: osVersion, vendor: "Apple")
     }
     
@@ -68,7 +80,7 @@ public class OSImpl : NSObject, IOS {
     */
     public func getOSInfo() -> OSInfo? {
         
-        logger.log(ILoggingLogLevel.INFO, category: "OSImpl", message: "name: \(self.osInfo.getName()), version: \(self.osInfo.getVersion()), vendor: \(self.osInfo.getVendor())")
+        logger.log(ILoggingLogLevel.DEBUG, category: "OSImpl", message: "name: \(self.osInfo.getName()), version: \(self.osInfo.getVersion()), vendor: \(self.osInfo.getVendor())")
         
         return self.osInfo
     }
