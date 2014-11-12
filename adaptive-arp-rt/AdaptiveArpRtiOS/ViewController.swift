@@ -54,7 +54,7 @@ class ViewController: UIViewController {
         // Create the webview
         self.webView = UIWebView(frame: self.webViewContainer.bounds)
         
-        AppContextWebviewImpl.sharedInstance.setWebviewPrimary(self.webView!)
+        (AppRegistryImpl.sharedInstance.getPlatformContextWeb()! as AppContextWebviewImpl).setWebviewPrimary(self.webView!)
         
         self.webView?.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
         self.webViewContainer.addSubview(self.webView!)

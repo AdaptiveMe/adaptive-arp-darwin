@@ -39,14 +39,6 @@ public class AppContextImpl : NSObject, IAppContext {
     var context:AnyObject!
     var type:IAppContextType!
     
-    /// Singleton instance
-    public class var sharedInstance : AppContextImpl {
-        struct Static {
-            static let instance : AppContextImpl = AppContextImpl()
-        }
-        return Static.instance
-    }
-    
     /// init
     override init() {
         #if os(iOS)

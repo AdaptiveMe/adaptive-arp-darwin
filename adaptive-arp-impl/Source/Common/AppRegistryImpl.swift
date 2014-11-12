@@ -64,8 +64,8 @@ public class AppRegistryImpl : NSObject, IAppRegistry {
         
         self.globalization = GlobalizationImpl()
         self.lifecycle = LifecycleImpl()
-        self.context = AppContextImpl.sharedInstance
-        self.contextWebview = AppContextWebviewImpl.sharedInstance
+        self.context = AppContextImpl()
+        self.contextWebview = AppContextWebviewImpl()
         self.capabilities = CapabilitiesImpl()
         self.device = DeviceImpl()
         self.display = DisplayImpl()

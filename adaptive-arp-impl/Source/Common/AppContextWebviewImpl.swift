@@ -35,14 +35,6 @@ public class AppContextWebviewImpl : NSObject, IAppContextWebview {
     var primaryView:AnyObject?
     var webViewList:[AnyObject]
     
-    /// Singleton instance
-    public class var sharedInstance : AppContextWebviewImpl {
-        struct Static {
-            static let instance : AppContextWebviewImpl = AppContextWebviewImpl()
-        }
-        return Static.instance
-    }
-    
     /// Constructor
     override public init() {
         webViewList = [AnyObject]()
