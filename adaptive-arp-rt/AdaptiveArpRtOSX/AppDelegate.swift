@@ -8,19 +8,23 @@
 
 import Cocoa
 import AdaptiveArpImpl
+import AdaptiveArpApi
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-
+    /// Logging variable
+    let logger:ILogging = LoggingImpl()
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
         NSURLProtocol.registerClass(HttpInterceptorProtocol)
+        logger.log(ILoggingLogLevel.INFO, message: "application:applicationDidFinishLaunching")
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
+        logger.log(ILoggingLogLevel.INFO, message: "application:applicationWillTerminate")
     }
 
     // MARK: - Core Data stack
