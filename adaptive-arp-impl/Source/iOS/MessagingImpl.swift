@@ -57,9 +57,8 @@ public class MessagingImpl : NSObject, IMessaging, MFMessageComposeViewControlle
     Class constructor
     */
     public override init() {
-        
-        application = AppContextImpl.sharedInstance.getContext() as UIApplication
-        webView = AppContextWebviewImpl.sharedInstance.getWebviewPrimary() as UIView
+        application = (AppRegistryImpl.sharedInstance.getPlatformContext()! as AppContextImpl).getContext() as UIApplication
+        webView = (AppRegistryImpl.sharedInstance.getPlatformContextWeb()! as AppContextWebviewImpl).getWebviewPrimary() as UIView
     }
     
     /**

@@ -52,10 +52,9 @@ public class VideoImpl : NSObject, IVideo {
     /**
     Class constructor
     */
-    override init() {
-        
-        webView = AppContextWebviewImpl().getWebviewPrimary() as UIView
-        application = AppContextImpl().getContext() as UIApplication
+    override init() {        
+        application = (AppRegistryImpl.sharedInstance.getPlatformContext()! as AppContextImpl).getContext() as UIApplication
+        webView = (AppRegistryImpl.sharedInstance.getPlatformContextWeb()! as AppContextWebviewImpl).getWebviewPrimary() as UIView
     }
     
     /**

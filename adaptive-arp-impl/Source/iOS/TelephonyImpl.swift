@@ -45,7 +45,7 @@ public class TelephonyImpl : NSObject, ITelephony {
     */
     public override init() {
         
-        application = AppContextImpl().getContext() as UIApplication
+        application = (AppRegistryImpl.sharedInstance.getPlatformContext()! as AppContextImpl).getContext() as UIApplication
     }
     
     /**

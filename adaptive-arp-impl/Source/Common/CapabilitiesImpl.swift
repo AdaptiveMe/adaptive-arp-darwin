@@ -62,10 +62,10 @@ public class CapabilitiesImpl : NSObject, ICapabilities {
     override init() {
         
         #if os(iOS)
-            application = AppContextImpl().getContext() as UIApplication
+            application = (AppRegistryImpl.sharedInstance.getPlatformContext()! as AppContextImpl).getContext() as UIApplication
             device = UIDevice.currentDevice()
         #elseif os(OSX)
-            application = AppContextImpl().getContext() as NSApplication
+            application = (AppRegistryImpl.sharedInstance.getPlatformContext()! as AppContextImpl).getContext() as NSApplication
         #endif
     }
     
