@@ -60,9 +60,7 @@ import Foundation
 public class GlobalizationImpl : NSObject, IGlobalization {
     
     /// i18n config file
-    let I18N_CONFIG_FILE: String = "i18n-config";
-    let I18N_CONFIG_FILE_EXTENSION: String = ".xml";
-    let I18N_CONFIG_FILE_DIRECTORY: String = "App.Source/config";
+    let I18N_CONFIG_FILE: String = "i18n-config.xml";
     let I18N_LANG_FILE: String = ".plist";
     
     /// Logging variable
@@ -83,7 +81,7 @@ public class GlobalizationImpl : NSObject, IGlobalization {
     :since: ARP1.0
     */
     private func getConfigFilePath() -> String {
-        return NSBundle.mainBundle().pathForResource(I18N_CONFIG_FILE, ofType: I18N_CONFIG_FILE_EXTENSION, inDirectory: I18N_CONFIG_FILE_DIRECTORY)!
+        return I18N_CONFIG_FILE
     }
     
     /**
@@ -96,7 +94,7 @@ public class GlobalizationImpl : NSObject, IGlobalization {
     :since: ARP1.0
     */
     private func getLanguageFilePath(locale: AdaptiveArpApi.Locale) -> String {
-        return NSBundle.mainBundle().pathForResource("\(locale.getLanguage()!)-\(locale.getCountry()!)", ofType: I18N_LANG_FILE, inDirectory: I18N_CONFIG_FILE_DIRECTORY)!
+        return "\(locale.getLanguage()!)-\(locale.getCountry()!)\(I18N_LANG_FILE)"
     }
     
     /**
@@ -109,7 +107,13 @@ public class GlobalizationImpl : NSObject, IGlobalization {
     public func getLocaleSupportedDescriptors() -> [String]? {
         
         // Read the i18n config file
-        let data: Foundation.NSData? = NSData(contentsOfFile: getConfigFilePath())
+        var resourceData : ResourceData? = AppResourceManager.sharedInstance.retrieveConfigResource(getConfigFilePath())
+        if resourceData == nil {
+            logger.log(ILoggingLogLevel.ERROR, category: "GlobalizationImpl", message: "Error reading i18n config file: \(getConfigFilePath())")
+            return nil
+        }
+        
+        let data: Foundation.NSData? = resourceData!.data
         if data == nil {
             logger.log(ILoggingLogLevel.ERROR, category: "GlobalizationImpl", message: "Error reading i18n config file: \(getConfigFilePath())")
             return nil
@@ -143,9 +147,14 @@ public class GlobalizationImpl : NSObject, IGlobalization {
     public func getResourceLiteral(key : String, locale : AdaptiveArpApi.Locale) -> String? {
         
         var filePath:String = getLanguageFilePath(locale)
+        var resourceData : ResourceData? = AppResourceManager.sharedInstance.retrieveConfigResource(filePath)
+        if resourceData == nil {
+            logger.log(ILoggingLogLevel.ERROR, category: "GlobalizationImpl", message: "Error reading i18n LANGUAGE file: \(filePath)")
+            return nil
+        }
         
         var anError : NSError?
-        let data: NSData? = NSData(contentsOfFile: filePath)
+        let data: NSData? = resourceData!.data
         
         if data == nil {
             logger.log(ILoggingLogLevel.ERROR, category: "GlobalizationImpl", message: "Error reading i18n LANGUAGE file: \(filePath)")
@@ -193,9 +202,14 @@ public class GlobalizationImpl : NSObject, IGlobalization {
         var swiftDict : Dictionary<String,String> = Dictionary<String,String>()
         
         var filePath:String = getLanguageFilePath(locale)
-        
+        var resourceData : ResourceData? = AppResourceManager.sharedInstance.retrieveConfigResource(filePath)
+        if resourceData == nil {
+            logger.log(ILoggingLogLevel.ERROR, category: "GlobalizationImpl", message: "Error reading i18n LANGUAGE file: \(filePath)")
+            return nil
+        }
+
         var anError : NSError?
-        let data: NSData? = NSData(contentsOfFile: filePath)
+        let data: NSData? = resourceData!.data
         
         if data == nil {
             logger.log(ILoggingLogLevel.ERROR, category: "GlobalizationImpl", message: "Error reading i18n LANGUAGE file: \(filePath)")

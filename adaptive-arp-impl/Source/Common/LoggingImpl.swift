@@ -69,7 +69,7 @@ public class LoggingImpl : NSObject, ILogging {
         switch level {
             
         case ILoggingLogLevel.DEBUG:
-            #if Debug
+            #if DEBUG
                 NSLog("[DEBUG - \(category)] \(message)")
             #endif
             

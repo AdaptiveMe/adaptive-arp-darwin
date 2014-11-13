@@ -23,7 +23,7 @@
 		4E9523901A113BBA009C4295 /* AdaptiveArpApi.framework in Embed Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C0EE1A0BE3470026ED0B /* AdaptiveArpApi.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4E9523911A113C01009C4295 /* AdaptiveArpApi.framework in Embedded Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C0EE1A0BE3470026ED0B /* AdaptiveArpApi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4EC1C0F51A0BE35E0026ED0B /* AdaptiveArpApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C0F21A0BE3470026ED0B /* AdaptiveArpApi.framework */; };
-		4EC1C0F61A0BE3690026ED0B /* AdaptiveArpApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C0EE1A0BE3470026ED0B /* AdaptiveArpApi.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		4EC1C0F61A0BE3690026ED0B /* AdaptiveArpApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C0EE1A0BE3470026ED0B /* AdaptiveArpApi.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		4EC1C17B1A0C05F90026ED0B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C1781A0C05E80026ED0B /* Alamofire.framework */; };
 		4EC1C17F1A0C06BC0026ED0B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C1461A0BEC910026ED0B /* Alamofire.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4EC1C1FA1A0C1E210026ED0B /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C1F71A0C1E170026ED0B /* SwiftyJSON.framework */; };
@@ -79,6 +79,11 @@
 		4EDB54591A0299B1008A2C4F /* TelephonyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB544F1A0299A8008A2C4F /* TelephonyImpl.swift */; };
 		4EDB545A1A0299B1008A2C4F /* VideoImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB54501A0299A8008A2C4F /* VideoImpl.swift */; };
 		4EDE72971A0CE37A00948F6E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C1191A0BEC760026ED0B /* Realm.framework */; };
+		4EDE8C831A14A4AA00098611 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDE8C811A14A3FD00098611 /* libc++.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
+		4EDE8C851A14A72900098611 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDE8C841A14A72900098611 /* RLMSupport.swift */; };
+		4EDE8C861A14A72900098611 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDE8C841A14A72900098611 /* RLMSupport.swift */; };
+		4EDE8C901A14AA3800098611 /* ResourceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDE8C8F1A14AA3800098611 /* ResourceData.swift */; };
+		4EDE8C911A14AA3800098611 /* ResourceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDE8C8F1A14AA3800098611 /* ResourceData.swift */; };
 		4EE6E4271A0CE6F500354446 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C1341A0BEC7D0026ED0B /* SQLite.framework */; };
 		4EE6E4371A0CE70400354446 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE6E4361A0CE70400354446 /* libsqlite3.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4EE6E43C1A0CE74A00354446 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C1301A0BEC7D0026ED0B /* SQLite.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -462,6 +467,10 @@
 		4EDB544E1A0299A8008A2C4F /* MessagingImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagingImpl.swift; sourceTree = "<group>"; };
 		4EDB544F1A0299A8008A2C4F /* TelephonyImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TelephonyImpl.swift; sourceTree = "<group>"; };
 		4EDB54501A0299A8008A2C4F /* VideoImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoImpl.swift; sourceTree = "<group>"; };
+		4EDE8C7F1A14A36000098611 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		4EDE8C811A14A3FD00098611 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		4EDE8C841A14A72900098611 /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
+		4EDE8C8F1A14AA3800098611 /* ResourceData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceData.swift; sourceTree = "<group>"; };
 		4EE6E4361A0CE70400354446 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/libsqlite3.dylib; sourceTree = DEVELOPER_DIR; };
 		4EE6E43D1A0CE75200354446 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		C3BB4C0E1A124CD4005C177C /* BrowserImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserImpl.swift; sourceTree = "<group>"; };
@@ -494,6 +503,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EDE8C831A14A4AA00098611 /* libc++.dylib in Frameworks */,
 				4EFABE261A13848700BD3A13 /* Realm.framework in Frameworks */,
 				4E1164AE1A0CF46700EC842A /* CryptoSwift.framework in Frameworks */,
 				4EE6E43E1A0CE75200354446 /* libsqlite3.dylib in Frameworks */,
@@ -518,6 +528,8 @@
 		4E722CE51A02815A00004247 = {
 			isa = PBXGroup;
 			children = (
+				4EDE8C811A14A3FD00098611 /* libc++.dylib */,
+				4EDE8C7F1A14A36000098611 /* Security.framework */,
 				4EE6E43D1A0CE75200354446 /* libsqlite3.dylib */,
 				4EE6E4361A0CE70400354446 /* libsqlite3.dylib */,
 				4EDB51691A029446008A2C4F /* Common */,
@@ -621,6 +633,7 @@
 		4EDB51691A029446008A2C4F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4EDE8C871A14A74500098611 /* Realm Support */,
 				4E6509291A1376B700B593F9 /* AppResourceManager.swift */,
 				4EDB516A1A029446008A2C4F /* AppContextImpl.swift */,
 				4EDB516B1A029446008A2C4F /* AppContextWebviewImpl.swift */,
@@ -740,6 +753,15 @@
 			);
 			name = OSX;
 			path = Source/OSX;
+			sourceTree = "<group>";
+		};
+		4EDE8C871A14A74500098611 /* Realm Support */ = {
+			isa = PBXGroup;
+			children = (
+				4EDE8C8F1A14AA3800098611 /* ResourceData.swift */,
+				4EDE8C841A14A72900098611 /* RLMSupport.swift */,
+			);
+			name = "Realm Support";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1166,12 +1188,14 @@
 				4EDB54271A029926008A2C4F /* AppRegistryImpl.swift in Sources */,
 				4EDB54161A029921008A2C4F /* I18NParser.swift in Sources */,
 				4EDB54441A02992F008A2C4F /* NetworkReachabilityImpl.swift in Sources */,
+				4EDE8C901A14AA3800098611 /* ResourceData.swift in Sources */,
 				4EDB54461A02992F008A2C4F /* RuntimeImpl.swift in Sources */,
 				4EDB54471A02992F008A2C4F /* SecurityImpl.swift in Sources */,
 				4ED4D1CC1A02CA4000CC854E /* HttpInterceptorProtocol.swift in Sources */,
 				4EDB54151A029921008A2C4F /* GeolocationDelegate.swift in Sources */,
 				4EDB54171A029921008A2C4F /* Utils.swift in Sources */,
 				4E65093C1A1376C900B593F9 /* AppResourceManager.swift in Sources */,
+				4EDE8C851A14A72900098611 /* RLMSupport.swift in Sources */,
 				4EDB542D1A029926008A2C4F /* DeviceImpl.swift in Sources */,
 				4EDB542C1A029926008A2C4F /* DatabaseImpl.swift in Sources */,
 				4EDB542B1A029926008A2C4F /* CapabilitiesImpl.swift in Sources */,
@@ -1203,6 +1227,7 @@
 				4EDB54421A02992E008A2C4F /* SessionImpl.swift in Sources */,
 				4EDB541A1A029925008A2C4F /* AppRegistryImpl.swift in Sources */,
 				4EDB54121A029920008A2C4F /* I18NParser.swift in Sources */,
+				4EDE8C911A14AA3800098611 /* ResourceData.swift in Sources */,
 				4EDB543D1A02992E008A2C4F /* NetworkReachabilityImpl.swift in Sources */,
 				4EDB543F1A02992E008A2C4F /* RuntimeImpl.swift in Sources */,
 				4EDB54401A02992E008A2C4F /* SecurityImpl.swift in Sources */,
@@ -1214,6 +1239,7 @@
 				4EDB541E1A029925008A2C4F /* CapabilitiesImpl.swift in Sources */,
 				4EDB54571A0299B1008A2C4F /* ContactImpl.swift in Sources */,
 				4E65093B1A1376C800B593F9 /* AppResourceManager.swift in Sources */,
+				4EDE8C861A14A72900098611 /* RLMSupport.swift in Sources */,
 				C3BB4C101A124D44005C177C /* BrowserImpl.swift in Sources */,
 				4EDB545A1A0299B1008A2C4F /* VideoImpl.swift in Sources */,
 				4EDB54581A0299B1008A2C4F /* MessagingImpl.swift in Sources */,
@@ -1345,10 +1371,11 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				SDKROOT = iphoneos;
 				SEPARATE_STRIP = NO;
 				STRIP_INSTALLED_PRODUCT = YES;
-				STRIP_STYLE = debugging;
+				STRIP_STYLE = "non-global";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1390,10 +1417,11 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				SDKROOT = iphoneos;
 				SEPARATE_STRIP = NO;
 				STRIP_INSTALLED_PRODUCT = YES;
-				STRIP_STYLE = debugging;
+				STRIP_STYLE = "non-global";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1515,14 +1543,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_OPTIMIZATION_LEVEL = fast;
 				INFOPLIST_FILE = AdaptiveArpImpliOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_MODULE_NAME = AdaptiveArpImpl;
 				PRODUCT_NAME = AdaptiveArpImpl;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Ounchecked";
 			};
 			name = Release;
 		};

@@ -33,7 +33,7 @@ var Adaptive = {
     
     version: "1.0",
     
-    basePath: "http://adaptive/",
+    basePath: "http://adaptiveapp/",
     
     callbacksCount : 0,
     callbacks : {},

@@ -13,8 +13,6 @@
 		4E04DB171A03D3E900DC4908 /* App in Resources */ = {isa = PBXBuildFile; fileRef = 4E04DB151A03D3E900DC4908 /* App */; };
 		4E59C62C1A10E24B00FFAE2F /* AdaptiveArpImpl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB4ED01A029063008A2C4F /* AdaptiveArpImpl.framework */; };
 		4E59C62F1A10E2B300FFAE2F /* AdaptiveArpImpl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB4ECC1A029063008A2C4F /* AdaptiveArpImpl.framework */; };
-		4E7F6EB31A0B9B15004EB6A5 /* App.Source in Resources */ = {isa = PBXBuildFile; fileRef = 4E04DB141A03D3DA00DC4908 /* App.Source */; };
-		4E7F6EB41A0B9B16004EB6A5 /* App.Source in Resources */ = {isa = PBXBuildFile; fileRef = 4E04DB141A03D3DA00DC4908 /* App.Source */; };
 		4E9523661A113A15009C4295 /* AdaptiveArpImpl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB4ECC1A029063008A2C4F /* AdaptiveArpImpl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4E95239C1A113C8A009C4295 /* AdaptiveArpImpl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB4ED01A029063008A2C4F /* AdaptiveArpImpl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4EDB4E531A028C89008A2C4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB4E521A028C89008A2C4F /* AppDelegate.swift */; };
@@ -564,7 +562,6 @@
 			files = (
 				4E04DB161A03D3E900DC4908 /* App in Resources */,
 				4EDB4E5A1A028C89008A2C4F /* Main.storyboard in Resources */,
-				4E7F6EB31A0B9B15004EB6A5 /* App.Source in Resources */,
 				4EDB4E5F1A028C89008A2C4F /* LaunchScreen.xib in Resources */,
 				4EDB4E5C1A028C89008A2C4F /* Images.xcassets in Resources */,
 			);
@@ -583,7 +580,6 @@
 			files = (
 				4E04DB171A03D3E900DC4908 /* App in Resources */,
 				4EDB4E811A028C9A008A2C4F /* Images.xcassets in Resources */,
-				4E7F6EB41A0B9B16004EB6A5 /* App.Source in Resources */,
 				4EDB4E841A028C9A008A2C4F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -891,6 +887,7 @@
 				);
 				INFOPLIST_FILE = AdaptiveArpRtiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/Frameworks/AdaptiveArpImpl.framework/Frameworks";
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
@@ -907,6 +904,7 @@
 				COMPRESS_PNG_FILES = YES;
 				INFOPLIST_FILE = AdaptiveArpRtiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/Frameworks/AdaptiveArpImpl.framework/Frameworks";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "cfc84957-253c-46a0-b7f1-00b13e3b360e";
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";

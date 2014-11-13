@@ -40,14 +40,13 @@ public class HttpInterceptorProtocol : NSURLProtocol {
     
     /// Connection
     var connection: NSURLConnection!
-    
     /// Key for intercepting the requests
     public class var httpInterceptorKey: String {
         return "HttpInterceptorProtocolHandledKey"
     }
     
     /// Base path for adaptive requests
-    let adaptiveBasePath:NSString = "http://adaptive/"
+    let adaptiveBasePath:NSString = "http://adaptiveapp/"
     
     /// Constructor
     override public init() {
@@ -98,7 +97,19 @@ public class HttpInterceptorProtocol : NSURLProtocol {
             
             logger.log(ILoggingLogLevel.DEBUG, category:"HttpInterceptorProtocol", message: "[\(method)]: \(url)")
             
-            if url.rangeOfString(adaptiveBasePath) != nil {
+            if url.hasPrefix(adaptiveBasePath) && method == "GET" {
+                
+                var resourceData = AppResourceManager.sharedInstance.retrieveWebResource(newRequest.URL!.path!)
+                
+                if resourceData != nil {
+                    var response = NSURLResponse(URL: self.request.URL, MIMEType: resourceData!.raw_type, expectedContentLength: resourceData!.data.length, textEncodingName: "utf-8")
+                    self.client!.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: .NotAllowed)
+                    self.client!.URLProtocol(self, didLoadData: resourceData!.data)
+                    self.client!.URLProtocolDidFinishLoading(self)
+                } else {
+                    /// MARK: return 404
+                }
+            } else if url.rangeOfString(adaptiveBasePath) != nil {
                 
                 // Adaptive Native calls
                 
