@@ -54,7 +54,7 @@ class GlobalizationTest: XCTestCase {
     /// Operations to get the locales for the application
     func testGetLocaleSupportedDescriptors() {
         
-        var descriptors:[String] = globalizationImpl.getLocaleSupportedDescriptors()!
+        var descriptors:[Locale] = globalizationImpl.getLocaleSupportedDescriptors()!
         XCTAssert(descriptors.count > 0, "There is a problem reading the i18n config path")
     }
     
