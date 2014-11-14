@@ -104,7 +104,7 @@ public class GlobalizationImpl : NSObject, IGlobalization {
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    public func getLocaleSupportedDescriptors() -> [Locale]? {
+    public func getLocaleSupportedDescriptors() -> [AdaptiveArpApi.Locale]? {
         /// TODO: Migrate from [String] to [Locale]
         return nil
 /*
