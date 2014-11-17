@@ -105,9 +105,6 @@ public class GlobalizationImpl : NSObject, IGlobalization {
     :since: ARP1.0
     */
     public func getLocaleSupportedDescriptors() -> [AdaptiveArpApi.Locale]? {
-        /// TODO: Migrate from [String] to [Locale]
-        return nil
-/*
         // Read the i18n config file
         var resourceData : ResourceData? = AppResourceManager.sharedInstance.retrieveConfigResource(getConfigFilePath())
         if resourceData == nil {
@@ -134,7 +131,6 @@ public class GlobalizationImpl : NSObject, IGlobalization {
             logger.log(ILoggingLogLevel.ERROR, category: "GlobalizationImpl", message: "Error parsing i18n config file: \(getConfigFilePath())")
             return nil
         }
-*/
     }
     
     /**

@@ -39,7 +39,7 @@ public class I18NParser : NSObject, NSXMLParserDelegate {
     let logger : ILogging = LoggingImpl()
     
     /// Locales supported (filled by the getLocaleSupportedDescriptors method)
-    var locales: [String]
+    var locales: [Locale]
     
     let I18N_SUPLANG_ELEM: String = "supportedLanguage"
     let I18N_SUPLANG_ATTR_LANG: String = "language"
@@ -49,7 +49,7 @@ public class I18NParser : NSObject, NSXMLParserDelegate {
     Class constructor
     */
     override init(){
-        locales = [String]()
+        locales = [Locale]()
     }
     
     /**
@@ -66,7 +66,11 @@ public class I18NParser : NSObject, NSXMLParserDelegate {
         // Store
         if elementName == I18N_SUPLANG_ELEM {
             logger.log(ILoggingLogLevel.DEBUG, category: "GlobalizationImpl", message: "Reading language: \(attributeDict[I18N_SUPLANG_ATTR_LANG])")
-            locales.append("\(attributeDict[I18N_SUPLANG_ATTR_LANG]!)-\(attributeDict[I18N_SUPLANG_ATTR_CNTR]!)")
+            
+            var locale:AdaptiveArpApi.Locale = AdaptiveArpApi.Locale()
+            locale.setLanguage("\(attributeDict[I18N_SUPLANG_ATTR_CNTR]!)")
+            locale.setCountry("\(attributeDict[I18N_SUPLANG_ATTR_CNTR]!)")
+            locales.append(locale)
         }
     }
     
@@ -75,7 +79,7 @@ public class I18NParser : NSObject, NSXMLParserDelegate {
     
     :returns: List of locales
     */
-    public func getLocales() -> [String] {
+    public func getLocales() -> [Locale] {
         return locales
     }
 }
