@@ -113,14 +113,18 @@ public class ContactImpl : NSObject, IContact {
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    func getLabel(nonFormatedLabel: String) -> String {
+    func getLabel(nonFormatedLabel: String?) -> String {
         
-        for (key, value) in PIM_LABELS {
-            if key == nonFormatedLabel {
-                return value
+        if let label = nonFormatedLabel {
+            for (key, value) in PIM_LABELS {
+                if key == nonFormatedLabel {
+                    return value
+                }
             }
+            return "other"
+        } else {
+            return "other"
         }
-        return "other"
     }
     
     /**
@@ -474,7 +478,12 @@ public class ContactImpl : NSObject, IContact {
                             var contactAddress: ContactAddress = ContactAddress()
                             
                             var address = Unmanaged.fromOpaque(ABMultiValueCopyValueAtIndex(addresses, i).toOpaque()).takeUnretainedValue() as NSDictionary
-                            var addressLabel:String = self.getLabel(Unmanaged.fromOpaque(ABMultiValueCopyLabelAtIndex(addresses, i).toOpaque()).takeUnretainedValue() as NSObject as String)
+                            
+                            var optAD = ABMultiValueCopyLabelAtIndex(addresses, i)?.toOpaque()
+                            if let AD = optAD {
+                                var addressLabel:String = self.getLabel(Unmanaged.fromOpaque(AD).takeUnretainedValue() as NSObject as? String)
+                                contactAddress.setType(self.getAddressTypeLabel(addressLabel))
+                            }
                             
                             var city:String = (address["City"] != nil) ? address["City"] as String:""
                             var country:String = (address["Country"] != nil) ? address["Country"] as String:""
@@ -485,7 +494,6 @@ public class ContactImpl : NSObject, IContact {
                             
                             var fullAddress:String = (street + " " + zip + ", " + city + " " + country + " (" + countryCode + ")")
                             
-                            contactAddress.setType(self.getAddressTypeLabel(addressLabel))
                             contactAddress.setAddress(fullAddress)
                             contactAddressList.append(contactAddress)
                         }
@@ -510,12 +518,16 @@ public class ContactImpl : NSObject, IContact {
                             var contactEmail: ContactEmail = ContactEmail()
                             
                             var email:String = Unmanaged.fromOpaque(ABMultiValueCopyValueAtIndex(emails, i).toOpaque()).takeUnretainedValue() as NSObject as String
-                            var emailLabel:String = self.getLabel(Unmanaged.fromOpaque(ABMultiValueCopyLabelAtIndex(emails, i).toOpaque()).takeUnretainedValue() as NSObject as String)
+                            
+                            var optEL = ABMultiValueCopyLabelAtIndex(emails, i)?.toOpaque()
+                            if let EL = optEL {
+                                var phoneLabel:String = self.getLabel(Unmanaged.fromOpaque(EL).takeUnretainedValue() as NSObject as? String)
+                                contactEmail.setType(self.getMailTypeLabel(phoneLabel))
+                            }
                             
                             contactEmail.setEmail(email)
                             // in ios there is no primary email (we put the first apperance)
                             i == 0 ? contactEmail.setPrimary(true) : contactEmail.setPrimary(false)
-                            contactEmail.setType(self.getMailTypeLabel(emailLabel))
                             contactEmailsList.append(contactEmail)
                         }
                         
@@ -539,10 +551,14 @@ public class ContactImpl : NSObject, IContact {
                             var contactPhone: ContactPhone = ContactPhone()
                             
                             var phone:String = Unmanaged.fromOpaque(ABMultiValueCopyValueAtIndex(phones, i).toOpaque()).takeUnretainedValue() as NSObject as String
-                            var phoneLabel:String = self.getLabel(Unmanaged.fromOpaque(ABMultiValueCopyLabelAtIndex(phones, i).toOpaque()).takeUnretainedValue() as NSObject as String)
+                            
+                            var optPL = ABMultiValueCopyLabelAtIndex(phones, i)?.toOpaque()
+                            if let PL = optPL {
+                                var phoneLabel:String = self.getLabel(Unmanaged.fromOpaque(PL).takeUnretainedValue() as NSObject as? String)
+                                contactPhone.setPhoneType(self.getPhoneTypeLabel(phoneLabel))
+                            }
                             
                             contactPhone.setPhone(phone)
-                            contactPhone.setPhoneType(self.getPhoneTypeLabel(phoneLabel))
                             contactPhoneList.append(contactPhone)
                         }
                         

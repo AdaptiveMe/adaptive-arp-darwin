@@ -44,6 +44,10 @@
 		C38C36931A13B9B100BC26CE /* ContactTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34E61E41A0A4A240039A104 /* ContactTest.swift */; };
 		C38C36941A13B9B100BC26CE /* MessagingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4C111A126171005C177C /* MessagingTest.swift */; };
 		C38C36951A13B9B100BC26CE /* TelephonyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4C201A126FAE005C177C /* TelephonyTest.swift */; };
+		C3ABF96D1A19F3530000BBA2 /* NetworkReachabilityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ABF96C1A19F3530000BBA2 /* NetworkReachabilityTest.swift */; };
+		C3ABF96E1A19F3530000BBA2 /* NetworkReachabilityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ABF96C1A19F3530000BBA2 /* NetworkReachabilityTest.swift */; };
+		C3ABF9701A1A184D0000BBA2 /* ServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ABF96F1A1A184D0000BBA2 /* ServiceTest.swift */; };
+		C3ABF9711A1A184D0000BBA2 /* ServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ABF96F1A1A184D0000BBA2 /* ServiceTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +173,8 @@
 		4EDB4EC41A029062008A2C4F /* adaptive-arp-impl.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "adaptive-arp-impl.xcodeproj"; path = "../adaptive-arp-impl/adaptive-arp-impl.xcodeproj"; sourceTree = "<group>"; };
 		C34E61E41A0A4A240039A104 /* ContactTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTest.swift; sourceTree = "<group>"; };
 		C38C36831A13A44600BC26CE /* GlobalizationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalizationTest.swift; sourceTree = "<group>"; };
+		C3ABF96C1A19F3530000BBA2 /* NetworkReachabilityTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityTest.swift; sourceTree = "<group>"; };
+		C3ABF96F1A1A184D0000BBA2 /* ServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTest.swift; sourceTree = "<group>"; };
 		C3BB4BE01A11F4AA005C177C /* DatabaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseTest.swift; sourceTree = "<group>"; };
 		C3BB4BED1A122B41005C177C /* DeviceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceTest.swift; sourceTree = "<group>"; };
 		C3BB4BEE1A122B41005C177C /* LoggingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingTest.swift; sourceTree = "<group>"; };
@@ -349,8 +355,10 @@
 				C3BB4BED1A122B41005C177C /* DeviceTest.swift */,
 				C38C36831A13A44600BC26CE /* GlobalizationTest.swift */,
 				C3BB4BEE1A122B41005C177C /* LoggingTest.swift */,
+				C3ABF96C1A19F3530000BBA2 /* NetworkReachabilityTest.swift */,
 				C3BB4BEF1A122B41005C177C /* OSTest.swift */,
 				C3BB4BF01A122B41005C177C /* SecurityTest.swift */,
+				C3ABF96F1A1A184D0000BBA2 /* ServiceTest.swift */,
 				C3BB4BF11A122B41005C177C /* SessionTest.swift */,
 			);
 			path = AdaptiveArpRtTests;
@@ -611,6 +619,7 @@
 				C38C36941A13B9B100BC26CE /* MessagingTest.swift in Sources */,
 				C38C36921A13B9B100BC26CE /* BrowserTest.swift in Sources */,
 				C38C36861A13B9A100BC26CE /* DeviceTest.swift in Sources */,
+				C3ABF9701A1A184D0000BBA2 /* ServiceTest.swift in Sources */,
 				C38C36851A13B9A100BC26CE /* DatabaseTest.swift in Sources */,
 				C38C36841A13A44600BC26CE /* GlobalizationTest.swift in Sources */,
 				C38C368A1A13B9A100BC26CE /* SessionTest.swift in Sources */,
@@ -619,6 +628,7 @@
 				C38C36881A13B9A100BC26CE /* OSTest.swift in Sources */,
 				C38C36871A13B9A100BC26CE /* LoggingTest.swift in Sources */,
 				C38C36891A13B9A100BC26CE /* SecurityTest.swift in Sources */,
+				C3ABF96D1A19F3530000BBA2 /* NetworkReachabilityTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,10 +649,12 @@
 				C38C368D1A13B9A200BC26CE /* GlobalizationTest.swift in Sources */,
 				C38C368B1A13B9A200BC26CE /* DatabaseTest.swift in Sources */,
 				C38C368C1A13B9A200BC26CE /* DeviceTest.swift in Sources */,
+				C3ABF96E1A19F3530000BBA2 /* NetworkReachabilityTest.swift in Sources */,
 				C38C36911A13B9A200BC26CE /* SessionTest.swift in Sources */,
 				C38C368F1A13B9A200BC26CE /* OSTest.swift in Sources */,
 				C38C368E1A13B9A200BC26CE /* LoggingTest.swift in Sources */,
 				C38C36901A13B9A200BC26CE /* SecurityTest.swift in Sources */,
+				C3ABF9711A1A184D0000BBA2 /* ServiceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
