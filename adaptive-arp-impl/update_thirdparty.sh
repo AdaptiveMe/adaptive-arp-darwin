@@ -26,7 +26,7 @@
 #
 # =====================================================================================================================
 
-array=( Alamofire CryptoSwift realm-cocoa SQLite.swift SwiftyJSON )
+array=( Alamofire realm-cocoa SQLite.swift SwiftyJSON )
 for project in "${array[@]}"
 do
     echo Processing third-party module $project .
