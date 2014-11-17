@@ -107,7 +107,10 @@ public class HttpInterceptorProtocol : NSURLProtocol {
                     self.client!.URLProtocol(self, didLoadData: resourceData!.data)
                     self.client!.URLProtocolDidFinishLoading(self)
                 } else {
-                    /// MARK: return 404
+                    var response : NSHTTPURLResponse! = NSHTTPURLResponse(URL: self.request.URL, statusCode: 404, HTTPVersion: "1.1", headerFields: nil)
+                    self.client!.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: .NotAllowed)
+                    self.client!.URLProtocol(self, didLoadData: "<html><body><h1>404</h1></body></html>".dataUsingEncoding(NSUTF8StringEncoding)!)
+                    self.client!.URLProtocolDidFinishLoading(self)
                 }
             } else if url.rangeOfString(adaptiveBasePath) != nil {
                 
@@ -146,7 +149,7 @@ public class HttpInterceptorProtocol : NSURLProtocol {
                 self.connection = NSURLConnection(request: newRequest, delegate: self)
             }
         } else {
-            logger.log(ILoggingLogLevel.ERROR, category:"HttpInterceptorProtocol", message: "The url recived is null")
+            logger.log(ILoggingLogLevel.ERROR, category:"HttpInterceptorProtocol", message: "The url received is null")
         }
         
         
