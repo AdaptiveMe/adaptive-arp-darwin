@@ -53,7 +53,6 @@ class ViewController: UIViewController {
         
         // Create the webview
         self.webView = UIWebView(frame: self.webViewContainer.bounds)
-        
         (AppRegistryImpl.sharedInstance.getPlatformContextWeb()! as AppContextWebviewImpl).setWebviewPrimary(self.webView!)
         
         self.webView?.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
@@ -62,11 +61,9 @@ class ViewController: UIViewController {
     
     /// This method is called after the view controller has loaded its view hierarchy into memory. This method is called regardless of whether the view hierarchy was loaded from a nib file or created programmatically in the loadView method.
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         
-        let path = NSBundle.mainBundle().pathForResource("index", ofType: ".html", inDirectory: "App.Source/www")
-        var req = NSURLRequest(URL: NSURL(string: "http://adaptiveapp/index.html")!)
+        var req = NSURLRequest(URL: NSURL(string: "http://adaptiveapp/indexx.html")!)
         (self.webView! as UIWebView).loadRequest(req)
 
         // MARK: Waiting on Bug fix to support NSProtocol
@@ -79,9 +76,18 @@ class ViewController: UIViewController {
 
     }
     
+    override func supportedInterfaceOrientations() -> Int {
+        /// TODO - delegate to HTML app
+        return Int(UIInterfaceOrientationMask.All.rawValue)
+    }
+    
+    override func shouldAutorotate() -> Bool {
+        /// TODO - delegate to HTML app
+        return true
+    }
+    
     /// Sent to the view controller when the app receives a memory warning.
     override func didReceiveMemoryWarning() {
-        
         super.didReceiveMemoryWarning()
     }
 }
