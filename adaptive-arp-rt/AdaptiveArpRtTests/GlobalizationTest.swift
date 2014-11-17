@@ -36,7 +36,7 @@ import AdaptiveArpApi
 class GlobalizationTest: XCTestCase {
     
     var globalizationImpl:GlobalizationImpl!
-    var locale:Locale!
+    var locale:AdaptiveArpApi.Locale!
     
     let key:String = "hello-world"
     
@@ -44,7 +44,7 @@ class GlobalizationTest: XCTestCase {
         super.setUp()
         
         globalizationImpl = GlobalizationImpl()
-        locale = Locale(language: "en", country: "EN")
+        locale = AdaptiveArpApi.Locale(language: "en", country: "EN")
     }
     
     override func tearDown() {
@@ -54,7 +54,7 @@ class GlobalizationTest: XCTestCase {
     /// Operations to get the locales for the application
     func testGetLocaleSupportedDescriptors() {
         
-        var descriptors:[Locale] = globalizationImpl.getLocaleSupportedDescriptors()!
+        var descriptors:[AdaptiveArpApi.Locale] = globalizationImpl.getLocaleSupportedDescriptors()!
         XCTAssert(descriptors.count > 0, "There is a problem reading the i18n config path")
     }
     
