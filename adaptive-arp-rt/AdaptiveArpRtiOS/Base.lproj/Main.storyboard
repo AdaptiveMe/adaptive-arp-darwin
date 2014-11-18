@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QnW-fj-GWg">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6246"/>
@@ -15,12 +15,13 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" suppressesIncrementalRendering="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fIF-OF-Pbm">
+                            <webView contentMode="scaleToFill" misplaced="YES" mediaPlaybackRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIF-OF-Pbm">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -32,7 +33,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <navigationItem key="navigationItem" title="Home" id="l01-cM-gRJ"/>
                     <connections>
                         <outlet property="webView" destination="fIF-OF-Pbm" id="zDQ-Ih-utC"/>
                         <segue destination="7z9-Lz-DZ2" kind="show" identifier="showBrowser" id="iim-Eo-MGP"/>
@@ -40,12 +41,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="561" y="239"/>
+            <point key="canvasLocation" x="1523" y="229"/>
         </scene>
-        <!--View Controller-->
+        <!--Browser-->
         <scene sceneID="JU9-II-yPe">
             <objects>
-                <viewController id="7z9-Lz-DZ2" sceneMemberID="viewController">
+                <viewController title="Browser" id="7z9-Lz-DZ2" customClass="BrowserViewController" customModule="AdaptiveArpRtiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fIb-fz-A2w"/>
                         <viewControllerLayoutGuide type="bottom" id="59v-C8-bCD"/>
@@ -53,12 +54,47 @@
                     <view key="view" contentMode="scaleToFill" id="oZB-gw-edC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I2X-18-iVa">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="I2X-18-iVa" firstAttribute="top" secondItem="fIb-fz-A2w" secondAttribute="bottom" id="WpO-EN-H01"/>
+                            <constraint firstItem="I2X-18-iVa" firstAttribute="bottom" secondItem="59v-C8-bCD" secondAttribute="top" id="fB2-F2-Asg"/>
+                            <constraint firstItem="I2X-18-iVa" firstAttribute="leading" secondItem="oZB-gw-edC" secondAttribute="leading" id="m3I-Au-dRU"/>
+                            <constraint firstAttribute="trailing" secondItem="I2X-18-iVa" secondAttribute="trailing" id="vtM-b2-rYM"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Browser" id="TdO-fr-1dU"/>
+                    <connections>
+                        <outlet property="webView" destination="I2X-18-iVa" id="LAF-SG-Hoc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wXH-gS-Cmp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1539" y="229"/>
+            <point key="canvasLocation" x="2351" y="229"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hvr-id-nWx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QnW-fj-GWg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9Yo-Yu-tLk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="lx4-pP-IAr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9iv-4u-LkK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="711" y="229"/>
         </scene>
     </scenes>
 </document>

@@ -31,7 +31,11 @@
 
 import Foundation
 import AdaptiveArpApi
-
+#if os(iOS)
+import UIKit
+#elseif os(OSX)
+import Cocoa
+#endif
 
 public class HttpInterceptorProtocol : NSURLProtocol {    
     
@@ -40,13 +44,21 @@ public class HttpInterceptorProtocol : NSURLProtocol {
     
     /// Connection
     var connection: NSURLConnection!
+    
+    /// Async Request Queue
+    private class var queue : NSOperationQueue {
+        return NSOperationQueue()
+    }
+    
     /// Key for intercepting the requests
-    public class var httpInterceptorKey: String {
+    private class var httpInterceptorKey: String {
         return "HttpInterceptorProtocolHandledKey"
     }
     
     /// Base path for adaptive requests
-    let adaptiveBasePath:NSString = "http://adaptiveapp/"
+    private class var adaptiveBasePath:NSString {
+        return "http://adaptiveapp/"
+    }
     
     /// Constructor
     override public init() {
@@ -55,8 +67,11 @@ public class HttpInterceptorProtocol : NSURLProtocol {
     
     /// Initializes an NSURLProtocol object.
     override public init(request: NSURLRequest, cachedResponse: NSCachedURLResponse?, client: NSURLProtocolClient?) {
-        super.init(request: request, cachedResponse: cachedResponse, client: client)
+        var newRequest:NSMutableURLRequest = request.mutableCopy() as NSMutableURLRequest
+        newRequest.setValue("true", forHTTPHeaderField: HttpInterceptorProtocol.httpInterceptorKey)
+        super.init(request: newRequest, cachedResponse: cachedResponse, client: client)
     }
+    
     
     /// Returns whether the protocol subclass can handle the specified request.
     override public class func canInitWithRequest(request: NSURLRequest) -> Bool {
@@ -66,13 +81,28 @@ public class HttpInterceptorProtocol : NSURLProtocol {
         var method = request.HTTPMethod
         var url = request.URL.absoluteString
         
+        if request.valueForHTTPHeaderField(httpInterceptorKey) == nil {
+            return true
+        } else if NSURLProtocol.propertyForKey(httpInterceptorKey, inRequest: request) == nil {
+            return true
+        } else {
+            return false
+        }
+        /*
         if NSURLProtocol.propertyForKey(HttpInterceptorProtocol.httpInterceptorKey, inRequest: request) != nil {
+            // We're already managing this request.
             return false
         } else {
-            logger.log(ILoggingLogLevel.DEBUG, category:"HttpInterceptorProtocol", message: "[\(method)]: \(url!)")
-            return true
+            if NSString(string: url!).hasPrefix(adaptiveBasePath) {
+                logger.log(ILoggingLogLevel.DEBUG, category:"HttpInterceptorProtocol", message: "[\(method)]: \(url!)")
+                return true
+            } else {
+                return true
+            }
         }
+        */
     }
+    
     
     /// Starts protocol-specific loading of the request. When this method is called, the subclass implementation should start loading the request, providing feedback to the URL loading system via the NSURLProtocolClient protocol.
     override public func startLoading() {
@@ -87,7 +117,6 @@ public class HttpInterceptorProtocol : NSURLProtocol {
         // newHeaders.setValue("Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)", forKey: "User-Agent")
         // newRequest.allHTTPHeaderFields = newHeaders
         
-        NSURLProtocol.setProperty(true, forKey: HttpInterceptorProtocol.httpInterceptorKey, inRequest: newRequest)
         
         // HOWTO: referer
         // var referer:String? = request.valueForHTTPHeaderField("referer")
@@ -97,7 +126,7 @@ public class HttpInterceptorProtocol : NSURLProtocol {
             
             logger.log(ILoggingLogLevel.DEBUG, category:"HttpInterceptorProtocol", message: "[\(method)]: \(url)")
             
-            if url.hasPrefix(adaptiveBasePath) && method == "GET" {
+            if url.hasPrefix(HttpInterceptorProtocol.adaptiveBasePath) && method == "GET" {
                 
                 var resourceData = AppResourceManager.sharedInstance.retrieveWebResource(newRequest.URL!.path!)
                 
@@ -112,7 +141,7 @@ public class HttpInterceptorProtocol : NSURLProtocol {
                     self.client!.URLProtocol(self, didLoadData: "<html><body><h1>404</h1></body></html>".dataUsingEncoding(NSUTF8StringEncoding)!)
                     self.client!.URLProtocolDidFinishLoading(self)
                 }
-            } else if url.rangeOfString(adaptiveBasePath) != nil {
+            } else if url.rangeOfString(HttpInterceptorProtocol.adaptiveBasePath) != nil {
                 
                 // Adaptive Native calls
                 
@@ -143,10 +172,20 @@ public class HttpInterceptorProtocol : NSURLProtocol {
                 self.client!.URLProtocolDidFinishLoading(self)
                 
             } else {
-                
                 // Other resources (file://)
                 
-                self.connection = NSURLConnection(request: newRequest, delegate: self)
+                NSURLProtocol.setProperty("", forKey: HttpInterceptorProtocol.httpInterceptorKey, inRequest: newRequest)
+                NSURLConnection.sendAsynchronousRequest(newRequest, queue: HttpInterceptorProtocol.queue, completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+                    if (error == nil) {
+                        self.client!.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: .NotAllowed)
+                        self.client!.URLProtocol(self, didLoadData: data)
+                        self.client!.URLProtocolDidFinishLoading(self)
+                        NSURLProtocol.removePropertyForKey(HttpInterceptorProtocol.httpInterceptorKey, inRequest: newRequest)
+                    } else {
+                        self.client!.URLProtocol(self, didFailWithError: error)
+                        NSURLProtocol.removePropertyForKey(HttpInterceptorProtocol.httpInterceptorKey, inRequest: newRequest)
+                    }
+                })
             }
         } else {
             logger.log(ILoggingLogLevel.ERROR, category:"HttpInterceptorProtocol", message: "The url received is null")
@@ -196,12 +235,14 @@ public class HttpInterceptorProtocol : NSURLProtocol {
     func connection(connection: NSURLConnection!, didReceiveData data: NSData!) {
         
         self.client!.URLProtocol(self, didLoadData: data)
+
     }
     
     /// Sent when a connection has finished loading successfully.
     func connectionDidFinishLoading(connection: NSURLConnection!) {
         
         self.client!.URLProtocolDidFinishLoading(self)
+
     }
     
     /// Sent when a connection fails to load its request successfully.

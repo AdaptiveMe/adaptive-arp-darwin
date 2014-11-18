@@ -26,6 +26,7 @@
 		4EDB4E7F1A028C9A008A2C4F /* AdaptiveArpRtOSX.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB4E7E1A028C9A008A2C4F /* AdaptiveArpRtOSX.xcdatamodeld */; };
 		4EDB4E811A028C9A008A2C4F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB4E801A028C9A008A2C4F /* Images.xcassets */; };
 		4EDB4E841A028C9A008A2C4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB4E821A028C9A008A2C4F /* Main.storyboard */; };
+		4EEFE0831A1BA81500E0BDE3 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEFE0821A1BA81500E0BDE3 /* BrowserViewController.swift */; };
 		C38C36841A13A44600BC26CE /* GlobalizationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38C36831A13A44600BC26CE /* GlobalizationTest.swift */; };
 		C38C36851A13B9A100BC26CE /* DatabaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BE01A11F4AA005C177C /* DatabaseTest.swift */; };
 		C38C36861A13B9A100BC26CE /* DeviceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BED1A122B41005C177C /* DeviceTest.swift */; };
@@ -171,6 +172,7 @@
 		4EDB4E891A028C9A008A2C4F /* AdaptiveArpRtOSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdaptiveArpRtOSXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EDB4E8E1A028C9A008A2C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EDB4EC41A029062008A2C4F /* adaptive-arp-impl.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "adaptive-arp-impl.xcodeproj"; path = "../adaptive-arp-impl/adaptive-arp-impl.xcodeproj"; sourceTree = "<group>"; };
+		4EEFE0821A1BA81500E0BDE3 /* BrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 		C34E61E41A0A4A240039A104 /* ContactTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTest.swift; sourceTree = "<group>"; };
 		C38C36831A13A44600BC26CE /* GlobalizationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalizationTest.swift; sourceTree = "<group>"; };
 		C3ABF96C1A19F3530000BBA2 /* NetworkReachabilityTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityTest.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				4EDB4E5D1A028C89008A2C4F /* LaunchScreen.xib */,
 				4EDB4E541A028C89008A2C4F /* AdaptiveArpRtiOS.xcdatamodeld */,
 				4EDB4E501A028C89008A2C4F /* Supporting Files */,
+				4EEFE0821A1BA81500E0BDE3 /* BrowserViewController.swift */,
 			);
 			path = AdaptiveArpRtiOS;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EDB4E571A028C89008A2C4F /* ViewController.swift in Sources */,
+				4EEFE0831A1BA81500E0BDE3 /* BrowserViewController.swift in Sources */,
 				4EDB4E531A028C89008A2C4F /* AppDelegate.swift in Sources */,
 				4EDB4E551A028C89008A2C4F /* AdaptiveArpRtiOS.xcdatamodeld in Sources */,
 			);

@@ -49,16 +49,13 @@ class ViewController: UIViewController {
     /// The view controller calls this method when its view property is requested but is currently nil. This method loads or creates a view and assigns it to the view property.
     override func loadView() {
         super.loadView()
-        //self.edgesForExtendedLayout=UIRectEdge.None;
-        //self.extendedLayoutIncludesOpaqueBars=true;
-        //self.automaticallyAdjustsScrollViewInsets=false;
         // Create the webview
-        (AppRegistryImpl.sharedInstance.getPlatformContextWeb()! as AppContextWebviewImpl).setWebviewPrimary(self.webView!)
     }
     
     /// This method is called after the view controller has loaded its view hierarchy into memory. This method is called regardless of whether the view hierarchy was loaded from a nib file or created programmatically in the loadView method.
     override func viewDidLoad() {
         super.viewDidLoad()
+        (AppRegistryImpl.sharedInstance.getPlatformContextWeb()! as AppContextWebviewImpl).setWebviewPrimary(self.webView!)
         var req = NSURLRequest(URL: NSURL(string: "http://adaptiveapp/index.html")!)
         (self.webView! as UIWebView).loadRequest(req)
 
@@ -68,13 +65,39 @@ class ViewController: UIViewController {
         } else {
             (self.webView! as UIWebView).loadRequest(req)
         }*/
+        self.navigationController?.view.backgroundColor = self.view.backgroundColor
+        //self.navigationController?.navigationBar.backgroundColor = self.view.backgroundColor
+        
 
+    }
+    var tested : Bool = false;
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = true
     }
     
     override func viewDidAppear(animated: Bool) {
-        self.performSegueWithIdentifier("showBrowser", sender: self)
+
+        /// Uncomment to test segues
+        /*
+        if (!tested) {
+            self.performSegueWithIdentifier("showBrowser", sender: self)
+            tested = true
+        }
+        */
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.destinationViewController is BrowserViewController) {
+            var browserView : BrowserViewController = segue.destinationViewController as BrowserViewController
+            self.navigationItem.title = "App"
+            browserView.navigationBarBackLabel = "Back"
+            browserView.navigationBarHidden = false
+            browserView.navigationBarTitle = "External Browser"
+            browserView.navigationUrl = NSURL(string: "http://cdn.sencha.io/touch/sencha-touch-2.4.1/examples/kitchensink/index.html")
+            //browserView.navigationUrl = NSURL(string: "http://www.google.com")
+        }
+    }
     
     override func supportedInterfaceOrientations() -> Int {
         /// TODO - delegate to HTML app
