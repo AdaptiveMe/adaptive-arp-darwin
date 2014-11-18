@@ -35,14 +35,13 @@ import AdaptiveArpApi
 
 class ViewController: UIViewController {
     
-    /// Webview container
-    @IBOutlet weak var webViewContainer: UIView!
-    
+    /// Webview
+    @IBOutlet weak var webView: UIWebView!
     /// Logging variable
     let logger:ILogging = LoggingImpl()
     
     /// Webview
-    var webView:UIView?
+
     
     /// Aplication Context Webview
     //var appContextWebview:AppContextWebviewImpl?
@@ -50,20 +49,17 @@ class ViewController: UIViewController {
     /// The view controller calls this method when its view property is requested but is currently nil. This method loads or creates a view and assigns it to the view property.
     override func loadView() {
         super.loadView()
-        
+        //self.edgesForExtendedLayout=UIRectEdge.None;
+        //self.extendedLayoutIncludesOpaqueBars=true;
+        //self.automaticallyAdjustsScrollViewInsets=false;
         // Create the webview
-        self.webView = UIWebView(frame: self.webViewContainer.bounds)
         (AppRegistryImpl.sharedInstance.getPlatformContextWeb()! as AppContextWebviewImpl).setWebviewPrimary(self.webView!)
-        
-        self.webView?.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
-        self.webViewContainer.addSubview(self.webView!)
     }
     
     /// This method is called after the view controller has loaded its view hierarchy into memory. This method is called regardless of whether the view hierarchy was loaded from a nib file or created programmatically in the loadView method.
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        var req = NSURLRequest(URL: NSURL(string: "http://adaptiveapp/indexx.html")!)
+        var req = NSURLRequest(URL: NSURL(string: "http://adaptiveapp/index.html")!)
         (self.webView! as UIWebView).loadRequest(req)
 
         // MARK: Waiting on Bug fix to support NSProtocol
@@ -72,9 +68,13 @@ class ViewController: UIViewController {
         } else {
             (self.webView! as UIWebView).loadRequest(req)
         }*/
-        
 
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.performSegueWithIdentifier("showBrowser", sender: self)
+    }
+    
     
     override func supportedInterfaceOrientations() -> Int {
         /// TODO - delegate to HTML app
