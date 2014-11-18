@@ -32,12 +32,12 @@
 import Foundation
 import AdaptiveArpApi
 #if os(iOS)
-import UIKit
-#elseif os(OSX)
-import Cocoa
+    import UIKit
+    #elseif os(OSX)
+    import Cocoa
 #endif
 
-public class HttpInterceptorProtocol : NSURLProtocol {    
+public class HttpInterceptorProtocol : NSURLProtocol {
     
     /// Logging variable
     let logger:ILogging = LoggingImpl()
@@ -47,7 +47,7 @@ public class HttpInterceptorProtocol : NSURLProtocol {
     
     /// Async Request Queue
     private class var queue : NSOperationQueue {
-        return NSOperationQueue()
+        return NSOperationQueue.mainQueue()
     }
     
     /// Key for intercepting the requests
@@ -90,15 +90,15 @@ public class HttpInterceptorProtocol : NSURLProtocol {
         }
         /*
         if NSURLProtocol.propertyForKey(HttpInterceptorProtocol.httpInterceptorKey, inRequest: request) != nil {
-            // We're already managing this request.
-            return false
+        // We're already managing this request.
+        return false
         } else {
-            if NSString(string: url!).hasPrefix(adaptiveBasePath) {
-                logger.log(ILoggingLogLevel.DEBUG, category:"HttpInterceptorProtocol", message: "[\(method)]: \(url!)")
-                return true
-            } else {
-                return true
-            }
+        if NSString(string: url!).hasPrefix(adaptiveBasePath) {
+        logger.log(ILoggingLogLevel.DEBUG, category:"HttpInterceptorProtocol", message: "[\(method)]: \(url!)")
+        return true
+        } else {
+        return true
+        }
         }
         */
     }
@@ -127,9 +127,7 @@ public class HttpInterceptorProtocol : NSURLProtocol {
             logger.log(ILoggingLogLevel.DEBUG, category:"HttpInterceptorProtocol", message: "[\(method)]: \(url)")
             
             if url.hasPrefix(HttpInterceptorProtocol.adaptiveBasePath) && method == "GET" {
-                
                 var resourceData = AppResourceManager.sharedInstance.retrieveWebResource(newRequest.URL!.path!)
-                
                 if resourceData != nil {
                     var response = NSURLResponse(URL: self.request.URL, MIMEType: resourceData!.raw_type, expectedContentLength: resourceData!.data.length, textEncodingName: "utf-8")
                     self.client!.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: .NotAllowed)
@@ -211,6 +209,7 @@ public class HttpInterceptorProtocol : NSURLProtocol {
             self.connection.cancel()
         }
         self.connection = nil
+        
     }
     
     /// Returns a canonical version of the specified request. It is up to each concrete protocol implementation to define what “canonical” means. A protocol should guarantee that the same input request always yields the same canonical form.
@@ -235,18 +234,18 @@ public class HttpInterceptorProtocol : NSURLProtocol {
     func connection(connection: NSURLConnection!, didReceiveData data: NSData!) {
         
         self.client!.URLProtocol(self, didLoadData: data)
-
     }
     
     /// Sent when a connection has finished loading successfully.
     func connectionDidFinishLoading(connection: NSURLConnection!) {
         
         self.client!.URLProtocolDidFinishLoading(self)
-
+        
     }
     
     /// Sent when a connection fails to load its request successfully.
     func connection(connection: NSURLConnection!, didFailWithError error: NSError!) {
+        
         self.client!.URLProtocol(self, didFailWithError: error)
     }
 }
