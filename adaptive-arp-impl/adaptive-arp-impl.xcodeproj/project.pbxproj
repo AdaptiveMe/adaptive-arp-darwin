@@ -960,7 +960,6 @@
 					};
 					4EDB53F61A029910008A2C4F = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 2G3S9L8W64;
 					};
 					4EDB54001A029910008A2C4F = {
 						CreatedOnToolsVersion = 6.1;
