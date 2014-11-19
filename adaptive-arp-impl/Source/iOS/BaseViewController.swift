@@ -1,25 +1,37 @@
-//
-//  BaseViewController.swift
-//  adaptive-arp-rt
-//
-//  Created by Carlos Lozano Diez on 19/11/14.
-//  Copyright (c) 2014 Carlos Lozano Diez. All rights reserved.
-//
+/*
+* =| ADAPTIVE RUNTIME PLATFORM |=======================================================================================
+*
+* (C) Copyright 2013-2014 Carlos Lozano Diez t/a Adaptive.me <http://adaptive.me>.
+*
+* Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+* the License. You may obtain a copy of the License at
+*
+*     http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+* an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+* specific language governing permissions and limitations under the License.
+*
+* Original author:
+*
+*     * Carlos Lozano Diez
+*                 <http://github.com/carloslozano>
+*                 <http://twitter.com/adaptivecoder>
+*                 <mailto:carlos@adaptive.me>
+*
+* Contributors:
+*
+*     * Ferran Vila Conesa
+*                 <http://github.com/fnva>
+*                 <http://twitter.com/ferran_vila>
+*                 <mailto:ferran.vila.conesa@gmail.com>
+*
+* =====================================================================================================================
+*/
 
 import UIKit
 
-
-
 public class BaseViewController : UIViewController {
-    
-    struct NavigationProperties {
-        var navigationBarHidden : Bool = false
-        var navigationBarTitle : String = "Browser"
-        var navigationBarBackLabel : String = "Back"
-        var navigationUrl : NSURL?
-    }
-    
-    private var navigationProperties : NavigationProperties?
     
     /// Maintain a static reference to current and previous views
     public struct ViewCurrent {
@@ -56,6 +68,10 @@ public class BaseViewController : UIViewController {
         super.init()
     }
     
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
     override public func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         if ViewPrevious.getView()==nil && ViewCurrent.getView()==nil {
@@ -66,26 +82,38 @@ public class BaseViewController : UIViewController {
         }
     }
     
-    public func showInternalBrowser(titleLabel:String, backLabel:String, url : NSURL, showNavBar : Bool) -> Bool {
-        dispatch_async(dispatch_get_main_queue()) {
-            self.navigationProperties = NavigationProperties(navigationBarHidden: showNavBar, navigationBarTitle: titleLabel, navigationBarBackLabel: backLabel, navigationUrl: url)
-            self.performSegueWithIdentifier("showBrowser", sender: self)
+    public func showInternalBrowser(titleLabel:String, backLabel:String, url : NSURL, showNavBar : Bool, showAnimated : Bool = true) -> Bool {
+        objc_sync_enter(self)
+        
+        var properties = NavigationProperties(navigationBarHidden: showNavBar, navigationBarTitle: titleLabel, navigationBarBackLabel: backLabel, navigationUrl: url)
+        
+        if !showAnimated {
+            dispatch_async(dispatch_get_main_queue()) {
+                var browserView : BrowserViewController = BrowserViewController(navigationBarHidden: !properties.navigationBarHidden, navigationBarTitle: properties.navigationBarTitle, navigationBarBackLabel: properties.navigationBarBackLabel, navigationUrl: properties.navigationUrl!)
+                self.navigationController!.pushViewController(browserView, animated: false)
+            }
+            objc_sync_exit(self)
+            return true
+        } else {
+            dispatch_async(dispatch_get_main_queue()) {
+                self.performSegueWithIdentifier("showBrowser", sender: properties)
+            }
+            NSThread.sleepForTimeInterval(0.750)
+            objc_sync_exit(self)
+            return true
         }
-        return true
+        
     }
     
     public override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "showBrowser" && segue.destinationViewController is BrowserViewController) {
             var browserView : BrowserViewController = segue.destinationViewController as BrowserViewController
-            var senderView : BaseViewController = sender as BaseViewController
-            //self.navigationItem.title = "App"
-            if (navigationProperties != nil) {
-                browserView.navigationBarBackLabel = senderView.navigationProperties!.navigationBarBackLabel
-                browserView.navigationBarHidden = !senderView.navigationProperties!.navigationBarHidden
-                browserView.navigationBarTitle = senderView.navigationProperties!.navigationBarTitle
-                browserView.navigationUrl = senderView.navigationProperties!.navigationUrl
-            }
+            ViewCurrent.setView(browserView)
+            var properties : NavigationProperties = sender as NavigationProperties
+            browserView.navigationBarBackLabel = properties.navigationBarBackLabel
+            browserView.navigationBarHidden = !properties.navigationBarHidden
+            browserView.navigationBarTitle = properties.navigationBarTitle
+            browserView.navigationUrl = properties.navigationUrl
         }
     }
-    
 }

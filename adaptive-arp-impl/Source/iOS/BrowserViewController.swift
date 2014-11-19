@@ -32,7 +32,7 @@
 import UIKit
 
 public class BrowserViewController: BaseViewController, UIWebViewDelegate {
-
+    
     var webView: UIWebView?
     /// Defaults
     public var navigationBarHidden : Bool = false
@@ -40,6 +40,23 @@ public class BrowserViewController: BaseViewController, UIWebViewDelegate {
     public var navigationBarBackLabel : String = "Back"
     public var navigationUrl : NSURL?
     private var navigationInitialized = false
+    
+    init(navigationBarHidden: Bool, navigationBarTitle: String, navigationBarBackLabel: String, navigationUrl: NSURL) {
+        super.init()
+        self.navigationBarHidden = navigationBarHidden
+        self.navigationBarTitle = navigationBarTitle
+        self.navigationBarBackLabel = navigationBarBackLabel
+        self.navigationUrl = navigationUrl
+        self.configureNavigation()
+    }
+    
+    public required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
     
     override public func loadView() {
         super.loadView()
@@ -54,6 +71,16 @@ public class BrowserViewController: BaseViewController, UIWebViewDelegate {
     
     override public func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.configureNavigation()
+        dispatch_async(dispatch_get_main_queue()) {
+            if (self.navigationUrl != nil && !self.navigationInitialized) {
+                self.webView!.loadRequest(NSURLRequest(URL: self.navigationUrl!))
+                self.navigationInitialized = true
+            }
+        }
+    }
+    
+    private func configureNavigation() {
         self.navigationController?.navigationBarHidden = navigationBarHidden
         self.navigationItem.title = navigationBarTitle
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: navigationBarBackLabel, style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
@@ -61,10 +88,6 @@ public class BrowserViewController: BaseViewController, UIWebViewDelegate {
     
     override public func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        if (navigationUrl != nil && !navigationInitialized) {
-            webView!.loadRequest(NSURLRequest(URL: self.navigationUrl!))
-            navigationInitialized = true
-        }
     }
     
     public func webViewDidStartLoad(webView: UIWebView) {
