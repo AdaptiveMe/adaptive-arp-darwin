@@ -267,13 +267,13 @@
 			isa = PBXGroup;
 			children = (
 				4EDB4E521A028C89008A2C4F /* AppDelegate.swift */,
-				4EDB4E561A028C89008A2C4F /* ViewController.swift */,
-				4EDB4E581A028C89008A2C4F /* Main.storyboard */,
-				4EDB4E5B1A028C89008A2C4F /* Images.xcassets */,
-				4EDB4E5D1A028C89008A2C4F /* LaunchScreen.xib */,
-				4EDB4E541A028C89008A2C4F /* AdaptiveArpRtiOS.xcdatamodeld */,
-				4EDB4E501A028C89008A2C4F /* Supporting Files */,
 				4EEFE0821A1BA81500E0BDE3 /* BrowserViewController.swift */,
+				4EDB4E561A028C89008A2C4F /* ViewController.swift */,
+				4EDB4E5B1A028C89008A2C4F /* Images.xcassets */,
+				4EDB4E541A028C89008A2C4F /* AdaptiveArpRtiOS.xcdatamodeld */,
+				4EDB4E5D1A028C89008A2C4F /* LaunchScreen.xib */,
+				4EDB4E581A028C89008A2C4F /* Main.storyboard */,
+				4EDB4E501A028C89008A2C4F /* Supporting Files */,
 			);
 			path = AdaptiveArpRtiOS;
 			sourceTree = "<group>";
