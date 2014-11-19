@@ -40,7 +40,7 @@ public class GeolocationDelegate: NSObject, CLLocationManagerDelegate {
     let logger: ILogging = LoggingImpl()
     
     /// Geo location manager
-    private let listener: IGeolocationListener
+    private let listener: IGeolocationListener!
     
     /// Location manager
     var locationManager: CLLocationManager!
@@ -151,6 +151,8 @@ public class GeolocationDelegate: NSObject, CLLocationManagerDelegate {
             // start the geolocation updates
             locationManager.startUpdatingLocation()
             
+            logger.log(ILoggingLogLevel.DEBUG, category: "GeolocationDelegate", message: "Status Authorized")
+            
         default:
             logger.log(ILoggingLogLevel.ERROR, category: "GeolocationDelegate", message: "This status: \(status) is not handled by the manager")
         }
@@ -164,6 +166,8 @@ public class GeolocationDelegate: NSObject, CLLocationManagerDelegate {
             
             // start the geolocation updates
             locationManager.startUpdatingLocation()
+            
+            logger.log(ILoggingLogLevel.DEBUG, category: "GeolocationDelegate", message: "Status AuthorizedWhenInUse")
             
         default:
             logger.log(ILoggingLogLevel.ERROR, category: "GeolocationDelegate", message: "This status: \(status) is not handled by the manager")

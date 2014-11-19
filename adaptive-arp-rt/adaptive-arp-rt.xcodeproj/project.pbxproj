@@ -13,6 +13,8 @@
 		4E04DB171A03D3E900DC4908 /* App in Resources */ = {isa = PBXBuildFile; fileRef = 4E04DB151A03D3E900DC4908 /* App */; };
 		4E59C62C1A10E24B00FFAE2F /* AdaptiveArpImpl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB4ED01A029063008A2C4F /* AdaptiveArpImpl.framework */; };
 		4E59C62F1A10E2B300FFAE2F /* AdaptiveArpImpl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB4ECC1A029063008A2C4F /* AdaptiveArpImpl.framework */; };
+		4E6A9D1C1A1C8EA800DF3CD1 /* GeolocationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A9D1B1A1C8EA800DF3CD1 /* GeolocationTest.swift */; };
+		4E6A9D1D1A1C8EA800DF3CD1 /* GeolocationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A9D1B1A1C8EA800DF3CD1 /* GeolocationTest.swift */; };
 		4E9523661A113A15009C4295 /* AdaptiveArpImpl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB4ECC1A029063008A2C4F /* AdaptiveArpImpl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4E95239C1A113C8A009C4295 /* AdaptiveArpImpl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB4ED01A029063008A2C4F /* AdaptiveArpImpl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4EDB4E531A028C89008A2C4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB4E521A028C89008A2C4F /* AppDelegate.swift */; };
@@ -154,6 +156,7 @@
 		4E04DB0A1A03CF2100DC4908 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
 		4E04DB141A03D3DA00DC4908 /* App.Source */ = {isa = PBXFileReference; lastKnownFileType = folder; path = App.Source; sourceTree = "<group>"; };
 		4E04DB151A03D3E900DC4908 /* App */ = {isa = PBXFileReference; lastKnownFileType = folder; path = App; sourceTree = "<group>"; };
+		4E6A9D1B1A1C8EA800DF3CD1 /* GeolocationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeolocationTest.swift; sourceTree = "<group>"; };
 		4EDB4E4E1A028C89008A2C4F /* AdaptiveArpRtiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdaptiveArpRtiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EDB4E511A028C89008A2C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EDB4E521A028C89008A2C4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -356,6 +359,7 @@
 			children = (
 				C3BB4BE01A11F4AA005C177C /* DatabaseTest.swift */,
 				C3BB4BED1A122B41005C177C /* DeviceTest.swift */,
+				4E6A9D1B1A1C8EA800DF3CD1 /* GeolocationTest.swift */,
 				C38C36831A13A44600BC26CE /* GlobalizationTest.swift */,
 				C3BB4BEE1A122B41005C177C /* LoggingTest.swift */,
 				C3ABF96C1A19F3530000BBA2 /* NetworkReachabilityTest.swift */,
@@ -630,6 +634,7 @@
 				C38C36951A13B9B100BC26CE /* TelephonyTest.swift in Sources */,
 				C38C36931A13B9B100BC26CE /* ContactTest.swift in Sources */,
 				C38C36881A13B9A100BC26CE /* OSTest.swift in Sources */,
+				4E6A9D1C1A1C8EA800DF3CD1 /* GeolocationTest.swift in Sources */,
 				C38C36871A13B9A100BC26CE /* LoggingTest.swift in Sources */,
 				C38C36891A13B9A100BC26CE /* SecurityTest.swift in Sources */,
 				C3ABF96D1A19F3530000BBA2 /* NetworkReachabilityTest.swift in Sources */,
@@ -658,6 +663,7 @@
 				C38C368F1A13B9A200BC26CE /* OSTest.swift in Sources */,
 				C38C368E1A13B9A200BC26CE /* LoggingTest.swift in Sources */,
 				C38C36901A13B9A200BC26CE /* SecurityTest.swift in Sources */,
+				4E6A9D1D1A1C8EA800DF3CD1 /* GeolocationTest.swift in Sources */,
 				C3ABF9711A1A184D0000BBA2 /* ServiceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

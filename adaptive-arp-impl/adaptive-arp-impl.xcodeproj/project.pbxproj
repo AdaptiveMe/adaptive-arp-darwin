@@ -596,12 +596,7 @@
 		4E722CE51A02815A00004247 = {
 			isa = PBXGroup;
 			children = (
-				4E35928A1A16689A009E3D03 /* libz.dylib */,
-				4E3592881A166890009E3D03 /* libz.dylib */,
-				4EDE8C811A14A3FD00098611 /* libc++.dylib */,
-				4EDE8C7F1A14A36000098611 /* Security.framework */,
-				4EE6E43D1A0CE75200354446 /* libsqlite3.dylib */,
-				4EE6E4361A0CE70400354446 /* libsqlite3.dylib */,
+				C369DA5D1A1A4441005B0B90 /* Libs */,
 				4EDB51691A029446008A2C4F /* Common */,
 				4EDB544B1A02995B008A2C4F /* OSX */,
 				4EDB544A1A029943008A2C4F /* iOS */,
@@ -823,6 +818,19 @@
 				4EDE8C841A14A72900098611 /* RLMSupport.swift */,
 			);
 			name = "Realm Support";
+			sourceTree = "<group>";
+		};
+		C369DA5D1A1A4441005B0B90 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				4E35928A1A16689A009E3D03 /* libz.dylib */,
+				4E3592881A166890009E3D03 /* libz.dylib */,
+				4EDE8C811A14A3FD00098611 /* libc++.dylib */,
+				4EDE8C7F1A14A36000098611 /* Security.framework */,
+				4EE6E43D1A0CE75200354446 /* libsqlite3.dylib */,
+				4EE6E4361A0CE70400354446 /* libsqlite3.dylib */,
+			);
+			name = Libs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
