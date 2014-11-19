@@ -88,6 +88,15 @@ public class BrowserViewController: BaseViewController, UIWebViewDelegate {
     
     override public func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        UIApplication.sharedApplication().setStatusBarHidden(self.navigationBarHidden, withAnimation: UIStatusBarAnimation.Fade)
+    }
+    
+    public override func prefersStatusBarHidden() -> Bool {
+        if super.prefersStatusBarHidden() {
+            return true
+        } else {
+            return self.navigationBarHidden
+        }
     }
     
     public func webViewDidStartLoad(webView: UIWebView) {

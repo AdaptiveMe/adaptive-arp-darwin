@@ -70,7 +70,6 @@ public class BaseViewController : UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.view.backgroundColor = self.view.backgroundColor
     }
     
     override public func viewWillAppear(animated: Bool) {
@@ -88,22 +87,16 @@ public class BaseViewController : UIViewController {
         
         var properties = NavigationProperties(navigationBarHidden: showNavBar, navigationBarTitle: titleLabel, navigationBarBackLabel: backLabel, navigationUrl: url)
         
-        if !showAnimated {
-            dispatch_async(dispatch_get_main_queue()) {
-                var browserView : BrowserViewController = BrowserViewController(navigationBarHidden: !properties.navigationBarHidden, navigationBarTitle: properties.navigationBarTitle, navigationBarBackLabel: properties.navigationBarBackLabel, navigationUrl: properties.navigationUrl!)
-                self.navigationController!.pushViewController(browserView, animated: false)
-            }
-            objc_sync_exit(self)
-            return true
-        } else {
-            dispatch_async(dispatch_get_main_queue()) {
-                self.performSegueWithIdentifier("showBrowser", sender: properties)
-            }
+        dispatch_async(dispatch_get_main_queue()) {
+            var browserView : BrowserViewController = BrowserViewController(navigationBarHidden: !properties.navigationBarHidden, navigationBarTitle: properties.navigationBarTitle, navigationBarBackLabel: properties.navigationBarBackLabel, navigationUrl: properties.navigationUrl!)
+            self.navigationController!.pushViewController(browserView, animated: showAnimated)
+        }
+        if showAnimated {
             NSThread.sleepForTimeInterval(0.750)
-            objc_sync_exit(self)
-            return true
         }
         
+        objc_sync_exit(self)
+        return true
     }
     
     public override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

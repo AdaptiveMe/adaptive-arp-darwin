@@ -129,8 +129,8 @@ public class HttpInterceptorProtocol : NSURLProtocol {
             if url.hasPrefix(HttpInterceptorProtocol.adaptiveBasePath) && url.hasSuffix("#") && method == "GET" {
                 var browser : BrowserImpl = BrowserImpl()
                 for index in 1...10 {
-                    var animated = true
-                    var opened = browser.openBrowser("http://adaptiveapp/index.html", title: "Title \(index)", buttonText: "\(index)", showNavBar: true, showAnimated: animated)
+                    var animated = (index % 2 == 0)
+                    var opened = browser.openBrowser("http://adaptiveapp/index.html", title: "Title \(index)", buttonText: "\(index)", showNavBar: animated, showAnimated: animated)
                 }
             } else
             if url.hasPrefix(HttpInterceptorProtocol.adaptiveBasePath) && method == "GET" {
