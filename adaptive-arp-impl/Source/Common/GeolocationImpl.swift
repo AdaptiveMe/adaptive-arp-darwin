@@ -43,12 +43,12 @@ public class GeolocationImpl : NSObject, IGeolocation {
     let logger : ILogging = LoggingImpl()
     
     /// Array for saving the registered listeners
-    var delegates:[GeolocationDelegate]
+    var delegates:[GeolocationDelegate]!
     
     /**
     Class constructor
     */
-    override init() {
+    public override init() {
         delegates = [GeolocationDelegate]()
     }
     
@@ -62,7 +62,7 @@ public class GeolocationImpl : NSObject, IGeolocation {
     public func addGeolocationListener(listener : IGeolocationListener) {
         
         // Create a new location manager, add to the list and then initialize the geolocation updates
-        var geo: GeolocationDelegate = GeolocationDelegate(listener: listener)
+        var geo:GeolocationDelegate = GeolocationDelegate(listener: listener)
         self.delegates.append(geo)
         geo.initLocationManager()
         
