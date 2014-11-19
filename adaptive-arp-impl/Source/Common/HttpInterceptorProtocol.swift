@@ -126,6 +126,12 @@ public class HttpInterceptorProtocol : NSURLProtocol {
             
             logger.log(ILoggingLogLevel.DEBUG, category:"HttpInterceptorProtocol", message: "[\(method)]: \(url)")
             
+            if url.hasPrefix(HttpInterceptorProtocol.adaptiveBasePath) && url.hasSuffix("#") && method == "GET" {
+                var browser : BrowserImpl = BrowserImpl()
+                browser.openBrowser("http://adaptiveapp/index.html", title: "First", buttonText: "Home", showNavBar: true)
+                browser.openBrowser("http://adaptiveapp/index.html", title: "Second", buttonText: "First", showNavBar: true)
+                browser.openBrowser("http://adaptiveapp/index.html", title: "Third", buttonText: "Second", showNavBar: true)
+            } else
             if url.hasPrefix(HttpInterceptorProtocol.adaptiveBasePath) && method == "GET" {
                 var resourceData = AppResourceManager.sharedInstance.retrieveWebResource(newRequest.URL!.path!)
                 if resourceData != nil {

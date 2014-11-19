@@ -61,6 +61,8 @@
 		4E35928B1A16689A009E3D03 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E35928A1A16689A009E3D03 /* libz.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4E65093B1A1376C800B593F9 /* AppResourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6509291A1376B700B593F9 /* AppResourceManager.swift */; };
 		4E65093C1A1376C900B593F9 /* AppResourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6509291A1376B700B593F9 /* AppResourceManager.swift */; };
+		4E6A9D4C1A1CA8F900DF3CD1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A9D4B1A1CA8F900DF3CD1 /* BaseViewController.swift */; };
+		4E6A9D4E1A1CB6D300DF3CD1 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A9D4D1A1CB6D300DF3CD1 /* BrowserViewController.swift */; };
 		4E95237F1A113AD8009C4295 /* Alamofire.framework in Embedded Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C1781A0C05E80026ED0B /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4E9523801A113AE1009C4295 /* SwiftyJSON.framework in Embedded Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C1F71A0C1E170026ED0B /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4E9523811A113AED009C4295 /* SQLite.framework in Embedded Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C1341A0BEC7D0026ED0B /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -458,6 +460,8 @@
 		4E3592881A166890009E3D03 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/libz.dylib; sourceTree = DEVELOPER_DIR; };
 		4E35928A1A16689A009E3D03 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		4E6509291A1376B700B593F9 /* AppResourceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppResourceManager.swift; sourceTree = "<group>"; };
+		4E6A9D4B1A1CA8F900DF3CD1 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		4E6A9D4D1A1CB6D300DF3CD1 /* BrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 		4EC1C0E61A0BE3470026ED0B /* adaptive-arp-api-swift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "adaptive-arp-api-swift.xcodeproj"; path = "Modules/adaptive-arp-api/adaptive-arp-api-swift/adaptive-arp-api-swift.xcodeproj"; sourceTree = "<group>"; };
 		4EC1C10D1A0BEC760026ED0B /* Realm.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Realm.xcodeproj; path = "ThirdParty/realm-cocoa/Realm.xcodeproj"; sourceTree = "<group>"; };
 		4EC1C1281A0BEC7D0026ED0B /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = ThirdParty/SQLite.swift/SQLite.xcodeproj; sourceTree = "<group>"; };
@@ -593,6 +597,15 @@
 			path = Encryption;
 			sourceTree = "<group>";
 		};
+		4E6A9D4F1A1CB6DA00DF3CD1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4E6A9D4D1A1CB6D300DF3CD1 /* BrowserViewController.swift */,
+				4E6A9D4B1A1CA8F900DF3CD1 /* BaseViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		4E722CE51A02815A00004247 = {
 			isa = PBXGroup;
 			children = (
@@ -687,13 +700,10 @@
 			isa = PBXGroup;
 			children = (
 				4E3592851A1666D6009E3D03 /* Adaptive-Bridging-Header.h */,
-				4E3592231A16662A009E3D03 /* Encryption */,
-				4E35920C1A1665E8009E3D03 /* Compression */,
-				4EDE8C871A14A74500098611 /* Realm Support */,
-				4E6509291A1376B700B593F9 /* AppResourceManager.swift */,
 				4EDB516A1A029446008A2C4F /* AppContextImpl.swift */,
 				4EDB516B1A029446008A2C4F /* AppContextWebviewImpl.swift */,
 				4EDB516C1A029446008A2C4F /* AppRegistryImpl.swift */,
+				4E6509291A1376B700B593F9 /* AppResourceManager.swift */,
 				4EDB51701A029446008A2C4F /* CapabilitiesImpl.swift */,
 				4EDB51711A029446008A2C4F /* DatabaseImpl.swift */,
 				4EDB51721A029446008A2C4F /* DeviceImpl.swift */,
@@ -709,6 +719,9 @@
 				4EDB51811A029446008A2C4F /* SecurityImpl.swift */,
 				4EDB51821A029446008A2C4F /* ServiceImpl.swift */,
 				4EDB51831A029446008A2C4F /* SessionImpl.swift */,
+				4E35920C1A1665E8009E3D03 /* Compression */,
+				4E3592231A16662A009E3D03 /* Encryption */,
+				4EDE8C871A14A74500098611 /* Realm Support */,
 				4EDB51C21A029566008A2C4F /* utils */,
 			);
 			name = Common;
@@ -793,6 +806,7 @@
 		4EDB544A1A029943008A2C4F /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				4E6A9D4F1A1CB6DA00DF3CD1 /* ViewControllers */,
 				C3BB4C0E1A124CD4005C177C /* BrowserImpl.swift */,
 				4EDB544D1A0299A8008A2C4F /* ContactImpl.swift */,
 				4EDB544E1A0299A8008A2C4F /* MessagingImpl.swift */,
@@ -1277,6 +1291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EDB54221A029925008A2C4F /* GeolocationImpl.swift in Sources */,
+				4E6A9D4E1A1CB6D300DF3CD1 /* BrowserViewController.swift in Sources */,
 				4E3592541A166639009E3D03 /* MD5.swift in Sources */,
 				4E3592501A166639009E3D03 /* Hash.swift in Sources */,
 				4EDB54411A02992E008A2C4F /* ServiceImpl.swift in Sources */,
@@ -1291,6 +1306,7 @@
 				4EDB54191A029925008A2C4F /* AppContextWebviewImpl.swift in Sources */,
 				4E35924A1A166639009E3D03 /* CryptoHashBase.swift in Sources */,
 				4E3592641A166639009E3D03 /* UInt32Extension.swift in Sources */,
+				4E6A9D4C1A1CA8F900DF3CD1 /* BaseViewController.swift in Sources */,
 				4E3592421A166639009E3D03 /* ByteExtension.swift in Sources */,
 				4EDB54591A0299B1008A2C4F /* TelephonyImpl.swift in Sources */,
 				4E3592601A166639009E3D03 /* StringExtension.swift in Sources */,

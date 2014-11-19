@@ -47,7 +47,9 @@ public class BrowserImpl : NSObject, IBrowser {
         
         application = (AppRegistryImpl.sharedInstance.getPlatformContext()! as AppContextImpl).getContext() as UIApplication
     }
-    
+    public func openBrowser(url : String, title : String, buttonText : String) -> Bool {
+        return self.openBrowser(url, title: title, buttonText: buttonText, showNavBar: true)
+    }
     /**
     Open a new window showing the url webpage with a title and a close button displaying the desired text
     
@@ -59,7 +61,7 @@ public class BrowserImpl : NSObject, IBrowser {
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    public func openBrowser(url : String, title : String, buttonText : String) -> Bool {
+    public func openBrowser(url : String, title : String, buttonText : String, showNavBar : Bool) -> Bool {
         
         // TODO: use the title and the button text attibutes
         // TODO: check if the browser has to be embedded into a webview inside the application
@@ -85,13 +87,18 @@ public class BrowserImpl : NSObject, IBrowser {
             return false
         }
         
-        // Make the call
+        // Make the call - open external browser
+        /*
         let result: Bool =  application.openURL(url)
         if !result {
             logger.log(ILoggingLogLevel.ERROR, category: "BrowserImpl", message: "It is not posible to open the url")
             return false
         }
-        
-        return true
+        */
+        if (BaseViewController.ViewCurrent.getView() != nil) {
+            return (BaseViewController.ViewCurrent.getView()! as BaseViewController).showInternalBrowser(title, backLabel: buttonText, url: url, showNavBar: showNavBar)
+        } else {
+            return false
+        }
     }
 }

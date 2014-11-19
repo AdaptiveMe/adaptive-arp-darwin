@@ -31,49 +31,47 @@
 
 import UIKit
 
-class BrowserViewController: UIViewController, UIWebViewDelegate {
+public class BrowserViewController: BaseViewController, UIWebViewDelegate {
 
     var webView: UIWebView?
     /// Defaults
-    var navigationBarHidden : Bool = false
-    var navigationBarTitle : String = "Browser"
-    var navigationBarBackLabel : String = "Back"
-    var navigationUrl : NSURL?
+    public var navigationBarHidden : Bool = false
+    public var navigationBarTitle : String = "Browser"
+    public var navigationBarBackLabel : String = "Back"
+    public var navigationUrl : NSURL?
+    private var navigationInitialized = false
     
-    override func loadView() {
+    override public func loadView() {
         super.loadView()
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         webView = UIWebView()
         webView?.delegate = self
         self.view = webView
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override public func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBarHidden = navigationBarHidden
         self.navigationItem.title = navigationBarTitle
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: navigationBarBackLabel, style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override public func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        if (navigationUrl != nil) {
+        if (navigationUrl != nil && !navigationInitialized) {
             webView!.loadRequest(NSURLRequest(URL: self.navigationUrl!))
+            navigationInitialized = true
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-
-    }
-    
-    func webViewDidStartLoad(webView: UIWebView) {
+    public func webViewDidStartLoad(webView: UIWebView) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
     }
     
-    func webViewDidFinishLoad(webView: UIWebView) {
+    public func webViewDidFinishLoad(webView: UIWebView) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
     }
 }

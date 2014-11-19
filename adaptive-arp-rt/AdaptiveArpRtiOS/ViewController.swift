@@ -33,7 +33,7 @@ import UIKit
 import AdaptiveArpImpl
 import AdaptiveArpApi
 
-class ViewController: UIViewController {
+class ViewController: BaseViewController {
     
     /// Webview
     @IBOutlet weak var webView: UIWebView!
@@ -73,32 +73,14 @@ class ViewController: UIViewController {
     var tested : Bool = false;
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationController?.navigationBarHidden = true
     }
     
     override func viewDidAppear(animated: Bool) {
-
-        /// Uncomment to test segues
-        /*
-        if (!tested) {
-            self.performSegueWithIdentifier("showBrowser", sender: self)
-            tested = true
-        }
-        */
+        super.viewDidAppear(animated)
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.destinationViewController is BrowserViewController) {
-            var browserView : BrowserViewController = segue.destinationViewController as BrowserViewController
-            self.navigationItem.title = "App"
-            browserView.navigationBarBackLabel = "Back"
-            browserView.navigationBarHidden = false
-            browserView.navigationBarTitle = "External Browser"
-            browserView.navigationUrl = NSURL(string: "http://cdn.sencha.io/touch/sencha-touch-2.4.1/examples/kitchensink/index.html")
-            //browserView.navigationUrl = NSURL(string: "http://www.google.com")
-        }
-    }
-    
+        
     override func supportedInterfaceOrientations() -> Int {
         /// TODO - delegate to HTML app
         return Int(UIInterfaceOrientationMask.All.rawValue)

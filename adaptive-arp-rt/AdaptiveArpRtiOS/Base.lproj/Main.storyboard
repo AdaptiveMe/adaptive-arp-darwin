@@ -46,7 +46,7 @@
         <!--Browser-->
         <scene sceneID="JU9-II-yPe">
             <objects>
-                <viewController title="Browser" id="7z9-Lz-DZ2" customClass="BrowserViewController" customModule="AdaptiveArpRtiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Browser" id="7z9-Lz-DZ2" customClass="BrowserViewController" customModule="AdaptiveArpImpl" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fIb-fz-A2w"/>
                         <viewControllerLayoutGuide type="bottom" id="59v-C8-bCD"/>
@@ -75,6 +75,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wXH-gS-Cmp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="J7j-gq-nWD">
+                    <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <segue destination="7z9-Lz-DZ2" kind="show" identifier="showBrowser" id="x6y-Fb-PQI"/>
+                    </connections>
+                </button>
             </objects>
             <point key="canvasLocation" x="2351" y="229"/>
         </scene>
@@ -97,4 +107,7 @@
             <point key="canvasLocation" x="711" y="229"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="iim-Eo-MGP"/>
+    </inferredMetricsTieBreakers>
 </document>
