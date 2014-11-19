@@ -26,28 +26,30 @@
 		4EDB4E7F1A028C9A008A2C4F /* AdaptiveArpRtOSX.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB4E7E1A028C9A008A2C4F /* AdaptiveArpRtOSX.xcdatamodeld */; };
 		4EDB4E811A028C9A008A2C4F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB4E801A028C9A008A2C4F /* Images.xcassets */; };
 		4EDB4E841A028C9A008A2C4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB4E821A028C9A008A2C4F /* Main.storyboard */; };
-		C38C36841A13A44600BC26CE /* GlobalizationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38C36831A13A44600BC26CE /* GlobalizationTest.swift */; };
-		C38C36851A13B9A100BC26CE /* DatabaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BE01A11F4AA005C177C /* DatabaseTest.swift */; };
-		C38C36861A13B9A100BC26CE /* DeviceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BED1A122B41005C177C /* DeviceTest.swift */; };
-		C38C36871A13B9A100BC26CE /* LoggingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BEE1A122B41005C177C /* LoggingTest.swift */; };
-		C38C36881A13B9A100BC26CE /* OSTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BEF1A122B41005C177C /* OSTest.swift */; };
-		C38C36891A13B9A100BC26CE /* SecurityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BF01A122B41005C177C /* SecurityTest.swift */; };
-		C38C368A1A13B9A100BC26CE /* SessionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BF11A122B41005C177C /* SessionTest.swift */; };
-		C38C368B1A13B9A200BC26CE /* DatabaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BE01A11F4AA005C177C /* DatabaseTest.swift */; };
-		C38C368C1A13B9A200BC26CE /* DeviceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BED1A122B41005C177C /* DeviceTest.swift */; };
-		C38C368D1A13B9A200BC26CE /* GlobalizationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38C36831A13A44600BC26CE /* GlobalizationTest.swift */; };
-		C38C368E1A13B9A200BC26CE /* LoggingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BEE1A122B41005C177C /* LoggingTest.swift */; };
-		C38C368F1A13B9A200BC26CE /* OSTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BEF1A122B41005C177C /* OSTest.swift */; };
-		C38C36901A13B9A200BC26CE /* SecurityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BF01A122B41005C177C /* SecurityTest.swift */; };
-		C38C36911A13B9A200BC26CE /* SessionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BF11A122B41005C177C /* SessionTest.swift */; };
-		C38C36921A13B9B100BC26CE /* BrowserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4C131A126199005C177C /* BrowserTest.swift */; };
-		C38C36931A13B9B100BC26CE /* ContactTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34E61E41A0A4A240039A104 /* ContactTest.swift */; };
-		C38C36941A13B9B100BC26CE /* MessagingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4C111A126171005C177C /* MessagingTest.swift */; };
-		C38C36951A13B9B100BC26CE /* TelephonyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4C201A126FAE005C177C /* TelephonyTest.swift */; };
-		C3ABF96D1A19F3530000BBA2 /* NetworkReachabilityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ABF96C1A19F3530000BBA2 /* NetworkReachabilityTest.swift */; };
-		C3ABF96E1A19F3530000BBA2 /* NetworkReachabilityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ABF96C1A19F3530000BBA2 /* NetworkReachabilityTest.swift */; };
-		C3ABF9701A1A184D0000BBA2 /* ServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ABF96F1A1A184D0000BBA2 /* ServiceTest.swift */; };
-		C3ABF9711A1A184D0000BBA2 /* ServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ABF96F1A1A184D0000BBA2 /* ServiceTest.swift */; };
+		C3D345911A1B9EAC0033D7E6 /* GeolocationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D3458E1A1B9C650033D7E6 /* GeolocationTest.swift */; };
+		C3F7953E1A1C8C1C00F3C4BA /* DatabaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BE01A11F4AA005C177C /* DatabaseTest.swift */; };
+		C3F7953F1A1C8C1C00F3C4BA /* DeviceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BED1A122B41005C177C /* DeviceTest.swift */; };
+		C3F795401A1C8C1C00F3C4BA /* GeolocationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D3458E1A1B9C650033D7E6 /* GeolocationTest.swift */; };
+		C3F795411A1C8C1C00F3C4BA /* GlobalizationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38C36831A13A44600BC26CE /* GlobalizationTest.swift */; };
+		C3F795421A1C8C1C00F3C4BA /* LoggingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BEE1A122B41005C177C /* LoggingTest.swift */; };
+		C3F795431A1C8C1C00F3C4BA /* NetworkReachabilityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ABF96C1A19F3530000BBA2 /* NetworkReachabilityTest.swift */; };
+		C3F795441A1C8C1C00F3C4BA /* OSTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BEF1A122B41005C177C /* OSTest.swift */; };
+		C3F795451A1C8C1C00F3C4BA /* SecurityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BF01A122B41005C177C /* SecurityTest.swift */; };
+		C3F795461A1C8C1C00F3C4BA /* ServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ABF96F1A1A184D0000BBA2 /* ServiceTest.swift */; };
+		C3F795471A1C8C1C00F3C4BA /* SessionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BF11A122B41005C177C /* SessionTest.swift */; };
+		C3F7954A1A1C8C1D00F3C4BA /* DatabaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BE01A11F4AA005C177C /* DatabaseTest.swift */; };
+		C3F7954B1A1C8C1D00F3C4BA /* DeviceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BED1A122B41005C177C /* DeviceTest.swift */; };
+		C3F7954C1A1C8C1D00F3C4BA /* GlobalizationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38C36831A13A44600BC26CE /* GlobalizationTest.swift */; };
+		C3F7954D1A1C8C1D00F3C4BA /* LoggingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BEE1A122B41005C177C /* LoggingTest.swift */; };
+		C3F7954E1A1C8C1D00F3C4BA /* NetworkReachabilityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ABF96C1A19F3530000BBA2 /* NetworkReachabilityTest.swift */; };
+		C3F7954F1A1C8C1D00F3C4BA /* OSTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BEF1A122B41005C177C /* OSTest.swift */; };
+		C3F795501A1C8C1D00F3C4BA /* SecurityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BF01A122B41005C177C /* SecurityTest.swift */; };
+		C3F795511A1C8C1D00F3C4BA /* ServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ABF96F1A1A184D0000BBA2 /* ServiceTest.swift */; };
+		C3F795521A1C8C1D00F3C4BA /* SessionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4BF11A122B41005C177C /* SessionTest.swift */; };
+		C3F795531A1C8C2200F3C4BA /* BrowserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4C131A126199005C177C /* BrowserTest.swift */; };
+		C3F795541A1C8C2200F3C4BA /* ContactTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34E61E41A0A4A240039A104 /* ContactTest.swift */; };
+		C3F795551A1C8C2200F3C4BA /* MessagingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4C111A126171005C177C /* MessagingTest.swift */; };
+		C3F795561A1C8C2200F3C4BA /* TelephonyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4C201A126FAE005C177C /* TelephonyTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -184,6 +186,7 @@
 		C3BB4C111A126171005C177C /* MessagingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagingTest.swift; sourceTree = "<group>"; };
 		C3BB4C131A126199005C177C /* BrowserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserTest.swift; sourceTree = "<group>"; };
 		C3BB4C201A126FAE005C177C /* TelephonyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TelephonyTest.swift; sourceTree = "<group>"; };
+		C3D3458E1A1B9C650033D7E6 /* GeolocationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeolocationTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -353,6 +356,7 @@
 			children = (
 				C3BB4BE01A11F4AA005C177C /* DatabaseTest.swift */,
 				C3BB4BED1A122B41005C177C /* DeviceTest.swift */,
+				C3D3458E1A1B9C650033D7E6 /* GeolocationTest.swift */,
 				C38C36831A13A44600BC26CE /* GlobalizationTest.swift */,
 				C3BB4BEE1A122B41005C177C /* LoggingTest.swift */,
 				C3ABF96C1A19F3530000BBA2 /* NetworkReachabilityTest.swift */,
@@ -616,19 +620,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C38C36941A13B9B100BC26CE /* MessagingTest.swift in Sources */,
-				C38C36921A13B9B100BC26CE /* BrowserTest.swift in Sources */,
-				C38C36861A13B9A100BC26CE /* DeviceTest.swift in Sources */,
-				C3ABF9701A1A184D0000BBA2 /* ServiceTest.swift in Sources */,
-				C38C36851A13B9A100BC26CE /* DatabaseTest.swift in Sources */,
-				C38C36841A13A44600BC26CE /* GlobalizationTest.swift in Sources */,
-				C38C368A1A13B9A100BC26CE /* SessionTest.swift in Sources */,
-				C38C36951A13B9B100BC26CE /* TelephonyTest.swift in Sources */,
-				C38C36931A13B9B100BC26CE /* ContactTest.swift in Sources */,
-				C38C36881A13B9A100BC26CE /* OSTest.swift in Sources */,
-				C38C36871A13B9A100BC26CE /* LoggingTest.swift in Sources */,
-				C38C36891A13B9A100BC26CE /* SecurityTest.swift in Sources */,
-				C3ABF96D1A19F3530000BBA2 /* NetworkReachabilityTest.swift in Sources */,
+				C3F7954D1A1C8C1D00F3C4BA /* LoggingTest.swift in Sources */,
+				C3F7954B1A1C8C1D00F3C4BA /* DeviceTest.swift in Sources */,
+				C3F7954C1A1C8C1D00F3C4BA /* GlobalizationTest.swift in Sources */,
+				C3F7954A1A1C8C1D00F3C4BA /* DatabaseTest.swift in Sources */,
+				C3D345911A1B9EAC0033D7E6 /* GeolocationTest.swift in Sources */,
+				C3F795501A1C8C1D00F3C4BA /* SecurityTest.swift in Sources */,
+				C3F7954E1A1C8C1D00F3C4BA /* NetworkReachabilityTest.swift in Sources */,
+				C3F7954F1A1C8C1D00F3C4BA /* OSTest.swift in Sources */,
+				C3F795551A1C8C2200F3C4BA /* MessagingTest.swift in Sources */,
+				C3F795541A1C8C2200F3C4BA /* ContactTest.swift in Sources */,
+				C3F795521A1C8C1D00F3C4BA /* SessionTest.swift in Sources */,
+				C3F795531A1C8C2200F3C4BA /* BrowserTest.swift in Sources */,
+				C3F795561A1C8C2200F3C4BA /* TelephonyTest.swift in Sources */,
+				C3F795511A1C8C1D00F3C4BA /* ServiceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,15 +651,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C38C368D1A13B9A200BC26CE /* GlobalizationTest.swift in Sources */,
-				C38C368B1A13B9A200BC26CE /* DatabaseTest.swift in Sources */,
-				C38C368C1A13B9A200BC26CE /* DeviceTest.swift in Sources */,
-				C3ABF96E1A19F3530000BBA2 /* NetworkReachabilityTest.swift in Sources */,
-				C38C36911A13B9A200BC26CE /* SessionTest.swift in Sources */,
-				C38C368F1A13B9A200BC26CE /* OSTest.swift in Sources */,
-				C38C368E1A13B9A200BC26CE /* LoggingTest.swift in Sources */,
-				C38C36901A13B9A200BC26CE /* SecurityTest.swift in Sources */,
-				C3ABF9711A1A184D0000BBA2 /* ServiceTest.swift in Sources */,
+				C3F795421A1C8C1C00F3C4BA /* LoggingTest.swift in Sources */,
+				C3F7953E1A1C8C1C00F3C4BA /* DatabaseTest.swift in Sources */,
+				C3F795411A1C8C1C00F3C4BA /* GlobalizationTest.swift in Sources */,
+				C3F795401A1C8C1C00F3C4BA /* GeolocationTest.swift in Sources */,
+				C3F7953F1A1C8C1C00F3C4BA /* DeviceTest.swift in Sources */,
+				C3F795451A1C8C1C00F3C4BA /* SecurityTest.swift in Sources */,
+				C3F795431A1C8C1C00F3C4BA /* NetworkReachabilityTest.swift in Sources */,
+				C3F795441A1C8C1C00F3C4BA /* OSTest.swift in Sources */,
+				C3F795471A1C8C1C00F3C4BA /* SessionTest.swift in Sources */,
+				C3F795461A1C8C1C00F3C4BA /* ServiceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
