@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6246"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -12,31 +12,67 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2014 Carlos Lozano Diez. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
-                    <rect key="frame" x="20" y="439" width="441" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen.png" translatesAutoresizingMaskIntoConstraints="NO" id="hn1-kA-cfs">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright (c) 2014-2015 Carlos Lozano Diez t/a Adaptive.me. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
+                    <rect key="frame" x="20" y="451" width="440" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="8ie-xW-0ye" secondAttribute="height" multiplier="21:1" id="qEb-Ak-5A1"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AdaptiveArpRtiOS" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
-                    <rect key="frame" x="20" y="140" width="441" height="43"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adaptive RT" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
+                    <rect key="frame" x="124" y="94" width="232" height="52"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
+                    <variation key="widthClass=compact" misplaced="YES">
+                        <rect key="frame" x="69" y="120" width="342" height="44"/>
+                    </variation>
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="bottom" multiplier="1/3" constant="1" id="5cJ-9S-tgC"/>
-                <constraint firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="Koa-jz-hwk"/>
-                <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="Kzo-t9-V3l"/>
-                <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>
-                <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="fvb-Df-36g"/>
+                <constraint firstItem="hn1-kA-cfs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3ef-ku-ymq"/>
+                <constraint firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="5yM-LU-NRe"/>
+                <constraint firstAttribute="centerY" secondItem="kId-c2-rCX" secondAttribute="centerY" constant="120" id="CEd-R0-7xf">
+                    <variation key="heightClass=regular-widthClass=regular" constant="180"/>
+                </constraint>
+                <constraint firstItem="hn1-kA-cfs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Dd2-eO-Csl"/>
+                <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="8" id="ENR-sO-p65"/>
+                <constraint firstAttribute="trailing" secondItem="hn1-kA-cfs" secondAttribute="trailing" id="W8n-Yv-rUE"/>
+                <constraint firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" constant="200" id="XkD-Md-IUc">
+                    <variation key="heightClass=regular-widthClass=regular" constant="0.0"/>
+                </constraint>
+                <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="YWW-Vp-O1o"/>
+                <constraint firstAttribute="bottom" secondItem="hn1-kA-cfs" secondAttribute="bottom" id="ZqA-WP-wog"/>
+                <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="eyj-GK-IiE"/>
+                <constraint firstAttribute="centerY" secondItem="kId-c2-rCX" secondAttribute="centerY" id="jjn-Wb-1Hq">
+                    <variation key="heightClass=regular-widthClass=regular" constant="180"/>
+                </constraint>
+                <constraint firstAttribute="trailing" secondItem="8ie-xW-0ye" secondAttribute="trailing" constant="20" id="l4y-Vq-pR3"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="548" y="455"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="XkD-Md-IUc"/>
+                    <exclude reference="jjn-Wb-1Hq"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=regular">
+                <mask key="constraints">
+                    <include reference="XkD-Md-IUc"/>
+                    <include reference="jjn-Wb-1Hq"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="548" y="455.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="LaunchScreen.png" width="1024" height="768"/>
+    </resources>
 </document>
