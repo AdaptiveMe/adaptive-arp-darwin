@@ -70,6 +70,7 @@ public class BaseViewController : UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.view.backgroundColor = self.view.backgroundColor
     }
     
     override public func viewWillAppear(animated: Bool) {
