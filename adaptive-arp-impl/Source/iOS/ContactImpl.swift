@@ -227,11 +227,11 @@ public class ContactImpl : NSObject, IContact {
             
             ABAddressBookRequestAccessWithCompletion(addressBook, { (success, error) -> Void in
                 if success {
-                    self.logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Addres Book authorization NOT DETERMINED but correct")
+                    self.logger.log(ILoggingLogLevel.DEBUG, category: self.loggerTag, message: "Addres Book authorization NOT DETERMINED but correct")
                     self.ret = true
                 }
                 else {
-                    self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Addres Book authorization NOT DETERMINED")
+                    self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "Addres Book authorization NOT DETERMINED")
                     
                     if let call = callback {
                         call.onError(IContactResultCallbackError.NoPermission)
