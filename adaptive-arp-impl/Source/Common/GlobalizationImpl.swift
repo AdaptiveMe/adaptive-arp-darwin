@@ -32,31 +32,6 @@
 import AdaptiveArpApi
 import Foundation
 
-/*
-* = | i18n CONFIG (i18n-config.xml)  |=================================================================================
-*
-* <?xml version="1.0" encoding="UTF-8"?>
-* <i18n-config>
-*   <default language="en" country="EN"/>
-*   <supportedLanguages>
-*       <supportedLanguage language="en" country="EN" />
-*       <supportedLanguage language="es" country="ES" />
-*   </supportedLanguages>
-* </i18n-config>
-*
-* = | Language file (es-ES.plist)  |===================================================================================
-*
-* <?xml version="1.0" encoding="UTF-8"?>
-* <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-* <plist version="1.0">
-*   <dict>
-*     <key>hello-world</key>
-*     <string>Hola Mundo</string>
-*   </dict>
-* </plist>
-*
-* =====================================================================================================================
-*/
 public class GlobalizationImpl : NSObject, IGlobalization {
     
     /// i18n config file
@@ -65,6 +40,7 @@ public class GlobalizationImpl : NSObject, IGlobalization {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
+    let loggerTag : String = "GlobalizationImpl"
     
     /**
     Class constructor
@@ -108,13 +84,13 @@ public class GlobalizationImpl : NSObject, IGlobalization {
         // Read the i18n config file
         var resourceData : ResourceData? = AppResourceManager.sharedInstance.retrieveConfigResource(getConfigFilePath())
         if resourceData == nil {
-            logger.log(ILoggingLogLevel.ERROR, category: "GlobalizationImpl", message: "Error reading i18n config file: \(getConfigFilePath())")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error reading i18n config file: \(getConfigFilePath())")
             return nil
         }
         
         let data: Foundation.NSData? = resourceData!.data
         if data == nil {
-            logger.log(ILoggingLogLevel.ERROR, category: "GlobalizationImpl", message: "Error reading i18n config file: \(getConfigFilePath())")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error reading i18n config file: \(getConfigFilePath())")
             return nil
         }
         
@@ -125,10 +101,10 @@ public class GlobalizationImpl : NSObject, IGlobalization {
         xmlParser.delegate = parserDelegate
         
         if xmlParser.parse() {
-            logger.log(ILoggingLogLevel.DEBUG, category: "GlobalizationImpl", message: "Returning locales \(parserDelegate.getLocales())")
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Returning locales \(parserDelegate.getLocales())")
             return parserDelegate.getLocales()
         } else {
-            logger.log(ILoggingLogLevel.ERROR, category: "GlobalizationImpl", message: "Error parsing i18n config file: \(getConfigFilePath())")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error parsing i18n config file: \(getConfigFilePath())")
             return nil
         }
     }
@@ -148,7 +124,7 @@ public class GlobalizationImpl : NSObject, IGlobalization {
         var filePath:String = getLanguageFilePath(locale)
         var resourceData : ResourceData? = AppResourceManager.sharedInstance.retrieveConfigResource(filePath)
         if resourceData == nil {
-            logger.log(ILoggingLogLevel.ERROR, category: "GlobalizationImpl", message: "Error reading i18n LANGUAGE file: \(filePath)")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error reading i18n LANGUAGE file: \(filePath)")
             return nil
         }
         
@@ -156,7 +132,7 @@ public class GlobalizationImpl : NSObject, IGlobalization {
         let data: NSData? = resourceData!.data
         
         if data == nil {
-            logger.log(ILoggingLogLevel.ERROR, category: "GlobalizationImpl", message: "Error reading i18n LANGUAGE file: \(filePath)")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error reading i18n LANGUAGE file: \(filePath)")
             return nil
         }
         
@@ -172,16 +148,16 @@ public class GlobalizationImpl : NSObject, IGlobalization {
                     
                     if key == stringKey {
                         
-                        logger.log(ILoggingLogLevel.DEBUG, category: "GlobalizationImpl", message: "Returning value: \(ocDictionary[stringKey]) for key: \(stringKey)")
+                        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Returning value: \(ocDictionary[stringKey]) for key: \(stringKey)")
                         return (ocDictionary[stringKey] as String)
                     }
                 }
             } else {
-                logger.log(ILoggingLogLevel.ERROR, category: "GlobalizationImpl", message: "Sorry, couldn't read the file \(filePath.lastPathComponent)")
+                logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Sorry, couldn't read the file \(filePath.lastPathComponent)")
                 return nil
             }
         } else if let theError = anError {
-            logger.log(ILoggingLogLevel.ERROR, category: "GlobalizationImpl", message: "Sorry, couldn't read the file \(filePath.lastPathComponent):\n\t"+theError.localizedDescription)
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Sorry, couldn't read the file \(filePath.lastPathComponent):\n\t"+theError.localizedDescription)
         }
         
         return nil
@@ -203,7 +179,7 @@ public class GlobalizationImpl : NSObject, IGlobalization {
         var filePath:String = getLanguageFilePath(locale)
         var resourceData : ResourceData? = AppResourceManager.sharedInstance.retrieveConfigResource(filePath)
         if resourceData == nil {
-            logger.log(ILoggingLogLevel.ERROR, category: "GlobalizationImpl", message: "Error reading i18n LANGUAGE file: \(filePath)")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error reading i18n LANGUAGE file: \(filePath)")
             return nil
         }
 
@@ -211,7 +187,7 @@ public class GlobalizationImpl : NSObject, IGlobalization {
         let data: NSData? = resourceData!.data
         
         if data == nil {
-            logger.log(ILoggingLogLevel.ERROR, category: "GlobalizationImpl", message: "Error reading i18n LANGUAGE file: \(filePath)")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error reading i18n LANGUAGE file: \(filePath)")
             return nil
         }
         
@@ -227,11 +203,11 @@ public class GlobalizationImpl : NSObject, IGlobalization {
                     swiftDict.updateValue(ocDictionary[stringKey] as String, forKey: stringKey)
                 }
             } else {
-                logger.log(ILoggingLogLevel.ERROR, category: "GlobalizationImpl", message: "Sorry, couldn't read the file \(filePath.lastPathComponent)")
+                logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Sorry, couldn't read the file \(filePath.lastPathComponent)")
                 return nil
             }
         } else if let theError = anError {
-            logger.log(ILoggingLogLevel.ERROR, category: "GlobalizationImpl", message: "Sorry, couldn't read the file \(filePath.lastPathComponent):\n\t"+theError.localizedDescription)
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Sorry, couldn't read the file \(filePath.lastPathComponent):\n\t"+theError.localizedDescription)
         }
         
         return swiftDict

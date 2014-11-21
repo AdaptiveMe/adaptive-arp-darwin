@@ -36,7 +36,8 @@ import SQLite
 public class DatabaseImpl : NSObject, IDatabase {
     
     /// Logging variable
-let logger : ILogging = LoggingImpl()
+    let logger : ILogging = LoggingImpl()
+    let loggerTag : String = "DatabaseImpl"
     
     /// Documents directory
     let docDir:AnyObject
@@ -72,7 +73,7 @@ let logger : ILogging = LoggingImpl()
         
         if(database.getName()!.isEmpty || database.getName() == ""){
             
-            self.logger.log(ILoggingLogLevel.ERROR, category: "DatabaseImpl", message: "The name of the database could not be empty")
+            self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The name of the database could not be empty")
             return false
         }
         return true
@@ -102,7 +103,7 @@ let logger : ILogging = LoggingImpl()
             let dbName:String = String.fromCString(database.getName()!)!
             let path:String = self.docDir.stringByAppendingPathComponent(dbName + self.DB_EXT_FILE)
             
-            self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Path of the database file: \(path)")
+            self.logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Path of the database file: \(path)")
             
             // Create a file manager
             let fm:NSFileManager = NSFileManager.defaultManager()
@@ -110,7 +111,7 @@ let logger : ILogging = LoggingImpl()
             /*if (self.db != nil) {
                 
                 // The database is opened, so returning an instance
-                self.logger.log(ILoggingLogLevel.WARN, category: "DatabaseImpl", message: "The database is opened use the same database connection")
+                self.logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The database is opened use the same database connection")
                 callback.onWarning(database, warning: IDatabaseResultCallbackWarning.IsOpen)
                 
             } else {*/
@@ -118,7 +119,7 @@ let logger : ILogging = LoggingImpl()
                 if !(fm.fileExistsAtPath(path)) {
                     
                     // The database does not exist, so create it
-                    self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Creating database file (\(dbName)) and setting a new database connection...")
+                    self.logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Creating database file (\(dbName)) and setting a new database connection...")
                     
                     // Creating database
                     self.db = SQLite.Database(path)
@@ -129,7 +130,7 @@ let logger : ILogging = LoggingImpl()
                 } else {
                     
                     // The database exists, opening
-                    self.logger.log(ILoggingLogLevel.WARN, category: "DatabaseImpl", message: "The database file, alredy exists (\(dbName)) opening a new database connection...")
+                    self.logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The database file, alredy exists (\(dbName)) opening a new database connection...")
                     
                     // Opening database
                     //self.db = SQLite.Database(path)
@@ -159,16 +160,16 @@ let logger : ILogging = LoggingImpl()
         let dbName:String = String.fromCString(database.getName()!)!
         let path:String = self.docDir.stringByAppendingPathComponent(dbName + self.DB_EXT_FILE)
         
-        self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Path of the database file: \(path)")
+        self.logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Path of the database file: \(path)")
         
         // Create a file manager
         let fm:NSFileManager = NSFileManager.defaultManager()
         
         if fm.fileExistsAtPath(path) {
-            self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "The database \(dbName) exists :)")
+            self.logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "The database \(dbName) exists :)")
             return true
         } else {
-            self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "The database \(dbName) NOT exists :(")
+            self.logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "The database \(dbName) NOT exists :(")
             return false
         }
     }
@@ -194,7 +195,7 @@ let logger : ILogging = LoggingImpl()
             let dbName:String = String.fromCString(database.getName()!)!
             let path:String = self.docDir.stringByAppendingPathComponent(dbName + self.DB_EXT_FILE)
             
-            self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Path of the database file: \(path)")
+            self.logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Path of the database file: \(path)")
             
             // Create a file manager
             let fm:NSFileManager = NSFileManager.defaultManager()
@@ -203,13 +204,13 @@ let logger : ILogging = LoggingImpl()
             if fm.removeItemAtPath(path, error: &error) {
                 
                 // Database removed succesfully
-                self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "The database \(dbName) was removed succesfully from the path: \(path)")
+                self.logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "The database \(dbName) was removed succesfully from the path: \(path)")
                 callback.onResult(database)
                 
             } else {
                 
                 // The database wasn't removed
-                self.logger.log(ILoggingLogLevel.ERROR, category: "DatabaseImpl", message: "The database \(dbName) wasn't removed succesfully from the path: \(path) due to reason: \(error?.description)")
+                self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The database \(dbName) wasn't removed succesfully from the path: \(path) due to reason: \(error?.description)")
                 callback.onError(IDatabaseResultCallbackError.NotDeleted)
             }
         // }
@@ -243,7 +244,7 @@ let logger : ILogging = LoggingImpl()
         }
         
         if !self.existsDatabase(database) {
-            self.logger.log(ILoggingLogLevel.ERROR, category: "DatabaseImpl", message: "The database you are trying to open is not created")
+            self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The database you are trying to open is not created")
             return false
         }
         
@@ -258,7 +259,7 @@ let logger : ILogging = LoggingImpl()
             
         /*} else {
             
-            self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "The database is alredy opened")
+            self.logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "The database is alredy opened")
         }*/
         
         return true
@@ -279,7 +280,7 @@ let logger : ILogging = LoggingImpl()
         // dispatch_async(dispatch_get_main_queue()) {
             
         if !self.openDatabase(database) {
-            self.logger.log(ILoggingLogLevel.ERROR, category: "DatabaseImpl", message: "The database is not found in the file system")
+            self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The database is not found in the file system")
             callback.onError(ITableResultCallbackError.DatabaseNotFound)
             return
         }
@@ -288,7 +289,7 @@ let logger : ILogging = LoggingImpl()
         // MARK: The table parameters has to define columns inside the element because 
         // it has no sense to create a table without columns
         if table.getColumns()?.count == 0 {
-            self.logger.log(ILoggingLogLevel.ERROR, category: "DatabaseImpl", message: "The table has no columns defined")
+            self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The table has no columns defined")
             callback.onError(ITableResultCallbackError.SqlException)
             return
         }
@@ -304,7 +305,7 @@ let logger : ILogging = LoggingImpl()
         
         // Prepared statement
         var query:String = "CREATE TABLE IF NOT EXISTS `\(table.getName()!)` (\(columns));"
-        self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Query: \(query)")
+        self.logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Query: \(query)")
         
         let stmt = self.db.prepare(query)
         
@@ -313,11 +314,11 @@ let logger : ILogging = LoggingImpl()
         
         // Handle errors
         if stmt.failed {
-            self.logger.log(ILoggingLogLevel.ERROR, category: "DatabaseImpl", message: "Error during the creation of the table. Reason: \(stmt.reason)")
+            self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error during the creation of the table. Reason: \(stmt.reason)")
             callback.onError(ITableResultCallbackError.SqlException)
         } else {
-            self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Table created correctly")
-            self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Total changes: \(self.db.totalChanges)")
+            self.logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Table created correctly")
+            self.logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Total changes: \(self.db.totalChanges)")
             callback.onResult(table)
         }
         // }
@@ -338,7 +339,7 @@ let logger : ILogging = LoggingImpl()
         // dispatch_async(dispatch_get_main_queue()) {
             
         if !self.openDatabase(database) {
-            self.logger.log(ILoggingLogLevel.ERROR, category: "DatabaseImpl", message: "The database is not found in the file system")
+            self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The database is not found in the file system")
             callback.onError(ITableResultCallbackError.DatabaseNotFound)
             return
         }
@@ -347,23 +348,23 @@ let logger : ILogging = LoggingImpl()
         if self.existsTable(database, table: table) {
             var query:String = "DROP TABLE `\(table.getName()!)`"
             let stmt = self.db.prepare(query)
-            self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Query: \(query)")
+            self.logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Query: \(query)")
             
             // Run the prepared statement
             stmt.run()
             
             // Handle errors
             if stmt.failed {
-                self.logger.log(ILoggingLogLevel.ERROR, category: "DatabaseImpl", message: "Error droping the table. Reason: \(stmt.reason)")
+                self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error droping the table. Reason: \(stmt.reason)")
                 callback.onError(ITableResultCallbackError.SqlException)
             } else {
-                self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Table dropped correctly")
-                self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Total changes: \(self.db.totalChanges)")
+                self.logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Table dropped correctly")
+                self.logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Total changes: \(self.db.totalChanges)")
                 callback.onResult(table)
             }
             
         } else {
-            self.logger.log(ILoggingLogLevel.ERROR, category: "DatabaseImpl", message: "The table \(table.getName()) is not found in \(database.getName()) database")
+            self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The table \(table.getName()) is not found in \(database.getName()) database")
             callback.onError(ITableResultCallbackError.NoTableFound)
         }
         // }
@@ -381,7 +382,7 @@ let logger : ILogging = LoggingImpl()
     public func existsTable(database : AdaptiveArpApi.Database, table : Table) -> Bool {
         
         if !self.openDatabase(database) {
-            self.logger.log(ILoggingLogLevel.ERROR, category: "DatabaseImpl", message: "The database is not found in the file system")
+            self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The database is not found in the file system")
             return false
         }
         
@@ -392,10 +393,10 @@ let logger : ILogging = LoggingImpl()
             
         let tables:Query = sqlite_master.filter(tbl_name == table.getName()).order("tbl_name").limit(1)
         
-        //self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Query: \(tables.description)")
+        //self.logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Query: \(tables.description)")
         
         for row in tables {
-            self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Founded one table with name: \(table.getName())")
+            self.logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Founded one table with name: \(table.getName())")
             return true
         }
         return false
@@ -436,7 +437,7 @@ let logger : ILogging = LoggingImpl()
         // dispatch_async(dispatch_get_main_queue()) {
             
         if !self.openDatabase(database) {
-            self.logger.log(ILoggingLogLevel.ERROR, category: "DatabaseImpl", message: "The database is not found in the file system")
+            self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The database is not found in the file system")
             callback.onError(ITableResultCallbackError.DatabaseNotFound)
             return
         }
@@ -446,7 +447,7 @@ let logger : ILogging = LoggingImpl()
             
             var c = statement.rangesOfString("?").count
             
-            self.logger.log(ILoggingLogLevel.ERROR, category: "DatabaseImpl", message: "The number of replacements (\(replacements.count)) is different from the number of '?' (\(c))")
+            self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The number of replacements (\(replacements.count)) is different from the number of '?' (\(c))")
             callback.onError(ITableResultCallbackError.SqlException)
             return
         }
@@ -454,7 +455,7 @@ let logger : ILogging = LoggingImpl()
         // Prepare the statement
         var sql = self.replaceReplacements(statement, replacements: replacements)
         
-        self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Query: \(sql)")
+        self.logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Query: \(sql)")
         
         // run the statement
         let stmt = self.db.prepare(sql)
@@ -464,16 +465,16 @@ let logger : ILogging = LoggingImpl()
         
         // Handle errors
         if stmt.failed {
-            self.logger.log(ILoggingLogLevel.ERROR, category: "DatabaseImpl", message: "Error executing the statement. Reason: \(stmt.reason)")
+            self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error executing the statement. Reason: \(stmt.reason)")
             callback.onError(ITableResultCallbackError.SqlException)
         } else {
             
             if table.getRowCount() == 0 {
-                self.logger.log(ILoggingLogLevel.WARN, category: "DatabaseImpl", message: "There are no results")
+                self.logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "There are no results")
                 callback.onWarning(table, warning: ITableResultCallbackWarning.NoResults)
             } else {
-                self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Statement executed correctlly")
-                self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Total changes: \(self.db.totalChanges)")
+                self.logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Statement executed correctlly")
+                self.logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Total changes: \(self.db.totalChanges)")
                 callback.onResult(table)
             }
         }
@@ -499,7 +500,7 @@ let logger : ILogging = LoggingImpl()
         // dispatch_async(dispatch_get_main_queue()) {
             
             if !self.openDatabase(database) {
-                self.logger.log(ILoggingLogLevel.ERROR, category: "DatabaseImpl", message: "The database is not found in the file system")
+                self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The database is not found in the file system")
                 callback.onError(ITableResultCallbackError.DatabaseNotFound)
                 return
             }
@@ -512,13 +513,13 @@ let logger : ILogging = LoggingImpl()
             
             if txn.failed {
                 self.db.run("ROLLBACK TRANSACTION")
-                self.logger.log(ILoggingLogLevel.ERROR, category: "DatabaseImpl", message: "Error executing the statement. Reason: \(txn.reason)")
+                self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error executing the statement. Reason: \(txn.reason)")
                 callback.onError(ITableResultCallbackError.SqlException)
                 return
             } else {
                 self.db.run("COMMIT TRANSACTION")
-                self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Transaction commited correctlly")
-                self.logger.log(ILoggingLogLevel.DEBUG, category: "DatabaseImpl", message: "Total changes: \(self.db.totalChanges)")
+                self.logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Transaction commited correctlly")
+                self.logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Total changes: \(self.db.totalChanges)")
             }
             
             // TODO: the table is empty

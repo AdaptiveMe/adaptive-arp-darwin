@@ -37,6 +37,7 @@ public class I18NParser : NSObject, NSXMLParserDelegate {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
+    let loggerTag : String = "I18NParser"
     
     /// Locales supported (filled by the getLocaleSupportedDescriptors method)
     var locales: [Locale]
@@ -65,7 +66,7 @@ public class I18NParser : NSObject, NSXMLParserDelegate {
         
         // Store
         if elementName == I18N_SUPLANG_ELEM {
-            logger.log(ILoggingLogLevel.DEBUG, category: "GlobalizationImpl", message: "Reading language: \(attributeDict[I18N_SUPLANG_ATTR_LANG])")
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Reading language: \(attributeDict[I18N_SUPLANG_ATTR_LANG])")
             
             var locale:AdaptiveArpApi.Locale = AdaptiveArpApi.Locale()
             locale.setLanguage("\(attributeDict[I18N_SUPLANG_ATTR_CNTR]!)")

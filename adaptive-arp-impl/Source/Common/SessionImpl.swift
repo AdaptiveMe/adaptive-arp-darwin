@@ -43,6 +43,7 @@ public class SessionImpl : NSObject, ISession {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
+    let loggerTag : String = "SessionImpl"
     
     /**
     Class constructor. Loads all information of the operating system
@@ -62,7 +63,7 @@ public class SessionImpl : NSObject, ISession {
     */
     public func getCookies() -> [Cookie]? {
         
-        logger.log(ILoggingLogLevel.DEBUG, category: "SessionImpl", message: "Returning all cookies: \(self.cookies)")
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Returning all cookies: \(self.cookies)")
         
         return self.cookies
     }
@@ -76,7 +77,7 @@ public class SessionImpl : NSObject, ISession {
     */
     public func setCookie(cookie : Cookie) {
         
-        logger.log(ILoggingLogLevel.DEBUG, category: "SessionImpl", message: "Adding a cookie: \(cookie)")
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Adding a cookie: \(cookie)")
         
         self.cookies.append(cookie)
     }
@@ -107,11 +108,11 @@ public class SessionImpl : NSObject, ISession {
         for (index, c) in enumerate(self.cookies) {
             if c.getName() == cookie.getName() {
                 self.cookies.removeAtIndex(index)
-                logger.log(ILoggingLogLevel.DEBUG, category: "SessionImpl", message: "Removing cookie: \(c)")
+                logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing cookie: \(c)")
                 return
             }
         }
-        logger.log(ILoggingLogLevel.WARN, category: "SessionImpl", message: "The cookie with name \(cookie.getName()) does not exist")
+        logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The cookie with name \(cookie.getName()) does not exist")
     }
     
     /**
@@ -141,12 +142,12 @@ public class SessionImpl : NSObject, ISession {
         
         for (key, value) in self.attributes {
             if key == name {
-                logger.log(ILoggingLogLevel.DEBUG, category: "SessionImpl", message: "Returning attribute \(key)")
+                logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Returning attribute \(key)")
                 return value
             }
         }
         
-        logger.log(ILoggingLogLevel.WARN, category: "SessionImpl", message: "The attribute with name \(name) does not exist. Returning nil")
+        logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The attribute with name \(name) does not exist. Returning nil")
         
         return nil
     }
@@ -166,7 +167,7 @@ public class SessionImpl : NSObject, ISession {
             ret.append(value)
         }
         
-        logger.log(ILoggingLogLevel.DEBUG, category: "SessionImpl", message: "Returning all attributes: \(ret)")
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Returning all attributes: \(ret)")
         
         return ret
     }
@@ -181,7 +182,7 @@ public class SessionImpl : NSObject, ISession {
     */
     public func setAttribute(name : String, value : AnyObject) {
         
-        logger.log(ILoggingLogLevel.DEBUG, category: "SessionImpl", message: "Setting attribute with name: \(name) and value: \(value)")
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Setting attribute with name: \(name) and value: \(value)")
         
         self.attributes.updateValue(value, forKey: name)
     }
@@ -201,7 +202,7 @@ public class SessionImpl : NSObject, ISession {
             ret.append(key)
         }
         
-        logger.log(ILoggingLogLevel.DEBUG, category: "SessionImpl", message: "Returning all keys: \(ret)")
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Returning all keys: \(ret)")
         
         return ret
     }
@@ -218,10 +219,10 @@ public class SessionImpl : NSObject, ISession {
         var value: AnyObject? = self.attributes.removeValueForKey(name)
         
         if value == nil {
-            logger.log(ILoggingLogLevel.ERROR, category: "SessionImpl", message: "Error removing an attribute: \(name)")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error removing an attribute: \(name)")
             return
         } else {
-            logger.log(ILoggingLogLevel.DEBUG, category: "SessionImpl", message: "Removing an attribute: \(name)")
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing an attribute: \(name)")
         }
     }
     
@@ -233,7 +234,7 @@ public class SessionImpl : NSObject, ISession {
     */
     public func removeAttributes() {
         
-        logger.log(ILoggingLogLevel.DEBUG, category: "SessionImpl", message: "Removing all attributes")
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing all attributes")
         
         self.attributes.removeAll(keepCapacity: false)
     }

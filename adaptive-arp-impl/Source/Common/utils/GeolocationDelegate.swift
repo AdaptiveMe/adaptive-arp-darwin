@@ -38,6 +38,7 @@ public class GeolocationDelegate: NSObject, CLLocationManagerDelegate {
     
     /// Logging variable
     let logger: ILogging = LoggingImpl()
+    let loggerTag: String = "GeolocationDelegate"
     
     /// Geo location manager
     private let listener: IGeolocationListener!
@@ -96,7 +97,7 @@ public class GeolocationDelegate: NSObject, CLLocationManagerDelegate {
         // Create a method Geolocation and send ot to the listener
         var geolocation: Geolocation = Geolocation(latitude: latitude, longitude: longitude, altitude: altitude, xDoP: horizontalAccuracy, yDoP: verticalAccuracy)
         
-        logger.log(ILoggingLogLevel.DEBUG, category: "GeolocationDelegate", message: "Updating the geolocation delegate at \(locationObject.timestamp)")
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Updating the geolocation delegate at \(locationObject.timestamp)")
         
         // Fire the listener
         self.listener.onResult(geolocation)
@@ -112,7 +113,7 @@ public class GeolocationDelegate: NSObject, CLLocationManagerDelegate {
     */
     public func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         
-        logger.log(ILoggingLogLevel.ERROR, category: "GeolocationDelegate", message: "There is an error in the geolocation update service: \(error.description)")
+        logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "There is an error in the geolocation update service: \(error.description)")
         
         // Stop the geolocation service
         stopUpdatingLocation()
@@ -131,17 +132,17 @@ public class GeolocationDelegate: NSObject, CLLocationManagerDelegate {
         switch status {
         case CLAuthorizationStatus.Restricted:
             
-            logger.log(ILoggingLogLevel.ERROR, category: "GeolocationDelegate", message: "Restricted Access to location")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Restricted Access to location")
             listener.onError(IGeolocationListenerError.RestrictedAccess)
             
         case CLAuthorizationStatus.Denied:
             
-            logger.log(ILoggingLogLevel.ERROR, category: "GeolocationDelegate", message: "User denied access to location")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "User denied access to location")
             listener.onError(IGeolocationListenerError.DeniedAccess)
             
         case CLAuthorizationStatus.NotDetermined:
             
-            logger.log(ILoggingLogLevel.ERROR, category: "GeolocationDelegate", message: "Status not determined")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Status not determined")
             listener.onError(IGeolocationListenerError.StatusNotDetermined)
             
         case CLAuthorizationStatus.Authorized:
@@ -151,10 +152,10 @@ public class GeolocationDelegate: NSObject, CLLocationManagerDelegate {
             // start the geolocation updates
             locationManager.startUpdatingLocation()
             
-            logger.log(ILoggingLogLevel.DEBUG, category: "GeolocationDelegate", message: "Status Authorized")
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Status Authorized")
             
         default:
-            logger.log(ILoggingLogLevel.ERROR, category: "GeolocationDelegate", message: "This status: \(status) is not handled by the manager")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "This status: \(status) is not handled by the manager")
         }
         
         #if os(iOS)
@@ -167,10 +168,10 @@ public class GeolocationDelegate: NSObject, CLLocationManagerDelegate {
             // start the geolocation updates
             locationManager.startUpdatingLocation()
             
-            logger.log(ILoggingLogLevel.DEBUG, category: "GeolocationDelegate", message: "Status AuthorizedWhenInUse")
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Status AuthorizedWhenInUse")
             
         default:
-            logger.log(ILoggingLogLevel.ERROR, category: "GeolocationDelegate", message: "This status: \(status) is not handled by the manager")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "This status: \(status) is not handled by the manager")
         }
         #endif
     }
@@ -183,7 +184,7 @@ public class GeolocationDelegate: NSObject, CLLocationManagerDelegate {
     */
     public func stopUpdatingLocation() {
         
-        logger.log(ILoggingLogLevel.DEBUG, category: "GeolocationDelegate", message: "Stopping the geolocation updates of \(self.getListener().toString())")
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Stopping the geolocation updates of \(self.getListener().toString())")
         
         locationManager.stopUpdatingLocation()
     }
