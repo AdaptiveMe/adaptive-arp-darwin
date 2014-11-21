@@ -32,62 +32,112 @@
 import Foundation
 import AdaptiveArpApi
 
-
 public class LifecycleImpl : NSObject, ILifecycle {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
+    let loggerTag : String = "LifecycleImpl"
     
-    /**
-    Class constructor
-    */
+    /// Array for saving the registered listeners
+    var listeners:[ILifecycleListener]!
+    
+    // Workaround:
+    private struct SubStruct { static var staticVariable: Bool = false }
+    
+    public class var isBackgroundClassVariable: Bool
+        {
+        get { return SubStruct.staticVariable }
+        set { SubStruct.staticVariable = newValue }
+    }
+    
+    /// Class constructor
     override init() {
         
+        listeners = [ILifecycleListener]()
     }
     
-    /**
-    * Whether the application is in background or not
-    *
-    * @return true if the application is in background;false otherwise
-    * @since ARP1.0
-    */
+    /// Whether the application is in background or not
+    /// :return: true if the application is in background;false otherwise
+    /// :author: Ferran Vila Conesa
+    /// :since: ARP1.0
     public func isBackground() -> Bool {
         
-        // TODO
-        
-        return false
+        return SubStruct.staticVariable
     }
     
-    /**
-    * Add the listener for the lifecycle of the app
-    *
-    * @param listener
-    * @since ARP1.0
-    */
+    /// Add the listener for the lifecycle of the app
+    /// :param: listener
+    /// :author: Ferran Vila Conesa
+    /// :since: ARP1.0
     public func addLifecycleListener(listener : ILifecycleListener) {
         
-        // TODO
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Adding one listener to the pull")
+        listeners.append(listener)
     }
     
-    /**
-    * Un-registers an existing listener from receiving lifecycle events.
-    *
-    * @param listener
-    * @since ARP1.0
-    */
+    /// Un-registers an existing listener from receiving lifecycle events.
+    /// :param: listener
+    /// :author: Ferran Vila Conesa
+    /// :since: ARP1.0
     public func removeLifecycleListener(listener : ILifecycleListener) {
         
-        // TODO
+        for (index, l) in enumerate(listeners) {
+            
+            if(l.getId() == listener.getId()) {
+                
+                listeners.removeAtIndex(index)
+                
+                logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing \(listener) to the service pull")
+                
+                return
+            }
+        }
+        
+        logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "\(listener) is not founded in the pull for removing")
     }
     
-    /**
-    * Removes all existing listeners from receiving lifecycle events.
-    *
-    * @since ARP1.0
-    */
+    /// Removes all existing listeners from receiving lifecycle events.
+    /// :param: listener
+    /// :author: Ferran Vila Conesa
+    /// :since: ARP1.0
     public func removeLifecycleListeners() {
         
-        // TODO
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing all the listeners from thee service pull")
+        listeners.removeAll(keepCapacity: false)
+    }
+    
+    /// This function is called by the Appdelegeate in order to propagate an event to the listeners
+    /// :param: lifecycle LifeCycle event
+    /// :author: Ferran Vila Conesa
+    public func changeListenersStatus(lifecycle:Lifecycle) {
+        
+        // Iterate all over the listeners and fire the event
+        for (index, l) in enumerate(listeners) {
+            l.onResult(lifecycle)
+        }
+    }
+    
+    /// This function is called by the Appdelegeate in order to propagate an event to the listeners
+    /// :param: lifecycle LifeCycle event
+    /// :param: warning Warning event
+    /// :author: Ferran Vila Conesa
+    public func changeListenerWarningStatus(lifecycle:Lifecycle, warning: ILifecycleListenerWarning) {
+        
+        // Iterate all over the listeners and fire the event
+        for (index, l) in enumerate(listeners) {
+            l.onWarning(lifecycle, warning: warning)
+        }
+    }
+    
+    /// This function is called by the Appdelegeate in order to propagate an event to the listeners
+    /// :param: error Error event
+    /// :author: Ferran Vila Conesa
+    public func changeListenerErrorStatus(error: ILifecycleListenerError) {
+        
+        // Iterate all over the listeners and fire the event
+        for (index, l) in enumerate(listeners) {
+            l.onError(error)
+        }
     }
     
 }
