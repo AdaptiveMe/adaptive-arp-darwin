@@ -29,30 +29,36 @@
 * =====================================================================================================================
 */
 
-import Foundation
 import AdaptiveArpApi
-
 
 public class RuntimeImpl : NSObject, IRuntime {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
+    let loggerTag : String = "RuntimeImpl"
     
-    /**
-    Class constructor
-    */
+    /// Class constructor
     override init() {
         
     }
     
+    /// Dismiss the current Application
+    /// :author: Ferran Vila Conesa
+    /// :since: ARP1.0
     public func dismissApplication() {
         
-        // TODO
+        // In iOS there is no API provided for quitting the applications
+        // :see: https://developer.apple.com/library/ios/qa/qa1561/_index.html
+        logger.log(ILoggingLogLevel.ERROR, category:loggerTag, message: "There is no API provided for gracefully terminating an iOS application.")
     }
     
+    /// Whether the application dismiss the splash screen successfully or not
+    /// :return: true if the application has dismissed the splash screen;false otherwise
+    /// :author: Ferran Vila Conesa
+    /// :since: ARP1.0
     public func dismissSplashScreen() -> Bool {
         
-        // TODO
+        logger.log(ILoggingLogLevel.ERROR, category:loggerTag, message: "There is no API provided for dismissing the splash screen inside an iOS application")
         
         return false
     }
