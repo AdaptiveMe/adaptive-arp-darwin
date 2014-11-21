@@ -66,21 +66,21 @@ public class NetworkReachabilityImpl : NSObject, INetworkReachability {
                 // Error
                 if (error != nil) {
                     
-                    self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "\(error?.description)")
+                    self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "\(error?.description)")
                     callback.onError(INetworkReachabilityCallbackError.Unknown)
                     return
                 }
                 
                 // Check for Not secured url
                 if startsWith(url, "https://") {
-                    self.logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Secured URL (https): \(url)")
+                    self.logger.log(ILoggingLogLevel.DEBUG, category: self.loggerTag, message: "Secured URL (https): \(url)")
                 } else {
-                    self.logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "NOT Secured URL (https): \(url)")
+                    self.logger.log(ILoggingLogLevel.WARN, category: self.loggerTag, message: "NOT Secured URL (https): \(url)")
                     
                     callback.onWarning("", warning: INetworkReachabilityCallbackWarning.NotSecure)
                 }
                 
-                self.logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "status code: \(response!.statusCode)")
+                self.logger.log(ILoggingLogLevel.DEBUG, category: self.loggerTag, message: "status code: \(response!.statusCode)")
                 
                 switch (response!.statusCode) {
                 case 200..<299:
