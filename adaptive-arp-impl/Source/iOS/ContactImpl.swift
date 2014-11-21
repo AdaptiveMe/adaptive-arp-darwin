@@ -37,6 +37,7 @@ public class ContactImpl : NSObject, IContact {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
+    let loggerTag : String = "ContactImpl"
     
     /// Return value used in some functions
     var ret: Bool
@@ -226,11 +227,11 @@ public class ContactImpl : NSObject, IContact {
             
             ABAddressBookRequestAccessWithCompletion(addressBook, { (success, error) -> Void in
                 if success {
-                    self.logger.log(ILoggingLogLevel.DEBUG, category: "ContactImpl", message: "Addres Book authorization NOT DETERMINED but correct")
+                    self.logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Addres Book authorization NOT DETERMINED but correct")
                     self.ret = true
                 }
                 else {
-                    self.logger.log(ILoggingLogLevel.ERROR, category: "ContactImpl", message: "Addres Book authorization NOT DETERMINED")
+                    self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Addres Book authorization NOT DETERMINED")
                     
                     if let call = callback {
                         call.onError(IContactResultCallbackError.NoPermission)
@@ -246,7 +247,7 @@ public class ContactImpl : NSObject, IContact {
             
             // Authorization Denied
             
-            logger.log(ILoggingLogLevel.ERROR, category: "ContactImpl", message: "Addres Book authorization DENIED")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Addres Book authorization DENIED")
             
             if let call = callback {
                 call.onError(IContactResultCallbackError.NoPermission)
@@ -260,7 +261,7 @@ public class ContactImpl : NSObject, IContact {
             
             // Authorization Restricted
             
-            logger.log(ILoggingLogLevel.ERROR, category: "ContactImpl", message: "Addres Book authorization RESTRICTED")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Addres Book authorization RESTRICTED")
             
             if let call = callback {
                 call.onError(IContactResultCallbackError.NoPermission)
@@ -274,7 +275,7 @@ public class ContactImpl : NSObject, IContact {
             
             // Authorization Authorized
             
-            logger.log(ILoggingLogLevel.DEBUG, category: "ContactImpl", message: "Addres Book authorization AUTHORIZED")
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Addres Book authorization AUTHORIZED")
             self.ret = true
         }
         
@@ -314,13 +315,13 @@ public class ContactImpl : NSObject, IContact {
                 var id:Int32 = Int32(contact.getContactId()!.toInt()!)
                 
                 if(ABAddressBookGetPersonWithRecordID(addressBook, id) == nil) {
-                    logger.log(ILoggingLogLevel.WARN, category: "ContactImpl", message: "The contact with id: \(id) is not founded in the address book")
+                    logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The contact with id: \(id) is not founded in the address book")
                     callback.onWarning([Contact](), warning: IContactResultCallbackWarning.No_Matches)
                     return
                 }
                 
                 var person:ABRecordRef = Unmanaged.fromOpaque(ABAddressBookGetPersonWithRecordID(addressBook, id).toOpaque()).takeUnretainedValue()
-                logger.log(ILoggingLogLevel.DEBUG, category: "ContactImpl", message: "Quering for one person id: \(id)")
+                logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Quering for one person id: \(id)")
                 
                 // Apend only one person into the array
                 contactList.append(person)
@@ -439,11 +440,11 @@ public class ContactImpl : NSObject, IContact {
                 }
             }
             
-            logger.log(ILoggingLogLevel.DEBUG, category: "ContactImpl", message: "Number of all contacts: \(contactList.count)")
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Number of all contacts: \(contactList.count)")
             
             // If there are no contacts
             if(contactList.count == 0) {
-                logger.log(ILoggingLogLevel.WARN, category: "ContactImpl", message: "There are no contacts in the Address Book")
+                logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "There are no contacts in the Address Book")
                 callback.onWarning([Contact](), warning: IContactResultCallbackWarning.No_Matches)
                 return
             }
@@ -451,7 +452,7 @@ public class ContactImpl : NSObject, IContact {
             // Iterate all over contacts
             for record:ABRecordRef in contactList {
                 
-                logger.log(ILoggingLogLevel.DEBUG, category: "ContactImpl", message: "Getting information from: \(ABRecordCopyCompositeName(record).takeRetainedValue())")
+                logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Getting information from: \(ABRecordCopyCompositeName(record).takeRetainedValue())")
                 
                 var contact: Contact = Contact()
                 
@@ -600,7 +601,7 @@ public class ContactImpl : NSObject, IContact {
                             case "twitter":
                                 contactSocial.setSocialNetwork(ContactSocial.SocialNetwork.Twitter)
                             default:
-                                logger.log(ILoggingLogLevel.WARN, category: "ContactImpl", message: "The social network: \(socialNetwork) is not supported by the system")
+                                logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The social network: \(socialNetwork) is not supported by the system")
                             }
                             
                             contactSocialList.append(contactSocial)
@@ -829,17 +830,17 @@ public class ContactImpl : NSObject, IContact {
             var id:Int32 = Int32(contact.getContactId()!.toInt()!)
             
             if(ABAddressBookGetPersonWithRecordID(addressBook, id) == nil) {
-                logger.log(ILoggingLogLevel.WARN, category: "ContactImpl", message: "The contact with id: \(id) is not founded in the address book for getting the picture")
+                logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The contact with id: \(id) is not founded in the address book for getting the picture")
                 callback.onWarning([Byte](), warning: IContactPhotoResultCallbackWarning.No_Matches)
                 return
             }
         
             var person:ABRecordRef = Unmanaged.fromOpaque(ABAddressBookGetPersonWithRecordID(addressBook, id).toOpaque()).takeUnretainedValue()
-            logger.log(ILoggingLogLevel.DEBUG, category: "ContactImpl", message: "Quering for one person id: \(id)")
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Quering for one person id: \(id)")
             
             // If the person has no photo
             if !ABPersonHasImageData(person) {
-                logger.log(ILoggingLogLevel.ERROR, category: "ContactImpl", message: "The contact with id: \(id) has NO photo")
+                logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The contact with id: \(id) has NO photo")
                 callback.onError(IContactPhotoResultCallbackError.No_Photo)
                 return
             }
@@ -877,12 +878,12 @@ public class ContactImpl : NSObject, IContact {
             var id:Int32 = Int32(contact.getContactId()!.toInt()!)
             
             if(ABAddressBookGetPersonWithRecordID(addressBook, id) == nil) {
-                logger.log(ILoggingLogLevel.WARN, category: "ContactImpl", message: "The contact with id: \(id) is not founded in the address book for setting the picture")
+                logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The contact with id: \(id) is not founded in the address book for setting the picture")
                 return false
             }
             
             var person:ABRecordRef = Unmanaged.fromOpaque(ABAddressBookGetPersonWithRecordID(addressBook, id).toOpaque()).takeUnretainedValue()
-            logger.log(ILoggingLogLevel.DEBUG, category: "ContactImpl", message: "Quering for one person id: \(id)")
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Quering for one person id: \(id)")
             
             var data: NSData = NSData(bytes: pngImage, length: pngImage.count)
             
@@ -894,22 +895,22 @@ public class ContactImpl : NSObject, IContact {
                     if ABAddressBookSave(addressBook, nil) {
                         return true
                     } else {
-                        logger.log(ILoggingLogLevel.ERROR, category: "ContactImpl", message: "There is an error saving the address book")
+                        logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "There is an error saving the address book")
                         return false
                     }
                 } else {
-                    logger.log(ILoggingLogLevel.ERROR, category: "ContactImpl", message: "There are no changes to save in the address book")
+                    logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "There are no changes to save in the address book")
                     return false
                 }
             } else {
                 
-                logger.log(ILoggingLogLevel.ERROR, category: "ContactImpl", message: "There is an error trying to set the image for a contact")
+                logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "There is an error trying to set the image for a contact")
                 return false
             }
             
         } else {
             
-            logger.log(ILoggingLogLevel.ERROR, category: "ContactImpl", message: "There was an error trying to open the address book")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "There was an error trying to open the address book")
             return false
         }
     }
