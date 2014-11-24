@@ -41,6 +41,7 @@ public class DeviceImpl : NSObject, IDevice {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
+    let loggerTag : String = "DeviceImpl"
     
     /// Variable that stores the device information
     var deviceInfo:DeviceInfo?
@@ -79,7 +80,7 @@ public class DeviceImpl : NSObject, IDevice {
     */
     public func getDeviceInfo() -> DeviceInfo? {
         
-        logger.log(ILoggingLogLevel.DEBUG, category: "DeviceImpl", message: "name: \(self.deviceInfo!.getName()), model: \(self.deviceInfo!.getModel()), vendor: \(self.deviceInfo!.getVendor()), uuid: \(self.deviceInfo!.getUuid())")
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "name: \(self.deviceInfo!.getName()), model: \(self.deviceInfo!.getModel()), vendor: \(self.deviceInfo!.getVendor()), uuid: \(self.deviceInfo!.getUuid())")
         
         return self.deviceInfo!
     }
@@ -101,8 +102,8 @@ public class DeviceImpl : NSObject, IDevice {
         let country: String = localeComponents[NSLocaleCountryCode] as String
         let language: String = localeComponents[NSLocaleLanguageCode] as String
         
-        logger.log(ILoggingLogLevel.DEBUG, category: "DeviceImpl", message: "Country=\(country)")
-        logger.log(ILoggingLogLevel.DEBUG, category: "DeviceImpl", message: "Language=\(language)")
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Country=\(country)")
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Language=\(language)")
         
         return Locale(language: language, country: country)
     }
@@ -123,19 +124,19 @@ public class DeviceImpl : NSObject, IDevice {
                     
                     // If the listener has alredy registered
                     
-                    logger.log(ILoggingLogLevel.WARN, category: "DeviceImpl", message: "The listener \(listener.toString()) has alredy registered")
+                    logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The listener \(listener.toString()) has alredy registered")
                     return
                 }
             }
             
             // Register the listener
             listeners!.append(listener)
-            logger.log(ILoggingLogLevel.DEBUG, category: "DeviceImpl", message: "Listener \(listener.toString()) registered")
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Listener \(listener.toString()) registered")
             
         #elseif os(OSX)
             
             // in OSX there are no hardware buttons
-            logger.log(ILoggingLogLevel.WARN, category: "DeviceImpl", message: "This device doesn't have support for this kind of listeners because there aren't hardware buttons")
+            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there aren't hardware buttons")
             
         #endif
     }
@@ -157,18 +158,18 @@ public class DeviceImpl : NSObject, IDevice {
                     // Remove the listener
                     listeners!.removeAtIndex(index)
                     
-                    logger.log(ILoggingLogLevel.DEBUG, category: "DeviceImpl", message: "The listener \(listener.toString()) it has been removed")
+                    logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "The listener \(listener.toString()) it has been removed")
                     return
                 }
             }
             
             //
-            logger.log(ILoggingLogLevel.ERROR, category: "DeviceImpl", message: "Listener \(listener.toString()) is not registered in the system")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Listener \(listener.toString()) is not registered in the system")
             
         #elseif os(OSX)
             
             // in OSX there are no hardware buttons
-            logger.log(ILoggingLogLevel.WARN, category: "DeviceImpl", message: "This device doesn't have support for this kind of listeners because there aren't hardware buttons")
+            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there aren't hardware buttons")
             
         #endif
     }
@@ -188,12 +189,12 @@ public class DeviceImpl : NSObject, IDevice {
             // Remove all the listeners
             listeners!.removeAll(keepCapacity: false)
             
-            logger.log(ILoggingLogLevel.DEBUG, category: "DeviceImpl", message: "Removed \(listCount) listeners from the system")
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removed \(listCount) listeners from the system")
             
         #elseif os(OSX)
             
             // in OSX there are no hardware buttons
-            logger.log(ILoggingLogLevel.WARN, category: "DeviceImpl", message: "This device doesn't have support for this kind of listeners because there aren't hardware buttons")
+            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there aren't hardware buttons")
             
         #endif
     }

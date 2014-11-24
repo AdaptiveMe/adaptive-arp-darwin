@@ -495,10 +495,11 @@
 					};
 					4EDB4E4D1A028C89008A2C4F = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 2G3S9L8W64;
+						DevelopmentTeam = 5T7H4AR6JF;
 					};
 					4EDB4E631A028C89008A2C4F = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 5T7H4AR6JF;
 						TestTargetID = 4EDB4E4D1A028C89008A2C4F;
 					};
 					4EDB4E751A028C99008A2C4F = {
@@ -925,8 +926,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -936,7 +937,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/Frameworks/AdaptiveArpImpl.framework/Frameworks";
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cfc84957-253c-46a0-b7f1-00b13e3b360e";
+				PROVISIONING_PROFILE = "";
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 			};
 			name = Release;

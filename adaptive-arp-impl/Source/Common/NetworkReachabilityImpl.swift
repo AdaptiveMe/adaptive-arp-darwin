@@ -38,6 +38,7 @@ public class NetworkReachabilityImpl : NSObject, INetworkReachability {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
+    let loggerTag : String = "NetworkReachabilityImpl"
     
     /// Class constructor
     public override init() {
@@ -54,7 +55,7 @@ public class NetworkReachabilityImpl : NSObject, INetworkReachability {
         // Check the url for malforming
         if(Utils.validateUrl(url)){
             callback.onError(INetworkReachabilityCallbackError.MalformedUrl)
-            self.logger.log(ILoggingLogLevel.ERROR, category: "NetworkReachabilityImpl", message: "Url malformed: \(url)")
+            self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Url malformed: \(url)")
             return
         }
         
@@ -65,21 +66,21 @@ public class NetworkReachabilityImpl : NSObject, INetworkReachability {
                 // Error
                 if (error != nil) {
                     
-                    self.logger.log(ILoggingLogLevel.ERROR, category: "NetworkReachabilityImpl", message: "\(error?.description)")
+                    self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "\(error?.description)")
                     callback.onError(INetworkReachabilityCallbackError.Unknown)
                     return
                 }
                 
                 // Check for Not secured url
                 if startsWith(url, "https://") {
-                    self.logger.log(ILoggingLogLevel.DEBUG, category: "NetworkReachabilityImpl", message: "Secured URL (https): \(url)")
+                    self.logger.log(ILoggingLogLevel.DEBUG, category: self.loggerTag, message: "Secured URL (https): \(url)")
                 } else {
-                    self.logger.log(ILoggingLogLevel.WARN, category: "NetworkReachabilityImpl", message: "NOT Secured URL (https): \(url)")
+                    self.logger.log(ILoggingLogLevel.WARN, category: self.loggerTag, message: "NOT Secured URL (https): \(url)")
                     
                     callback.onWarning("", warning: INetworkReachabilityCallbackWarning.NotSecure)
                 }
                 
-                self.logger.log(ILoggingLogLevel.DEBUG, category: "NetworkReachabilityImpl", message: "status code: \(response!.statusCode)")
+                self.logger.log(ILoggingLogLevel.DEBUG, category: self.loggerTag, message: "status code: \(response!.statusCode)")
                 
                 switch (response!.statusCode) {
                 case 200..<299:
@@ -120,16 +121,16 @@ public class NetworkReachabilityImpl : NSObject, INetworkReachability {
         var reachability:Reachability = Reachability(hostname: host)
         
         var isReachableViaWiFi = reachability.isReachableViaWiFi()
-        logger.log(ILoggingLogLevel.DEBUG, category: "NetworkReachabilityImpl", message: "isReachableViaWiFi: \(isReachableViaWiFi)")
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "isReachableViaWiFi: \(isReachableViaWiFi)")
         
         var isReachableViaWWAN = reachability.isReachableViaWWAN()
-        logger.log(ILoggingLogLevel.DEBUG, category: "NetworkReachabilityImpl", message: "isReachableViaWWAN: \(isReachableViaWWAN)")
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "isReachableViaWWAN: \(isReachableViaWWAN)")
         
         if isReachableViaWiFi || isReachableViaWWAN {
-            logger.log(ILoggingLogLevel.DEBUG, category: "NetworkReachabilityImpl", message: "isReachable!")
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "isReachable!")
             callback.onResult("")
         } else {
-            logger.log(ILoggingLogLevel.DEBUG, category: "NetworkReachabilityImpl", message: "isUnreachable!")
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "isUnreachable!")
             callback.onError(INetworkReachabilityCallbackError.Unreachable)
         }
         
@@ -409,10 +410,11 @@ public class Reachability {
             return self.isConnectionRequired(flags) && self.isInterventionRequired(flags)
         })
     }
-    
+    #if os(iOS)
     func isOnWWAN(flags: SCNetworkReachabilityFlags) -> Bool {
         return flags & SCNetworkReachabilityFlags(kSCNetworkReachabilityFlagsIsWWAN) != 0
     }
+    #endif
     func isReachable(flags: SCNetworkReachabilityFlags) -> Bool {
         return flags & SCNetworkReachabilityFlags(kSCNetworkReachabilityFlagsReachable) != 0
     }

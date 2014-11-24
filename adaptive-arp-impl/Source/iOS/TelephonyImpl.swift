@@ -37,6 +37,7 @@ public class TelephonyImpl : NSObject, ITelephony {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
+    let loggerTag : String = "TelephonyImpl"
     
     var application:UIApplication
     
@@ -62,7 +63,7 @@ public class TelephonyImpl : NSObject, ITelephony {
         // Check the correct format of the number
         if !Utils.isPhoneNumberCorrect(number) {
             
-            logger.log(ILoggingLogLevel.ERROR, category: "TelephonyImpl", message: "The number: \(number) has an incorrect format")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The number: \(number) has an incorrect format")
             return ITelephonyStatus.Failed
         }
         
@@ -71,7 +72,7 @@ public class TelephonyImpl : NSObject, ITelephony {
         // Check if it is possible to open the url
         if !application.canOpenURL(url) {
             
-            logger.log(ILoggingLogLevel.ERROR, category: "TelephonyImpl", message: "The url: \(url) is not possible to open by the application")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The url: \(url) is not possible to open by the application")
             return ITelephonyStatus.Failed
         }
         
@@ -79,7 +80,7 @@ public class TelephonyImpl : NSObject, ITelephony {
         let result: Bool =  application.openURL(url)
         
         if !result {
-            logger.log(ILoggingLogLevel.ERROR, category: "TelephonyImpl", message: "It is not posible to make the call")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "It is not posible to make the call")
         }
         
         return result ? ITelephonyStatus.Dialing : ITelephonyStatus.Failed

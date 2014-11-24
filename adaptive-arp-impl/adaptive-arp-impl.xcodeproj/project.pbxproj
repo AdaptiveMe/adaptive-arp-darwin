@@ -141,6 +141,10 @@
 		4EE6E43E1A0CE75200354446 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE6E43D1A0CE75200354446 /* libsqlite3.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4EFABE261A13848700BD3A13 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C11D1A0BEC760026ED0B /* Realm.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4EFABE271A13849100BD3A13 /* Realm.framework in Embed Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C11D1A0BEC760026ED0B /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C39256471A23191B00BA888E /* FileImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39256451A23191B00BA888E /* FileImpl.swift */; };
+		C39256481A23191B00BA888E /* FileImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39256451A23191B00BA888E /* FileImpl.swift */; };
+		C39256491A23191B00BA888E /* FileSystemImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39256461A23191B00BA888E /* FileSystemImpl.swift */; };
+		C392564A1A23191B00BA888E /* FileSystemImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39256461A23191B00BA888E /* FileSystemImpl.swift */; };
 		C3BB4C101A124D44005C177C /* BrowserImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB4C0E1A124CD4005C177C /* BrowserImpl.swift */; };
 /* End PBXBuildFile section */
 
@@ -509,6 +513,8 @@
 		4EDE8C8F1A14AA3800098611 /* ResourceData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceData.swift; sourceTree = "<group>"; };
 		4EE6E4361A0CE70400354446 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/libsqlite3.dylib; sourceTree = DEVELOPER_DIR; };
 		4EE6E43D1A0CE75200354446 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		C39256451A23191B00BA888E /* FileImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileImpl.swift; sourceTree = "<group>"; };
+		C39256461A23191B00BA888E /* FileSystemImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemImpl.swift; sourceTree = "<group>"; };
 		C3BB4C0E1A124CD4005C177C /* BrowserImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -711,6 +717,8 @@
 				4EDB51711A029446008A2C4F /* DatabaseImpl.swift */,
 				4EDB51721A029446008A2C4F /* DeviceImpl.swift */,
 				4EDB51731A029446008A2C4F /* DisplayImpl.swift */,
+				C39256451A23191B00BA888E /* FileImpl.swift */,
+				C39256461A23191B00BA888E /* FileSystemImpl.swift */,
 				4EDB51741A029446008A2C4F /* GeolocationImpl.swift */,
 				4EDB51751A029446008A2C4F /* GlobalizationImpl.swift */,
 				4ED4D1CB1A02CA4000CC854E /* HttpInterceptorProtocol.swift */,
@@ -1259,6 +1267,7 @@
 				4EDB54461A02992F008A2C4F /* RuntimeImpl.swift in Sources */,
 				4E3592491A166639009E3D03 /* CryptoHashBase.swift in Sources */,
 				4EDB54471A02992F008A2C4F /* SecurityImpl.swift in Sources */,
+				C39256471A23191B00BA888E /* FileImpl.swift in Sources */,
 				4ED4D1CC1A02CA4000CC854E /* HttpInterceptorProtocol.swift in Sources */,
 				4EDB54151A029921008A2C4F /* GeolocationDelegate.swift in Sources */,
 				4EDB54171A029921008A2C4F /* Utils.swift in Sources */,
@@ -1269,6 +1278,7 @@
 				4E35923B1A166639009E3D03 /* ArrayExtension.swift in Sources */,
 				4E35925B1A166639009E3D03 /* SHA1.swift in Sources */,
 				4EDE8C851A14A72900098611 /* RLMSupport.swift in Sources */,
+				C39256491A23191B00BA888E /* FileSystemImpl.swift in Sources */,
 				4EDB542D1A029926008A2C4F /* DeviceImpl.swift in Sources */,
 				4E3592651A166639009E3D03 /* UInt64Extension.swift in Sources */,
 				4EDB542C1A029926008A2C4F /* DatabaseImpl.swift in Sources */,
@@ -1296,6 +1306,7 @@
 				4EDB54221A029925008A2C4F /* GeolocationImpl.swift in Sources */,
 				4E6A9D4E1A1CB6D300DF3CD1 /* BrowserViewController.swift in Sources */,
 				4E3592541A166639009E3D03 /* MD5.swift in Sources */,
+				C392564A1A23191B00BA888E /* FileSystemImpl.swift in Sources */,
 				4E3592501A166639009E3D03 /* Hash.swift in Sources */,
 				4EDB54411A02992E008A2C4F /* ServiceImpl.swift in Sources */,
 				4E6A9D511A1CD5BD00DF3CD1 /* NavigationProperties.swift in Sources */,
@@ -1312,6 +1323,7 @@
 				4E3592641A166639009E3D03 /* UInt32Extension.swift in Sources */,
 				4E6A9D4C1A1CA8F900DF3CD1 /* BaseViewController.swift in Sources */,
 				4E3592421A166639009E3D03 /* ByteExtension.swift in Sources */,
+				C39256481A23191B00BA888E /* FileImpl.swift in Sources */,
 				4EDB54591A0299B1008A2C4F /* TelephonyImpl.swift in Sources */,
 				4E3592601A166639009E3D03 /* StringExtension.swift in Sources */,
 				4EDB54421A02992E008A2C4F /* SessionImpl.swift in Sources */,

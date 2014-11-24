@@ -31,36 +31,58 @@
 
 import AdaptiveArpApi
 
-public class RuntimeImpl : NSObject, IRuntime {
+public class FileSystemImpl: IFileSystem {
     
-    /// Logging variable
-    let logger : ILogging = LoggingImpl()
-    let loggerTag : String = "RuntimeImpl"
-    
-    /// Class constructor
-    override init() {
+    public var description : String { get {
+        return ""
+    }}
+
+    public func create(path : IFilePath, name : String, callback : IFileResultCallback) {
         
     }
     
-    /// Dismiss the current Application
-    /// :author: Ferran Vila Conesa
-    /// :since: ARP1.0
-    public func dismissApplication() {
+    public func create(path : String, name : String, callback : IFileResultCallback) {
         
-        // In iOS there is no API provided for quitting the applications
-        // :see: https://developer.apple.com/library/ios/qa/qa1561/_index.html
-        logger.log(ILoggingLogLevel.ERROR, category:loggerTag, message: "There is no API provided for gracefully terminating an iOS application.")
     }
     
-    /// Whether the application dismiss the splash screen successfully or not
-    /// :return: true if the application has dismissed the splash screen;false otherwise
-    /// :author: Ferran Vila Conesa
-    /// :since: ARP1.0
-    public func dismissSplashScreen() -> Bool {
+    public func create(name : String, callback : IFileResultCallback) {
         
-        logger.log(ILoggingLogLevel.ERROR, category:loggerTag, message: "There is no API provided for dismissing the splash screen inside an iOS application")
-        
+    }
+    
+    public func getApplicationCacheFolder() -> IFilePath? {
+        return nil
+    }
+    
+    public func getApplicationDocumentsFolder() -> IFilePath? {
+        return nil
+    }
+    
+    public func getApplicationFolder() -> IFilePath? {
+        return nil
+    }
+    
+    public func getPath(file : IFile) -> String? {
+        return nil
+    }
+    
+    public func getPath(path : IFilePath) -> String? {
+        return nil
+    }
+    
+    public func getSeparator() -> Character {
+        return "a"
+    }
+    
+    public func isSameFile(source : IFile, dest : IFile) -> Bool {
         return false
+    }
+    
+    public func isSamePath(source : IFilePath, dest : IFilePath) -> Bool {
+        return false
+    }
+    
+    public func toPath(path : IFile) -> IFilePath? {
+        return nil
     }
     
 }

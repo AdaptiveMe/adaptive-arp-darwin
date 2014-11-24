@@ -41,6 +41,7 @@ public class GeolocationImpl : NSObject, IGeolocation {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
+    let loggerTag : String = "GeolocationImpl"
     
     /// Array for saving the registered listeners
     var delegates:[GeolocationDelegate]!
@@ -66,7 +67,7 @@ public class GeolocationImpl : NSObject, IGeolocation {
         self.delegates.append(geo)
         geo.initLocationManager()
         
-        logger.log(ILoggingLogLevel.DEBUG, category: "GeolocationImpl", message: "Adding listener: \(geo.getListener().toString())")
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Adding listener: \(geo.getListener().toString())")
     }
     
     /**
@@ -82,7 +83,7 @@ public class GeolocationImpl : NSObject, IGeolocation {
             
             if delegate.getListener().toString() == listener.toString() {
                 
-                logger.log(ILoggingLogLevel.DEBUG, category: "GeolocationImpl", message: "Removing listener: \(delegate.getListener().toString())")
+                logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing listener: \(delegate.getListener().toString())")
                 
                 // stop the geolocations updates
                 delegate.stopUpdatingLocation()
@@ -100,11 +101,11 @@ public class GeolocationImpl : NSObject, IGeolocation {
     */
     public func removeGeolocationListeners() {
         
-        logger.log(ILoggingLogLevel.DEBUG, category: "GeolocationImpl", message: "Removing all the geolocation listeners")
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing all the geolocation listeners")
         
         for (index,delegate) in enumerate(delegates) {
                 
-            logger.log(ILoggingLogLevel.DEBUG, category: "GeolocationImpl", message: "Removing listener: \(delegate.getListener().toString())")
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing listener: \(delegate.getListener().toString())")
                 
             // stop the geolocations updates
             delegate.stopUpdatingLocation()

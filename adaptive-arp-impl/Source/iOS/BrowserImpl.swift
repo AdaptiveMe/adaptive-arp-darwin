@@ -37,6 +37,7 @@ public class BrowserImpl : NSObject, IBrowser {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
+    let loggerTag : String = "BrowserImpl"
     
     var application:UIApplication
     
@@ -78,7 +79,7 @@ public class BrowserImpl : NSObject, IBrowser {
         // Check the correct format of the number
         if !Utils.validateUrl(url) {
             
-            logger.log(ILoggingLogLevel.ERROR, category: "BrowserImpl", message: "The url: \(url) has an incorrect format")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The url: \(url) has an incorrect format")
             return false
         }
         
@@ -87,7 +88,7 @@ public class BrowserImpl : NSObject, IBrowser {
         // Check if it is possible to open the url
         if !application.canOpenURL(url) {
             
-            logger.log(ILoggingLogLevel.ERROR, category: "BrowserImpl", message: "The url: \(url) is not possible to open by the application")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The url: \(url) is not possible to open by the application")
             return false
         }
         
@@ -95,7 +96,7 @@ public class BrowserImpl : NSObject, IBrowser {
         /*
         let result: Bool =  application.openURL(url)
         if !result {
-            logger.log(ILoggingLogLevel.ERROR, category: "BrowserImpl", message: "It is not posible to open the url")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "It is not posible to open the url")
             return false
         }
         */

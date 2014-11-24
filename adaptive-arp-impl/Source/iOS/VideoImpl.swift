@@ -39,6 +39,7 @@ public class VideoImpl : NSObject, IVideo {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
+    let loggerTag : String = "VideoImpl"
     
     /// Movie player
     var moviePlayer:MPMoviePlayerController!
@@ -68,7 +69,7 @@ public class VideoImpl : NSObject, IVideo {
         
         // Check the url for malforming
         if(Utils.validateUrl(url)){
-            self.logger.log(ILoggingLogLevel.ERROR, category: "VideoImpl", message: "Url malformed: \(url)")
+            self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Url malformed: \(url)")
             return
         }
         
@@ -77,7 +78,7 @@ public class VideoImpl : NSObject, IVideo {
         // Check if it is possible to open the url
         if !application.canOpenURL(url) {
             
-            logger.log(ILoggingLogLevel.ERROR, category: "VideoImpl", message: "The url: \(url) is not possible to open by the application")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The url: \(url) is not possible to open by the application")
             return
         }
         

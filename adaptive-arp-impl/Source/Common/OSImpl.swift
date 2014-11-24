@@ -42,6 +42,7 @@ public class OSImpl : NSObject, IOS {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
+    let loggerTag : String = "OSImpl"
     
     /// Variable to store OSInfo object
     var osInfo : OSInfo
@@ -80,7 +81,7 @@ public class OSImpl : NSObject, IOS {
     */
     public func getOSInfo() -> OSInfo? {
         
-        logger.log(ILoggingLogLevel.DEBUG, category: "OSImpl", message: "name: \(self.osInfo.getName()), version: \(self.osInfo.getVersion()), vendor: \(self.osInfo.getVendor())")
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "name: \(self.osInfo.getName()), version: \(self.osInfo.getVersion()), vendor: \(self.osInfo.getVendor())")
         
         return self.osInfo
     }

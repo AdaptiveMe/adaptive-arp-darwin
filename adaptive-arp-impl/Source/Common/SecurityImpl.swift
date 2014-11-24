@@ -41,6 +41,7 @@ public class SecurityImpl : NSObject, ISecurity {
     
     /// Logging variable
     let logger : ILogging = LoggingImpl()
+    let loggerTag : String = "SecurityImpl"
     
     /// List of common hack apps and files (20140917)
     let listOfCommonHacks: [String] = [
@@ -114,7 +115,7 @@ public class SecurityImpl : NSObject, ISecurity {
             
             let data: NSData? = NSData(contentsOfFile: file)
             if data != nil {
-                logger.log(ILoggingLogLevel.ERROR, category: "SecurityImpl", message: "The device is rooted. Has the file: \(file)")
+                logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The device is rooted. Has the file: \(file)")
                 return true
             }
         }
@@ -122,11 +123,11 @@ public class SecurityImpl : NSObject, ISecurity {
         // If the Foundation path is not on the expected path, the device is jailbraked
         /*let data: NSData? = NSData(contentsOfFile: foundationPath)
         if data == nil {
-            logger.log(ILoggingLogLevel.ERROR, category: "SecurityImpl", message: "The device is rooted. Because the Foundation Library path is not the expected")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The device is rooted. Because the Foundation Library path is not the expected")
             return true
         }*/
         
-        logger.log(ILoggingLogLevel.DEBUG, category: "SecurityImpl", message: "The device is not rooted.")
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "The device is not rooted.")
         
         return false
     }
@@ -287,56 +288,56 @@ public class SecurityImpl : NSObject, ISecurity {
         
         switch(response){
         case securityResponsesErrorCodes[errSecSuccess]!:
-            logger.log(ILoggingLogLevel.DEBUG, category: "SecurityImpl", message: "The key: \(pair.getSecureKey()) with value: \(pair.getSecureData()) was saved.")
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "The key: \(pair.getSecureKey()) with value: \(pair.getSecureData()) was saved.")
             savedPair.setSecureKey(pair.getSecureKey()!)
             return (savedPair, 0)
             
         case securityResponsesErrorCodes[errSecUnimplemented]!:
-            logger.log(ILoggingLogLevel.ERROR, category: "SecurityImpl", message: "Function or operation not implemented.")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Function or operation not implemented.")
             callback.onError(ISecureKVResultCallbackError.NoPermission)
             return (savedPair, -1)
             
         case securityResponsesErrorCodes[errSecParam]!:
-            logger.log(ILoggingLogLevel.ERROR, category: "SecurityImpl", message: "One or more parameters passed to the function were not valid.")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "One or more parameters passed to the function were not valid.")
             callback.onError(ISecureKVResultCallbackError.NoPermission)
             return (savedPair, -1)
             
         case securityResponsesErrorCodes[errSecAllocate]!:
-            logger.log(ILoggingLogLevel.ERROR, category: "SecurityImpl", message: "Failed to allocate memory.")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Failed to allocate memory.")
             callback.onError(ISecureKVResultCallbackError.NoPermission)
             return (savedPair, -1)
             
         case securityResponsesErrorCodes[errSecNotAvailable]!:
-            logger.log(ILoggingLogLevel.ERROR, category: "SecurityImpl", message: "No trust results are available.")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "No trust results are available.")
             callback.onError(ISecureKVResultCallbackError.NoPermission)
             return (savedPair, -1)
             
         case securityResponsesErrorCodes[errSecAuthFailed]!:
-            logger.log(ILoggingLogLevel.ERROR, category: "SecurityImpl", message: "Authorization/Authentication failed.")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Authorization/Authentication failed.")
             callback.onError(ISecureKVResultCallbackError.NoPermission)
             return (savedPair, -1)
             
         case securityResponsesErrorCodes[errSecDuplicateItem]!:
-            logger.log(ILoggingLogLevel.WARN, category: "SecurityImpl", message: "The item already exists.")
+            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The item already exists.")
             savedPair.setSecureKey(pair.getSecureKey()!)
             return (savedPair, 1)
             
         case securityResponsesErrorCodes[errSecItemNotFound]!:
-            logger.log(ILoggingLogLevel.ERROR, category: "SecurityImpl", message: "The item cannot be found.")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The item cannot be found.")
             callback.onError(ISecureKVResultCallbackError.NoMatchesFound)
             return (savedPair, -1)
             
         case securityResponsesErrorCodes[errSecInteractionNotAllowed]!:
-            logger.log(ILoggingLogLevel.ERROR, category: "SecurityImpl", message: "Interaction with the Security Server is not allowed.")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Interaction with the Security Server is not allowed.")
             callback.onError(ISecureKVResultCallbackError.NoPermission)
             return (savedPair, -1)
             
         case securityResponsesErrorCodes[errSecDecode]!:
-            logger.log(ILoggingLogLevel.ERROR, category: "SecurityImpl", message: "Unable to decode the provided data.")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Unable to decode the provided data.")
             callback.onError(ISecureKVResultCallbackError.NoPermission)
             return (savedPair, -1)
         default:
-            logger.log(ILoggingLogLevel.ERROR, category: "SecurityImpl", message: "Not supported return value: \(response)")
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Not supported return value: \(response)")
             callback.onError(ISecureKVResultCallbackError.NoPermission)
             return (savedPair, -1)
         }
