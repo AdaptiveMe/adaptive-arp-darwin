@@ -410,10 +410,11 @@ public class Reachability {
             return self.isConnectionRequired(flags) && self.isInterventionRequired(flags)
         })
     }
-    
+    #if os(iOS)
     func isOnWWAN(flags: SCNetworkReachabilityFlags) -> Bool {
         return flags & SCNetworkReachabilityFlags(kSCNetworkReachabilityFlagsIsWWAN) != 0
     }
+    #endif
     func isReachable(flags: SCNetworkReachabilityFlags) -> Bool {
         return flags & SCNetworkReachabilityFlags(kSCNetworkReachabilityFlagsReachable) != 0
     }

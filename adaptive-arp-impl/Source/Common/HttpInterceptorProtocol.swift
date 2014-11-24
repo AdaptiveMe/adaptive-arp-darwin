@@ -127,11 +127,13 @@ public class HttpInterceptorProtocol : NSURLProtocol {
             logger.log(ILoggingLogLevel.DEBUG, category:"HttpInterceptorProtocol", message: "[\(method)]: \(url)")
             
             if url.hasPrefix(HttpInterceptorProtocol.adaptiveBasePath) && url.hasSuffix("#") && method == "GET" {
+                #if os(iOS)
                 var browser : BrowserImpl = BrowserImpl()
                 for index in 1...10 {
                     var animated = (index % 2 == 0)
                     var opened = browser.openBrowser("http://adaptiveapp/index.html", title: "Title \(index)", buttonText: "\(index)", showNavBar: animated, showAnimated: animated)
                 }
+                #endif
             } else
             if url.hasPrefix(HttpInterceptorProtocol.adaptiveBasePath) && method == "GET" {
                 var resourceData = AppResourceManager.sharedInstance.retrieveWebResource(newRequest.URL!.path!)
