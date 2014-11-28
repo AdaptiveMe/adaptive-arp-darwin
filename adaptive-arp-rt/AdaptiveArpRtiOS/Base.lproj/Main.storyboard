@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QnW-fj-GWg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C68k" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QnW-fj-GWg">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6246"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Home-->
@@ -26,9 +25,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="fIF-OF-Pbm" secondAttribute="trailing" id="4cT-9h-JeP"/>
                             <constraint firstItem="fIF-OF-Pbm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="KrY-zg-Fyz"/>
-                            <constraint firstItem="fIF-OF-Pbm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="USn-Nk-0yO"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="fIF-OF-Pbm" secondAttribute="trailing" constant="-16" id="ZP3-dv-V5y"/>
+                            <constraint firstItem="fIF-OF-Pbm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="k7Z-9y-Dop"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fIF-OF-Pbm" secondAttribute="bottom" id="pFc-rN-yY0"/>
                         </constraints>
                     </view>
@@ -63,10 +62,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="I2X-18-iVa" firstAttribute="leading" secondItem="oZB-gw-edC" secondAttribute="leading" id="2Hr-5Q-XKm"/>
                             <constraint firstItem="I2X-18-iVa" firstAttribute="top" secondItem="fIb-fz-A2w" secondAttribute="bottom" id="WpO-EN-H01"/>
+                            <constraint firstAttribute="trailing" secondItem="I2X-18-iVa" secondAttribute="trailing" id="dE9-ka-aP9"/>
                             <constraint firstItem="59v-C8-bCD" firstAttribute="top" secondItem="I2X-18-iVa" secondAttribute="bottom" id="fB2-F2-Asg"/>
-                            <constraint firstItem="I2X-18-iVa" firstAttribute="leading" secondItem="oZB-gw-edC" secondAttribute="leadingMargin" constant="-16" id="m3I-Au-dRU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="I2X-18-iVa" secondAttribute="trailing" constant="-16" id="vtM-b2-rYM"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
