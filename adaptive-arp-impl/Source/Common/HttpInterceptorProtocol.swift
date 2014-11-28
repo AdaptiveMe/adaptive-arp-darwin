@@ -33,7 +33,7 @@ import Foundation
 import AdaptiveArpApi
 #if os(iOS)
     import UIKit
-    #elseif os(OSX)
+#elseif os(OSX)
     import Cocoa
 #endif
 
@@ -41,6 +41,7 @@ public class HttpInterceptorProtocol : NSURLProtocol {
     
     /// Logging variable
     let logger:ILogging = LoggingImpl()
+    let loggerTag:String = "HttpInterceptorProtocol"
     
     /// Connection
     var connection: NSURLConnection!
@@ -57,7 +58,7 @@ public class HttpInterceptorProtocol : NSURLProtocol {
     
     /// Base path for adaptive requests
     private class var adaptiveBasePath:NSString {
-        return "http://adaptiveapp/"
+        return "https://adaptiveapp/"
     }
     
     /// Constructor
@@ -67,6 +68,7 @@ public class HttpInterceptorProtocol : NSURLProtocol {
     
     /// Initializes an NSURLProtocol object.
     override public init(request: NSURLRequest, cachedResponse: NSCachedURLResponse?, client: NSURLProtocolClient?) {
+        
         var newRequest:NSMutableURLRequest = request.mutableCopy() as NSMutableURLRequest
         newRequest.setValue("true", forHTTPHeaderField: HttpInterceptorProtocol.httpInterceptorKey)
         super.init(request: newRequest, cachedResponse: cachedResponse, client: client)
@@ -75,8 +77,6 @@ public class HttpInterceptorProtocol : NSURLProtocol {
     
     /// Returns whether the protocol subclass can handle the specified request.
     override public class func canInitWithRequest(request: NSURLRequest) -> Bool {
-        
-        let logger:ILogging = LoggingImpl()
         
         var method = request.HTTPMethod
         var url = request.URL.absoluteString
@@ -88,19 +88,6 @@ public class HttpInterceptorProtocol : NSURLProtocol {
         } else {
             return false
         }
-        /*
-        if NSURLProtocol.propertyForKey(HttpInterceptorProtocol.httpInterceptorKey, inRequest: request) != nil {
-        // We're already managing this request.
-        return false
-        } else {
-        if NSString(string: url!).hasPrefix(adaptiveBasePath) {
-        logger.log(ILoggingLogLevel.DEBUG, category:"HttpInterceptorProtocol", message: "[\(method)]: \(url!)")
-        return true
-        } else {
-        return true
-        }
-        }
-        */
     }
     
     
@@ -124,19 +111,12 @@ public class HttpInterceptorProtocol : NSURLProtocol {
         
         if let url = url {
             
-            logger.log(ILoggingLogLevel.DEBUG, category:"HttpInterceptorProtocol", message: "[\(method)]: \(url)")
-            
-            if url.hasPrefix(HttpInterceptorProtocol.adaptiveBasePath) && url.hasSuffix("#") && method == "GET" {
-                #if os(iOS)
-                var browser : BrowserImpl = BrowserImpl()
-                for index in 1...10 {
-                    var animated = (index % 2 == 0)
-                    var opened = browser.openBrowser("http://adaptiveapp/index.html", title: "Title \(index)", buttonText: "\(index)", showNavBar: animated, showAnimated: animated)
-                }
-                #endif
-            } else
             if url.hasPrefix(HttpInterceptorProtocol.adaptiveBasePath) && method == "GET" {
+                
+                // FILE MANAGEMENT (via REALM)
+                
                 var resourceData = AppResourceManager.sharedInstance.retrieveWebResource(newRequest.URL!.path!)
+                
                 if resourceData != nil {
                     var response = NSURLResponse(URL: self.request.URL, MIMEType: resourceData!.raw_type, expectedContentLength: resourceData!.data.length, textEncodingName: "utf-8")
                     self.client!.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: .NotAllowed)
@@ -148,38 +128,41 @@ public class HttpInterceptorProtocol : NSURLProtocol {
                     self.client!.URLProtocol(self, didLoadData: "<html><body><h1>404</h1></body></html>".dataUsingEncoding(NSUTF8StringEncoding)!)
                     self.client!.URLProtocolDidFinishLoading(self)
                 }
-            } else if url.rangeOfString(HttpInterceptorProtocol.adaptiveBasePath) != nil {
                 
-                // Adaptive Native calls
+            } else if url.hasPrefix(HttpInterceptorProtocol.adaptiveBasePath) && method == "POST" {
                 
-                var params:[String] = url.componentsSeparatedByString("/")
-                var service = params[3]
-                var method = params[4]
-                var argsEncoded = NSString(data: newRequest.HTTPBody!, encoding: NSUTF8StringEncoding)!
-                var argsDecoded = CFURLCreateStringByReplacingPercentEscapes(nil, argsEncoded, "")
+                // ADAPTIVE NATIVE CALLS
                 
-                println("service: \(service)")
-                println("method: \(method)")
-                println("args: \(argsEncoded)")
-                println("args: \(argsDecoded)")
+                var data:NSData? = ServiceHandler.sharedInstance.handleServiceUrl(newRequest)
+                var response:NSURLResponse?
                 
-                //println(NSString(data: newRequest.HTTPBody!, encoding: NSUTF8StringEncoding))
+                if let data = data {
+                    
+                    // syncronous responses
+                    var jsonData:NSData? = NSJSONSerialization.dataWithJSONObject(data, options: NSJSONWritingOptions.allZeros, error: nil)
+                    
+                    if let jsonData = jsonData {
+                        
+                        response = NSURLResponse(URL: self.request.URL, MIMEType: "application/javascript", expectedContentLength:jsonData.length, textEncodingName: "utf-8")
+                        self.client!.URLProtocol(self, didLoadData: jsonData)
+                        
+                    } else {
+                        logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "There is an error parsing the syncronous response to JSON")
+                        
+                        response = NSURLResponse(URL: self.request.URL, MIMEType: "application/javascript", expectedContentLength:0, textEncodingName: "utf-8")
+                    }
+                    
+                } else {
+                    // asyncronous responses
+                    response = NSURLResponse(URL: self.request.URL, MIMEType: "application/javascript", expectedContentLength: 0, textEncodingName: "utf-8")
+                }
                 
-                var htmlBody = "echo from Adaptive Core"
-                var data = htmlBody.dataUsingEncoding(NSUTF8StringEncoding)!
-                //var dataArray:NSArray = [data]
-                // TODO: change by JSON
-                //var jsonBody = NSJSONSerialization.dataWithJSONObject(dataArray, options: NSJSONWritingOptions.allZeros, error: nil)!
-                //let json = JSON(data).rawData(options: NSJSONWritingOptions.PrettyPrinted, error: nil)!
-                var mimeType = "application/javascript"
-                var encoding = "utf-8"
-                var response = NSURLResponse(URL: self.request.URL, MIMEType: mimeType, expectedContentLength: data.length, textEncodingName: encoding)
-                self.client!.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: .NotAllowed)
-                self.client!.URLProtocol(self, didLoadData: data)
+                self.client!.URLProtocol(self, didReceiveResponse: response!, cacheStoragePolicy: .NotAllowed)
                 self.client!.URLProtocolDidFinishLoading(self)
                 
             } else {
-                // Other resources (file://)
+                
+                // EXTERNAL URL'S AND RESOURCES
                 
                 NSURLProtocol.setProperty("", forKey: HttpInterceptorProtocol.httpInterceptorKey, inRequest: newRequest)
                 NSURLConnection.sendAsynchronousRequest(newRequest, queue: HttpInterceptorProtocol.queue, completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
@@ -195,20 +178,8 @@ public class HttpInterceptorProtocol : NSURLProtocol {
                 })
             }
         } else {
-            logger.log(ILoggingLogLevel.ERROR, category:"HttpInterceptorProtocol", message: "The url received is null")
+            logger.log(ILoggingLogLevel.ERROR, category:loggerTag, message: "The url received is null")
         }
-        
-        
-        // HOWTO: override response
-        // var htmlBody = "<html><body><h1>Intercepted!</h1></body></html>"
-        // var data = htmlBody.dataUsingEncoding(NSUTF8StringEncoding)
-        // var mimeType = "text/html"
-        // var encoding = "utf-8"
-        // var response = NSURLResponse(URL: self.request.URL, MIMEType: mimeType, expectedContentLength: data!.length, textEncodingName: encoding)
-        // self.client!.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: .NotAllowed)
-        // self.client!.URLProtocol(self, didLoadData: data!)
-        // self.client!.URLProtocolDidFinishLoading(self)
-        
     }
     
     /// Stops protocol-specific loading of the request.
