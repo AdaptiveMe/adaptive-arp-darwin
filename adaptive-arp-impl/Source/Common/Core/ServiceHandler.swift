@@ -116,62 +116,56 @@ public class ServiceHandler:NSObject {
         // PARSE THE PARAMETERS
         
         //println(request.HTTPBody)
-        //println(NSJSONSerialization.JSONObjectWithData(request.HTTPBody!, options: NSJSONReadingOptions.allZeros, error: nil))
+        println(NSJSONSerialization.JSONObjectWithData(request.HTTPBody!, options: NSJSONReadingOptions.allZeros, error: nil))
         
         // EXECUTE THE METHOD
         
         logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Executing \"\(method)\" method defined in \"\(type)\" api interface based on \"\(group)\" class")
-        
             
-        if group.hasSuffix("Application") || group.hasSuffix("System") {
+        if isAsync {
             
-            // Mandatory implementations
-            
-            if isAsync {
+            dispatch_async(GCD.backgroundQueue(),{
                 
-                dispatch_async(GCD.backgroundQueue(),{
-                    
-                    // TODO: Get the class from the registry and execute the method and return nil
-                    //var baseClass:AnyClass? = NSClassFromString(group)
-                });
+                // TODO: Get the class from the registry and execute the method and return the value
                 
-            } else {
+                switch method {
+                case "createDatabase":
+                    AppRegistryImpl.sharedInstance.getDataDatabase().createDatabase(AdaptiveArpApi.Database(name: "test"), callback: CallbackImpl())
+                default:
+                    self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "Method \"\(method)\" is not registered")
+                }
                 
-                dispatch_async(GCD.mainQueue(),{
-                    
-                    // TODO: Get the class from the registry and execute the method and return nil
-                });
-            }
+            });
             
         } else {
-            // Optional implementations
             
-            if isAsync {
+            var ret:NSData?
+            
+            dispatch_sync(GCD.mainQueue(),{
                 
-                dispatch_async(GCD.backgroundQueue(),{
-                    
-                    // TODO: Get the class from the registry and execute the method and return the value
-                    AppRegistryImpl.sharedInstance.getDataDatabase().createDatabase(AdaptiveArpApi.Database(name: "test"), callback: CallbackImpl())
-                });
+                // TODO: Get the class from the registry and execute the method and return the value
                 
-            } else {
-                
-                dispatch_async(GCD.mainQueue(),{
-                    
-                    // TODO: Get the class from the registry and execute the method and return the value
-                });
-            }
+                switch method {
+                case "existsDatabase":
+                    var retValue:Bool = AppRegistryImpl.sharedInstance.getDataDatabase().existsDatabase(AdaptiveArpApi.Database(name: "test"))
+                    ret = NSData(bytes: &retValue, length: sizeofValue(retValue))
+                default:
+                    self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "Method \"\(method)\" is not registered")
+                }
+            });
             
-            // println(AppRegistryImpl.respondsToSelector(Selector("getPlatformContext:")))
-            // println(AppRegistryImpl.sharedInstance.respondsToSelector(Selector("getPlatformContext:")))
-            
-            //self.performSelector(NSSelectorFromString("test"), onThread: NSThread.mainThread(), withObject: nil, waitUntilDone: false)
-            
-            // http://stackoverflow.com/questions/24158427/alternative-to-performselector-in-swift
-            // var timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector:  Selector("test"), userInfo: nil, repeats: false)
-            
-            // NSThread.detachNewThreadSelector(Selector("test:"), toTarget:self, withObject: "sunshine")
+            return ret
         }
+        
+        // println(AppRegistryImpl.respondsToSelector(Selector("getPlatformContext:")))
+        // println(AppRegistryImpl.sharedInstance.respondsToSelector(Selector("getPlatformContext:")))
+        
+        //self.performSelector(NSSelectorFromString("test"), onThread: NSThread.mainThread(), withObject: nil, waitUntilDone: false)
+        
+        // http://stackoverflow.com/questions/24158427/alternative-to-performselector-in-swift
+        // var timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector:  Selector("test"), userInfo: nil, repeats: false)
+        
+        // NSThread.detachNewThreadSelector(Selector("test:"), toTarget:self, withObject: "sunshine")
         
         /*} else {
             logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "There is a problem obtaining the base class with name: \(baseClass)")
