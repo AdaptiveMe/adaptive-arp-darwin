@@ -148,6 +148,7 @@ class IDatabaseResultCallbackImpl: NSObject, IDatabaseResultCallback {
     func toString() -> String? {
         return ""
     }
+    func getId() -> Int64 {return 0}
 }
 
 /// Dummy implementation of the callback in order to run the tests
@@ -172,4 +173,5 @@ class ITableResultCallbackImpl: NSObject, ITableResultCallback {
     func toString() -> String? {
         return ""
     }
+    func getId() -> Int64 {return 0}
 }

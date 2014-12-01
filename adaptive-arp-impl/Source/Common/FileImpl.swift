@@ -46,16 +46,12 @@ public class FileImpl: IFile {
         return false
     }
     
-    public func create(path : String, name : String, callback : IFileResultCallback) {
+    public func createWithPath(path : String, name : String, callback : IFileResultCallback) {
         
     }
     
     public func create(name : String, callback : IFileResultCallback) {
         
-    }
-    
-    public func delete() -> Bool {
-        return false
     }
     
     public func delete(cascade : Bool) -> Bool {
@@ -94,7 +90,7 @@ public class FileImpl: IFile {
         return false
     }
     
-    public func listFiles(regex : String, callback : IFileListResultCallback) {
+    public func listFilesForRegex(regex : String, callback : IFileListResultCallback) {
         
     }
     
@@ -110,19 +106,7 @@ public class FileImpl: IFile {
         return false
     }
     
-    public func move(newFile : IFile, callback : IFileResultCallback, overwrite : Bool) {
-        
-    }
-    
     public func move(newFile : IFile, createPath : Bool, callback : IFileResultCallback, overwrite : Bool) {
-        
-    }
-    
-    public func move(newFile : IFile, createPath : Bool, callback : IFileResultCallback) {
-        
-    }
-    
-    public func move(newFile : IFile, callback : IFileResultCallback) {
         
     }
     
@@ -134,7 +118,7 @@ public class FileImpl: IFile {
         return nil
     }
     
-    public func endsWith(other : IFilePath) -> Bool {
+    public func endsWithPath(other : IFilePath) -> Bool {
         return false
     }
     
@@ -158,8 +142,8 @@ public class FileImpl: IFile {
         return nil
     }
     
-    public func getName(index : Int) -> IFilePath? {
-        return nil
+    public func getNameAtIndex(index : Int) -> String? {
+        return ""
     }
     
     public func getNameCount() -> Int {
@@ -186,15 +170,11 @@ public class FileImpl: IFile {
         return nil
     }
     
-    public func resolve(other : IFilePath) -> IFilePath? {
+    public func resolvePath(other : IFilePath) -> IFilePath? {
         return nil
     }
     
-    public func resolve(other : String) -> IFilePath? {
-        return nil
-    }
-    
-    public func resolveSibling(other : IFilePath) -> IFilePath? {
+    public func resolveSiblingPath(other : IFilePath) -> IFilePath? {
         return nil
     }
     
@@ -202,11 +182,15 @@ public class FileImpl: IFile {
         return nil
     }
     
-    public func startsWith(other : String) -> Bool {
+    public func resolve(other : String) -> IFilePath? {
+        return nil
+    }
+    
+    public func startsWithPath(other : IFilePath) -> Bool {
         return false
     }
     
-    public func startsWith(other : IFilePath) -> Bool {
+    public func startsWith(other : String) -> Bool {
         return false
     }
     
@@ -219,7 +203,7 @@ public class FileImpl: IFile {
     }
     
     public func toString() -> String? {
-        return nil
+        return ""
     }
     
     

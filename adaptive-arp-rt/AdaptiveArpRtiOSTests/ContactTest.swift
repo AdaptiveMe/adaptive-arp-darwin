@@ -91,7 +91,7 @@ class ContactTest: XCTestCase {
         var fields:[IContactFieldGroup] = [IContactFieldGroup]()
         fields.append(IContactFieldGroup.PERSONAL_INFO)
         
-        self.contactImpl.getContacts(self.iContactResultCallbackImpl, fields: fields)
+        self.contactImpl.getContactsForFields(self.iContactResultCallbackImpl, fields: fields)
     }
     
     func testGetContactsFieldsPerformance() {
@@ -100,7 +100,7 @@ class ContactTest: XCTestCase {
         fields.append(IContactFieldGroup.PERSONAL_INFO)
         
         self.measureBlock() {
-            self.contactImpl.getContacts(self.iContactResultCallbackImpl, fields: fields)
+            self.contactImpl.getContactsForFields(self.iContactResultCallbackImpl, fields: fields)
         }
     }
     
@@ -112,7 +112,7 @@ class ContactTest: XCTestCase {
         var filters:[IContactFilter] = [IContactFilter]()
         filters.append(IContactFilter.HAS_PHONE)
         
-        self.contactImpl.getContacts(self.iContactResultCallbackImpl, fields: fields, filter: filters)
+        self.contactImpl.getContactsWithFilter(self.iContactResultCallbackImpl, fields: fields, filter: filters)
     }
     
     func testGetContactsFieldsFilterPerformance() {
@@ -124,7 +124,7 @@ class ContactTest: XCTestCase {
         filters.append(IContactFilter.HAS_PHONE)
         
         self.measureBlock() {
-            self.contactImpl.getContacts(self.iContactResultCallbackImpl, fields: fields, filter: filters)
+            self.contactImpl.getContactsWithFilter(self.iContactResultCallbackImpl, fields: fields, filter: filters)
         }
     }
     
@@ -145,7 +145,7 @@ class ContactTest: XCTestCase {
         var filters:[IContactFilter] = [IContactFilter]()
         filters.append(IContactFilter.HAS_PHONE)
         
-        self.contactImpl.searchContacts("kate", callback: self.iContactResultCallbackImpl, filter: filters)
+        self.contactImpl.searchContactsWithFilter("kate", callback: self.iContactResultCallbackImpl, filter: filters)
     }
     
     func testSearchContactsFilterPerformance() {
@@ -154,7 +154,7 @@ class ContactTest: XCTestCase {
         filters.append(IContactFilter.HAS_PHONE)
         
         self.measureBlock() {
-            self.contactImpl.searchContacts("kate", callback: self.iContactResultCallbackImpl, filter: filters)
+            self.contactImpl.searchContactsWithFilter("kate", callback: self.iContactResultCallbackImpl, filter: filters)
         }
     }
     
@@ -207,6 +207,7 @@ class IContactResultCallbackImpl: NSObject, IContactResultCallback {
     func toString() -> String? {
         return ""
     }
+    func getId() -> Int64 {return 0}
 }
 
 /// Dummy implementation of the callback in order to run the tests
@@ -233,4 +234,5 @@ class IContactPhotoResultCallbackImpl: NSObject, IContactPhotoResultCallback {
     func toString() -> String? {
         return ""
     }
+    func getId() -> Int64 {return 0}
 }

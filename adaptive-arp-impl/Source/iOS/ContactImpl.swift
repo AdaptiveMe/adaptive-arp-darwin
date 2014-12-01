@@ -758,7 +758,7 @@ public class ContactImpl : NSObject, IContact {
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    public func getContacts(callback : IContactResultCallback, fields : [IContactFieldGroup]) {
+    public func getContactsForFields(callback : IContactResultCallback, fields : [IContactFieldGroup]) {
         
         self.getContactsGeneric(callback, contact: nil, fields: fields, filter: nil, term: "")
     }
@@ -772,7 +772,7 @@ public class ContactImpl : NSObject, IContact {
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    public func getContacts(callback : IContactResultCallback, fields : [IContactFieldGroup], filter : [IContactFilter]) {
+    public func getContactsWithFilter(callback : IContactResultCallback, fields : [IContactFieldGroup], filter : [IContactFilter]) {
         
         self.getContactsGeneric(callback, contact: nil, fields: fields, filter: filter, term: "")
     }
@@ -802,7 +802,7 @@ public class ContactImpl : NSObject, IContact {
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    public func searchContacts(term : String, callback : IContactResultCallback, filter : [IContactFilter]) {
+    public func searchContactsWithFilter(term : String, callback : IContactResultCallback, filter : [IContactFilter]) {
         
         // fill all tthe group fields to query all the information
         var fields: [IContactFieldGroup] = [IContactFieldGroup.PERSONAL_INFO, IContactFieldGroup.PROFESSIONAL_INFO, IContactFieldGroup.ADDRESSES, IContactFieldGroup.PHONES, IContactFieldGroup.EMAILS, IContactFieldGroup.WEBSITES, IContactFieldGroup.SOCIALS, IContactFieldGroup.TAGS]

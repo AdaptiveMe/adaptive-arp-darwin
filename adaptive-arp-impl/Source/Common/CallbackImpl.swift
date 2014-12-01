@@ -35,6 +35,7 @@ public class CallbackImpl: NSObject, IContactPhotoResultCallback, IContactResult
     
     /// IBaseCallback
     public func toString() -> String? { return "" }
+    public func getId() -> Int64 { return 0 }
     
     /// IContactPhotoResultCallback
     public func onError(error : IContactPhotoResultCallbackError) { }
@@ -59,19 +60,16 @@ public class CallbackImpl: NSObject, IContactPhotoResultCallback, IContactResult
     
     /// IFileDataResultCallback
     public func onError(error : IFileDataResultCallbackError) { }
-    public func onError(file : IFile, error : IFileDataResultCallbackError) { }
     public func onResult(file : IFile, data : [Byte]) { }
     public func onWarning(file : IFile, warning : IFileDataResultCallbackWarning) { }
     
     /// IFileListResultCallback
     public func onError(error : IFileListResultCallbackError) { }
-    public func onError(file : IFile, error : IFileListResultCallbackError) { }
     public func onResult(files : [IFile]) { }
     public func onWarning(files : [IFile], warning : IFileListResultCallbackWarning) { }
     
     /// IFileResultCallback
     public func onError(error : IFileResultCallbackError) { }
-    public func onError(file : IFile, error : IFileResultCallbackError) { }
     public func onResult(storageFile : IFile) { }
     public func onWarning(sourceFile : IFile, destinationFile : IFile, warning : IFileResultCallbackWarning) { }
     
