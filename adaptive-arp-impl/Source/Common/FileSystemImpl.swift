@@ -37,11 +37,11 @@ public class FileSystemImpl: IFileSystem {
         return ""
     }}
 
-    public func create(path : IFilePath, name : String, callback : IFileResultCallback) {
+    public func createWithPath(path : IFilePath, name : String, callback : IFileResultCallback) {
         
     }
     
-    public func create(path : String, name : String, callback : IFileResultCallback) {
+    public func createWithPathString(path : String, name : String, callback : IFileResultCallback) {
         
     }
     
@@ -61,11 +61,11 @@ public class FileSystemImpl: IFileSystem {
         return nil
     }
     
-    public func getPath(file : IFile) -> String? {
+    public func getPathForFile(file : IFile) -> String? {
         return nil
     }
     
-    public func getPath(path : IFilePath) -> String? {
+    public func getPathForPath(path : IFilePath) -> String? {
         return nil
     }
     

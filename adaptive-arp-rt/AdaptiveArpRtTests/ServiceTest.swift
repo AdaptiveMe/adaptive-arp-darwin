@@ -100,4 +100,5 @@ class IServiceResultCallbackImpl: NSObject, IServiceResultCallback {
     func onResult(response: AdaptiveArpApi.ServiceResponse) {println("RESPONSE: \(response.description)")}
     func onWarning(response: AdaptiveArpApi.ServiceResponse, warning: AdaptiveArpApi.IServiceResultCallbackWarning) {println("WARNING: \(warning.toString()) \nRESPONSE: \(response.description)")}
     func toString() -> String? {return ""}
+    func getId() -> Int64 {return 0}
 }

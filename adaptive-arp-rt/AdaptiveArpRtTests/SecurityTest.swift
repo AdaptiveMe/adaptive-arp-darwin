@@ -119,4 +119,5 @@ class ISecureKVResultCallbackImpl: NSObject, ISecureKVResultCallback {
     func toString() -> String? {
         return ""
     }
+    func getId() -> Int64 {return 0}
 }
