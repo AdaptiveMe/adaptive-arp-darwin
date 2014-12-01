@@ -56,7 +56,7 @@ class ViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         (AppRegistryImpl.sharedInstance.getPlatformContextWeb()! as AppContextWebviewImpl).setWebviewPrimary(self.webView!)
-        var req = NSURLRequest(URL: NSURL(string: "http://adaptiveapp/index.html")!)
+        var req = NSURLRequest(URL: NSURL(string: "https://adaptiveapp/index.html")!)
         (self.webView! as UIWebView).loadRequest(req)
 
         // MARK: Waiting on Bug fix to support NSProtocol

@@ -67,7 +67,21 @@ public class NetworkReachabilityImpl : NSObject, INetworkReachability {
                 if (error != nil) {
                     
                     self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "\(error?.description)")
-                    callback.onError(INetworkReachabilityCallbackError.Unknown)
+                    
+                    // Check if the error is due to connectivity problems
+                    var reachability:Reachability = Reachability(hostname: url)
+                    var isReachableViaWiFi = reachability.isReachableViaWiFi()
+                    self.logger.log(ILoggingLogLevel.DEBUG, category: self.loggerTag, message: "isReachableViaWiFi: \(isReachableViaWiFi)")
+                    var isReachableViaWWAN = reachability.isReachableViaWWAN()
+                    self.logger.log(ILoggingLogLevel.DEBUG, category: self.loggerTag, message: "isReachableViaWWAN: \(isReachableViaWWAN)")
+                    
+                    if isReachableViaWiFi || isReachableViaWWAN {
+                        callback.onError(INetworkReachabilityCallbackError.Unknown)
+                    } else {
+                        self.logger.log(ILoggingLogLevel.DEBUG, category: self.loggerTag, message: "isUnreachable!")
+                        callback.onError(INetworkReachabilityCallbackError.Unreachable)
+                    }
+                    
                     return
                 }
                 

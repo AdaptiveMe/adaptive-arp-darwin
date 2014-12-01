@@ -29,7 +29,7 @@
 import Foundation
 import AdaptiveArpApi
 
-
+/// This class acts as the application registry that manages (initialize, serve, etc...) all the implementations of the ARP system. The implementations based on system and application, are mandatory, and has to be enabled at the application start
 public class AppRegistryImpl : NSObject, IAppRegistry {
     
     /// Singleton instance
@@ -40,116 +40,217 @@ public class AppRegistryImpl : NSObject, IAppRegistry {
         return Static.instance
     }
     
-    /// Mandatory Implementations
+    // MARK: the service api implementations must have the name of the interface without the initial "I" in came case in order to compose the getter
     
+    /// MADATORY Implementations (Application and System)
+    
+    // Context
+    var context:IAppContext!
+    var contextWeb:IAppContextWebview!
+    
+    // Application
+    var analytics:IAnalytics!
     var globalization:IGlobalization!
     var lifecycle:ILifecycle!
-    var context:IAppContext!
-    var contextWebview:IAppContextWebview!
+    var management:IManagement!
+    var printing:IPrinting!
+    var settings:ISettings!
+    var update:IUpdate!
+    
+    // System
     var capabilities:ICapabilities!
     var device:IDevice!
     var display:IDisplay!
-    var os:IOS!
+    var OS:IOS!
     var runtime:IRuntime!
     
-    /// Optional Implementations
+    /// OPTIONAL Implementations
+    var database:IDatabase?
+    var file:IFile?
+    var fileSystem:IFileSystem?
+    var geolocation:IGeolocation?
+    var logging:ILogging?
+    var networkReachability:INetworkReachability?
+    var security:ISecurity?
+    var service:IService?
+    var session:ISession?
     
-    var analitics : IAnalytics?
-    var management : IManagement?
-    var printing : IPrinting?
-    var settings : ISettings?
-    var update : IUpdate?
-    
+    /// Cosntructor
     override init() {
         
+        // Context
+        self.context = AppContextImpl()
+        self.contextWeb = AppContextWebviewImpl()
+        
+        // Application
+        self.analytics = AnalyticsImpl()
         self.globalization = GlobalizationImpl()
         self.lifecycle = LifecycleImpl()
-        self.context = AppContextImpl()
-        self.contextWebview = AppContextWebviewImpl()
+        self.management = ManagementImpl()
+        self.printing = PrintingImpl()
+        self.settings = SettingsImpl()
+        self.update = UpdateImpl()
+        
+        // System
         self.capabilities = CapabilitiesImpl()
         self.device = DeviceImpl()
         self.display = DisplayImpl()
-        self.os = OSImpl()
-        self.runtime = RuntimeImpl()
+        self.OS = OSImpl()
+        self.runtime = RuntimeImpl()        
     }
     
-    /// Mandatory Getters
-    
-    public func getApplicationGlobalization() -> IGlobalization? {
-        return globalization
-    }
-    
-    public func getApplicationLifecycle() -> ILifecycle? {
-        return lifecycle
-    }
+    /// Mandatory Getters (Context)
     
     public func getPlatformContext() -> IAppContext? {
-        return context
+        return self.context
     }
     
     public func getPlatformContextWeb() -> IAppContextWebview? {
-        return contextWebview
+        return self.contextWeb
     }
     
-    public func getSystemCapabilities() -> ICapabilities? {
-        return capabilities
-    }
-    
-    public func getSystemDevice() -> IDevice? {
-        return device
-    }
-    
-    public func getSystemDisplay() -> IDisplay? {
-        return display
-    }
-    
-    public func getSystemOS() -> IOS? {
-        return os
-    }
-    
-    public func getSystemRuntime() -> IRuntime? {
-        return runtime
-    }
-    
-    /// Optional Getters and Setters
+    /// Mandatory Getters (Application)
     
     public func getApplicationAnalytics() -> IAnalytics? {
-        return analitics
+        return self.analytics
     }
     
-    func setApplicationAnalytics(analitics : IAnalytics) {
-        self.analitics = analitics
+    public func getApplicationGlobalization() -> IGlobalization? {
+        return self.globalization
+    }
+    
+    public func getApplicationLifecycle() -> ILifecycle? {
+        return self.lifecycle
     }
     
     public func getApplicationManagement() -> IManagement? {
-        return management
-    }
-    
-    func setApplicationManagement(management : IManagement) {
-        self.management = management
+        return self.management
     }
     
     public func getApplicationPrinting() -> IPrinting? {
-        return printing
-    }
-    
-    func setApplicationPrinting(printing : IPrinting) {
-        self.printing = printing
+        return self.printing
     }
     
     public func getApplicationSettings() -> ISettings? {
-        return settings
-    }
-    
-    func setApplicationSettings(settings : ISettings) {
-        self.settings = settings
+        return self.settings
     }
     
     public func getApplicationUpdate() -> IUpdate? {
-        return update
+        return self.update
     }
     
-    func setApplicationUpdate(update : IUpdate) {
-        self.update = update
+    /// Mandatory Getters (System)
+    
+    public func getSystemCapabilities() -> ICapabilities? {
+        return self.capabilities
+    }
+    
+    public func getSystemDevice() -> IDevice? {
+        return self.device
+    }
+    
+    public func getSystemDisplay() -> IDisplay? {
+        return self.display
+    }
+    
+    public func getSystemOS() -> IOS? {
+        return self.OS
+    }
+    
+    public func getSystemRuntime() -> IRuntime? {
+        return self.runtime
+    }
+    
+    
+    /// Optional Getters and Setters
+    
+    public func getDataDatabase() -> IDatabase! {
+        
+        if let instance = self.database {
+            return instance
+        } else {
+            self.database = DatabaseImpl()
+            return self.database!
+        }
+    }
+    
+    public func getDataFile() -> IFile! {
+        
+        if let instance = self.file {
+            return instance
+        } else {
+            self.file = FileImpl()
+            return self.file!
+        }
+    }
+    
+    public func getDataFileSystem() -> IFileSystem! {
+        
+        if let instance = self.fileSystem {
+            return instance
+        } else {
+            self.fileSystem = FileSystemImpl()
+            return self.fileSystem!
+        }
+    }
+    
+    public func getSensorGeolocation() -> IGeolocation! {
+        
+        if let instance = self.geolocation {
+            return instance
+        } else {
+            self.geolocation = GeolocationImpl()
+            return self.geolocation!
+        }
+    }
+    
+    public func getUtilLogging() -> ILogging! {
+        
+        if let instance = self.logging {
+            return instance
+        } else {
+            self.logging = LoggingImpl()
+            return self.logging!
+        }
+    }
+    
+    public func getCommunicationNetworkReachability() -> INetworkReachability! {
+        
+        if let instance = self.networkReachability {
+            return instance
+        } else {
+            self.networkReachability = NetworkReachabilityImpl()
+            return self.networkReachability!
+        }
+    }
+    
+    public func getSecuritySecurity() -> ISecurity! {
+        
+        if let instance = self.security {
+            return instance
+        } else {
+            self.security = SecurityImpl()
+            return self.security!
+        }
+    }
+    
+    public func getCommunicationService() -> IService! {
+        
+        if let instance = self.service {
+            return instance
+        } else {
+            self.service = ServiceImpl()
+            return self.service!
+        }
+    }
+    
+    public func getCommunicationSession() -> ISession! {
+        
+        if let instance = self.session {
+            return instance
+        } else {
+            self.session = SessionImpl()
+            return self.session!
+        }
     }
 }

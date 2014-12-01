@@ -44,7 +44,7 @@ public struct Utils {
     */
     public static func validateUrl (stringURL : NSString) -> Bool {
         
-        var urlRegEx = "((https|http)://)((\\w|-)+)(([.]|[/])((\\w|-)+))+"
+        var urlRegEx = "(http|https)://((\\w)*|([0-9]*)|([-|_])*)+([\\.|/]((\\w)*|([0-9]*)|([-|_])*))+"
         let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray:[urlRegEx])
         var urlTest = NSPredicate.predicateWithSubstitutionVariables(predicate)
         

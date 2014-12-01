@@ -17,7 +17,7 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var req = NSURLRequest(URL: NSURL(string: "http://adaptiveapp/index.html")!)
+        var req = NSURLRequest(URL: NSURL(string: "https://adaptiveapp/index.html")!)
         self.webView!.mainFrame.loadRequest(req)
     }
     

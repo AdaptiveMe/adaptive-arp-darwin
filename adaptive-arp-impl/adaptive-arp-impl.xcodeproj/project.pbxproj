@@ -131,16 +131,30 @@
 		4EDB545A1A0299B1008A2C4F /* VideoImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB54501A0299A8008A2C4F /* VideoImpl.swift */; };
 		4EDE72971A0CE37A00948F6E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C1191A0BEC760026ED0B /* Realm.framework */; };
 		4EDE8C831A14A4AA00098611 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDE8C811A14A3FD00098611 /* libc++.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
-		4EDE8C851A14A72900098611 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDE8C841A14A72900098611 /* RLMSupport.swift */; };
-		4EDE8C861A14A72900098611 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDE8C841A14A72900098611 /* RLMSupport.swift */; };
-		4EDE8C901A14AA3800098611 /* ResourceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDE8C8F1A14AA3800098611 /* ResourceData.swift */; };
-		4EDE8C911A14AA3800098611 /* ResourceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDE8C8F1A14AA3800098611 /* ResourceData.swift */; };
 		4EE6E4271A0CE6F500354446 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C1341A0BEC7D0026ED0B /* SQLite.framework */; };
 		4EE6E4371A0CE70400354446 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE6E4361A0CE70400354446 /* libsqlite3.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4EE6E43C1A0CE74A00354446 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C1301A0BEC7D0026ED0B /* SQLite.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4EE6E43E1A0CE75200354446 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE6E43D1A0CE75200354446 /* libsqlite3.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4EFABE261A13848700BD3A13 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1C11D1A0BEC760026ED0B /* Realm.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4EFABE271A13849100BD3A13 /* Realm.framework in Embed Dependencies */ = {isa = PBXBuildFile; fileRef = 4EC1C11D1A0BEC760026ED0B /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C32247891A271760009DFB10 /* ResourceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32247871A271760009DFB10 /* ResourceData.swift */; };
+		C322478A1A271760009DFB10 /* ResourceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32247871A271760009DFB10 /* ResourceData.swift */; };
+		C322478B1A271760009DFB10 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32247881A271760009DFB10 /* RLMSupport.swift */; };
+		C322478C1A271760009DFB10 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32247881A271760009DFB10 /* RLMSupport.swift */; };
+		C322478F1A272FA4009DFB10 /* ServiceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C322478E1A272FA4009DFB10 /* ServiceHandler.swift */; };
+		C32247901A272FA4009DFB10 /* ServiceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C322478E1A272FA4009DFB10 /* ServiceHandler.swift */; };
+		C32247961A274DE7009DFB10 /* AnalyticsImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32247911A274DE7009DFB10 /* AnalyticsImpl.swift */; };
+		C32247971A274DE7009DFB10 /* AnalyticsImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32247911A274DE7009DFB10 /* AnalyticsImpl.swift */; };
+		C32247981A274DE7009DFB10 /* ManagementImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32247921A274DE7009DFB10 /* ManagementImpl.swift */; };
+		C32247991A274DE7009DFB10 /* ManagementImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32247921A274DE7009DFB10 /* ManagementImpl.swift */; };
+		C322479A1A274DE7009DFB10 /* PrintingImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32247931A274DE7009DFB10 /* PrintingImpl.swift */; };
+		C322479B1A274DE7009DFB10 /* PrintingImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32247931A274DE7009DFB10 /* PrintingImpl.swift */; };
+		C322479C1A274DE7009DFB10 /* SettingsImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32247941A274DE7009DFB10 /* SettingsImpl.swift */; };
+		C322479D1A274DE7009DFB10 /* SettingsImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32247941A274DE7009DFB10 /* SettingsImpl.swift */; };
+		C322479E1A274DE7009DFB10 /* UpdateImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32247951A274DE7009DFB10 /* UpdateImpl.swift */; };
+		C322479F1A274DE7009DFB10 /* UpdateImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32247951A274DE7009DFB10 /* UpdateImpl.swift */; };
+		C32247A81A28A3B3009DFB10 /* CallbackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32247A71A28A3B3009DFB10 /* CallbackImpl.swift */; };
+		C32247A91A28A3B3009DFB10 /* CallbackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32247A71A28A3B3009DFB10 /* CallbackImpl.swift */; };
 		C39256471A23191B00BA888E /* FileImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39256451A23191B00BA888E /* FileImpl.swift */; };
 		C39256481A23191B00BA888E /* FileImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39256451A23191B00BA888E /* FileImpl.swift */; };
 		C39256491A23191B00BA888E /* FileSystemImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39256461A23191B00BA888E /* FileSystemImpl.swift */; };
@@ -464,7 +478,7 @@
 		4E3592851A1666D6009E3D03 /* Adaptive-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Adaptive-Bridging-Header.h"; sourceTree = "<group>"; };
 		4E3592881A166890009E3D03 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/libz.dylib; sourceTree = DEVELOPER_DIR; };
 		4E35928A1A16689A009E3D03 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		4E6509291A1376B700B593F9 /* AppResourceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppResourceManager.swift; sourceTree = "<group>"; };
+		4E6509291A1376B700B593F9 /* AppResourceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppResourceManager.swift; path = ../AppResourceManager.swift; sourceTree = "<group>"; };
 		4E6A9D4B1A1CA8F900DF3CD1 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		4E6A9D4D1A1CB6D300DF3CD1 /* BrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 		4E6A9D501A1CD5BD00DF3CD1 /* NavigationProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationProperties.swift; sourceTree = "<group>"; };
@@ -473,10 +487,10 @@
 		4EC1C1281A0BEC7D0026ED0B /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = ThirdParty/SQLite.swift/SQLite.xcodeproj; sourceTree = "<group>"; };
 		4EC1C1371A0BEC870026ED0B /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = ThirdParty/SwiftyJSON/SwiftyJSON.xcodeproj; sourceTree = "<group>"; };
 		4EC1C1401A0BEC900026ED0B /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = ThirdParty/Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
-		4ED4D1CB1A02CA4000CC854E /* HttpInterceptorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpInterceptorProtocol.swift; sourceTree = "<group>"; };
-		4EDB516A1A029446008A2C4F /* AppContextImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContextImpl.swift; sourceTree = "<group>"; };
-		4EDB516B1A029446008A2C4F /* AppContextWebviewImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContextWebviewImpl.swift; sourceTree = "<group>"; };
-		4EDB516C1A029446008A2C4F /* AppRegistryImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRegistryImpl.swift; sourceTree = "<group>"; };
+		4ED4D1CB1A02CA4000CC854E /* HttpInterceptorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpInterceptorProtocol.swift; path = ../HttpInterceptorProtocol.swift; sourceTree = "<group>"; };
+		4EDB516A1A029446008A2C4F /* AppContextImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppContextImpl.swift; path = ../AppContextImpl.swift; sourceTree = "<group>"; };
+		4EDB516B1A029446008A2C4F /* AppContextWebviewImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppContextWebviewImpl.swift; path = ../AppContextWebviewImpl.swift; sourceTree = "<group>"; };
+		4EDB516C1A029446008A2C4F /* AppRegistryImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppRegistryImpl.swift; path = ../AppRegistryImpl.swift; sourceTree = "<group>"; };
 		4EDB51701A029446008A2C4F /* CapabilitiesImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapabilitiesImpl.swift; sourceTree = "<group>"; };
 		4EDB51711A029446008A2C4F /* DatabaseImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseImpl.swift; sourceTree = "<group>"; };
 		4EDB51721A029446008A2C4F /* DeviceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceImpl.swift; sourceTree = "<group>"; };
@@ -509,10 +523,17 @@
 		4EDB54501A0299A8008A2C4F /* VideoImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoImpl.swift; sourceTree = "<group>"; };
 		4EDE8C7F1A14A36000098611 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4EDE8C811A14A3FD00098611 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
-		4EDE8C841A14A72900098611 /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
-		4EDE8C8F1A14AA3800098611 /* ResourceData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceData.swift; sourceTree = "<group>"; };
 		4EE6E4361A0CE70400354446 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/libsqlite3.dylib; sourceTree = DEVELOPER_DIR; };
 		4EE6E43D1A0CE75200354446 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		C32247871A271760009DFB10 /* ResourceData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceData.swift; sourceTree = "<group>"; };
+		C32247881A271760009DFB10 /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
+		C322478E1A272FA4009DFB10 /* ServiceHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceHandler.swift; sourceTree = "<group>"; };
+		C32247911A274DE7009DFB10 /* AnalyticsImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsImpl.swift; sourceTree = "<group>"; };
+		C32247921A274DE7009DFB10 /* ManagementImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagementImpl.swift; sourceTree = "<group>"; };
+		C32247931A274DE7009DFB10 /* PrintingImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintingImpl.swift; sourceTree = "<group>"; };
+		C32247941A274DE7009DFB10 /* SettingsImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsImpl.swift; sourceTree = "<group>"; };
+		C32247951A274DE7009DFB10 /* UpdateImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateImpl.swift; sourceTree = "<group>"; };
+		C32247A71A28A3B3009DFB10 /* CallbackImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallbackImpl.swift; sourceTree = "<group>"; };
 		C39256451A23191B00BA888E /* FileImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileImpl.swift; sourceTree = "<group>"; };
 		C39256461A23191B00BA888E /* FileSystemImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemImpl.swift; sourceTree = "<group>"; };
 		C3BB4C0E1A124CD4005C177C /* BrowserImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserImpl.swift; sourceTree = "<group>"; };
@@ -579,6 +600,7 @@
 		4E3592231A16662A009E3D03 /* Encryption */ = {
 			isa = PBXGroup;
 			children = (
+				4E35922C1A166639009E3D03 /* CryptoSwift.h */,
 				4E3592241A166639009E3D03 /* ArrayExtension.swift */,
 				4E3592251A166639009E3D03 /* Authenticator.swift */,
 				4E3592261A166639009E3D03 /* BitExtension.swift */,
@@ -587,7 +609,6 @@
 				4E3592291A166639009E3D03 /* Cipher.swift */,
 				4E35922A1A166639009E3D03 /* CRC.swift */,
 				4E35922B1A166639009E3D03 /* CryptoHashBase.swift */,
-				4E35922C1A166639009E3D03 /* CryptoSwift.h */,
 				4E35922D1A166639009E3D03 /* Generics.swift */,
 				4E35922E1A166639009E3D03 /* Hash.swift */,
 				4E35922F1A166639009E3D03 /* IntExtension.swift */,
@@ -709,10 +730,8 @@
 			isa = PBXGroup;
 			children = (
 				4E3592851A1666D6009E3D03 /* Adaptive-Bridging-Header.h */,
-				4EDB516A1A029446008A2C4F /* AppContextImpl.swift */,
-				4EDB516B1A029446008A2C4F /* AppContextWebviewImpl.swift */,
-				4EDB516C1A029446008A2C4F /* AppRegistryImpl.swift */,
-				4E6509291A1376B700B593F9 /* AppResourceManager.swift */,
+				C32247911A274DE7009DFB10 /* AnalyticsImpl.swift */,
+				C32247A71A28A3B3009DFB10 /* CallbackImpl.swift */,
 				4EDB51701A029446008A2C4F /* CapabilitiesImpl.swift */,
 				4EDB51711A029446008A2C4F /* DatabaseImpl.swift */,
 				4EDB51721A029446008A2C4F /* DeviceImpl.swift */,
@@ -721,18 +740,22 @@
 				C39256461A23191B00BA888E /* FileSystemImpl.swift */,
 				4EDB51741A029446008A2C4F /* GeolocationImpl.swift */,
 				4EDB51751A029446008A2C4F /* GlobalizationImpl.swift */,
-				4ED4D1CB1A02CA4000CC854E /* HttpInterceptorProtocol.swift */,
 				4EDB51761A029446008A2C4F /* LifecycleImpl.swift */,
 				4EDB517D1A029446008A2C4F /* LoggingImpl.swift */,
+				C32247921A274DE7009DFB10 /* ManagementImpl.swift */,
 				4EDB517E1A029446008A2C4F /* NetworkReachabilityImpl.swift */,
 				4EDB517F1A029446008A2C4F /* OSImpl.swift */,
+				C32247931A274DE7009DFB10 /* PrintingImpl.swift */,
 				4EDB51801A029446008A2C4F /* RuntimeImpl.swift */,
 				4EDB51811A029446008A2C4F /* SecurityImpl.swift */,
 				4EDB51821A029446008A2C4F /* ServiceImpl.swift */,
 				4EDB51831A029446008A2C4F /* SessionImpl.swift */,
+				C32247941A274DE7009DFB10 /* SettingsImpl.swift */,
+				C32247951A274DE7009DFB10 /* UpdateImpl.swift */,
 				4E35920C1A1665E8009E3D03 /* Compression */,
+				C322478D1A27178E009DFB10 /* Core */,
 				4E3592231A16662A009E3D03 /* Encryption */,
-				4EDE8C871A14A74500098611 /* Realm Support */,
+				C32247861A271760009DFB10 /* Realm */,
 				4EDB51C21A029566008A2C4F /* utils */,
 			);
 			name = Common;
@@ -836,13 +859,26 @@
 			path = Source/OSX;
 			sourceTree = "<group>";
 		};
-		4EDE8C871A14A74500098611 /* Realm Support */ = {
+		C32247861A271760009DFB10 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
-				4EDE8C8F1A14AA3800098611 /* ResourceData.swift */,
-				4EDE8C841A14A72900098611 /* RLMSupport.swift */,
+				4E6509291A1376B700B593F9 /* AppResourceManager.swift */,
+				C32247871A271760009DFB10 /* ResourceData.swift */,
+				C32247881A271760009DFB10 /* RLMSupport.swift */,
 			);
-			name = "Realm Support";
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		C322478D1A27178E009DFB10 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				4EDB516A1A029446008A2C4F /* AppContextImpl.swift */,
+				4EDB516B1A029446008A2C4F /* AppContextWebviewImpl.swift */,
+				4EDB516C1A029446008A2C4F /* AppRegistryImpl.swift */,
+				4ED4D1CB1A02CA4000CC854E /* HttpInterceptorProtocol.swift */,
+				C322478E1A272FA4009DFB10 /* ServiceHandler.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 		C369DA5D1A1A4441005B0B90 /* Libs */ = {
@@ -1240,21 +1276,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C322478F1A272FA4009DFB10 /* ServiceHandler.swift in Sources */,
 				4EDB542F1A029926008A2C4F /* GeolocationImpl.swift in Sources */,
 				4E3592571A166639009E3D03 /* Operators.swift in Sources */,
 				4E35923D1A166639009E3D03 /* Authenticator.swift in Sources */,
 				4E3592551A166639009E3D03 /* NSDataExtension.swift in Sources */,
 				4E35924D1A166639009E3D03 /* Generics.swift in Sources */,
+				C32247981A274DE7009DFB10 /* ManagementImpl.swift in Sources */,
 				4E3592451A166639009E3D03 /* Cipher.swift in Sources */,
 				4EDB54481A02992F008A2C4F /* ServiceImpl.swift in Sources */,
+				C32247961A274DE7009DFB10 /* AnalyticsImpl.swift in Sources */,
+				C322479C1A274DE7009DFB10 /* SettingsImpl.swift in Sources */,
 				4E35923F1A166639009E3D03 /* BitExtension.swift in Sources */,
 				4EDB54431A02992F008A2C4F /* LoggingImpl.swift in Sources */,
 				4E3592211A166600009E3D03 /* NSData+CocoaDevUsersAdditions.m in Sources */,
 				4EDB54141A029921008A2C4F /* Await.swift in Sources */,
 				4EDB54451A02992F008A2C4F /* OSImpl.swift in Sources */,
 				4EDB54301A029926008A2C4F /* GlobalizationImpl.swift in Sources */,
+				C32247891A271760009DFB10 /* ResourceData.swift in Sources */,
 				4E3592611A166639009E3D03 /* UInt16Extension.swift in Sources */,
 				4EDB542E1A029926008A2C4F /* DisplayImpl.swift in Sources */,
+				C322478B1A271760009DFB10 /* RLMSupport.swift in Sources */,
 				4EDB54311A029926008A2C4F /* LifecycleImpl.swift in Sources */,
 				4EDB54261A029926008A2C4F /* AppContextWebviewImpl.swift in Sources */,
 				4EDB54491A02992F008A2C4F /* SessionImpl.swift in Sources */,
@@ -1263,13 +1305,14 @@
 				4E35925D1A166639009E3D03 /* SHA2.swift in Sources */,
 				4E35925F1A166639009E3D03 /* StringExtension.swift in Sources */,
 				4EDB54441A02992F008A2C4F /* NetworkReachabilityImpl.swift in Sources */,
-				4EDE8C901A14AA3800098611 /* ResourceData.swift in Sources */,
+				C322479E1A274DE7009DFB10 /* UpdateImpl.swift in Sources */,
 				4EDB54461A02992F008A2C4F /* RuntimeImpl.swift in Sources */,
 				4E3592491A166639009E3D03 /* CryptoHashBase.swift in Sources */,
 				4EDB54471A02992F008A2C4F /* SecurityImpl.swift in Sources */,
 				C39256471A23191B00BA888E /* FileImpl.swift in Sources */,
 				4ED4D1CC1A02CA4000CC854E /* HttpInterceptorProtocol.swift in Sources */,
 				4EDB54151A029921008A2C4F /* GeolocationDelegate.swift in Sources */,
+				C32247A81A28A3B3009DFB10 /* CallbackImpl.swift in Sources */,
 				4EDB54171A029921008A2C4F /* Utils.swift in Sources */,
 				4E35924F1A166639009E3D03 /* Hash.swift in Sources */,
 				4E3592531A166639009E3D03 /* MD5.swift in Sources */,
@@ -1277,8 +1320,8 @@
 				4E65093C1A1376C900B593F9 /* AppResourceManager.swift in Sources */,
 				4E35923B1A166639009E3D03 /* ArrayExtension.swift in Sources */,
 				4E35925B1A166639009E3D03 /* SHA1.swift in Sources */,
-				4EDE8C851A14A72900098611 /* RLMSupport.swift in Sources */,
 				C39256491A23191B00BA888E /* FileSystemImpl.swift in Sources */,
+				C322479A1A274DE7009DFB10 /* PrintingImpl.swift in Sources */,
 				4EDB542D1A029926008A2C4F /* DeviceImpl.swift in Sources */,
 				4E3592651A166639009E3D03 /* UInt64Extension.swift in Sources */,
 				4EDB542C1A029926008A2C4F /* DatabaseImpl.swift in Sources */,
@@ -1308,11 +1351,14 @@
 				4E3592541A166639009E3D03 /* MD5.swift in Sources */,
 				C392564A1A23191B00BA888E /* FileSystemImpl.swift in Sources */,
 				4E3592501A166639009E3D03 /* Hash.swift in Sources */,
+				C32247971A274DE7009DFB10 /* AnalyticsImpl.swift in Sources */,
+				C322479D1A274DE7009DFB10 /* SettingsImpl.swift in Sources */,
 				4EDB54411A02992E008A2C4F /* ServiceImpl.swift in Sources */,
 				4E6A9D511A1CD5BD00DF3CD1 /* NavigationProperties.swift in Sources */,
 				4E3592461A166639009E3D03 /* Cipher.swift in Sources */,
 				4EDB543C1A02992E008A2C4F /* LoggingImpl.swift in Sources */,
 				4EDB54101A029920008A2C4F /* Await.swift in Sources */,
+				C32247A91A28A3B3009DFB10 /* CallbackImpl.swift in Sources */,
 				4EDB543E1A02992E008A2C4F /* OSImpl.swift in Sources */,
 				4E3592621A166639009E3D03 /* UInt16Extension.swift in Sources */,
 				4EDB54231A029925008A2C4F /* GlobalizationImpl.swift in Sources */,
@@ -1322,6 +1368,7 @@
 				4E35924A1A166639009E3D03 /* CryptoHashBase.swift in Sources */,
 				4E3592641A166639009E3D03 /* UInt32Extension.swift in Sources */,
 				4E6A9D4C1A1CA8F900DF3CD1 /* BaseViewController.swift in Sources */,
+				C322478A1A271760009DFB10 /* ResourceData.swift in Sources */,
 				4E3592421A166639009E3D03 /* ByteExtension.swift in Sources */,
 				C39256481A23191B00BA888E /* FileImpl.swift in Sources */,
 				4EDB54591A0299B1008A2C4F /* TelephonyImpl.swift in Sources */,
@@ -1329,13 +1376,13 @@
 				4EDB54421A02992E008A2C4F /* SessionImpl.swift in Sources */,
 				4E35923C1A166639009E3D03 /* ArrayExtension.swift in Sources */,
 				4E3592221A166600009E3D03 /* NSData+CocoaDevUsersAdditions.m in Sources */,
+				C322478C1A271760009DFB10 /* RLMSupport.swift in Sources */,
 				4EDB541A1A029925008A2C4F /* AppRegistryImpl.swift in Sources */,
 				4E35924E1A166639009E3D03 /* Generics.swift in Sources */,
 				4E3592481A166639009E3D03 /* CRC.swift in Sources */,
 				4E3592441A166639009E3D03 /* ChaCha20.swift in Sources */,
 				4E35925C1A166639009E3D03 /* SHA1.swift in Sources */,
 				4EDB54121A029920008A2C4F /* I18NParser.swift in Sources */,
-				4EDE8C911A14AA3800098611 /* ResourceData.swift in Sources */,
 				4E3592561A166639009E3D03 /* NSDataExtension.swift in Sources */,
 				4E3592521A166639009E3D03 /* IntExtension.swift in Sources */,
 				4E3592581A166639009E3D03 /* Operators.swift in Sources */,
@@ -1343,7 +1390,11 @@
 				4EDB543D1A02992E008A2C4F /* NetworkReachabilityImpl.swift in Sources */,
 				4EDB543F1A02992E008A2C4F /* RuntimeImpl.swift in Sources */,
 				4EDB54401A02992E008A2C4F /* SecurityImpl.swift in Sources */,
+				C32247991A274DE7009DFB10 /* ManagementImpl.swift in Sources */,
+				C322479F1A274DE7009DFB10 /* UpdateImpl.swift in Sources */,
 				4E35925A1A166639009E3D03 /* Poly1305.swift in Sources */,
+				C32247901A272FA4009DFB10 /* ServiceHandler.swift in Sources */,
+				C322479B1A274DE7009DFB10 /* PrintingImpl.swift in Sources */,
 				4EDB54111A029920008A2C4F /* GeolocationDelegate.swift in Sources */,
 				4ED4D1CD1A02CA4100CC854E /* HttpInterceptorProtocol.swift in Sources */,
 				4EDB54131A029920008A2C4F /* Utils.swift in Sources */,
@@ -1355,7 +1406,6 @@
 				4EDB541E1A029925008A2C4F /* CapabilitiesImpl.swift in Sources */,
 				4EDB54571A0299B1008A2C4F /* ContactImpl.swift in Sources */,
 				4E65093B1A1376C800B593F9 /* AppResourceManager.swift in Sources */,
-				4EDE8C861A14A72900098611 /* RLMSupport.swift in Sources */,
 				C3BB4C101A124D44005C177C /* BrowserImpl.swift in Sources */,
 				4EDB545A1A0299B1008A2C4F /* VideoImpl.swift in Sources */,
 				4EDB54581A0299B1008A2C4F /* MessagingImpl.swift in Sources */,

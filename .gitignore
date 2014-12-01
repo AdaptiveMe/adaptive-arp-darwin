@@ -16,3 +16,5 @@ adaptive-arp-impl/adaptive-arp-impl.xcodeproj/project.xcworkspace/xcuserdata/
 adaptive-arp-impl/.idea/
 adaptive-arp-rt/.idea/
 
+
+adaptive-arp-rt/App.Source/www/.idea/
