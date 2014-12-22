@@ -32,6 +32,7 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+import Foundation
 
 /**
    Interface defining methods about the acceleration sensor

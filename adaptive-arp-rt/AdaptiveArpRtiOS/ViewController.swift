@@ -30,15 +30,13 @@
 */
 
 import UIKit
-import AdaptiveArpImpl
-import AdaptiveArpApi
 
 class ViewController: BaseViewController {
     
     /// Webview
     @IBOutlet weak var webView: UIWebView!
     /// Logging variable
-    let logger:ILogging = LoggingImpl()
+    let logger:ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge().getDelegate()!
     
     /// Webview
 
@@ -55,7 +53,7 @@ class ViewController: BaseViewController {
     /// This method is called after the view controller has loaded its view hierarchy into memory. This method is called regardless of whether the view hierarchy was loaded from a nib file or created programmatically in the loadView method.
     override func viewDidLoad() {
         super.viewDidLoad()
-        (AppRegistryImpl.sharedInstance.getPlatformContextWeb()! as AppContextWebviewImpl).setWebviewPrimary(self.webView!)
+        //TODO: (AppRegistryImpl.sharedInstance.getPlatformContextWeb()! as AppContextWebviewImpl).setWebviewPrimary(self.webView!)
         var req = NSURLRequest(URL: NSURL(string: "https://adaptiveapp/index.html")!)
         (self.webView! as UIWebView).loadRequest(req)
 

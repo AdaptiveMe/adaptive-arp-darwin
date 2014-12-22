@@ -30,7 +30,6 @@
 */
 
 import XCTest
-import AdaptiveArpImpl
 
 class DeviceTest: XCTestCase {
     

@@ -28,17 +28,16 @@
 *
 * =====================================================================================================================
 */
-
-import AdaptiveArpApi
+import Foundation
 
 public class I18NParser : NSObject, NSXMLParserDelegate {
     
     /// Logging variable
-    let logger : ILogging = LoggingImpl()
+    let logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge().getDelegate()!
     let loggerTag : String = "I18NParser"
     
     /// Locales supported (filled by the getLocaleSupportedDescriptors method)
-    var localesArray:[AdaptiveArpApi.Locale]
+    var localesArray:[Locale]
     
     let I18N_SUPLANG_ELEM: String = "supportedLanguage"
     let I18N_SUPLANG_ATTR_LANG: String = "language"
@@ -67,7 +66,7 @@ public class I18NParser : NSObject, NSXMLParserDelegate {
         if elementName == I18N_SUPLANG_ELEM {
             logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Reading language: \(attributeDict[I18N_SUPLANG_ATTR_LANG])")
             
-            var locale:AdaptiveArpApi.Locale = AdaptiveArpApi.Locale()
+            var locale:Locale = Locale()
             locale.setLanguage("\(attributeDict[I18N_SUPLANG_ATTR_CNTR]!)")
             locale.setCountry("\(attributeDict[I18N_SUPLANG_ATTR_CNTR]!)")
             localesArray.append(locale)
@@ -79,7 +78,7 @@ public class I18NParser : NSObject, NSXMLParserDelegate {
     
     :returns: List of locales
     */
-    public func getLocales() -> [AdaptiveArpApi.Locale] {
+    public func getLocales() -> [Locale] {
         return localesArray
     }
 }

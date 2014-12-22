@@ -32,6 +32,8 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+import Foundation
+
 /**
    Interface for Managing the Settings operations
    Auto-generated implementation of ISettings specification.

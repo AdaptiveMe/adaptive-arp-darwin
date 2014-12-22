@@ -32,6 +32,7 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+import Foundation
 
 /**
    Interface to retrieve auto-registered service implementation references.

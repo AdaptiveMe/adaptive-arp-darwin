@@ -32,6 +32,8 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+import Foundation
+
 /**
    Base application for PIM purposes
    Auto-generated implementation of IBasePIM specification.

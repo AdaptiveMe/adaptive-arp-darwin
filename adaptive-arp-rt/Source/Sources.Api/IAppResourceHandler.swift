@@ -32,6 +32,8 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+import Foundation
+
 /**
    This interface manages the operation about the application resources
 

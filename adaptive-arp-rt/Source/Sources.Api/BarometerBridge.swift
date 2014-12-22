@@ -32,6 +32,8 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+import Foundation
+
 /**
    Interface for Barometer management purposes
    Auto-generated implementation of IBarometer specification.

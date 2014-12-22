@@ -32,6 +32,8 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+import Foundation
+
 /**
    Master interface for all the Groups and Types of Interfaces os the Project
 

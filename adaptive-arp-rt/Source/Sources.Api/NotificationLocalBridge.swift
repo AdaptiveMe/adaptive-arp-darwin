@@ -32,6 +32,8 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+import Foundation
+
 /**
    Interface for Managing the Local Notifications operations
    Auto-generated implementation of INotificationLocal specification.

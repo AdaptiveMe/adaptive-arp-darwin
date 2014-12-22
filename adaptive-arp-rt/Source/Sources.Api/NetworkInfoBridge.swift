@@ -32,6 +32,8 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+import Foundation
+
 /**
    Interface for Managing the Network information operations
    Auto-generated implementation of INetworkInfo specification.

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MD5 : AdaptiveArpImpl.HashBase {
+class MD5 : HashBase {
 
     /** specifies the per-round shift amounts */
     private let s: [UInt32] = [7, 12, 17, 22,  7, 12, 17, 22,  7, 12, 17, 22,  7, 12, 17, 22,

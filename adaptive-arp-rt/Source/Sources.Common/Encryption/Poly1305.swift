@@ -12,7 +12,7 @@
 
 import Foundation
 
-public class Poly1305 {
+public class Poly1305Local {
     let blockSize = 16
     private var ctx:Context?
     
@@ -89,14 +89,14 @@ public class Poly1305 {
     :returns: Message Authentication Code
     */
     class internal func authenticate(# key: NSData, message: NSData) -> NSData? {
-        if let mac = Poly1305.authenticate(key: key.bytes(), message: message.bytes()) {
+        if let mac = Poly1305Local.authenticate(key: key.bytes(), message: message.bytes()) {
             return NSData(bytes: mac, length: mac.count)
         }
         return nil
     }
 
     class internal func authenticate(# key: [Byte], message: [Byte]) -> [Byte]? {
-        return Poly1305(key)?.authenticate(message: message)
+        return Poly1305Local(key)?.authenticate(message: message)
     }
     
     // MARK: - Private

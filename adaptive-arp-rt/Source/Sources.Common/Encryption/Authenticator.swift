@@ -27,7 +27,7 @@ public enum Authenticator {
     public func authenticate(message: NSData) -> NSData? {
         switch (self) {
         case .Poly1305(let key):
-            return AdaptiveArpImpl.Poly1305.authenticate(key: key, message: message)
+            return Poly1305Local.authenticate(key: key, message: message)
         }
     }
 }

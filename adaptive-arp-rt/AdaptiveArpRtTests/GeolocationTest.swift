@@ -30,8 +30,7 @@
 */
 
 import XCTest
-import AdaptiveArpImpl
-import AdaptiveArpApi
+
 
 class GeolocationTest: XCTestCase {
     

@@ -31,8 +31,6 @@
 
 import UIKit
 import XCTest
-import AdaptiveArpImpl
-import AdaptiveArpApi
 
 class ContactTest: XCTestCase {
     

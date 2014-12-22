@@ -30,8 +30,6 @@
 */
 
 import XCTest
-import AdaptiveArpImpl
-import AdaptiveArpApi
 
 class DatabaseTest: XCTestCase {
     

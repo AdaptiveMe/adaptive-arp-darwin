@@ -32,6 +32,8 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+import Foundation
+
 /**
    This interface manages the responses of the resource callback
    Auto-generated implementation of IAppResourceCallback specification.

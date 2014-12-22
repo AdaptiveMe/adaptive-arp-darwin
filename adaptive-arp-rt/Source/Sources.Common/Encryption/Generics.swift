@@ -90,7 +90,7 @@ func <<<T:UnsignedIntegerType>(lhs: T, rhs: Int) -> UInt {
 
 // Generic function itself
 // FIXME: this generic function is not as generic as I would. It crashes for smaller types
-func shiftLeft<T: SignedIntegerType where T: Initiable>(value: T, count: Int) -> T {
+func shiftLeftLocal<T: SignedIntegerType where T: Initiable>(value: T, count: Int) -> T {
     if (value == 0) {
         return 0;
     }
@@ -115,7 +115,7 @@ func shiftLeft<T: SignedIntegerType where T: Initiable>(value: T, count: Int) ->
 
 // for any f*** other Integer type - this part is so non-Generic
 func shiftLeft(value: UInt, count: Int) -> UInt {
-    return UInt(shiftLeft(Int(value), count))
+    return UInt(shiftLeftLocal(Int(value), count))
 }
 
 func shiftLeft(value: UInt8, count: Int) -> UInt8 {
@@ -135,18 +135,18 @@ func shiftLeft(value: UInt64, count: Int) -> UInt64 {
 }
 
 func shiftLeft(value: Int8, count: Int) -> Int8 {
-    return Int8(shiftLeft(Int(value), count))
+    return Int8(shiftLeftLocal(Int(value), count))
 }
 
 func shiftLeft(value: Int16, count: Int) -> Int16 {
-    return Int16(shiftLeft(Int(value), count))
+    return Int16(shiftLeftLocal(Int(value), count))
 }
 
 func shiftLeft(value: Int32, count: Int) -> Int32 {
-    return Int32(shiftLeft(Int(value), count))
+    return Int32(shiftLeftLocal(Int(value), count))
 }
 
 func shiftLeft(value: Int64, count: Int) -> Int64 {
-    return Int64(shiftLeft(Int(value), count))
+    return Int64(shiftLeftLocal(Int(value), count))
 }
 

@@ -30,11 +30,12 @@
 */
 
 import ObjectiveC
+import Foundation
 
 public class ServiceHandler:NSObject {
     
     /// Logging variable
-    let logger:ILogging = LoggingImpl()
+    let logger:ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge().getDelegate()!
     let loggerTag:String = "ServiceHandler"
     
     /// Queue for executing async tasks
@@ -128,8 +129,8 @@ public class ServiceHandler:NSObject {
                 // TODO: Get the class from the registry and execute the method and return the value
                 
                 switch method {
-                case "createDatabase":
-                    AppRegistryImpl.sharedInstance.getDataDatabase().createDatabase(AdaptiveArpApi.Database(name: "test"), callback: CallbackImpl())
+                //case "createDatabase":
+                    //AppRegistryImpl.sharedInstance.getDataDatabase().createDatabase(AdaptiveArpApi.Database(name: "test"), callback: CallbackImpl())
                 default:
                     self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "Method \"\(method)\" is not registered")
                 }
@@ -145,9 +146,9 @@ public class ServiceHandler:NSObject {
                 // TODO: Get the class from the registry and execute the method and return the value
                 
                 switch method {
-                case "existsDatabase":
-                    var retValue:Bool = AppRegistryImpl.sharedInstance.getDataDatabase().existsDatabase(AdaptiveArpApi.Database(name: "test"))
-                    ret = NSData(bytes: &retValue, length: sizeofValue(retValue))
+                //case "existsDatabase":
+                    //var retValue:Bool = AppRegistryImpl.sharedInstance.getDataDatabase().existsDatabase(AdaptiveArpApi.Database(name: "test"))
+                    //ret = NSData(bytes: &retValue, length: sizeofValue(retValue))
                 default:
                     self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "Method \"\(method)\" is not registered")
                 }

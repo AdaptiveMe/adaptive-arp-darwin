@@ -32,6 +32,8 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+import Foundation
+
 /**
    Base application for Commerce purposes
    Auto-generated implementation of IBaseCommerce specification.

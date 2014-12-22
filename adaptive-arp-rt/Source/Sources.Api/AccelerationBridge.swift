@@ -32,6 +32,8 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+import Foundation
+
 /**
    Interface defining methods about the acceleration sensor
    Auto-generated implementation of IAcceleration specification.

@@ -47,7 +47,7 @@ extension Int {
     
     /** Shift bits to the left. All bits are shifted (including sign bit) */
     private mutating func shiftLeft(count: Int) -> Int {
-        self = AdaptiveArpImpl.shiftLeft(self, count)
+        self = shiftLeftLocal(self, count)
         return self
     }
     

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SHA2 : AdaptiveArpImpl.HashBase {
+class SHA2 : HashBase {
     
     enum variant {
         case sha224, sha256, sha384, sha512

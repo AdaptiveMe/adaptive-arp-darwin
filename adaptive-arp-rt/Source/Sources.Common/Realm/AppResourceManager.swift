@@ -37,14 +37,14 @@ private var resourceManagerInstancePool : [String:AppResourceManager] = [String:
 public class AppResourceManager {
     
     var realm : RLMRealm!
-    let logger:ILogging = LoggingImpl()
+    let logger:ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge().getDelegate()!
     let logCategory = "AppResourceManager"
     
     /// Singleton instance
     public class var sharedInstance : AppResourceManager {
         var threadSafeInstance : AppResourceManager? = resourceManagerInstancePool[NSThread.currentThread().description]
         
-        let logger:ILogging = LoggingImpl()
+        let logger:ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge().getDelegate()!
         let logCategory = "AppResourceManager"
         
         if threadSafeInstance == nil {

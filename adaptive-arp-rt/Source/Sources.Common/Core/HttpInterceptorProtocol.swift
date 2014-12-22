@@ -30,7 +30,7 @@
 */
 
 import Foundation
-import AdaptiveArpApi
+
 #if os(iOS)
     import UIKit
 #elseif os(OSX)
@@ -40,7 +40,7 @@ import AdaptiveArpApi
 public class HttpInterceptorProtocol : NSURLProtocol {
     
     /// Logging variable
-    let logger:ILogging = LoggingImpl()
+    let logger:ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge().getDelegate()!
     let loggerTag:String = "HttpInterceptorProtocol"
     
     /// Connection
@@ -133,7 +133,7 @@ public class HttpInterceptorProtocol : NSURLProtocol {
                 
                 // ADAPTIVE NATIVE CALLS
                 
-                var data:NSData? = ServiceHandler.sharedInstance.handleServiceUrl(newRequest)
+                var data:NSData? = nil //TODO: ServiceHandler.sharedInstance.handleServiceUrl(newRequest)
                 var response:NSURLResponse?
                 
                 if let data = data {

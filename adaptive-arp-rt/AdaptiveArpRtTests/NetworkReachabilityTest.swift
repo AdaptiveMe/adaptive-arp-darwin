@@ -30,8 +30,7 @@
 */
 
 import XCTest
-import AdaptiveArpImpl
-import AdaptiveArpApi
+
 /*
 
 /// MARK: The tests of Network Reachability are disabled because the asyncronous methods doesn't work fine with the XCTAssert method of the test cases
