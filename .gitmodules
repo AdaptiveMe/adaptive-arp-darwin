@@ -1,15 +1,6 @@
-[submodule "adaptive-arp-impl/ThirdParty/realm-cocoa"]
-	path = adaptive-arp-impl/ThirdParty/realm-cocoa
-	url = https://github.com/AdaptiveMe/realm-cocoa.git
-[submodule "adaptive-arp-impl/Modules/adaptive-arp-api"]
-	path = adaptive-arp-impl/Modules/adaptive-arp-api
-	url = https://github.com/AdaptiveMe/adaptive-arp-api.git
-[submodule "adaptive-arp-impl/ThirdParty/SQLite.swift"]
-	path = adaptive-arp-impl/ThirdParty/SQLite.swift
+[submodule "adaptive-arp-rt/ThirdParty/SQLite.swift"]
+	path = adaptive-arp-rt/ThirdParty/SQLite.swift
 	url = https://github.com/AdaptiveMe/SQLite.swift.git
-[submodule "adaptive-arp-impl/ThirdParty/SwiftyJSON"]
-	path = adaptive-arp-impl/ThirdParty/SwiftyJSON
-	url = https://github.com/AdaptiveMe/SwiftyJSON.git
-[submodule "adaptive-arp-impl/ThirdParty/Alamofire"]
-	path = adaptive-arp-impl/ThirdParty/Alamofire
-	url = https://github.com/AdaptiveMe/Alamofire.git
+[submodule "adaptive-arp-rt/ThirdParty/realm-cocoa"]
+	path = adaptive-arp-rt/ThirdParty/realm-cocoa
+	url = https://github.com/AdaptiveMe/realm-cocoa.git
