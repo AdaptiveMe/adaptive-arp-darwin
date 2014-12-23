@@ -40,41 +40,41 @@ import Foundation
 */
 public class NetworkStatusDelegate : BaseCommunicationDelegate, INetworkStatus {
 
-     /**
-        Default Constructor.
-     */
-     public override init() {
-          super.init()
-     }
+    /**
+       Default Constructor.
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Add the listener for network status changes of the app
+    /**
+       Add the listener for network status changes of the app
 
-        @param listener Listener with the result
-        @since ARP1.0
-     */
-     public func addNetworkStatusListener(listener : INetworkStatusListener) {
-          // TODO: Not implemented.
-     }
+       @param listener Listener with the result
+       @since ARP1.0
+    */
+    public func addNetworkStatusListener(listener : INetworkStatusListener) {
+        // TODO: Not implemented.
+    }
 
-     /**
-        Un-registers an existing listener from receiving network status events.
+    /**
+       Un-registers an existing listener from receiving network status events.
 
-        @param listener Listener with the result
-        @since ARP1.0
-     */
-     public func removeNetworkStatusListener(listener : INetworkStatusListener) {
-          // TODO: Not implemented.
-     }
+       @param listener Listener with the result
+       @since ARP1.0
+    */
+    public func removeNetworkStatusListener(listener : INetworkStatusListener) {
+        // TODO: Not implemented.
+    }
 
-     /**
-        Removes all existing listeners from receiving network status events.
+    /**
+       Removes all existing listeners from receiving network status events.
 
-        @since ARP1.0
-     */
-     public func removeNetworkStatusListeners() {
-          // TODO: Not implemented.
-     }
+       @since ARP1.0
+    */
+    public func removeNetworkStatusListeners() {
+        // TODO: Not implemented.
+    }
 
 }
 /**

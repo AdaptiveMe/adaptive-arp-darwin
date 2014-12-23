@@ -39,38 +39,38 @@ import Foundation
 */
 public enum ICapabilitiesData {
 
-     case Database
-     case File
-     case Cloud
-     case Unknown
+    case Database
+    case File
+    case Cloud
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .Database: return "Database"
-               case .File: return "File"
-               case .Cloud: return "Cloud"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .Database: return "Database"
+            case .File: return "File"
+            case .Cloud: return "Cloud"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> ICapabilitiesData {
-          if let validString = string {
-               switch validString {
-                    case "Database": return .Database
-                    case "File": return .File
-                    case "Cloud": return .Cloud
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> ICapabilitiesData {
+        if let validString = string {
+            switch validString {
+                case "Database": return .Database
+                case "File": return .File
+                case "Cloud": return .Cloud
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

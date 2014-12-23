@@ -39,35 +39,35 @@ import Foundation
 */
 public enum IServiceProtocolVersion {
 
-     case HttpProtocolVersion10
-     case HttpProtocolVersion11
-     case Unknown
+    case HttpProtocolVersion10
+    case HttpProtocolVersion11
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .HttpProtocolVersion10: return "HttpProtocolVersion10"
-               case .HttpProtocolVersion11: return "HttpProtocolVersion11"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .HttpProtocolVersion10: return "HttpProtocolVersion10"
+            case .HttpProtocolVersion11: return "HttpProtocolVersion11"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> IServiceProtocolVersion {
-          if let validString = string {
-               switch validString {
-                    case "HttpProtocolVersion10": return .HttpProtocolVersion10
-                    case "HttpProtocolVersion11": return .HttpProtocolVersion11
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> IServiceProtocolVersion {
+        if let validString = string {
+            switch validString {
+                case "HttpProtocolVersion10": return .HttpProtocolVersion10
+                case "HttpProtocolVersion11": return .HttpProtocolVersion11
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

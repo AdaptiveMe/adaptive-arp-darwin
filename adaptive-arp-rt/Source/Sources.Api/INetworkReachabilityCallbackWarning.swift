@@ -39,44 +39,44 @@ import Foundation
 */
 public enum INetworkReachabilityCallbackWarning {
 
-     case IncorrectScheme
-     case NotSecure
-     case NotTrusted
-     case Redirected
-     case NotRegisteredService
-     case Unknown
+    case IncorrectScheme
+    case NotSecure
+    case NotTrusted
+    case Redirected
+    case NotRegisteredService
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .IncorrectScheme: return "IncorrectScheme"
-               case .NotSecure: return "NotSecure"
-               case .NotTrusted: return "NotTrusted"
-               case .Redirected: return "Redirected"
-               case .NotRegisteredService: return "NotRegisteredService"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .IncorrectScheme: return "IncorrectScheme"
+            case .NotSecure: return "NotSecure"
+            case .NotTrusted: return "NotTrusted"
+            case .Redirected: return "Redirected"
+            case .NotRegisteredService: return "NotRegisteredService"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> INetworkReachabilityCallbackWarning {
-          if let validString = string {
-               switch validString {
-                    case "IncorrectScheme": return .IncorrectScheme
-                    case "NotSecure": return .NotSecure
-                    case "NotTrusted": return .NotTrusted
-                    case "Redirected": return .Redirected
-                    case "NotRegisteredService": return .NotRegisteredService
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> INetworkReachabilityCallbackWarning {
+        if let validString = string {
+            switch validString {
+                case "IncorrectScheme": return .IncorrectScheme
+                case "NotSecure": return .NotSecure
+                case "NotTrusted": return .NotTrusted
+                case "Redirected": return .Redirected
+                case "NotRegisteredService": return .NotRegisteredService
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

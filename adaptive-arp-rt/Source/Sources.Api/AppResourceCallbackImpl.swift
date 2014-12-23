@@ -40,48 +40,48 @@ import Foundation
 */
 public class AppResourceCallbackImpl : BaseCallbackImpl, IAppResourceCallback {
 
-     /**
-        Constructor with callback id.
+    /**
+       Constructor with callback id.
 
-        @param id  The id of the callback.
-     */
-     public override init(id : Int) {
-          super.init(id: id)
-     }
+       @param id  The id of the callback.
+    */
+    public override init(id : Int) {
+        super.init(id: id)
+    }
 
-     /**
-        Error result of the App resource operation
+    /**
+       Error result of the App resource operation
 
-        @param error Error fired
-        @since ARP1.0
-     */
-     public func onError(error : IAppResourceCallbackError) { 
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAppResourceCallbackError( '\(getId())', JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param error Error fired
+       @since ARP1.0
+    */
+    public func onError(error : IAppResourceCallbackError) { 
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAppResourceCallbackError( '\(getId())', JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
-     /**
-        Correct result of the App Resource operation
+    /**
+       Correct result of the App Resource operation
 
-        @param resource Resource
-        @since ARP1.0
-     */
-     public func onResult(resource : IAppResource) { 
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAppResourceCallbackResult( '\(getId())', JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param resource Resource
+       @since ARP1.0
+    */
+    public func onResult(resource : IAppResource) { 
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAppResourceCallbackResult( '\(getId())', JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
-     /**
-        Warning result of the App Resource operation
+    /**
+       Warning result of the App Resource operation
 
-        @param resource Resource
-        @param warning  Warning fired
-        @since ARP1.0
-     */
-     public func onWarning(resource : IAppResource, warning : IAppResourceCallbackWarning) { 
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAppResourceCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param resource Resource
+       @param warning  Warning fired
+       @since ARP1.0
+    */
+    public func onWarning(resource : IAppResource, warning : IAppResourceCallbackWarning) { 
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAppResourceCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
 }
 /**

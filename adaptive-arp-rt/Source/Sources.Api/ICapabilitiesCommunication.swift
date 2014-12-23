@@ -39,44 +39,44 @@ import Foundation
 */
 public enum ICapabilitiesCommunication {
 
-     case Calendar
-     case Contact
-     case Mail
-     case Messaging
-     case Telephony
-     case Unknown
+    case Calendar
+    case Contact
+    case Mail
+    case Messaging
+    case Telephony
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .Calendar: return "Calendar"
-               case .Contact: return "Contact"
-               case .Mail: return "Mail"
-               case .Messaging: return "Messaging"
-               case .Telephony: return "Telephony"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .Calendar: return "Calendar"
+            case .Contact: return "Contact"
+            case .Mail: return "Mail"
+            case .Messaging: return "Messaging"
+            case .Telephony: return "Telephony"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> ICapabilitiesCommunication {
-          if let validString = string {
-               switch validString {
-                    case "Calendar": return .Calendar
-                    case "Contact": return .Contact
-                    case "Mail": return .Mail
-                    case "Messaging": return .Messaging
-                    case "Telephony": return .Telephony
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> ICapabilitiesCommunication {
+        if let validString = string {
+            switch validString {
+                case "Calendar": return .Calendar
+                case "Contact": return .Contact
+                case "Mail": return .Mail
+                case "Messaging": return .Messaging
+                case "Telephony": return .Telephony
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

@@ -40,41 +40,41 @@ import Foundation
 */
 public class GeolocationDelegate : BaseSensorDelegate, IGeolocation {
 
-     /**
-        Default Constructor.
-     */
-     public override init() {
-          super.init()
-     }
+    /**
+       Default Constructor.
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Register a new listener that will receive geolocation events.
+    /**
+       Register a new listener that will receive geolocation events.
 
-        @param listener to be registered.
-        @since ARP1.0
-     */
-     public func addGeolocationListener(listener : IGeolocationListener) {
-          // TODO: Not implemented.
-     }
+       @param listener to be registered.
+       @since ARP1.0
+    */
+    public func addGeolocationListener(listener : IGeolocationListener) {
+        // TODO: Not implemented.
+    }
 
-     /**
-        De-registers an existing listener from receiving geolocation events.
+    /**
+       De-registers an existing listener from receiving geolocation events.
 
-        @param listener to be registered.
-        @since ARP1.0
-     */
-     public func removeGeolocationListener(listener : IGeolocationListener) {
-          // TODO: Not implemented.
-     }
+       @param listener to be registered.
+       @since ARP1.0
+    */
+    public func removeGeolocationListener(listener : IGeolocationListener) {
+        // TODO: Not implemented.
+    }
 
-     /**
-        Removed all existing listeners from receiving geolocation events.
+    /**
+       Removed all existing listeners from receiving geolocation events.
 
-        @since ARP1.0
-     */
-     public func removeGeolocationListeners() {
-          // TODO: Not implemented.
-     }
+       @since ARP1.0
+    */
+    public func removeGeolocationListeners() {
+        // TODO: Not implemented.
+    }
 
 }
 /**

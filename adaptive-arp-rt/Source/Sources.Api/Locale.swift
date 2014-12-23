@@ -43,121 +43,121 @@ import Foundation
 */
 public class Locale : APIBean {
 
-     /**
-        A valid ISO Country Code.
-     */
-     var country : String?
-     /**
-        A valid ISO Language Code.
-     */
-     var language : String?
+    /**
+       A valid ISO Country Code.
+    */
+    var country : String?
+    /**
+       A valid ISO Language Code.
+    */
+    var language : String?
 
-     /**
-        Default constructor
+    /**
+       Default constructor
 
-        @since ARP1.0
-     */
-     public override init() {
-          super.init()
-     }
+       @since ARP1.0
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Constructor used by the implementation
+    /**
+       Constructor used by the implementation
 
-        @param country  Country of the Locale
-        @param language Language of the Locale
-        @since ARP1.0
-     */
-     public init(language: String, country: String) {
-          super.init()
-          self.language = language
-          self.country = country
-     }
+       @param country  Country of the Locale
+       @param language Language of the Locale
+       @since ARP1.0
+    */
+    public init(language: String, country: String) {
+        super.init()
+        self.language = language
+        self.country = country
+    }
 
-     /**
-        Returns the country code
+    /**
+       Returns the country code
 
-        @return country code
-        @since ARP1.0
-     */
-     public func getCountry() -> String? {
-          return self.country
-     }
+       @return country code
+       @since ARP1.0
+    */
+    public func getCountry() -> String? {
+        return self.country
+    }
 
-     /**
-        Set the country code
+    /**
+       Set the country code
 
-        @param country code
-        @since ARP1.0
-     */
-     public func setCountry(country: String) {
-          self.country = country
-     }
+       @param country code
+       @since ARP1.0
+    */
+    public func setCountry(country: String) {
+        self.country = country
+    }
 
-     /**
-        Returns the language code
+    /**
+       Returns the language code
 
-        @return language code
-        @since ARP1.0
-     */
-     public func getLanguage() -> String? {
-          return self.language
-     }
+       @return language code
+       @since ARP1.0
+    */
+    public func getLanguage() -> String? {
+        return self.language
+    }
 
-     /**
-        Set the language code
+    /**
+       Set the language code
 
-        @param language code
-        @since ARP1.0
-     */
-     public func setLanguage(language: String) {
-          self.language = language
-     }
+       @param language code
+       @since ARP1.0
+    */
+    public func setLanguage(language: String) {
+        self.language = language
+    }
 
 
-     /**
-        JSON Serialization and deserialization support.
-     */
-     struct Serializer {
-          static func fromJSON(json : String) -> Locale {
-               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
-               var jsonError: NSError?
-               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
-               return fromDictionary(dict)
-          }
+    /**
+       JSON Serialization and deserialization support.
+    */
+    struct Serializer {
+        static func fromJSON(json : String) -> Locale {
+            var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+            var jsonError: NSError?
+            let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+            return fromDictionary(dict)
+        }
 
-          static func fromDictionary(dict : NSDictionary) -> Locale {
-               var resultObject : Locale = Locale()
+        static func fromDictionary(dict : NSDictionary) -> Locale {
+            var resultObject : Locale = Locale()
 
-               if let value : AnyObject = dict.objectForKey("country") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.country = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("country") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.country = (value as String)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("language") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.language = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("language") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.language = (value as String)
+                }
+            }
 
-               return resultObject
-          }
+            return resultObject
+        }
 
-          static func toJSON(object: Locale) -> String {
-               var jsonString : NSMutableString = NSMutableString()
-               // Start Object to JSON
-               jsonString.appendString("{ ")
+        static func toJSON(object: Locale) -> String {
+            var jsonString : NSMutableString = NSMutableString()
+            // Start Object to JSON
+            jsonString.appendString("{ ")
 
-               // Fields.
-               object.country != nil ? jsonString.appendString("\"country\": \"\(object.country!)\", ") : jsonString.appendString("\"country\": null, ")
-               object.language != nil ? jsonString.appendString("\"language\": \"\(object.language!)\"") : jsonString.appendString("\"language\": null")
+            // Fields.
+            object.country != nil ? jsonString.appendString("\"country\": \"\(object.country!)\", ") : jsonString.appendString("\"country\": null, ")
+            object.language != nil ? jsonString.appendString("\"language\": \"\(object.language!)\"") : jsonString.appendString("\"language\": null")
 
-               // End Object to JSON
-               jsonString.appendString(" }")
-               return jsonString
-          }
-     }
+            // End Object to JSON
+            jsonString.appendString(" }")
+            return jsonString
+        }
+    }
 }
 
 /**

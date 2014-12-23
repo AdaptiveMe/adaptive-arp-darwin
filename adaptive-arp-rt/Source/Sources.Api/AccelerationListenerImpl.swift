@@ -40,49 +40,49 @@ import Foundation
 */
 public class AccelerationListenerImpl : BaseListenerImpl, IAccelerationListener {
 
-     /**
-        Constructor with listener id.
+    /**
+       Constructor with listener id.
 
-        @param id  The id of the listener.
-     */
-     public override init(id : Int) {
-          super.init(id: id);
-     }
+       @param id  The id of the listener.
+    */
+    public override init(id : Int) {
+        super.init(id: id);
+    }
 
-     /**
-        No data received - error condition, not authorized or hardware not available. This will be reported once for the
+    /**
+       No data received - error condition, not authorized or hardware not available. This will be reported once for the
 listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.
 
-        @param error Error fired
-        @since ARP1.0
-     */
-     public func onError(error : IAccelerationListenerError)  {
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAccelerationListenerError( '\(getId())', JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param error Error fired
+       @since ARP1.0
+    */
+    public func onError(error : IAccelerationListenerError)  {
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAccelerationListenerError( '\(getId())', JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
-     /**
-        Correct data received.
+    /**
+       Correct data received.
 
-        @param acceleration Acceleration received
-        @since ARP1.0
-     */
-     public func onResult(acceleration : Acceleration)  {
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAccelerationListenerResult( '\(getId())', JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param acceleration Acceleration received
+       @since ARP1.0
+    */
+    public func onResult(acceleration : Acceleration)  {
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAccelerationListenerResult( '\(getId())', JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
-     /**
-        Data received with warning - ie. Needs calibration.
+    /**
+       Data received with warning - ie. Needs calibration.
 
-        @param acceleration Acceleration received
-        @param warning      Warning fired
-        @since ARP1.0
-     */
-     public func onWarning(acceleration : Acceleration, warning : IAccelerationListenerWarning)  {
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAccelerationListenerWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param acceleration Acceleration received
+       @param warning      Warning fired
+       @since ARP1.0
+    */
+    public func onWarning(acceleration : Acceleration, warning : IAccelerationListenerWarning)  {
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAccelerationListenerWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
 }
 /**

@@ -42,13 +42,13 @@ import Foundation
    @version 1.0
 */
 public protocol APIBridge : NSObjectProtocol {
-     /**
-        Invokes the given method specified in the API request object.
+    /**
+       Invokes the given method specified in the API request object.
 
-        @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string is the response is asynchronous.
-     */
-     func invoke(request : APIRequest) -> String?
+       @param request APIRequest object containing method name and parameters.
+       @return String with JSON response or a zero length string is the response is asynchronous.
+    */
+    func invoke(request : APIRequest) -> String?
 
 }
 

@@ -43,88 +43,88 @@ import Foundation
 */
 public class ContactWebsite : APIBean {
 
-     /**
-        The url of the website
-     */
-     var url : String?
+    /**
+       The url of the website
+    */
+    var url : String?
 
-     /**
-        Default constructor
+    /**
+       Default constructor
 
-        @since ARP1.0
-     */
-     public override init() {
-          super.init()
-     }
+       @since ARP1.0
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Constructor used by the implementation
+    /**
+       Constructor used by the implementation
 
-        @param url Url of the website
-        @since ARP1.0
-     */
-     public init(url: String) {
-          super.init()
-          self.url = url
-     }
+       @param url Url of the website
+       @since ARP1.0
+    */
+    public init(url: String) {
+        super.init()
+        self.url = url
+    }
 
-     /**
-        Returns the url of the website
+    /**
+       Returns the url of the website
 
-        @return website url
-        @since ARP1.0
-     */
-     public func getUrl() -> String? {
-          return self.url
-     }
+       @return website url
+       @since ARP1.0
+    */
+    public func getUrl() -> String? {
+        return self.url
+    }
 
-     /**
-        Set the url of the website
+    /**
+       Set the url of the website
 
-        @param url Url of the website
-        @since ARP1.0
-     */
-     public func setUrl(url: String) {
-          self.url = url
-     }
+       @param url Url of the website
+       @since ARP1.0
+    */
+    public func setUrl(url: String) {
+        self.url = url
+    }
 
 
-     /**
-        JSON Serialization and deserialization support.
-     */
-     struct Serializer {
-          static func fromJSON(json : String) -> ContactWebsite {
-               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
-               var jsonError: NSError?
-               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
-               return fromDictionary(dict)
-          }
+    /**
+       JSON Serialization and deserialization support.
+    */
+    struct Serializer {
+        static func fromJSON(json : String) -> ContactWebsite {
+            var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+            var jsonError: NSError?
+            let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+            return fromDictionary(dict)
+        }
 
-          static func fromDictionary(dict : NSDictionary) -> ContactWebsite {
-               var resultObject : ContactWebsite = ContactWebsite()
+        static func fromDictionary(dict : NSDictionary) -> ContactWebsite {
+            var resultObject : ContactWebsite = ContactWebsite()
 
-               if let value : AnyObject = dict.objectForKey("url") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.url = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("url") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.url = (value as String)
+                }
+            }
 
-               return resultObject
-          }
+            return resultObject
+        }
 
-          static func toJSON(object: ContactWebsite) -> String {
-               var jsonString : NSMutableString = NSMutableString()
-               // Start Object to JSON
-               jsonString.appendString("{ ")
+        static func toJSON(object: ContactWebsite) -> String {
+            var jsonString : NSMutableString = NSMutableString()
+            // Start Object to JSON
+            jsonString.appendString("{ ")
 
-               // Fields.
-               object.url != nil ? jsonString.appendString("\"url\": \"\(object.url!)\"") : jsonString.appendString("\"url\": null")
+            // Fields.
+            object.url != nil ? jsonString.appendString("\"url\": \"\(object.url!)\"") : jsonString.appendString("\"url\": null")
 
-               // End Object to JSON
-               jsonString.appendString(" }")
-               return jsonString
-          }
-     }
+            // End Object to JSON
+            jsonString.appendString(" }")
+            return jsonString
+        }
+    }
 }
 
 /**

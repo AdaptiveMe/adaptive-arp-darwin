@@ -43,121 +43,121 @@ import Foundation
 */
 public class ServiceHeader : APIBean {
 
-     /**
-        Value of the header
-     */
-     var data : String?
-     /**
-        Name ot the header
-     */
-     var name : String?
+    /**
+       Value of the header
+    */
+    var data : String?
+    /**
+       Name ot the header
+    */
+    var name : String?
 
-     /**
-        Default constructor
+    /**
+       Default constructor
 
-        @since ARP1.0
-     */
-     public override init() {
-          super.init()
-     }
+       @since ARP1.0
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Constructor with fields
+    /**
+       Constructor with fields
 
-        @param name Name of the header
-        @param data Value of the header
-        @since ARP1.0
-     */
-     public init(name: String, data: String) {
-          super.init()
-          self.name = name
-          self.data = data
-     }
+       @param name Name of the header
+       @param data Value of the header
+       @since ARP1.0
+    */
+    public init(name: String, data: String) {
+        super.init()
+        self.name = name
+        self.data = data
+    }
 
-     /**
-        Returns the header value
+    /**
+       Returns the header value
 
-        @return ServiceHeader value
-        @since ARP1.0
-     */
-     public func getData() -> String? {
-          return self.data
-     }
+       @return ServiceHeader value
+       @since ARP1.0
+    */
+    public func getData() -> String? {
+        return self.data
+    }
 
-     /**
-        Set the header value
+    /**
+       Set the header value
 
-        @param data ServiceHeader value
-        @since ARP1.0
-     */
-     public func setData(data: String) {
-          self.data = data
-     }
+       @param data ServiceHeader value
+       @since ARP1.0
+    */
+    public func setData(data: String) {
+        self.data = data
+    }
 
-     /**
-        Returns the header name
+    /**
+       Returns the header name
 
-        @return ServiceHeader name
-        @since ARP1.0
-     */
-     public func getName() -> String? {
-          return self.name
-     }
+       @return ServiceHeader name
+       @since ARP1.0
+    */
+    public func getName() -> String? {
+        return self.name
+    }
 
-     /**
-        Set the header name
+    /**
+       Set the header name
 
-        @param name Name of the header
-        @since ARP1.0
-     */
-     public func setName(name: String) {
-          self.name = name
-     }
+       @param name Name of the header
+       @since ARP1.0
+    */
+    public func setName(name: String) {
+        self.name = name
+    }
 
 
-     /**
-        JSON Serialization and deserialization support.
-     */
-     struct Serializer {
-          static func fromJSON(json : String) -> ServiceHeader {
-               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
-               var jsonError: NSError?
-               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
-               return fromDictionary(dict)
-          }
+    /**
+       JSON Serialization and deserialization support.
+    */
+    struct Serializer {
+        static func fromJSON(json : String) -> ServiceHeader {
+            var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+            var jsonError: NSError?
+            let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+            return fromDictionary(dict)
+        }
 
-          static func fromDictionary(dict : NSDictionary) -> ServiceHeader {
-               var resultObject : ServiceHeader = ServiceHeader()
+        static func fromDictionary(dict : NSDictionary) -> ServiceHeader {
+            var resultObject : ServiceHeader = ServiceHeader()
 
-               if let value : AnyObject = dict.objectForKey("data") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.data = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("data") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.data = (value as String)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("name") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.name = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("name") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.name = (value as String)
+                }
+            }
 
-               return resultObject
-          }
+            return resultObject
+        }
 
-          static func toJSON(object: ServiceHeader) -> String {
-               var jsonString : NSMutableString = NSMutableString()
-               // Start Object to JSON
-               jsonString.appendString("{ ")
+        static func toJSON(object: ServiceHeader) -> String {
+            var jsonString : NSMutableString = NSMutableString()
+            // Start Object to JSON
+            jsonString.appendString("{ ")
 
-               // Fields.
-               object.data != nil ? jsonString.appendString("\"data\": \"\(object.data!)\", ") : jsonString.appendString("\"data\": null, ")
-               object.name != nil ? jsonString.appendString("\"name\": \"\(object.name!)\"") : jsonString.appendString("\"name\": null")
+            // Fields.
+            object.data != nil ? jsonString.appendString("\"data\": \"\(object.data!)\", ") : jsonString.appendString("\"data\": null, ")
+            object.name != nil ? jsonString.appendString("\"name\": \"\(object.name!)\"") : jsonString.appendString("\"name\": null")
 
-               // End Object to JSON
-               jsonString.appendString(" }")
-               return jsonString
-          }
-     }
+            // End Object to JSON
+            jsonString.appendString(" }")
+            return jsonString
+        }
+    }
 }
 
 /**

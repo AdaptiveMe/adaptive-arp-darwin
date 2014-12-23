@@ -43,332 +43,332 @@ import Foundation
 */
 public class ServiceCookie : APIBean {
 
-     /**
-        Name ot the cookie
-     */
-     var cookieName : String?
-     /**
-        Value of the ServiceCookie
-     */
-     var cookieValue : String?
-     /**
-        ServiceCookie creation timestamp in milliseconds.
-     */
-     var creation : Int?
-     /**
-        Domain for which the cookie is valid.
-     */
-     var domain : String?
-     /**
-        ServiceCookie expiry in milliseconds or -1 for session only.
-     */
-     var expiry : Int?
-     /**
-        URI path for which the cookie is valid.
-     */
-     var path : String?
-     /**
-        Scheme of the domain - http/https - for which the cookie is valid.
-     */
-     var scheme : String?
-     /**
-        ServiceCookie is secure (https only)
-     */
-     var secure : Bool?
+    /**
+       Name ot the cookie
+    */
+    var cookieName : String?
+    /**
+       Value of the ServiceCookie
+    */
+    var cookieValue : String?
+    /**
+       ServiceCookie creation timestamp in milliseconds.
+    */
+    var creation : Int?
+    /**
+       Domain for which the cookie is valid.
+    */
+    var domain : String?
+    /**
+       ServiceCookie expiry in milliseconds or -1 for session only.
+    */
+    var expiry : Int?
+    /**
+       URI path for which the cookie is valid.
+    */
+    var path : String?
+    /**
+       Scheme of the domain - http/https - for which the cookie is valid.
+    */
+    var scheme : String?
+    /**
+       ServiceCookie is secure (https only)
+    */
+    var secure : Bool?
 
-     /**
-        Default constructor
+    /**
+       Default constructor
 
-        @since ARP1.0
-     */
-     public override init() {
-          super.init()
-     }
+       @since ARP1.0
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Constructor used by the implementation
+    /**
+       Constructor used by the implementation
 
-        @param cookieName  Name of the cookie
-        @param cookieValue Value of the cookie
-        @since ARP1.0
-     */
-     public init(cookieName: String, cookieValue: String) {
-          super.init()
-          self.cookieName = cookieName
-          self.cookieValue = cookieValue
-     }
+       @param cookieName  Name of the cookie
+       @param cookieValue Value of the cookie
+       @since ARP1.0
+    */
+    public init(cookieName: String, cookieValue: String) {
+        super.init()
+        self.cookieName = cookieName
+        self.cookieValue = cookieValue
+    }
 
-     /**
-        Contructor with fields
+    /**
+       Contructor with fields
 
-        @param cookieName     Name of the cookie
-        @param cookieValue    Value of the cookie
-        @param domain   Domain of the cookie
-        @param path     Path of the cookie
-        @param scheme   Scheme of the cookie
-        @param secure   Privacy of the cookie
-        @param expiry   Expiration date of the cookie
-        @param creation Creation date of the cookie
-        @since ARP1.0
-     */
-     public init(cookieName: String, cookieValue: String, domain: String, path: String, scheme: String, secure: Bool, expiry: Int, creation: Int) {
-          super.init()
-          self.cookieName = cookieName
-          self.cookieValue = cookieValue
-          self.domain = domain
-          self.path = path
-          self.scheme = scheme
-          self.secure = secure
-          self.expiry = expiry
-          self.creation = creation
-     }
+       @param cookieName     Name of the cookie
+       @param cookieValue    Value of the cookie
+       @param domain   Domain of the cookie
+       @param path     Path of the cookie
+       @param scheme   Scheme of the cookie
+       @param secure   Privacy of the cookie
+       @param expiry   Expiration date of the cookie
+       @param creation Creation date of the cookie
+       @since ARP1.0
+    */
+    public init(cookieName: String, cookieValue: String, domain: String, path: String, scheme: String, secure: Bool, expiry: Int, creation: Int) {
+        super.init()
+        self.cookieName = cookieName
+        self.cookieValue = cookieValue
+        self.domain = domain
+        self.path = path
+        self.scheme = scheme
+        self.secure = secure
+        self.expiry = expiry
+        self.creation = creation
+    }
 
-     /**
-        Returns the cookie cookieName
+    /**
+       Returns the cookie cookieName
 
-        @return cookieName Name of the cookie
-        @since ARP1.0
-     */
-     public func getCookieName() -> String? {
-          return self.cookieName
-     }
+       @return cookieName Name of the cookie
+       @since ARP1.0
+    */
+    public func getCookieName() -> String? {
+        return self.cookieName
+    }
 
-     /**
-        Set the cookie cookieName
+    /**
+       Set the cookie cookieName
 
-        @param cookieName Name of the cookie
-        @since ARP1.0
-     */
-     public func setCookieName(cookieName: String) {
-          self.cookieName = cookieName
-     }
+       @param cookieName Name of the cookie
+       @since ARP1.0
+    */
+    public func setCookieName(cookieName: String) {
+        self.cookieName = cookieName
+    }
 
-     /**
-        Returns the cookie cookieValue
+    /**
+       Returns the cookie cookieValue
 
-        @return Value of the cookie
-        @since ARP1.0
-     */
-     public func getCookieValue() -> String? {
-          return self.cookieValue
-     }
+       @return Value of the cookie
+       @since ARP1.0
+    */
+    public func getCookieValue() -> String? {
+        return self.cookieValue
+    }
 
-     /**
-        Set the cookie cookieValue
+    /**
+       Set the cookie cookieValue
 
-        @param cookieValue Value of the cookie
-        @since ARP1.0
-     */
-     public func setCookieValue(cookieValue: String) {
-          self.cookieValue = cookieValue
-     }
+       @param cookieValue Value of the cookie
+       @since ARP1.0
+    */
+    public func setCookieValue(cookieValue: String) {
+        self.cookieValue = cookieValue
+    }
 
-     /**
-        Returns the creation date
+    /**
+       Returns the creation date
 
-        @return Creation date of the cookie
-        @since ARP1.0
-     */
-     public func getCreation() -> Int? {
-          return self.creation
-     }
+       @return Creation date of the cookie
+       @since ARP1.0
+    */
+    public func getCreation() -> Int? {
+        return self.creation
+    }
 
-     /**
-        Sets the creation date
+    /**
+       Sets the creation date
 
-        @param creation Creation date of the cookie
-        @since ARP1.0
-     */
-     public func setCreation(creation: Int) {
-          self.creation = creation
-     }
+       @param creation Creation date of the cookie
+       @since ARP1.0
+    */
+    public func setCreation(creation: Int) {
+        self.creation = creation
+    }
 
-     /**
-        Returns the domain
+    /**
+       Returns the domain
 
-        @return domain
-        @since ARP1.0
-     */
-     public func getDomain() -> String? {
-          return self.domain
-     }
+       @return domain
+       @since ARP1.0
+    */
+    public func getDomain() -> String? {
+        return self.domain
+    }
 
-     /**
-        Set the domain
+    /**
+       Set the domain
 
-        @param domain Domain of the cookie
-        @since ARP1.0
-     */
-     public func setDomain(domain: String) {
-          self.domain = domain
-     }
+       @param domain Domain of the cookie
+       @since ARP1.0
+    */
+    public func setDomain(domain: String) {
+        self.domain = domain
+    }
 
-     /**
-        Returns the expiration date in milis
+    /**
+       Returns the expiration date in milis
 
-        @return expiry
-        @since ARP1.0
-     */
-     public func getExpiry() -> Int? {
-          return self.expiry
-     }
+       @return expiry
+       @since ARP1.0
+    */
+    public func getExpiry() -> Int? {
+        return self.expiry
+    }
 
-     /**
-        Set the expiration date in milis
+    /**
+       Set the expiration date in milis
 
-        @param expiry Expiration date of the cookie
-        @since ARP1.0
-     */
-     public func setExpiry(expiry: Int) {
-          self.expiry = expiry
-     }
+       @param expiry Expiration date of the cookie
+       @since ARP1.0
+    */
+    public func setExpiry(expiry: Int) {
+        self.expiry = expiry
+    }
 
-     /**
-        Returns the path
+    /**
+       Returns the path
 
-        @return path
-        @since ARP1.0
-     */
-     public func getPath() -> String? {
-          return self.path
-     }
+       @return path
+       @since ARP1.0
+    */
+    public func getPath() -> String? {
+        return self.path
+    }
 
-     /**
-        Set the path
+    /**
+       Set the path
 
-        @param path Path of the cookie
-        @since ARP1.0
-     */
-     public func setPath(path: String) {
-          self.path = path
-     }
+       @param path Path of the cookie
+       @since ARP1.0
+    */
+    public func setPath(path: String) {
+        self.path = path
+    }
 
-     /**
-        Returns the scheme
+    /**
+       Returns the scheme
 
-        @return scheme
-        @since ARP1.0
-     */
-     public func getScheme() -> String? {
-          return self.scheme
-     }
+       @return scheme
+       @since ARP1.0
+    */
+    public func getScheme() -> String? {
+        return self.scheme
+    }
 
-     /**
-        Set the scheme
+    /**
+       Set the scheme
 
-        @param scheme Scheme of the cookie
-        @since ARP1.0
-     */
-     public func setScheme(scheme: String) {
-          self.scheme = scheme
-     }
+       @param scheme Scheme of the cookie
+       @since ARP1.0
+    */
+    public func setScheme(scheme: String) {
+        self.scheme = scheme
+    }
 
-     /**
-        Returns whether the cookie is secure or not
+    /**
+       Returns whether the cookie is secure or not
 
-        @return true if the cookie is secure; false otherwise
-        @since ARP1.0
-     */
-     public func getSecure() -> Bool? {
-          return self.secure
-     }
+       @return true if the cookie is secure; false otherwise
+       @since ARP1.0
+    */
+    public func getSecure() -> Bool? {
+        return self.secure
+    }
 
-     /**
-        Set whether the cookie is secure or not
+    /**
+       Set whether the cookie is secure or not
 
-        @param secure Privacy of the cookie
-        @since ARP1.0
-     */
-     public func setSecure(secure: Bool) {
-          self.secure = secure
-     }
+       @param secure Privacy of the cookie
+       @since ARP1.0
+    */
+    public func setSecure(secure: Bool) {
+        self.secure = secure
+    }
 
 
-     /**
-        JSON Serialization and deserialization support.
-     */
-     struct Serializer {
-          static func fromJSON(json : String) -> ServiceCookie {
-               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
-               var jsonError: NSError?
-               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
-               return fromDictionary(dict)
-          }
+    /**
+       JSON Serialization and deserialization support.
+    */
+    struct Serializer {
+        static func fromJSON(json : String) -> ServiceCookie {
+            var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+            var jsonError: NSError?
+            let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+            return fromDictionary(dict)
+        }
 
-          static func fromDictionary(dict : NSDictionary) -> ServiceCookie {
-               var resultObject : ServiceCookie = ServiceCookie()
+        static func fromDictionary(dict : NSDictionary) -> ServiceCookie {
+            var resultObject : ServiceCookie = ServiceCookie()
 
-               if let value : AnyObject = dict.objectForKey("cookieName") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.cookieName = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("cookieName") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.cookieName = (value as String)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("cookieValue") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.cookieValue = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("cookieValue") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.cookieValue = (value as String)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("creation") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.creation = (value as Int)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("creation") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.creation = (value as Int)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("domain") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.domain = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("domain") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.domain = (value as String)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("expiry") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.expiry = (value as Int)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("expiry") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.expiry = (value as Int)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("path") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.path = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("path") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.path = (value as String)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("scheme") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.scheme = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("scheme") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.scheme = (value as String)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("secure") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.secure = (value as Bool)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("secure") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.secure = (value as Bool)
+                }
+            }
 
-               return resultObject
-          }
+            return resultObject
+        }
 
-          static func toJSON(object: ServiceCookie) -> String {
-               var jsonString : NSMutableString = NSMutableString()
-               // Start Object to JSON
-               jsonString.appendString("{ ")
+        static func toJSON(object: ServiceCookie) -> String {
+            var jsonString : NSMutableString = NSMutableString()
+            // Start Object to JSON
+            jsonString.appendString("{ ")
 
-               // Fields.
-               object.cookieName != nil ? jsonString.appendString("\"cookieName\": \"\(object.cookieName!)\", ") : jsonString.appendString("\"cookieName\": null, ")
-               object.cookieValue != nil ? jsonString.appendString("\"cookieValue\": \"\(object.cookieValue!)\", ") : jsonString.appendString("\"cookieValue\": null, ")
-               object.creation != nil ? jsonString.appendString("\"creation\": \(object.creation!), ") : jsonString.appendString("\"creation\": null, ")
-               object.domain != nil ? jsonString.appendString("\"domain\": \"\(object.domain!)\", ") : jsonString.appendString("\"domain\": null, ")
-               object.expiry != nil ? jsonString.appendString("\"expiry\": \(object.expiry!), ") : jsonString.appendString("\"expiry\": null, ")
-               object.path != nil ? jsonString.appendString("\"path\": \"\(object.path!)\", ") : jsonString.appendString("\"path\": null, ")
-               object.scheme != nil ? jsonString.appendString("\"scheme\": \"\(object.scheme!)\", ") : jsonString.appendString("\"scheme\": null, ")
-               object.secure != nil ? jsonString.appendString("\"secure\": \(object.secure!)") : jsonString.appendString("\"secure\": null")
+            // Fields.
+            object.cookieName != nil ? jsonString.appendString("\"cookieName\": \"\(object.cookieName!)\", ") : jsonString.appendString("\"cookieName\": null, ")
+            object.cookieValue != nil ? jsonString.appendString("\"cookieValue\": \"\(object.cookieValue!)\", ") : jsonString.appendString("\"cookieValue\": null, ")
+            object.creation != nil ? jsonString.appendString("\"creation\": \(object.creation!), ") : jsonString.appendString("\"creation\": null, ")
+            object.domain != nil ? jsonString.appendString("\"domain\": \"\(object.domain!)\", ") : jsonString.appendString("\"domain\": null, ")
+            object.expiry != nil ? jsonString.appendString("\"expiry\": \(object.expiry!), ") : jsonString.appendString("\"expiry\": null, ")
+            object.path != nil ? jsonString.appendString("\"path\": \"\(object.path!)\", ") : jsonString.appendString("\"path\": null, ")
+            object.scheme != nil ? jsonString.appendString("\"scheme\": \"\(object.scheme!)\", ") : jsonString.appendString("\"scheme\": null, ")
+            object.secure != nil ? jsonString.appendString("\"secure\": \(object.secure!)") : jsonString.appendString("\"secure\": null")
 
-               // End Object to JSON
-               jsonString.appendString(" }")
-               return jsonString
-          }
-     }
+            // End Object to JSON
+            jsonString.appendString(" }")
+            return jsonString
+        }
+    }
 }
 
 /**

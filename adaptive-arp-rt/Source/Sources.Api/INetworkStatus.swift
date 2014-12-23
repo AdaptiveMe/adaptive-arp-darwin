@@ -42,28 +42,28 @@ import Foundation
    @version 1.0
 */
 public protocol INetworkStatus : IBaseCommunication {
-     /**
-        Add the listener for network status changes of the app
+    /**
+       Add the listener for network status changes of the app
 
-        @param listener Listener with the result
-        @since ARP1.0
-     */
-     func addNetworkStatusListener(listener : INetworkStatusListener)
+       @param listener Listener with the result
+       @since ARP1.0
+    */
+    func addNetworkStatusListener(listener : INetworkStatusListener)
 
-     /**
-        Un-registers an existing listener from receiving network status events.
+    /**
+       Un-registers an existing listener from receiving network status events.
 
-        @param listener Listener with the result
-        @since ARP1.0
-     */
-     func removeNetworkStatusListener(listener : INetworkStatusListener)
+       @param listener Listener with the result
+       @since ARP1.0
+    */
+    func removeNetworkStatusListener(listener : INetworkStatusListener)
 
-     /**
-        Removes all existing listeners from receiving network status events.
+    /**
+       Removes all existing listeners from receiving network status events.
 
-        @since ARP1.0
-     */
-     func removeNetworkStatusListeners()
+       @since ARP1.0
+    */
+    func removeNetworkStatusListeners()
 
 }
 

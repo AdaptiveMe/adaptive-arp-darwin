@@ -39,35 +39,35 @@ import Foundation
 */
 public enum IAppResourceCallbackError {
 
-     case NotFound
-     case NoPermission
-     case Unknown
+    case NotFound
+    case NoPermission
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .NotFound: return "NotFound"
-               case .NoPermission: return "NoPermission"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .NotFound: return "NotFound"
+            case .NoPermission: return "NoPermission"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> IAppResourceCallbackError {
-          if let validString = string {
-               switch validString {
-                    case "NotFound": return .NotFound
-                    case "NoPermission": return .NoPermission
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> IAppResourceCallbackError {
+        if let validString = string {
+            switch validString {
+                case "NotFound": return .NotFound
+                case "NoPermission": return .NoPermission
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

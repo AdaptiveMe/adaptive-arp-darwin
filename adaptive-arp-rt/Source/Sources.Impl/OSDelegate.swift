@@ -40,24 +40,24 @@ import Foundation
 */
 public class OSDelegate : BaseSystemDelegate, IOS {
 
-     /**
-        Default Constructor.
-     */
-     public override init() {
-          super.init()
-     }
+    /**
+       Default Constructor.
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Returns the OSInfo for the current operating system.
+    /**
+       Returns the OSInfo for the current operating system.
 
-        @return OSInfo with name, version and vendor of the OS.
-        @since ARP1.0
-     */
-     public func getOSInfo() -> OSInfo {
-          var response : OSInfo
-          // TODO: Not implemented.
-          return OSInfo()
-     }
+       @return OSInfo with name, version and vendor of the OS.
+       @since ARP1.0
+    */
+    public func getOSInfo() -> OSInfo {
+        var response : OSInfo
+        // TODO: Not implemented.
+        return OSInfo()
+    }
 
 }
 /**

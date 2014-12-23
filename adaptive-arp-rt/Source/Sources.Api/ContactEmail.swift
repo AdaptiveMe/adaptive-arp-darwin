@@ -43,154 +43,154 @@ import Foundation
 */
 public class ContactEmail : APIBean {
 
-     /**
-        The type of the email
-     */
-     var type : ContactEmailType?
-     /**
-        Email of the Contact
-     */
-     var email : String?
-     /**
-        Whether the email is the primary one or not
-     */
-     var primary : Bool?
+    /**
+       The type of the email
+    */
+    var type : ContactEmailType?
+    /**
+       Email of the Contact
+    */
+    var email : String?
+    /**
+       Whether the email is the primary one or not
+    */
+    var primary : Bool?
 
-     /**
-        Default constructor
+    /**
+       Default constructor
 
-        @since ARP1.0
-     */
-     public override init() {
-          super.init()
-     }
+       @since ARP1.0
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Constructor used by the implementation
+    /**
+       Constructor used by the implementation
 
-        @param type    Type of the email
-        @param primary Is email primary
-        @param email   Email of the contact
-        @since ARP1.0
-     */
-     public init(type: ContactEmailType, primary: Bool, email: String) {
-          super.init()
-          self.type = type
-          self.primary = primary
-          self.email = email
-     }
+       @param type    Type of the email
+       @param primary Is email primary
+       @param email   Email of the contact
+       @since ARP1.0
+    */
+    public init(type: ContactEmailType, primary: Bool, email: String) {
+        super.init()
+        self.type = type
+        self.primary = primary
+        self.email = email
+    }
 
-     /**
-        Returns the type of the email
+    /**
+       Returns the type of the email
 
-        @return EmailType
-        @since ARP1.0
-     */
-     public func getType() -> ContactEmailType? {
-          return self.type
-     }
+       @return EmailType
+       @since ARP1.0
+    */
+    public func getType() -> ContactEmailType? {
+        return self.type
+    }
 
-     /**
-        Set the type of the email
+    /**
+       Set the type of the email
 
-        @param type Type of the email
-        @since ARP1.0
-     */
-     public func setType(type: ContactEmailType) {
-          self.type = type
-     }
+       @param type Type of the email
+       @since ARP1.0
+    */
+    public func setType(type: ContactEmailType) {
+        self.type = type
+    }
 
-     /**
-        Returns the email of the Contact
+    /**
+       Returns the email of the Contact
 
-        @return email
-        @since ARP1.0
-     */
-     public func getEmail() -> String? {
-          return self.email
-     }
+       @return email
+       @since ARP1.0
+    */
+    public func getEmail() -> String? {
+        return self.email
+    }
 
-     /**
-        Set the email of the Contact
+    /**
+       Set the email of the Contact
 
-        @param email Email of the contact
-        @since ARP1.0
-     */
-     public func setEmail(email: String) {
-          self.email = email
-     }
+       @param email Email of the contact
+       @since ARP1.0
+    */
+    public func setEmail(email: String) {
+        self.email = email
+    }
 
-     /**
-        Returns if the email is primary
+    /**
+       Returns if the email is primary
 
-        @return true if the email is primary; false otherwise
-        @since ARP1.0
-     */
-     public func getPrimary() -> Bool? {
-          return self.primary
-     }
+       @return true if the email is primary; false otherwise
+       @since ARP1.0
+    */
+    public func getPrimary() -> Bool? {
+        return self.primary
+    }
 
-     /**
-        Set if the email
+    /**
+       Set if the email
 
-        @param primary true if the email is primary; false otherwise
-        @since ARP1.0
-     */
-     public func setPrimary(primary: Bool) {
-          self.primary = primary
-     }
+       @param primary true if the email is primary; false otherwise
+       @since ARP1.0
+    */
+    public func setPrimary(primary: Bool) {
+        self.primary = primary
+    }
 
 
-     /**
-        JSON Serialization and deserialization support.
-     */
-     struct Serializer {
-          static func fromJSON(json : String) -> ContactEmail {
-               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
-               var jsonError: NSError?
-               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
-               return fromDictionary(dict)
-          }
+    /**
+       JSON Serialization and deserialization support.
+    */
+    struct Serializer {
+        static func fromJSON(json : String) -> ContactEmail {
+            var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+            var jsonError: NSError?
+            let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+            return fromDictionary(dict)
+        }
 
-          static func fromDictionary(dict : NSDictionary) -> ContactEmail {
-               var resultObject : ContactEmail = ContactEmail()
+        static func fromDictionary(dict : NSDictionary) -> ContactEmail {
+            var resultObject : ContactEmail = ContactEmail()
 
-               if let value : AnyObject = dict.objectForKey("email") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.email = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("email") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.email = (value as String)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("primary") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.primary = (value as Bool)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("primary") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.primary = (value as Bool)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("type") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.type = ContactEmailType.toEnum(((value as NSDictionary)["value"]) as NSString)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("type") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.type = ContactEmailType.toEnum(((value as NSDictionary)["value"]) as NSString)
+                }
+            }
 
-               return resultObject
-          }
+            return resultObject
+        }
 
-          static func toJSON(object: ContactEmail) -> String {
-               var jsonString : NSMutableString = NSMutableString()
-               // Start Object to JSON
-               jsonString.appendString("{ ")
+        static func toJSON(object: ContactEmail) -> String {
+            var jsonString : NSMutableString = NSMutableString()
+            // Start Object to JSON
+            jsonString.appendString("{ ")
 
-               // Fields.
-               object.email != nil ? jsonString.appendString("\"email\": \"\(object.email!)\", ") : jsonString.appendString("\"email\": null, ")
-               object.primary != nil ? jsonString.appendString("\"primary\": \(object.primary!), ") : jsonString.appendString("\"primary\": null, ")
-               object.type != nil ? jsonString.appendString("\"type\": { \"value\": \"\(JSONUtil.escapeString(object.type!.toString()))\"}") : jsonString.appendString("\"type\": null")
+            // Fields.
+            object.email != nil ? jsonString.appendString("\"email\": \"\(object.email!)\", ") : jsonString.appendString("\"email\": null, ")
+            object.primary != nil ? jsonString.appendString("\"primary\": \(object.primary!), ") : jsonString.appendString("\"primary\": null, ")
+            object.type != nil ? jsonString.appendString("\"type\": { \"value\": \"\(JSONUtil.escapeString(object.type!.toString()))\"}") : jsonString.appendString("\"type\": null")
 
-               // End Object to JSON
-               jsonString.appendString(" }")
-               return jsonString
-          }
-     }
+            // End Object to JSON
+            jsonString.appendString(" }")
+            return jsonString
+        }
+    }
 }
 
 /**

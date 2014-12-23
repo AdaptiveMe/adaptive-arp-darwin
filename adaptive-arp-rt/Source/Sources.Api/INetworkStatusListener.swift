@@ -42,30 +42,30 @@ import Foundation
    @version 1.0
 */
 public protocol INetworkStatusListener : IBaseListener {
-     /**
-        No data received - error condition, not authorized or hardware not available.
+    /**
+       No data received - error condition, not authorized or hardware not available.
 
-        @param error Type of error encountered during reading.
-        @since ARP1.0
-     */
-     func onError(error : INetworkStatusListenerError)
+       @param error Type of error encountered during reading.
+       @since ARP1.0
+    */
+    func onError(error : INetworkStatusListenerError)
 
-     /**
-        Called when network connection changes somehow.
+    /**
+       Called when network connection changes somehow.
 
-        @param network Change to this network.
-        @since ARP1.0
-     */
-     func onResult(network : ICapabilitiesNet)
+       @param network Change to this network.
+       @since ARP1.0
+    */
+    func onResult(network : ICapabilitiesNet)
 
-     /**
-        Status received with warning
+    /**
+       Status received with warning
 
-        @param network Change to this network.
-        @param warning Type of warning encountered during reading.
-        @since ARP1.0
-     */
-     func onWarning(network : ICapabilitiesNet, warning : INetworkStatusListenerWarning)
+       @param network Change to this network.
+       @param warning Type of warning encountered during reading.
+       @since ARP1.0
+    */
+    func onWarning(network : ICapabilitiesNet, warning : INetworkStatusListenerWarning)
 
 }
 

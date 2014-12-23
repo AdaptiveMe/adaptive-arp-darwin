@@ -43,187 +43,187 @@ import Foundation
 */
 public class Acceleration : APIBean {
 
-     /**
-        Timestamp of the acceleration reading.
-     */
-     var timestamp : Int?
-     /**
-        X-axis component of the acceleration.
-     */
-     var x : Double?
-     /**
-        Y-axis component of the acceleration.
-     */
-     var y : Double?
-     /**
-        Z-axis component of the acceleration.
-     */
-     var z : Double?
+    /**
+       Timestamp of the acceleration reading.
+    */
+    var timestamp : Int?
+    /**
+       X-axis component of the acceleration.
+    */
+    var x : Double?
+    /**
+       Y-axis component of the acceleration.
+    */
+    var y : Double?
+    /**
+       Z-axis component of the acceleration.
+    */
+    var z : Double?
 
-     /**
-        Default constructor
+    /**
+       Default constructor
 
-        @since ARP1.0
-     */
-     public override init() {
-          super.init()
-     }
+       @since ARP1.0
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Constructor with fields
+    /**
+       Constructor with fields
 
-        @param x         X Coordinate
-        @param y         Y Coordinate
-        @param z         Z Coordinate
-        @param timestamp Timestamp
-        @since ARP1.0
-     */
-     public init(x: Double, y: Double, z: Double, timestamp: Int) {
-          super.init()
-          self.x = x
-          self.y = y
-          self.z = z
-          self.timestamp = timestamp
-     }
+       @param x         X Coordinate
+       @param y         Y Coordinate
+       @param z         Z Coordinate
+       @param timestamp Timestamp
+       @since ARP1.0
+    */
+    public init(x: Double, y: Double, z: Double, timestamp: Int) {
+        super.init()
+        self.x = x
+        self.y = y
+        self.z = z
+        self.timestamp = timestamp
+    }
 
-     /**
-        Timestamp Getter
+    /**
+       Timestamp Getter
 
-        @return Timestamp
-        @since ARP1.0
-     */
-     public func getTimestamp() -> Int? {
-          return self.timestamp
-     }
+       @return Timestamp
+       @since ARP1.0
+    */
+    public func getTimestamp() -> Int? {
+        return self.timestamp
+    }
 
-     /**
-        Timestamp Setter
+    /**
+       Timestamp Setter
 
-        @param timestamp Timestamp
-        @since ARP1.0
-     */
-     public func setTimestamp(timestamp: Int) {
-          self.timestamp = timestamp
-     }
+       @param timestamp Timestamp
+       @since ARP1.0
+    */
+    public func setTimestamp(timestamp: Int) {
+        self.timestamp = timestamp
+    }
 
-     /**
-        X Coordinate Getter
+    /**
+       X Coordinate Getter
 
-        @return X-axis component of the acceleration.
-        @since ARP1.0
-     */
-     public func getX() -> Double? {
-          return self.x
-     }
+       @return X-axis component of the acceleration.
+       @since ARP1.0
+    */
+    public func getX() -> Double? {
+        return self.x
+    }
 
-     /**
-        X Coordinate Setter
+    /**
+       X Coordinate Setter
 
-        @param x X-axis component of the acceleration.
-        @since ARP1.0
-     */
-     public func setX(x: Double) {
-          self.x = x
-     }
+       @param x X-axis component of the acceleration.
+       @since ARP1.0
+    */
+    public func setX(x: Double) {
+        self.x = x
+    }
 
-     /**
-        Y Coordinate Getter
+    /**
+       Y Coordinate Getter
 
-        @return Y-axis component of the acceleration.
-        @since ARP1.0
-     */
-     public func getY() -> Double? {
-          return self.y
-     }
+       @return Y-axis component of the acceleration.
+       @since ARP1.0
+    */
+    public func getY() -> Double? {
+        return self.y
+    }
 
-     /**
-        Y Coordinate Setter
+    /**
+       Y Coordinate Setter
 
-        @param y Y-axis component of the acceleration.
-        @since ARP1.0
-     */
-     public func setY(y: Double) {
-          self.y = y
-     }
+       @param y Y-axis component of the acceleration.
+       @since ARP1.0
+    */
+    public func setY(y: Double) {
+        self.y = y
+    }
 
-     /**
-        Z Coordinate Getter
+    /**
+       Z Coordinate Getter
 
-        @return Z-axis component of the acceleration.
-        @since ARP1.0
-     */
-     public func getZ() -> Double? {
-          return self.z
-     }
+       @return Z-axis component of the acceleration.
+       @since ARP1.0
+    */
+    public func getZ() -> Double? {
+        return self.z
+    }
 
-     /**
-        Z Coordinate Setter
+    /**
+       Z Coordinate Setter
 
-        @param z Z Coordinate
-        @since ARP1.0
-     */
-     public func setZ(z: Double) {
-          self.z = z
-     }
+       @param z Z Coordinate
+       @since ARP1.0
+    */
+    public func setZ(z: Double) {
+        self.z = z
+    }
 
 
-     /**
-        JSON Serialization and deserialization support.
-     */
-     struct Serializer {
-          static func fromJSON(json : String) -> Acceleration {
-               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
-               var jsonError: NSError?
-               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
-               return fromDictionary(dict)
-          }
+    /**
+       JSON Serialization and deserialization support.
+    */
+    struct Serializer {
+        static func fromJSON(json : String) -> Acceleration {
+            var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+            var jsonError: NSError?
+            let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+            return fromDictionary(dict)
+        }
 
-          static func fromDictionary(dict : NSDictionary) -> Acceleration {
-               var resultObject : Acceleration = Acceleration()
+        static func fromDictionary(dict : NSDictionary) -> Acceleration {
+            var resultObject : Acceleration = Acceleration()
 
-               if let value : AnyObject = dict.objectForKey("timestamp") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.timestamp = (value as Int)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("timestamp") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.timestamp = (value as Int)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("x") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.x = (value as Double)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("x") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.x = (value as Double)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("y") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.y = (value as Double)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("y") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.y = (value as Double)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("z") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.z = (value as Double)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("z") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.z = (value as Double)
+                }
+            }
 
-               return resultObject
-          }
+            return resultObject
+        }
 
-          static func toJSON(object: Acceleration) -> String {
-               var jsonString : NSMutableString = NSMutableString()
-               // Start Object to JSON
-               jsonString.appendString("{ ")
+        static func toJSON(object: Acceleration) -> String {
+            var jsonString : NSMutableString = NSMutableString()
+            // Start Object to JSON
+            jsonString.appendString("{ ")
 
-               // Fields.
-               object.timestamp != nil ? jsonString.appendString("\"timestamp\": \(object.timestamp!), ") : jsonString.appendString("\"timestamp\": null, ")
-               object.x != nil ? jsonString.appendString("\"x\": \(object.x!), ") : jsonString.appendString("\"x\": null, ")
-               object.y != nil ? jsonString.appendString("\"y\": \(object.y!), ") : jsonString.appendString("\"y\": null, ")
-               object.z != nil ? jsonString.appendString("\"z\": \(object.z!)") : jsonString.appendString("\"z\": null")
+            // Fields.
+            object.timestamp != nil ? jsonString.appendString("\"timestamp\": \(object.timestamp!), ") : jsonString.appendString("\"timestamp\": null, ")
+            object.x != nil ? jsonString.appendString("\"x\": \(object.x!), ") : jsonString.appendString("\"x\": null, ")
+            object.y != nil ? jsonString.appendString("\"y\": \(object.y!), ") : jsonString.appendString("\"y\": null, ")
+            object.z != nil ? jsonString.appendString("\"z\": \(object.z!)") : jsonString.appendString("\"z\": null")
 
-               // End Object to JSON
-               jsonString.appendString(" }")
-               return jsonString
-          }
-     }
+            // End Object to JSON
+            jsonString.appendString(" }")
+            return jsonString
+        }
+    }
 }
 
 /**

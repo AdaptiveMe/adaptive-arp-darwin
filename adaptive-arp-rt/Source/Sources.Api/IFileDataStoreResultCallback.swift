@@ -42,30 +42,30 @@ import Foundation
    @version 1.0
 */
 public protocol IFileDataStoreResultCallback : IBaseCallback {
-     /**
-        Error processing data retrieval/storage operation.
+    /**
+       Error processing data retrieval/storage operation.
 
-        @param error Error condition encountered.
-        @since ARP1.0
-     */
-     func onError(error : IFileDataStoreResultCallbackError)
+       @param error Error condition encountered.
+       @since ARP1.0
+    */
+    func onError(error : IFileDataStoreResultCallbackError)
 
-     /**
-        Result of data storage operation.
+    /**
+       Result of data storage operation.
 
-        @param file File reference to stored data.
-        @since ARP1.0
-     */
-     func onResult(file : FileDescriptor)
+       @param file File reference to stored data.
+       @since ARP1.0
+    */
+    func onResult(file : FileDescriptor)
 
-     /**
-        Result with warning of data retrieval/storage operation.
+    /**
+       Result with warning of data retrieval/storage operation.
 
-        @param file    File being loaded/stored.
-        @param warning Warning condition encountered.
-        @since ARP1.0
-     */
-     func onWarning(file : FileDescriptor, warning : IFileDataStoreResultCallbackWarning)
+       @param file    File being loaded/stored.
+       @param warning Warning condition encountered.
+       @since ARP1.0
+    */
+    func onWarning(file : FileDescriptor, warning : IFileDataStoreResultCallbackWarning)
 
 }
 

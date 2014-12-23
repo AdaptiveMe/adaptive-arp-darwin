@@ -43,88 +43,88 @@ import Foundation
 */
 public class DatabaseColumn : APIBean {
 
-     /**
-        Name of the column
-     */
-     var name : String?
+    /**
+       Name of the column
+    */
+    var name : String?
 
-     /**
-        Default constructor
+    /**
+       Default constructor
 
-        @since ARP1.0
-     */
-     public override init() {
-          super.init()
-     }
+       @since ARP1.0
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Constructor with fields
+    /**
+       Constructor with fields
 
-        @param name Name of the column
-        @since ARP1.0
-     */
-     public init(name: String) {
-          super.init()
-          self.name = name
-     }
+       @param name Name of the column
+       @since ARP1.0
+    */
+    public init(name: String) {
+        super.init()
+        self.name = name
+    }
 
-     /**
-        Returns the name of the column.
+    /**
+       Returns the name of the column.
 
-        @return The name of the column.
-        @since ARP1.0
-     */
-     public func getName() -> String? {
-          return self.name
-     }
+       @return The name of the column.
+       @since ARP1.0
+    */
+    public func getName() -> String? {
+        return self.name
+    }
 
-     /**
-        Sets the name of the column.
+    /**
+       Sets the name of the column.
 
-        @param name The name of the column.
-        @since ARP1.0
-     */
-     public func setName(name: String) {
-          self.name = name
-     }
+       @param name The name of the column.
+       @since ARP1.0
+    */
+    public func setName(name: String) {
+        self.name = name
+    }
 
 
-     /**
-        JSON Serialization and deserialization support.
-     */
-     struct Serializer {
-          static func fromJSON(json : String) -> DatabaseColumn {
-               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
-               var jsonError: NSError?
-               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
-               return fromDictionary(dict)
-          }
+    /**
+       JSON Serialization and deserialization support.
+    */
+    struct Serializer {
+        static func fromJSON(json : String) -> DatabaseColumn {
+            var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+            var jsonError: NSError?
+            let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+            return fromDictionary(dict)
+        }
 
-          static func fromDictionary(dict : NSDictionary) -> DatabaseColumn {
-               var resultObject : DatabaseColumn = DatabaseColumn()
+        static func fromDictionary(dict : NSDictionary) -> DatabaseColumn {
+            var resultObject : DatabaseColumn = DatabaseColumn()
 
-               if let value : AnyObject = dict.objectForKey("name") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.name = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("name") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.name = (value as String)
+                }
+            }
 
-               return resultObject
-          }
+            return resultObject
+        }
 
-          static func toJSON(object: DatabaseColumn) -> String {
-               var jsonString : NSMutableString = NSMutableString()
-               // Start Object to JSON
-               jsonString.appendString("{ ")
+        static func toJSON(object: DatabaseColumn) -> String {
+            var jsonString : NSMutableString = NSMutableString()
+            // Start Object to JSON
+            jsonString.appendString("{ ")
 
-               // Fields.
-               object.name != nil ? jsonString.appendString("\"name\": \"\(object.name!)\"") : jsonString.appendString("\"name\": null")
+            // Fields.
+            object.name != nil ? jsonString.appendString("\"name\": \"\(object.name!)\"") : jsonString.appendString("\"name\": null")
 
-               // End Object to JSON
-               jsonString.appendString(" }")
-               return jsonString
-          }
-     }
+            // End Object to JSON
+            jsonString.appendString(" }")
+            return jsonString
+        }
+    }
 }
 
 /**

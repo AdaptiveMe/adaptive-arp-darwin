@@ -40,220 +40,220 @@ import Foundation
 */
 public class AppContextWebviewBridge : NSObject, IAppContextWebview {
 
-     /**
-        Group of API.
-     */
-     private var apiGroup : IAdaptiveRPGroup = IAdaptiveRPGroup.Kernel;
+    /**
+       Group of API.
+    */
+    private var apiGroup : IAdaptiveRPGroup = IAdaptiveRPGroup.Kernel;
 
-     public func getAPIGroup() -> IAdaptiveRPGroup {
-          return self.apiGroup
-     }
+    public func getAPIGroup() -> IAdaptiveRPGroup {
+        return self.apiGroup
+    }
 
-     /**
-        API Delegate.
-     */
-     private var delegate : IAppContextWebview? = nil
+    /**
+       API Delegate.
+    */
+    private var delegate : IAppContextWebview? = nil
 
-     /**
-        Constructor with delegate.
+    /**
+       Constructor with delegate.
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public init(delegate : IAppContextWebview?) {
-          super.init()
-          self.delegate = delegate
-     }
-     /**
-        Get the delegate implementation.
-        @return IAppContextWebview delegate that manages platform specific functions..
-     */
-     public final func getDelegate() -> IAppContextWebview? {
-          return self.delegate
-     }
-     /**
-        Set the delegate implementation.
+       @param delegate The delegate implementing platform specific functions.
+    */
+    public init(delegate : IAppContextWebview?) {
+        super.init()
+        self.delegate = delegate
+    }
+    /**
+       Get the delegate implementation.
+       @return IAppContextWebview delegate that manages platform specific functions..
+    */
+    public final func getDelegate() -> IAppContextWebview? {
+        return self.delegate
+    }
+    /**
+       Set the delegate implementation.
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public final func setDelegate(delegate : IAppContextWebview) {
-          self.delegate = delegate;
-     }
+       @param delegate The delegate implementing platform specific functions.
+    */
+    public final func setDelegate(delegate : IAppContextWebview) {
+        self.delegate = delegate;
+    }
 
-     /**
-        Additional views may be added to an application - a separate activity - and if these will make calls to the
+    /**
+       Additional views may be added to an application - a separate activity - and if these will make calls to the
 ARP methods, they must be registered by adding them to the context. When they are added to the context, ARP
 methods are bound to the webview so that they're callable from the HTML application. The primary webview should
 not be added using this method.
 
-        @param webView Platform specific webview reference (WebView, UIWebView, WKWebView,etc.)
-        @since ARP1.0
-     */
-     public func addWebview(webView : AnyObject ) {
-          // Start logging elapsed time.
-          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
+       @param webView Platform specific webview reference (WebView, UIWebView, WKWebView,etc.)
+       @since ARP1.0
+    */
+    public func addWebview(webView : AnyObject ) {
+        // Start logging elapsed time.
+        var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+        var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger != nil) {
-               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executing addWebview({\(webView)}).")
-          }
+        if (logger != nil) {
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executing addWebview({\(webView)}).")
+        }
 
-          if (self.delegate != nil) {
-               self.delegate!.addWebview(webView)
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executed 'addWebview' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
-                }
-          } else {
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppContextWebviewBridge no delegate for 'addWebview'.")
-               }
-          }
-          
-     }
+        if (self.delegate != nil) {
+            self.delegate!.addWebview(webView)
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executed 'addWebview' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+             }
+        } else {
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppContextWebviewBridge no delegate for 'addWebview'.")
+            }
+        }
+        
+    }
 
-     /**
-        Evaluate the specified javascript on the main webview of the application.
+    /**
+       Evaluate the specified javascript on the main webview of the application.
 
-        @param javaScriptText    The javascript expression to execute on the webview.
-     */
-     public func executeJavaScript(javaScriptText : String ) {
-          // Start logging elapsed time.
-          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
+       @param javaScriptText    The javascript expression to execute on the webview.
+    */
+    public func executeJavaScript(javaScriptText : String ) {
+        // Start logging elapsed time.
+        var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+        var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger != nil) {
-               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executing executeJavaScript({\(javaScriptText)}).")
-          }
+        if (logger != nil) {
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executing executeJavaScript({\(javaScriptText)}).")
+        }
 
-          if (self.delegate != nil) {
-               self.delegate!.executeJavaScript(javaScriptText)
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executed 'executeJavaScript' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
-                }
-          } else {
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppContextWebviewBridge no delegate for 'executeJavaScript'.")
-               }
-          }
-          
-     }
+        if (self.delegate != nil) {
+            self.delegate!.executeJavaScript(javaScriptText)
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executed 'executeJavaScript' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+             }
+        } else {
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppContextWebviewBridge no delegate for 'executeJavaScript'.")
+            }
+        }
+        
+    }
 
-     /**
-        Evaluate the specified javascript on the specified webview of the application.
+    /**
+       Evaluate the specified javascript on the specified webview of the application.
 
-        @param javaScriptText    The javascript expression to execute on the webview.
-        @param webViewReference  The target webview on which to execute the expression.
-     */
-     public func executeJavaScript(javaScriptText : String , webViewReference : AnyObject ) {
-          // Start logging elapsed time.
-          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
+       @param javaScriptText    The javascript expression to execute on the webview.
+       @param webViewReference  The target webview on which to execute the expression.
+    */
+    public func executeJavaScript(javaScriptText : String , webViewReference : AnyObject ) {
+        // Start logging elapsed time.
+        var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+        var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger != nil) {
-               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executing executeJavaScript({\(javaScriptText)},{\(webViewReference)}).")
-          }
+        if (logger != nil) {
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executing executeJavaScript({\(javaScriptText)},{\(webViewReference)}).")
+        }
 
-          if (self.delegate != nil) {
-               self.delegate!.executeJavaScript(javaScriptText, webViewReference: webViewReference)
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executed 'executeJavaScript' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
-                }
-          } else {
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppContextWebviewBridge no delegate for 'executeJavaScript'.")
-               }
-          }
-          
-     }
+        if (self.delegate != nil) {
+            self.delegate!.executeJavaScript(javaScriptText, webViewReference: webViewReference)
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executed 'executeJavaScript' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+             }
+        } else {
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppContextWebviewBridge no delegate for 'executeJavaScript'.")
+            }
+        }
+        
+    }
 
-     /**
-        Returns a reference to the main application webview. This is the first application webview and can not be removed
+    /**
+       Returns a reference to the main application webview. This is the first application webview and can not be removed
 with the removeWebview method. The object returned should be cast to the platform specific implementation
 WebView, WKWebView, etc.
 
-        @return Object representing the specific and primary webview instance of the application.
-        @since ARP1.0
-     */
-     public func getWebviewPrimary() -> AnyObject {
-          // Start logging elapsed time.
-          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
+       @return Object representing the specific and primary webview instance of the application.
+       @since ARP1.0
+    */
+    public func getWebviewPrimary() -> AnyObject {
+        // Start logging elapsed time.
+        var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+        var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger != nil) {
-               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executing getWebviewPrimary.")
-          }
+        if (logger != nil) {
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executing getWebviewPrimary.")
+        }
 
-          var result : AnyObject? = nil
-          if (self.delegate != nil) {
-               result = self.delegate!.getWebviewPrimary()
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executed 'getWebviewPrimary' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
-                }
-          } else {
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppContextWebviewBridge no delegate for 'getWebviewPrimary'.")
-               }
-          }
-          return result!          
-     }
+        var result : AnyObject? = nil
+        if (self.delegate != nil) {
+            result = self.delegate!.getWebviewPrimary()
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executed 'getWebviewPrimary' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+             }
+        } else {
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppContextWebviewBridge no delegate for 'getWebviewPrimary'.")
+            }
+        }
+        return result!        
+    }
 
-     /**
-        Returns an array of webviews currently managed by the context - composed of primary and the list of those added.
+    /**
+       Returns an array of webviews currently managed by the context - composed of primary and the list of those added.
 This method will always return at least one element; the primary webview.
 
-        @return Array with all the Webview instances being managed by ARP.
-        @since ARP1.0
-     */
-     public func getWebviews() -> [AnyObject] {
-          // Start logging elapsed time.
-          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
+       @return Array with all the Webview instances being managed by ARP.
+       @since ARP1.0
+    */
+    public func getWebviews() -> [AnyObject] {
+        // Start logging elapsed time.
+        var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+        var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger != nil) {
-               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executing getWebviews.")
-          }
+        if (logger != nil) {
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executing getWebviews.")
+        }
 
-          var result : [AnyObject]? = nil
-          if (self.delegate != nil) {
-               result = self.delegate!.getWebviews()
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executed 'getWebviews' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
-                }
-          } else {
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppContextWebviewBridge no delegate for 'getWebviews'.")
-               }
-          }
-          return result!          
-     }
+        var result : [AnyObject]? = nil
+        if (self.delegate != nil) {
+            result = self.delegate!.getWebviews()
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executed 'getWebviews' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+             }
+        } else {
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppContextWebviewBridge no delegate for 'getWebviews'.")
+            }
+        }
+        return result!        
+    }
 
-     /**
-        When a webview is disposed - no longer in use from an external activity - the webview should be removed to unbind
+    /**
+       When a webview is disposed - no longer in use from an external activity - the webview should be removed to unbind
 ARP functions and release resources. The primary webview can not be removed.
 
-        @param webView The instance of the webview to be removed from the binding.
-        @since ARP1.0
-     */
-     public func removeWebview(webView : AnyObject ) {
-          // Start logging elapsed time.
-          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
+       @param webView The instance of the webview to be removed from the binding.
+       @since ARP1.0
+    */
+    public func removeWebview(webView : AnyObject ) {
+        // Start logging elapsed time.
+        var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+        var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger != nil) {
-               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executing removeWebview({\(webView)}).")
-          }
+        if (logger != nil) {
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executing removeWebview({\(webView)}).")
+        }
 
-          if (self.delegate != nil) {
-               self.delegate!.removeWebview(webView)
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executed 'removeWebview' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
-                }
-          } else {
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppContextWebviewBridge no delegate for 'removeWebview'.")
-               }
-          }
-          
-     }
+        if (self.delegate != nil) {
+            self.delegate!.removeWebview(webView)
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextWebviewBridge executed 'removeWebview' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+             }
+        } else {
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppContextWebviewBridge no delegate for 'removeWebview'.")
+            }
+        }
+        
+    }
 
 }
 /**

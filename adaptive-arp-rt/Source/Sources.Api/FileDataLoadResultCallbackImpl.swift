@@ -40,48 +40,48 @@ import Foundation
 */
 public class FileDataLoadResultCallbackImpl : BaseCallbackImpl, IFileDataLoadResultCallback {
 
-     /**
-        Constructor with callback id.
+    /**
+       Constructor with callback id.
 
-        @param id  The id of the callback.
-     */
-     public override init(id : Int) {
-          super.init(id: id)
-     }
+       @param id  The id of the callback.
+    */
+    public override init(id : Int) {
+        super.init(id: id)
+    }
 
-     /**
-        Error processing data retrieval/storage operation.
+    /**
+       Error processing data retrieval/storage operation.
 
-        @param error Error condition encountered.
-        @since ARP1.0
-     */
-     public func onError(error : IFileDataLoadResultCallbackError) { 
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileDataLoadResultCallbackError( '\(getId())', JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param error Error condition encountered.
+       @since ARP1.0
+    */
+    public func onError(error : IFileDataLoadResultCallbackError) { 
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileDataLoadResultCallbackError( '\(getId())', JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
-     /**
-        Result of data retrieval operation.
+    /**
+       Result of data retrieval operation.
 
-        @param data Data loaded.
-        @since ARP1.0
-     */
-     public func onResult(data : [Byte]) { 
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileDataLoadResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param data Data loaded.
+       @since ARP1.0
+    */
+    public func onResult(data : [Byte]) { 
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileDataLoadResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
-     /**
-        Result with warning of data retrieval/storage operation.
+    /**
+       Result with warning of data retrieval/storage operation.
 
-        @param data    File being loaded.
-        @param warning Warning condition encountered.
-        @since ARP1.0
-     */
-     public func onWarning(data : [Byte], warning : IFileDataLoadResultCallbackWarning) { 
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileDataLoadResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param data    File being loaded.
+       @param warning Warning condition encountered.
+       @since ARP1.0
+    */
+    public func onWarning(data : [Byte], warning : IFileDataLoadResultCallbackWarning) { 
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileDataLoadResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
 }
 /**

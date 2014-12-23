@@ -39,41 +39,41 @@ import Foundation
 */
 public enum IAppResourceFormat {
 
-     case Raw
-     case Compressed
-     case Encrypted
-     case EncryptedCompressed
-     case Unknown
+    case Raw
+    case Compressed
+    case Encrypted
+    case EncryptedCompressed
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .Raw: return "Raw"
-               case .Compressed: return "Compressed"
-               case .Encrypted: return "Encrypted"
-               case .EncryptedCompressed: return "EncryptedCompressed"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .Raw: return "Raw"
+            case .Compressed: return "Compressed"
+            case .Encrypted: return "Encrypted"
+            case .EncryptedCompressed: return "EncryptedCompressed"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> IAppResourceFormat {
-          if let validString = string {
-               switch validString {
-                    case "Raw": return .Raw
-                    case "Compressed": return .Compressed
-                    case "Encrypted": return .Encrypted
-                    case "EncryptedCompressed": return .EncryptedCompressed
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> IAppResourceFormat {
+        if let validString = string {
+            switch validString {
+                case "Raw": return .Raw
+                case "Compressed": return .Compressed
+                case "Encrypted": return .Encrypted
+                case "EncryptedCompressed": return .EncryptedCompressed
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

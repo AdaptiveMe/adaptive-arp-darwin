@@ -42,36 +42,36 @@ import Foundation
    @version 1.0
 */
 public protocol ILifecycle : IBaseApplication {
-     /**
-        Add the listener for the lifecycle of the app
+    /**
+       Add the listener for the lifecycle of the app
 
-        @param listener Lifecycle listener
-        @since ARP1.0
-     */
-     func addLifecycleListener(listener : ILifecycleListener)
+       @param listener Lifecycle listener
+       @since ARP1.0
+    */
+    func addLifecycleListener(listener : ILifecycleListener)
 
-     /**
-        Whether the application is in background or not
+    /**
+       Whether the application is in background or not
 
-        @return true if the application is in background;false otherwise
-        @since ARP1.0
-     */
-     func isBackground() -> Bool 
+       @return true if the application is in background;false otherwise
+       @since ARP1.0
+    */
+    func isBackground() -> Bool 
 
-     /**
-        Un-registers an existing listener from receiving lifecycle events.
+    /**
+       Un-registers an existing listener from receiving lifecycle events.
 
-        @param listener Lifecycle listener
-        @since ARP1.0
-     */
-     func removeLifecycleListener(listener : ILifecycleListener)
+       @param listener Lifecycle listener
+       @since ARP1.0
+    */
+    func removeLifecycleListener(listener : ILifecycleListener)
 
-     /**
-        Removes all existing listeners from receiving lifecycle events.
+    /**
+       Removes all existing listeners from receiving lifecycle events.
 
-        @since ARP1.0
-     */
-     func removeLifecycleListeners()
+       @since ARP1.0
+    */
+    func removeLifecycleListeners()
 
 }
 

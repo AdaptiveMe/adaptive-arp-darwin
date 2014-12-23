@@ -39,41 +39,41 @@ import Foundation
 */
 public enum IServiceResultCallbackWarning {
 
-     case NotSecure
-     case NotTrusted
-     case Redirected
-     case Wrong_Params
-     case Unknown
+    case NotSecure
+    case NotTrusted
+    case Redirected
+    case Wrong_Params
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .NotSecure: return "NotSecure"
-               case .NotTrusted: return "NotTrusted"
-               case .Redirected: return "Redirected"
-               case .Wrong_Params: return "Wrong_Params"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .NotSecure: return "NotSecure"
+            case .NotTrusted: return "NotTrusted"
+            case .Redirected: return "Redirected"
+            case .Wrong_Params: return "Wrong_Params"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> IServiceResultCallbackWarning {
-          if let validString = string {
-               switch validString {
-                    case "NotSecure": return .NotSecure
-                    case "NotTrusted": return .NotTrusted
-                    case "Redirected": return .Redirected
-                    case "Wrong_Params": return .Wrong_Params
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> IServiceResultCallbackWarning {
+        if let validString = string {
+            switch validString {
+                case "NotSecure": return .NotSecure
+                case "NotTrusted": return .NotTrusted
+                case "Redirected": return .Redirected
+                case "Wrong_Params": return .Wrong_Params
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

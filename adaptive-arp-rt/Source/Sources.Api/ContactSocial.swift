@@ -43,121 +43,121 @@ import Foundation
 */
 public class ContactSocial : APIBean {
 
-     /**
-        The social network
-     */
-     var socialNetwork : ContactSocialNetwork?
-     /**
-        The profileUrl
-     */
-     var profileUrl : String?
+    /**
+       The social network
+    */
+    var socialNetwork : ContactSocialNetwork?
+    /**
+       The profileUrl
+    */
+    var profileUrl : String?
 
-     /**
-        Default constructor
+    /**
+       Default constructor
 
-        @since ARP1.0
-     */
-     public override init() {
-          super.init()
-     }
+       @since ARP1.0
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Constructor used by the implementation
+    /**
+       Constructor used by the implementation
 
-        @param socialNetwork of the profile
-        @param profileUrl    of the user
-        @since ARP1.0
-     */
-     public init(socialNetwork: ContactSocialNetwork, profileUrl: String) {
-          super.init()
-          self.socialNetwork = socialNetwork
-          self.profileUrl = profileUrl
-     }
+       @param socialNetwork of the profile
+       @param profileUrl    of the user
+       @since ARP1.0
+    */
+    public init(socialNetwork: ContactSocialNetwork, profileUrl: String) {
+        super.init()
+        self.socialNetwork = socialNetwork
+        self.profileUrl = profileUrl
+    }
 
-     /**
-        Returns the social network
+    /**
+       Returns the social network
 
-        @return socialNetwork
-        @since ARP1.0
-     */
-     public func getSocialNetwork() -> ContactSocialNetwork? {
-          return self.socialNetwork
-     }
+       @return socialNetwork
+       @since ARP1.0
+    */
+    public func getSocialNetwork() -> ContactSocialNetwork? {
+        return self.socialNetwork
+    }
 
-     /**
-        Set the social network
+    /**
+       Set the social network
 
-        @param socialNetwork of the profile
-        @since ARP1.0
-     */
-     public func setSocialNetwork(socialNetwork: ContactSocialNetwork) {
-          self.socialNetwork = socialNetwork
-     }
+       @param socialNetwork of the profile
+       @since ARP1.0
+    */
+    public func setSocialNetwork(socialNetwork: ContactSocialNetwork) {
+        self.socialNetwork = socialNetwork
+    }
 
-     /**
-        Returns the profile url of the user
+    /**
+       Returns the profile url of the user
 
-        @return profileUrl
-        @since ARP1.0
-     */
-     public func getProfileUrl() -> String? {
-          return self.profileUrl
-     }
+       @return profileUrl
+       @since ARP1.0
+    */
+    public func getProfileUrl() -> String? {
+        return self.profileUrl
+    }
 
-     /**
-        Set the profile url of the iser
+    /**
+       Set the profile url of the iser
 
-        @param profileUrl of the user
-        @since ARP1.0
-     */
-     public func setProfileUrl(profileUrl: String) {
-          self.profileUrl = profileUrl
-     }
+       @param profileUrl of the user
+       @since ARP1.0
+    */
+    public func setProfileUrl(profileUrl: String) {
+        self.profileUrl = profileUrl
+    }
 
 
-     /**
-        JSON Serialization and deserialization support.
-     */
-     struct Serializer {
-          static func fromJSON(json : String) -> ContactSocial {
-               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
-               var jsonError: NSError?
-               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
-               return fromDictionary(dict)
-          }
+    /**
+       JSON Serialization and deserialization support.
+    */
+    struct Serializer {
+        static func fromJSON(json : String) -> ContactSocial {
+            var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+            var jsonError: NSError?
+            let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+            return fromDictionary(dict)
+        }
 
-          static func fromDictionary(dict : NSDictionary) -> ContactSocial {
-               var resultObject : ContactSocial = ContactSocial()
+        static func fromDictionary(dict : NSDictionary) -> ContactSocial {
+            var resultObject : ContactSocial = ContactSocial()
 
-               if let value : AnyObject = dict.objectForKey("profileUrl") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.profileUrl = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("profileUrl") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.profileUrl = (value as String)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("socialNetwork") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.socialNetwork = ContactSocialNetwork.toEnum(((value as NSDictionary)["value"]) as NSString)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("socialNetwork") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.socialNetwork = ContactSocialNetwork.toEnum(((value as NSDictionary)["value"]) as NSString)
+                }
+            }
 
-               return resultObject
-          }
+            return resultObject
+        }
 
-          static func toJSON(object: ContactSocial) -> String {
-               var jsonString : NSMutableString = NSMutableString()
-               // Start Object to JSON
-               jsonString.appendString("{ ")
+        static func toJSON(object: ContactSocial) -> String {
+            var jsonString : NSMutableString = NSMutableString()
+            // Start Object to JSON
+            jsonString.appendString("{ ")
 
-               // Fields.
-               object.profileUrl != nil ? jsonString.appendString("\"profileUrl\": \"\(object.profileUrl!)\", ") : jsonString.appendString("\"profileUrl\": null, ")
-               object.socialNetwork != nil ? jsonString.appendString("\"socialNetwork\": { \"value\": \"\(JSONUtil.escapeString(object.socialNetwork!.toString()))\"}") : jsonString.appendString("\"socialNetwork\": null")
+            // Fields.
+            object.profileUrl != nil ? jsonString.appendString("\"profileUrl\": \"\(object.profileUrl!)\", ") : jsonString.appendString("\"profileUrl\": null, ")
+            object.socialNetwork != nil ? jsonString.appendString("\"socialNetwork\": { \"value\": \"\(JSONUtil.escapeString(object.socialNetwork!.toString()))\"}") : jsonString.appendString("\"socialNetwork\": null")
 
-               // End Object to JSON
-               jsonString.appendString(" }")
-               return jsonString
-          }
-     }
+            // End Object to JSON
+            jsonString.appendString(" }")
+            return jsonString
+        }
+    }
 }
 
 /**

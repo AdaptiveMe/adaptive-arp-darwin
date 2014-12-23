@@ -40,40 +40,40 @@ import Foundation
 */
 public class BaseCallbackImpl : NSObject, IBaseCallback {
 
-     /**
-        Unique id of callback.
-     */
-     private var id : Int
+    /**
+       Unique id of callback.
+    */
+    private var id : Int
 
-     /**
-        Group of API.
-     */
-     private var apiGroup : IAdaptiveRPGroup?
+    /**
+       Group of API.
+    */
+    private var apiGroup : IAdaptiveRPGroup?
 
-     /**
-        Constructor with callback id.
+    /**
+       Constructor with callback id.
 
-        @param id  The id of the callback.
-     */
-     public init(id : Int) {
-          self.id = id
-          self.apiGroup = IAdaptiveRPGroup.Application
-     }
+       @param id  The id of the callback.
+    */
+    public init(id : Int) {
+        self.id = id
+        self.apiGroup = IAdaptiveRPGroup.Application
+    }
 
-     /**
-        Get the callback id.
-        @return long with the identifier of the callback.
-     */
-     public final func getId() -> Int {
-          return self.id
-     }
+    /**
+       Get the callback id.
+       @return long with the identifier of the callback.
+    */
+    public final func getId() -> Int {
+        return self.id
+    }
 
-     /**
-        Return the API group for the given interface.
-     */
-     public func getAPIGroup() -> IAdaptiveRPGroup {
-          return self.apiGroup!
-     }
+    /**
+       Return the API group for the given interface.
+    */
+    public func getAPIGroup() -> IAdaptiveRPGroup {
+        return self.apiGroup!
+    }
 
 }
 /**

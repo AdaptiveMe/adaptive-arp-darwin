@@ -39,38 +39,38 @@ import Foundation
 */
 public enum ILifecycleListenerError {
 
-     case Runtime
-     case Implementation
-     case Killed
-     case Unknown
+    case Runtime
+    case Implementation
+    case Killed
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .Runtime: return "Runtime"
-               case .Implementation: return "Implementation"
-               case .Killed: return "Killed"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .Runtime: return "Runtime"
+            case .Implementation: return "Implementation"
+            case .Killed: return "Killed"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> ILifecycleListenerError {
-          if let validString = string {
-               switch validString {
-                    case "Runtime": return .Runtime
-                    case "Implementation": return .Implementation
-                    case "Killed": return .Killed
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> ILifecycleListenerError {
+        if let validString = string {
+            switch validString {
+                case "Runtime": return .Runtime
+                case "Implementation": return .Implementation
+                case "Killed": return .Killed
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

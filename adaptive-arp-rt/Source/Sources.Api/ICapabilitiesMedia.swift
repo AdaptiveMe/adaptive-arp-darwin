@@ -39,44 +39,44 @@ import Foundation
 */
 public enum ICapabilitiesMedia {
 
-     case Audio_Playback
-     case Audio_Recording
-     case Camera
-     case Video_Playback
-     case Video_Recording
-     case Unknown
+    case Audio_Playback
+    case Audio_Recording
+    case Camera
+    case Video_Playback
+    case Video_Recording
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .Audio_Playback: return "Audio_Playback"
-               case .Audio_Recording: return "Audio_Recording"
-               case .Camera: return "Camera"
-               case .Video_Playback: return "Video_Playback"
-               case .Video_Recording: return "Video_Recording"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .Audio_Playback: return "Audio_Playback"
+            case .Audio_Recording: return "Audio_Recording"
+            case .Camera: return "Camera"
+            case .Video_Playback: return "Video_Playback"
+            case .Video_Recording: return "Video_Recording"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> ICapabilitiesMedia {
-          if let validString = string {
-               switch validString {
-                    case "Audio_Playback": return .Audio_Playback
-                    case "Audio_Recording": return .Audio_Recording
-                    case "Camera": return .Camera
-                    case "Video_Playback": return .Video_Playback
-                    case "Video_Recording": return .Video_Recording
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> ICapabilitiesMedia {
+        if let validString = string {
+            switch validString {
+                case "Audio_Playback": return .Audio_Playback
+                case "Audio_Recording": return .Audio_Recording
+                case "Camera": return .Camera
+                case "Video_Playback": return .Video_Playback
+                case "Video_Recording": return .Video_Recording
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

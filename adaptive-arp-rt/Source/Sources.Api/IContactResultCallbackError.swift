@@ -39,35 +39,35 @@ import Foundation
 */
 public enum IContactResultCallbackError {
 
-     case NoPermission
-     case Wrong_Params
-     case Unknown
+    case NoPermission
+    case Wrong_Params
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .NoPermission: return "NoPermission"
-               case .Wrong_Params: return "Wrong_Params"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .NoPermission: return "NoPermission"
+            case .Wrong_Params: return "Wrong_Params"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> IContactResultCallbackError {
-          if let validString = string {
-               switch validString {
-                    case "NoPermission": return .NoPermission
-                    case "Wrong_Params": return .Wrong_Params
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> IContactResultCallbackError {
+        if let validString = string {
+            switch validString {
+                case "NoPermission": return .NoPermission
+                case "Wrong_Params": return .Wrong_Params
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

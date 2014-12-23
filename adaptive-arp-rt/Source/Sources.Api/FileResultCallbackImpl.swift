@@ -40,48 +40,48 @@ import Foundation
 */
 public class FileResultCallbackImpl : BaseCallbackImpl, IFileResultCallback {
 
-     /**
-        Constructor with callback id.
+    /**
+       Constructor with callback id.
 
-        @param id  The id of the callback.
-     */
-     public override init(id : Int) {
-          super.init(id: id)
-     }
+       @param id  The id of the callback.
+    */
+    public override init(id : Int) {
+        super.init(id: id)
+    }
 
-     /**
-        On error result of a file operation.
+    /**
+       On error result of a file operation.
 
-        @param error Error processing the request.
-        @since ARP1.0
-     */
-     public func onError(error : IFileResultCallbackError) { 
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileResultCallbackError( '\(getId())', JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param error Error processing the request.
+       @since ARP1.0
+    */
+    public func onError(error : IFileResultCallbackError) { 
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileResultCallbackError( '\(getId())', JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
-     /**
-        On correct result of a file operation.
+    /**
+       On correct result of a file operation.
 
-        @param storageFile Reference to the resulting file.
-        @since ARP1.0
-     */
-     public func onResult(storageFile : FileDescriptor) { 
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param storageFile Reference to the resulting file.
+       @since ARP1.0
+    */
+    public func onResult(storageFile : FileDescriptor) { 
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
-     /**
-        On partial result of a file operation, containing a warning.
+    /**
+       On partial result of a file operation, containing a warning.
 
-        @param file    Reference to the offending file.
-        @param warning Warning processing the request.
-        @since ARP1.0
-     */
-     public func onWarning(file : FileDescriptor, warning : IFileResultCallbackWarning) { 
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param file    Reference to the offending file.
+       @param warning Warning processing the request.
+       @since ARP1.0
+    */
+    public func onWarning(file : FileDescriptor, warning : IFileResultCallbackWarning) { 
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
 }
 /**

@@ -43,121 +43,121 @@ import Foundation
 */
 public class ContactTag : APIBean {
 
-     /**
-        The tagName of the Tag
-     */
-     var tagName : String?
-     /**
-        The tagValue of the Tag
-     */
-     var tagValue : String?
+    /**
+       The tagName of the Tag
+    */
+    var tagName : String?
+    /**
+       The tagValue of the Tag
+    */
+    var tagValue : String?
 
-     /**
-        Default constructor
+    /**
+       Default constructor
 
-        @since ARP1.0
-     */
-     public override init() {
-          super.init()
-     }
+       @since ARP1.0
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Constructor used by the implementation
+    /**
+       Constructor used by the implementation
 
-        @param tagValue Value of the tag
-        @param tagName  Name of the tag
-        @since ARP1.0
-     */
-     public init(tagName: String, tagValue: String) {
-          super.init()
-          self.tagName = tagName
-          self.tagValue = tagValue
-     }
+       @param tagValue Value of the tag
+       @param tagName  Name of the tag
+       @since ARP1.0
+    */
+    public init(tagName: String, tagValue: String) {
+        super.init()
+        self.tagName = tagName
+        self.tagValue = tagValue
+    }
 
-     /**
-        Returns the tagName of the Tag
+    /**
+       Returns the tagName of the Tag
 
-        @return tagName
-        @since ARP1.0
-     */
-     public func getTagName() -> String? {
-          return self.tagName
-     }
+       @return tagName
+       @since ARP1.0
+    */
+    public func getTagName() -> String? {
+        return self.tagName
+    }
 
-     /**
-        Set the tagName of the Tag
+    /**
+       Set the tagName of the Tag
 
-        @param tagName Name of the tag
-        @since ARP1.0
-     */
-     public func setTagName(tagName: String) {
-          self.tagName = tagName
-     }
+       @param tagName Name of the tag
+       @since ARP1.0
+    */
+    public func setTagName(tagName: String) {
+        self.tagName = tagName
+    }
 
-     /**
-        Returns the tagValue of the Tag
+    /**
+       Returns the tagValue of the Tag
 
-        @return tagValue
-        @since ARP1.0
-     */
-     public func getTagValue() -> String? {
-          return self.tagValue
-     }
+       @return tagValue
+       @since ARP1.0
+    */
+    public func getTagValue() -> String? {
+        return self.tagValue
+    }
 
-     /**
-        Set the tagValue of the Tag
+    /**
+       Set the tagValue of the Tag
 
-        @param tagValue Value of the tag
-        @since ARP1.0
-     */
-     public func setTagValue(tagValue: String) {
-          self.tagValue = tagValue
-     }
+       @param tagValue Value of the tag
+       @since ARP1.0
+    */
+    public func setTagValue(tagValue: String) {
+        self.tagValue = tagValue
+    }
 
 
-     /**
-        JSON Serialization and deserialization support.
-     */
-     struct Serializer {
-          static func fromJSON(json : String) -> ContactTag {
-               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
-               var jsonError: NSError?
-               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
-               return fromDictionary(dict)
-          }
+    /**
+       JSON Serialization and deserialization support.
+    */
+    struct Serializer {
+        static func fromJSON(json : String) -> ContactTag {
+            var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+            var jsonError: NSError?
+            let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+            return fromDictionary(dict)
+        }
 
-          static func fromDictionary(dict : NSDictionary) -> ContactTag {
-               var resultObject : ContactTag = ContactTag()
+        static func fromDictionary(dict : NSDictionary) -> ContactTag {
+            var resultObject : ContactTag = ContactTag()
 
-               if let value : AnyObject = dict.objectForKey("tagName") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.tagName = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("tagName") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.tagName = (value as String)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("tagValue") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.tagValue = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("tagValue") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.tagValue = (value as String)
+                }
+            }
 
-               return resultObject
-          }
+            return resultObject
+        }
 
-          static func toJSON(object: ContactTag) -> String {
-               var jsonString : NSMutableString = NSMutableString()
-               // Start Object to JSON
-               jsonString.appendString("{ ")
+        static func toJSON(object: ContactTag) -> String {
+            var jsonString : NSMutableString = NSMutableString()
+            // Start Object to JSON
+            jsonString.appendString("{ ")
 
-               // Fields.
-               object.tagName != nil ? jsonString.appendString("\"tagName\": \"\(object.tagName!)\", ") : jsonString.appendString("\"tagName\": null, ")
-               object.tagValue != nil ? jsonString.appendString("\"tagValue\": \"\(object.tagValue!)\"") : jsonString.appendString("\"tagValue\": null")
+            // Fields.
+            object.tagName != nil ? jsonString.appendString("\"tagName\": \"\(object.tagName!)\", ") : jsonString.appendString("\"tagName\": null, ")
+            object.tagValue != nil ? jsonString.appendString("\"tagValue\": \"\(object.tagValue!)\"") : jsonString.appendString("\"tagValue\": null")
 
-               // End Object to JSON
-               jsonString.appendString(" }")
-               return jsonString
-          }
-     }
+            // End Object to JSON
+            jsonString.appendString(" }")
+            return jsonString
+        }
+    }
 }
 
 /**

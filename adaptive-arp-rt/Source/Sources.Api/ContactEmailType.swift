@@ -39,38 +39,38 @@ import Foundation
 */
 public enum ContactEmailType {
 
-     case Personal
-     case Work
-     case Other
-     case Unknown
+    case Personal
+    case Work
+    case Other
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .Personal: return "Personal"
-               case .Work: return "Work"
-               case .Other: return "Other"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .Personal: return "Personal"
+            case .Work: return "Work"
+            case .Other: return "Other"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> ContactEmailType {
-          if let validString = string {
-               switch validString {
-                    case "Personal": return .Personal
-                    case "Work": return .Work
-                    case "Other": return .Other
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> ContactEmailType {
+        if let validString = string {
+            switch validString {
+                case "Personal": return .Personal
+                case "Work": return .Work
+                case "Other": return .Other
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

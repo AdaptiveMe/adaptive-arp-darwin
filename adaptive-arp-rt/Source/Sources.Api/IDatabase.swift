@@ -42,86 +42,86 @@ import Foundation
    @version 1.0
 */
 public protocol IDatabase : IBaseData {
-     /**
-        Creates a database on default path for every platform.
+    /**
+       Creates a database on default path for every platform.
 
-        @param callback Asynchronous callback
-        @param database Database object to create
-        @since ARP1.0
-     */
-     func createDatabase(database : Database, callback : IDatabaseResultCallback)
+       @param callback Asynchronous callback
+       @param database Database object to create
+       @since ARP1.0
+    */
+    func createDatabase(database : Database, callback : IDatabaseResultCallback)
 
-     /**
-        Creates a databaseTable inside a database for every platform.
+    /**
+       Creates a databaseTable inside a database for every platform.
 
-        @param database      Database for databaseTable creating.
-        @param databaseTable DatabaseTable object with the name of the databaseTable inside.
-        @param callback      DatabaseTable callback with the response
-        @since ARP1.0
-     */
-     func createTable(database : Database, databaseTable : DatabaseTable, callback : IDatabaseTableResultCallback)
+       @param database      Database for databaseTable creating.
+       @param databaseTable DatabaseTable object with the name of the databaseTable inside.
+       @param callback      DatabaseTable callback with the response
+       @since ARP1.0
+    */
+    func createTable(database : Database, databaseTable : DatabaseTable, callback : IDatabaseTableResultCallback)
 
-     /**
-        Deletes a database on default path for every platform.
+    /**
+       Deletes a database on default path for every platform.
 
-        @param database Database object to delete
-        @param callback Asynchronous callback
-        @since ARP1.0
-     */
-     func deleteDatabase(database : Database, callback : IDatabaseResultCallback)
+       @param database Database object to delete
+       @param callback Asynchronous callback
+       @since ARP1.0
+    */
+    func deleteDatabase(database : Database, callback : IDatabaseResultCallback)
 
-     /**
-        Deletes a databaseTable inside a database for every platform.
+    /**
+       Deletes a databaseTable inside a database for every platform.
 
-        @param database      Database for databaseTable removal.
-        @param databaseTable DatabaseTable object with the name of the databaseTable inside.
-        @param callback      DatabaseTable callback with the response
-        @since ARP1.0
-     */
-     func deleteTable(database : Database, databaseTable : DatabaseTable, callback : IDatabaseTableResultCallback)
+       @param database      Database for databaseTable removal.
+       @param databaseTable DatabaseTable object with the name of the databaseTable inside.
+       @param callback      DatabaseTable callback with the response
+       @since ARP1.0
+    */
+    func deleteTable(database : Database, databaseTable : DatabaseTable, callback : IDatabaseTableResultCallback)
 
-     /**
-        Executes SQL statement into the given database. The replacements
+    /**
+       Executes SQL statement into the given database. The replacements
 should be passed as a parameter
 
-        @param database     The database object reference.
-        @param statement    SQL statement.
-        @param replacements List of SQL statement replacements.
-        @param callback     DatabaseTable callback with the response.
-        @since ARP1.0
-     */
-     func executeSqlStatement(database : Database, statement : String, replacements : [String], callback : IDatabaseTableResultCallback)
+       @param database     The database object reference.
+       @param statement    SQL statement.
+       @param replacements List of SQL statement replacements.
+       @param callback     DatabaseTable callback with the response.
+       @since ARP1.0
+    */
+    func executeSqlStatement(database : Database, statement : String, replacements : [String], callback : IDatabaseTableResultCallback)
 
-     /**
-        Executes SQL transaction (some statements chain) inside given database.
+    /**
+       Executes SQL transaction (some statements chain) inside given database.
 
-        @param database     The database object reference.
-        @param statements   The statements to be executed during transaction.
-        @param rollbackFlag Indicates if rollback should be performed when any
+       @param database     The database object reference.
+       @param statements   The statements to be executed during transaction.
+       @param rollbackFlag Indicates if rollback should be performed when any
                     statement execution fails.
-        @param callback     DatabaseTable callback with the response.
-        @since ARP1.0
-     */
-     func executeSqlTransactions(database : Database, statements : [String], rollbackFlag : Bool, callback : IDatabaseTableResultCallback)
+       @param callback     DatabaseTable callback with the response.
+       @since ARP1.0
+    */
+    func executeSqlTransactions(database : Database, statements : [String], rollbackFlag : Bool, callback : IDatabaseTableResultCallback)
 
-     /**
-        Checks if database exists by given database name.
+    /**
+       Checks if database exists by given database name.
 
-        @param database Database Object to check if exists
-        @return True if exists, false otherwise
-        @since ARP1.0
-     */
-     func existsDatabase(database : Database) -> Bool 
+       @param database Database Object to check if exists
+       @return True if exists, false otherwise
+       @since ARP1.0
+    */
+    func existsDatabase(database : Database) -> Bool 
 
-     /**
-        Checks if databaseTable exists by given database name.
+    /**
+       Checks if databaseTable exists by given database name.
 
-        @param database      Database for databaseTable consulting.
-        @param databaseTable DatabaseTable object with the name of the databaseTable inside.
-        @return True if exists, false otherwise
-        @since ARP1.0
-     */
-     func existsTable(database : Database, databaseTable : DatabaseTable) -> Bool 
+       @param database      Database for databaseTable consulting.
+       @param databaseTable DatabaseTable object with the name of the databaseTable inside.
+       @return True if exists, false otherwise
+       @since ARP1.0
+    */
+    func existsTable(database : Database, databaseTable : DatabaseTable) -> Bool 
 
 }
 

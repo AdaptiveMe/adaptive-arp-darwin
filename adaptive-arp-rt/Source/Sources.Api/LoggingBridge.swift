@@ -40,87 +40,87 @@ import Foundation
 */
 public class LoggingBridge : BaseUtilBridge, ILogging, APIBridge {
 
-     /**
-        API Delegate.
-     */
-     private var delegate : ILogging? = nil
+    /**
+       API Delegate.
+    */
+    private var delegate : ILogging? = nil
 
-     /**
-        Constructor with delegate.
+    /**
+       Constructor with delegate.
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public init(delegate : ILogging?) {
-          super.init()
-          self.delegate = delegate
-     }
-     /**
-        Get the delegate implementation.
-        @return ILogging delegate that manages platform specific functions..
-     */
-     public final func getDelegate() -> ILogging? {
-          return self.delegate
-     }
-     /**
-        Set the delegate implementation.
+       @param delegate The delegate implementing platform specific functions.
+    */
+    public init(delegate : ILogging?) {
+        super.init()
+        self.delegate = delegate
+    }
+    /**
+       Get the delegate implementation.
+       @return ILogging delegate that manages platform specific functions..
+    */
+    public final func getDelegate() -> ILogging? {
+        return self.delegate
+    }
+    /**
+       Set the delegate implementation.
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public final func setDelegate(delegate : ILogging) {
-          self.delegate = delegate;
-     }
+       @param delegate The delegate implementing platform specific functions.
+    */
+    public final func setDelegate(delegate : ILogging) {
+        self.delegate = delegate;
+    }
 
-     /**
-        Logs the given message, with the given log level if specified, to the standard platform/environment.
+    /**
+       Logs the given message, with the given log level if specified, to the standard platform/environment.
 
-        @param level   Log level
-        @param message Message to be logged
-        @since ARP1.0
-     */
-     public func log(level : ILoggingLogLevel , message : String ) {
-          if (self.delegate != nil) {
-               self.delegate!.log(level, message: message)
-          }
-     }
+       @param level   Log level
+       @param message Message to be logged
+       @since ARP1.0
+    */
+    public func log(level : ILoggingLogLevel , message : String ) {
+        if (self.delegate != nil) {
+            self.delegate!.log(level, message: message)
+        }
+    }
 
-     /**
-        Logs the given message, with the given log level if specified, to the standard platform/environment.
+    /**
+       Logs the given message, with the given log level if specified, to the standard platform/environment.
 
-        @param level    Log level
-        @param category Category/tag name to identify/filter the log.
-        @param message  Message to be logged
-        @since ARP1.0
-     */
-     public func log(level : ILoggingLogLevel , category : String , message : String ) {
-          if (self.delegate != nil) {
-               self.delegate!.log(level, category: category, message: message)
-          }
-     }
+       @param level    Log level
+       @param category Category/tag name to identify/filter the log.
+       @param message  Message to be logged
+       @since ARP1.0
+    */
+    public func log(level : ILoggingLogLevel , category : String , message : String ) {
+        if (self.delegate != nil) {
+            self.delegate!.log(level, category: category, message: message)
+        }
+    }
 
-     /**
-        Invokes the given method specified in the API request object.
+    /**
+       Invokes the given method specified in the API request object.
 
-        @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
-     */
-     public override func invoke(request : APIRequest) -> String? {
-          var responseJSON : String? = ""
-          switch request.getMethodName()! {
-               case "log_level_message":
-                    var level0 : ILoggingLogLevel? = nil //TODO Deserialize this.gson.fromJson(request.getParameters()[0], ILoggingLogLevel.class)
-                    var message0 : String? = nil //TODO Deserialize this.gson.fromJson(request.getParameters()[1], String.class)
-                    self.log(level0!, message: message0!)
-               case "log_level_category_message":
-                    var level1 : ILoggingLogLevel? = nil //TODO Deserialize this.gson.fromJson(request.getParameters()[0], ILoggingLogLevel.class)
-                    var category1 : String? = nil //TODO Deserialize this.gson.fromJson(request.getParameters()[1], String.class)
-                    var message1 : String? = nil //TODO Deserialize this.gson.fromJson(request.getParameters()[2], String.class)
-                    self.log(level1!, category: category1!, message: message1!)
-               default:
-                    // 404 - response null.
-                    responseJSON = nil
-          }
-          return responseJSON
-     }
+       @param request APIRequest object containing method name and parameters.
+       @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+    */
+    public override func invoke(request : APIRequest) -> String? {
+        var responseJSON : String? = ""
+        switch request.getMethodName()! {
+            case "log_level_message":
+                var level0 : ILoggingLogLevel? = nil //TODO Deserialize this.gson.fromJson(request.getParameters()[0], ILoggingLogLevel.class)
+                var message0 : String? = nil //TODO Deserialize this.gson.fromJson(request.getParameters()[1], String.class)
+                self.log(level0!, message: message0!)
+            case "log_level_category_message":
+                var level1 : ILoggingLogLevel? = nil //TODO Deserialize this.gson.fromJson(request.getParameters()[0], ILoggingLogLevel.class)
+                var category1 : String? = nil //TODO Deserialize this.gson.fromJson(request.getParameters()[1], String.class)
+                var message1 : String? = nil //TODO Deserialize this.gson.fromJson(request.getParameters()[2], String.class)
+                self.log(level1!, category: category1!, message: message1!)
+            default:
+                // 404 - response null.
+                responseJSON = nil
+        }
+        return responseJSON
+    }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

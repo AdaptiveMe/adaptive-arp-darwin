@@ -40,65 +40,65 @@ import Foundation
 */
 public class DeviceDelegate : BaseSystemDelegate, IDevice {
 
-     /**
-        Default Constructor.
-     */
-     public override init() {
-          super.init()
-     }
+    /**
+       Default Constructor.
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Register a new listener that will receive button events.
+    /**
+       Register a new listener that will receive button events.
 
-        @param listener to be registered.
-        @since ARP1.0
-     */
-     public func addButtonListener(listener : IButtonListener) {
-          // TODO: Not implemented.
-     }
+       @param listener to be registered.
+       @since ARP1.0
+    */
+    public func addButtonListener(listener : IButtonListener) {
+        // TODO: Not implemented.
+    }
 
-     /**
-        Returns the device information for the current device executing the runtime.
+    /**
+       Returns the device information for the current device executing the runtime.
 
-        @return DeviceInfo for the current device.
-        @since ARP1.0
-     */
-     public func getDeviceInfo() -> DeviceInfo {
-          var response : DeviceInfo
-          // TODO: Not implemented.
-          return DeviceInfo()
-     }
+       @return DeviceInfo for the current device.
+       @since ARP1.0
+    */
+    public func getDeviceInfo() -> DeviceInfo {
+        var response : DeviceInfo
+        // TODO: Not implemented.
+        return DeviceInfo()
+    }
 
-     /**
-        Gets the current Locale for the device.
+    /**
+       Gets the current Locale for the device.
 
-        @return The current Locale information.
-        @since ARP1.0
-     */
-     public func getLocaleCurrent() -> Locale {
-          var response : Locale
-          // TODO: Not implemented.
-          return Locale()
-     }
+       @return The current Locale information.
+       @since ARP1.0
+    */
+    public func getLocaleCurrent() -> Locale {
+        var response : Locale
+        // TODO: Not implemented.
+        return Locale()
+    }
 
-     /**
-        De-registers an existing listener from receiving button events.
+    /**
+       De-registers an existing listener from receiving button events.
 
-        @param listener to be removed.
-        @since ARP1.0
-     */
-     public func removeButtonListener(listener : IButtonListener) {
-          // TODO: Not implemented.
-     }
+       @param listener to be removed.
+       @since ARP1.0
+    */
+    public func removeButtonListener(listener : IButtonListener) {
+        // TODO: Not implemented.
+    }
 
-     /**
-        Removed all existing listeners from receiving button events.
+    /**
+       Removed all existing listeners from receiving button events.
 
-        @since ARP1.0
-     */
-     public func removeButtonListeners() {
-          // TODO: Not implemented.
-     }
+       @since ARP1.0
+    */
+    public func removeButtonListeners() {
+        // TODO: Not implemented.
+    }
 
 }
 /**

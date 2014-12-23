@@ -40,51 +40,51 @@ import Foundation
 */
 public class AmbientLightBridge : BaseSensorBridge, IAmbientLight, APIBridge {
 
-     /**
-        API Delegate.
-     */
-     private var delegate : IAmbientLight? = nil
+    /**
+       API Delegate.
+    */
+    private var delegate : IAmbientLight? = nil
 
-     /**
-        Constructor with delegate.
+    /**
+       Constructor with delegate.
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public init(delegate : IAmbientLight?) {
-          super.init()
-          self.delegate = delegate
-     }
-     /**
-        Get the delegate implementation.
-        @return IAmbientLight delegate that manages platform specific functions..
-     */
-     public final func getDelegate() -> IAmbientLight? {
-          return self.delegate
-     }
-     /**
-        Set the delegate implementation.
+       @param delegate The delegate implementing platform specific functions.
+    */
+    public init(delegate : IAmbientLight?) {
+        super.init()
+        self.delegate = delegate
+    }
+    /**
+       Get the delegate implementation.
+       @return IAmbientLight delegate that manages platform specific functions..
+    */
+    public final func getDelegate() -> IAmbientLight? {
+        return self.delegate
+    }
+    /**
+       Set the delegate implementation.
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public final func setDelegate(delegate : IAmbientLight) {
-          self.delegate = delegate;
-     }
+       @param delegate The delegate implementing platform specific functions.
+    */
+    public final func setDelegate(delegate : IAmbientLight) {
+        self.delegate = delegate;
+    }
 
-     /**
-        Invokes the given method specified in the API request object.
+    /**
+       Invokes the given method specified in the API request object.
 
-        @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
-     */
-     public override func invoke(request : APIRequest) -> String? {
-          var responseJSON : String? = ""
-          switch request.getMethodName()! {
-               default:
-                    // 404 - response null.
-                    responseJSON = nil
-          }
-          return responseJSON
-     }
+       @param request APIRequest object containing method name and parameters.
+       @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+    */
+    public override func invoke(request : APIRequest) -> String? {
+        var responseJSON : String? = ""
+        switch request.getMethodName()! {
+            default:
+                // 404 - response null.
+                responseJSON = nil
+        }
+        return responseJSON
+    }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

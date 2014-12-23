@@ -39,41 +39,41 @@ import Foundation
 */
 public enum ILoggingLogLevel {
 
-     case DEBUG
-     case WARN
-     case ERROR
-     case INFO
-     case Unknown
+    case DEBUG
+    case WARN
+    case ERROR
+    case INFO
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .DEBUG: return "DEBUG"
-               case .WARN: return "WARN"
-               case .ERROR: return "ERROR"
-               case .INFO: return "INFO"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .DEBUG: return "DEBUG"
+            case .WARN: return "WARN"
+            case .ERROR: return "ERROR"
+            case .INFO: return "INFO"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> ILoggingLogLevel {
-          if let validString = string {
-               switch validString {
-                    case "DEBUG": return .DEBUG
-                    case "WARN": return .WARN
-                    case "ERROR": return .ERROR
-                    case "INFO": return .INFO
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> ILoggingLogLevel {
+        if let validString = string {
+            switch validString {
+                case "DEBUG": return .DEBUG
+                case "WARN": return .WARN
+                case "ERROR": return .ERROR
+                case "INFO": return .INFO
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

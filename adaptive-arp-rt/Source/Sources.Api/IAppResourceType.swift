@@ -39,56 +39,56 @@ import Foundation
 */
 public enum IAppResourceType {
 
-     case Html
-     case Css
-     case JavaScript
-     case Image
-     case Video
-     case Audio
-     case Property
-     case Database
-     case Other
-     case Unknown
+    case Html
+    case Css
+    case JavaScript
+    case Image
+    case Video
+    case Audio
+    case Property
+    case Database
+    case Other
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .Html: return "Html"
-               case .Css: return "Css"
-               case .JavaScript: return "JavaScript"
-               case .Image: return "Image"
-               case .Video: return "Video"
-               case .Audio: return "Audio"
-               case .Property: return "Property"
-               case .Database: return "Database"
-               case .Other: return "Other"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .Html: return "Html"
+            case .Css: return "Css"
+            case .JavaScript: return "JavaScript"
+            case .Image: return "Image"
+            case .Video: return "Video"
+            case .Audio: return "Audio"
+            case .Property: return "Property"
+            case .Database: return "Database"
+            case .Other: return "Other"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> IAppResourceType {
-          if let validString = string {
-               switch validString {
-                    case "Html": return .Html
-                    case "Css": return .Css
-                    case "JavaScript": return .JavaScript
-                    case "Image": return .Image
-                    case "Video": return .Video
-                    case "Audio": return .Audio
-                    case "Property": return .Property
-                    case "Database": return .Database
-                    case "Other": return .Other
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> IAppResourceType {
+        if let validString = string {
+            switch validString {
+                case "Html": return .Html
+                case "Css": return .Css
+                case "JavaScript": return .JavaScript
+                case "Image": return .Image
+                case "Video": return .Video
+                case "Audio": return .Audio
+                case "Property": return .Property
+                case "Database": return .Database
+                case "Other": return .Other
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

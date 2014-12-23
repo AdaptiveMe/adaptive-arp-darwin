@@ -43,107 +43,107 @@ import Foundation
 */
 public class DatabaseRow : APIBean {
 
-     /**
-        The values of the row.
-     */
-     var values : [String]?
+    /**
+       The values of the row.
+    */
+    var values : [String]?
 
-     /**
-        Default constructor
+    /**
+       Default constructor
 
-        @since ARP1.0
-     */
-     public override init() {
-          super.init()
-     }
+       @since ARP1.0
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Constructor for implementation using.
+    /**
+       Constructor for implementation using.
 
-        @param values The values of the row
-        @since ARP1.0
-     */
-     public init(values: [String]) {
-          super.init()
-          self.values = values
-     }
+       @param values The values of the row
+       @since ARP1.0
+    */
+    public init(values: [String]) {
+        super.init()
+        self.values = values
+    }
 
-     /**
-        Returns the values of the row.
+    /**
+       Returns the values of the row.
 
-        @return The values of the row.
-        @since ARP1.0
-     */
-     public func getValues() -> [String]? {
-          return self.values
-     }
+       @return The values of the row.
+       @since ARP1.0
+    */
+    public func getValues() -> [String]? {
+        return self.values
+    }
 
-     /**
-        Sets the values of the row.
+    /**
+       Sets the values of the row.
 
-        @param values The values of the row.
-        @since ARP1.0
-     */
-     public func setValues(values: [String]) {
-          self.values = values
-     }
+       @param values The values of the row.
+       @since ARP1.0
+    */
+    public func setValues(values: [String]) {
+        self.values = values
+    }
 
 
-     /**
-        JSON Serialization and deserialization support.
-     */
-     struct Serializer {
-          static func fromJSON(json : String) -> DatabaseRow {
-               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
-               var jsonError: NSError?
-               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
-               return fromDictionary(dict)
-          }
+    /**
+       JSON Serialization and deserialization support.
+    */
+    struct Serializer {
+        static func fromJSON(json : String) -> DatabaseRow {
+            var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+            var jsonError: NSError?
+            let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+            return fromDictionary(dict)
+        }
 
-          static func fromDictionary(dict : NSDictionary) -> DatabaseRow {
-               var resultObject : DatabaseRow = DatabaseRow()
+        static func fromDictionary(dict : NSDictionary) -> DatabaseRow {
+            var resultObject : DatabaseRow = DatabaseRow()
 
-               if let value : AnyObject = dict.objectForKey("values") {
-                    if "\(value)" as NSString != "<null>" {
-                         var values : [String] = [String]()
-                         for (var i = 0;i < (value as NSArray).count ; i++) {
-                              values.append((value as NSArray)[i] as String)
-                         }
-                         resultObject.values = values
+            if let value : AnyObject = dict.objectForKey("values") {
+                if "\(value)" as NSString != "<null>" {
+                    var values : [String] = [String]()
+                    for (var i = 0;i < (value as NSArray).count ; i++) {
+                        values.append((value as NSArray)[i] as String)
                     }
-               }
+                    resultObject.values = values
+                }
+            }
 
-               return resultObject
-          }
+            return resultObject
+        }
 
-          static func toJSON(object: DatabaseRow) -> String {
-               var jsonString : NSMutableString = NSMutableString()
-               // Start Object to JSON
-               jsonString.appendString("{ ")
+        static func toJSON(object: DatabaseRow) -> String {
+            var jsonString : NSMutableString = NSMutableString()
+            // Start Object to JSON
+            jsonString.appendString("{ ")
 
-               // Fields.
-               if (object.values != nil) {
-                    // Start array of objects.
-                    jsonString.appendString("\"values\": [");
+            // Fields.
+            if (object.values != nil) {
+                // Start array of objects.
+                jsonString.appendString("\"values\": [");
 
-                    for var i = 0; i < object.values!.count; i++ {
-                         jsonString.appendString("\"\(JSONUtil.escapeString(object.values![i]))\"");
-                         if (i < object.values!.count-1) {
-                              jsonString.appendString(", ");
-                         }
+                for var i = 0; i < object.values!.count; i++ {
+                    jsonString.appendString("\"\(JSONUtil.escapeString(object.values![i]))\"");
+                    if (i < object.values!.count-1) {
+                        jsonString.appendString(", ");
                     }
+                }
 
-                    // End array of objects.
-                    jsonString.appendString("]");
-               } else {
-                    jsonString.appendString("\"values\": null")
-               }
+                // End array of objects.
+                jsonString.appendString("]");
+            } else {
+                jsonString.appendString("\"values\": null")
+            }
 
-               // End Object to JSON
-               jsonString.appendString(" }")
-               return jsonString
-          }
-     }
+            // End Object to JSON
+            jsonString.appendString(" }")
+            return jsonString
+        }
+    }
 }
 
 /**

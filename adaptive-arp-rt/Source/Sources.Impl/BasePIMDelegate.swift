@@ -40,24 +40,24 @@ import Foundation
 */
 public class BasePIMDelegate : NSObject, IBasePIM {
 
-     /**
-        Group of API.
-     */
-     private var apiGroup : IAdaptiveRPGroup?
+    /**
+       Group of API.
+    */
+    private var apiGroup : IAdaptiveRPGroup?
 
-     /**
-        Default constructor.
-     */
-     public override init() {
-          self.apiGroup = IAdaptiveRPGroup.PIM
-     }
+    /**
+       Default constructor.
+    */
+    public override init() {
+        self.apiGroup = IAdaptiveRPGroup.PIM
+    }
 
-     /**
-        Return the API group for the given interface.
-     */
-     public final func getAPIGroup() -> IAdaptiveRPGroup {
-          return self.apiGroup!
-     }
+    /**
+       Return the API group for the given interface.
+    */
+    public final func getAPIGroup() -> IAdaptiveRPGroup {
+        return self.apiGroup!
+    }
 
 }
 /**

@@ -40,48 +40,48 @@ import Foundation
 */
 public class FileListResultCallbackImpl : BaseCallbackImpl, IFileListResultCallback {
 
-     /**
-        Constructor with callback id.
+    /**
+       Constructor with callback id.
 
-        @param id  The id of the callback.
-     */
-     public override init(id : Int) {
-          super.init(id: id)
-     }
+       @param id  The id of the callback.
+    */
+    public override init(id : Int) {
+        super.init(id: id)
+    }
 
-     /**
-        On error result of a file operation.
+    /**
+       On error result of a file operation.
 
-        @param error Error processing the request.
-        @since ARP1.0
-     */
-     public func onError(error : IFileListResultCallbackError) { 
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackError( '\(getId())', JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param error Error processing the request.
+       @since ARP1.0
+    */
+    public func onError(error : IFileListResultCallbackError) { 
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackError( '\(getId())', JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
-     /**
-        On correct result of a file operation.
+    /**
+       On correct result of a file operation.
 
-        @param files Array of resulting files/folders.
-        @since ARP1.0
-     */
-     public func onResult(files : [FileDescriptor]) { 
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param files Array of resulting files/folders.
+       @since ARP1.0
+    */
+    public func onResult(files : [FileDescriptor]) { 
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
-     /**
-        On partial result of a file operation, containing a warning.
+    /**
+       On partial result of a file operation, containing a warning.
 
-        @param files   Array of resulting files/folders.
-        @param warning Warning condition encountered.
-        @since ARP1.0
-     */
-     public func onWarning(files : [FileDescriptor], warning : IFileListResultCallbackWarning) { 
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param files   Array of resulting files/folders.
+       @param warning Warning condition encountered.
+       @since ARP1.0
+    */
+    public func onWarning(files : [FileDescriptor], warning : IFileListResultCallbackWarning) { 
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
 }
 /**

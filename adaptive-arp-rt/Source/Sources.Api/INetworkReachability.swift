@@ -42,23 +42,23 @@ import Foundation
    @version 1.0
 */
 public protocol INetworkReachability : IBaseCommunication {
-     /**
-        Whether there is connectivity to a host, via domain name or ip address, or not.
+    /**
+       Whether there is connectivity to a host, via domain name or ip address, or not.
 
-        @param host     domain name or ip address of host.
-        @param callback Callback called at the end.
-        @since ARP1.0
-     */
-     func isNetworkReachable(host : String, callback : INetworkReachabilityCallback)
+       @param host     domain name or ip address of host.
+       @param callback Callback called at the end.
+       @since ARP1.0
+    */
+    func isNetworkReachable(host : String, callback : INetworkReachabilityCallback)
 
-     /**
-        Whether there is connectivity to an url of a service or not.
+    /**
+       Whether there is connectivity to an url of a service or not.
 
-        @param url      to look for
-        @param callback Callback called at the end
-        @since ARP1.0
-     */
-     func isNetworkServiceReachable(url : String, callback : INetworkReachabilityCallback)
+       @param url      to look for
+       @param callback Callback called at the end
+       @since ARP1.0
+    */
+    func isNetworkServiceReachable(url : String, callback : INetworkReachabilityCallback)
 
 }
 

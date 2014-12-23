@@ -43,8 +43,8 @@ import Foundation
 */
 public class Lifecycle : APIBean {
 
-     /**
-        Represent the state of the app
+    /**
+       Represent the state of the app
 <p/>
 Possible lifecycle States:
 <p/>
@@ -56,86 +56,86 @@ Possible lifecycle States:
 4.2 PausedRun  - In background, scheduled background activity (periodic network access, gps access, etc.)
 5. Resuming    - Before going to foreground, followed by Running state.
 6. Stopping    - Before stopping.
-     */
-     var state : LifecycleState?
+    */
+    var state : LifecycleState?
 
-     /**
-        Default constructor
+    /**
+       Default constructor
 
-        @since ARP1.0
-     */
-     public override init() {
-          super.init()
-     }
+       @since ARP1.0
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Constructor used by the implementation
+    /**
+       Constructor used by the implementation
 
-        @param state of the app
-        @since ARP1.0
-     */
-     public init(state: LifecycleState) {
-          super.init()
-          self.state = state
-     }
+       @param state of the app
+       @since ARP1.0
+    */
+    public init(state: LifecycleState) {
+        super.init()
+        self.state = state
+    }
 
-     /**
-        Returns the state of the application
+    /**
+       Returns the state of the application
 
-        @return state of the app
-        @since ARP1.0
-     */
-     public func getState() -> LifecycleState? {
-          return self.state
-     }
+       @return state of the app
+       @since ARP1.0
+    */
+    public func getState() -> LifecycleState? {
+        return self.state
+    }
 
-     /**
-        Set the State of the application
+    /**
+       Set the State of the application
 
-        @param state of the app
-        @since ARP1.0
-     */
-     public func setState(state: LifecycleState) {
-          self.state = state
-     }
+       @param state of the app
+       @since ARP1.0
+    */
+    public func setState(state: LifecycleState) {
+        self.state = state
+    }
 
 
-     /**
-        JSON Serialization and deserialization support.
-     */
-     struct Serializer {
-          static func fromJSON(json : String) -> Lifecycle {
-               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
-               var jsonError: NSError?
-               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
-               return fromDictionary(dict)
-          }
+    /**
+       JSON Serialization and deserialization support.
+    */
+    struct Serializer {
+        static func fromJSON(json : String) -> Lifecycle {
+            var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+            var jsonError: NSError?
+            let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+            return fromDictionary(dict)
+        }
 
-          static func fromDictionary(dict : NSDictionary) -> Lifecycle {
-               var resultObject : Lifecycle = Lifecycle()
+        static func fromDictionary(dict : NSDictionary) -> Lifecycle {
+            var resultObject : Lifecycle = Lifecycle()
 
-               if let value : AnyObject = dict.objectForKey("state") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.state = LifecycleState.toEnum(((value as NSDictionary)["value"]) as NSString)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("state") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.state = LifecycleState.toEnum(((value as NSDictionary)["value"]) as NSString)
+                }
+            }
 
-               return resultObject
-          }
+            return resultObject
+        }
 
-          static func toJSON(object: Lifecycle) -> String {
-               var jsonString : NSMutableString = NSMutableString()
-               // Start Object to JSON
-               jsonString.appendString("{ ")
+        static func toJSON(object: Lifecycle) -> String {
+            var jsonString : NSMutableString = NSMutableString()
+            // Start Object to JSON
+            jsonString.appendString("{ ")
 
-               // Fields.
-               object.state != nil ? jsonString.appendString("\"state\": { \"value\": \"\(JSONUtil.escapeString(object.state!.toString()))\"}") : jsonString.appendString("\"state\": null")
+            // Fields.
+            object.state != nil ? jsonString.appendString("\"state\": { \"value\": \"\(JSONUtil.escapeString(object.state!.toString()))\"}") : jsonString.appendString("\"state\": null")
 
-               // End Object to JSON
-               jsonString.appendString(" }")
-               return jsonString
-          }
-     }
+            // End Object to JSON
+            jsonString.appendString(" }")
+            return jsonString
+        }
+    }
 }
 
 /**

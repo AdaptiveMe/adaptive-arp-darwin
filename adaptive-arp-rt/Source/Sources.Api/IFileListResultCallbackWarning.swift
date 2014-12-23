@@ -39,32 +39,32 @@ import Foundation
 */
 public enum IFileListResultCallbackWarning {
 
-     case PartialResult
-     case Unknown
+    case PartialResult
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .PartialResult: return "PartialResult"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .PartialResult: return "PartialResult"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> IFileListResultCallbackWarning {
-          if let validString = string {
-               switch validString {
-                    case "PartialResult": return .PartialResult
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> IFileListResultCallbackWarning {
+        if let validString = string {
+            switch validString {
+                case "PartialResult": return .PartialResult
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

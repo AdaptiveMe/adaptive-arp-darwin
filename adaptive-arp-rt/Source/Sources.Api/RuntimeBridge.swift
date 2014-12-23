@@ -40,112 +40,112 @@ import Foundation
 */
 public class RuntimeBridge : BaseSystemBridge, IRuntime, APIBridge {
 
-     /**
-        API Delegate.
-     */
-     private var delegate : IRuntime? = nil
+    /**
+       API Delegate.
+    */
+    private var delegate : IRuntime? = nil
 
-     /**
-        Constructor with delegate.
+    /**
+       Constructor with delegate.
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public init(delegate : IRuntime?) {
-          super.init()
-          self.delegate = delegate
-     }
-     /**
-        Get the delegate implementation.
-        @return IRuntime delegate that manages platform specific functions..
-     */
-     public final func getDelegate() -> IRuntime? {
-          return self.delegate
-     }
-     /**
-        Set the delegate implementation.
+       @param delegate The delegate implementing platform specific functions.
+    */
+    public init(delegate : IRuntime?) {
+        super.init()
+        self.delegate = delegate
+    }
+    /**
+       Get the delegate implementation.
+       @return IRuntime delegate that manages platform specific functions..
+    */
+    public final func getDelegate() -> IRuntime? {
+        return self.delegate
+    }
+    /**
+       Set the delegate implementation.
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public final func setDelegate(delegate : IRuntime) {
-          self.delegate = delegate;
-     }
+       @param delegate The delegate implementing platform specific functions.
+    */
+    public final func setDelegate(delegate : IRuntime) {
+        self.delegate = delegate;
+    }
 
-     /**
-        Dismiss the current Application
+    /**
+       Dismiss the current Application
 
-        @since ARP1.0
-     */
-     public func dismissApplication() {
-          // Start logging elapsed time.
-          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
+       @since ARP1.0
+    */
+    public func dismissApplication() {
+        // Start logging elapsed time.
+        var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+        var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger != nil) {
-               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "RuntimeBridge executing dismissApplication.")
-          }
+        if (logger != nil) {
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "RuntimeBridge executing dismissApplication.")
+        }
 
-          if (self.delegate != nil) {
-               self.delegate!.dismissApplication()
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "RuntimeBridge executed 'dismissApplication' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
-                }
-          } else {
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "RuntimeBridge no delegate for 'dismissApplication'.")
-               }
-          }
-          
-     }
+        if (self.delegate != nil) {
+            self.delegate!.dismissApplication()
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "RuntimeBridge executed 'dismissApplication' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+             }
+        } else {
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "RuntimeBridge no delegate for 'dismissApplication'.")
+            }
+        }
+        
+    }
 
-     /**
-        Whether the application dismiss the splash screen successfully or not
+    /**
+       Whether the application dismiss the splash screen successfully or not
 
-        @return true if the application has dismissed the splash screen;false otherwise
-        @since ARP1.0
-     */
-     public func dismissSplashScreen() -> Bool {
-          // Start logging elapsed time.
-          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
+       @return true if the application has dismissed the splash screen;false otherwise
+       @since ARP1.0
+    */
+    public func dismissSplashScreen() -> Bool {
+        // Start logging elapsed time.
+        var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+        var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger != nil) {
-               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "RuntimeBridge executing dismissSplashScreen.")
-          }
+        if (logger != nil) {
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "RuntimeBridge executing dismissSplashScreen.")
+        }
 
-          var result : Bool = false
-          if (self.delegate != nil) {
-               result = self.delegate!.dismissSplashScreen()
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "RuntimeBridge executed 'dismissSplashScreen' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
-                }
-          } else {
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "RuntimeBridge no delegate for 'dismissSplashScreen'.")
-               }
-          }
-          return result          
-     }
+        var result : Bool = false
+        if (self.delegate != nil) {
+            result = self.delegate!.dismissSplashScreen()
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "RuntimeBridge executed 'dismissSplashScreen' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+             }
+        } else {
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "RuntimeBridge no delegate for 'dismissSplashScreen'.")
+            }
+        }
+        return result        
+    }
 
-     /**
-        Invokes the given method specified in the API request object.
+    /**
+       Invokes the given method specified in the API request object.
 
-        @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
-     */
-     public override func invoke(request : APIRequest) -> String? {
-          var responseJSON : String? = ""
-          switch request.getMethodName()! {
-               case "dismissApplication":
-                    self.dismissApplication();
-               case "dismissSplashScreen":
-                    var response1 : Bool? = self.dismissSplashScreen()
-                    responseJSON = nil //TODO - Serialize this.gson.toJson(response1);
-               default:
-                    // 404 - response null.
-                    responseJSON = nil
-          }
-          return responseJSON
-     }
+       @param request APIRequest object containing method name and parameters.
+       @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+    */
+    public override func invoke(request : APIRequest) -> String? {
+        var responseJSON : String? = ""
+        switch request.getMethodName()! {
+            case "dismissApplication":
+                self.dismissApplication();
+            case "dismissSplashScreen":
+                var response1 : Bool? = self.dismissSplashScreen()
+                responseJSON = nil //TODO - Serialize this.gson.toJson(response1);
+            default:
+                // 404 - response null.
+                responseJSON = nil
+        }
+        return responseJSON
+    }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

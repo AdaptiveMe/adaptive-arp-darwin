@@ -42,14 +42,14 @@ import Foundation
    @version 1.0
 */
 public protocol ITelephony : IBaseCommunication {
-     /**
-        Invoke a phone call
+    /**
+       Invoke a phone call
 
-        @param number to call
-        @return Status of the call
-        @since ARP1.0
-     */
-     func call(number : String) -> ITelephonyStatus 
+       @param number to call
+       @return Status of the call
+       @since ARP1.0
+    */
+    func call(number : String) -> ITelephonyStatus 
 
 }
 

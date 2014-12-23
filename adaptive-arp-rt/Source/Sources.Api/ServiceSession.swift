@@ -43,159 +43,159 @@ import Foundation
 */
 public class ServiceSession : NSObject {
 
-     /**
-        The attributes of the response
-     */
-     var attributes : [String]?
-     /**
-        The cookies of the response
-     */
-     var cookies : [ServiceCookie]?
+    /**
+       The attributes of the response
+    */
+    var attributes : [String]?
+    /**
+       The cookies of the response
+    */
+    var cookies : [ServiceCookie]?
 
-     /**
-        Default constructor
+    /**
+       Default constructor
 
-        @since ARP1.0
-     */
-     public override init() {
-          super.init()
-     }
+       @since ARP1.0
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Constructor with fields
+    /**
+       Constructor with fields
 
-        @param cookies    The cookies of the response
-        @param attributes Attributes of the response
-        @since ARP1.0
-     */
-     public init(cookies: [ServiceCookie], attributes: [String]) {
-          super.init()
-          self.cookies = cookies
-          self.attributes = attributes
-     }
+       @param cookies    The cookies of the response
+       @param attributes Attributes of the response
+       @since ARP1.0
+    */
+    public init(cookies: [ServiceCookie], attributes: [String]) {
+        super.init()
+        self.cookies = cookies
+        self.attributes = attributes
+    }
 
-     /**
-        Gets the attributes of the response
+    /**
+       Gets the attributes of the response
 
-        @return Attributes of the response
-        @since ARP1.0
-     */
-     public func getAttributes() -> [String]? {
-          return self.attributes
-     }
+       @return Attributes of the response
+       @since ARP1.0
+    */
+    public func getAttributes() -> [String]? {
+        return self.attributes
+    }
 
-     /**
-        Sets the attributes for the response
+    /**
+       Sets the attributes for the response
 
-        @param attributes Attributes of the response
-        @since ARP1.0
-     */
-     public func setAttributes(attributes: [String]) {
-          self.attributes = attributes
-     }
+       @param attributes Attributes of the response
+       @since ARP1.0
+    */
+    public func setAttributes(attributes: [String]) {
+        self.attributes = attributes
+    }
 
-     /**
-        Returns the cookies of the response
+    /**
+       Returns the cookies of the response
 
-        @return The cookies of the response
-        @since ARP1.0
-     */
-     public func getCookies() -> [ServiceCookie]? {
-          return self.cookies
-     }
+       @return The cookies of the response
+       @since ARP1.0
+    */
+    public func getCookies() -> [ServiceCookie]? {
+        return self.cookies
+    }
 
-     /**
-        Sets the cookies of the response
+    /**
+       Sets the cookies of the response
 
-        @param cookies The cookies of the response
-        @since ARP1.0
-     */
-     public func setCookies(cookies: [ServiceCookie]) {
-          self.cookies = cookies
-     }
+       @param cookies The cookies of the response
+       @since ARP1.0
+    */
+    public func setCookies(cookies: [ServiceCookie]) {
+        self.cookies = cookies
+    }
 
 
-     /**
-        JSON Serialization and deserialization support.
-     */
-     struct Serializer {
-          static func fromJSON(json : String) -> ServiceSession {
-               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
-               var jsonError: NSError?
-               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
-               return fromDictionary(dict)
-          }
+    /**
+       JSON Serialization and deserialization support.
+    */
+    struct Serializer {
+        static func fromJSON(json : String) -> ServiceSession {
+            var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+            var jsonError: NSError?
+            let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+            return fromDictionary(dict)
+        }
 
-          static func fromDictionary(dict : NSDictionary) -> ServiceSession {
-               var resultObject : ServiceSession = ServiceSession()
+        static func fromDictionary(dict : NSDictionary) -> ServiceSession {
+            var resultObject : ServiceSession = ServiceSession()
 
-               if let value : AnyObject = dict.objectForKey("attributes") {
-                    if "\(value)" as NSString != "<null>" {
-                         var attributes : [String] = [String]()
-                         for (var i = 0;i < (value as NSArray).count ; i++) {
-                              attributes.append((value as NSArray)[i] as String)
-                         }
-                         resultObject.attributes = attributes
+            if let value : AnyObject = dict.objectForKey("attributes") {
+                if "\(value)" as NSString != "<null>" {
+                    var attributes : [String] = [String]()
+                    for (var i = 0;i < (value as NSArray).count ; i++) {
+                        attributes.append((value as NSArray)[i] as String)
                     }
-               }
+                    resultObject.attributes = attributes
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("cookies") {
-                    if "\(value)" as NSString != "<null>" {
-                         var cookies : [ServiceCookie] = [ServiceCookie]()
-                         for (var i = 0;i < (value as NSArray).count ; i++) {
-                              cookies.append(ServiceCookie.Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))
-                         }
-                         resultObject.cookies = cookies
+            if let value : AnyObject = dict.objectForKey("cookies") {
+                if "\(value)" as NSString != "<null>" {
+                    var cookies : [ServiceCookie] = [ServiceCookie]()
+                    for (var i = 0;i < (value as NSArray).count ; i++) {
+                        cookies.append(ServiceCookie.Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))
                     }
-               }
+                    resultObject.cookies = cookies
+                }
+            }
 
-               return resultObject
-          }
+            return resultObject
+        }
 
-          static func toJSON(object: ServiceSession) -> String {
-               var jsonString : NSMutableString = NSMutableString()
-               // Start Object to JSON
-               jsonString.appendString("{ ")
+        static func toJSON(object: ServiceSession) -> String {
+            var jsonString : NSMutableString = NSMutableString()
+            // Start Object to JSON
+            jsonString.appendString("{ ")
 
-               // Fields.
-               if (object.attributes != nil) {
-                    // Start array of objects.
-                    jsonString.appendString("\"attributes\": [");
+            // Fields.
+            if (object.attributes != nil) {
+                // Start array of objects.
+                jsonString.appendString("\"attributes\": [");
 
-                    for var i = 0; i < object.attributes!.count; i++ {
-                         jsonString.appendString("\"\(JSONUtil.escapeString(object.attributes![i]))\"");
-                         if (i < object.attributes!.count-1) {
-                              jsonString.appendString(", ");
-                         }
+                for var i = 0; i < object.attributes!.count; i++ {
+                    jsonString.appendString("\"\(JSONUtil.escapeString(object.attributes![i]))\"");
+                    if (i < object.attributes!.count-1) {
+                        jsonString.appendString(", ");
                     }
+                }
 
-                    // End array of objects.
-                    jsonString.appendString("], ");
-               } else {
-                    jsonString.appendString("\"attributes\": null, ")
-               }
-               if (object.cookies != nil) {
-                    // Start array of objects.
-                    jsonString.appendString("\"cookies\": [");
+                // End array of objects.
+                jsonString.appendString("], ");
+            } else {
+                jsonString.appendString("\"attributes\": null, ")
+            }
+            if (object.cookies != nil) {
+                // Start array of objects.
+                jsonString.appendString("\"cookies\": [");
 
-                    for var i = 0; i < object.cookies!.count; i++ {
-                         jsonString.appendString(ServiceCookie.Serializer.toJSON(object.cookies![i]))
-                         if (i < object.cookies!.count-1) {
-                              jsonString.appendString(", ");
-                         }
+                for var i = 0; i < object.cookies!.count; i++ {
+                    jsonString.appendString(ServiceCookie.Serializer.toJSON(object.cookies![i]))
+                    if (i < object.cookies!.count-1) {
+                        jsonString.appendString(", ");
                     }
+                }
 
-                    // End array of objects.
-                    jsonString.appendString("]");
-               } else {
-                    jsonString.appendString("\"cookies\": null")
-               }
+                // End array of objects.
+                jsonString.appendString("]");
+            } else {
+                jsonString.appendString("\"cookies\": null")
+            }
 
-               // End Object to JSON
-               jsonString.appendString(" }")
-               return jsonString
-          }
-     }
+            // End Object to JSON
+            jsonString.appendString(" }")
+            return jsonString
+        }
+    }
 }
 
 /**

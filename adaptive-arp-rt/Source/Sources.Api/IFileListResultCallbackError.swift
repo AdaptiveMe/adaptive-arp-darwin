@@ -39,35 +39,35 @@ import Foundation
 */
 public enum IFileListResultCallbackError {
 
-     case InexistentFile
-     case Unauthorized
-     case Unknown
+    case InexistentFile
+    case Unauthorized
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .InexistentFile: return "InexistentFile"
-               case .Unauthorized: return "Unauthorized"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .InexistentFile: return "InexistentFile"
+            case .Unauthorized: return "Unauthorized"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> IFileListResultCallbackError {
-          if let validString = string {
-               switch validString {
-                    case "InexistentFile": return .InexistentFile
-                    case "Unauthorized": return .Unauthorized
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> IFileListResultCallbackError {
+        if let validString = string {
+            switch validString {
+                case "InexistentFile": return .InexistentFile
+                case "Unauthorized": return .Unauthorized
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

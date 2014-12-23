@@ -40,33 +40,33 @@ import Foundation
 */
 public class RuntimeDelegate : BaseSystemDelegate, IRuntime {
 
-     /**
-        Default Constructor.
-     */
-     public override init() {
-          super.init()
-     }
+    /**
+       Default Constructor.
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Dismiss the current Application
+    /**
+       Dismiss the current Application
 
-        @since ARP1.0
-     */
-     public func dismissApplication() {
-          // TODO: Not implemented.
-     }
+       @since ARP1.0
+    */
+    public func dismissApplication() {
+        // TODO: Not implemented.
+    }
 
-     /**
-        Whether the application dismiss the splash screen successfully or not
+    /**
+       Whether the application dismiss the splash screen successfully or not
 
-        @return true if the application has dismissed the splash screen;false otherwise
-        @since ARP1.0
-     */
-     public func dismissSplashScreen() -> Bool {
-          var response : Bool
-          // TODO: Not implemented.
-          return false
-     }
+       @return true if the application has dismissed the splash screen;false otherwise
+       @since ARP1.0
+    */
+    public func dismissSplashScreen() -> Bool {
+        var response : Bool
+        // TODO: Not implemented.
+        return false
+    }
 
 }
 /**

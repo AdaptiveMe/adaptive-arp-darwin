@@ -42,21 +42,21 @@ import Foundation
    @version 1.0
 */
 public protocol IAppContext : NSObjectProtocol {
-     /**
-        The main application context. This should be cast to the platform specific implementation.
+    /**
+       The main application context. This should be cast to the platform specific implementation.
 
-        @return Object representing the specific singleton application context provided by the OS.
-        @since ARP1.0
-     */
-     func getContext() -> AnyObject 
+       @return Object representing the specific singleton application context provided by the OS.
+       @since ARP1.0
+    */
+    func getContext() -> AnyObject 
 
-     /**
-        The type of context provided by the getContext method.
+    /**
+       The type of context provided by the getContext method.
 
-        @return Type of platform context.
-        @since ARP1.0
-     */
-     func getContextType() -> IOSType 
+       @return Type of platform context.
+       @since ARP1.0
+    */
+    func getContextType() -> IOSType 
 
 }
 

@@ -39,62 +39,62 @@ import Foundation
 */
 public enum INetworkReachabilityCallbackError {
 
-     case Forbidden
-     case NotFound
-     case MethodNotAllowed
-     case NotAllowed
-     case NotAuthenticated
-     case TimeOut
-     case NoResponse
-     case Unreachable
-     case Wrong_Params
-     case MalformedUrl
-     case DomainUnresolvable
-     case Unknown
+    case Forbidden
+    case NotFound
+    case MethodNotAllowed
+    case NotAllowed
+    case NotAuthenticated
+    case TimeOut
+    case NoResponse
+    case Unreachable
+    case Wrong_Params
+    case MalformedUrl
+    case DomainUnresolvable
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .Forbidden: return "Forbidden"
-               case .NotFound: return "NotFound"
-               case .MethodNotAllowed: return "MethodNotAllowed"
-               case .NotAllowed: return "NotAllowed"
-               case .NotAuthenticated: return "NotAuthenticated"
-               case .TimeOut: return "TimeOut"
-               case .NoResponse: return "NoResponse"
-               case .Unreachable: return "Unreachable"
-               case .Wrong_Params: return "Wrong_Params"
-               case .MalformedUrl: return "MalformedUrl"
-               case .DomainUnresolvable: return "DomainUnresolvable"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .Forbidden: return "Forbidden"
+            case .NotFound: return "NotFound"
+            case .MethodNotAllowed: return "MethodNotAllowed"
+            case .NotAllowed: return "NotAllowed"
+            case .NotAuthenticated: return "NotAuthenticated"
+            case .TimeOut: return "TimeOut"
+            case .NoResponse: return "NoResponse"
+            case .Unreachable: return "Unreachable"
+            case .Wrong_Params: return "Wrong_Params"
+            case .MalformedUrl: return "MalformedUrl"
+            case .DomainUnresolvable: return "DomainUnresolvable"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> INetworkReachabilityCallbackError {
-          if let validString = string {
-               switch validString {
-                    case "Forbidden": return .Forbidden
-                    case "NotFound": return .NotFound
-                    case "MethodNotAllowed": return .MethodNotAllowed
-                    case "NotAllowed": return .NotAllowed
-                    case "NotAuthenticated": return .NotAuthenticated
-                    case "TimeOut": return .TimeOut
-                    case "NoResponse": return .NoResponse
-                    case "Unreachable": return .Unreachable
-                    case "Wrong_Params": return .Wrong_Params
-                    case "MalformedUrl": return .MalformedUrl
-                    case "DomainUnresolvable": return .DomainUnresolvable
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> INetworkReachabilityCallbackError {
+        if let validString = string {
+            switch validString {
+                case "Forbidden": return .Forbidden
+                case "NotFound": return .NotFound
+                case "MethodNotAllowed": return .MethodNotAllowed
+                case "NotAllowed": return .NotAllowed
+                case "NotAuthenticated": return .NotAuthenticated
+                case "TimeOut": return .TimeOut
+                case "NoResponse": return .NoResponse
+                case "Unreachable": return .Unreachable
+                case "Wrong_Params": return .Wrong_Params
+                case "MalformedUrl": return .MalformedUrl
+                case "DomainUnresolvable": return .DomainUnresolvable
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

@@ -39,44 +39,44 @@ import Foundation
 */
 public enum ContactSocialNetwork {
 
-     case Twitter
-     case Facebook
-     case GooglePlus
-     case LinkedIn
-     case Flickr
-     case Unknown
+    case Twitter
+    case Facebook
+    case GooglePlus
+    case LinkedIn
+    case Flickr
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .Twitter: return "Twitter"
-               case .Facebook: return "Facebook"
-               case .GooglePlus: return "GooglePlus"
-               case .LinkedIn: return "LinkedIn"
-               case .Flickr: return "Flickr"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .Twitter: return "Twitter"
+            case .Facebook: return "Facebook"
+            case .GooglePlus: return "GooglePlus"
+            case .LinkedIn: return "LinkedIn"
+            case .Flickr: return "Flickr"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> ContactSocialNetwork {
-          if let validString = string {
-               switch validString {
-                    case "Twitter": return .Twitter
-                    case "Facebook": return .Facebook
-                    case "GooglePlus": return .GooglePlus
-                    case "LinkedIn": return .LinkedIn
-                    case "Flickr": return .Flickr
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> ContactSocialNetwork {
+        if let validString = string {
+            switch validString {
+                case "Twitter": return .Twitter
+                case "Facebook": return .Facebook
+                case "GooglePlus": return .GooglePlus
+                case "LinkedIn": return .LinkedIn
+                case "Flickr": return .Flickr
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

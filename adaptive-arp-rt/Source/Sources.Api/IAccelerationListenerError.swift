@@ -39,35 +39,35 @@ import Foundation
 */
 public enum IAccelerationListenerError {
 
-     case Unauthorized
-     case Unavailable
-     case Unknown
+    case Unauthorized
+    case Unavailable
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .Unauthorized: return "Unauthorized"
-               case .Unavailable: return "Unavailable"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .Unauthorized: return "Unauthorized"
+            case .Unavailable: return "Unavailable"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> IAccelerationListenerError {
-          if let validString = string {
-               switch validString {
-                    case "Unauthorized": return .Unauthorized
-                    case "Unavailable": return .Unavailable
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> IAccelerationListenerError {
+        if let validString = string {
+            switch validString {
+                case "Unauthorized": return .Unauthorized
+                case "Unavailable": return .Unavailable
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

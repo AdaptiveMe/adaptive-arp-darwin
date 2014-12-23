@@ -39,38 +39,38 @@ import Foundation
 */
 public enum IContactFilter {
 
-     case HAS_PHONE
-     case HAS_EMAIL
-     case HAS_ADDRESS
-     case Unknown
+    case HAS_PHONE
+    case HAS_EMAIL
+    case HAS_ADDRESS
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .HAS_PHONE: return "HAS_PHONE"
-               case .HAS_EMAIL: return "HAS_EMAIL"
-               case .HAS_ADDRESS: return "HAS_ADDRESS"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .HAS_PHONE: return "HAS_PHONE"
+            case .HAS_EMAIL: return "HAS_EMAIL"
+            case .HAS_ADDRESS: return "HAS_ADDRESS"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> IContactFilter {
-          if let validString = string {
-               switch validString {
-                    case "HAS_PHONE": return .HAS_PHONE
-                    case "HAS_EMAIL": return .HAS_EMAIL
-                    case "HAS_ADDRESS": return .HAS_ADDRESS
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> IContactFilter {
+        if let validString = string {
+            switch validString {
+                case "HAS_PHONE": return .HAS_PHONE
+                case "HAS_EMAIL": return .HAS_EMAIL
+                case "HAS_ADDRESS": return .HAS_ADDRESS
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

@@ -43,88 +43,88 @@ import Foundation
 */
 public class Button : APIBean {
 
-     /**
-        Button type
-     */
-     var type : ICapabilitiesButton?
+    /**
+       Button type
+    */
+    var type : ICapabilitiesButton?
 
-     /**
-        Default constructor
+    /**
+       Default constructor
 
-        @since ARP1.0
-     */
-     public override init() {
-          super.init()
-     }
+       @since ARP1.0
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Constructor with fields
+    /**
+       Constructor with fields
 
-        @param type Button type.
-        @since ARP1.0
-     */
-     public init(type: ICapabilitiesButton) {
-          super.init()
-          self.type = type
-     }
+       @param type Button type.
+       @since ARP1.0
+    */
+    public init(type: ICapabilitiesButton) {
+        super.init()
+        self.type = type
+    }
 
-     /**
-        Returns the button type
+    /**
+       Returns the button type
 
-        @return type Button type.
-        @since ARP1.0
-     */
-     public func getType() -> ICapabilitiesButton? {
-          return self.type
-     }
+       @return type Button type.
+       @since ARP1.0
+    */
+    public func getType() -> ICapabilitiesButton? {
+        return self.type
+    }
 
-     /**
-        Setter for the button type
+    /**
+       Setter for the button type
 
-        @param type Button Type
-        @since ARP1.0
-     */
-     public func setType(type: ICapabilitiesButton) {
-          self.type = type
-     }
+       @param type Button Type
+       @since ARP1.0
+    */
+    public func setType(type: ICapabilitiesButton) {
+        self.type = type
+    }
 
 
-     /**
-        JSON Serialization and deserialization support.
-     */
-     struct Serializer {
-          static func fromJSON(json : String) -> Button {
-               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
-               var jsonError: NSError?
-               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
-               return fromDictionary(dict)
-          }
+    /**
+       JSON Serialization and deserialization support.
+    */
+    struct Serializer {
+        static func fromJSON(json : String) -> Button {
+            var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+            var jsonError: NSError?
+            let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+            return fromDictionary(dict)
+        }
 
-          static func fromDictionary(dict : NSDictionary) -> Button {
-               var resultObject : Button = Button()
+        static func fromDictionary(dict : NSDictionary) -> Button {
+            var resultObject : Button = Button()
 
-               if let value : AnyObject = dict.objectForKey("type") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.type = ICapabilitiesButton.toEnum(((value as NSDictionary)["value"]) as NSString)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("type") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.type = ICapabilitiesButton.toEnum(((value as NSDictionary)["value"]) as NSString)
+                }
+            }
 
-               return resultObject
-          }
+            return resultObject
+        }
 
-          static func toJSON(object: Button) -> String {
-               var jsonString : NSMutableString = NSMutableString()
-               // Start Object to JSON
-               jsonString.appendString("{ ")
+        static func toJSON(object: Button) -> String {
+            var jsonString : NSMutableString = NSMutableString()
+            // Start Object to JSON
+            jsonString.appendString("{ ")
 
-               // Fields.
-               object.type != nil ? jsonString.appendString("\"type\": { \"value\": \"\(JSONUtil.escapeString(object.type!.toString()))\"}") : jsonString.appendString("\"type\": null")
+            // Fields.
+            object.type != nil ? jsonString.appendString("\"type\": { \"value\": \"\(JSONUtil.escapeString(object.type!.toString()))\"}") : jsonString.appendString("\"type\": null")
 
-               // End Object to JSON
-               jsonString.appendString(" }")
-               return jsonString
-          }
-     }
+            // End Object to JSON
+            jsonString.appendString(" }")
+            return jsonString
+        }
+    }
 }
 
 /**

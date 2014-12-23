@@ -42,28 +42,28 @@ import Foundation
    @version 1.0
 */
 public protocol IGeolocation : IBaseSensor {
-     /**
-        Register a new listener that will receive geolocation events.
+    /**
+       Register a new listener that will receive geolocation events.
 
-        @param listener to be registered.
-        @since ARP1.0
-     */
-     func addGeolocationListener(listener : IGeolocationListener)
+       @param listener to be registered.
+       @since ARP1.0
+    */
+    func addGeolocationListener(listener : IGeolocationListener)
 
-     /**
-        De-registers an existing listener from receiving geolocation events.
+    /**
+       De-registers an existing listener from receiving geolocation events.
 
-        @param listener to be registered.
-        @since ARP1.0
-     */
-     func removeGeolocationListener(listener : IGeolocationListener)
+       @param listener to be registered.
+       @since ARP1.0
+    */
+    func removeGeolocationListener(listener : IGeolocationListener)
 
-     /**
-        Removed all existing listeners from receiving geolocation events.
+    /**
+       Removed all existing listeners from receiving geolocation events.
 
-        @since ARP1.0
-     */
-     func removeGeolocationListeners()
+       @since ARP1.0
+    */
+    func removeGeolocationListeners()
 
 }
 

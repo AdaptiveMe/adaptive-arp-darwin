@@ -42,13 +42,13 @@ import Foundation
    @version 1.0
 */
 public protocol IAdaptiveRP : NSObjectProtocol {
-     /**
-        Method that returns the API group of the implementation
+    /**
+       Method that returns the API group of the implementation
 
-        @return API GRoup
-        @since ARP1.0
-     */
-     func getAPIGroup() -> IAdaptiveRPGroup 
+       @return API GRoup
+       @since ARP1.0
+    */
+    func getAPIGroup() -> IAdaptiveRPGroup 
 
 }
 

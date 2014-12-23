@@ -42,30 +42,30 @@ import Foundation
    @version 1.0
 */
 public protocol IContactPhotoResultCallback : IBaseCallback {
-     /**
-        This method is called on Error
+    /**
+       This method is called on Error
 
-        @param error returned by the platform
-        @since ARP1.0
-     */
-     func onError(error : IContactPhotoResultCallbackError)
+       @param error returned by the platform
+       @since ARP1.0
+    */
+    func onError(error : IContactPhotoResultCallbackError)
 
-     /**
-        This method is called on Result
+    /**
+       This method is called on Result
 
-        @param contactPhoto returned by the platform
-        @since ARP1.0
-     */
-     func onResult(contactPhoto : [Byte])
+       @param contactPhoto returned by the platform
+       @since ARP1.0
+    */
+    func onResult(contactPhoto : [Byte])
 
-     /**
-        This method is called on Warning
+    /**
+       This method is called on Warning
 
-        @param contactPhoto returned by the platform
-        @param warning      returned by the platform
-        @since ARP1.0
-     */
-     func onWarning(contactPhoto : [Byte], warning : IContactPhotoResultCallbackWarning)
+       @param contactPhoto returned by the platform
+       @param warning      returned by the platform
+       @since ARP1.0
+    */
+    func onWarning(contactPhoto : [Byte], warning : IContactPhotoResultCallbackWarning)
 
 }
 

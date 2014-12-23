@@ -39,35 +39,35 @@ import Foundation
 */
 public enum INetworkStatusListenerWarning {
 
-     case IpAddressNotAssigned
-     case IpAddressChanged
-     case Unknown
+    case IpAddressNotAssigned
+    case IpAddressChanged
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .IpAddressNotAssigned: return "IpAddressNotAssigned"
-               case .IpAddressChanged: return "IpAddressChanged"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .IpAddressNotAssigned: return "IpAddressNotAssigned"
+            case .IpAddressChanged: return "IpAddressChanged"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> INetworkStatusListenerWarning {
-          if let validString = string {
-               switch validString {
-                    case "IpAddressNotAssigned": return .IpAddressNotAssigned
-                    case "IpAddressChanged": return .IpAddressChanged
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> INetworkStatusListenerWarning {
+        if let validString = string {
+            switch validString {
+                case "IpAddressNotAssigned": return .IpAddressNotAssigned
+                case "IpAddressChanged": return .IpAddressChanged
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

@@ -43,121 +43,121 @@ import Foundation
 */
 public class ContactAddress : APIBean {
 
-     /**
-        The address type
-     */
-     var type : ContactAddressType?
-     /**
-        The Contact address
-     */
-     var address : String?
+    /**
+       The address type
+    */
+    var type : ContactAddressType?
+    /**
+       The Contact address
+    */
+    var address : String?
 
-     /**
-        Default constructor
+    /**
+       Default constructor
 
-        @since ARP1.0
-     */
-     public override init() {
-          super.init()
-     }
+       @since ARP1.0
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Constructor with fields
+    /**
+       Constructor with fields
 
-        @param address Address data.
-        @param type    Address type.
-        @since ARP1.0
-     */
-     public init(address: String, type: ContactAddressType) {
-          super.init()
-          self.address = address
-          self.type = type
-     }
+       @param address Address data.
+       @param type    Address type.
+       @since ARP1.0
+    */
+    public init(address: String, type: ContactAddressType) {
+        super.init()
+        self.address = address
+        self.type = type
+    }
 
-     /**
-        Returns the type of the address
+    /**
+       Returns the type of the address
 
-        @return AddressType Address type.
-        @since ARP1.0
-     */
-     public func getType() -> ContactAddressType? {
-          return self.type
-     }
+       @return AddressType Address type.
+       @since ARP1.0
+    */
+    public func getType() -> ContactAddressType? {
+        return self.type
+    }
 
-     /**
-        Set the address type
+    /**
+       Set the address type
 
-        @param type Address type.
-        @since ARP1.0
-     */
-     public func setType(type: ContactAddressType) {
-          self.type = type
-     }
+       @param type Address type.
+       @since ARP1.0
+    */
+    public func setType(type: ContactAddressType) {
+        self.type = type
+    }
 
-     /**
-        Returns the Contact address
+    /**
+       Returns the Contact address
 
-        @return address Address data.
-        @since ARP1.0
-     */
-     public func getAddress() -> String? {
-          return self.address
-     }
+       @return address Address data.
+       @since ARP1.0
+    */
+    public func getAddress() -> String? {
+        return self.address
+    }
 
-     /**
-        Set the address of the Contact
+    /**
+       Set the address of the Contact
 
-        @param address Address data.
-        @since ARP1.0
-     */
-     public func setAddress(address: String) {
-          self.address = address
-     }
+       @param address Address data.
+       @since ARP1.0
+    */
+    public func setAddress(address: String) {
+        self.address = address
+    }
 
 
-     /**
-        JSON Serialization and deserialization support.
-     */
-     struct Serializer {
-          static func fromJSON(json : String) -> ContactAddress {
-               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
-               var jsonError: NSError?
-               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
-               return fromDictionary(dict)
-          }
+    /**
+       JSON Serialization and deserialization support.
+    */
+    struct Serializer {
+        static func fromJSON(json : String) -> ContactAddress {
+            var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+            var jsonError: NSError?
+            let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+            return fromDictionary(dict)
+        }
 
-          static func fromDictionary(dict : NSDictionary) -> ContactAddress {
-               var resultObject : ContactAddress = ContactAddress()
+        static func fromDictionary(dict : NSDictionary) -> ContactAddress {
+            var resultObject : ContactAddress = ContactAddress()
 
-               if let value : AnyObject = dict.objectForKey("address") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.address = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("address") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.address = (value as String)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("type") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.type = ContactAddressType.toEnum(((value as NSDictionary)["value"]) as NSString)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("type") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.type = ContactAddressType.toEnum(((value as NSDictionary)["value"]) as NSString)
+                }
+            }
 
-               return resultObject
-          }
+            return resultObject
+        }
 
-          static func toJSON(object: ContactAddress) -> String {
-               var jsonString : NSMutableString = NSMutableString()
-               // Start Object to JSON
-               jsonString.appendString("{ ")
+        static func toJSON(object: ContactAddress) -> String {
+            var jsonString : NSMutableString = NSMutableString()
+            // Start Object to JSON
+            jsonString.appendString("{ ")
 
-               // Fields.
-               object.address != nil ? jsonString.appendString("\"address\": \"\(object.address!)\", ") : jsonString.appendString("\"address\": null, ")
-               object.type != nil ? jsonString.appendString("\"type\": { \"value\": \"\(JSONUtil.escapeString(object.type!.toString()))\"}") : jsonString.appendString("\"type\": null")
+            // Fields.
+            object.address != nil ? jsonString.appendString("\"address\": \"\(object.address!)\", ") : jsonString.appendString("\"address\": null, ")
+            object.type != nil ? jsonString.appendString("\"type\": { \"value\": \"\(JSONUtil.escapeString(object.type!.toString()))\"}") : jsonString.appendString("\"type\": null")
 
-               // End Object to JSON
-               jsonString.appendString(" }")
-               return jsonString
-          }
-     }
+            // End Object to JSON
+            jsonString.appendString(" }")
+            return jsonString
+        }
+    }
 }
 
 /**

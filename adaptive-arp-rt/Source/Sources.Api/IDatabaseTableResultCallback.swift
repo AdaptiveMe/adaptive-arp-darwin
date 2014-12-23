@@ -42,30 +42,30 @@ import Foundation
    @version 1.0
 */
 public protocol IDatabaseTableResultCallback : IBaseCallback {
-     /**
-        Result callback for error responses
+    /**
+       Result callback for error responses
 
-        @param error Returned error
-        @since ARP1.0
-     */
-     func onError(error : IDatabaseTableResultCallbackError)
+       @param error Returned error
+       @since ARP1.0
+    */
+    func onError(error : IDatabaseTableResultCallbackError)
 
-     /**
-        Result callback for correct responses
+    /**
+       Result callback for correct responses
 
-        @param databaseTable Returns the databaseTable
-        @since ARP1.0
-     */
-     func onResult(databaseTable : DatabaseTable)
+       @param databaseTable Returns the databaseTable
+       @since ARP1.0
+    */
+    func onResult(databaseTable : DatabaseTable)
 
-     /**
-        Result callback for warning responses
+    /**
+       Result callback for warning responses
 
-        @param databaseTable Returns the databaseTable
-        @param warning       Returned Warning
-        @since ARP1.0
-     */
-     func onWarning(databaseTable : DatabaseTable, warning : IDatabaseTableResultCallbackWarning)
+       @param databaseTable Returns the databaseTable
+       @param warning       Returned Warning
+       @since ARP1.0
+    */
+    func onWarning(databaseTable : DatabaseTable, warning : IDatabaseTableResultCallbackWarning)
 
 }
 

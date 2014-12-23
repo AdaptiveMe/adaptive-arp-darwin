@@ -43,88 +43,88 @@ import Foundation
 */
 public class ContactUid : APIBean {
 
-     /**
-        The id of the Contact
-     */
-     var contactId : String?
+    /**
+       The id of the Contact
+    */
+    var contactId : String?
 
-     /**
-        Default constructor
+    /**
+       Default constructor
 
-        @since ARP1.0
-     */
-     public override init() {
-          super.init()
-     }
+       @since ARP1.0
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Constructor used by implementation to set the Contact id.
+    /**
+       Constructor used by implementation to set the Contact id.
 
-        @param contactId Internal unique contact id.
-        @since ARP1.0
-     */
-     public init(contactId: String) {
-          super.init()
-          self.contactId = contactId
-     }
+       @param contactId Internal unique contact id.
+       @since ARP1.0
+    */
+    public init(contactId: String) {
+        super.init()
+        self.contactId = contactId
+    }
 
-     /**
-        Returns the contact id
+    /**
+       Returns the contact id
 
-        @return Contactid Internal unique contact id.
-        @since ARP1.0
-     */
-     public func getContactId() -> String? {
-          return self.contactId
-     }
+       @return Contactid Internal unique contact id.
+       @since ARP1.0
+    */
+    public func getContactId() -> String? {
+        return self.contactId
+    }
 
-     /**
-        Set the id of the Contact
+    /**
+       Set the id of the Contact
 
-        @param contactId Internal unique contact id.
-        @since ARP1.0
-     */
-     public func setContactId(contactId: String) {
-          self.contactId = contactId
-     }
+       @param contactId Internal unique contact id.
+       @since ARP1.0
+    */
+    public func setContactId(contactId: String) {
+        self.contactId = contactId
+    }
 
 
-     /**
-        JSON Serialization and deserialization support.
-     */
-     struct Serializer {
-          static func fromJSON(json : String) -> ContactUid {
-               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
-               var jsonError: NSError?
-               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
-               return fromDictionary(dict)
-          }
+    /**
+       JSON Serialization and deserialization support.
+    */
+    struct Serializer {
+        static func fromJSON(json : String) -> ContactUid {
+            var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+            var jsonError: NSError?
+            let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+            return fromDictionary(dict)
+        }
 
-          static func fromDictionary(dict : NSDictionary) -> ContactUid {
-               var resultObject : ContactUid = ContactUid()
+        static func fromDictionary(dict : NSDictionary) -> ContactUid {
+            var resultObject : ContactUid = ContactUid()
 
-               if let value : AnyObject = dict.objectForKey("contactId") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.contactId = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("contactId") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.contactId = (value as String)
+                }
+            }
 
-               return resultObject
-          }
+            return resultObject
+        }
 
-          static func toJSON(object: ContactUid) -> String {
-               var jsonString : NSMutableString = NSMutableString()
-               // Start Object to JSON
-               jsonString.appendString("{ ")
+        static func toJSON(object: ContactUid) -> String {
+            var jsonString : NSMutableString = NSMutableString()
+            // Start Object to JSON
+            jsonString.appendString("{ ")
 
-               // Fields.
-               object.contactId != nil ? jsonString.appendString("\"contactId\": \"\(object.contactId!)\"") : jsonString.appendString("\"contactId\": null")
+            // Fields.
+            object.contactId != nil ? jsonString.appendString("\"contactId\": \"\(object.contactId!)\"") : jsonString.appendString("\"contactId\": null")
 
-               // End Object to JSON
-               jsonString.appendString(" }")
-               return jsonString
-          }
-     }
+            // End Object to JSON
+            jsonString.appendString(" }")
+            return jsonString
+        }
+    }
 }
 
 /**

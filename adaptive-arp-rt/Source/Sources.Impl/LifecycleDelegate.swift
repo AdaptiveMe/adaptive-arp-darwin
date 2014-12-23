@@ -40,53 +40,53 @@ import Foundation
 */
 public class LifecycleDelegate : BaseApplicationDelegate, ILifecycle {
 
-     /**
-        Default Constructor.
-     */
-     public override init() {
-          super.init()
-     }
+    /**
+       Default Constructor.
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Add the listener for the lifecycle of the app
+    /**
+       Add the listener for the lifecycle of the app
 
-        @param listener Lifecycle listener
-        @since ARP1.0
-     */
-     public func addLifecycleListener(listener : ILifecycleListener) {
-          // TODO: Not implemented.
-     }
+       @param listener Lifecycle listener
+       @since ARP1.0
+    */
+    public func addLifecycleListener(listener : ILifecycleListener) {
+        // TODO: Not implemented.
+    }
 
-     /**
-        Whether the application is in background or not
+    /**
+       Whether the application is in background or not
 
-        @return true if the application is in background;false otherwise
-        @since ARP1.0
-     */
-     public func isBackground() -> Bool {
-          var response : Bool
-          // TODO: Not implemented.
-          return false
-     }
+       @return true if the application is in background;false otherwise
+       @since ARP1.0
+    */
+    public func isBackground() -> Bool {
+        var response : Bool
+        // TODO: Not implemented.
+        return false
+    }
 
-     /**
-        Un-registers an existing listener from receiving lifecycle events.
+    /**
+       Un-registers an existing listener from receiving lifecycle events.
 
-        @param listener Lifecycle listener
-        @since ARP1.0
-     */
-     public func removeLifecycleListener(listener : ILifecycleListener) {
-          // TODO: Not implemented.
-     }
+       @param listener Lifecycle listener
+       @since ARP1.0
+    */
+    public func removeLifecycleListener(listener : ILifecycleListener) {
+        // TODO: Not implemented.
+    }
 
-     /**
-        Removes all existing listeners from receiving lifecycle events.
+    /**
+       Removes all existing listeners from receiving lifecycle events.
 
-        @since ARP1.0
-     */
-     public func removeLifecycleListeners() {
-          // TODO: Not implemented.
-     }
+       @since ARP1.0
+    */
+    public func removeLifecycleListeners() {
+        // TODO: Not implemented.
+    }
 
 }
 /**

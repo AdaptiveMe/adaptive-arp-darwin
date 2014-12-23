@@ -39,38 +39,38 @@ import Foundation
 */
 public enum IAppResourceCallbackWarning {
 
-     case PartialContent
-     case TooLarge
-     case LinkedResource
-     case Unknown
+    case PartialContent
+    case TooLarge
+    case LinkedResource
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .PartialContent: return "PartialContent"
-               case .TooLarge: return "TooLarge"
-               case .LinkedResource: return "LinkedResource"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .PartialContent: return "PartialContent"
+            case .TooLarge: return "TooLarge"
+            case .LinkedResource: return "LinkedResource"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> IAppResourceCallbackWarning {
-          if let validString = string {
-               switch validString {
-                    case "PartialContent": return .PartialContent
-                    case "TooLarge": return .TooLarge
-                    case "LinkedResource": return .LinkedResource
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> IAppResourceCallbackWarning {
+        if let validString = string {
+            switch validString {
+                case "PartialContent": return .PartialContent
+                case "TooLarge": return .TooLarge
+                case "LinkedResource": return .LinkedResource
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

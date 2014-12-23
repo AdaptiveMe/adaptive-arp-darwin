@@ -40,24 +40,24 @@ import Foundation
 */
 public class BaseCommerceDelegate : NSObject, IBaseCommerce {
 
-     /**
-        Group of API.
-     */
-     private var apiGroup : IAdaptiveRPGroup?
+    /**
+       Group of API.
+    */
+    private var apiGroup : IAdaptiveRPGroup?
 
-     /**
-        Default constructor.
-     */
-     public override init() {
-          self.apiGroup = IAdaptiveRPGroup.Commerce
-     }
+    /**
+       Default constructor.
+    */
+    public override init() {
+        self.apiGroup = IAdaptiveRPGroup.Commerce
+    }
 
-     /**
-        Return the API group for the given interface.
-     */
-     public final func getAPIGroup() -> IAdaptiveRPGroup {
-          return self.apiGroup!
-     }
+    /**
+       Return the API group for the given interface.
+    */
+    public final func getAPIGroup() -> IAdaptiveRPGroup {
+        return self.apiGroup!
+    }
 
 }
 /**

@@ -43,186 +43,186 @@ import Foundation
 */
 public class DeviceInfo : APIBean {
 
-     /**
-        Model of device - equivalent to device release or version.
-     */
-     var model : String?
-     /**
-        Name of device - equivalent to brand.
-     */
-     var name : String?
-     /**
-        Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
+    /**
+       Model of device - equivalent to device release or version.
+    */
+    var model : String?
+    /**
+       Name of device - equivalent to brand.
+    */
+    var name : String?
+    /**
+       Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
 be unique for a specific instance of an application on a specific device.
-     */
-     var uuid : String?
-     /**
-        Vendor of the device hardware.
-     */
-     var vendor : String?
+    */
+    var uuid : String?
+    /**
+       Vendor of the device hardware.
+    */
+    var vendor : String?
 
-     /**
-        Default constructor
+    /**
+       Default constructor
 
-        @since ARP1.0
-     */
-     public override init() {
-          super.init()
-     }
+       @since ARP1.0
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Constructor for the implementation of the platform.
+    /**
+       Constructor for the implementation of the platform.
 
-        @param name   or brand of the device.
-        @param model  of the device.
-        @param vendor of the device.
-        @param uuid   unique* identifier (* platform dependent).
-        @since ARP1.0
-     */
-     public init(name: String, model: String, vendor: String, uuid: String) {
-          super.init()
-          self.name = name
-          self.model = model
-          self.vendor = vendor
-          self.uuid = uuid
-     }
+       @param name   or brand of the device.
+       @param model  of the device.
+       @param vendor of the device.
+       @param uuid   unique* identifier (* platform dependent).
+       @since ARP1.0
+    */
+    public init(name: String, model: String, vendor: String, uuid: String) {
+        super.init()
+        self.name = name
+        self.model = model
+        self.vendor = vendor
+        self.uuid = uuid
+    }
 
-     /**
-        Returns the model of the device.
+    /**
+       Returns the model of the device.
 
-        @return String with the model of the device.
-        @since ARP1.0
-     */
-     public func getModel() -> String? {
-          return self.model
-     }
+       @return String with the model of the device.
+       @since ARP1.0
+    */
+    public func getModel() -> String? {
+        return self.model
+    }
 
-     /**
-        Sets Model of device - equivalent to device release or version.
+    /**
+       Sets Model of device - equivalent to device release or version.
 
-        @param model Model of device - equivalent to device release or version.
-     */
-     public func setModel(model: String) {
-          self.model = model
-     }
+       @param model Model of device - equivalent to device release or version.
+    */
+    public func setModel(model: String) {
+        self.model = model
+    }
 
-     /**
-        Returns the name of the device.
+    /**
+       Returns the name of the device.
 
-        @return String with device name.
-        @since ARP1.0
-     */
-     public func getName() -> String? {
-          return self.name
-     }
+       @return String with device name.
+       @since ARP1.0
+    */
+    public func getName() -> String? {
+        return self.name
+    }
 
-     /**
-        Sets Name of device - equivalent to brand.
+    /**
+       Sets Name of device - equivalent to brand.
 
-        @param name Name of device - equivalent to brand.
-     */
-     public func setName(name: String) {
-          self.name = name
-     }
+       @param name Name of device - equivalent to brand.
+    */
+    public func setName(name: String) {
+        self.name = name
+    }
 
-     /**
-        Returns the platform dependent UUID of the device.
+    /**
+       Returns the platform dependent UUID of the device.
 
-        @return String with the 128-bit device identifier.
-        @since ARP1.0
-     */
-     public func getUuid() -> String? {
-          return self.uuid
-     }
+       @return String with the 128-bit device identifier.
+       @since ARP1.0
+    */
+    public func getUuid() -> String? {
+        return self.uuid
+    }
 
-     /**
-        Sets Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
+    /**
+       Sets Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
 be unique for a specific instance of an application on a specific device.
 
-        @param uuid Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
+       @param uuid Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
 be unique for a specific instance of an application on a specific device.
-     */
-     public func setUuid(uuid: String) {
-          self.uuid = uuid
-     }
+    */
+    public func setUuid(uuid: String) {
+        self.uuid = uuid
+    }
 
-     /**
-        Returns the vendor of the device.
+    /**
+       Returns the vendor of the device.
 
-        @return String with the vendor name.
-        @since ARP1.0
-     */
-     public func getVendor() -> String? {
-          return self.vendor
-     }
+       @return String with the vendor name.
+       @since ARP1.0
+    */
+    public func getVendor() -> String? {
+        return self.vendor
+    }
 
-     /**
-        Sets Vendor of the device hardware.
+    /**
+       Sets Vendor of the device hardware.
 
-        @param vendor Vendor of the device hardware.
-     */
-     public func setVendor(vendor: String) {
-          self.vendor = vendor
-     }
+       @param vendor Vendor of the device hardware.
+    */
+    public func setVendor(vendor: String) {
+        self.vendor = vendor
+    }
 
 
-     /**
-        JSON Serialization and deserialization support.
-     */
-     struct Serializer {
-          static func fromJSON(json : String) -> DeviceInfo {
-               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
-               var jsonError: NSError?
-               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
-               return fromDictionary(dict)
-          }
+    /**
+       JSON Serialization and deserialization support.
+    */
+    struct Serializer {
+        static func fromJSON(json : String) -> DeviceInfo {
+            var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+            var jsonError: NSError?
+            let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+            return fromDictionary(dict)
+        }
 
-          static func fromDictionary(dict : NSDictionary) -> DeviceInfo {
-               var resultObject : DeviceInfo = DeviceInfo()
+        static func fromDictionary(dict : NSDictionary) -> DeviceInfo {
+            var resultObject : DeviceInfo = DeviceInfo()
 
-               if let value : AnyObject = dict.objectForKey("model") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.model = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("model") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.model = (value as String)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("name") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.name = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("name") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.name = (value as String)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("uuid") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.uuid = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("uuid") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.uuid = (value as String)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("vendor") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.vendor = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("vendor") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.vendor = (value as String)
+                }
+            }
 
-               return resultObject
-          }
+            return resultObject
+        }
 
-          static func toJSON(object: DeviceInfo) -> String {
-               var jsonString : NSMutableString = NSMutableString()
-               // Start Object to JSON
-               jsonString.appendString("{ ")
+        static func toJSON(object: DeviceInfo) -> String {
+            var jsonString : NSMutableString = NSMutableString()
+            // Start Object to JSON
+            jsonString.appendString("{ ")
 
-               // Fields.
-               object.model != nil ? jsonString.appendString("\"model\": \"\(object.model!)\", ") : jsonString.appendString("\"model\": null, ")
-               object.name != nil ? jsonString.appendString("\"name\": \"\(object.name!)\", ") : jsonString.appendString("\"name\": null, ")
-               object.uuid != nil ? jsonString.appendString("\"uuid\": \"\(object.uuid!)\", ") : jsonString.appendString("\"uuid\": null, ")
-               object.vendor != nil ? jsonString.appendString("\"vendor\": \"\(object.vendor!)\"") : jsonString.appendString("\"vendor\": null")
+            // Fields.
+            object.model != nil ? jsonString.appendString("\"model\": \"\(object.model!)\", ") : jsonString.appendString("\"model\": null, ")
+            object.name != nil ? jsonString.appendString("\"name\": \"\(object.name!)\", ") : jsonString.appendString("\"name\": null, ")
+            object.uuid != nil ? jsonString.appendString("\"uuid\": \"\(object.uuid!)\", ") : jsonString.appendString("\"uuid\": null, ")
+            object.vendor != nil ? jsonString.appendString("\"vendor\": \"\(object.vendor!)\"") : jsonString.appendString("\"vendor\": null")
 
-               // End Object to JSON
-               jsonString.appendString(" }")
-               return jsonString
-          }
-     }
+            // End Object to JSON
+            jsonString.appendString(" }")
+            return jsonString
+        }
+    }
 }
 
 /**

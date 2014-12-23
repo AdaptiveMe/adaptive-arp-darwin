@@ -40,48 +40,48 @@ import Foundation
 */
 public class ContactPhotoResultCallbackImpl : BaseCallbackImpl, IContactPhotoResultCallback {
 
-     /**
-        Constructor with callback id.
+    /**
+       Constructor with callback id.
 
-        @param id  The id of the callback.
-     */
-     public override init(id : Int) {
-          super.init(id: id)
-     }
+       @param id  The id of the callback.
+    */
+    public override init(id : Int) {
+        super.init(id: id)
+    }
 
-     /**
-        This method is called on Error
+    /**
+       This method is called on Error
 
-        @param error returned by the platform
-        @since ARP1.0
-     */
-     public func onError(error : IContactPhotoResultCallbackError) { 
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackError( '\(getId())', JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param error returned by the platform
+       @since ARP1.0
+    */
+    public func onError(error : IContactPhotoResultCallbackError) { 
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackError( '\(getId())', JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
-     /**
-        This method is called on Result
+    /**
+       This method is called on Result
 
-        @param contactPhoto returned by the platform
-        @since ARP1.0
-     */
-     public func onResult(contactPhoto : [Byte]) { 
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param contactPhoto returned by the platform
+       @since ARP1.0
+    */
+    public func onResult(contactPhoto : [Byte]) { 
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
-     /**
-        This method is called on Warning
+    /**
+       This method is called on Warning
 
-        @param contactPhoto returned by the platform
-        @param warning      returned by the platform
-        @since ARP1.0
-     */
-     public func onWarning(contactPhoto : [Byte], warning : IContactPhotoResultCallbackWarning) { 
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param contactPhoto returned by the platform
+       @param warning      returned by the platform
+       @since ARP1.0
+    */
+    public func onWarning(contactPhoto : [Byte], warning : IContactPhotoResultCallbackWarning) { 
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
 }
 /**

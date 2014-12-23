@@ -40,87 +40,87 @@ import Foundation
 */
 public class OSBridge : BaseSystemBridge, IOS, APIBridge {
 
-     /**
-        API Delegate.
-     */
-     private var delegate : IOS? = nil
+    /**
+       API Delegate.
+    */
+    private var delegate : IOS? = nil
 
-     /**
-        Constructor with delegate.
+    /**
+       Constructor with delegate.
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public init(delegate : IOS?) {
-          super.init()
-          self.delegate = delegate
-     }
-     /**
-        Get the delegate implementation.
-        @return IOS delegate that manages platform specific functions..
-     */
-     public final func getDelegate() -> IOS? {
-          return self.delegate
-     }
-     /**
-        Set the delegate implementation.
+       @param delegate The delegate implementing platform specific functions.
+    */
+    public init(delegate : IOS?) {
+        super.init()
+        self.delegate = delegate
+    }
+    /**
+       Get the delegate implementation.
+       @return IOS delegate that manages platform specific functions..
+    */
+    public final func getDelegate() -> IOS? {
+        return self.delegate
+    }
+    /**
+       Set the delegate implementation.
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public final func setDelegate(delegate : IOS) {
-          self.delegate = delegate;
-     }
+       @param delegate The delegate implementing platform specific functions.
+    */
+    public final func setDelegate(delegate : IOS) {
+        self.delegate = delegate;
+    }
 
-     /**
-        Returns the OSInfo for the current operating system.
+    /**
+       Returns the OSInfo for the current operating system.
 
-        @return OSInfo with name, version and vendor of the OS.
-        @since ARP1.0
-     */
-     public func getOSInfo() -> OSInfo {
-          // Start logging elapsed time.
-          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
+       @return OSInfo with name, version and vendor of the OS.
+       @since ARP1.0
+    */
+    public func getOSInfo() -> OSInfo {
+        // Start logging elapsed time.
+        var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+        var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger != nil) {
-               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "OSBridge executing getOSInfo.")
-          }
+        if (logger != nil) {
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "OSBridge executing getOSInfo.")
+        }
 
-          var result : OSInfo? = nil
-          if (self.delegate != nil) {
-               result = self.delegate!.getOSInfo()
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "OSBridge executed 'getOSInfo' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
-                }
-          } else {
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "OSBridge no delegate for 'getOSInfo'.")
-               }
-          }
-          return result!          
-     }
+        var result : OSInfo? = nil
+        if (self.delegate != nil) {
+            result = self.delegate!.getOSInfo()
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "OSBridge executed 'getOSInfo' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+             }
+        } else {
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "OSBridge no delegate for 'getOSInfo'.")
+            }
+        }
+        return result!        
+    }
 
-     /**
-        Invokes the given method specified in the API request object.
+    /**
+       Invokes the given method specified in the API request object.
 
-        @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
-     */
-     public override func invoke(request : APIRequest) -> String? {
-          var responseJSON : String? = ""
-          switch request.getMethodName()! {
-               case "getOSInfo":
-                    var response0 : OSInfo? = self.getOSInfo()
-                    if (response0 != nil) {
-                         responseJSON = nil //TODO - Serialize this.gson.toJson(response0);
-                    } else {
-                         responseJSON = nil
-                    }
-               default:
-                    // 404 - response null.
+       @param request APIRequest object containing method name and parameters.
+       @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+    */
+    public override func invoke(request : APIRequest) -> String? {
+        var responseJSON : String? = ""
+        switch request.getMethodName()! {
+            case "getOSInfo":
+                var response0 : OSInfo? = self.getOSInfo()
+                if (response0 != nil) {
+                    responseJSON = nil //TODO - Serialize this.gson.toJson(response0);
+                } else {
                     responseJSON = nil
-          }
-          return responseJSON
-     }
+                }
+            default:
+                // 404 - response null.
+                responseJSON = nil
+        }
+        return responseJSON
+    }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

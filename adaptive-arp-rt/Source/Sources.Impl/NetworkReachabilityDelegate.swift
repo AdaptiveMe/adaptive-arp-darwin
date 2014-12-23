@@ -40,34 +40,34 @@ import Foundation
 */
 public class NetworkReachabilityDelegate : BaseCommunicationDelegate, INetworkReachability {
 
-     /**
-        Default Constructor.
-     */
-     public override init() {
-          super.init()
-     }
+    /**
+       Default Constructor.
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Whether there is connectivity to a host, via domain name or ip address, or not.
+    /**
+       Whether there is connectivity to a host, via domain name or ip address, or not.
 
-        @param host     domain name or ip address of host.
-        @param callback Callback called at the end.
-        @since ARP1.0
-     */
-     public func isNetworkReachable(host : String, callback : INetworkReachabilityCallback) {
-          // TODO: Not implemented.
-     }
+       @param host     domain name or ip address of host.
+       @param callback Callback called at the end.
+       @since ARP1.0
+    */
+    public func isNetworkReachable(host : String, callback : INetworkReachabilityCallback) {
+        // TODO: Not implemented.
+    }
 
-     /**
-        Whether there is connectivity to an url of a service or not.
+    /**
+       Whether there is connectivity to an url of a service or not.
 
-        @param url      to look for
-        @param callback Callback called at the end
-        @since ARP1.0
-     */
-     public func isNetworkServiceReachable(url : String, callback : INetworkReachabilityCallback) {
-          // TODO: Not implemented.
-     }
+       @param url      to look for
+       @param callback Callback called at the end
+       @since ARP1.0
+    */
+    public func isNetworkServiceReachable(url : String, callback : INetworkReachabilityCallback) {
+        // TODO: Not implemented.
+    }
 
 }
 /**

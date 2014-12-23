@@ -42,13 +42,13 @@ import Foundation
    @version 1.0
 */
 public protocol IVideo : IBaseMedia {
-     /**
-        Play url video stream
+    /**
+       Play url video stream
 
-        @param url of the video
-        @since ARP1.0
-     */
-     func playStream(url : String)
+       @param url of the video
+       @since ARP1.0
+    */
+    func playStream(url : String)
 
 }
 

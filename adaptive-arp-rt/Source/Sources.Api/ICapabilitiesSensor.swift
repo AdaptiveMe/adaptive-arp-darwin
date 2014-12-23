@@ -39,50 +39,50 @@ import Foundation
 */
 public enum ICapabilitiesSensor {
 
-     case Accelerometer
-     case AmbientLight
-     case Barometer
-     case Geolocation
-     case Gyroscope
-     case Magnetometer
-     case Proximity
-     case Unknown
+    case Accelerometer
+    case AmbientLight
+    case Barometer
+    case Geolocation
+    case Gyroscope
+    case Magnetometer
+    case Proximity
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .Accelerometer: return "Accelerometer"
-               case .AmbientLight: return "AmbientLight"
-               case .Barometer: return "Barometer"
-               case .Geolocation: return "Geolocation"
-               case .Gyroscope: return "Gyroscope"
-               case .Magnetometer: return "Magnetometer"
-               case .Proximity: return "Proximity"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .Accelerometer: return "Accelerometer"
+            case .AmbientLight: return "AmbientLight"
+            case .Barometer: return "Barometer"
+            case .Geolocation: return "Geolocation"
+            case .Gyroscope: return "Gyroscope"
+            case .Magnetometer: return "Magnetometer"
+            case .Proximity: return "Proximity"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> ICapabilitiesSensor {
-          if let validString = string {
-               switch validString {
-                    case "Accelerometer": return .Accelerometer
-                    case "AmbientLight": return .AmbientLight
-                    case "Barometer": return .Barometer
-                    case "Geolocation": return .Geolocation
-                    case "Gyroscope": return .Gyroscope
-                    case "Magnetometer": return .Magnetometer
-                    case "Proximity": return .Proximity
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> ICapabilitiesSensor {
+        if let validString = string {
+            switch validString {
+                case "Accelerometer": return .Accelerometer
+                case "AmbientLight": return .AmbientLight
+                case "Barometer": return .Barometer
+                case "Geolocation": return .Geolocation
+                case "Gyroscope": return .Gyroscope
+                case "Magnetometer": return .Magnetometer
+                case "Proximity": return .Proximity
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

@@ -39,35 +39,35 @@ import Foundation
 */
 public enum IContactResultCallbackWarning {
 
-     case LimitExceeded
-     case No_Matches
-     case Unknown
+    case LimitExceeded
+    case No_Matches
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .LimitExceeded: return "LimitExceeded"
-               case .No_Matches: return "No_Matches"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .LimitExceeded: return "LimitExceeded"
+            case .No_Matches: return "No_Matches"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> IContactResultCallbackWarning {
-          if let validString = string {
-               switch validString {
-                    case "LimitExceeded": return .LimitExceeded
-                    case "No_Matches": return .No_Matches
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> IContactResultCallbackWarning {
+        if let validString = string {
+            switch validString {
+                case "LimitExceeded": return .LimitExceeded
+                case "No_Matches": return .No_Matches
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

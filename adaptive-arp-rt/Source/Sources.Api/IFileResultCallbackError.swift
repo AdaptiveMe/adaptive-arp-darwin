@@ -39,44 +39,44 @@ import Foundation
 */
 public enum IFileResultCallbackError {
 
-     case FileExists
-     case SourceInexistent
-     case DestionationExists
-     case InsufficientSpace
-     case Unauthorized
-     case Unknown
+    case FileExists
+    case SourceInexistent
+    case DestionationExists
+    case InsufficientSpace
+    case Unauthorized
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .FileExists: return "FileExists"
-               case .SourceInexistent: return "SourceInexistent"
-               case .DestionationExists: return "DestionationExists"
-               case .InsufficientSpace: return "InsufficientSpace"
-               case .Unauthorized: return "Unauthorized"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .FileExists: return "FileExists"
+            case .SourceInexistent: return "SourceInexistent"
+            case .DestionationExists: return "DestionationExists"
+            case .InsufficientSpace: return "InsufficientSpace"
+            case .Unauthorized: return "Unauthorized"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> IFileResultCallbackError {
-          if let validString = string {
-               switch validString {
-                    case "FileExists": return .FileExists
-                    case "SourceInexistent": return .SourceInexistent
-                    case "DestionationExists": return .DestionationExists
-                    case "InsufficientSpace": return .InsufficientSpace
-                    case "Unauthorized": return .Unauthorized
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> IFileResultCallbackError {
+        if let validString = string {
+            switch validString {
+                case "FileExists": return .FileExists
+                case "SourceInexistent": return .SourceInexistent
+                case "DestionationExists": return .DestionationExists
+                case "InsufficientSpace": return .InsufficientSpace
+                case "Unauthorized": return .Unauthorized
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

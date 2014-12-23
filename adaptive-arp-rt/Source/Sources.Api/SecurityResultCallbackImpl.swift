@@ -40,48 +40,48 @@ import Foundation
 */
 public class SecurityResultCallbackImpl : BaseCallbackImpl, ISecurityResultCallback {
 
-     /**
-        Constructor with callback id.
+    /**
+       Constructor with callback id.
 
-        @param id  The id of the callback.
-     */
-     public override init(id : Int) {
-          super.init(id: id)
-     }
+       @param id  The id of the callback.
+    */
+    public override init(id : Int) {
+        super.init(id: id)
+    }
 
-     /**
-        No data received - error condition, not authorized .
+    /**
+       No data received - error condition, not authorized .
 
-        @param error Error values
-        @since ARP1.0
-     */
-     public func onError(error : ISecurityResultCallbackError) { 
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackError( '\(getId())', JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param error Error values
+       @since ARP1.0
+    */
+    public func onError(error : ISecurityResultCallbackError) { 
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackError( '\(getId())', JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
-     /**
-        Correct data received.
+    /**
+       Correct data received.
 
-        @param keyValues key and values
-        @since ARP1.0
-     */
-     public func onResult(keyValues : [SecureKeyPair]) { 
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param keyValues key and values
+       @since ARP1.0
+    */
+    public func onResult(keyValues : [SecureKeyPair]) { 
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
-     /**
-        Data received with warning - ie Found entries with existing key and values have been overriden
+    /**
+       Data received with warning - ie Found entries with existing key and values have been overriden
 
-        @param keyValues key and values
-        @param warning   Warning values
-        @since ARP1.0
-     */
-     public func onWarning(keyValues : [SecureKeyPair], warning : ISecurityResultCallbackWarning) { 
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param keyValues key and values
+       @param warning   Warning values
+       @since ARP1.0
+    */
+    public func onWarning(keyValues : [SecureKeyPair], warning : ISecurityResultCallbackWarning) { 
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
 }
 /**

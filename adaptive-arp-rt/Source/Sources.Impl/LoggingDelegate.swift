@@ -40,35 +40,35 @@ import Foundation
 */
 public class LoggingDelegate : BaseUtilDelegate, ILogging {
 
-     /**
-        Default Constructor.
-     */
-     public override init() {
-          super.init()
-     }
+    /**
+       Default Constructor.
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Logs the given message, with the given log level if specified, to the standard platform/environment.
+    /**
+       Logs the given message, with the given log level if specified, to the standard platform/environment.
 
-        @param level   Log level
-        @param message Message to be logged
-        @since ARP1.0
-     */
-     public func log(level : ILoggingLogLevel, message : String) {
-          // TODO: Not implemented.
-     }
+       @param level   Log level
+       @param message Message to be logged
+       @since ARP1.0
+    */
+    public func log(level : ILoggingLogLevel, message : String) {
+        // TODO: Not implemented.
+    }
 
-     /**
-        Logs the given message, with the given log level if specified, to the standard platform/environment.
+    /**
+       Logs the given message, with the given log level if specified, to the standard platform/environment.
 
-        @param level    Log level
-        @param category Category/tag name to identify/filter the log.
-        @param message  Message to be logged
-        @since ARP1.0
-     */
-     public func log(level : ILoggingLogLevel, category : String, message : String) {
-          // TODO: Not implemented.
-     }
+       @param level    Log level
+       @param category Category/tag name to identify/filter the log.
+       @param message  Message to be logged
+       @since ARP1.0
+    */
+    public func log(level : ILoggingLogLevel, category : String, message : String) {
+        // TODO: Not implemented.
+    }
 
 }
 /**

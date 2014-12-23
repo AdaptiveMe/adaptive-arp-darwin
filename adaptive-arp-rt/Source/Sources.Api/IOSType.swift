@@ -39,62 +39,62 @@ import Foundation
 */
 public enum IOSType {
 
-     case iOS
-     case OSX
-     case Windows
-     case WindowsPhone
-     case Android
-     case Linux
-     case Blackberry
-     case Tizen
-     case FirefoxOS
-     case Chromium
-     case Unspecified
-     case Unknown
+    case iOS
+    case OSX
+    case Windows
+    case WindowsPhone
+    case Android
+    case Linux
+    case Blackberry
+    case Tizen
+    case FirefoxOS
+    case Chromium
+    case Unspecified
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .iOS: return "iOS"
-               case .OSX: return "OSX"
-               case .Windows: return "Windows"
-               case .WindowsPhone: return "WindowsPhone"
-               case .Android: return "Android"
-               case .Linux: return "Linux"
-               case .Blackberry: return "Blackberry"
-               case .Tizen: return "Tizen"
-               case .FirefoxOS: return "FirefoxOS"
-               case .Chromium: return "Chromium"
-               case .Unspecified: return "Unspecified"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .iOS: return "iOS"
+            case .OSX: return "OSX"
+            case .Windows: return "Windows"
+            case .WindowsPhone: return "WindowsPhone"
+            case .Android: return "Android"
+            case .Linux: return "Linux"
+            case .Blackberry: return "Blackberry"
+            case .Tizen: return "Tizen"
+            case .FirefoxOS: return "FirefoxOS"
+            case .Chromium: return "Chromium"
+            case .Unspecified: return "Unspecified"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> IOSType {
-          if let validString = string {
-               switch validString {
-                    case "iOS": return .iOS
-                    case "OSX": return .OSX
-                    case "Windows": return .Windows
-                    case "WindowsPhone": return .WindowsPhone
-                    case "Android": return .Android
-                    case "Linux": return .Linux
-                    case "Blackberry": return .Blackberry
-                    case "Tizen": return .Tizen
-                    case "FirefoxOS": return .FirefoxOS
-                    case "Chromium": return .Chromium
-                    case "Unspecified": return .Unspecified
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> IOSType {
+        if let validString = string {
+            switch validString {
+                case "iOS": return .iOS
+                case "OSX": return .OSX
+                case "Windows": return .Windows
+                case "WindowsPhone": return .WindowsPhone
+                case "Android": return .Android
+                case "Linux": return .Linux
+                case "Blackberry": return .Blackberry
+                case "Tizen": return .Tizen
+                case "FirefoxOS": return .FirefoxOS
+                case "Chromium": return .Chromium
+                case "Unspecified": return .Unspecified
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

@@ -40,40 +40,40 @@ import Foundation
 */
 public class BaseNotificationBridge : NSObject, IBaseNotification {
 
-     /**
-        Group of API.
-     */
-     private var apiGroup : IAdaptiveRPGroup? = nil
+    /**
+       Group of API.
+    */
+    private var apiGroup : IAdaptiveRPGroup? = nil
 
-     /**
-        Default constructor.
-     */
-     public override init() {
-          self.apiGroup = IAdaptiveRPGroup.Notification
-     }
+    /**
+       Default constructor.
+    */
+    public override init() {
+        self.apiGroup = IAdaptiveRPGroup.Notification
+    }
 
-     /**
-        Return the API group for the given interface.
-     */
-     public final func getAPIGroup() -> IAdaptiveRPGroup {
-          return self.apiGroup!
-     }
+    /**
+       Return the API group for the given interface.
+    */
+    public final func getAPIGroup() -> IAdaptiveRPGroup {
+        return self.apiGroup!
+    }
 
-     /**
-        Invokes the given method specified in the API request object.
+    /**
+       Invokes the given method specified in the API request object.
 
-        @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
-     */
-     public func invoke(request : APIRequest) -> String? {
-          var responseJSON : String? = ""
-          switch request.getMethodName()! {
-               default:
-                    // 404 - response null.
-                    responseJSON = nil
-          }
-          return responseJSON
-     }
+       @param request APIRequest object containing method name and parameters.
+       @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+    */
+    public func invoke(request : APIRequest) -> String? {
+        var responseJSON : String? = ""
+        switch request.getMethodName()! {
+            default:
+                // 404 - response null.
+                responseJSON = nil
+        }
+        return responseJSON
+    }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

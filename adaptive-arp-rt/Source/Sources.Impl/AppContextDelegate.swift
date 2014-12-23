@@ -40,36 +40,36 @@ import Foundation
 */
 public class AppContextDelegate : NSObject, IAppContext {
 
-     /**
-        Default Constructor.
-     */
-     public override init() {
-          super.init()
-     }
+    /**
+       Default Constructor.
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        The main application context. This should be cast to the platform specific implementation.
+    /**
+       The main application context. This should be cast to the platform specific implementation.
 
-        @return Object representing the specific singleton application context provided by the OS.
-        @since ARP1.0
-     */
-     public func getContext() -> AnyObject {
-          var response : AnyObject
-          // TODO: Not implemented.
-          return ""
-     }
+       @return Object representing the specific singleton application context provided by the OS.
+       @since ARP1.0
+    */
+    public func getContext() -> AnyObject {
+        var response : AnyObject
+        // TODO: Not implemented.
+        return ""
+    }
 
-     /**
-        The type of context provided by the getContext method.
+    /**
+       The type of context provided by the getContext method.
 
-        @return Type of platform context.
-        @since ARP1.0
-     */
-     public func getContextType() -> IOSType {
-          var response : IOSType
-          // TODO: Not implemented.
-          return IOSType.Unknown
-     }
+       @return Type of platform context.
+       @since ARP1.0
+    */
+    public func getContextType() -> IOSType {
+        var response : IOSType
+        // TODO: Not implemented.
+        return IOSType.Unknown
+    }
 
 }
 /**

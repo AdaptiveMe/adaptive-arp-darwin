@@ -39,53 +39,53 @@ import Foundation
 */
 public enum IContactFieldGroup {
 
-     case PERSONAL_INFO
-     case PROFESSIONAL_INFO
-     case ADDRESSES
-     case PHONES
-     case EMAILS
-     case WEBSITES
-     case SOCIALS
-     case TAGS
-     case Unknown
+    case PERSONAL_INFO
+    case PROFESSIONAL_INFO
+    case ADDRESSES
+    case PHONES
+    case EMAILS
+    case WEBSITES
+    case SOCIALS
+    case TAGS
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .PERSONAL_INFO: return "PERSONAL_INFO"
-               case .PROFESSIONAL_INFO: return "PROFESSIONAL_INFO"
-               case .ADDRESSES: return "ADDRESSES"
-               case .PHONES: return "PHONES"
-               case .EMAILS: return "EMAILS"
-               case .WEBSITES: return "WEBSITES"
-               case .SOCIALS: return "SOCIALS"
-               case .TAGS: return "TAGS"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .PERSONAL_INFO: return "PERSONAL_INFO"
+            case .PROFESSIONAL_INFO: return "PROFESSIONAL_INFO"
+            case .ADDRESSES: return "ADDRESSES"
+            case .PHONES: return "PHONES"
+            case .EMAILS: return "EMAILS"
+            case .WEBSITES: return "WEBSITES"
+            case .SOCIALS: return "SOCIALS"
+            case .TAGS: return "TAGS"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> IContactFieldGroup {
-          if let validString = string {
-               switch validString {
-                    case "PERSONAL_INFO": return .PERSONAL_INFO
-                    case "PROFESSIONAL_INFO": return .PROFESSIONAL_INFO
-                    case "ADDRESSES": return .ADDRESSES
-                    case "PHONES": return .PHONES
-                    case "EMAILS": return .EMAILS
-                    case "WEBSITES": return .WEBSITES
-                    case "SOCIALS": return .SOCIALS
-                    case "TAGS": return .TAGS
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> IContactFieldGroup {
+        if let validString = string {
+            switch validString {
+                case "PERSONAL_INFO": return .PERSONAL_INFO
+                case "PROFESSIONAL_INFO": return .PROFESSIONAL_INFO
+                case "ADDRESSES": return .ADDRESSES
+                case "PHONES": return .PHONES
+                case "EMAILS": return .EMAILS
+                case "WEBSITES": return .WEBSITES
+                case "SOCIALS": return .SOCIALS
+                case "TAGS": return .TAGS
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

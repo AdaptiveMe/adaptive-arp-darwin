@@ -42,81 +42,81 @@ import Foundation
    @version 1.0
 */
 public protocol IFileSystem : IBaseData {
-     /**
-        Creates a new reference to a new or existing location in the filesystem.
+    /**
+       Creates a new reference to a new or existing location in the filesystem.
 This method does not create the actual file in the specified folder.
 
-        @param parent Parent directory.
-        @param name   Name of new file or directory.
-        @return A reference to a new or existing location in the filesystem.
-        @since ARP1.0
-     */
-     func createFileDescriptor(parent : FileDescriptor, name : String) -> FileDescriptor 
+       @param parent Parent directory.
+       @param name   Name of new file or directory.
+       @return A reference to a new or existing location in the filesystem.
+       @since ARP1.0
+    */
+    func createFileDescriptor(parent : FileDescriptor, name : String) -> FileDescriptor 
 
-     /**
-        Returns a reference to the cache folder for the current application.
+    /**
+       Returns a reference to the cache folder for the current application.
 This path must always be writable by the current application.
 This path is volatile and may be cleaned by the OS periodically.
 
-        @return Path to the application's cache folder.
-        @since ARP1.0
-     */
-     func getApplicationCacheFolder() -> FileDescriptor 
+       @return Path to the application's cache folder.
+       @since ARP1.0
+    */
+    func getApplicationCacheFolder() -> FileDescriptor 
 
-     /**
-        Returns a reference to the cloud synchronizable folder for the current application.
+    /**
+       Returns a reference to the cloud synchronizable folder for the current application.
 This path must always be writable by the current application.
 
-        @return Path to the application's cloud storage folder.
-        @since ARP1.0
-     */
-     func getApplicationCloudFolder() -> FileDescriptor 
+       @return Path to the application's cloud storage folder.
+       @since ARP1.0
+    */
+    func getApplicationCloudFolder() -> FileDescriptor 
 
-     /**
-        Returns a reference to the documents folder for the current application.
+    /**
+       Returns a reference to the documents folder for the current application.
 This path must always be writable by the current application.
 
-        @return Path to the application's documents folder.
-        @since ARP1.0
-     */
-     func getApplicationDocumentsFolder() -> FileDescriptor 
+       @return Path to the application's documents folder.
+       @since ARP1.0
+    */
+    func getApplicationDocumentsFolder() -> FileDescriptor 
 
-     /**
-        Returns a reference to the application installation folder.
+    /**
+       Returns a reference to the application installation folder.
 This path may or may not be directly readable or writable - it usually contains the app binary and data.
 
-        @return Path to the application folder.
-        @since ARP1.0
-     */
-     func getApplicationFolder() -> FileDescriptor 
+       @return Path to the application folder.
+       @since ARP1.0
+    */
+    func getApplicationFolder() -> FileDescriptor 
 
-     /**
-        Returns a reference to the protected storage folder for the current application.
+    /**
+       Returns a reference to the protected storage folder for the current application.
 This path must always be writable by the current application.
 
-        @return Path to the application's protected storage folder.
-        @since ARP1.0
-     */
-     func getApplicationProtectedFolder() -> FileDescriptor 
+       @return Path to the application's protected storage folder.
+       @since ARP1.0
+    */
+    func getApplicationProtectedFolder() -> FileDescriptor 
 
-     /**
-        Returns the file system dependent file separator.
+    /**
+       Returns the file system dependent file separator.
 
-        @return char with the directory/file separator.
-        @since ARP1.0
-     */
-     func getSeparator() -> Character 
+       @return char with the directory/file separator.
+       @since ARP1.0
+    */
+    func getSeparator() -> Character 
 
-     /**
-        Returns a reference to the external storage folder provided by the OS. This may
+    /**
+       Returns a reference to the external storage folder provided by the OS. This may
 be an external SSD card or similar. This type of storage is removable and by
 definition, not secure.
 This path may or may not be writable by the current application.
 
-        @return Path to the application's documents folder.
-        @since ARP1.0
-     */
-     func getSystemExternalFolder() -> FileDescriptor 
+       @return Path to the application's documents folder.
+       @since ARP1.0
+    */
+    func getSystemExternalFolder() -> FileDescriptor 
 
 }
 

@@ -42,30 +42,30 @@ import Foundation
    @version 1.0
 */
 public protocol IContactResultCallback : IBaseCallback {
-     /**
-        This method is called on Error
+    /**
+       This method is called on Error
 
-        @param error returned by the platform
-        @since ARP1.0
-     */
-     func onError(error : IContactResultCallbackError)
+       @param error returned by the platform
+       @since ARP1.0
+    */
+    func onError(error : IContactResultCallbackError)
 
-     /**
-        This method is called on Result
+    /**
+       This method is called on Result
 
-        @param contacts returned by the platform
-        @since ARP1.0
-     */
-     func onResult(contacts : [Contact])
+       @param contacts returned by the platform
+       @since ARP1.0
+    */
+    func onResult(contacts : [Contact])
 
-     /**
-        This method is called on Warning
+    /**
+       This method is called on Warning
 
-        @param contacts returned by the platform
-        @param warning  returned by the platform
-        @since ARP1.0
-     */
-     func onWarning(contacts : [Contact], warning : IContactResultCallbackWarning)
+       @param contacts returned by the platform
+       @param warning  returned by the platform
+       @since ARP1.0
+    */
+    func onWarning(contacts : [Contact], warning : IContactResultCallbackWarning)
 
 }
 

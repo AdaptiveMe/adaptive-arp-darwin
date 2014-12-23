@@ -40,86 +40,86 @@ import Foundation
 */
 public class MessagingBridge : BasePIMBridge, IMessaging, APIBridge {
 
-     /**
-        API Delegate.
-     */
-     private var delegate : IMessaging? = nil
+    /**
+       API Delegate.
+    */
+    private var delegate : IMessaging? = nil
 
-     /**
-        Constructor with delegate.
+    /**
+       Constructor with delegate.
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public init(delegate : IMessaging?) {
-          super.init()
-          self.delegate = delegate
-     }
-     /**
-        Get the delegate implementation.
-        @return IMessaging delegate that manages platform specific functions..
-     */
-     public final func getDelegate() -> IMessaging? {
-          return self.delegate
-     }
-     /**
-        Set the delegate implementation.
+       @param delegate The delegate implementing platform specific functions.
+    */
+    public init(delegate : IMessaging?) {
+        super.init()
+        self.delegate = delegate
+    }
+    /**
+       Get the delegate implementation.
+       @return IMessaging delegate that manages platform specific functions..
+    */
+    public final func getDelegate() -> IMessaging? {
+        return self.delegate
+    }
+    /**
+       Set the delegate implementation.
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public final func setDelegate(delegate : IMessaging) {
-          self.delegate = delegate;
-     }
+       @param delegate The delegate implementing platform specific functions.
+    */
+    public final func setDelegate(delegate : IMessaging) {
+        self.delegate = delegate;
+    }
 
-     /**
-        Send text SMS
+    /**
+       Send text SMS
 
-        @param number   to send
-        @param text     to send
-        @param callback with the result
-        @since ARP1.0
-     */
-     public func sendSMS(number : String , text : String , callback : IMessagingCallback ) {
-          // Start logging elapsed time.
-          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
+       @param number   to send
+       @param text     to send
+       @param callback with the result
+       @since ARP1.0
+    */
+    public func sendSMS(number : String , text : String , callback : IMessagingCallback ) {
+        // Start logging elapsed time.
+        var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+        var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger != nil) {
-               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "MessagingBridge executing sendSMS({\(number)},{\(text)},{\(callback)}).")
-          }
+        if (logger != nil) {
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "MessagingBridge executing sendSMS({\(number)},{\(text)},{\(callback)}).")
+        }
 
-          if (self.delegate != nil) {
-               self.delegate!.sendSMS(number, text: text, callback: callback)
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "MessagingBridge executed 'sendSMS' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
-                }
-          } else {
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "MessagingBridge no delegate for 'sendSMS'.")
-               }
-          }
-          
-     }
+        if (self.delegate != nil) {
+            self.delegate!.sendSMS(number, text: text, callback: callback)
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "MessagingBridge executed 'sendSMS' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+             }
+        } else {
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "MessagingBridge no delegate for 'sendSMS'.")
+            }
+        }
+        
+    }
 
-     /**
-        Invokes the given method specified in the API request object.
+    /**
+       Invokes the given method specified in the API request object.
 
-        @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
-     */
-     public override func invoke(request : APIRequest) -> String? {
-          var responseJSON : String? = ""
-          switch request.getMethodName()! {
-               case "sendSMS":
-                    var number0 : String? = request.getParameters()![0]
-                    var text0 : String? = request.getParameters()![1]
-                    var callback0 : IMessagingCallback? =  MessagingCallbackImpl(id: request.getAsyncId()!)
-                    self.sendSMS(number0!, text: text0!, callback: callback0!);
-               default:
-                    // 404 - response null.
-                    responseJSON = nil
-          }
-          return responseJSON
-     }
+       @param request APIRequest object containing method name and parameters.
+       @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+    */
+    public override func invoke(request : APIRequest) -> String? {
+        var responseJSON : String? = ""
+        switch request.getMethodName()! {
+            case "sendSMS":
+                var number0 : String? = request.getParameters()![0]
+                var text0 : String? = request.getParameters()![1]
+                var callback0 : IMessagingCallback? =  MessagingCallbackImpl(id: request.getAsyncId()!)
+                self.sendSMS(number0!, text: text0!, callback: callback0!);
+            default:
+                // 404 - response null.
+                responseJSON = nil
+        }
+        return responseJSON
+    }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

@@ -40,51 +40,51 @@ import Foundation
 */
 public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
 
-     /**
-        Default Constructor.
-     */
-     public override init() {
-          super.init()
-     }
+    /**
+       Default Constructor.
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        List of supported locales for the application
+    /**
+       List of supported locales for the application
 
-        @return List of locales
-        @since ARP1.0
-     */
-     public func getLocaleSupportedDescriptors() -> [Locale] {
-          var response : [Locale]
-          // TODO: Not implemented.
-          return [Locale]()
-     }
+       @return List of locales
+       @since ARP1.0
+    */
+    public func getLocaleSupportedDescriptors() -> [Locale] {
+        var response : [Locale]
+        // TODO: Not implemented.
+        return [Locale]()
+    }
 
-     /**
-        Gets the text/message corresponding to the given key and locale.
+    /**
+       Gets the text/message corresponding to the given key and locale.
 
-        @param key    to match text
-        @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
-        @return Localized text.
-        @since ARP1.0
-     */
-     public func getResourceLiteral(key : String, locale : Locale) -> String {
-          var response : String
-          // TODO: Not implemented.
-          return String()
-     }
+       @param key    to match text
+       @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
+       @return Localized text.
+       @since ARP1.0
+    */
+    public func getResourceLiteral(key : String, locale : Locale) -> String {
+        var response : String
+        // TODO: Not implemented.
+        return String()
+    }
 
-     /**
-        Gets the full application configured literals (key/message pairs) corresponding to the given locale.
+    /**
+       Gets the full application configured literals (key/message pairs) corresponding to the given locale.
 
-        @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
-        @return Localized texts in the form of an object.
-        @since ARP1.0
-     */
-     public func getResourceLiterals(locale : Locale) -> [KeyPair] {
-          var response : [KeyPair]
-          // TODO: Not implemented.
-          return [KeyPair]()
-     }
+       @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
+       @return Localized texts in the form of an object.
+       @since ARP1.0
+    */
+    public func getResourceLiterals(locale : Locale) -> [KeyPair] {
+        var response : [KeyPair]
+        // TODO: Not implemented.
+        return [KeyPair]()
+    }
 
 }
 /**

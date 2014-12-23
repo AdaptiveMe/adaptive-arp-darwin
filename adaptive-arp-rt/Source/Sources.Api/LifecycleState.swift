@@ -39,53 +39,53 @@ import Foundation
 */
 public enum LifecycleState {
 
-     case Starting
-     case Started
-     case Running
-     case Pausing
-     case PausedIdle
-     case PausedRun
-     case Resuming
-     case Stopping
-     case Unknown
+    case Starting
+    case Started
+    case Running
+    case Pausing
+    case PausedIdle
+    case PausedRun
+    case Resuming
+    case Stopping
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .Starting: return "Starting"
-               case .Started: return "Started"
-               case .Running: return "Running"
-               case .Pausing: return "Pausing"
-               case .PausedIdle: return "PausedIdle"
-               case .PausedRun: return "PausedRun"
-               case .Resuming: return "Resuming"
-               case .Stopping: return "Stopping"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .Starting: return "Starting"
+            case .Started: return "Started"
+            case .Running: return "Running"
+            case .Pausing: return "Pausing"
+            case .PausedIdle: return "PausedIdle"
+            case .PausedRun: return "PausedRun"
+            case .Resuming: return "Resuming"
+            case .Stopping: return "Stopping"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> LifecycleState {
-          if let validString = string {
-               switch validString {
-                    case "Starting": return .Starting
-                    case "Started": return .Started
-                    case "Running": return .Running
-                    case "Pausing": return .Pausing
-                    case "PausedIdle": return .PausedIdle
-                    case "PausedRun": return .PausedRun
-                    case "Resuming": return .Resuming
-                    case "Stopping": return .Stopping
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> LifecycleState {
+        if let validString = string {
+            switch validString {
+                case "Starting": return .Starting
+                case "Started": return .Started
+                case "Running": return .Running
+                case "Pausing": return .Pausing
+                case "PausedIdle": return .PausedIdle
+                case "PausedRun": return .PausedRun
+                case "Resuming": return .Resuming
+                case "Stopping": return .Stopping
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

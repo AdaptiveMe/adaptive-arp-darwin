@@ -39,41 +39,41 @@ import Foundation
 */
 public enum ICapabilitiesNotification {
 
-     case Alarm
-     case LocalNotification
-     case RemoteNotification
-     case Vibration
-     case Unknown
+    case Alarm
+    case LocalNotification
+    case RemoteNotification
+    case Vibration
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .Alarm: return "Alarm"
-               case .LocalNotification: return "LocalNotification"
-               case .RemoteNotification: return "RemoteNotification"
-               case .Vibration: return "Vibration"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .Alarm: return "Alarm"
+            case .LocalNotification: return "LocalNotification"
+            case .RemoteNotification: return "RemoteNotification"
+            case .Vibration: return "Vibration"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> ICapabilitiesNotification {
-          if let validString = string {
-               switch validString {
-                    case "Alarm": return .Alarm
-                    case "LocalNotification": return .LocalNotification
-                    case "RemoteNotification": return .RemoteNotification
-                    case "Vibration": return .Vibration
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> ICapabilitiesNotification {
+        if let validString = string {
+            switch validString {
+                case "Alarm": return .Alarm
+                case "LocalNotification": return .LocalNotification
+                case "RemoteNotification": return .RemoteNotification
+                case "Vibration": return .Vibration
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

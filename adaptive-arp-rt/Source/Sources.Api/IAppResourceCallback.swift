@@ -42,30 +42,30 @@ import Foundation
    @version 1.0
 */
 public protocol IAppResourceCallback : IBaseCallback {
-     /**
-        Error result of the App resource operation
+    /**
+       Error result of the App resource operation
 
-        @param error Error fired
-        @since ARP1.0
-     */
-     func onError(error : IAppResourceCallbackError)
+       @param error Error fired
+       @since ARP1.0
+    */
+    func onError(error : IAppResourceCallbackError)
 
-     /**
-        Correct result of the App Resource operation
+    /**
+       Correct result of the App Resource operation
 
-        @param resource Resource
-        @since ARP1.0
-     */
-     func onResult(resource : IAppResource)
+       @param resource Resource
+       @since ARP1.0
+    */
+    func onResult(resource : IAppResource)
 
-     /**
-        Warning result of the App Resource operation
+    /**
+       Warning result of the App Resource operation
 
-        @param resource Resource
-        @param warning  Warning fired
-        @since ARP1.0
-     */
-     func onWarning(resource : IAppResource, warning : IAppResourceCallbackWarning)
+       @param resource Resource
+       @param warning  Warning fired
+       @since ARP1.0
+    */
+    func onWarning(resource : IAppResource, warning : IAppResourceCallbackWarning)
 
 }
 

@@ -42,32 +42,32 @@ import Foundation
    @version 1.0
 */
 public protocol IGlobalization : IBaseApplication {
-     /**
-        List of supported locales for the application
+    /**
+       List of supported locales for the application
 
-        @return List of locales
-        @since ARP1.0
-     */
-     func getLocaleSupportedDescriptors() -> [Locale] 
+       @return List of locales
+       @since ARP1.0
+    */
+    func getLocaleSupportedDescriptors() -> [Locale] 
 
-     /**
-        Gets the text/message corresponding to the given key and locale.
+    /**
+       Gets the text/message corresponding to the given key and locale.
 
-        @param key    to match text
-        @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
-        @return Localized text.
-        @since ARP1.0
-     */
-     func getResourceLiteral(key : String, locale : Locale) -> String 
+       @param key    to match text
+       @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
+       @return Localized text.
+       @since ARP1.0
+    */
+    func getResourceLiteral(key : String, locale : Locale) -> String 
 
-     /**
-        Gets the full application configured literals (key/message pairs) corresponding to the given locale.
+    /**
+       Gets the full application configured literals (key/message pairs) corresponding to the given locale.
 
-        @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
-        @return Localized texts in the form of an object.
-        @since ARP1.0
-     */
-     func getResourceLiterals(locale : Locale) -> [KeyPair] 
+       @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
+       @return Localized texts in the form of an object.
+       @since ARP1.0
+    */
+    func getResourceLiterals(locale : Locale) -> [KeyPair] 
 
 }
 

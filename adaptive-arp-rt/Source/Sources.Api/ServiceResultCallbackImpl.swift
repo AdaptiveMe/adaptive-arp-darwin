@@ -40,48 +40,48 @@ import Foundation
 */
 public class ServiceResultCallbackImpl : BaseCallbackImpl, IServiceResultCallback {
 
-     /**
-        Constructor with callback id.
+    /**
+       Constructor with callback id.
 
-        @param id  The id of the callback.
-     */
-     public override init(id : Int) {
-          super.init(id: id)
-     }
+       @param id  The id of the callback.
+    */
+    public override init(id : Int) {
+        super.init(id: id)
+    }
 
-     /**
-        This method is called on Error
+    /**
+       This method is called on Error
 
-        @param error returned by the platform
-        @since ARP1.0
-     */
-     public func onError(error : IServiceResultCallbackError) { 
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleServiceResultCallbackError( '\(getId())', JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param error returned by the platform
+       @since ARP1.0
+    */
+    public func onError(error : IServiceResultCallbackError) { 
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleServiceResultCallbackError( '\(getId())', JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
-     /**
-        This method is called on Result
+    /**
+       This method is called on Result
 
-        @param response data
-        @since ARP1.0
-     */
-     public func onResult(response : ServiceResponse) { 
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleServiceResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param response data
+       @since ARP1.0
+    */
+    public func onResult(response : ServiceResponse) { 
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleServiceResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
-     /**
-        This method is called on Warning
+    /**
+       This method is called on Warning
 
-        @param response data
-        @param warning  returned by the platform
-        @since ARP1.0
-     */
-     public func onWarning(response : ServiceResponse, warning : IServiceResultCallbackWarning) { 
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleServiceResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param response data
+       @param warning  returned by the platform
+       @since ARP1.0
+    */
+    public func onWarning(response : ServiceResponse, warning : IServiceResultCallbackWarning) { 
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleServiceResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
 }
 /**

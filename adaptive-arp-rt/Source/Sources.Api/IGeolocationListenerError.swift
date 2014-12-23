@@ -39,41 +39,41 @@ import Foundation
 */
 public enum IGeolocationListenerError {
 
-     case Disabled
-     case RestrictedAccess
-     case DeniedAccess
-     case StatusNotDetermined
-     case Unknown
+    case Disabled
+    case RestrictedAccess
+    case DeniedAccess
+    case StatusNotDetermined
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .Disabled: return "Disabled"
-               case .RestrictedAccess: return "RestrictedAccess"
-               case .DeniedAccess: return "DeniedAccess"
-               case .StatusNotDetermined: return "StatusNotDetermined"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .Disabled: return "Disabled"
+            case .RestrictedAccess: return "RestrictedAccess"
+            case .DeniedAccess: return "DeniedAccess"
+            case .StatusNotDetermined: return "StatusNotDetermined"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> IGeolocationListenerError {
-          if let validString = string {
-               switch validString {
-                    case "Disabled": return .Disabled
-                    case "RestrictedAccess": return .RestrictedAccess
-                    case "DeniedAccess": return .DeniedAccess
-                    case "StatusNotDetermined": return .StatusNotDetermined
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> IGeolocationListenerError {
+        if let validString = string {
+            switch validString {
+                case "Disabled": return .Disabled
+                case "RestrictedAccess": return .RestrictedAccess
+                case "DeniedAccess": return .DeniedAccess
+                case "StatusNotDetermined": return .StatusNotDetermined
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

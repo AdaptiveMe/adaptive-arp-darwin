@@ -43,151 +43,151 @@ import Foundation
 */
 public class OSInfo : APIBean {
 
-     /**
-        The name of the operating system.
-     */
-     var name : String?
-     /**
-        The vendor of the operating system.
-     */
-     var vendor : String?
-     /**
-        The version/identifier of the operating system.
-     */
-     var version : String?
+    /**
+       The name of the operating system.
+    */
+    var name : String?
+    /**
+       The vendor of the operating system.
+    */
+    var vendor : String?
+    /**
+       The version/identifier of the operating system.
+    */
+    var version : String?
 
-     /**
-        Default constructor
+    /**
+       Default constructor
 
-        @since ARP1.0
-     */
-     public override init() {
-          super.init()
-     }
+       @since ARP1.0
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Constructor used by implementation to set the OS information.
+    /**
+       Constructor used by implementation to set the OS information.
 
-        @param name    of the OS.
-        @param version of the OS.
-        @param vendor  of the OS.
-        @since ARP1.0
-     */
-     public init(name: String, version: String, vendor: String) {
-          super.init()
-          self.name = name
-          self.version = version
-          self.vendor = vendor
-     }
+       @param name    of the OS.
+       @param version of the OS.
+       @param vendor  of the OS.
+       @since ARP1.0
+    */
+    public init(name: String, version: String, vendor: String) {
+        super.init()
+        self.name = name
+        self.version = version
+        self.vendor = vendor
+    }
 
-     /**
-        Returns the name of the operating system.
+    /**
+       Returns the name of the operating system.
 
-        @return OS name.
-        @since ARP1.0
-     */
-     public func getName() -> String? {
-          return self.name
-     }
+       @return OS name.
+       @since ARP1.0
+    */
+    public func getName() -> String? {
+        return self.name
+    }
 
-     /**
-        Sets The name of the operating system.
+    /**
+       Sets The name of the operating system.
 
-        @param name The name of the operating system.
-     */
-     public func setName(name: String) {
-          self.name = name
-     }
+       @param name The name of the operating system.
+    */
+    public func setName(name: String) {
+        self.name = name
+    }
 
-     /**
-        Returns the vendor of the operating system.
+    /**
+       Returns the vendor of the operating system.
 
-        @return OS vendor.
-        @since ARP1.0
-     */
-     public func getVendor() -> String? {
-          return self.vendor
-     }
+       @return OS vendor.
+       @since ARP1.0
+    */
+    public func getVendor() -> String? {
+        return self.vendor
+    }
 
-     /**
-        Sets The vendor of the operating system.
+    /**
+       Sets The vendor of the operating system.
 
-        @param vendor The vendor of the operating system.
-     */
-     public func setVendor(vendor: String) {
-          self.vendor = vendor
-     }
+       @param vendor The vendor of the operating system.
+    */
+    public func setVendor(vendor: String) {
+        self.vendor = vendor
+    }
 
-     /**
-        Returns the version of the operating system.
+    /**
+       Returns the version of the operating system.
 
-        @return OS version.
-        @since ARP1.0
-     */
-     public func getVersion() -> String? {
-          return self.version
-     }
+       @return OS version.
+       @since ARP1.0
+    */
+    public func getVersion() -> String? {
+        return self.version
+    }
 
-     /**
-        Sets The version/identifier of the operating system.
+    /**
+       Sets The version/identifier of the operating system.
 
-        @param version The version/identifier of the operating system.
-     */
-     public func setVersion(version: String) {
-          self.version = version
-     }
+       @param version The version/identifier of the operating system.
+    */
+    public func setVersion(version: String) {
+        self.version = version
+    }
 
 
-     /**
-        JSON Serialization and deserialization support.
-     */
-     struct Serializer {
-          static func fromJSON(json : String) -> OSInfo {
-               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
-               var jsonError: NSError?
-               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
-               return fromDictionary(dict)
-          }
+    /**
+       JSON Serialization and deserialization support.
+    */
+    struct Serializer {
+        static func fromJSON(json : String) -> OSInfo {
+            var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+            var jsonError: NSError?
+            let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+            return fromDictionary(dict)
+        }
 
-          static func fromDictionary(dict : NSDictionary) -> OSInfo {
-               var resultObject : OSInfo = OSInfo()
+        static func fromDictionary(dict : NSDictionary) -> OSInfo {
+            var resultObject : OSInfo = OSInfo()
 
-               if let value : AnyObject = dict.objectForKey("name") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.name = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("name") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.name = (value as String)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("vendor") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.vendor = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("vendor") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.vendor = (value as String)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("version") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.version = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("version") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.version = (value as String)
+                }
+            }
 
-               return resultObject
-          }
+            return resultObject
+        }
 
-          static func toJSON(object: OSInfo) -> String {
-               var jsonString : NSMutableString = NSMutableString()
-               // Start Object to JSON
-               jsonString.appendString("{ ")
+        static func toJSON(object: OSInfo) -> String {
+            var jsonString : NSMutableString = NSMutableString()
+            // Start Object to JSON
+            jsonString.appendString("{ ")
 
-               // Fields.
-               object.name != nil ? jsonString.appendString("\"name\": \"\(object.name!)\", ") : jsonString.appendString("\"name\": null, ")
-               object.vendor != nil ? jsonString.appendString("\"vendor\": \"\(object.vendor!)\", ") : jsonString.appendString("\"vendor\": null, ")
-               object.version != nil ? jsonString.appendString("\"version\": \"\(object.version!)\"") : jsonString.appendString("\"version\": null")
+            // Fields.
+            object.name != nil ? jsonString.appendString("\"name\": \"\(object.name!)\", ") : jsonString.appendString("\"name\": null, ")
+            object.vendor != nil ? jsonString.appendString("\"vendor\": \"\(object.vendor!)\", ") : jsonString.appendString("\"vendor\": null, ")
+            object.version != nil ? jsonString.appendString("\"version\": \"\(object.version!)\"") : jsonString.appendString("\"version\": null")
 
-               // End Object to JSON
-               jsonString.appendString(" }")
-               return jsonString
-          }
-     }
+            // End Object to JSON
+            jsonString.appendString(" }")
+            return jsonString
+        }
+    }
 }
 
 /**

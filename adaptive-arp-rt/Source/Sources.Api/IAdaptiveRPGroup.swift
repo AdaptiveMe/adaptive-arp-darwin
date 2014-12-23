@@ -39,74 +39,74 @@ import Foundation
 */
 public enum IAdaptiveRPGroup {
 
-     case Application
-     case Commerce
-     case Communication
-     case Data
-     case Media
-     case Notification
-     case PIM
-     case Reader
-     case Security
-     case Sensor
-     case Social
-     case System
-     case UI
-     case Util
-     case Kernel
-     case Unknown
+    case Application
+    case Commerce
+    case Communication
+    case Data
+    case Media
+    case Notification
+    case PIM
+    case Reader
+    case Security
+    case Sensor
+    case Social
+    case System
+    case UI
+    case Util
+    case Kernel
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .Application: return "Application"
-               case .Commerce: return "Commerce"
-               case .Communication: return "Communication"
-               case .Data: return "Data"
-               case .Media: return "Media"
-               case .Notification: return "Notification"
-               case .PIM: return "PIM"
-               case .Reader: return "Reader"
-               case .Security: return "Security"
-               case .Sensor: return "Sensor"
-               case .Social: return "Social"
-               case .System: return "System"
-               case .UI: return "UI"
-               case .Util: return "Util"
-               case .Kernel: return "Kernel"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .Application: return "Application"
+            case .Commerce: return "Commerce"
+            case .Communication: return "Communication"
+            case .Data: return "Data"
+            case .Media: return "Media"
+            case .Notification: return "Notification"
+            case .PIM: return "PIM"
+            case .Reader: return "Reader"
+            case .Security: return "Security"
+            case .Sensor: return "Sensor"
+            case .Social: return "Social"
+            case .System: return "System"
+            case .UI: return "UI"
+            case .Util: return "Util"
+            case .Kernel: return "Kernel"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> IAdaptiveRPGroup {
-          if let validString = string {
-               switch validString {
-                    case "Application": return .Application
-                    case "Commerce": return .Commerce
-                    case "Communication": return .Communication
-                    case "Data": return .Data
-                    case "Media": return .Media
-                    case "Notification": return .Notification
-                    case "PIM": return .PIM
-                    case "Reader": return .Reader
-                    case "Security": return .Security
-                    case "Sensor": return .Sensor
-                    case "Social": return .Social
-                    case "System": return .System
-                    case "UI": return .UI
-                    case "Util": return .Util
-                    case "Kernel": return .Kernel
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> IAdaptiveRPGroup {
+        if let validString = string {
+            switch validString {
+                case "Application": return .Application
+                case "Commerce": return .Commerce
+                case "Communication": return .Communication
+                case "Data": return .Data
+                case "Media": return .Media
+                case "Notification": return .Notification
+                case "PIM": return .PIM
+                case "Reader": return .Reader
+                case "Security": return .Security
+                case "Sensor": return .Sensor
+                case "Social": return .Social
+                case "System": return .System
+                case "UI": return .UI
+                case "Util": return .Util
+                case "Kernel": return .Kernel
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

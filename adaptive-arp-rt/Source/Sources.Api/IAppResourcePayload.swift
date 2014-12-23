@@ -39,38 +39,38 @@ import Foundation
 */
 public enum IAppResourcePayload {
 
-     case Default
-     case Embedded
-     case Linked
-     case Unknown
+    case Default
+    case Embedded
+    case Linked
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .Default: return "Default"
-               case .Embedded: return "Embedded"
-               case .Linked: return "Linked"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .Default: return "Default"
+            case .Embedded: return "Embedded"
+            case .Linked: return "Linked"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> IAppResourcePayload {
-          if let validString = string {
-               switch validString {
-                    case "Default": return .Default
-                    case "Embedded": return .Embedded
-                    case "Linked": return .Linked
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> IAppResourcePayload {
+        if let validString = string {
+            switch validString {
+                case "Default": return .Default
+                case "Embedded": return .Embedded
+                case "Linked": return .Linked
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

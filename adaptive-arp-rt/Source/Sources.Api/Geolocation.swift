@@ -43,264 +43,264 @@ import Foundation
 */
 public class Geolocation : APIBean {
 
-     /**
-        The current device altitude (or Z coordinate). Measured in meters.
-     */
-     var altitude : Double?
-     /**
-        The Y coordinate (or latitude). Measured in degrees.
-     */
-     var latitude : Double?
-     /**
-        The X coordinate (or longitude). Measured in degrees.
-     */
-     var longitude : Double?
-     /**
-        Timestamp of the geolocation reading.
-     */
-     var timestamp : Int?
-     /**
-        Dilution of precision on the X measurement. Measured in meters.
-     */
-     var xDoP : Float?
-     /**
-        Dilution of precision on the Y measurement. Measured in meters.
-     */
-     var yDoP : Float?
+    /**
+       The current device altitude (or Z coordinate). Measured in meters.
+    */
+    var altitude : Double?
+    /**
+       The Y coordinate (or latitude). Measured in degrees.
+    */
+    var latitude : Double?
+    /**
+       The X coordinate (or longitude). Measured in degrees.
+    */
+    var longitude : Double?
+    /**
+       Timestamp of the geolocation reading.
+    */
+    var timestamp : Int?
+    /**
+       Dilution of precision on the X measurement. Measured in meters.
+    */
+    var xDoP : Float?
+    /**
+       Dilution of precision on the Y measurement. Measured in meters.
+    */
+    var yDoP : Float?
 
-     /**
-        Default constructor
+    /**
+       Default constructor
 
-        @since ARP1.0
-     */
-     public override init() {
-          super.init()
-     }
+       @since ARP1.0
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Constructor with parameters
+    /**
+       Constructor with parameters
 
-        @param latitude  Latitude of the measurement
-        @param longitude Longitude of the measurement
-        @param altitude  Altitude of the measurement
-        @param xDoP      Dilution of precision on the X measurement
-        @param yDoP      Dilution of precision on the Y measurement
-        @param timestamp Timestamp of the measurement
-        @since ARP1.0
-     */
-     public init(latitude: Double, longitude: Double, altitude: Double, xDoP: Float, yDoP: Float, timestamp: Int) {
-          super.init()
-          self.latitude = latitude
-          self.longitude = longitude
-          self.altitude = altitude
-          self.xDoP = xDoP
-          self.yDoP = yDoP
-          self.timestamp = timestamp
-     }
+       @param latitude  Latitude of the measurement
+       @param longitude Longitude of the measurement
+       @param altitude  Altitude of the measurement
+       @param xDoP      Dilution of precision on the X measurement
+       @param yDoP      Dilution of precision on the Y measurement
+       @param timestamp Timestamp of the measurement
+       @since ARP1.0
+    */
+    public init(latitude: Double, longitude: Double, altitude: Double, xDoP: Float, yDoP: Float, timestamp: Int) {
+        super.init()
+        self.latitude = latitude
+        self.longitude = longitude
+        self.altitude = altitude
+        self.xDoP = xDoP
+        self.yDoP = yDoP
+        self.timestamp = timestamp
+    }
 
-     /**
-        Constructor with parameters
+    /**
+       Constructor with parameters
 
-        @param latitude  Latitude of the measurement
-        @param longitude Longitude of the measurement
-        @param timestamp Timestamp of the measurement
-        @since ARP1.0
-     */
-     public init(latitude: Double, longitude: Double, timestamp: Int) {
-          super.init()
-          self.latitude = latitude
-          self.longitude = longitude
-          self.timestamp = timestamp
-     }
+       @param latitude  Latitude of the measurement
+       @param longitude Longitude of the measurement
+       @param timestamp Timestamp of the measurement
+       @since ARP1.0
+    */
+    public init(latitude: Double, longitude: Double, timestamp: Int) {
+        super.init()
+        self.latitude = latitude
+        self.longitude = longitude
+        self.timestamp = timestamp
+    }
 
-     /**
-        Returns altitude in meters
+    /**
+       Returns altitude in meters
 
-        @return Altitude of the measurement
-        @since ARP1.0
-     */
-     public func getAltitude() -> Double? {
-          return self.altitude
-     }
+       @return Altitude of the measurement
+       @since ARP1.0
+    */
+    public func getAltitude() -> Double? {
+        return self.altitude
+    }
 
-     /**
-        Set altitude in meters
+    /**
+       Set altitude in meters
 
-        @param altitude Altitude of the measurement
-        @since ARP1.0
-     */
-     public func setAltitude(altitude: Double) {
-          self.altitude = altitude
-     }
+       @param altitude Altitude of the measurement
+       @since ARP1.0
+    */
+    public func setAltitude(altitude: Double) {
+        self.altitude = altitude
+    }
 
-     /**
-        Returns the latitude in degrees
+    /**
+       Returns the latitude in degrees
 
-        @return Latitude of the measurement
-        @since ARP1.0
-     */
-     public func getLatitude() -> Double? {
-          return self.latitude
-     }
+       @return Latitude of the measurement
+       @since ARP1.0
+    */
+    public func getLatitude() -> Double? {
+        return self.latitude
+    }
 
-     /**
-        Set the latitude in degrees
+    /**
+       Set the latitude in degrees
 
-        @param latitude Latitude of the measurement
-        @since ARP1.0
-     */
-     public func setLatitude(latitude: Double) {
-          self.latitude = latitude
-     }
+       @param latitude Latitude of the measurement
+       @since ARP1.0
+    */
+    public func setLatitude(latitude: Double) {
+        self.latitude = latitude
+    }
 
-     /**
-        Returns the longitude in degrees
+    /**
+       Returns the longitude in degrees
 
-        @return Longitude of the measurement
-        @since ARP1.0
-     */
-     public func getLongitude() -> Double? {
-          return self.longitude
-     }
+       @return Longitude of the measurement
+       @since ARP1.0
+    */
+    public func getLongitude() -> Double? {
+        return self.longitude
+    }
 
-     /**
-        Returns the latitude in degrees
+    /**
+       Returns the latitude in degrees
 
-        @param longitude Longitude of the measurement
-        @since ARP1.0
-     */
-     public func setLongitude(longitude: Double) {
-          self.longitude = longitude
-     }
+       @param longitude Longitude of the measurement
+       @since ARP1.0
+    */
+    public func setLongitude(longitude: Double) {
+        self.longitude = longitude
+    }
 
-     /**
-        Timestamp Getter
+    /**
+       Timestamp Getter
 
-        @return Timestamp
-        @since ARP1.0
-     */
-     public func getTimestamp() -> Int? {
-          return self.timestamp
-     }
+       @return Timestamp
+       @since ARP1.0
+    */
+    public func getTimestamp() -> Int? {
+        return self.timestamp
+    }
 
-     /**
-        Timestamp Setter
+    /**
+       Timestamp Setter
 
-        @param timestamp Timestamp
-        @since ARP1.0
-     */
-     public func setTimestamp(timestamp: Int) {
-          self.timestamp = timestamp
-     }
+       @param timestamp Timestamp
+       @since ARP1.0
+    */
+    public func setTimestamp(timestamp: Int) {
+        self.timestamp = timestamp
+    }
 
-     /**
-        Gets Dilution of precision on the X measurement. Measured in meters.
+    /**
+       Gets Dilution of precision on the X measurement. Measured in meters.
 
-        @return xDoP Dilution of precision on the X measurement. Measured in meters.
-     */
-     public func getXDoP() -> Float? {
-          return self.xDoP
-     }
+       @return xDoP Dilution of precision on the X measurement. Measured in meters.
+    */
+    public func getXDoP() -> Float? {
+        return self.xDoP
+    }
 
-     /**
-        Sets Dilution of precision on the X measurement. Measured in meters.
+    /**
+       Sets Dilution of precision on the X measurement. Measured in meters.
 
-        @param xDoP Dilution of precision on the X measurement. Measured in meters.
-     */
-     public func setXDoP(xDoP: Float) {
-          self.xDoP = xDoP
-     }
+       @param xDoP Dilution of precision on the X measurement. Measured in meters.
+    */
+    public func setXDoP(xDoP: Float) {
+        self.xDoP = xDoP
+    }
 
-     /**
-        Gets Dilution of precision on the Y measurement. Measured in meters.
+    /**
+       Gets Dilution of precision on the Y measurement. Measured in meters.
 
-        @return yDoP Dilution of precision on the Y measurement. Measured in meters.
-     */
-     public func getYDoP() -> Float? {
-          return self.yDoP
-     }
+       @return yDoP Dilution of precision on the Y measurement. Measured in meters.
+    */
+    public func getYDoP() -> Float? {
+        return self.yDoP
+    }
 
-     /**
-        Sets Dilution of precision on the Y measurement. Measured in meters.
+    /**
+       Sets Dilution of precision on the Y measurement. Measured in meters.
 
-        @param yDoP Dilution of precision on the Y measurement. Measured in meters.
-     */
-     public func setYDoP(yDoP: Float) {
-          self.yDoP = yDoP
-     }
+       @param yDoP Dilution of precision on the Y measurement. Measured in meters.
+    */
+    public func setYDoP(yDoP: Float) {
+        self.yDoP = yDoP
+    }
 
 
-     /**
-        JSON Serialization and deserialization support.
-     */
-     struct Serializer {
-          static func fromJSON(json : String) -> Geolocation {
-               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
-               var jsonError: NSError?
-               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
-               return fromDictionary(dict)
-          }
+    /**
+       JSON Serialization and deserialization support.
+    */
+    struct Serializer {
+        static func fromJSON(json : String) -> Geolocation {
+            var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+            var jsonError: NSError?
+            let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+            return fromDictionary(dict)
+        }
 
-          static func fromDictionary(dict : NSDictionary) -> Geolocation {
-               var resultObject : Geolocation = Geolocation()
+        static func fromDictionary(dict : NSDictionary) -> Geolocation {
+            var resultObject : Geolocation = Geolocation()
 
-               if let value : AnyObject = dict.objectForKey("altitude") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.altitude = (value as Double)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("altitude") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.altitude = (value as Double)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("latitude") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.latitude = (value as Double)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("latitude") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.latitude = (value as Double)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("longitude") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.longitude = (value as Double)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("longitude") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.longitude = (value as Double)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("timestamp") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.timestamp = (value as Int)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("timestamp") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.timestamp = (value as Int)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("xDoP") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.xDoP = (value as Float)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("xDoP") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.xDoP = (value as Float)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("yDoP") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.yDoP = (value as Float)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("yDoP") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.yDoP = (value as Float)
+                }
+            }
 
-               return resultObject
-          }
+            return resultObject
+        }
 
-          static func toJSON(object: Geolocation) -> String {
-               var jsonString : NSMutableString = NSMutableString()
-               // Start Object to JSON
-               jsonString.appendString("{ ")
+        static func toJSON(object: Geolocation) -> String {
+            var jsonString : NSMutableString = NSMutableString()
+            // Start Object to JSON
+            jsonString.appendString("{ ")
 
-               // Fields.
-               object.altitude != nil ? jsonString.appendString("\"altitude\": \(object.altitude!), ") : jsonString.appendString("\"altitude\": null, ")
-               object.latitude != nil ? jsonString.appendString("\"latitude\": \(object.latitude!), ") : jsonString.appendString("\"latitude\": null, ")
-               object.longitude != nil ? jsonString.appendString("\"longitude\": \(object.longitude!), ") : jsonString.appendString("\"longitude\": null, ")
-               object.timestamp != nil ? jsonString.appendString("\"timestamp\": \(object.timestamp!), ") : jsonString.appendString("\"timestamp\": null, ")
-               object.xDoP != nil ? jsonString.appendString("\"xDoP\": \(object.xDoP!), ") : jsonString.appendString("\"xDoP\": null, ")
-               object.yDoP != nil ? jsonString.appendString("\"yDoP\": \(object.yDoP!)") : jsonString.appendString("\"yDoP\": null")
+            // Fields.
+            object.altitude != nil ? jsonString.appendString("\"altitude\": \(object.altitude!), ") : jsonString.appendString("\"altitude\": null, ")
+            object.latitude != nil ? jsonString.appendString("\"latitude\": \(object.latitude!), ") : jsonString.appendString("\"latitude\": null, ")
+            object.longitude != nil ? jsonString.appendString("\"longitude\": \(object.longitude!), ") : jsonString.appendString("\"longitude\": null, ")
+            object.timestamp != nil ? jsonString.appendString("\"timestamp\": \(object.timestamp!), ") : jsonString.appendString("\"timestamp\": null, ")
+            object.xDoP != nil ? jsonString.appendString("\"xDoP\": \(object.xDoP!), ") : jsonString.appendString("\"xDoP\": null, ")
+            object.yDoP != nil ? jsonString.appendString("\"yDoP\": \(object.yDoP!)") : jsonString.appendString("\"yDoP\": null")
 
-               // End Object to JSON
-               jsonString.appendString(" }")
-               return jsonString
-          }
-     }
+            // End Object to JSON
+            jsonString.appendString(" }")
+            return jsonString
+        }
+    }
 }
 
 /**

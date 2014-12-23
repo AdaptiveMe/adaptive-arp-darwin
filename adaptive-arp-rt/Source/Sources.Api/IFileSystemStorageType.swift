@@ -39,47 +39,47 @@ import Foundation
 */
 public enum IFileSystemStorageType {
 
-     case Application
-     case Document
-     case Cloud
-     case Protected
-     case Cache
-     case External
-     case Unknown
+    case Application
+    case Document
+    case Cloud
+    case Protected
+    case Cache
+    case External
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .Application: return "Application"
-               case .Document: return "Document"
-               case .Cloud: return "Cloud"
-               case .Protected: return "Protected"
-               case .Cache: return "Cache"
-               case .External: return "External"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .Application: return "Application"
+            case .Document: return "Document"
+            case .Cloud: return "Cloud"
+            case .Protected: return "Protected"
+            case .Cache: return "Cache"
+            case .External: return "External"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> IFileSystemStorageType {
-          if let validString = string {
-               switch validString {
-                    case "Application": return .Application
-                    case "Document": return .Document
-                    case "Cloud": return .Cloud
-                    case "Protected": return .Protected
-                    case "Cache": return .Cache
-                    case "External": return .External
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> IFileSystemStorageType {
+        if let validString = string {
+            switch validString {
+                case "Application": return .Application
+                case "Document": return .Document
+                case "Cloud": return .Cloud
+                case "Protected": return .Protected
+                case "Cache": return .Cache
+                case "External": return .External
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

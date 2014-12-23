@@ -39,38 +39,38 @@ import Foundation
 */
 public enum IFileSystemSecurity {
 
-     case Default
-     case Protected
-     case Encrypted
-     case Unknown
+    case Default
+    case Protected
+    case Encrypted
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .Default: return "Default"
-               case .Protected: return "Protected"
-               case .Encrypted: return "Encrypted"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .Default: return "Default"
+            case .Protected: return "Protected"
+            case .Encrypted: return "Encrypted"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> IFileSystemSecurity {
-          if let validString = string {
-               switch validString {
-                    case "Default": return .Default
-                    case "Protected": return .Protected
-                    case "Encrypted": return .Encrypted
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> IFileSystemSecurity {
+        if let validString = string {
+            switch validString {
+                case "Default": return .Default
+                case "Protected": return .Protected
+                case "Encrypted": return .Encrypted
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

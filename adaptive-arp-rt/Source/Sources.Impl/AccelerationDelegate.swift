@@ -40,41 +40,41 @@ import Foundation
 */
 public class AccelerationDelegate : BaseSensorDelegate, IAcceleration {
 
-     /**
-        Default Constructor.
-     */
-     public override init() {
-          super.init()
-     }
+    /**
+       Default Constructor.
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Register a new listener that will receive acceleration events.
+    /**
+       Register a new listener that will receive acceleration events.
 
-        @param listener to be registered.
-        @since ARP1.0
-     */
-     public func addAccelerationListener(listener : IAccelerationListener) {
-          // TODO: Not implemented.
-     }
+       @param listener to be registered.
+       @since ARP1.0
+    */
+    public func addAccelerationListener(listener : IAccelerationListener) {
+        // TODO: Not implemented.
+    }
 
-     /**
-        De-registers an existing listener from receiving acceleration events.
+    /**
+       De-registers an existing listener from receiving acceleration events.
 
-        @param listener to be registered.
-        @since ARP1.0
-     */
-     public func removeAccelerationListener(listener : IAccelerationListener) {
-          // TODO: Not implemented.
-     }
+       @param listener to be registered.
+       @since ARP1.0
+    */
+    public func removeAccelerationListener(listener : IAccelerationListener) {
+        // TODO: Not implemented.
+    }
 
-     /**
-        Removed all existing listeners from receiving acceleration events.
+    /**
+       Removed all existing listeners from receiving acceleration events.
 
-        @since ARP1.0
-     */
-     public func removeAccelerationListeners() {
-          // TODO: Not implemented.
-     }
+       @since ARP1.0
+    */
+    public func removeAccelerationListeners() {
+        // TODO: Not implemented.
+    }
 
 }
 /**

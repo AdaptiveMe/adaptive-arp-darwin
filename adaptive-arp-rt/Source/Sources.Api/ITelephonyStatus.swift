@@ -39,35 +39,35 @@ import Foundation
 */
 public enum ITelephonyStatus {
 
-     case Dialing
-     case Failed
-     case Unknown
+    case Dialing
+    case Failed
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .Dialing: return "Dialing"
-               case .Failed: return "Failed"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .Dialing: return "Dialing"
+            case .Failed: return "Failed"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> ITelephonyStatus {
-          if let validString = string {
-               switch validString {
-                    case "Dialing": return .Dialing
-                    case "Failed": return .Failed
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> ITelephonyStatus {
+        if let validString = string {
+            switch validString {
+                case "Dialing": return .Dialing
+                case "Failed": return .Failed
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

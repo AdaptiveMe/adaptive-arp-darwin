@@ -40,113 +40,113 @@ import Foundation
 */
 public class DatabaseDelegate : BaseDataDelegate, IDatabase {
 
-     /**
-        Default Constructor.
-     */
-     public override init() {
-          super.init()
-     }
+    /**
+       Default Constructor.
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Creates a database on default path for every platform.
+    /**
+       Creates a database on default path for every platform.
 
-        @param callback Asynchronous callback
-        @param database Database object to create
-        @since ARP1.0
-     */
-     public func createDatabase(database : Database, callback : IDatabaseResultCallback) {
-          // TODO: Not implemented.
-     }
+       @param callback Asynchronous callback
+       @param database Database object to create
+       @since ARP1.0
+    */
+    public func createDatabase(database : Database, callback : IDatabaseResultCallback) {
+        // TODO: Not implemented.
+    }
 
-     /**
-        Creates a databaseTable inside a database for every platform.
+    /**
+       Creates a databaseTable inside a database for every platform.
 
-        @param database      Database for databaseTable creating.
-        @param databaseTable DatabaseTable object with the name of the databaseTable inside.
-        @param callback      DatabaseTable callback with the response
-        @since ARP1.0
-     */
-     public func createTable(database : Database, databaseTable : DatabaseTable, callback : IDatabaseTableResultCallback) {
-          // TODO: Not implemented.
-     }
+       @param database      Database for databaseTable creating.
+       @param databaseTable DatabaseTable object with the name of the databaseTable inside.
+       @param callback      DatabaseTable callback with the response
+       @since ARP1.0
+    */
+    public func createTable(database : Database, databaseTable : DatabaseTable, callback : IDatabaseTableResultCallback) {
+        // TODO: Not implemented.
+    }
 
-     /**
-        Deletes a database on default path for every platform.
+    /**
+       Deletes a database on default path for every platform.
 
-        @param database Database object to delete
-        @param callback Asynchronous callback
-        @since ARP1.0
-     */
-     public func deleteDatabase(database : Database, callback : IDatabaseResultCallback) {
-          // TODO: Not implemented.
-     }
+       @param database Database object to delete
+       @param callback Asynchronous callback
+       @since ARP1.0
+    */
+    public func deleteDatabase(database : Database, callback : IDatabaseResultCallback) {
+        // TODO: Not implemented.
+    }
 
-     /**
-        Deletes a databaseTable inside a database for every platform.
+    /**
+       Deletes a databaseTable inside a database for every platform.
 
-        @param database      Database for databaseTable removal.
-        @param databaseTable DatabaseTable object with the name of the databaseTable inside.
-        @param callback      DatabaseTable callback with the response
-        @since ARP1.0
-     */
-     public func deleteTable(database : Database, databaseTable : DatabaseTable, callback : IDatabaseTableResultCallback) {
-          // TODO: Not implemented.
-     }
+       @param database      Database for databaseTable removal.
+       @param databaseTable DatabaseTable object with the name of the databaseTable inside.
+       @param callback      DatabaseTable callback with the response
+       @since ARP1.0
+    */
+    public func deleteTable(database : Database, databaseTable : DatabaseTable, callback : IDatabaseTableResultCallback) {
+        // TODO: Not implemented.
+    }
 
-     /**
-        Executes SQL statement into the given database. The replacements
+    /**
+       Executes SQL statement into the given database. The replacements
 should be passed as a parameter
 
-        @param database     The database object reference.
-        @param statement    SQL statement.
-        @param replacements List of SQL statement replacements.
-        @param callback     DatabaseTable callback with the response.
-        @since ARP1.0
-     */
-     public func executeSqlStatement(database : Database, statement : String, replacements : [String], callback : IDatabaseTableResultCallback) {
-          // TODO: Not implemented.
-     }
+       @param database     The database object reference.
+       @param statement    SQL statement.
+       @param replacements List of SQL statement replacements.
+       @param callback     DatabaseTable callback with the response.
+       @since ARP1.0
+    */
+    public func executeSqlStatement(database : Database, statement : String, replacements : [String], callback : IDatabaseTableResultCallback) {
+        // TODO: Not implemented.
+    }
 
-     /**
-        Executes SQL transaction (some statements chain) inside given database.
+    /**
+       Executes SQL transaction (some statements chain) inside given database.
 
-        @param database     The database object reference.
-        @param statements   The statements to be executed during transaction.
-        @param rollbackFlag Indicates if rollback should be performed when any
+       @param database     The database object reference.
+       @param statements   The statements to be executed during transaction.
+       @param rollbackFlag Indicates if rollback should be performed when any
                     statement execution fails.
-        @param callback     DatabaseTable callback with the response.
-        @since ARP1.0
-     */
-     public func executeSqlTransactions(database : Database, statements : [String], rollbackFlag : Bool, callback : IDatabaseTableResultCallback) {
-          // TODO: Not implemented.
-     }
+       @param callback     DatabaseTable callback with the response.
+       @since ARP1.0
+    */
+    public func executeSqlTransactions(database : Database, statements : [String], rollbackFlag : Bool, callback : IDatabaseTableResultCallback) {
+        // TODO: Not implemented.
+    }
 
-     /**
-        Checks if database exists by given database name.
+    /**
+       Checks if database exists by given database name.
 
-        @param database Database Object to check if exists
-        @return True if exists, false otherwise
-        @since ARP1.0
-     */
-     public func existsDatabase(database : Database) -> Bool {
-          var response : Bool
-          // TODO: Not implemented.
-          return false
-     }
+       @param database Database Object to check if exists
+       @return True if exists, false otherwise
+       @since ARP1.0
+    */
+    public func existsDatabase(database : Database) -> Bool {
+        var response : Bool
+        // TODO: Not implemented.
+        return false
+    }
 
-     /**
-        Checks if databaseTable exists by given database name.
+    /**
+       Checks if databaseTable exists by given database name.
 
-        @param database      Database for databaseTable consulting.
-        @param databaseTable DatabaseTable object with the name of the databaseTable inside.
-        @return True if exists, false otherwise
-        @since ARP1.0
-     */
-     public func existsTable(database : Database, databaseTable : DatabaseTable) -> Bool {
-          var response : Bool
-          // TODO: Not implemented.
-          return false
-     }
+       @param database      Database for databaseTable consulting.
+       @param databaseTable DatabaseTable object with the name of the databaseTable inside.
+       @return True if exists, false otherwise
+       @since ARP1.0
+    */
+    public func existsTable(database : Database, databaseTable : DatabaseTable) -> Bool {
+        var response : Bool
+        // TODO: Not implemented.
+        return false
+    }
 
 }
 /**

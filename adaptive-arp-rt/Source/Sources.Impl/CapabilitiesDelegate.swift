@@ -40,107 +40,107 @@ import Foundation
 */
 public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
 
-     /**
-        Default Constructor.
-     */
-     public override init() {
-          super.init()
-     }
+    /**
+       Default Constructor.
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Determines whether a specific hardware button is supported for interaction.
+    /**
+       Determines whether a specific hardware button is supported for interaction.
 
-        @param type Type of feature to check.
-        @return true is supported, false otherwise.
-        @since ARP1.0
-     */
-     public func hasButtonSupport(type : ICapabilitiesButton) -> Bool {
-          var response : Bool
-          // TODO: Not implemented.
-          return false
-     }
+       @param type Type of feature to check.
+       @return true is supported, false otherwise.
+       @since ARP1.0
+    */
+    public func hasButtonSupport(type : ICapabilitiesButton) -> Bool {
+        var response : Bool
+        // TODO: Not implemented.
+        return false
+    }
 
-     /**
-        Determines whether a specific Communication capability is supported by
+    /**
+       Determines whether a specific Communication capability is supported by
 the device.
 
-        @param type Type of feature to check.
-        @return true if supported, false otherwise.
-        @since ARP1.0
-     */
-     public func hasCommunicationSupport(type : ICapabilitiesCommunication) -> Bool {
-          var response : Bool
-          // TODO: Not implemented.
-          return false
-     }
+       @param type Type of feature to check.
+       @return true if supported, false otherwise.
+       @since ARP1.0
+    */
+    public func hasCommunicationSupport(type : ICapabilitiesCommunication) -> Bool {
+        var response : Bool
+        // TODO: Not implemented.
+        return false
+    }
 
-     /**
-        Determines whether a specific Data capability is supported by the device.
+    /**
+       Determines whether a specific Data capability is supported by the device.
 
-        @param type Type of feature to check.
-        @return true if supported, false otherwise.
-        @since ARP1.0
-     */
-     public func hasDataSupport(type : ICapabilitiesData) -> Bool {
-          var response : Bool
-          // TODO: Not implemented.
-          return false
-     }
+       @param type Type of feature to check.
+       @return true if supported, false otherwise.
+       @since ARP1.0
+    */
+    public func hasDataSupport(type : ICapabilitiesData) -> Bool {
+        var response : Bool
+        // TODO: Not implemented.
+        return false
+    }
 
-     /**
-        Determines whether a specific Media capability is supported by the
+    /**
+       Determines whether a specific Media capability is supported by the
 device.
 
-        @param type Type of feature to check.
-        @return true if supported, false otherwise.
-        @since ARP1.0
-     */
-     public func hasMediaSupport(type : ICapabilitiesMedia) -> Bool {
-          var response : Bool
-          // TODO: Not implemented.
-          return false
-     }
+       @param type Type of feature to check.
+       @return true if supported, false otherwise.
+       @since ARP1.0
+    */
+    public func hasMediaSupport(type : ICapabilitiesMedia) -> Bool {
+        var response : Bool
+        // TODO: Not implemented.
+        return false
+    }
 
-     /**
-        Determines whether a specific Net capability is supported by the device.
+    /**
+       Determines whether a specific Net capability is supported by the device.
 
-        @param type Type of feature to check.
-        @return true if supported, false otherwise.
-        @since ARP1.0
-     */
-     public func hasNetSupport(type : ICapabilitiesNet) -> Bool {
-          var response : Bool
-          // TODO: Not implemented.
-          return false
-     }
+       @param type Type of feature to check.
+       @return true if supported, false otherwise.
+       @since ARP1.0
+    */
+    public func hasNetSupport(type : ICapabilitiesNet) -> Bool {
+        var response : Bool
+        // TODO: Not implemented.
+        return false
+    }
 
-     /**
-        Determines whether a specific Notification capability is supported by the
+    /**
+       Determines whether a specific Notification capability is supported by the
 device.
 
-        @param type Type of feature to check.
-        @return true if supported, false otherwise.
-        @since ARP1.0
-     */
-     public func hasNotificationSupport(type : ICapabilitiesNotification) -> Bool {
-          var response : Bool
-          // TODO: Not implemented.
-          return false
-     }
+       @param type Type of feature to check.
+       @return true if supported, false otherwise.
+       @since ARP1.0
+    */
+    public func hasNotificationSupport(type : ICapabilitiesNotification) -> Bool {
+        var response : Bool
+        // TODO: Not implemented.
+        return false
+    }
 
-     /**
-        Determines whether a specific Sensor capability is supported by the
+    /**
+       Determines whether a specific Sensor capability is supported by the
 device.
 
-        @param type Type of feature to check.
-        @return true if supported, false otherwise.
-        @since ARP1.0
-     */
-     public func hasSensorSupport(type : ICapabilitiesSensor) -> Bool {
-          var response : Bool
-          // TODO: Not implemented.
-          return false
-     }
+       @param type Type of feature to check.
+       @return true if supported, false otherwise.
+       @since ARP1.0
+    */
+    public func hasSensorSupport(type : ICapabilitiesSensor) -> Bool {
+        var response : Bool
+        // TODO: Not implemented.
+        return false
+    }
 
 }
 /**

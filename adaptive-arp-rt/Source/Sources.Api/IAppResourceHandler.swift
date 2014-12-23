@@ -42,13 +42,13 @@ import Foundation
    @version 1.0
 */
 public protocol IAppResourceHandler : NSObjectProtocol {
-     /**
-        This method manages the queries to the bundle reosurces inside the application
+    /**
+       This method manages the queries to the bundle reosurces inside the application
 
-        @param resourcePath path of the resource
-        @param callback     Callback
-     */
-     func getResource(resourcePath : String, callback : IAppResourceCallback)
+       @param resourcePath path of the resource
+       @param callback     Callback
+    */
+    func getResource(resourcePath : String, callback : IAppResourceCallback)
 
 }
 

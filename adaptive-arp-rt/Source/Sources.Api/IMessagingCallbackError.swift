@@ -39,44 +39,44 @@ import Foundation
 */
 public enum IMessagingCallbackError {
 
-     case SIMNotPresent
-     case EmailAccountNotFound
-     case NotSent
-     case WrongParams
-     case NotSupported
-     case Unknown
+    case SIMNotPresent
+    case EmailAccountNotFound
+    case NotSent
+    case WrongParams
+    case NotSupported
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .SIMNotPresent: return "SIMNotPresent"
-               case .EmailAccountNotFound: return "EmailAccountNotFound"
-               case .NotSent: return "NotSent"
-               case .WrongParams: return "WrongParams"
-               case .NotSupported: return "NotSupported"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .SIMNotPresent: return "SIMNotPresent"
+            case .EmailAccountNotFound: return "EmailAccountNotFound"
+            case .NotSent: return "NotSent"
+            case .WrongParams: return "WrongParams"
+            case .NotSupported: return "NotSupported"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> IMessagingCallbackError {
-          if let validString = string {
-               switch validString {
-                    case "SIMNotPresent": return .SIMNotPresent
-                    case "EmailAccountNotFound": return .EmailAccountNotFound
-                    case "NotSent": return .NotSent
-                    case "WrongParams": return .WrongParams
-                    case "NotSupported": return .NotSupported
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> IMessagingCallbackError {
+        if let validString = string {
+            switch validString {
+                case "SIMNotPresent": return .SIMNotPresent
+                case "EmailAccountNotFound": return .EmailAccountNotFound
+                case "NotSent": return .NotSent
+                case "WrongParams": return .WrongParams
+                case "NotSupported": return .NotSupported
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

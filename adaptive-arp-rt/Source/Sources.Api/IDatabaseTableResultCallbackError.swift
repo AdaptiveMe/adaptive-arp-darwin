@@ -39,44 +39,44 @@ import Foundation
 */
 public enum IDatabaseTableResultCallbackError {
 
-     case NoSpace
-     case ReadOnlyTable
-     case SqlException
-     case DatabaseNotFound
-     case NoTableFound
-     case Unknown
+    case NoSpace
+    case ReadOnlyTable
+    case SqlException
+    case DatabaseNotFound
+    case NoTableFound
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .NoSpace: return "NoSpace"
-               case .ReadOnlyTable: return "ReadOnlyTable"
-               case .SqlException: return "SqlException"
-               case .DatabaseNotFound: return "DatabaseNotFound"
-               case .NoTableFound: return "NoTableFound"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .NoSpace: return "NoSpace"
+            case .ReadOnlyTable: return "ReadOnlyTable"
+            case .SqlException: return "SqlException"
+            case .DatabaseNotFound: return "DatabaseNotFound"
+            case .NoTableFound: return "NoTableFound"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> IDatabaseTableResultCallbackError {
-          if let validString = string {
-               switch validString {
-                    case "NoSpace": return .NoSpace
-                    case "ReadOnlyTable": return .ReadOnlyTable
-                    case "SqlException": return .SqlException
-                    case "DatabaseNotFound": return .DatabaseNotFound
-                    case "NoTableFound": return .NoTableFound
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> IDatabaseTableResultCallbackError {
+        if let validString = string {
+            switch validString {
+                case "NoSpace": return .NoSpace
+                case "ReadOnlyTable": return .ReadOnlyTable
+                case "SqlException": return .SqlException
+                case "DatabaseNotFound": return .DatabaseNotFound
+                case "NoTableFound": return .NoTableFound
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

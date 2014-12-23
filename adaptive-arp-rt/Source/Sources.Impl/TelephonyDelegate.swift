@@ -40,25 +40,25 @@ import Foundation
 */
 public class TelephonyDelegate : BaseCommunicationDelegate, ITelephony {
 
-     /**
-        Default Constructor.
-     */
-     public override init() {
-          super.init()
-     }
+    /**
+       Default Constructor.
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Invoke a phone call
+    /**
+       Invoke a phone call
 
-        @param number to call
-        @return Status of the call
-        @since ARP1.0
-     */
-     public func call(number : String) -> ITelephonyStatus {
-          var response : ITelephonyStatus
-          // TODO: Not implemented.
-          return ITelephonyStatus.Unknown
-     }
+       @param number to call
+       @return Status of the call
+       @since ARP1.0
+    */
+    public func call(number : String) -> ITelephonyStatus {
+        var response : ITelephonyStatus
+        // TODO: Not implemented.
+        return ITelephonyStatus.Unknown
+    }
 
 }
 /**

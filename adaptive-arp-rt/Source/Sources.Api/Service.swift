@@ -43,187 +43,187 @@ import Foundation
 */
 public class Service : APIBean {
 
-     /**
-        The method used
-     */
-     var method : IServiceMethod?
-     /**
-        The type of the service
-     */
-     var type : IServiceType?
-     /**
-        The service name
-     */
-     var name : String?
-     /**
-        Endpoint of the service
-     */
-     var serviceEndpoint : ServiceEndpoint?
+    /**
+       The method used
+    */
+    var method : IServiceMethod?
+    /**
+       The type of the service
+    */
+    var type : IServiceType?
+    /**
+       The service name
+    */
+    var name : String?
+    /**
+       Endpoint of the service
+    */
+    var serviceEndpoint : ServiceEndpoint?
 
-     /**
-        Default constructor
+    /**
+       Default constructor
 
-        @since ARP1.0
-     */
-     public override init() {
-          super.init()
-     }
+       @since ARP1.0
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Constructor used by the implementation
+    /**
+       Constructor used by the implementation
 
-        @param serviceEndpoint Endpoint of the service
-        @param name            Name of the service
-        @param method          Method of the service
-        @param type            Type of the service
-        @since ARP1.0
-     */
-     public init(serviceEndpoint: ServiceEndpoint, name: String, method: IServiceMethod, type: IServiceType) {
-          super.init()
-          self.serviceEndpoint = serviceEndpoint
-          self.name = name
-          self.method = method
-          self.type = type
-     }
+       @param serviceEndpoint Endpoint of the service
+       @param name            Name of the service
+       @param method          Method of the service
+       @param type            Type of the service
+       @since ARP1.0
+    */
+    public init(serviceEndpoint: ServiceEndpoint, name: String, method: IServiceMethod, type: IServiceType) {
+        super.init()
+        self.serviceEndpoint = serviceEndpoint
+        self.name = name
+        self.method = method
+        self.type = type
+    }
 
-     /**
-        Returns the method
+    /**
+       Returns the method
 
-        @return method
-        @since ARP1.0
-     */
-     public func getMethod() -> IServiceMethod? {
-          return self.method
-     }
+       @return method
+       @since ARP1.0
+    */
+    public func getMethod() -> IServiceMethod? {
+        return self.method
+    }
 
-     /**
-        Set the method
+    /**
+       Set the method
 
-        @param method Method of the service
-        @since ARP1.0
-     */
-     public func setMethod(method: IServiceMethod) {
-          self.method = method
-     }
+       @param method Method of the service
+       @since ARP1.0
+    */
+    public func setMethod(method: IServiceMethod) {
+        self.method = method
+    }
 
-     /**
-        Returns the type
+    /**
+       Returns the type
 
-        @return type
-        @since ARP1.0
-     */
-     public func getType() -> IServiceType? {
-          return self.type
-     }
+       @return type
+       @since ARP1.0
+    */
+    public func getType() -> IServiceType? {
+        return self.type
+    }
 
-     /**
-        Set the type
+    /**
+       Set the type
 
-        @param type Type of the service
-        @since ARP1.0
-     */
-     public func setType(type: IServiceType) {
-          self.type = type
-     }
+       @param type Type of the service
+       @since ARP1.0
+    */
+    public func setType(type: IServiceType) {
+        self.type = type
+    }
 
-     /**
-        Returns the name
+    /**
+       Returns the name
 
-        @return name
-        @since ARP1.0
-     */
-     public func getName() -> String? {
-          return self.name
-     }
+       @return name
+       @since ARP1.0
+    */
+    public func getName() -> String? {
+        return self.name
+    }
 
-     /**
-        Set the name
+    /**
+       Set the name
 
-        @param name Name of the service
-        @since ARP1.0
-     */
-     public func setName(name: String) {
-          self.name = name
-     }
+       @param name Name of the service
+       @since ARP1.0
+    */
+    public func setName(name: String) {
+        self.name = name
+    }
 
-     /**
-        Returns the serviceEndpoint
+    /**
+       Returns the serviceEndpoint
 
-        @return serviceEndpoint
-        @since ARP1.0
-     */
-     public func getServiceEndpoint() -> ServiceEndpoint? {
-          return self.serviceEndpoint
-     }
+       @return serviceEndpoint
+       @since ARP1.0
+    */
+    public func getServiceEndpoint() -> ServiceEndpoint? {
+        return self.serviceEndpoint
+    }
 
-     /**
-        Set the serviceEndpoint
+    /**
+       Set the serviceEndpoint
 
-        @param serviceEndpoint Endpoint of the service
-        @since ARP1.0
-     */
-     public func setServiceEndpoint(serviceEndpoint: ServiceEndpoint) {
-          self.serviceEndpoint = serviceEndpoint
-     }
+       @param serviceEndpoint Endpoint of the service
+       @since ARP1.0
+    */
+    public func setServiceEndpoint(serviceEndpoint: ServiceEndpoint) {
+        self.serviceEndpoint = serviceEndpoint
+    }
 
 
-     /**
-        JSON Serialization and deserialization support.
-     */
-     struct Serializer {
-          static func fromJSON(json : String) -> Service {
-               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
-               var jsonError: NSError?
-               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
-               return fromDictionary(dict)
-          }
+    /**
+       JSON Serialization and deserialization support.
+    */
+    struct Serializer {
+        static func fromJSON(json : String) -> Service {
+            var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+            var jsonError: NSError?
+            let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+            return fromDictionary(dict)
+        }
 
-          static func fromDictionary(dict : NSDictionary) -> Service {
-               var resultObject : Service = Service()
+        static func fromDictionary(dict : NSDictionary) -> Service {
+            var resultObject : Service = Service()
 
-               if let value : AnyObject = dict.objectForKey("method") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.method = IServiceMethod.toEnum(((value as NSDictionary)["value"]) as NSString)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("method") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.method = IServiceMethod.toEnum(((value as NSDictionary)["value"]) as NSString)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("name") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.name = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("name") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.name = (value as String)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("serviceEndpoint") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.serviceEndpoint = ServiceEndpoint.Serializer.fromDictionary(value as NSDictionary)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("serviceEndpoint") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.serviceEndpoint = ServiceEndpoint.Serializer.fromDictionary(value as NSDictionary)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("type") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.type = IServiceType.toEnum(((value as NSDictionary)["value"]) as NSString)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("type") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.type = IServiceType.toEnum(((value as NSDictionary)["value"]) as NSString)
+                }
+            }
 
-               return resultObject
-          }
+            return resultObject
+        }
 
-          static func toJSON(object: Service) -> String {
-               var jsonString : NSMutableString = NSMutableString()
-               // Start Object to JSON
-               jsonString.appendString("{ ")
+        static func toJSON(object: Service) -> String {
+            var jsonString : NSMutableString = NSMutableString()
+            // Start Object to JSON
+            jsonString.appendString("{ ")
 
-               // Fields.
-               object.method != nil ? jsonString.appendString("\"method\": { \"value\": \"\(JSONUtil.escapeString(object.method!.toString()))\"}, ") : jsonString.appendString("\"method\": null, ")
-               object.name != nil ? jsonString.appendString("\"name\": \"\(object.name!)\", ") : jsonString.appendString("\"name\": null, ")
-               object.serviceEndpoint != nil ? jsonString.appendString("\"serviceEndpoint\": \(ServiceEndpoint.Serializer.toJSON(object.serviceEndpoint!)), ") : jsonString.appendString("\"serviceEndpoint\": null, ")
-               object.type != nil ? jsonString.appendString("\"type\": { \"value\": \"\(JSONUtil.escapeString(object.type!.toString()))\"}") : jsonString.appendString("\"type\": null")
+            // Fields.
+            object.method != nil ? jsonString.appendString("\"method\": { \"value\": \"\(JSONUtil.escapeString(object.method!.toString()))\"}, ") : jsonString.appendString("\"method\": null, ")
+            object.name != nil ? jsonString.appendString("\"name\": \"\(object.name!)\", ") : jsonString.appendString("\"name\": null, ")
+            object.serviceEndpoint != nil ? jsonString.appendString("\"serviceEndpoint\": \(ServiceEndpoint.Serializer.toJSON(object.serviceEndpoint!)), ") : jsonString.appendString("\"serviceEndpoint\": null, ")
+            object.type != nil ? jsonString.appendString("\"type\": { \"value\": \"\(JSONUtil.escapeString(object.type!.toString()))\"}") : jsonString.appendString("\"type\": null")
 
-               // End Object to JSON
-               jsonString.appendString(" }")
-               return jsonString
-          }
-     }
+            // End Object to JSON
+            jsonString.appendString(" }")
+            return jsonString
+        }
+    }
 }
 
 /**

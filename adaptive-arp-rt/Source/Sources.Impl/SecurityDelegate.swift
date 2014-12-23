@@ -40,60 +40,60 @@ import Foundation
 */
 public class SecurityDelegate : BaseSecurityDelegate, ISecurity {
 
-     /**
-        Default Constructor.
-     */
-     public override init() {
-          super.init()
-     }
+    /**
+       Default Constructor.
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Deletes from the device internal storage the entry/entries containing the specified key names.
+    /**
+       Deletes from the device internal storage the entry/entries containing the specified key names.
 
-        @param keys             Array with the key names to delete.
-        @param publicAccessName The name of the shared internal storage object (if needed).
-        @param callback         callback to be executed upon function result.
-        @since ARP 1.0
-     */
-     public func deleteSecureKeyValuePairs(keys : [String], publicAccessName : String, callback : ISecurityResultCallback) {
-          // TODO: Not implemented.
-     }
+       @param keys             Array with the key names to delete.
+       @param publicAccessName The name of the shared internal storage object (if needed).
+       @param callback         callback to be executed upon function result.
+       @since ARP 1.0
+    */
+    public func deleteSecureKeyValuePairs(keys : [String], publicAccessName : String, callback : ISecurityResultCallback) {
+        // TODO: Not implemented.
+    }
 
-     /**
-        Retrieves from the device internal storage the entry/entries containing the specified key names.
+    /**
+       Retrieves from the device internal storage the entry/entries containing the specified key names.
 
-        @param keys             Array with the key names to retrieve.
-        @param publicAccessName The name of the shared internal storage object (if needed).
-        @param callback         callback to be executed upon function result.
-        @since ARP 1.0
-     */
-     public func getSecureKeyValuePairs(keys : [String], publicAccessName : String, callback : ISecurityResultCallback) {
-          // TODO: Not implemented.
-     }
+       @param keys             Array with the key names to retrieve.
+       @param publicAccessName The name of the shared internal storage object (if needed).
+       @param callback         callback to be executed upon function result.
+       @since ARP 1.0
+    */
+    public func getSecureKeyValuePairs(keys : [String], publicAccessName : String, callback : ISecurityResultCallback) {
+        // TODO: Not implemented.
+    }
 
-     /**
-        Returns if the device has been modified in anyhow
+    /**
+       Returns if the device has been modified in anyhow
 
-        @return true if the device has been modified; false otherwise
-        @since ARP1.0
-     */
-     public func isDeviceModified() -> Bool {
-          var response : Bool
-          // TODO: Not implemented.
-          return false
-     }
+       @return true if the device has been modified; false otherwise
+       @since ARP1.0
+    */
+    public func isDeviceModified() -> Bool {
+        var response : Bool
+        // TODO: Not implemented.
+        return false
+    }
 
-     /**
-        Stores in the device internal storage the specified item/s.
+    /**
+       Stores in the device internal storage the specified item/s.
 
-        @param keyValues        Array containing the items to store on the device internal memory.
-        @param publicAccessName The name of the shared internal storage object (if needed).
-        @param callback         callback to be executed upon function result.
-        @since ARP 1.0
-     */
-     public func setSecureKeyValuePairs(keyValues : [SecureKeyPair], publicAccessName : String, callback : ISecurityResultCallback) {
-          // TODO: Not implemented.
-     }
+       @param keyValues        Array containing the items to store on the device internal memory.
+       @param publicAccessName The name of the shared internal storage object (if needed).
+       @param callback         callback to be executed upon function result.
+       @since ARP 1.0
+    */
+    public func setSecureKeyValuePairs(keyValues : [SecureKeyPair], publicAccessName : String, callback : ISecurityResultCallback) {
+        // TODO: Not implemented.
+    }
 
 }
 /**

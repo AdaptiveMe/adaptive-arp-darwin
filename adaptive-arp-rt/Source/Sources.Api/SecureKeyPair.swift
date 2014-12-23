@@ -43,121 +43,121 @@ import Foundation
 */
 public class SecureKeyPair : APIBean {
 
-     /**
-        Value of the secured element
-     */
-     var secureData : String?
-     /**
-        Key of the secured element
-     */
-     var secureKey : String?
+    /**
+       Value of the secured element
+    */
+    var secureData : String?
+    /**
+       Key of the secured element
+    */
+    var secureKey : String?
 
-     /**
-        Default constructor
+    /**
+       Default constructor
 
-        @since ARP1.0
-     */
-     public override init() {
-          super.init()
-     }
+       @since ARP1.0
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Constructor with parameters
+    /**
+       Constructor with parameters
 
-        @param secureKey  name of the keypair
-        @param secureData value of the keypair
-        @since ARP1.0
-     */
-     public init(secureKey: String, secureData: String) {
-          super.init()
-          self.secureKey = secureKey
-          self.secureData = secureData
-     }
+       @param secureKey  name of the keypair
+       @param secureData value of the keypair
+       @since ARP1.0
+    */
+    public init(secureKey: String, secureData: String) {
+        super.init()
+        self.secureKey = secureKey
+        self.secureData = secureData
+    }
 
-     /**
-        Returns the object value
+    /**
+       Returns the object value
 
-        @return Value.
-        @since ARP 1.0
-     */
-     public func getSecureData() -> String? {
-          return self.secureData
-     }
+       @return Value.
+       @since ARP 1.0
+    */
+    public func getSecureData() -> String? {
+        return self.secureData
+    }
 
-     /**
-        Sets the value for this object
+    /**
+       Sets the value for this object
 
-        @param secureData value to set.
-        @since ARP 1.0
-     */
-     public func setSecureData(secureData: String) {
-          self.secureData = secureData
-     }
+       @param secureData value to set.
+       @since ARP 1.0
+    */
+    public func setSecureData(secureData: String) {
+        self.secureData = secureData
+    }
 
-     /**
-        Returns the object secureKey name.
+    /**
+       Returns the object secureKey name.
 
-        @return Key name.
-        @since ARP 1.0
-     */
-     public func getSecureKey() -> String? {
-          return self.secureKey
-     }
+       @return Key name.
+       @since ARP 1.0
+    */
+    public func getSecureKey() -> String? {
+        return self.secureKey
+    }
 
-     /**
-        Sets the secureKey name for this object.
+    /**
+       Sets the secureKey name for this object.
 
-        @param secureKey Key name.
-        @since ARP 1.0
-     */
-     public func setSecureKey(secureKey: String) {
-          self.secureKey = secureKey
-     }
+       @param secureKey Key name.
+       @since ARP 1.0
+    */
+    public func setSecureKey(secureKey: String) {
+        self.secureKey = secureKey
+    }
 
 
-     /**
-        JSON Serialization and deserialization support.
-     */
-     struct Serializer {
-          static func fromJSON(json : String) -> SecureKeyPair {
-               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
-               var jsonError: NSError?
-               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
-               return fromDictionary(dict)
-          }
+    /**
+       JSON Serialization and deserialization support.
+    */
+    struct Serializer {
+        static func fromJSON(json : String) -> SecureKeyPair {
+            var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+            var jsonError: NSError?
+            let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+            return fromDictionary(dict)
+        }
 
-          static func fromDictionary(dict : NSDictionary) -> SecureKeyPair {
-               var resultObject : SecureKeyPair = SecureKeyPair()
+        static func fromDictionary(dict : NSDictionary) -> SecureKeyPair {
+            var resultObject : SecureKeyPair = SecureKeyPair()
 
-               if let value : AnyObject = dict.objectForKey("secureData") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.secureData = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("secureData") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.secureData = (value as String)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("secureKey") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.secureKey = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("secureKey") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.secureKey = (value as String)
+                }
+            }
 
-               return resultObject
-          }
+            return resultObject
+        }
 
-          static func toJSON(object: SecureKeyPair) -> String {
-               var jsonString : NSMutableString = NSMutableString()
-               // Start Object to JSON
-               jsonString.appendString("{ ")
+        static func toJSON(object: SecureKeyPair) -> String {
+            var jsonString : NSMutableString = NSMutableString()
+            // Start Object to JSON
+            jsonString.appendString("{ ")
 
-               // Fields.
-               object.secureData != nil ? jsonString.appendString("\"secureData\": \"\(object.secureData!)\", ") : jsonString.appendString("\"secureData\": null, ")
-               object.secureKey != nil ? jsonString.appendString("\"secureKey\": \"\(object.secureKey!)\"") : jsonString.appendString("\"secureKey\": null")
+            // Fields.
+            object.secureData != nil ? jsonString.appendString("\"secureData\": \"\(object.secureData!)\", ") : jsonString.appendString("\"secureData\": null, ")
+            object.secureKey != nil ? jsonString.appendString("\"secureKey\": \"\(object.secureKey!)\"") : jsonString.appendString("\"secureKey\": null")
 
-               // End Object to JSON
-               jsonString.appendString(" }")
-               return jsonString
-          }
-     }
+            // End Object to JSON
+            jsonString.appendString(" }")
+            return jsonString
+        }
+    }
 }
 
 /**

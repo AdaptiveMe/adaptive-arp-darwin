@@ -40,117 +40,117 @@ import Foundation
 */
 public class NetworkReachabilityBridge : BaseCommunicationBridge, INetworkReachability, APIBridge {
 
-     /**
-        API Delegate.
-     */
-     private var delegate : INetworkReachability? = nil
+    /**
+       API Delegate.
+    */
+    private var delegate : INetworkReachability? = nil
 
-     /**
-        Constructor with delegate.
+    /**
+       Constructor with delegate.
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public init(delegate : INetworkReachability?) {
-          super.init()
-          self.delegate = delegate
-     }
-     /**
-        Get the delegate implementation.
-        @return INetworkReachability delegate that manages platform specific functions..
-     */
-     public final func getDelegate() -> INetworkReachability? {
-          return self.delegate
-     }
-     /**
-        Set the delegate implementation.
+       @param delegate The delegate implementing platform specific functions.
+    */
+    public init(delegate : INetworkReachability?) {
+        super.init()
+        self.delegate = delegate
+    }
+    /**
+       Get the delegate implementation.
+       @return INetworkReachability delegate that manages platform specific functions..
+    */
+    public final func getDelegate() -> INetworkReachability? {
+        return self.delegate
+    }
+    /**
+       Set the delegate implementation.
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public final func setDelegate(delegate : INetworkReachability) {
-          self.delegate = delegate;
-     }
+       @param delegate The delegate implementing platform specific functions.
+    */
+    public final func setDelegate(delegate : INetworkReachability) {
+        self.delegate = delegate;
+    }
 
-     /**
-        Whether there is connectivity to a host, via domain name or ip address, or not.
+    /**
+       Whether there is connectivity to a host, via domain name or ip address, or not.
 
-        @param host     domain name or ip address of host.
-        @param callback Callback called at the end.
-        @since ARP1.0
-     */
-     public func isNetworkReachable(host : String , callback : INetworkReachabilityCallback ) {
-          // Start logging elapsed time.
-          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
+       @param host     domain name or ip address of host.
+       @param callback Callback called at the end.
+       @since ARP1.0
+    */
+    public func isNetworkReachable(host : String , callback : INetworkReachabilityCallback ) {
+        // Start logging elapsed time.
+        var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+        var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger != nil) {
-               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkReachabilityBridge executing isNetworkReachable({\(host)},{\(callback)}).")
-          }
+        if (logger != nil) {
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkReachabilityBridge executing isNetworkReachable({\(host)},{\(callback)}).")
+        }
 
-          if (self.delegate != nil) {
-               self.delegate!.isNetworkReachable(host, callback: callback)
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkReachabilityBridge executed 'isNetworkReachable' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
-                }
-          } else {
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "NetworkReachabilityBridge no delegate for 'isNetworkReachable'.")
-               }
-          }
-          
-     }
+        if (self.delegate != nil) {
+            self.delegate!.isNetworkReachable(host, callback: callback)
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkReachabilityBridge executed 'isNetworkReachable' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+             }
+        } else {
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "NetworkReachabilityBridge no delegate for 'isNetworkReachable'.")
+            }
+        }
+        
+    }
 
-     /**
-        Whether there is connectivity to an url of a service or not.
+    /**
+       Whether there is connectivity to an url of a service or not.
 
-        @param url      to look for
-        @param callback Callback called at the end
-        @since ARP1.0
-     */
-     public func isNetworkServiceReachable(url : String , callback : INetworkReachabilityCallback ) {
-          // Start logging elapsed time.
-          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
+       @param url      to look for
+       @param callback Callback called at the end
+       @since ARP1.0
+    */
+    public func isNetworkServiceReachable(url : String , callback : INetworkReachabilityCallback ) {
+        // Start logging elapsed time.
+        var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+        var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger != nil) {
-               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkReachabilityBridge executing isNetworkServiceReachable({\(url)},{\(callback)}).")
-          }
+        if (logger != nil) {
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkReachabilityBridge executing isNetworkServiceReachable({\(url)},{\(callback)}).")
+        }
 
-          if (self.delegate != nil) {
-               self.delegate!.isNetworkServiceReachable(url, callback: callback)
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkReachabilityBridge executed 'isNetworkServiceReachable' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
-                }
-          } else {
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "NetworkReachabilityBridge no delegate for 'isNetworkServiceReachable'.")
-               }
-          }
-          
-     }
+        if (self.delegate != nil) {
+            self.delegate!.isNetworkServiceReachable(url, callback: callback)
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkReachabilityBridge executed 'isNetworkServiceReachable' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+             }
+        } else {
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "NetworkReachabilityBridge no delegate for 'isNetworkServiceReachable'.")
+            }
+        }
+        
+    }
 
-     /**
-        Invokes the given method specified in the API request object.
+    /**
+       Invokes the given method specified in the API request object.
 
-        @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
-     */
-     public override func invoke(request : APIRequest) -> String? {
-          var responseJSON : String? = ""
-          switch request.getMethodName()! {
-               case "isNetworkReachable":
-                    var host0 : String? = request.getParameters()![0]
-                    var callback0 : INetworkReachabilityCallback? =  NetworkReachabilityCallbackImpl(id: request.getAsyncId()!)
-                    self.isNetworkReachable(host0!, callback: callback0!);
-               case "isNetworkServiceReachable":
-                    var url1 : String? = request.getParameters()![0]
-                    var callback1 : INetworkReachabilityCallback? =  NetworkReachabilityCallbackImpl(id: request.getAsyncId()!)
-                    self.isNetworkServiceReachable(url1!, callback: callback1!);
-               default:
-                    // 404 - response null.
-                    responseJSON = nil
-          }
-          return responseJSON
-     }
+       @param request APIRequest object containing method name and parameters.
+       @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+    */
+    public override func invoke(request : APIRequest) -> String? {
+        var responseJSON : String? = ""
+        switch request.getMethodName()! {
+            case "isNetworkReachable":
+                var host0 : String? = request.getParameters()![0]
+                var callback0 : INetworkReachabilityCallback? =  NetworkReachabilityCallbackImpl(id: request.getAsyncId()!)
+                self.isNetworkReachable(host0!, callback: callback0!);
+            case "isNetworkServiceReachable":
+                var url1 : String? = request.getParameters()![0]
+                var callback1 : INetworkReachabilityCallback? =  NetworkReachabilityCallbackImpl(id: request.getAsyncId()!)
+                self.isNetworkServiceReachable(url1!, callback: callback1!);
+            default:
+                // 404 - response null.
+                responseJSON = nil
+        }
+        return responseJSON
+    }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

@@ -40,24 +40,24 @@ import Foundation
 */
 public class BaseApplicationDelegate : NSObject, IBaseApplication {
 
-     /**
-        Group of API.
-     */
-     private var apiGroup : IAdaptiveRPGroup?
+    /**
+       Group of API.
+    */
+    private var apiGroup : IAdaptiveRPGroup?
 
-     /**
-        Default constructor.
-     */
-     public override init() {
-          self.apiGroup = IAdaptiveRPGroup.Application
-     }
+    /**
+       Default constructor.
+    */
+    public override init() {
+        self.apiGroup = IAdaptiveRPGroup.Application
+    }
 
-     /**
-        Return the API group for the given interface.
-     */
-     public final func getAPIGroup() -> IAdaptiveRPGroup {
-          return self.apiGroup!
-     }
+    /**
+       Return the API group for the given interface.
+    */
+    public final func getAPIGroup() -> IAdaptiveRPGroup {
+        return self.apiGroup!
+    }
 
 }
 /**

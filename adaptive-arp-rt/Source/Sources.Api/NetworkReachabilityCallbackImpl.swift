@@ -40,48 +40,48 @@ import Foundation
 */
 public class NetworkReachabilityCallbackImpl : BaseCallbackImpl, INetworkReachabilityCallback {
 
-     /**
-        Constructor with callback id.
+    /**
+       Constructor with callback id.
 
-        @param id  The id of the callback.
-     */
-     public override init(id : Int) {
-          super.init(id: id)
-     }
+       @param id  The id of the callback.
+    */
+    public override init(id : Int) {
+        super.init(id: id)
+    }
 
-     /**
-        No data received - error condition, not authorized .
+    /**
+       No data received - error condition, not authorized .
 
-        @param error Error value
-        @since ARP1.0
-     */
-     public func onError(error : INetworkReachabilityCallbackError) { 
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkReachabilityCallbackError( '\(getId())', JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param error Error value
+       @since ARP1.0
+    */
+    public func onError(error : INetworkReachabilityCallbackError) { 
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkReachabilityCallbackError( '\(getId())', JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
-     /**
-        Correct data received.
+    /**
+       Correct data received.
 
-        @param reachable Indicates if the host is reachable
-        @since ARP1.0
-     */
-     public func onResult(reachable : Bool) { 
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkReachabilityCallbackResult( '\(getId())', JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param reachable Indicates if the host is reachable
+       @since ARP1.0
+    */
+    public func onResult(reachable : Bool) { 
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkReachabilityCallbackResult( '\(getId())', JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
-     /**
-        Data received with warning - ie Found entries with existing key and values have been overriden
+    /**
+       Data received with warning - ie Found entries with existing key and values have been overriden
 
-        @param reachable Indicates if the host is reachable
-        @param warning   Warning value
-        @since ARP1.0
-     */
-     public func onWarning(reachable : Bool, warning : INetworkReachabilityCallbackWarning) { 
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkReachabilityCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param reachable Indicates if the host is reachable
+       @param warning   Warning value
+       @since ARP1.0
+    */
+    public func onWarning(reachable : Bool, warning : INetworkReachabilityCallbackWarning) { 
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkReachabilityCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
 }
 /**

@@ -39,35 +39,35 @@ import Foundation
 */
 public enum IAccelerationListenerWarning {
 
-     case NeedsCalibration
-     case Stale
-     case Unknown
+    case NeedsCalibration
+    case Stale
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .NeedsCalibration: return "NeedsCalibration"
-               case .Stale: return "Stale"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .NeedsCalibration: return "NeedsCalibration"
+            case .Stale: return "Stale"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> IAccelerationListenerWarning {
-          if let validString = string {
-               switch validString {
-                    case "NeedsCalibration": return .NeedsCalibration
-                    case "Stale": return .Stale
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> IAccelerationListenerWarning {
+        if let validString = string {
+            switch validString {
+                case "NeedsCalibration": return .NeedsCalibration
+                case "Stale": return .Stale
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

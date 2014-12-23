@@ -40,92 +40,92 @@ import Foundation
 */
 public class ServiceDelegate : BaseCommunicationDelegate, IService {
 
-     /**
-        Default Constructor.
-     */
-     public override init() {
-          super.init()
-     }
+    /**
+       Default Constructor.
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Get a reference to a registered service by name.
+    /**
+       Get a reference to a registered service by name.
 
-        @param serviceName Name of service.
-        @return A service, if registered, or null of the service does not exist.
-        @since ARP1.0
-     */
-     public func getService(serviceName : String) -> Service {
-          var response : Service
-          // TODO: Not implemented.
-          return Service()
-     }
+       @param serviceName Name of service.
+       @return A service, if registered, or null of the service does not exist.
+       @since ARP1.0
+    */
+    public func getService(serviceName : String) -> Service {
+        var response : Service
+        // TODO: Not implemented.
+        return Service()
+    }
 
-     /**
-        Request async a service for an Url
+    /**
+       Request async a service for an Url
 
-        @param serviceRequest Service Request to invoke
-        @param service        Service to call
-        @param callback       Callback to execute with the result
-        @since ARP1.0
-     */
-     public func invokeService(serviceRequest : ServiceRequest, service : Service, callback : IServiceResultCallback) {
-          // TODO: Not implemented.
-     }
+       @param serviceRequest Service Request to invoke
+       @param service        Service to call
+       @param callback       Callback to execute with the result
+       @since ARP1.0
+    */
+    public func invokeService(serviceRequest : ServiceRequest, service : Service, callback : IServiceResultCallback) {
+        // TODO: Not implemented.
+    }
 
-     /**
-        Check whether a service by the given service is already registered.
+    /**
+       Check whether a service by the given service is already registered.
 
-        @param service Service to check
-        @return True if the service is registered, false otherwise.
-        @since ARP1.0
-     */
-     public func isRegistered(service : Service) -> Bool {
-          var response : Bool
-          // TODO: Not implemented.
-          return false
-     }
+       @param service Service to check
+       @return True if the service is registered, false otherwise.
+       @since ARP1.0
+    */
+    public func isRegistered(service : Service) -> Bool {
+        var response : Bool
+        // TODO: Not implemented.
+        return false
+    }
 
-     /**
-        Check whether a service by the given name is registered.
+    /**
+       Check whether a service by the given name is registered.
 
-        @param serviceName Name of service.
-        @return True if the service is registered, false otherwise.
-        @since ARP1.0
-     */
-     public func isRegistered(serviceName : String) -> Bool {
-          var response : Bool
-          // TODO: Not implemented.
-          return false
-     }
+       @param serviceName Name of service.
+       @return True if the service is registered, false otherwise.
+       @since ARP1.0
+    */
+    public func isRegistered(serviceName : String) -> Bool {
+        var response : Bool
+        // TODO: Not implemented.
+        return false
+    }
 
-     /**
-        Register a new service
+    /**
+       Register a new service
 
-        @param service to register
-        @since ARP1.0
-     */
-     public func registerService(service : Service) {
-          // TODO: Not implemented.
-     }
+       @param service to register
+       @since ARP1.0
+    */
+    public func registerService(service : Service) {
+        // TODO: Not implemented.
+    }
 
-     /**
-        Unregister a service
+    /**
+       Unregister a service
 
-        @param service to unregister
-        @since ARP1.0
-     */
-     public func unregisterService(service : Service) {
-          // TODO: Not implemented.
-     }
+       @param service to unregister
+       @since ARP1.0
+    */
+    public func unregisterService(service : Service) {
+        // TODO: Not implemented.
+    }
 
-     /**
-        Unregister all services.
+    /**
+       Unregister all services.
 
-        @since ARP1.0
-     */
-     public func unregisterServices() {
-          // TODO: Not implemented.
-     }
+       @since ARP1.0
+    */
+    public func unregisterServices() {
+        // TODO: Not implemented.
+    }
 
 }
 /**

@@ -40,48 +40,48 @@ import Foundation
 */
 public class DatabaseResultCallbackImpl : BaseCallbackImpl, IDatabaseResultCallback {
 
-     /**
-        Constructor with callback id.
+    /**
+       Constructor with callback id.
 
-        @param id  The id of the callback.
-     */
-     public override init(id : Int) {
-          super.init(id: id)
-     }
+       @param id  The id of the callback.
+    */
+    public override init(id : Int) {
+        super.init(id: id)
+    }
 
-     /**
-        Result callback for error responses
+    /**
+       Result callback for error responses
 
-        @param error Returned error
-        @since ARP1.0
-     */
-     public func onError(error : IDatabaseResultCallbackError) { 
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleDatabaseResultCallbackError( '\(getId())', JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param error Returned error
+       @since ARP1.0
+    */
+    public func onError(error : IDatabaseResultCallbackError) { 
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleDatabaseResultCallbackError( '\(getId())', JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
-     /**
-        Result callback for correct responses
+    /**
+       Result callback for correct responses
 
-        @param database Returns the database
-        @since ARP1.0
-     */
-     public func onResult(database : Database) { 
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleDatabaseResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param database Returns the database
+       @since ARP1.0
+    */
+    public func onResult(database : Database) { 
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleDatabaseResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
-     /**
-        Result callback for warning responses
+    /**
+       Result callback for warning responses
 
-        @param database Returns the database
-        @param warning  Returned Warning
-        @since ARP1.0
-     */
-     public func onWarning(database : Database, warning : IDatabaseResultCallbackWarning) { 
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleDatabaseResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param database Returns the database
+       @param warning  Returned Warning
+       @since ARP1.0
+    */
+    public func onWarning(database : Database, warning : IDatabaseResultCallbackWarning) { 
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleDatabaseResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
 }
 /**

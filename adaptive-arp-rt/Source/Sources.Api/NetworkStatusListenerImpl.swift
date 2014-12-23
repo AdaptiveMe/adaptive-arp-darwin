@@ -40,48 +40,48 @@ import Foundation
 */
 public class NetworkStatusListenerImpl : BaseListenerImpl, INetworkStatusListener {
 
-     /**
-        Constructor with listener id.
+    /**
+       Constructor with listener id.
 
-        @param id  The id of the listener.
-     */
-     public override init(id : Int) {
-          super.init(id: id);
-     }
+       @param id  The id of the listener.
+    */
+    public override init(id : Int) {
+        super.init(id: id);
+    }
 
-     /**
-        No data received - error condition, not authorized or hardware not available.
+    /**
+       No data received - error condition, not authorized or hardware not available.
 
-        @param error Type of error encountered during reading.
-        @since ARP1.0
-     */
-     public func onError(error : INetworkStatusListenerError)  {
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerError( '\(getId())', JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param error Type of error encountered during reading.
+       @since ARP1.0
+    */
+    public func onError(error : INetworkStatusListenerError)  {
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerError( '\(getId())', JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
-     /**
-        Called when network connection changes somehow.
+    /**
+       Called when network connection changes somehow.
 
-        @param network Change to this network.
-        @since ARP1.0
-     */
-     public func onResult(network : ICapabilitiesNet)  {
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerResult( '\(getId())', JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param network Change to this network.
+       @since ARP1.0
+    */
+    public func onResult(network : ICapabilitiesNet)  {
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerResult( '\(getId())', JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
-     /**
-        Status received with warning
+    /**
+       Status received with warning
 
-        @param network Change to this network.
-        @param warning Type of warning encountered during reading.
-        @since ARP1.0
-     */
-     public func onWarning(network : ICapabilitiesNet, warning : INetworkStatusListenerWarning)  {
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param network Change to this network.
+       @param warning Type of warning encountered during reading.
+       @since ARP1.0
+    */
+    public func onWarning(network : ICapabilitiesNet, warning : INetworkStatusListenerWarning)  {
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
 }
 /**

@@ -43,121 +43,121 @@ import Foundation
 */
 public class KeyPair : APIBean {
 
-     /**
-        Key of the element
-     */
-     var keyName : String?
-     /**
-        Value of the element
-     */
-     var keyValue : String?
+    /**
+       Key of the element
+    */
+    var keyName : String?
+    /**
+       Value of the element
+    */
+    var keyValue : String?
 
-     /**
-        Default Constructor
+    /**
+       Default Constructor
 
-        @since ARP1.0
-     */
-     public override init() {
-          super.init()
-     }
+       @since ARP1.0
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Constructor using fields
+    /**
+       Constructor using fields
 
-        @param keyName   Key of the element
-        @param keyValue Value of the element
-        @since ARP1.0
-     */
-     public init(keyName: String, keyValue: String) {
-          super.init()
-          self.keyName = keyName
-          self.keyValue = keyValue
-     }
+       @param keyName   Key of the element
+       @param keyValue Value of the element
+       @since ARP1.0
+    */
+    public init(keyName: String, keyValue: String) {
+        super.init()
+        self.keyName = keyName
+        self.keyValue = keyValue
+    }
 
-     /**
-        Returns the keyName of the element
+    /**
+       Returns the keyName of the element
 
-        @return Key of the element
-        @since ARP1.0
-     */
-     public func getKeyName() -> String? {
-          return self.keyName
-     }
+       @return Key of the element
+       @since ARP1.0
+    */
+    public func getKeyName() -> String? {
+        return self.keyName
+    }
 
-     /**
-        Sets the keyName of the element
+    /**
+       Sets the keyName of the element
 
-        @param keyName Key of the element
-        @since ARP1.0
-     */
-     public func setKeyName(keyName: String) {
-          self.keyName = keyName
-     }
+       @param keyName Key of the element
+       @since ARP1.0
+    */
+    public func setKeyName(keyName: String) {
+        self.keyName = keyName
+    }
 
-     /**
-        Returns the keyValue of the element
+    /**
+       Returns the keyValue of the element
 
-        @return Value of the element
-        @since ARP1.0
-     */
-     public func getKeyValue() -> String? {
-          return self.keyValue
-     }
+       @return Value of the element
+       @since ARP1.0
+    */
+    public func getKeyValue() -> String? {
+        return self.keyValue
+    }
 
-     /**
-        Sets the keyValue of the element
+    /**
+       Sets the keyValue of the element
 
-        @param keyValue Value of the element
-        @since ARP1.0
-     */
-     public func setKeyValue(keyValue: String) {
-          self.keyValue = keyValue
-     }
+       @param keyValue Value of the element
+       @since ARP1.0
+    */
+    public func setKeyValue(keyValue: String) {
+        self.keyValue = keyValue
+    }
 
 
-     /**
-        JSON Serialization and deserialization support.
-     */
-     struct Serializer {
-          static func fromJSON(json : String) -> KeyPair {
-               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
-               var jsonError: NSError?
-               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
-               return fromDictionary(dict)
-          }
+    /**
+       JSON Serialization and deserialization support.
+    */
+    struct Serializer {
+        static func fromJSON(json : String) -> KeyPair {
+            var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+            var jsonError: NSError?
+            let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+            return fromDictionary(dict)
+        }
 
-          static func fromDictionary(dict : NSDictionary) -> KeyPair {
-               var resultObject : KeyPair = KeyPair()
+        static func fromDictionary(dict : NSDictionary) -> KeyPair {
+            var resultObject : KeyPair = KeyPair()
 
-               if let value : AnyObject = dict.objectForKey("keyName") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.keyName = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("keyName") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.keyName = (value as String)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("keyValue") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.keyValue = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("keyValue") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.keyValue = (value as String)
+                }
+            }
 
-               return resultObject
-          }
+            return resultObject
+        }
 
-          static func toJSON(object: KeyPair) -> String {
-               var jsonString : NSMutableString = NSMutableString()
-               // Start Object to JSON
-               jsonString.appendString("{ ")
+        static func toJSON(object: KeyPair) -> String {
+            var jsonString : NSMutableString = NSMutableString()
+            // Start Object to JSON
+            jsonString.appendString("{ ")
 
-               // Fields.
-               object.keyName != nil ? jsonString.appendString("\"keyName\": \"\(object.keyName!)\", ") : jsonString.appendString("\"keyName\": null, ")
-               object.keyValue != nil ? jsonString.appendString("\"keyValue\": \"\(object.keyValue!)\"") : jsonString.appendString("\"keyValue\": null")
+            // Fields.
+            object.keyName != nil ? jsonString.appendString("\"keyName\": \"\(object.keyName!)\", ") : jsonString.appendString("\"keyName\": null, ")
+            object.keyValue != nil ? jsonString.appendString("\"keyValue\": \"\(object.keyValue!)\"") : jsonString.appendString("\"keyValue\": null")
 
-               // End Object to JSON
-               jsonString.appendString(" }")
-               return jsonString
-          }
-     }
+            // End Object to JSON
+            jsonString.appendString(" }")
+            return jsonString
+        }
+    }
 }
 
 /**

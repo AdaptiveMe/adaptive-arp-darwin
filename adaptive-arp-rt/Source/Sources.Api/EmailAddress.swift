@@ -43,88 +43,88 @@ import Foundation
 */
 public class EmailAddress : APIBean {
 
-     /**
-        The Email address
-     */
-     var address : String?
+    /**
+       The Email address
+    */
+    var address : String?
 
-     /**
-        Default constructor
+    /**
+       Default constructor
 
-        @since ARP1.0
-     */
-     public override init() {
-          super.init()
-     }
+       @since ARP1.0
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Constructor used by implementation
+    /**
+       Constructor used by implementation
 
-        @param address of the Email
-        @since ARP1.0
-     */
-     public init(address: String) {
-          super.init()
-          self.address = address
-     }
+       @param address of the Email
+       @since ARP1.0
+    */
+    public init(address: String) {
+        super.init()
+        self.address = address
+    }
 
-     /**
-        Returns the email address
+    /**
+       Returns the email address
 
-        @return address of the Email
-        @since ARP1.0
-     */
-     public func getAddress() -> String? {
-          return self.address
-     }
+       @return address of the Email
+       @since ARP1.0
+    */
+    public func getAddress() -> String? {
+        return self.address
+    }
 
-     /**
-        Set the Email address
+    /**
+       Set the Email address
 
-        @param address of the Email
-        @since ARP1.0
-     */
-     public func setAddress(address: String) {
-          self.address = address
-     }
+       @param address of the Email
+       @since ARP1.0
+    */
+    public func setAddress(address: String) {
+        self.address = address
+    }
 
 
-     /**
-        JSON Serialization and deserialization support.
-     */
-     struct Serializer {
-          static func fromJSON(json : String) -> EmailAddress {
-               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
-               var jsonError: NSError?
-               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
-               return fromDictionary(dict)
-          }
+    /**
+       JSON Serialization and deserialization support.
+    */
+    struct Serializer {
+        static func fromJSON(json : String) -> EmailAddress {
+            var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+            var jsonError: NSError?
+            let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+            return fromDictionary(dict)
+        }
 
-          static func fromDictionary(dict : NSDictionary) -> EmailAddress {
-               var resultObject : EmailAddress = EmailAddress()
+        static func fromDictionary(dict : NSDictionary) -> EmailAddress {
+            var resultObject : EmailAddress = EmailAddress()
 
-               if let value : AnyObject = dict.objectForKey("address") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.address = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("address") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.address = (value as String)
+                }
+            }
 
-               return resultObject
-          }
+            return resultObject
+        }
 
-          static func toJSON(object: EmailAddress) -> String {
-               var jsonString : NSMutableString = NSMutableString()
-               // Start Object to JSON
-               jsonString.appendString("{ ")
+        static func toJSON(object: EmailAddress) -> String {
+            var jsonString : NSMutableString = NSMutableString()
+            // Start Object to JSON
+            jsonString.appendString("{ ")
 
-               // Fields.
-               object.address != nil ? jsonString.appendString("\"address\": \"\(object.address!)\"") : jsonString.appendString("\"address\": null")
+            // Fields.
+            object.address != nil ? jsonString.appendString("\"address\": \"\(object.address!)\"") : jsonString.appendString("\"address\": null")
 
-               // End Object to JSON
-               jsonString.appendString(" }")
-               return jsonString
-          }
-     }
+            // End Object to JSON
+            jsonString.appendString(" }")
+            return jsonString
+        }
+    }
 }
 
 /**

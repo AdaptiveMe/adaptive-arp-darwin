@@ -39,32 +39,32 @@ import Foundation
 */
 public enum IButtonListenerWarning {
 
-     case Not_Implemented
-     case Unknown
+    case Not_Implemented
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .Not_Implemented: return "Not_Implemented"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .Not_Implemented: return "Not_Implemented"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> IButtonListenerWarning {
-          if let validString = string {
-               switch validString {
-                    case "Not_Implemented": return .Not_Implemented
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> IButtonListenerWarning {
+        if let validString = string {
+            switch validString {
+                case "Not_Implemented": return .Not_Implemented
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

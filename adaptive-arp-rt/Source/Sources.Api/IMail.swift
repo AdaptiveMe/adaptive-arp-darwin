@@ -42,14 +42,14 @@ import Foundation
    @version 1.0
 */
 public protocol IMail : IBasePIM {
-     /**
-        Send an Email
+    /**
+       Send an Email
 
-        @param data     Payload of the email
-        @param callback Result callback of the operation
-        @since ARP1.0
-     */
-     func sendEmail(data : Email, callback : IMessagingCallback)
+       @param data     Payload of the email
+       @param callback Result callback of the operation
+       @since ARP1.0
+    */
+    func sendEmail(data : Email, callback : IMessagingCallback)
 
 }
 

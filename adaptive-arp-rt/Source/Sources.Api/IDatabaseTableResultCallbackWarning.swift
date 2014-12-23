@@ -39,38 +39,38 @@ import Foundation
 */
 public enum IDatabaseTableResultCallbackWarning {
 
-     case TableExists
-     case TableLocked
-     case NoResults
-     case Unknown
+    case TableExists
+    case TableLocked
+    case NoResults
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .TableExists: return "TableExists"
-               case .TableLocked: return "TableLocked"
-               case .NoResults: return "NoResults"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .TableExists: return "TableExists"
+            case .TableLocked: return "TableLocked"
+            case .NoResults: return "NoResults"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> IDatabaseTableResultCallbackWarning {
-          if let validString = string {
-               switch validString {
-                    case "TableExists": return .TableExists
-                    case "TableLocked": return .TableLocked
-                    case "NoResults": return .NoResults
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> IDatabaseTableResultCallbackWarning {
+        if let validString = string {
+            switch validString {
+                case "TableExists": return .TableExists
+                case "TableLocked": return .TableLocked
+                case "NoResults": return .NoResults
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

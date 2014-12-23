@@ -42,15 +42,15 @@ import Foundation
    @version 1.0
 */
 public protocol IMessaging : IBasePIM {
-     /**
-        Send text SMS
+    /**
+       Send text SMS
 
-        @param number   to send
-        @param text     to send
-        @param callback with the result
-        @since ARP1.0
-     */
-     func sendSMS(number : String, text : String, callback : IMessagingCallback)
+       @param number   to send
+       @param text     to send
+       @param callback with the result
+       @since ARP1.0
+    */
+    func sendSMS(number : String, text : String, callback : IMessagingCallback)
 
 }
 

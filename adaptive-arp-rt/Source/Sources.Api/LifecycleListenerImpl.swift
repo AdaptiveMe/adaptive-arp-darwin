@@ -40,48 +40,48 @@ import Foundation
 */
 public class LifecycleListenerImpl : BaseListenerImpl, ILifecycleListener {
 
-     /**
-        Constructor with listener id.
+    /**
+       Constructor with listener id.
 
-        @param id  The id of the listener.
-     */
-     public override init(id : Int) {
-          super.init(id: id);
-     }
+       @param id  The id of the listener.
+    */
+    public override init(id : Int) {
+        super.init(id: id);
+    }
 
-     /**
-        No data received - error condition, not authorized or hardware not available.
+    /**
+       No data received - error condition, not authorized or hardware not available.
 
-        @param error Type of error encountered during reading.
-        @since ARP1.0
-     */
-     public func onError(error : ILifecycleListenerError)  {
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleLifecycleListenerError( '\(getId())', JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param error Type of error encountered during reading.
+       @since ARP1.0
+    */
+    public func onError(error : ILifecycleListenerError)  {
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleLifecycleListenerError( '\(getId())', JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
-     /**
-        Called when lifecycle changes somehow.
+    /**
+       Called when lifecycle changes somehow.
 
-        @param lifecycle Lifecycle element
-        @since ARP1.0
-     */
-     public func onResult(lifecycle : Lifecycle)  {
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleLifecycleListenerResult( '\(getId())', JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param lifecycle Lifecycle element
+       @since ARP1.0
+    */
+    public func onResult(lifecycle : Lifecycle)  {
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleLifecycleListenerResult( '\(getId())', JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
-     /**
-        Data received with warning
+    /**
+       Data received with warning
 
-        @param lifecycle Lifecycle element
-        @param warning Type of warning encountered during reading.
-        @since ARP1.0
-     */
-     public func onWarning(lifecycle : Lifecycle, warning : ILifecycleListenerWarning)  {
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleLifecycleListenerWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param lifecycle Lifecycle element
+       @param warning Type of warning encountered during reading.
+       @since ARP1.0
+    */
+    public func onWarning(lifecycle : Lifecycle, warning : ILifecycleListenerWarning)  {
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleLifecycleListenerWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
 }
 /**

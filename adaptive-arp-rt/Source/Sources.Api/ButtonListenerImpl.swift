@@ -40,48 +40,48 @@ import Foundation
 */
 public class ButtonListenerImpl : BaseListenerImpl, IButtonListener {
 
-     /**
-        Constructor with listener id.
+    /**
+       Constructor with listener id.
 
-        @param id  The id of the listener.
-     */
-     public override init(id : Int) {
-          super.init(id: id);
-     }
+       @param id  The id of the listener.
+    */
+    public override init(id : Int) {
+        super.init(id: id);
+    }
 
-     /**
-        No data received
+    /**
+       No data received
 
-        @param error occurred
-        @since ARP1.0
-     */
-     public func onError(error : IButtonListenerError)  {
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleButtonListenerError( '\(getId())', JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param error occurred
+       @since ARP1.0
+    */
+    public func onError(error : IButtonListenerError)  {
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleButtonListenerError( '\(getId())', JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
-     /**
-        Called on button pressed
+    /**
+       Called on button pressed
 
-        @param button pressed
-        @since ARP1.0
-     */
-     public func onResult(button : Button)  {
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleButtonListenerResult( '\(getId())', JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param button pressed
+       @since ARP1.0
+    */
+    public func onResult(button : Button)  {
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleButtonListenerResult( '\(getId())', JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
-     /**
-        Data received with warning
+    /**
+       Data received with warning
 
-        @param button  pressed
-        @param warning happened
-        @since ARP1.0
-     */
-     public func onWarning(button : Button, warning : IButtonListenerWarning)  {
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleButtonListenerWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param button  pressed
+       @param warning happened
+       @since ARP1.0
+    */
+    public func onWarning(button : Button, warning : IButtonListenerWarning)  {
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleButtonListenerWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
 }
 /**

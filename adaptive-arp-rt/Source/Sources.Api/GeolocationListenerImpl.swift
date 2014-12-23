@@ -40,48 +40,48 @@ import Foundation
 */
 public class GeolocationListenerImpl : BaseListenerImpl, IGeolocationListener {
 
-     /**
-        Constructor with listener id.
+    /**
+       Constructor with listener id.
 
-        @param id  The id of the listener.
-     */
-     public override init(id : Int) {
-          super.init(id: id);
-     }
+       @param id  The id of the listener.
+    */
+    public override init(id : Int) {
+        super.init(id: id);
+    }
 
-     /**
-        No data received - error condition, not authorized or hardware not available.
+    /**
+       No data received - error condition, not authorized or hardware not available.
 
-        @param error Type of error encountered during reading.
-        @since ARP1.0
-     */
-     public func onError(error : IGeolocationListenerError)  {
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleGeolocationListenerError( '\(getId())', JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param error Type of error encountered during reading.
+       @since ARP1.0
+    */
+    public func onError(error : IGeolocationListenerError)  {
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleGeolocationListenerError( '\(getId())', JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
-     /**
-        Correct data received.
+    /**
+       Correct data received.
 
-        @param geolocation Geolocation Bean
-        @since ARP1.0
-     */
-     public func onResult(geolocation : Geolocation)  {
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleGeolocationListenerResult( '\(getId())', JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param geolocation Geolocation Bean
+       @since ARP1.0
+    */
+    public func onResult(geolocation : Geolocation)  {
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleGeolocationListenerResult( '\(getId())', JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
-     /**
-        Data received with warning - ie. HighDoP
+    /**
+       Data received with warning - ie. HighDoP
 
-        @param geolocation Geolocation Bean
-        @param warning Type of warning encountered during reading.
-        @since ARP1.0
-     */
-     public func onWarning(geolocation : Geolocation, warning : IGeolocationListenerWarning)  {
-          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleGeolocationListenerWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
-          /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
-     }
+       @param geolocation Geolocation Bean
+       @param warning Type of warning encountered during reading.
+       @since ARP1.0
+    */
+    public func onWarning(geolocation : Geolocation, warning : IGeolocationListenerWarning)  {
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleGeolocationListenerWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
+        /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    }
 
 }
 /**

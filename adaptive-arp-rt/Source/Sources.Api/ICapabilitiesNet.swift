@@ -39,50 +39,50 @@ import Foundation
 */
 public enum ICapabilitiesNet {
 
-     case GSM
-     case GPRS
-     case HSDPA
-     case LTE
-     case WIFI
-     case Ethernet
-     case Unavailable
-     case Unknown
+    case GSM
+    case GPRS
+    case HSDPA
+    case LTE
+    case WIFI
+    case Ethernet
+    case Unavailable
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .GSM: return "GSM"
-               case .GPRS: return "GPRS"
-               case .HSDPA: return "HSDPA"
-               case .LTE: return "LTE"
-               case .WIFI: return "WIFI"
-               case .Ethernet: return "Ethernet"
-               case .Unavailable: return "Unavailable"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .GSM: return "GSM"
+            case .GPRS: return "GPRS"
+            case .HSDPA: return "HSDPA"
+            case .LTE: return "LTE"
+            case .WIFI: return "WIFI"
+            case .Ethernet: return "Ethernet"
+            case .Unavailable: return "Unavailable"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> ICapabilitiesNet {
-          if let validString = string {
-               switch validString {
-                    case "GSM": return .GSM
-                    case "GPRS": return .GPRS
-                    case "HSDPA": return .HSDPA
-                    case "LTE": return .LTE
-                    case "WIFI": return .WIFI
-                    case "Ethernet": return .Ethernet
-                    case "Unavailable": return .Unavailable
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> ICapabilitiesNet {
+        if let validString = string {
+            switch validString {
+                case "GSM": return .GSM
+                case "GPRS": return .GPRS
+                case "HSDPA": return .HSDPA
+                case "LTE": return .LTE
+                case "WIFI": return .WIFI
+                case "Ethernet": return .Ethernet
+                case "Unavailable": return .Unavailable
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }

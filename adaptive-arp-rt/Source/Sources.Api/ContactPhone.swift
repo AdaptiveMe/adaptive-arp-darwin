@@ -43,121 +43,121 @@ import Foundation
 */
 public class ContactPhone : APIBean {
 
-     /**
-        The phone number phoneType
-     */
-     var phoneType : ContactPhoneType?
-     /**
-        The phone number
-     */
-     var phone : String?
+    /**
+       The phone number phoneType
+    */
+    var phoneType : ContactPhoneType?
+    /**
+       The phone number
+    */
+    var phone : String?
 
-     /**
-        Default constructor
+    /**
+       Default constructor
 
-        @since ARP1.0
-     */
-     public override init() {
-          super.init()
-     }
+       @since ARP1.0
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Constructor used by implementation to set the contact Phone
+    /**
+       Constructor used by implementation to set the contact Phone
 
-        @param phone     Phone number
-        @param phoneType Type of Phone number
-        @since ARP1.0
-     */
-     public init(phone: String, phoneType: ContactPhoneType) {
-          super.init()
-          self.phone = phone
-          self.phoneType = phoneType
-     }
+       @param phone     Phone number
+       @param phoneType Type of Phone number
+       @since ARP1.0
+    */
+    public init(phone: String, phoneType: ContactPhoneType) {
+        super.init()
+        self.phone = phone
+        self.phoneType = phoneType
+    }
 
-     /**
-        Returns the phone phoneType
+    /**
+       Returns the phone phoneType
 
-        @return phoneType
-        @since ARP1.0
-     */
-     public func getPhoneType() -> ContactPhoneType? {
-          return self.phoneType
-     }
+       @return phoneType
+       @since ARP1.0
+    */
+    public func getPhoneType() -> ContactPhoneType? {
+        return self.phoneType
+    }
 
-     /**
-        Set the phoneType of the phone number
+    /**
+       Set the phoneType of the phone number
 
-        @param phoneType Type of Phone number
-        @since ARP1.0
-     */
-     public func setPhoneType(phoneType: ContactPhoneType) {
-          self.phoneType = phoneType
-     }
+       @param phoneType Type of Phone number
+       @since ARP1.0
+    */
+    public func setPhoneType(phoneType: ContactPhoneType) {
+        self.phoneType = phoneType
+    }
 
-     /**
-        Returns the phone number
+    /**
+       Returns the phone number
 
-        @return phone number
-        @since ARP1.0
-     */
-     public func getPhone() -> String? {
-          return self.phone
-     }
+       @return phone number
+       @since ARP1.0
+    */
+    public func getPhone() -> String? {
+        return self.phone
+    }
 
-     /**
-        Set the phone number
+    /**
+       Set the phone number
 
-        @param phone number
-        @since ARP1.0
-     */
-     public func setPhone(phone: String) {
-          self.phone = phone
-     }
+       @param phone number
+       @since ARP1.0
+    */
+    public func setPhone(phone: String) {
+        self.phone = phone
+    }
 
 
-     /**
-        JSON Serialization and deserialization support.
-     */
-     struct Serializer {
-          static func fromJSON(json : String) -> ContactPhone {
-               var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
-               var jsonError: NSError?
-               let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
-               return fromDictionary(dict)
-          }
+    /**
+       JSON Serialization and deserialization support.
+    */
+    struct Serializer {
+        static func fromJSON(json : String) -> ContactPhone {
+            var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
+            var jsonError: NSError?
+            let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+            return fromDictionary(dict)
+        }
 
-          static func fromDictionary(dict : NSDictionary) -> ContactPhone {
-               var resultObject : ContactPhone = ContactPhone()
+        static func fromDictionary(dict : NSDictionary) -> ContactPhone {
+            var resultObject : ContactPhone = ContactPhone()
 
-               if let value : AnyObject = dict.objectForKey("phone") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.phone = (value as String)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("phone") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.phone = (value as String)
+                }
+            }
 
-               if let value : AnyObject = dict.objectForKey("phoneType") {
-                    if "\(value)" as NSString != "<null>" {
-                         resultObject.phoneType = ContactPhoneType.toEnum(((value as NSDictionary)["value"]) as NSString)
-                    }
-               }
+            if let value : AnyObject = dict.objectForKey("phoneType") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.phoneType = ContactPhoneType.toEnum(((value as NSDictionary)["value"]) as NSString)
+                }
+            }
 
-               return resultObject
-          }
+            return resultObject
+        }
 
-          static func toJSON(object: ContactPhone) -> String {
-               var jsonString : NSMutableString = NSMutableString()
-               // Start Object to JSON
-               jsonString.appendString("{ ")
+        static func toJSON(object: ContactPhone) -> String {
+            var jsonString : NSMutableString = NSMutableString()
+            // Start Object to JSON
+            jsonString.appendString("{ ")
 
-               // Fields.
-               object.phone != nil ? jsonString.appendString("\"phone\": \"\(object.phone!)\", ") : jsonString.appendString("\"phone\": null, ")
-               object.phoneType != nil ? jsonString.appendString("\"phoneType\": { \"value\": \"\(JSONUtil.escapeString(object.phoneType!.toString()))\"}") : jsonString.appendString("\"phoneType\": null")
+            // Fields.
+            object.phone != nil ? jsonString.appendString("\"phone\": \"\(object.phone!)\", ") : jsonString.appendString("\"phone\": null, ")
+            object.phoneType != nil ? jsonString.appendString("\"phoneType\": { \"value\": \"\(JSONUtil.escapeString(object.phoneType!.toString()))\"}") : jsonString.appendString("\"phoneType\": null")
 
-               // End Object to JSON
-               jsonString.appendString(" }")
-               return jsonString
-          }
-     }
+            // End Object to JSON
+            jsonString.appendString(" }")
+            return jsonString
+        }
+    }
 }
 
 /**

@@ -40,40 +40,40 @@ import Foundation
 */
 public class BaseListenerImpl : NSObject, IBaseListener {
 
-     /**
-        Unique id of listener.
-     */
-     private var id : Int
+    /**
+       Unique id of listener.
+    */
+    private var id : Int
 
-     /**
-        Group of API.
-     */
-     private var apiGroup : IAdaptiveRPGroup?
+    /**
+       Group of API.
+    */
+    private var apiGroup : IAdaptiveRPGroup?
 
-     /**
-        Constructor with listener id.
+    /**
+       Constructor with listener id.
 
-        @param id  The id of the listener.
-     */
-     public init(id : Int) {
-          self.id = id
-          self.apiGroup = IAdaptiveRPGroup.Application
-     }
+       @param id  The id of the listener.
+    */
+    public init(id : Int) {
+        self.id = id
+        self.apiGroup = IAdaptiveRPGroup.Application
+    }
 
-     /**
-        Get the listener id.
-        @return long with the identifier of the listener.
-     */
-     public final func getId() -> Int {
-          return self.id
-     }
+    /**
+       Get the listener id.
+       @return long with the identifier of the listener.
+    */
+    public final func getId() -> Int {
+        return self.id
+    }
 
-     /**
-        Return the API group for the given interface.
-     */
-     public final func getAPIGroup() -> IAdaptiveRPGroup {
-          return self.apiGroup!
-     }
+    /**
+       Return the API group for the given interface.
+    */
+    public final func getAPIGroup() -> IAdaptiveRPGroup {
+        return self.apiGroup!
+    }
 
 }
 /**

@@ -40,142 +40,142 @@ import Foundation
 */
 public class NetworkStatusBridge : BaseCommunicationBridge, INetworkStatus, APIBridge {
 
-     /**
-        API Delegate.
-     */
-     private var delegate : INetworkStatus? = nil
+    /**
+       API Delegate.
+    */
+    private var delegate : INetworkStatus? = nil
 
-     /**
-        Constructor with delegate.
+    /**
+       Constructor with delegate.
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public init(delegate : INetworkStatus?) {
-          super.init()
-          self.delegate = delegate
-     }
-     /**
-        Get the delegate implementation.
-        @return INetworkStatus delegate that manages platform specific functions..
-     */
-     public final func getDelegate() -> INetworkStatus? {
-          return self.delegate
-     }
-     /**
-        Set the delegate implementation.
+       @param delegate The delegate implementing platform specific functions.
+    */
+    public init(delegate : INetworkStatus?) {
+        super.init()
+        self.delegate = delegate
+    }
+    /**
+       Get the delegate implementation.
+       @return INetworkStatus delegate that manages platform specific functions..
+    */
+    public final func getDelegate() -> INetworkStatus? {
+        return self.delegate
+    }
+    /**
+       Set the delegate implementation.
 
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public final func setDelegate(delegate : INetworkStatus) {
-          self.delegate = delegate;
-     }
+       @param delegate The delegate implementing platform specific functions.
+    */
+    public final func setDelegate(delegate : INetworkStatus) {
+        self.delegate = delegate;
+    }
 
-     /**
-        Add the listener for network status changes of the app
+    /**
+       Add the listener for network status changes of the app
 
-        @param listener Listener with the result
-        @since ARP1.0
-     */
-     public func addNetworkStatusListener(listener : INetworkStatusListener ) {
-          // Start logging elapsed time.
-          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
+       @param listener Listener with the result
+       @since ARP1.0
+    */
+    public func addNetworkStatusListener(listener : INetworkStatusListener ) {
+        // Start logging elapsed time.
+        var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+        var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger != nil) {
-               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkStatusBridge executing addNetworkStatusListener({\(listener)}).")
-          }
+        if (logger != nil) {
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkStatusBridge executing addNetworkStatusListener({\(listener)}).")
+        }
 
-          if (self.delegate != nil) {
-               self.delegate!.addNetworkStatusListener(listener)
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkStatusBridge executed 'addNetworkStatusListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
-                }
-          } else {
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "NetworkStatusBridge no delegate for 'addNetworkStatusListener'.")
-               }
-          }
-          
-     }
+        if (self.delegate != nil) {
+            self.delegate!.addNetworkStatusListener(listener)
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkStatusBridge executed 'addNetworkStatusListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+             }
+        } else {
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "NetworkStatusBridge no delegate for 'addNetworkStatusListener'.")
+            }
+        }
+        
+    }
 
-     /**
-        Un-registers an existing listener from receiving network status events.
+    /**
+       Un-registers an existing listener from receiving network status events.
 
-        @param listener Listener with the result
-        @since ARP1.0
-     */
-     public func removeNetworkStatusListener(listener : INetworkStatusListener ) {
-          // Start logging elapsed time.
-          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
+       @param listener Listener with the result
+       @since ARP1.0
+    */
+    public func removeNetworkStatusListener(listener : INetworkStatusListener ) {
+        // Start logging elapsed time.
+        var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+        var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger != nil) {
-               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkStatusBridge executing removeNetworkStatusListener({\(listener)}).")
-          }
+        if (logger != nil) {
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkStatusBridge executing removeNetworkStatusListener({\(listener)}).")
+        }
 
-          if (self.delegate != nil) {
-               self.delegate!.removeNetworkStatusListener(listener)
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkStatusBridge executed 'removeNetworkStatusListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
-                }
-          } else {
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "NetworkStatusBridge no delegate for 'removeNetworkStatusListener'.")
-               }
-          }
-          
-     }
+        if (self.delegate != nil) {
+            self.delegate!.removeNetworkStatusListener(listener)
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkStatusBridge executed 'removeNetworkStatusListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+             }
+        } else {
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "NetworkStatusBridge no delegate for 'removeNetworkStatusListener'.")
+            }
+        }
+        
+    }
 
-     /**
-        Removes all existing listeners from receiving network status events.
+    /**
+       Removes all existing listeners from receiving network status events.
 
-        @since ARP1.0
-     */
-     public func removeNetworkStatusListeners() {
-          // Start logging elapsed time.
-          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
+       @since ARP1.0
+    */
+    public func removeNetworkStatusListeners() {
+        // Start logging elapsed time.
+        var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+        var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger != nil) {
-               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkStatusBridge executing removeNetworkStatusListeners.")
-          }
+        if (logger != nil) {
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkStatusBridge executing removeNetworkStatusListeners.")
+        }
 
-          if (self.delegate != nil) {
-               self.delegate!.removeNetworkStatusListeners()
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkStatusBridge executed 'removeNetworkStatusListeners' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
-                }
-          } else {
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "NetworkStatusBridge no delegate for 'removeNetworkStatusListeners'.")
-               }
-          }
-          
-     }
+        if (self.delegate != nil) {
+            self.delegate!.removeNetworkStatusListeners()
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkStatusBridge executed 'removeNetworkStatusListeners' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+             }
+        } else {
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "NetworkStatusBridge no delegate for 'removeNetworkStatusListeners'.")
+            }
+        }
+        
+    }
 
-     /**
-        Invokes the given method specified in the API request object.
+    /**
+       Invokes the given method specified in the API request object.
 
-        @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
-     */
-     public override func invoke(request : APIRequest) -> String? {
-          var responseJSON : String? = ""
-          switch request.getMethodName()! {
-               case "addNetworkStatusListener":
-                    var listener0 : INetworkStatusListener? =  NetworkStatusListenerImpl(id: request.getAsyncId()!)
-                    self.addNetworkStatusListener(listener0!);
-               case "removeNetworkStatusListener":
-                    var listener1 : INetworkStatusListener? =  NetworkStatusListenerImpl(id: request.getAsyncId()!)
-                    self.removeNetworkStatusListener(listener1!);
-               case "removeNetworkStatusListeners":
-                    self.removeNetworkStatusListeners();
-               default:
-                    // 404 - response null.
-                    responseJSON = nil
-          }
-          return responseJSON
-     }
+       @param request APIRequest object containing method name and parameters.
+       @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+    */
+    public override func invoke(request : APIRequest) -> String? {
+        var responseJSON : String? = ""
+        switch request.getMethodName()! {
+            case "addNetworkStatusListener":
+                var listener0 : INetworkStatusListener? =  NetworkStatusListenerImpl(id: request.getAsyncId()!)
+                self.addNetworkStatusListener(listener0!);
+            case "removeNetworkStatusListener":
+                var listener1 : INetworkStatusListener? =  NetworkStatusListenerImpl(id: request.getAsyncId()!)
+                self.removeNetworkStatusListener(listener1!);
+            case "removeNetworkStatusListeners":
+                self.removeNetworkStatusListeners();
+            default:
+                // 404 - response null.
+                responseJSON = nil
+        }
+        return responseJSON
+    }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

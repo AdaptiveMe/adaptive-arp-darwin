@@ -40,22 +40,22 @@ import Foundation
 */
 public class VideoDelegate : BaseMediaDelegate, IVideo {
 
-     /**
-        Default Constructor.
-     */
-     public override init() {
-          super.init()
-     }
+    /**
+       Default Constructor.
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Play url video stream
+    /**
+       Play url video stream
 
-        @param url of the video
-        @since ARP1.0
-     */
-     public func playStream(url : String) {
-          // TODO: Not implemented.
-     }
+       @param url of the video
+       @since ARP1.0
+    */
+    public func playStream(url : String) {
+        // TODO: Not implemented.
+    }
 
 }
 /**

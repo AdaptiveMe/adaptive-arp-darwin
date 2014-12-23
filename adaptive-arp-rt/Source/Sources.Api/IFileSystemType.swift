@@ -39,35 +39,35 @@ import Foundation
 */
 public enum IFileSystemType {
 
-     case Directory
-     case File
-     case Unknown
+    case Directory
+    case File
+    case Unknown
 
-     /**
-     Convert current enum to its string representation value.
-     */
-     public func toString() -> String {
-          switch self {
-               case .Directory: return "Directory"
-               case .File: return "File"
-               case .Unknown: return "Unknown"
-          }
-     }
+    /**
+    Convert current enum to its string representation value.
+    */
+    public func toString() -> String {
+        switch self {
+            case .Directory: return "Directory"
+            case .File: return "File"
+            case .Unknown: return "Unknown"
+        }
+    }
 
-     /**
-     Create enum from its string representation value.
-     */
-     public static func toEnum(string:String?) -> IFileSystemType {
-          if let validString = string {
-               switch validString {
-                    case "Directory": return .Directory
-                    case "File": return .File
-                    case "Unknown": return .Unknown
-               default: return .Unknown
-               }
-          } else {
-               return .Unknown
-          }
-     }
+    /**
+    Create enum from its string representation value.
+    */
+    public static func toEnum(string:String?) -> IFileSystemType {
+        if let validString = string {
+            switch validString {
+                case "Directory": return .Directory
+                case "File": return .File
+                case "Unknown": return .Unknown
+            default: return .Unknown
+            }
+        } else {
+            return .Unknown
+        }
+    }
 
 }
