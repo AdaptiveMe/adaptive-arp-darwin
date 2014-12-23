@@ -106,12 +106,4 @@ public class BrowserViewController: BaseViewController, UIWebViewDelegate {
     public func webViewDidFinishLoad(webView: UIWebView) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
     }
-}//
-//  BrowserViewController.swift
-//  adaptive-arp-rt
-//
-//  Created by Carlos Lozano Diez on 22/12/14.
-//  Copyright (c) 2014 Carlos Lozano Diez. All rights reserved.
-//
-
-import Foundation
+}

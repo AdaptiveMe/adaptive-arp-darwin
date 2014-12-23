@@ -47,12 +47,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Register the HttpInterceptorprotocol
         NSURLProtocol.registerClass(HttpInterceptorProtocol)
-        /* TODO:
-        var lifecycle:Lifecycle = Lifecycle(state: Lifecycle.State.Starting)
-        (AppRegistryImpl.sharedInstance.getApplicationLifecycle() as LifecycleImpl).changeListenersStatus(lifecycle)
         
-        LifecycleImpl.isBackgroundClassVariable = false
-        */
+        var lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Starting)
+        // TODO: Not implemented
+        //AppRegistryBridge.sharedInstance.getLifecycleBridge().getDelegate().changeListenersStatus(lifecycle)
+        //LifecycleImpl.isBackgroundClassVariable = false
+        
         return true
     }
 

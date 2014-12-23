@@ -7,13 +7,12 @@
 //
 
 import Cocoa
-import AdaptiveArpImpl
 import WebKit
 
 class ViewController: NSViewController {
 
     var webView : WebView?
-    var appContextWebview:AppContextWebviewImpl?
+    //var appContextWebview:AppContextWebviewImpl?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +23,7 @@ class ViewController: NSViewController {
     override func loadView() {
         super.loadView()
         self.webView = WebView(frame: self.view.bounds)
-        (AppRegistryImpl.sharedInstance.getPlatformContextWeb()! as AppContextWebviewImpl).setWebviewPrimary(self.webView!)
+        //(AppRegistryImpl.sharedInstance.getPlatformContextWeb()! as AppContextWebviewImpl).setWebviewPrimary(self.webView!)
         self.view = self.webView!
         NSURLProtocol.registerClass(HttpInterceptorProtocol)
     }

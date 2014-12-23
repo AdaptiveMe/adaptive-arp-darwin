@@ -38,22 +38,19 @@ class ViewController: BaseViewController {
     /// Logging variable
     let logger:ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge().getDelegate()!
     
-    /// Webview
-
-    
     /// Aplication Context Webview
     //var appContextWebview:AppContextWebviewImpl?
     
     /// The view controller calls this method when its view property is requested but is currently nil. This method loads or creates a view and assigns it to the view property.
     override func loadView() {
         super.loadView()
-        // Create the webview
     }
     
     /// This method is called after the view controller has loaded its view hierarchy into memory. This method is called regardless of whether the view hierarchy was loaded from a nib file or created programmatically in the loadView method.
     override func viewDidLoad() {
         super.viewDidLoad()
-        //TODO: (AppRegistryImpl.sharedInstance.getPlatformContextWeb()! as AppContextWebviewImpl).setWebviewPrimary(self.webView!)
+        // TODO: Not implemented.       
+        //(AppRegistryImpl.sharedInstance.getPlatformContextWeb()! as AppContextWebviewImpl).setWebviewPrimary(self.webView!)
         var req = NSURLRequest(URL: NSURL(string: "https://adaptiveapp/index.html")!)
         (self.webView! as UIWebView).loadRequest(req)
 
