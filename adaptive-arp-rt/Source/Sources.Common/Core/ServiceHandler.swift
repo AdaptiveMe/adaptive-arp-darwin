@@ -128,13 +128,6 @@ public class ServiceHandler:NSObject {
                 
                 // TODO: Get the class from the registry and execute the method and return the value
                 
-                switch method {
-                //case "createDatabase":
-                    //AppRegistryImpl.sharedInstance.getDataDatabase().createDatabase(AdaptiveArpApi.Database(name: "test"), callback: CallbackImpl())
-                default:
-                    self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "Method \"\(method)\" is not registered")
-                }
-                
             });
             
         } else {
@@ -144,93 +137,12 @@ public class ServiceHandler:NSObject {
             dispatch_sync(GCD.mainQueue(),{
                 
                 // TODO: Get the class from the registry and execute the method and return the value
-                
-                switch method {
-                //case "existsDatabase":
-                    //var retValue:Bool = AppRegistryImpl.sharedInstance.getDataDatabase().existsDatabase(AdaptiveArpApi.Database(name: "test"))
-                    //ret = NSData(bytes: &retValue, length: sizeofValue(retValue))
-                default:
-                    self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "Method \"\(method)\" is not registered")
-                }
             });
             
             return ret
         }
         
-        // println(AppRegistryImpl.respondsToSelector(Selector("getPlatformContext:")))
-        // println(AppRegistryImpl.sharedInstance.respondsToSelector(Selector("getPlatformContext:")))
-        
-        //self.performSelector(NSSelectorFromString("test"), onThread: NSThread.mainThread(), withObject: nil, waitUntilDone: false)
-        
-        // http://stackoverflow.com/questions/24158427/alternative-to-performselector-in-swift
-        // var timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector:  Selector("test"), userInfo: nil, repeats: false)
-        
-        // NSThread.detachNewThreadSelector(Selector("test:"), toTarget:self, withObject: "sunshine")
-        
-        /*} else {
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "There is a problem obtaining the base class with name: \(baseClass)")
-            return nil
-        }*/
-        
         return nil
     }
-    
-    /*func test() {
-        println("---------------- IT WORKS!!!!")
-    }
-    
-    func test(object: AnyObject?) {
-        println("---------------- IT WORKS \(object)!!!!")
-    }*/
 }
 
-private class GCD {
-    
-    /* dispatch_get_queue() */
-    class func mainQueue() -> dispatch_queue_t {
-        return dispatch_get_main_queue()
-        // Could use return dispatch_get_global_queue(qos_class_main().id, 0)
-    }
-    class func userInteractiveQueue() -> dispatch_queue_t {
-        return dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE.id, 0)
-    }
-    class func userInitiatedQueue() -> dispatch_queue_t {
-        return dispatch_get_global_queue(QOS_CLASS_USER_INITIATED.id, 0)
-    }
-    class func defaultQueue() -> dispatch_queue_t {
-        return dispatch_get_global_queue(QOS_CLASS_DEFAULT.id, 0)
-    }
-    class func utilityQueue() -> dispatch_queue_t {
-        return dispatch_get_global_queue(QOS_CLASS_UTILITY.id, 0)
-    }
-    class func backgroundQueue() -> dispatch_queue_t {
-        return dispatch_get_global_queue(QOS_CLASS_BACKGROUND.id, 0)
-    }
-}
-
-extension qos_class_t {
-    
-    public var id:Int {
-        return Int(self.value)
-    }
-}
-
-// Convenience
-extension qos_class_t {
-    
-    // Calculated property
-    var description: String {
-        get {
-            switch self.id {
-            case qos_class_main().id: return "Main"
-            case QOS_CLASS_USER_INTERACTIVE.id: return "User Interactive"
-            case QOS_CLASS_USER_INITIATED.id: return "User Initiated"
-            case QOS_CLASS_DEFAULT.id: return "Default"
-            case QOS_CLASS_UTILITY.id: return "Utility"
-            case QOS_CLASS_BACKGROUND.id: return "Background"
-            case QOS_CLASS_UNSPECIFIED.id: return "Unspecified"
-            default: return "Unknown"
-            }
-        }
-    }
-}
