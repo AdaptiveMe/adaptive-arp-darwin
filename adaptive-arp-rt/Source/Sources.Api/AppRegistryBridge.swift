@@ -1019,24 +1019,9 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         @return LoggingBridge reference or null if a bridge of this type is not registered.
      */
      public final func getLoggingBridge() -> LoggingBridge {
-          // Start logging elapsed time.
-          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
           var result : LoggingBridge? = nil
-
-          if (logger != nil) {
-               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getLoggingBridge().")
-          }
-
           if (self.delegate != nil) {
                result = self.delegate!.getLoggingBridge()
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getLoggingBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
-               }
-          } else {
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getLoggingBridge'.")
-               }
           }
           return result!          
      }

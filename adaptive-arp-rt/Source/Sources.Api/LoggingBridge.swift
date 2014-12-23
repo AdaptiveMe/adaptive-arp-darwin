@@ -78,25 +78,9 @@ public class LoggingBridge : BaseUtilBridge, ILogging, APIBridge {
         @since ARP1.0
      */
      public func log(level : ILoggingLogLevel , message : String ) {
-          // Start logging elapsed time.
-          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
-
-          if (logger != nil) {
-               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "LoggingBridge executing log({\(level)},{\(message)}).")
-          }
-
           if (self.delegate != nil) {
                self.delegate!.log(level, message: message)
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "LoggingBridge executed 'log' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
-                }
-          } else {
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "LoggingBridge no delegate for 'log'.")
-               }
           }
-          
      }
 
      /**
@@ -108,25 +92,9 @@ public class LoggingBridge : BaseUtilBridge, ILogging, APIBridge {
         @since ARP1.0
      */
      public func log(level : ILoggingLogLevel , category : String , message : String ) {
-          // Start logging elapsed time.
-          var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
-
-          if (logger != nil) {
-               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "LoggingBridge executing log({\(level)},{\(category)},{\(message)}).")
-          }
-
           if (self.delegate != nil) {
                self.delegate!.log(level, category: category, message: message)
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "LoggingBridge executed 'log' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
-                }
-          } else {
-               if (logger != nil) {
-                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "LoggingBridge no delegate for 'log'.")
-               }
           }
-          
      }
 
      /**
