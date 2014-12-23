@@ -196,25 +196,36 @@ public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public override func invoke(request : APIRequest) -> String? {
-          //Gson gson = new Gson();
           var responseJSON : String? = ""
           switch request.getMethodName()! {
                case "deleteSecureKeyValuePairs":
-                    var keys0 : [String]? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], [String].class)
-                    var publicAccessName0 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[1], String.class)
+                    var keys0 : [String]? = [String]()
+                    var keysArray0 : [String] = JSONUtil.stringElementToArray(request.getParameters()![0])
+                    for keysElement0 in keysArray0 {
+                         keys0!.append(keysElement0)
+                    }
+                    var publicAccessName0 : String? = request.getParameters()![1]
                     var callback0 : ISecurityResultCallback? =  SecurityResultCallbackImpl(id: request.getAsyncId()!)
                     self.deleteSecureKeyValuePairs(keys0!, publicAccessName: publicAccessName0!, callback: callback0!);
                case "getSecureKeyValuePairs":
-                    var keys1 : [String]? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], [String].class)
-                    var publicAccessName1 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[1], String.class)
+                    var keys1 : [String]? = [String]()
+                    var keysArray1 : [String] = JSONUtil.stringElementToArray(request.getParameters()![0])
+                    for keysElement1 in keysArray1 {
+                         keys1!.append(keysElement1)
+                    }
+                    var publicAccessName1 : String? = request.getParameters()![1]
                     var callback1 : ISecurityResultCallback? =  SecurityResultCallbackImpl(id: request.getAsyncId()!)
                     self.getSecureKeyValuePairs(keys1!, publicAccessName: publicAccessName1!, callback: callback1!);
                case "isDeviceModified":
                     var response2 : Bool? = self.isDeviceModified()
                     responseJSON = nil //TODO - Serialize this.gson.toJson(response2);
                case "setSecureKeyValuePairs":
-                    var keyValues3 : [SecureKeyPair]? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], [SecureKeyPair].class)
-                    var publicAccessName3 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[1], String.class)
+                    var keyValues3 : [SecureKeyPair]? = [SecureKeyPair]()
+                    var keyValuesArray3 : [String] = JSONUtil.stringElementToArray(request.getParameters()![0])
+                    for keyValuesElement3 in keyValuesArray3 {
+                         keyValues3!.append(SecureKeyPair.Serializer.fromJSON(keyValuesElement3))
+                    }
+                    var publicAccessName3 : String? = request.getParameters()![1]
                     var callback3 : ISecurityResultCallback? =  SecurityResultCallbackImpl(id: request.getAsyncId()!)
                     self.setSecureKeyValuePairs(keyValues3!, publicAccessName: publicAccessName3!, callback: callback3!);
                default:

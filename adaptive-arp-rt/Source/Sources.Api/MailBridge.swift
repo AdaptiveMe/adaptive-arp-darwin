@@ -106,11 +106,10 @@ public class MailBridge : BasePIMBridge, IMail, APIBridge {
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public override func invoke(request : APIRequest) -> String? {
-          //Gson gson = new Gson();
           var responseJSON : String? = ""
           switch request.getMethodName()! {
                case "sendEmail":
-                    var data0 : Email? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], Email.class)
+                    var data0 : Email? = Email.Serializer.fromJSON(request.getParameters()![0])
                     var callback0 : IMessagingCallback? =  MessagingCallbackImpl(id: request.getAsyncId()!)
                     self.sendEmail(data0!, callback: callback0!);
                default:

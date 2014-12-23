@@ -41,13 +41,6 @@ import Foundation
 public class VideoDelegate : BaseMediaDelegate, IVideo {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     //static {
-          //AppRegistryBridge.getInstance().getVideoBridge().setDelegate(new VideoDelegate());
-     //}
-
-     /**
         Default Constructor.
      */
      public override init() {

@@ -41,13 +41,6 @@ import Foundation
 public class AccelerationDelegate : BaseSensorDelegate, IAcceleration {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     //static {
-          //AppRegistryBridge.getInstance().getAccelerationBridge().setDelegate(new AccelerationDelegate());
-     //}
-
-     /**
         Default Constructor.
      */
      public override init() {

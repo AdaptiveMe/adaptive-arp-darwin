@@ -41,13 +41,6 @@ import Foundation
 public class LoggingDelegate : BaseUtilDelegate, ILogging {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     //static {
-          //AppRegistryBridge.getInstance().getLoggingBridge().setDelegate(new LoggingDelegate());
-     //}
-
-     /**
         Default Constructor.
      */
      public override init() {

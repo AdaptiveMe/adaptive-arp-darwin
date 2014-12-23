@@ -51,11 +51,6 @@ public class BaseListenerImpl : NSObject, IBaseListener {
      private var apiGroup : IAdaptiveRPGroup?
 
      /**
-        JSON Serializer.
-     */
-     //TODO: protected Gson gson;
-
-     /**
         Constructor with listener id.
 
         @param id  The id of the listener.
@@ -63,7 +58,6 @@ public class BaseListenerImpl : NSObject, IBaseListener {
      public init(id : Int) {
           self.id = id
           self.apiGroup = IAdaptiveRPGroup.Application
-          // TODO: this.gson = new Gson();
      }
 
      /**
@@ -80,13 +74,6 @@ public class BaseListenerImpl : NSObject, IBaseListener {
      public final func getAPIGroup() -> IAdaptiveRPGroup {
           return self.apiGroup!
      }
-     /**
-        Return the JSON serializer.
-        @return Current JSON serializer.
-     */
-     //TODO: public final Gson getJSONAPI() {
-          //return this.gson;
-     //}
 
 }
 /**

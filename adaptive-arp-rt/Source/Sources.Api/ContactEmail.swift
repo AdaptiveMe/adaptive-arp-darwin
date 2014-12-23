@@ -156,19 +156,19 @@ public class ContactEmail : APIBean {
                var resultObject : ContactEmail = ContactEmail()
 
                if let value : AnyObject = dict.objectForKey("email") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.email = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("primary") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.primary = (value as Bool)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("type") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.type = ContactEmailType.toEnum(((value as NSDictionary)["value"]) as NSString)
                     }
                }
@@ -184,7 +184,7 @@ public class ContactEmail : APIBean {
                // Fields.
                object.email != nil ? jsonString.appendString("\"email\": \"\(object.email!)\", ") : jsonString.appendString("\"email\": null, ")
                object.primary != nil ? jsonString.appendString("\"primary\": \(object.primary!), ") : jsonString.appendString("\"primary\": null, ")
-               object.type != nil ? jsonString.appendString("\"type\": { \"value\": \"\(object.type!.toString())\"}") : jsonString.appendString("\"type\": null")
+               object.type != nil ? jsonString.appendString("\"type\": { \"value\": \"\(JSONUtil.escapeString(object.type!.toString()))\"}") : jsonString.appendString("\"type\": null")
 
                // End Object to JSON
                jsonString.appendString(" }")

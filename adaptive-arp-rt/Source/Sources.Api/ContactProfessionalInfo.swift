@@ -156,19 +156,19 @@ public class ContactProfessionalInfo : APIBean {
                var resultObject : ContactProfessionalInfo = ContactProfessionalInfo()
 
                if let value : AnyObject = dict.objectForKey("company") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.company = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("jobDescription") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.jobDescription = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("jobTitle") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.jobTitle = (value as String)
                     }
                }

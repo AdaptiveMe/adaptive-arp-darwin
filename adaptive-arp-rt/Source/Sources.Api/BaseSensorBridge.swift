@@ -46,16 +46,10 @@ public class BaseSensorBridge : NSObject, IBaseSensor {
      private var apiGroup : IAdaptiveRPGroup? = nil
 
      /**
-        JSON API.
-     */
-     //protected Gson gson;
-
-     /**
         Default constructor.
      */
      public override init() {
           self.apiGroup = IAdaptiveRPGroup.Sensor
-          //this.gson = new Gson();
      }
 
      /**
@@ -64,13 +58,6 @@ public class BaseSensorBridge : NSObject, IBaseSensor {
      public final func getAPIGroup() -> IAdaptiveRPGroup {
           return self.apiGroup!
      }
-     /**
-        Return the JSON serializer.
-        @return Current JSON serializer.
-     */
-     //public final Gson getJSONAPI() {
-          //return this.gson;
-     //}
 
      /**
         Invokes the given method specified in the API request object.
@@ -79,7 +66,6 @@ public class BaseSensorBridge : NSObject, IBaseSensor {
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public func invoke(request : APIRequest) -> String? {
-          //Gson gson = new Gson();
           var responseJSON : String? = ""
           switch request.getMethodName()! {
                default:

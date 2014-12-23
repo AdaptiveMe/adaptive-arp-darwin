@@ -320,46 +320,53 @@ should be passed as a parameter
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public override func invoke(request : APIRequest) -> String? {
-          //Gson gson = new Gson();
           var responseJSON : String? = ""
           switch request.getMethodName()! {
                case "createDatabase":
-                    var database0 : Database? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], Database.class)
+                    var database0 : Database? = Database.Serializer.fromJSON(request.getParameters()![0])
                     var callback0 : IDatabaseResultCallback? =  DatabaseResultCallbackImpl(id: request.getAsyncId()!)
                     self.createDatabase(database0!, callback: callback0!);
                case "createTable":
-                    var database1 : Database? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], Database.class)
-                    var databaseTable1 : DatabaseTable? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[1], DatabaseTable.class)
+                    var database1 : Database? = Database.Serializer.fromJSON(request.getParameters()![0])
+                    var databaseTable1 : DatabaseTable? = DatabaseTable.Serializer.fromJSON(request.getParameters()![1])
                     var callback1 : IDatabaseTableResultCallback? =  DatabaseTableResultCallbackImpl(id: request.getAsyncId()!)
                     self.createTable(database1!, databaseTable: databaseTable1!, callback: callback1!);
                case "deleteDatabase":
-                    var database2 : Database? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], Database.class)
+                    var database2 : Database? = Database.Serializer.fromJSON(request.getParameters()![0])
                     var callback2 : IDatabaseResultCallback? =  DatabaseResultCallbackImpl(id: request.getAsyncId()!)
                     self.deleteDatabase(database2!, callback: callback2!);
                case "deleteTable":
-                    var database3 : Database? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], Database.class)
-                    var databaseTable3 : DatabaseTable? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[1], DatabaseTable.class)
+                    var database3 : Database? = Database.Serializer.fromJSON(request.getParameters()![0])
+                    var databaseTable3 : DatabaseTable? = DatabaseTable.Serializer.fromJSON(request.getParameters()![1])
                     var callback3 : IDatabaseTableResultCallback? =  DatabaseTableResultCallbackImpl(id: request.getAsyncId()!)
                     self.deleteTable(database3!, databaseTable: databaseTable3!, callback: callback3!);
                case "executeSqlStatement":
-                    var database4 : Database? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], Database.class)
-                    var statement4 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[1], String.class)
-                    var replacements4 : [String]? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[2], [String].class)
+                    var database4 : Database? = Database.Serializer.fromJSON(request.getParameters()![0])
+                    var statement4 : String? = request.getParameters()![1]
+                    var replacements4 : [String]? = [String]()
+                    var replacementsArray4 : [String] = JSONUtil.stringElementToArray(request.getParameters()![2])
+                    for replacementsElement4 in replacementsArray4 {
+                         replacements4!.append(replacementsElement4)
+                    }
                     var callback4 : IDatabaseTableResultCallback? =  DatabaseTableResultCallbackImpl(id: request.getAsyncId()!)
                     self.executeSqlStatement(database4!, statement: statement4!, replacements: replacements4!, callback: callback4!);
                case "executeSqlTransactions":
-                    var database5 : Database? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], Database.class)
-                    var statements5 : [String]? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[1], [String].class)
-                    var rollbackFlag5 : Bool? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[2], boolean.class)
+                    var database5 : Database? = Database.Serializer.fromJSON(request.getParameters()![0])
+                    var statements5 : [String]? = [String]()
+                    var statementsArray5 : [String] = JSONUtil.stringElementToArray(request.getParameters()![1])
+                    for statementsElement5 in statementsArray5 {
+                         statements5!.append(statementsElement5)
+                    }
+                    var rollbackFlag5 : Bool? = (request.getParameters()![2] as NSString).boolValue
                     var callback5 : IDatabaseTableResultCallback? =  DatabaseTableResultCallbackImpl(id: request.getAsyncId()!)
                     self.executeSqlTransactions(database5!, statements: statements5!, rollbackFlag: rollbackFlag5!, callback: callback5!);
                case "existsDatabase":
-                    var database6 : Database? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], Database.class)
+                    var database6 : Database? = Database.Serializer.fromJSON(request.getParameters()![0])
                     var response6 : Bool? = self.existsDatabase(database6!)
                     responseJSON = nil //TODO - Serialize this.gson.toJson(response6);
                case "existsTable":
-                    var database7 : Database? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], Database.class)
-                    var databaseTable7 : DatabaseTable? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[1], DatabaseTable.class)
+                    var database7 : Database? = Database.Serializer.fromJSON(request.getParameters()![0])
+                    var databaseTable7 : DatabaseTable? = DatabaseTable.Serializer.fromJSON(request.getParameters()![1])
                     var response7 : Bool? = self.existsTable(database7!, databaseTable: databaseTable7!)
                     responseJSON = nil //TODO - Serialize this.gson.toJson(response7);
                default:

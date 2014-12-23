@@ -788,6 +788,8 @@
 		4E43B6D41A48298F00E61B83 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E43B6B61A48292200E61B83 /* Realm.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4E43B6D71A4829AB00E61B83 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E43B6CB1A48292D00E61B83 /* SQLite.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4E43B6DA1A4829B800E61B83 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E43B6B01A48292200E61B83 /* Realm.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		4E463F481A498402002EBCCE /* JSONUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E463F471A498402002EBCCE /* JSONUtil.swift */; };
+		4E463F491A498402002EBCCE /* JSONUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E463F471A498402002EBCCE /* JSONUtil.swift */; };
 		4E8FFC5C1A483D0800F0A8AE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8FFC5B1A483D0800F0A8AE /* BaseViewController.swift */; };
 		4E8FFC5E1A483D4C00F0A8AE /* NavigationProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8FFC5D1A483D4C00F0A8AE /* NavigationProperties.swift */; };
 		4E8FFC601A483D7F00F0A8AE /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8FFC5F1A483D7F00F0A8AE /* BrowserViewController.swift */; };
@@ -1376,6 +1378,7 @@
 		4E43B3A41A4823A500E61B83 /* HttpInterceptorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpInterceptorProtocol.swift; sourceTree = "<group>"; };
 		4E43B6A41A48292200E61B83 /* Realm.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Realm.xcodeproj; path = "ThirdParty/realm-cocoa/Realm.xcodeproj"; sourceTree = "<group>"; };
 		4E43B6BF1A48292D00E61B83 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = ThirdParty/SQLite.swift/SQLite.xcodeproj; sourceTree = "<group>"; };
+		4E463F471A498402002EBCCE /* JSONUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONUtil.swift; sourceTree = "<group>"; };
 		4E6A9D1B1A1C8EA800DF3CD1 /* GeolocationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeolocationTest.swift; sourceTree = "<group>"; };
 		4E8FFC5B1A483D0800F0A8AE /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		4E8FFC5D1A483D4C00F0A8AE /* NavigationProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationProperties.swift; sourceTree = "<group>"; };
@@ -1923,6 +1926,7 @@
 		4E43B35F1A48228700E61B83 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				4E463F471A498402002EBCCE /* JSONUtil.swift */,
 				4E43B3601A48228700E61B83 /* Await.swift */,
 				4E43B3611A48228700E61B83 /* GeolocationDelegateHelper.swift */,
 				4E43B3621A48228700E61B83 /* I18NParser.swift */,
@@ -2681,6 +2685,7 @@
 				4E43B1111A48211200E61B83 /* IAdaptiveRPGroup.swift in Sources */,
 				4E43B2CB1A48211200E61B83 /* XMLBridge.swift in Sources */,
 				4E43B3111A48212D00E61B83 /* BaseSystemDelegate.swift in Sources */,
+				4E463F481A498402002EBCCE /* JSONUtil.swift in Sources */,
 				4E43B1351A48211200E61B83 /* IBarometer.swift in Sources */,
 				4E43B32B1A48212D00E61B83 /* MailDelegate.swift in Sources */,
 				4E43B3171A48212D00E61B83 /* BrowserDelegate.swift in Sources */,
@@ -3195,6 +3200,7 @@
 				4E43B3A31A48236300E61B83 /* AppResourceManager.swift in Sources */,
 				4E43B2FA1A48212D00E61B83 /* AppContextWebviewDelegate.swift in Sources */,
 				4E43B2901A48211200E61B83 /* OSBridge.swift in Sources */,
+				4E463F491A498402002EBCCE /* JSONUtil.swift in Sources */,
 				4E43B1861A48211200E61B83 /* IContactPhotoResultCallbackWarning.swift in Sources */,
 				4E43B0601A48211200E61B83 /* APIBean.swift in Sources */,
 			);

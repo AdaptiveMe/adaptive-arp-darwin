@@ -41,13 +41,6 @@ import Foundation
 public class OSDelegate : BaseSystemDelegate, IOS {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     //static {
-          //AppRegistryBridge.getInstance().getOSBridge().setDelegate(new OSDelegate());
-     //}
-
-     /**
         Default Constructor.
      */
      public override init() {

@@ -41,13 +41,6 @@ import Foundation
 public class SecurityDelegate : BaseSecurityDelegate, ISecurity {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     //static {
-          //AppRegistryBridge.getInstance().getSecurityBridge().setDelegate(new SecurityDelegate());
-     //}
-
-     /**
         Default Constructor.
      */
      public override init() {

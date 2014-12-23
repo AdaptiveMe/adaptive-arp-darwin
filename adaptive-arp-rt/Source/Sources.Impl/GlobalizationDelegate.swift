@@ -41,13 +41,6 @@ import Foundation
 public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     //static {
-          //AppRegistryBridge.getInstance().getGlobalizationBridge().setDelegate(new GlobalizationDelegate());
-     //}
-
-     /**
         Default Constructor.
      */
      public override init() {

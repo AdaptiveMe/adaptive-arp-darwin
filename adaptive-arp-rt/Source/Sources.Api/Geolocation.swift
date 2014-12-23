@@ -245,37 +245,37 @@ public class Geolocation : APIBean {
                var resultObject : Geolocation = Geolocation()
 
                if let value : AnyObject = dict.objectForKey("altitude") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.altitude = (value as Double)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("latitude") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.latitude = (value as Double)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("longitude") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.longitude = (value as Double)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("timestamp") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.timestamp = (value as Int)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("xDoP") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.xDoP = (value as Float)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("yDoP") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.yDoP = (value as Float)
                     }
                }

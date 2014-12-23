@@ -104,7 +104,7 @@ public class Button : APIBean {
                var resultObject : Button = Button()
 
                if let value : AnyObject = dict.objectForKey("type") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.type = ICapabilitiesButton.toEnum(((value as NSDictionary)["value"]) as NSString)
                     }
                }
@@ -118,7 +118,7 @@ public class Button : APIBean {
                jsonString.appendString("{ ")
 
                // Fields.
-               object.type != nil ? jsonString.appendString("\"type\": { \"value\": \"\(object.type!.toString())\"}") : jsonString.appendString("\"type\": null")
+               object.type != nil ? jsonString.appendString("\"type\": { \"value\": \"\(JSONUtil.escapeString(object.type!.toString()))\"}") : jsonString.appendString("\"type\": null")
 
                // End Object to JSON
                jsonString.appendString(" }")

@@ -280,11 +280,10 @@ public class ServiceBridge : BaseCommunicationBridge, IService, APIBridge {
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public override func invoke(request : APIRequest) -> String? {
-          //Gson gson = new Gson();
           var responseJSON : String? = ""
           switch request.getMethodName()! {
                case "getService":
-                    var serviceName0 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], String.class)
+                    var serviceName0 : String? = request.getParameters()![0]
                     var response0 : Service? = self.getService(serviceName0!)
                     if (response0 != nil) {
                          responseJSON = nil //TODO - Serialize this.gson.toJson(response0);
@@ -292,15 +291,15 @@ public class ServiceBridge : BaseCommunicationBridge, IService, APIBridge {
                          responseJSON = nil
                     }
                case "invokeService":
-                    var serviceRequest1 : ServiceRequest? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], ServiceRequest.class)
-                    var service1 : Service? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[1], Service.class)
+                    var serviceRequest1 : ServiceRequest? = ServiceRequest.Serializer.fromJSON(request.getParameters()![0])
+                    var service1 : Service? = Service.Serializer.fromJSON(request.getParameters()![1])
                     var callback1 : IServiceResultCallback? =  ServiceResultCallbackImpl(id: request.getAsyncId()!)
                     self.invokeService(serviceRequest1!, service: service1!, callback: callback1!);
                case "registerService":
-                    var service2 : Service? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], Service.class)
+                    var service2 : Service? = Service.Serializer.fromJSON(request.getParameters()![0])
                     self.registerService(service2!);
                case "unregisterService":
-                    var service3 : Service? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], Service.class)
+                    var service3 : Service? = Service.Serializer.fromJSON(request.getParameters()![0])
                     self.unregisterService(service3!);
                case "unregisterServices":
                     self.unregisterServices();

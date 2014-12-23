@@ -41,13 +41,6 @@ import Foundation
 public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     //static {
-          //AppRegistryBridge.getInstance().getCapabilitiesBridge().setDelegate(new CapabilitiesDelegate());
-     //}
-
-     /**
         Default Constructor.
      */
      public override init() {

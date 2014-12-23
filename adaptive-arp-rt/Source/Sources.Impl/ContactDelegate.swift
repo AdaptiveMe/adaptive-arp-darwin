@@ -41,13 +41,6 @@ import Foundation
 public class ContactDelegate : BasePIMDelegate, IContact {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     //static {
-          //AppRegistryBridge.getInstance().getContactBridge().setDelegate(new ContactDelegate());
-     //}
-
-     /**
         Default Constructor.
      */
      public override init() {

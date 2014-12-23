@@ -284,13 +284,13 @@ public class ServiceResponse : APIBean {
                var resultObject : ServiceResponse = ServiceResponse()
 
                if let value : AnyObject = dict.objectForKey("content") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.content = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("contentBinary") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          var contentBinary : [Byte] = [Byte](count: (value as NSArray).count, repeatedValue: 0)
                          var contentBinaryData : NSData = (value as NSData)
                          contentBinaryData.getBytes(&contentBinary, length: (value as NSArray).count * sizeof(UInt8))
@@ -299,31 +299,31 @@ public class ServiceResponse : APIBean {
                }
 
                if let value : AnyObject = dict.objectForKey("contentBinaryLength") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.contentBinaryLength = (value as Int)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("contentEncoding") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.contentEncoding = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("contentLength") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.contentLength = (value as Int)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("contentType") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.contentType = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("serviceHeaders") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          var serviceHeaders : [ServiceHeader] = [ServiceHeader]()
                          for (var i = 0;i < (value as NSArray).count ; i++) {
                               serviceHeaders.append(ServiceHeader.Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))
@@ -333,7 +333,7 @@ public class ServiceResponse : APIBean {
                }
 
                if let value : AnyObject = dict.objectForKey("serviceSession") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.serviceSession = ServiceSession.Serializer.fromDictionary(value as NSDictionary)
                     }
                }

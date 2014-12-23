@@ -41,13 +41,6 @@ import Foundation
 public class NetworkReachabilityDelegate : BaseCommunicationDelegate, INetworkReachability {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     //static {
-          //AppRegistryBridge.getInstance().getNetworkReachabilityBridge().setDelegate(new NetworkReachabilityDelegate());
-     //}
-
-     /**
         Default Constructor.
      */
      public override init() {

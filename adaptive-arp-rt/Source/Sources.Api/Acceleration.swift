@@ -182,25 +182,25 @@ public class Acceleration : APIBean {
                var resultObject : Acceleration = Acceleration()
 
                if let value : AnyObject = dict.objectForKey("timestamp") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.timestamp = (value as Int)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("x") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.x = (value as Double)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("y") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.y = (value as Double)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("z") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.z = (value as Double)
                     }
                }

@@ -208,31 +208,31 @@ public class ServiceEndpoint : APIBean {
                var resultObject : ServiceEndpoint = ServiceEndpoint()
 
                if let value : AnyObject = dict.objectForKey("host") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.host = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("path") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.path = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("port") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.port = (value as Int)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("proxy") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.proxy = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("scheme") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.scheme = (value as String)
                     }
                }

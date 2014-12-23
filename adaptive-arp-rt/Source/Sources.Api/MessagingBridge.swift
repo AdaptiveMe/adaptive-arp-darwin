@@ -107,12 +107,11 @@ public class MessagingBridge : BasePIMBridge, IMessaging, APIBridge {
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public override func invoke(request : APIRequest) -> String? {
-          //Gson gson = new Gson();
           var responseJSON : String? = ""
           switch request.getMethodName()! {
                case "sendSMS":
-                    var number0 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], String.class)
-                    var text0 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[1], String.class)
+                    var number0 : String? = request.getParameters()![0]
+                    var text0 : String? = request.getParameters()![1]
                     var callback0 : IMessagingCallback? =  MessagingCallbackImpl(id: request.getAsyncId()!)
                     self.sendSMS(number0!, text: text0!, callback: callback0!);
                default:

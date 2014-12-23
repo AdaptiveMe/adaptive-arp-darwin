@@ -44,13 +44,13 @@ import Foundation
 public class ContactTag : APIBean {
 
      /**
-        The name of the Tag
+        The tagName of the Tag
      */
-     var name : String?
+     var tagName : String?
      /**
-        The value of the Tag
+        The tagValue of the Tag
      */
-     var value : String?
+     var tagValue : String?
 
      /**
         Default constructor
@@ -64,54 +64,54 @@ public class ContactTag : APIBean {
      /**
         Constructor used by the implementation
 
-        @param value Value of the tag
-        @param name  Name of the tag
+        @param tagValue Value of the tag
+        @param tagName  Name of the tag
         @since ARP1.0
      */
-     public init(name: String, value: String) {
+     public init(tagName: String, tagValue: String) {
           super.init()
-          self.name = name
-          self.value = value
+          self.tagName = tagName
+          self.tagValue = tagValue
      }
 
      /**
-        Returns the name of the Tag
+        Returns the tagName of the Tag
 
-        @return name
+        @return tagName
         @since ARP1.0
      */
-     public func getName() -> String? {
-          return self.name
+     public func getTagName() -> String? {
+          return self.tagName
      }
 
      /**
-        Set the name of the Tag
+        Set the tagName of the Tag
 
-        @param name Name of the tag
+        @param tagName Name of the tag
         @since ARP1.0
      */
-     public func setName(name: String) {
-          self.name = name
+     public func setTagName(tagName: String) {
+          self.tagName = tagName
      }
 
      /**
-        Returns the value of the Tag
+        Returns the tagValue of the Tag
 
-        @return value
+        @return tagValue
         @since ARP1.0
      */
-     public func getValue() -> String? {
-          return self.value
+     public func getTagValue() -> String? {
+          return self.tagValue
      }
 
      /**
-        Set the value of the Tag
+        Set the tagValue of the Tag
 
-        @param value Value of the tag
+        @param tagValue Value of the tag
         @since ARP1.0
      */
-     public func setValue(value: String) {
-          self.value = value
+     public func setTagValue(tagValue: String) {
+          self.tagValue = tagValue
      }
 
 
@@ -129,15 +129,15 @@ public class ContactTag : APIBean {
           static func fromDictionary(dict : NSDictionary) -> ContactTag {
                var resultObject : ContactTag = ContactTag()
 
-               if let value : AnyObject = dict.objectForKey("name") {
-                    if value as NSString != "<null>" {
-                         resultObject.name = (value as String)
+               if let value : AnyObject = dict.objectForKey("tagName") {
+                    if "\(value)" as NSString != "<null>" {
+                         resultObject.tagName = (value as String)
                     }
                }
 
-               if let value : AnyObject = dict.objectForKey("value") {
-                    if value as NSString != "<null>" {
-                         resultObject.value = (value as String)
+               if let value : AnyObject = dict.objectForKey("tagValue") {
+                    if "\(value)" as NSString != "<null>" {
+                         resultObject.tagValue = (value as String)
                     }
                }
 
@@ -150,8 +150,8 @@ public class ContactTag : APIBean {
                jsonString.appendString("{ ")
 
                // Fields.
-               object.name != nil ? jsonString.appendString("\"name\": \"\(object.name!)\", ") : jsonString.appendString("\"name\": null, ")
-               object.value != nil ? jsonString.appendString("\"value\": \"\(object.value!)\"") : jsonString.appendString("\"value\": null")
+               object.tagName != nil ? jsonString.appendString("\"tagName\": \"\(object.tagName!)\", ") : jsonString.appendString("\"tagName\": null, ")
+               object.tagValue != nil ? jsonString.appendString("\"tagValue\": \"\(object.tagValue!)\"") : jsonString.appendString("\"tagValue\": null")
 
                // End Object to JSON
                jsonString.appendString(" }")

@@ -104,7 +104,7 @@ public class EmailAddress : APIBean {
                var resultObject : EmailAddress = EmailAddress()
 
                if let value : AnyObject = dict.objectForKey("address") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.address = (value as String)
                     }
                }

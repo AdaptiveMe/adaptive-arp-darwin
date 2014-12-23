@@ -41,13 +41,6 @@ import Foundation
 public class DatabaseDelegate : BaseDataDelegate, IDatabase {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     //static {
-          //AppRegistryBridge.getInstance().getDatabaseBridge().setDelegate(new DatabaseDelegate());
-     //}
-
-     /**
         Default Constructor.
      */
      public override init() {

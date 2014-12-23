@@ -41,13 +41,6 @@ import Foundation
 public class GeolocationDelegate : BaseSensorDelegate, IGeolocation {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     //static {
-          //AppRegistryBridge.getInstance().getGeolocationBridge().setDelegate(new GeolocationDelegate());
-     //}
-
-     /**
         Default Constructor.
      */
      public override init() {

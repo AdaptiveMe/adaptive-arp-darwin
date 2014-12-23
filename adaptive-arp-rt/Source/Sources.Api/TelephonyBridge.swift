@@ -107,11 +107,10 @@ public class TelephonyBridge : BaseCommunicationBridge, ITelephony, APIBridge {
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public override func invoke(request : APIRequest) -> String? {
-          //Gson gson = new Gson();
           var responseJSON : String? = ""
           switch request.getMethodName()! {
                case "call":
-                    var number0 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], String.class)
+                    var number0 : String? = request.getParameters()![0]
                     var response0 : ITelephonyStatus? = self.call(number0!)
                     if (response0 != nil) {
                          responseJSON = nil //TODO - Serialize this.gson.toJson(response0);

@@ -41,13 +41,6 @@ import Foundation
 public class BrowserDelegate : BaseUIDelegate, IBrowser {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     //static {
-          //AppRegistryBridge.getInstance().getBrowserBridge().setDelegate(new BrowserDelegate());
-     //}
-
-     /**
         Default Constructor.
      */
      public override init() {

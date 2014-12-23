@@ -181,25 +181,25 @@ be unique for a specific instance of an application on a specific device.
                var resultObject : DeviceInfo = DeviceInfo()
 
                if let value : AnyObject = dict.objectForKey("model") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.model = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("name") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.name = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("uuid") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.uuid = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("vendor") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.vendor = (value as String)
                     }
                }

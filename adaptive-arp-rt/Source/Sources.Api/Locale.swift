@@ -130,13 +130,13 @@ public class Locale : APIBean {
                var resultObject : Locale = Locale()
 
                if let value : AnyObject = dict.objectForKey("country") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.country = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("language") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.language = (value as String)
                     }
                }

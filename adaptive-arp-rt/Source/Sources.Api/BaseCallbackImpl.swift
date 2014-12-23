@@ -51,11 +51,6 @@ public class BaseCallbackImpl : NSObject, IBaseCallback {
      private var apiGroup : IAdaptiveRPGroup?
 
      /**
-        JSON Serializer.
-     */
-     //TODO: protected Gson gson;
-
-     /**
         Constructor with callback id.
 
         @param id  The id of the callback.
@@ -63,7 +58,6 @@ public class BaseCallbackImpl : NSObject, IBaseCallback {
      public init(id : Int) {
           self.id = id
           self.apiGroup = IAdaptiveRPGroup.Application
-          //TODO: this.gson = new Gson();
      }
 
      /**
@@ -80,13 +74,6 @@ public class BaseCallbackImpl : NSObject, IBaseCallback {
      public func getAPIGroup() -> IAdaptiveRPGroup {
           return self.apiGroup!
      }
-     /**
-        Return the JSON serializer.
-        @return Current JSON serializer.
-     */
-     //TODO: public final Gson getJSONAPI() {
-          //return this.gson;
-     //}
 
 }
 /**

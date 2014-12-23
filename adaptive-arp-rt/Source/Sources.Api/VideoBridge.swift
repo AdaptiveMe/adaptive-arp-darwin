@@ -105,11 +105,10 @@ public class VideoBridge : BaseMediaBridge, IVideo, APIBridge {
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public override func invoke(request : APIRequest) -> String? {
-          //Gson gson = new Gson();
           var responseJSON : String? = ""
           switch request.getMethodName()! {
                case "playStream":
-                    var url0 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], String.class)
+                    var url0 : String? = request.getParameters()![0]
                     self.playStream(url0!);
                default:
                     // 404 - response null.

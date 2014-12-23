@@ -182,25 +182,25 @@ public class ContactPersonalInfo : APIBean {
                var resultObject : ContactPersonalInfo = ContactPersonalInfo()
 
                if let value : AnyObject = dict.objectForKey("lastName") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.lastName = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("middleName") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.middleName = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("name") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.name = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("title") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.title = ContactPersonalInfoTitle.toEnum(((value as NSDictionary)["value"]) as NSString)
                     }
                }
@@ -217,7 +217,7 @@ public class ContactPersonalInfo : APIBean {
                object.lastName != nil ? jsonString.appendString("\"lastName\": \"\(object.lastName!)\", ") : jsonString.appendString("\"lastName\": null, ")
                object.middleName != nil ? jsonString.appendString("\"middleName\": \"\(object.middleName!)\", ") : jsonString.appendString("\"middleName\": null, ")
                object.name != nil ? jsonString.appendString("\"name\": \"\(object.name!)\", ") : jsonString.appendString("\"name\": null, ")
-               object.title != nil ? jsonString.appendString("\"title\": { \"value\": \"\(object.title!.toString())\"}") : jsonString.appendString("\"title\": null")
+               object.title != nil ? jsonString.appendString("\"title\": { \"value\": \"\(JSONUtil.escapeString(object.title!.toString()))\"}") : jsonString.appendString("\"title\": null")
 
                // End Object to JSON
                jsonString.appendString(" }")

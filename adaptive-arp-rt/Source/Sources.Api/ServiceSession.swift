@@ -130,7 +130,7 @@ public class ServiceSession : NSObject {
                var resultObject : ServiceSession = ServiceSession()
 
                if let value : AnyObject = dict.objectForKey("attributes") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          var attributes : [String] = [String]()
                          for (var i = 0;i < (value as NSArray).count ; i++) {
                               attributes.append((value as NSArray)[i] as String)
@@ -140,7 +140,7 @@ public class ServiceSession : NSObject {
                }
 
                if let value : AnyObject = dict.objectForKey("cookies") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          var cookies : [ServiceCookie] = [ServiceCookie]()
                          for (var i = 0;i < (value as NSArray).count ; i++) {
                               cookies.append(ServiceCookie.Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))
@@ -163,7 +163,7 @@ public class ServiceSession : NSObject {
                     jsonString.appendString("\"attributes\": [");
 
                     for var i = 0; i < object.attributes!.count; i++ {
-                         jsonString.appendString("\"\(object.attributes![i])\"");
+                         jsonString.appendString("\"\(JSONUtil.escapeString(object.attributes![i]))\"");
                          if (i < object.attributes!.count-1) {
                               jsonString.appendString(", ");
                          }

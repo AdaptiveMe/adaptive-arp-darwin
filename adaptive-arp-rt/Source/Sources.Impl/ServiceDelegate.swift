@@ -41,13 +41,6 @@ import Foundation
 public class ServiceDelegate : BaseCommunicationDelegate, IService {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     //static {
-          //AppRegistryBridge.getInstance().getServiceBridge().setDelegate(new ServiceDelegate());
-     //}
-
-     /**
         Default Constructor.
      */
      public override init() {

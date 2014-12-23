@@ -41,13 +41,6 @@ import Foundation
 public class MessagingDelegate : BasePIMDelegate, IMessaging {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     //static {
-          //AppRegistryBridge.getInstance().getMessagingBridge().setDelegate(new MessagingDelegate());
-     //}
-
-     /**
         Default Constructor.
      */
      public override init() {

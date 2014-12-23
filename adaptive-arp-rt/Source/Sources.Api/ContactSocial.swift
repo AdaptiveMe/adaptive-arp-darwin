@@ -130,13 +130,13 @@ public class ContactSocial : APIBean {
                var resultObject : ContactSocial = ContactSocial()
 
                if let value : AnyObject = dict.objectForKey("profileUrl") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.profileUrl = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("socialNetwork") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.socialNetwork = ContactSocialNetwork.toEnum(((value as NSDictionary)["value"]) as NSString)
                     }
                }
@@ -151,7 +151,7 @@ public class ContactSocial : APIBean {
 
                // Fields.
                object.profileUrl != nil ? jsonString.appendString("\"profileUrl\": \"\(object.profileUrl!)\", ") : jsonString.appendString("\"profileUrl\": null, ")
-               object.socialNetwork != nil ? jsonString.appendString("\"socialNetwork\": { \"value\": \"\(object.socialNetwork!.toString())\"}") : jsonString.appendString("\"socialNetwork\": null")
+               object.socialNetwork != nil ? jsonString.appendString("\"socialNetwork\": { \"value\": \"\(JSONUtil.escapeString(object.socialNetwork!.toString()))\"}") : jsonString.appendString("\"socialNetwork\": null")
 
                // End Object to JSON
                jsonString.appendString(" }")

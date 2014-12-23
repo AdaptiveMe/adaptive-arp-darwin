@@ -130,13 +130,13 @@ public class ContactPhone : APIBean {
                var resultObject : ContactPhone = ContactPhone()
 
                if let value : AnyObject = dict.objectForKey("phone") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.phone = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("phoneType") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.phoneType = ContactPhoneType.toEnum(((value as NSDictionary)["value"]) as NSString)
                     }
                }
@@ -151,7 +151,7 @@ public class ContactPhone : APIBean {
 
                // Fields.
                object.phone != nil ? jsonString.appendString("\"phone\": \"\(object.phone!)\", ") : jsonString.appendString("\"phone\": null, ")
-               object.phoneType != nil ? jsonString.appendString("\"phoneType\": { \"value\": \"\(object.phoneType!.toString())\"}") : jsonString.appendString("\"phoneType\": null")
+               object.phoneType != nil ? jsonString.appendString("\"phoneType\": { \"value\": \"\(JSONUtil.escapeString(object.phoneType!.toString()))\"}") : jsonString.appendString("\"phoneType\": null")
 
                // End Object to JSON
                jsonString.appendString(" }")

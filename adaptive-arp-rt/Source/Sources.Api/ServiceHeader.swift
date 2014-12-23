@@ -130,13 +130,13 @@ public class ServiceHeader : APIBean {
                var resultObject : ServiceHeader = ServiceHeader()
 
                if let value : AnyObject = dict.objectForKey("data") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.data = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("name") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.name = (value as String)
                     }
                }

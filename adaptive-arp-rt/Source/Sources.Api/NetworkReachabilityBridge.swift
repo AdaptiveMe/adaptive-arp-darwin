@@ -135,15 +135,14 @@ public class NetworkReachabilityBridge : BaseCommunicationBridge, INetworkReacha
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public override func invoke(request : APIRequest) -> String? {
-          //Gson gson = new Gson();
           var responseJSON : String? = ""
           switch request.getMethodName()! {
                case "isNetworkReachable":
-                    var host0 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], String.class)
+                    var host0 : String? = request.getParameters()![0]
                     var callback0 : INetworkReachabilityCallback? =  NetworkReachabilityCallbackImpl(id: request.getAsyncId()!)
                     self.isNetworkReachable(host0!, callback: callback0!);
                case "isNetworkServiceReachable":
-                    var url1 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], String.class)
+                    var url1 : String? = request.getParameters()![0]
                     var callback1 : INetworkReachabilityCallback? =  NetworkReachabilityCallbackImpl(id: request.getAsyncId()!)
                     self.isNetworkServiceReachable(url1!, callback: callback1!);
                default:

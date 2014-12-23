@@ -153,19 +153,19 @@ public class OSInfo : APIBean {
                var resultObject : OSInfo = OSInfo()
 
                if let value : AnyObject = dict.objectForKey("name") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.name = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("vendor") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.vendor = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("version") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.version = (value as String)
                     }
                }

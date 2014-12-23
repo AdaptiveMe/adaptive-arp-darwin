@@ -35,7 +35,7 @@ Release:
 import Foundation
 
 /**
-   Structure representing the value of a http cookie.
+   Structure representing the cookieValue of a http cookie.
 
    @author Aryslan
    @since ARP1.0
@@ -43,6 +43,14 @@ import Foundation
 */
 public class ServiceCookie : APIBean {
 
+     /**
+        Name ot the cookie
+     */
+     var cookieName : String?
+     /**
+        Value of the ServiceCookie
+     */
+     var cookieValue : String?
      /**
         ServiceCookie creation timestamp in milliseconds.
      */
@@ -56,10 +64,6 @@ public class ServiceCookie : APIBean {
      */
      var expiry : Int?
      /**
-        Name ot the cookie
-     */
-     var name : String?
-     /**
         URI path for which the cookie is valid.
      */
      var path : String?
@@ -71,10 +75,6 @@ public class ServiceCookie : APIBean {
         ServiceCookie is secure (https only)
      */
      var secure : Bool?
-     /**
-        Value of the ServiceCookie
-     */
-     var value : String?
 
      /**
         Default constructor
@@ -88,21 +88,21 @@ public class ServiceCookie : APIBean {
      /**
         Constructor used by the implementation
 
-        @param name  Name of the cookie
-        @param value Value of the cookie
+        @param cookieName  Name of the cookie
+        @param cookieValue Value of the cookie
         @since ARP1.0
      */
-     public init(name: String, value: String) {
+     public init(cookieName: String, cookieValue: String) {
           super.init()
-          self.name = name
-          self.value = value
+          self.cookieName = cookieName
+          self.cookieValue = cookieValue
      }
 
      /**
         Contructor with fields
 
-        @param name     Name of the cookie
-        @param value    Value of the cookie
+        @param cookieName     Name of the cookie
+        @param cookieValue    Value of the cookie
         @param domain   Domain of the cookie
         @param path     Path of the cookie
         @param scheme   Scheme of the cookie
@@ -111,16 +111,56 @@ public class ServiceCookie : APIBean {
         @param creation Creation date of the cookie
         @since ARP1.0
      */
-     public init(name: String, value: String, domain: String, path: String, scheme: String, secure: Bool, expiry: Int, creation: Int) {
+     public init(cookieName: String, cookieValue: String, domain: String, path: String, scheme: String, secure: Bool, expiry: Int, creation: Int) {
           super.init()
-          self.name = name
-          self.value = value
+          self.cookieName = cookieName
+          self.cookieValue = cookieValue
           self.domain = domain
           self.path = path
           self.scheme = scheme
           self.secure = secure
           self.expiry = expiry
           self.creation = creation
+     }
+
+     /**
+        Returns the cookie cookieName
+
+        @return cookieName Name of the cookie
+        @since ARP1.0
+     */
+     public func getCookieName() -> String? {
+          return self.cookieName
+     }
+
+     /**
+        Set the cookie cookieName
+
+        @param cookieName Name of the cookie
+        @since ARP1.0
+     */
+     public func setCookieName(cookieName: String) {
+          self.cookieName = cookieName
+     }
+
+     /**
+        Returns the cookie cookieValue
+
+        @return Value of the cookie
+        @since ARP1.0
+     */
+     public func getCookieValue() -> String? {
+          return self.cookieValue
+     }
+
+     /**
+        Set the cookie cookieValue
+
+        @param cookieValue Value of the cookie
+        @since ARP1.0
+     */
+     public func setCookieValue(cookieValue: String) {
+          self.cookieValue = cookieValue
      }
 
      /**
@@ -184,26 +224,6 @@ public class ServiceCookie : APIBean {
      }
 
      /**
-        Returns the cookie name
-
-        @return name Name of the cookie
-        @since ARP1.0
-     */
-     public func getName() -> String? {
-          return self.name
-     }
-
-     /**
-        Set the cookie name
-
-        @param name Name of the cookie
-        @since ARP1.0
-     */
-     public func setName(name: String) {
-          self.name = name
-     }
-
-     /**
         Returns the path
 
         @return path
@@ -263,26 +283,6 @@ public class ServiceCookie : APIBean {
           self.secure = secure
      }
 
-     /**
-        Returns the cookie value
-
-        @return Value of the cookie
-        @since ARP1.0
-     */
-     public func getValue() -> String? {
-          return self.value
-     }
-
-     /**
-        Set the cookie value
-
-        @param value Value of the cookie
-        @since ARP1.0
-     */
-     public func setValue(value: String) {
-          self.value = value
-     }
-
 
      /**
         JSON Serialization and deserialization support.
@@ -298,51 +298,51 @@ public class ServiceCookie : APIBean {
           static func fromDictionary(dict : NSDictionary) -> ServiceCookie {
                var resultObject : ServiceCookie = ServiceCookie()
 
+               if let value : AnyObject = dict.objectForKey("cookieName") {
+                    if "\(value)" as NSString != "<null>" {
+                         resultObject.cookieName = (value as String)
+                    }
+               }
+
+               if let value : AnyObject = dict.objectForKey("cookieValue") {
+                    if "\(value)" as NSString != "<null>" {
+                         resultObject.cookieValue = (value as String)
+                    }
+               }
+
                if let value : AnyObject = dict.objectForKey("creation") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.creation = (value as Int)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("domain") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.domain = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("expiry") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.expiry = (value as Int)
                     }
                }
 
-               if let value : AnyObject = dict.objectForKey("name") {
-                    if value as NSString != "<null>" {
-                         resultObject.name = (value as String)
-                    }
-               }
-
                if let value : AnyObject = dict.objectForKey("path") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.path = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("scheme") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.scheme = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("secure") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.secure = (value as Bool)
-                    }
-               }
-
-               if let value : AnyObject = dict.objectForKey("value") {
-                    if value as NSString != "<null>" {
-                         resultObject.value = (value as String)
                     }
                }
 
@@ -355,14 +355,14 @@ public class ServiceCookie : APIBean {
                jsonString.appendString("{ ")
 
                // Fields.
+               object.cookieName != nil ? jsonString.appendString("\"cookieName\": \"\(object.cookieName!)\", ") : jsonString.appendString("\"cookieName\": null, ")
+               object.cookieValue != nil ? jsonString.appendString("\"cookieValue\": \"\(object.cookieValue!)\", ") : jsonString.appendString("\"cookieValue\": null, ")
                object.creation != nil ? jsonString.appendString("\"creation\": \(object.creation!), ") : jsonString.appendString("\"creation\": null, ")
                object.domain != nil ? jsonString.appendString("\"domain\": \"\(object.domain!)\", ") : jsonString.appendString("\"domain\": null, ")
                object.expiry != nil ? jsonString.appendString("\"expiry\": \(object.expiry!), ") : jsonString.appendString("\"expiry\": null, ")
-               object.name != nil ? jsonString.appendString("\"name\": \"\(object.name!)\", ") : jsonString.appendString("\"name\": null, ")
                object.path != nil ? jsonString.appendString("\"path\": \"\(object.path!)\", ") : jsonString.appendString("\"path\": null, ")
                object.scheme != nil ? jsonString.appendString("\"scheme\": \"\(object.scheme!)\", ") : jsonString.appendString("\"scheme\": null, ")
-               object.secure != nil ? jsonString.appendString("\"secure\": \(object.secure!), ") : jsonString.appendString("\"secure\": null, ")
-               object.value != nil ? jsonString.appendString("\"value\": \"\(object.value!)\"") : jsonString.appendString("\"value\": null")
+               object.secure != nil ? jsonString.appendString("\"secure\": \(object.secure!)") : jsonString.appendString("\"secure\": null")
 
                // End Object to JSON
                jsonString.appendString(" }")

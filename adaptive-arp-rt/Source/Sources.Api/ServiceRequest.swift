@@ -338,13 +338,13 @@ public class ServiceRequest : APIBean {
                var resultObject : ServiceRequest = ServiceRequest()
 
                if let value : AnyObject = dict.objectForKey("content") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.content = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("contentBinary") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          var contentBinary : [Byte] = [Byte](count: (value as NSArray).count, repeatedValue: 0)
                          var contentBinaryData : NSData = (value as NSData)
                          contentBinaryData.getBytes(&contentBinary, length: (value as NSArray).count * sizeof(UInt8))
@@ -353,43 +353,43 @@ public class ServiceRequest : APIBean {
                }
 
                if let value : AnyObject = dict.objectForKey("contentBinaryLength") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.contentBinaryLength = (value as Int)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("contentEncoding") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.contentEncoding = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("contentLength") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.contentLength = (value as Int)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("contentType") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.contentType = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("method") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.method = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("protocolVersion") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.protocolVersion = IServiceProtocolVersion.toEnum(((value as NSDictionary)["value"]) as NSString)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("serviceHeaders") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          var serviceHeaders : [ServiceHeader] = [ServiceHeader]()
                          for (var i = 0;i < (value as NSArray).count ; i++) {
                               serviceHeaders.append(ServiceHeader.Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))
@@ -399,7 +399,7 @@ public class ServiceRequest : APIBean {
                }
 
                if let value : AnyObject = dict.objectForKey("serviceSession") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.serviceSession = ServiceSession.Serializer.fromDictionary(value as NSDictionary)
                     }
                }
@@ -435,7 +435,7 @@ public class ServiceRequest : APIBean {
                object.contentLength != nil ? jsonString.appendString("\"contentLength\": \(object.contentLength!), ") : jsonString.appendString("\"contentLength\": null, ")
                object.contentType != nil ? jsonString.appendString("\"contentType\": \"\(object.contentType!)\", ") : jsonString.appendString("\"contentType\": null, ")
                object.method != nil ? jsonString.appendString("\"method\": \"\(object.method!)\", ") : jsonString.appendString("\"method\": null, ")
-               object.protocolVersion != nil ? jsonString.appendString("\"protocolVersion\": { \"value\": \"\(object.protocolVersion!.toString())\"}, ") : jsonString.appendString("\"protocolVersion\": null, ")
+               object.protocolVersion != nil ? jsonString.appendString("\"protocolVersion\": { \"value\": \"\(JSONUtil.escapeString(object.protocolVersion!.toString()))\"}, ") : jsonString.appendString("\"protocolVersion\": null, ")
                if (object.serviceHeaders != nil) {
                     // Start array of objects.
                     jsonString.appendString("\"serviceHeaders\": [");

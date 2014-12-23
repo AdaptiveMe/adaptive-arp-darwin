@@ -167,7 +167,6 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public override func invoke(request : APIRequest) -> String? {
-          //Gson gson = new Gson();
           var responseJSON : String? = ""
           switch request.getMethodName()! {
                case "getLocaleSupportedDescriptors":
@@ -178,8 +177,8 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
                          responseJSON = nil
                     }
                case "getResourceLiteral":
-                    var key1 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], String.class)
-                    var locale1 : Locale? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[1], Locale.class)
+                    var key1 : String? = request.getParameters()![0]
+                    var locale1 : Locale? = Locale.Serializer.fromJSON(request.getParameters()![1])
                     var response1 : String? = self.getResourceLiteral(key1!, locale: locale1!)
                     if (response1 != nil) {
                          responseJSON = nil //TODO - Serialize this.gson.toJson(response1);
@@ -187,7 +186,7 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
                          responseJSON = nil
                     }
                case "getResourceLiterals":
-                    var locale2 : Locale? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], Locale.class)
+                    var locale2 : Locale? = Locale.Serializer.fromJSON(request.getParameters()![0])
                     var response2 : [KeyPair]? = self.getResourceLiterals(locale2!)
                     if (response2 != nil) {
                          responseJSON = nil //TODO - Serialize this.gson.toJson(response2);

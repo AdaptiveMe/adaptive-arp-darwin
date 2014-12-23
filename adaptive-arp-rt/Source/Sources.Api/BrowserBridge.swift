@@ -171,23 +171,22 @@ public class BrowserBridge : BaseUIBridge, IBrowser, APIBridge {
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public override func invoke(request : APIRequest) -> String? {
-          //Gson gson = new Gson();
           var responseJSON : String? = ""
           switch request.getMethodName()! {
                case "openExtenalBrowser":
-                    var url0 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], String.class)
+                    var url0 : String? = request.getParameters()![0]
                     var response0 : Bool? = self.openExtenalBrowser(url0!)
                     responseJSON = nil //TODO - Serialize this.gson.toJson(response0);
                case "openInternalBrowser":
-                    var url1 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], String.class)
-                    var title1 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[1], String.class)
-                    var backButtonText1 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[2], String.class)
+                    var url1 : String? = request.getParameters()![0]
+                    var title1 : String? = request.getParameters()![1]
+                    var backButtonText1 : String? = request.getParameters()![2]
                     var response1 : Bool? = self.openInternalBrowser(url1!, title: title1!, backButtonText: backButtonText1!)
                     responseJSON = nil //TODO - Serialize this.gson.toJson(response1);
                case "openInternalBrowserModal":
-                    var url2 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], String.class)
-                    var title2 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[1], String.class)
-                    var backButtonText2 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[2], String.class)
+                    var url2 : String? = request.getParameters()![0]
+                    var title2 : String? = request.getParameters()![1]
+                    var backButtonText2 : String? = request.getParameters()![2]
                     var response2 : Bool? = self.openInternalBrowserModal(url2!, title: title2!, backButtonText: backButtonText2!)
                     responseJSON = nil //TODO - Serialize this.gson.toJson(response2);
                default:

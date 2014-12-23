@@ -35,7 +35,7 @@ Release:
 import Foundation
 
 /**
-   Represents a basic bean to store key pair values
+   Represents a basic bean to store keyName pair values
 
    @author Ferran Vila Conesa
    @since ARP1.0
@@ -46,11 +46,11 @@ public class KeyPair : APIBean {
      /**
         Key of the element
      */
-     var key : String?
+     var keyName : String?
      /**
         Value of the element
      */
-     var value : String?
+     var keyValue : String?
 
      /**
         Default Constructor
@@ -64,54 +64,54 @@ public class KeyPair : APIBean {
      /**
         Constructor using fields
 
-        @param key   Key of the element
-        @param value Value of the element
+        @param keyName   Key of the element
+        @param keyValue Value of the element
         @since ARP1.0
      */
-     public init(key: String, value: String) {
+     public init(keyName: String, keyValue: String) {
           super.init()
-          self.key = key
-          self.value = value
+          self.keyName = keyName
+          self.keyValue = keyValue
      }
 
      /**
-        Returns the key of the element
+        Returns the keyName of the element
 
         @return Key of the element
         @since ARP1.0
      */
-     public func getKey() -> String? {
-          return self.key
+     public func getKeyName() -> String? {
+          return self.keyName
      }
 
      /**
-        Sets the key of the element
+        Sets the keyName of the element
 
-        @param key Key of the element
+        @param keyName Key of the element
         @since ARP1.0
      */
-     public func setKey(key: String) {
-          self.key = key
+     public func setKeyName(keyName: String) {
+          self.keyName = keyName
      }
 
      /**
-        Returns the value of the element
+        Returns the keyValue of the element
 
         @return Value of the element
         @since ARP1.0
      */
-     public func getValue() -> String? {
-          return self.value
+     public func getKeyValue() -> String? {
+          return self.keyValue
      }
 
      /**
-        Sets the value of the element
+        Sets the keyValue of the element
 
-        @param value Value of the element
+        @param keyValue Value of the element
         @since ARP1.0
      */
-     public func setValue(value: String) {
-          self.value = value
+     public func setKeyValue(keyValue: String) {
+          self.keyValue = keyValue
      }
 
 
@@ -129,15 +129,15 @@ public class KeyPair : APIBean {
           static func fromDictionary(dict : NSDictionary) -> KeyPair {
                var resultObject : KeyPair = KeyPair()
 
-               if let value : AnyObject = dict.objectForKey("key") {
-                    if value as NSString != "<null>" {
-                         resultObject.key = (value as String)
+               if let value : AnyObject = dict.objectForKey("keyName") {
+                    if "\(value)" as NSString != "<null>" {
+                         resultObject.keyName = (value as String)
                     }
                }
 
-               if let value : AnyObject = dict.objectForKey("value") {
-                    if value as NSString != "<null>" {
-                         resultObject.value = (value as String)
+               if let value : AnyObject = dict.objectForKey("keyValue") {
+                    if "\(value)" as NSString != "<null>" {
+                         resultObject.keyValue = (value as String)
                     }
                }
 
@@ -150,8 +150,8 @@ public class KeyPair : APIBean {
                jsonString.appendString("{ ")
 
                // Fields.
-               object.key != nil ? jsonString.appendString("\"key\": \"\(object.key!)\", ") : jsonString.appendString("\"key\": null, ")
-               object.value != nil ? jsonString.appendString("\"value\": \"\(object.value!)\"") : jsonString.appendString("\"value\": null")
+               object.keyName != nil ? jsonString.appendString("\"keyName\": \"\(object.keyName!)\", ") : jsonString.appendString("\"keyName\": null, ")
+               object.keyValue != nil ? jsonString.appendString("\"keyValue\": \"\(object.keyValue!)\"") : jsonString.appendString("\"keyValue\": null")
 
                // End Object to JSON
                jsonString.appendString(" }")

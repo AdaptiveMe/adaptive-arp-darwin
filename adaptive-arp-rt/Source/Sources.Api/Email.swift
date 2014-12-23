@@ -275,7 +275,7 @@ public class Email : APIBean {
                var resultObject : Email = Email()
 
                if let value : AnyObject = dict.objectForKey("bccRecipients") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          var bccRecipients : [EmailAddress] = [EmailAddress]()
                          for (var i = 0;i < (value as NSArray).count ; i++) {
                               bccRecipients.append(EmailAddress.Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))
@@ -285,7 +285,7 @@ public class Email : APIBean {
                }
 
                if let value : AnyObject = dict.objectForKey("ccRecipients") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          var ccRecipients : [EmailAddress] = [EmailAddress]()
                          for (var i = 0;i < (value as NSArray).count ; i++) {
                               ccRecipients.append(EmailAddress.Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))
@@ -295,7 +295,7 @@ public class Email : APIBean {
                }
 
                if let value : AnyObject = dict.objectForKey("emailAttachmentData") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          var emailAttachmentData : [EmailAttachmentData] = [EmailAttachmentData]()
                          for (var i = 0;i < (value as NSArray).count ; i++) {
                               emailAttachmentData.append(EmailAttachmentData.Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))
@@ -305,25 +305,25 @@ public class Email : APIBean {
                }
 
                if let value : AnyObject = dict.objectForKey("messageBody") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.messageBody = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("messageBodyMimeType") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.messageBodyMimeType = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("subject") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.subject = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("toRecipients") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          var toRecipients : [EmailAddress] = [EmailAddress]()
                          for (var i = 0;i < (value as NSArray).count ; i++) {
                               toRecipients.append(EmailAddress.Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))

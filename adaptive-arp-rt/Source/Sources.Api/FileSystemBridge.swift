@@ -321,12 +321,11 @@ This path may or may not be writable by the current application.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public override func invoke(request : APIRequest) -> String? {
-          //Gson gson = new Gson();
           var responseJSON : String? = ""
           switch request.getMethodName()! {
                case "createFileDescriptor":
-                    var parent0 : FileDescriptor? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], FileDescriptor.class)
-                    var name0 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[1], String.class)
+                    var parent0 : FileDescriptor? = FileDescriptor.Serializer.fromJSON(request.getParameters()![0])
+                    var name0 : String? = request.getParameters()![1]
                     var response0 : FileDescriptor? = self.createFileDescriptor(parent0!, name: name0!)
                     if (response0 != nil) {
                          responseJSON = nil //TODO - Serialize this.gson.toJson(response0);

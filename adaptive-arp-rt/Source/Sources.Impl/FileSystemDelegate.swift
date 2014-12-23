@@ -41,13 +41,6 @@ import Foundation
 public class FileSystemDelegate : BaseDataDelegate, IFileSystem {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     //static {
-          //AppRegistryBridge.getInstance().getFileSystemBridge().setDelegate(new FileSystemDelegate());
-     //}
-
-     /**
         Default Constructor.
      */
      public override init() {

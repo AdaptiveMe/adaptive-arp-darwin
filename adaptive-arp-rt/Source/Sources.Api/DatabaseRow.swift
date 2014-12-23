@@ -104,7 +104,7 @@ public class DatabaseRow : APIBean {
                var resultObject : DatabaseRow = DatabaseRow()
 
                if let value : AnyObject = dict.objectForKey("values") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          var values : [String] = [String]()
                          for (var i = 0;i < (value as NSArray).count ; i++) {
                               values.append((value as NSArray)[i] as String)
@@ -127,7 +127,7 @@ public class DatabaseRow : APIBean {
                     jsonString.appendString("\"values\": [");
 
                     for var i = 0; i < object.values!.count; i++ {
-                         jsonString.appendString("\"\(object.values![i])\"");
+                         jsonString.appendString("\"\(JSONUtil.escapeString(object.values![i]))\"");
                          if (i < object.values!.count-1) {
                               jsonString.appendString(", ");
                          }

@@ -115,7 +115,7 @@ Possible lifecycle States:
                var resultObject : Lifecycle = Lifecycle()
 
                if let value : AnyObject = dict.objectForKey("state") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.state = LifecycleState.toEnum(((value as NSDictionary)["value"]) as NSString)
                     }
                }
@@ -129,7 +129,7 @@ Possible lifecycle States:
                jsonString.appendString("{ ")
 
                // Fields.
-               object.state != nil ? jsonString.appendString("\"state\": { \"value\": \"\(object.state!.toString())\"}") : jsonString.appendString("\"state\": null")
+               object.state != nil ? jsonString.appendString("\"state\": { \"value\": \"\(JSONUtil.escapeString(object.state!.toString()))\"}") : jsonString.appendString("\"state\": null")
 
                // End Object to JSON
                jsonString.appendString(" }")

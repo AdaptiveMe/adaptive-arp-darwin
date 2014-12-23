@@ -291,35 +291,34 @@ device.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public override func invoke(request : APIRequest) -> String? {
-          //Gson gson = new Gson();
           var responseJSON : String? = ""
           switch request.getMethodName()! {
                case "hasButtonSupport":
-                    var type0 : ICapabilitiesButton? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], ICapabilitiesButton.class)
+                    var type0 : ICapabilitiesButton? = ICapabilitiesButton.toEnum(JSONUtil.dictionifyJSON(request.getParameters()![0])["value"] as String!)
                     var response0 : Bool? = self.hasButtonSupport(type0!)
                     responseJSON = nil //TODO - Serialize this.gson.toJson(response0);
                case "hasCommunicationSupport":
-                    var type1 : ICapabilitiesCommunication? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], ICapabilitiesCommunication.class)
+                    var type1 : ICapabilitiesCommunication? = ICapabilitiesCommunication.toEnum(JSONUtil.dictionifyJSON(request.getParameters()![0])["value"] as String!)
                     var response1 : Bool? = self.hasCommunicationSupport(type1!)
                     responseJSON = nil //TODO - Serialize this.gson.toJson(response1);
                case "hasDataSupport":
-                    var type2 : ICapabilitiesData? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], ICapabilitiesData.class)
+                    var type2 : ICapabilitiesData? = ICapabilitiesData.toEnum(JSONUtil.dictionifyJSON(request.getParameters()![0])["value"] as String!)
                     var response2 : Bool? = self.hasDataSupport(type2!)
                     responseJSON = nil //TODO - Serialize this.gson.toJson(response2);
                case "hasMediaSupport":
-                    var type3 : ICapabilitiesMedia? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], ICapabilitiesMedia.class)
+                    var type3 : ICapabilitiesMedia? = ICapabilitiesMedia.toEnum(JSONUtil.dictionifyJSON(request.getParameters()![0])["value"] as String!)
                     var response3 : Bool? = self.hasMediaSupport(type3!)
                     responseJSON = nil //TODO - Serialize this.gson.toJson(response3);
                case "hasNetSupport":
-                    var type4 : ICapabilitiesNet? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], ICapabilitiesNet.class)
+                    var type4 : ICapabilitiesNet? = ICapabilitiesNet.toEnum(JSONUtil.dictionifyJSON(request.getParameters()![0])["value"] as String!)
                     var response4 : Bool? = self.hasNetSupport(type4!)
                     responseJSON = nil //TODO - Serialize this.gson.toJson(response4);
                case "hasNotificationSupport":
-                    var type5 : ICapabilitiesNotification? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], ICapabilitiesNotification.class)
+                    var type5 : ICapabilitiesNotification? = ICapabilitiesNotification.toEnum(JSONUtil.dictionifyJSON(request.getParameters()![0])["value"] as String!)
                     var response5 : Bool? = self.hasNotificationSupport(type5!)
                     responseJSON = nil //TODO - Serialize this.gson.toJson(response5);
                case "hasSensorSupport":
-                    var type6 : ICapabilitiesSensor? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], ICapabilitiesSensor.class)
+                    var type6 : ICapabilitiesSensor? = ICapabilitiesSensor.toEnum(JSONUtil.dictionifyJSON(request.getParameters()![0])["value"] as String!)
                     var response6 : Bool? = self.hasSensorSupport(type6!)
                     responseJSON = nil //TODO - Serialize this.gson.toJson(response6);
                default:

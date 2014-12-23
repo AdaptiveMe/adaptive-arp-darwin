@@ -104,7 +104,7 @@ public class ContactWebsite : APIBean {
                var resultObject : ContactWebsite = ContactWebsite()
 
                if let value : AnyObject = dict.objectForKey("url") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.url = (value as String)
                     }
                }

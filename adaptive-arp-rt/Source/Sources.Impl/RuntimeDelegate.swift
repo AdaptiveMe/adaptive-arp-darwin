@@ -41,13 +41,6 @@ import Foundation
 public class RuntimeDelegate : BaseSystemDelegate, IRuntime {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     //static {
-          //AppRegistryBridge.getInstance().getRuntimeBridge().setDelegate(new RuntimeDelegate());
-     //}
-
-     /**
         Default Constructor.
      */
      public override init() {

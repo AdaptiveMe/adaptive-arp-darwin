@@ -297,7 +297,7 @@ public class Contact : ContactUid {
                var resultObject : Contact = Contact()
 
                if let value : AnyObject = dict.objectForKey("contactAddresses") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          var contactAddresses : [ContactAddress] = [ContactAddress]()
                          for (var i = 0;i < (value as NSArray).count ; i++) {
                               contactAddresses.append(ContactAddress.Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))
@@ -307,7 +307,7 @@ public class Contact : ContactUid {
                }
 
                if let value : AnyObject = dict.objectForKey("contactEmails") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          var contactEmails : [ContactEmail] = [ContactEmail]()
                          for (var i = 0;i < (value as NSArray).count ; i++) {
                               contactEmails.append(ContactEmail.Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))
@@ -317,13 +317,13 @@ public class Contact : ContactUid {
                }
 
                if let value : AnyObject = dict.objectForKey("contactId") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.contactId = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("contactPhones") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          var contactPhones : [ContactPhone] = [ContactPhone]()
                          for (var i = 0;i < (value as NSArray).count ; i++) {
                               contactPhones.append(ContactPhone.Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))
@@ -333,7 +333,7 @@ public class Contact : ContactUid {
                }
 
                if let value : AnyObject = dict.objectForKey("contactSocials") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          var contactSocials : [ContactSocial] = [ContactSocial]()
                          for (var i = 0;i < (value as NSArray).count ; i++) {
                               contactSocials.append(ContactSocial.Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))
@@ -343,7 +343,7 @@ public class Contact : ContactUid {
                }
 
                if let value : AnyObject = dict.objectForKey("contactTags") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          var contactTags : [ContactTag] = [ContactTag]()
                          for (var i = 0;i < (value as NSArray).count ; i++) {
                               contactTags.append(ContactTag.Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))
@@ -353,7 +353,7 @@ public class Contact : ContactUid {
                }
 
                if let value : AnyObject = dict.objectForKey("contactWebsites") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          var contactWebsites : [ContactWebsite] = [ContactWebsite]()
                          for (var i = 0;i < (value as NSArray).count ; i++) {
                               contactWebsites.append(ContactWebsite.Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))
@@ -363,13 +363,13 @@ public class Contact : ContactUid {
                }
 
                if let value : AnyObject = dict.objectForKey("personalInfo") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.personalInfo = ContactPersonalInfo.Serializer.fromDictionary(value as NSDictionary)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("professionalInfo") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.professionalInfo = ContactProfessionalInfo.Serializer.fromDictionary(value as NSDictionary)
                     }
                }

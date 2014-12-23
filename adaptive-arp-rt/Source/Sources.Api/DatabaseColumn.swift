@@ -104,7 +104,7 @@ public class DatabaseColumn : APIBean {
                var resultObject : DatabaseColumn = DatabaseColumn()
 
                if let value : AnyObject = dict.objectForKey("name") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.name = (value as String)
                     }
                }

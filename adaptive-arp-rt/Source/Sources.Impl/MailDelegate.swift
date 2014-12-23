@@ -41,13 +41,6 @@ import Foundation
 public class MailDelegate : BasePIMDelegate, IMail {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     //static {
-          //AppRegistryBridge.getInstance().getMailBridge().setDelegate(new MailDelegate());
-     //}
-
-     /**
         Default Constructor.
      */
      public override init() {

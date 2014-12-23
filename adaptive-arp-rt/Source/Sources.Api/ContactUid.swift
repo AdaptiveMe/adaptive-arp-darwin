@@ -104,7 +104,7 @@ public class ContactUid : APIBean {
                var resultObject : ContactUid = ContactUid()
 
                if let value : AnyObject = dict.objectForKey("contactId") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.contactId = (value as String)
                     }
                }

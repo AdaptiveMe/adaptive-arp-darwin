@@ -208,7 +208,7 @@ public class EmailAttachmentData : APIBean {
                var resultObject : EmailAttachmentData = EmailAttachmentData()
 
                if let value : AnyObject = dict.objectForKey("data") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          var data : [Byte] = [Byte](count: (value as NSArray).count, repeatedValue: 0)
                          var dataData : NSData = (value as NSData)
                          dataData.getBytes(&data, length: (value as NSArray).count * sizeof(UInt8))
@@ -217,25 +217,25 @@ public class EmailAttachmentData : APIBean {
                }
 
                if let value : AnyObject = dict.objectForKey("fileName") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.fileName = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("mimeType") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.mimeType = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("referenceUrl") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.referenceUrl = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("size") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.size = (value as Int)
                     }
                }

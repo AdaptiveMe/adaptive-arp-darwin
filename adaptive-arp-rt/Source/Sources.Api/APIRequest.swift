@@ -192,19 +192,19 @@ listener.
                var resultObject : APIRequest = APIRequest()
 
                if let value : AnyObject = dict.objectForKey("asyncId") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.asyncId = (value as Int)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("methodName") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.methodName = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("parameterTypes") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          var parameterTypes : [String] = [String]()
                          for (var i = 0;i < (value as NSArray).count ; i++) {
                               parameterTypes.append((value as NSArray)[i] as String)
@@ -214,7 +214,7 @@ listener.
                }
 
                if let value : AnyObject = dict.objectForKey("parameters") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          var parameters : [String] = [String]()
                          for (var i = 0;i < (value as NSArray).count ; i++) {
                               parameters.append((value as NSArray)[i] as String)
@@ -239,7 +239,7 @@ listener.
                     jsonString.appendString("\"parameterTypes\": [");
 
                     for var i = 0; i < object.parameterTypes!.count; i++ {
-                         jsonString.appendString("\"\(object.parameterTypes![i])\"");
+                         jsonString.appendString("\"\(JSONUtil.escapeString(object.parameterTypes![i]))\"");
                          if (i < object.parameterTypes!.count-1) {
                               jsonString.appendString(", ");
                          }
@@ -255,7 +255,7 @@ listener.
                     jsonString.appendString("\"parameters\": [");
 
                     for var i = 0; i < object.parameters!.count; i++ {
-                         jsonString.appendString("\"\(object.parameters![i])\"");
+                         jsonString.appendString("\"\(JSONUtil.escapeString(object.parameters![i]))\"");
                          if (i < object.parameters!.count-1) {
                               jsonString.appendString(", ");
                          }

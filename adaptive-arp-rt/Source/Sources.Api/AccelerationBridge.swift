@@ -160,7 +160,6 @@ public class AccelerationBridge : BaseSensorBridge, IAcceleration, APIBridge {
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public override func invoke(request : APIRequest) -> String? {
-          //Gson gson = new Gson();
           var responseJSON : String? = ""
           switch request.getMethodName()! {
                case "addAccelerationListener":

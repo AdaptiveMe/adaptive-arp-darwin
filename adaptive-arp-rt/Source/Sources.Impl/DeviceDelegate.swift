@@ -41,13 +41,6 @@ import Foundation
 public class DeviceDelegate : BaseSystemDelegate, IDevice {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     //static {
-          //AppRegistryBridge.getInstance().getDeviceBridge().setDelegate(new DeviceDelegate());
-     //}
-
-     /**
         Default Constructor.
      */
      public override init() {

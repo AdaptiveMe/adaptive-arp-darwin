@@ -41,13 +41,6 @@ import Foundation
 public class TelephonyDelegate : BaseCommunicationDelegate, ITelephony {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     //static {
-          //AppRegistryBridge.getInstance().getTelephonyBridge().setDelegate(new TelephonyDelegate());
-     //}
-
-     /**
         Default Constructor.
      */
      public override init() {

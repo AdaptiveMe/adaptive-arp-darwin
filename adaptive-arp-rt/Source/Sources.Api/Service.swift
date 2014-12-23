@@ -182,25 +182,25 @@ public class Service : APIBean {
                var resultObject : Service = Service()
 
                if let value : AnyObject = dict.objectForKey("method") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.method = IServiceMethod.toEnum(((value as NSDictionary)["value"]) as NSString)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("name") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.name = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("serviceEndpoint") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.serviceEndpoint = ServiceEndpoint.Serializer.fromDictionary(value as NSDictionary)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("type") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.type = IServiceType.toEnum(((value as NSDictionary)["value"]) as NSString)
                     }
                }
@@ -214,10 +214,10 @@ public class Service : APIBean {
                jsonString.appendString("{ ")
 
                // Fields.
-               object.method != nil ? jsonString.appendString("\"method\": { \"value\": \"\(object.method!.toString())\"}, ") : jsonString.appendString("\"method\": null, ")
+               object.method != nil ? jsonString.appendString("\"method\": { \"value\": \"\(JSONUtil.escapeString(object.method!.toString()))\"}, ") : jsonString.appendString("\"method\": null, ")
                object.name != nil ? jsonString.appendString("\"name\": \"\(object.name!)\", ") : jsonString.appendString("\"name\": null, ")
                object.serviceEndpoint != nil ? jsonString.appendString("\"serviceEndpoint\": \(ServiceEndpoint.Serializer.toJSON(object.serviceEndpoint!)), ") : jsonString.appendString("\"serviceEndpoint\": null, ")
-               object.type != nil ? jsonString.appendString("\"type\": { \"value\": \"\(object.type!.toString())\"}") : jsonString.appendString("\"type\": null")
+               object.type != nil ? jsonString.appendString("\"type\": { \"value\": \"\(JSONUtil.escapeString(object.type!.toString()))\"}") : jsonString.appendString("\"type\": null")
 
                // End Object to JSON
                jsonString.appendString(" }")

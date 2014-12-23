@@ -41,13 +41,6 @@ import Foundation
 public class NetworkStatusDelegate : BaseCommunicationDelegate, INetworkStatus {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     //static {
-          //AppRegistryBridge.getInstance().getNetworkStatusBridge().setDelegate(new NetworkStatusDelegate());
-     //}
-
-     /**
         Default Constructor.
      */
      public override init() {

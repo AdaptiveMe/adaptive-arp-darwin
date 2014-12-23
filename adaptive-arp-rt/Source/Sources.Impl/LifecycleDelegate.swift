@@ -41,13 +41,6 @@ import Foundation
 public class LifecycleDelegate : BaseApplicationDelegate, ILifecycle {
 
      /**
-        Register delegate with the Application Registry.
-     */
-     //static {
-          //AppRegistryBridge.getInstance().getLifecycleBridge().setDelegate(new LifecycleDelegate());
-     //}
-
-     /**
         Default Constructor.
      */
      public override init() {

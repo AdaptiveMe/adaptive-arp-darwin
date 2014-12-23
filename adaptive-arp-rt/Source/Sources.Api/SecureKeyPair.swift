@@ -130,13 +130,13 @@ public class SecureKeyPair : APIBean {
                var resultObject : SecureKeyPair = SecureKeyPair()
 
                if let value : AnyObject = dict.objectForKey("secureData") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.secureData = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("secureKey") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.secureKey = (value as String)
                     }
                }

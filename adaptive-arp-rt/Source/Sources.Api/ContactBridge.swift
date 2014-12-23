@@ -312,15 +312,14 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public override func invoke(request : APIRequest) -> String? {
-          //Gson gson = new Gson();
           var responseJSON : String? = ""
           switch request.getMethodName()! {
                case "getContact":
-                    var contact0 : ContactUid? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], ContactUid.class)
+                    var contact0 : ContactUid? = ContactUid.Serializer.fromJSON(request.getParameters()![0])
                     var callback0 : IContactResultCallback? =  ContactResultCallbackImpl(id: request.getAsyncId()!)
                     self.getContact(contact0!, callback: callback0!);
                case "getContactPhoto":
-                    var contact1 : ContactUid? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], ContactUid.class)
+                    var contact1 : ContactUid? = ContactUid.Serializer.fromJSON(request.getParameters()![0])
                     var callback1 : IContactPhotoResultCallback? =  ContactPhotoResultCallbackImpl(id: request.getAsyncId()!)
                     self.getContactPhoto(contact1!, callback: callback1!);
                case "getContacts":
@@ -328,25 +327,45 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
                     self.getContacts(callback2!);
                case "getContactsForFields":
                     var callback3 : IContactResultCallback? =  ContactResultCallbackImpl(id: request.getAsyncId()!)
-                    var fields3 : [IContactFieldGroup]? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[1], [IContactFieldGroup].class)
+                    var fields3 : [IContactFieldGroup]? = [IContactFieldGroup]()
+                    var fieldsArray3 : [String] = JSONUtil.stringElementToArray(request.getParameters()![1])
+                    for fieldsElement3 in fieldsArray3 {
+                         fields3!.append(IContactFieldGroup.toEnum(JSONUtil.dictionifyJSON(fieldsElement3)["value"] as String!))
+                    }
                     self.getContactsForFields(callback3!, fields: fields3!);
                case "getContactsWithFilter":
                     var callback4 : IContactResultCallback? =  ContactResultCallbackImpl(id: request.getAsyncId()!)
-                    var fields4 : [IContactFieldGroup]? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[1], [IContactFieldGroup].class)
-                    var filter4 : [IContactFilter]? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[2], [IContactFilter].class)
+                    var fields4 : [IContactFieldGroup]? = [IContactFieldGroup]()
+                    var fieldsArray4 : [String] = JSONUtil.stringElementToArray(request.getParameters()![1])
+                    for fieldsElement4 in fieldsArray4 {
+                         fields4!.append(IContactFieldGroup.toEnum(JSONUtil.dictionifyJSON(fieldsElement4)["value"] as String!))
+                    }
+                    var filter4 : [IContactFilter]? = [IContactFilter]()
+                    var filterArray4 : [String] = JSONUtil.stringElementToArray(request.getParameters()![2])
+                    for filterElement4 in filterArray4 {
+                         filter4!.append(IContactFilter.toEnum(JSONUtil.dictionifyJSON(filterElement4)["value"] as String!))
+                    }
                     self.getContactsWithFilter(callback4!, fields: fields4!, filter: filter4!);
                case "searchContacts":
-                    var term5 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], String.class)
+                    var term5 : String? = request.getParameters()![0]
                     var callback5 : IContactResultCallback? =  ContactResultCallbackImpl(id: request.getAsyncId()!)
                     self.searchContacts(term5!, callback: callback5!);
                case "searchContactsWithFilter":
-                    var term6 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], String.class)
+                    var term6 : String? = request.getParameters()![0]
                     var callback6 : IContactResultCallback? =  ContactResultCallbackImpl(id: request.getAsyncId()!)
-                    var filter6 : [IContactFilter]? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[2], [IContactFilter].class)
+                    var filter6 : [IContactFilter]? = [IContactFilter]()
+                    var filterArray6 : [String] = JSONUtil.stringElementToArray(request.getParameters()![2])
+                    for filterElement6 in filterArray6 {
+                         filter6!.append(IContactFilter.toEnum(JSONUtil.dictionifyJSON(filterElement6)["value"] as String!))
+                    }
                     self.searchContactsWithFilter(term6!, callback: callback6!, filter: filter6!);
                case "setContactPhoto":
-                    var contact7 : ContactUid? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], ContactUid.class)
-                    var pngImage7 : [Byte]? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[1], [Byte].class)
+                    var contact7 : ContactUid? = ContactUid.Serializer.fromJSON(request.getParameters()![0])
+                    var pngImage7 : [Byte]? = [Byte]()
+                    var pngImageArray7 : [String] = JSONUtil.stringElementToArray(request.getParameters()![1])
+                    for pngImageElement7 in pngImageArray7 {
+                         pngImage7!.append(Byte((pngImageElement7 as NSString).intValue))
+                    }
                     var response7 : Bool? = self.setContactPhoto(contact7!, pngImage: pngImage7!)
                     responseJSON = nil //TODO - Serialize this.gson.toJson(response7);
                default:

@@ -188,37 +188,37 @@ doesn't exist, this will be -1. Used internally.
                var resultObject : FileDescriptor = FileDescriptor()
 
                if let value : AnyObject = dict.objectForKey("dateCreated") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.dateCreated = (value as Int)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("dateModified") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.dateModified = (value as Int)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("name") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.name = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("path") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.path = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("pathAbsolute") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.pathAbsolute = (value as String)
                     }
                }
 
                if let value : AnyObject = dict.objectForKey("size") {
-                    if value as NSString != "<null>" {
+                    if "\(value)" as NSString != "<null>" {
                          resultObject.size = (value as Int)
                     }
                }
