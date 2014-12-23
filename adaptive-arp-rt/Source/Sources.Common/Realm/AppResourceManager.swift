@@ -21,7 +21,10 @@
 *
 * Contributors:
 *
-*     *
+*     * Ferran Vila Conesa
+*                 <http://github.com/fnva>
+*                 <http://twitter.com/ferran_vila>
+*                 <mailto:ferran.vila.conesa@gmail.com>
 *
 * =====================================================================================================================
 */

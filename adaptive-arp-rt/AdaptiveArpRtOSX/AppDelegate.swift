@@ -7,14 +7,12 @@
 //
 
 import Cocoa
-import AdaptiveArpImpl
-import AdaptiveArpApi
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     /// Logging variable
-    let logger:ILogging = LoggingImpl()
+    let logger:ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge().getDelegate()!
     let logCategory:String = "NSApplication"
     
     func applicationWillBecomeActive(notification: NSNotification) {

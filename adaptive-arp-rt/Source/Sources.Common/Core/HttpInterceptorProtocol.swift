@@ -133,7 +133,7 @@ public class HttpInterceptorProtocol : NSURLProtocol {
                 
                 // ADAPTIVE NATIVE CALLS
                 
-                var data:NSData? = nil //TODO: ServiceHandler.sharedInstance.handleServiceUrl(newRequest)
+                var data:NSData? = ServiceHandler.sharedInstance.handleServiceUrl(newRequest)
                 var response:NSURLResponse?
                 
                 if let data = data {
