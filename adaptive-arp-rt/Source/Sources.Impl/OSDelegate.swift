@@ -33,18 +33,52 @@ Release:
 */
 
 import Foundation
+#if os(iOS)
+    import UIKit
+#endif
+#if os(OSX)
+    import Cocoa
+#endif
 
 /**
    Interface for Managing the OS operations
    Auto-generated implementation of IOS specification.
 */
 public class OSDelegate : BaseSystemDelegate, IOS {
+    
+    /// Logger variable
+    let logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+    let loggerTag : String = "OSDelegate"
+    
+    /// Variable to store OSInfo object
+    var osInfo : OSInfo?
 
     /**
        Default Constructor.
     */
     public override init() {
         super.init()
+        
+        var osName : String
+        #if os(iOS)
+            osName = "iOS"
+            
+            // FIX: operatingSystemVersion not available in iOS 7.1
+            //var processInfoOs : NSOperatingSystemVersion = NSProcessInfo.processInfo().operatingSystemVersion
+            var osVersion = UIDevice.currentDevice().systemVersion
+            
+        #endif
+        #if os(OSX)
+            osName = "OSX"
+            
+            var processInfoOs : NSOperatingSystemVersion = NSProcessInfo.processInfo().operatingSystemVersion
+            var osVersion : String = "\(processInfoOs.majorVersion).\(processInfoOs.minorVersion)"
+            if (processInfoOs.patchVersion>0) {
+            osVersion+=".\(processInfoOs.patchVersion)"
+            }
+        #endif
+        
+        self.osInfo = OSInfo(name: osName, version: osVersion, vendor: "Apple")
     }
 
     /**
@@ -54,9 +88,10 @@ public class OSDelegate : BaseSystemDelegate, IOS {
        @since ARP1.0
     */
     public func getOSInfo() -> OSInfo {
-        var response : OSInfo
-        // TODO: Not implemented.
-        return OSInfo()
+        
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "name: \(self.osInfo!.getName()), version: \(self.osInfo!.getVersion()), vendor: \(self.osInfo!.getVendor())")
+        
+        return self.osInfo!
     }
 
 }

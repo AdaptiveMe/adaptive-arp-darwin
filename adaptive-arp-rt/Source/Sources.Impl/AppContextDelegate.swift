@@ -33,18 +33,36 @@ Release:
 */
 
 import Foundation
+#if os(iOS)
+    import UIKit
+#endif
+#if os(OSX)
+    import Cocoa
+#endif
 
 /**
    Interface for context management purposes
    Auto-generated implementation of IAppContext specification.
 */
 public class AppContextDelegate : NSObject, IAppContext {
+    
+    
+    var context:AnyObject!
+    var type:IOSType!
 
     /**
        Default Constructor.
     */
     public override init() {
         super.init()
+        #if os(iOS)
+            self.type = IOSType.iOS
+            self.context = UIApplication.sharedApplication()
+        #endif
+        #if os(OSX)
+            self.type = IOSType.OSX
+            self.context = NSApplication.sharedApplication()
+        #endif
     }
 
     /**
@@ -54,9 +72,7 @@ public class AppContextDelegate : NSObject, IAppContext {
        @since ARP1.0
     */
     public func getContext() -> AnyObject {
-        var response : AnyObject
-        // TODO: Not implemented.
-        return ""
+        return self.context
     }
 
     /**
@@ -66,9 +82,7 @@ public class AppContextDelegate : NSObject, IAppContext {
        @since ARP1.0
     */
     public func getContextType() -> IOSType {
-        var response : IOSType
-        // TODO: Not implemented.
-        return IOSType.Unknown
+        return self.type
     }
 
 }

@@ -42,106 +42,106 @@ import MessageUI
 public class MailDelegate : UIViewController, /*BasePIMDelegate,*/ IMail, MFMailComposeViewControllerDelegate {
     
     /// Logger variable
-    let logger : ILogging = AppRegistryBridge.sharedInstance.getDelegate()!.getLoggingBridge().getDelegate()!
+    let logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
     let loggerTag : String = "MailDelegate"
     
     /// Callbacks
     var mailCallback:IMessagingCallback!
     
     /**
-    Group of API.
+       Group of API.
     */
     private var apiGroup : IAdaptiveRPGroup?
     
     /**
-    Return the API group for the given interface.
+       Return the API group for the given interface.
     */
     public final func getAPIGroup() -> IAdaptiveRPGroup {
         return self.apiGroup!
     }
     
     /**
-    Default Constructor.
+       Default Constructor.
     */
     public override init() {
         super.init()
         self.apiGroup = IAdaptiveRPGroup.PIM
     }
 
-     /**
-        Send an Email
+    /**
+       Send an Email
 
-        @param data     Payload of the email
-        @param callback Result callback of the operation
-        @since ARP1.0
-     */
-     public func sendEmail(data : Email, callback : IMessagingCallback) {
-    
+       @param data     Payload of the email
+       @param callback Result callback of the operation
+       @since ARP1.0
+    */
+    public func sendEmail(data : Email, callback : IMessagingCallback) {
+        
         // Check if the device can send Mails
         if !MFMailComposeViewController.canSendMail() {
-        
-        logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The device cannot send a mail. Check the device")
-        
-        callback.onError(IMessagingCallbackError.NotSupported)
-        return
+            
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The device cannot send a mail. Check the device")
+            
+            callback.onError(IMessagingCallbackError.NotSupported)
+            return
         }
         
         // Open the view to compose the mail with the fields setted
         if let view = BaseViewController.ViewCurrent.getView() {
-        
-        self.mailCallback = callback
-        
-        // Add the MessageImplementation view controller and the subview
-        view.addChildViewController(self)
-        view.view.addSubview(self.view)
-        
-        // Create the email with the fields
-        var mail: MFMailComposeViewController = MFMailComposeViewController()
-        mail.mailComposeDelegate = self
-        
-        // addresses (to)
-        var recipientsTo: [String] = [String]()
-        for mail:EmailAddress in data.getToRecipients()!{
-        recipientsTo.append(mail.getAddress()!)
-        }
-        mail.setToRecipients(recipientsTo)
-        
-        // addresses (cc)
-        var recipientsCc: [String] = [String]()
-        for mail:EmailAddress in data.getCcRecipients()!{
-        recipientsCc.append(mail.getAddress()!)
-        }
-        mail.setCcRecipients(recipientsCc)
-        
-        // addresses (bcc)
-        var recipientsBcc: [String] = [String]()
-        for mail:EmailAddress in data.getBccRecipients()!{
-        recipientsBcc.append(mail.getAddress()!)
-        }
-        mail.setBccRecipients(recipientsBcc)
-        
-        mail.setSubject(data.getSubject())
-        mail.setMessageBody(data.getMessageBody(), isHTML: true)
-        
-        // atachments
-        
-        for attachment: EmailAttachmentData in data.getEmailAttachmentData()! {
-        
-        var nsData:NSData = NSData(bytes: attachment.getData()! as [Byte], length: Int(attachment.getSize()!))
-        
-        mail.addAttachmentData(nsData, mimeType: attachment.getMimeType(), fileName: attachment.getFileName())
-        
-        }
-        
-        self.presentViewController(mail, animated: true, completion: {
-        self.logger.log(ILoggingLogLevel.DEBUG, category: self.loggerTag, message: "MFMailComposeViewController presented")
-        })
-        
+            
+            self.mailCallback = callback
+            
+            // Add the MessageImplementation view controller and the subview
+            view.addChildViewController(self)
+            view.view.addSubview(self.view)
+            
+            // Create the email with the fields
+            var mail: MFMailComposeViewController = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            
+            // addresses (to)
+            var recipientsTo: [String] = [String]()
+            for mail:EmailAddress in data.getToRecipients()!{
+                recipientsTo.append(mail.getAddress()!)
+            }
+            mail.setToRecipients(recipientsTo)
+            
+            // addresses (cc)
+            var recipientsCc: [String] = [String]()
+            for mail:EmailAddress in data.getCcRecipients()!{
+                recipientsCc.append(mail.getAddress()!)
+            }
+            mail.setCcRecipients(recipientsCc)
+            
+            // addresses (bcc)
+            var recipientsBcc: [String] = [String]()
+            for mail:EmailAddress in data.getBccRecipients()!{
+                recipientsBcc.append(mail.getAddress()!)
+            }
+            mail.setBccRecipients(recipientsBcc)
+            
+            mail.setSubject(data.getSubject())
+            mail.setMessageBody(data.getMessageBody(), isHTML: true)
+            
+            // atachments
+            
+            for attachment: EmailAttachmentData in data.getEmailAttachmentData()! {
+                
+                var nsData:NSData = NSData(bytes: attachment.getData()! as [Byte], length: Int(attachment.getSize()!))
+                
+                mail.addAttachmentData(nsData, mimeType: attachment.getMimeType(), fileName: attachment.getFileName())
+                
+            }
+            
+            self.presentViewController(mail, animated: true, completion: {
+                self.logger.log(ILoggingLogLevel.DEBUG, category: self.loggerTag, message: "MFMailComposeViewController presented")
+            })
+            
         } else {
-        logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "There is no a current view controller on the stack")
-        callback.onError(IMessagingCallbackError.NotSent)
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "There is no a current view controller on the stack")
+            callback.onError(IMessagingCallbackError.NotSent)
         }
-    
+        
     }
     
     required public init(coder aDecoder: NSCoder) {
@@ -160,27 +160,28 @@ public class MailDelegate : UIViewController, /*BasePIMDelegate,*/ IMail, MFMail
 
 }
     
-#elseif os(OSX)
+#endif
+#if os(OSX)
     
 /**
-Interface for Managing the Mail operations
-Auto-generated implementation of IMail specification.
+   Interface for Managing the Mail operations
+   Auto-generated implementation of IMail specification.
 */
 public class MailDelegate : BasePIMDelegate, IMail {
     
     /**
-    Default Constructor.
+       Default Constructor.
     */
     public override init() {
         super.init()
     }
     
     /**
-    Send an Email
+       Send an Email
     
-    @param data     Payload of the email
-    @param callback Result callback of the operation
-    @since ARP1.0
+       @param data     Payload of the email
+       @param callback Result callback of the operation
+       @since ARP1.0
     */
     public func sendEmail(data : Email, callback : IMessagingCallback) {
         // TODO: Not implemented.

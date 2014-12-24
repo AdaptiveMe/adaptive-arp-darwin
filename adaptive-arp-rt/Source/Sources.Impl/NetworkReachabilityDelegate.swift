@@ -39,7 +39,11 @@ import Foundation
    Auto-generated implementation of INetworkReachability specification.
 */
 public class NetworkReachabilityDelegate : BaseCommunicationDelegate, INetworkReachability {
-
+    
+    /// Logger variable
+    let logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+    let loggerTag : String = "NetworkReachabilityDelegate"
+    
     /**
        Default Constructor.
     */
@@ -55,7 +59,22 @@ public class NetworkReachabilityDelegate : BaseCommunicationDelegate, INetworkRe
        @since ARP1.0
     */
     public func isNetworkReachable(host : String, callback : INetworkReachabilityCallback) {
-        // TODO: Not implemented.
+        
+        var reachability:Reachability = Reachability(hostname: host)
+        
+        var isReachableViaWiFi = reachability.isReachableViaWiFi()
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "isReachableViaWiFi: \(isReachableViaWiFi)")
+        
+        var isReachableViaWWAN = reachability.isReachableViaWWAN()
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "isReachableViaWWAN: \(isReachableViaWWAN)")
+        
+        if isReachableViaWiFi || isReachableViaWWAN {
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "isReachable!")
+            callback.onResult(true)
+        } else {
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "isUnreachable!")
+            callback.onError(INetworkReachabilityCallbackError.Unreachable)
+        }
     }
 
     /**
@@ -66,7 +85,8 @@ public class NetworkReachabilityDelegate : BaseCommunicationDelegate, INetworkRe
        @since ARP1.0
     */
     public func isNetworkServiceReachable(url : String, callback : INetworkReachabilityCallback) {
-        // TODO: Not implemented.
+        
+        // TODO: Not implemented. Find implementation without Alamofire
     }
 
 }

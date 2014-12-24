@@ -33,6 +33,9 @@ Release:
 */
 
 import Foundation
+#if os(iOS)
+    import UIKit
+#endif
 
 /**
    Interface for Managing the Video operations
@@ -40,11 +43,24 @@ import Foundation
 */
 public class VideoDelegate : BaseMediaDelegate, IVideo {
 
+    
+    /// Logger variable
+    let logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+    let loggerTag : String = "VideoDelegate"
+    
+    #if os(iOS)
+    /// Application variable
+    var application:UIApplication? = nil
+    #endif
+    
     /**
        Default Constructor.
     */
     public override init() {
         super.init()
+        #if os(iOS)
+            self.application = (AppRegistryBridge.sharedInstance.getPlatformContext().getContext() as UIApplication)
+        #endif
     }
 
     /**
@@ -54,7 +70,59 @@ public class VideoDelegate : BaseMediaDelegate, IVideo {
        @since ARP1.0
     */
     public func playStream(url : String) {
-        // TODO: Not implemented.
+        
+        #if os(iOS)
+            
+            if checkURl(url) {
+                if (BaseViewController.ViewCurrent.getView() != nil) {
+                    (BaseViewController.ViewCurrent.getView()! as BaseViewController).showInternalMedia("", backLabel: "", url: NSURL(string: url)!, showNavBar: false, showAnimated: true)
+                } else {
+                    logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The current View Controller has no presented view")
+                }
+            }
+        #endif
+        #if os(OSX)
+            
+            // TODO: implement this part when the OSX part has a Base View Controller
+            
+        #endif
+    }
+    
+    /**
+       Private method to check if an application is able to open an url
+    
+       @param url  Url to check
+       @return The result of the operation
+    */
+    private func checkURl(url: String) -> Bool {
+        
+        // Check if the string is empty
+        if url.isEmpty {
+            return false
+        }
+        // Check the correct format of the number
+        if !Utils.validateUrl(url) {
+            
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The url: \(url) has an incorrect format")
+            return false
+        }
+        let url: NSURL = NSURL(string: url)!
+        
+        #if os(iOS)
+            
+            // Check if it is possible to open the url
+            if !application!.canOpenURL(url) {
+            
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The application cannot open this type of url: \(url)")
+            return false
+            }
+        #endif
+        
+        #if os(OSX)
+            // TODO: check how in OSX we can check if it is possible to open an url
+        #endif
+        
+        return true
     }
 
 }

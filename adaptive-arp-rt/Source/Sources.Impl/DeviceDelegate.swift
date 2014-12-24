@@ -33,6 +33,12 @@ Release:
 */
 
 import Foundation
+#if os(iOS)
+    import UIKit
+#endif
+#if os(OSX)
+    import Cocoa
+#endif
 
 /**
    Interface for Managing the Device operations
@@ -40,11 +46,37 @@ import Foundation
 */
 public class DeviceDelegate : BaseSystemDelegate, IDevice {
 
+    /// Logger variable
+    let logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+    let loggerTag : String = "DeviceDelegate"
+    
+    /// Variable that stores the device information
+    var deviceInfo:DeviceInfo?
+    
+    /// Array of Listeners
+    var listeners: [IButtonListener]?
+    
     /**
        Default Constructor.
     */
     public override init() {
         super.init()
+        
+        #if os(iOS)
+            
+            listeners = [IButtonListener]()
+            
+            let device: UIDevice = UIDevice.currentDevice()
+            deviceInfo = DeviceInfo(name: device.name, model: device.model, vendor: "Apple", uuid: NSUUID().UUIDString)
+            
+        #endif
+        #if os(OSX)
+            
+            let host: NSHost = NSHost.currentHost()
+            deviceInfo = DeviceInfo(name: host.name!, model: getSysValue("hw.model"), vendor: "Apple", uuid: NSUUID().UUIDString)
+            
+        #endif
+        
     }
 
     /**
@@ -54,7 +86,32 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
        @since ARP1.0
     */
     public func addButtonListener(listener : IButtonListener) {
-        // TODO: Not implemented.
+        
+        // TODO: fire the event of button clicked and iterate for every listener. Find where the fire event is located
+        
+        #if os(iOS)
+            
+            for list in listeners! {
+                if list.isEqual(listener) {
+                    
+                    // If the listener has alredy registered
+                    
+                    logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The listener \(listener) has alredy registered")
+                    return
+                }
+            }
+            
+            // Register the listener
+            listeners!.append(listener)
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Listener \(listener) registered")
+            
+        #endif
+        #if os(OSX)
+            
+            // in OSX there are no hardware buttons
+            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there aren't hardware buttons")
+            
+        #endif
     }
 
     /**
@@ -64,9 +121,10 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
        @since ARP1.0
     */
     public func getDeviceInfo() -> DeviceInfo {
-        var response : DeviceInfo
-        // TODO: Not implemented.
-        return DeviceInfo()
+        
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "name: \(self.deviceInfo!.getName()), model: \(self.deviceInfo!.getModel()), vendor: \(self.deviceInfo!.getVendor()), uuid: \(self.deviceInfo!.getUuid())")
+        
+        return self.deviceInfo!
     }
 
     /**
@@ -76,9 +134,19 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
        @since ARP1.0
     */
     public func getLocaleCurrent() -> Locale {
-        var response : Locale
-        // TODO: Not implemented.
-        return Locale()
+        
+        // Gets the current locale of the device
+        let currentLocale: NSLocale = NSLocale.currentLocale()
+        
+        let localeComponents: [NSObject : AnyObject] = NSLocale.componentsFromLocaleIdentifier(currentLocale.localeIdentifier)
+        
+        let country: String = localeComponents[NSLocaleCountryCode] as String
+        let language: String = localeComponents[NSLocaleLanguageCode] as String
+        
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Country=\(country)")
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Language=\(language)")
+        
+        return Locale(language: language, country: country)
     }
 
     /**
@@ -88,7 +156,31 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
        @since ARP1.0
     */
     public func removeButtonListener(listener : IButtonListener) {
-        // TODO: Not implemented.
+        
+        #if os(iOS)
+            
+            for (index, list) in enumerate(listeners!) {
+                if list.isEqual(listener) {
+                    
+                    // Remove the listener
+                    listeners!.removeAtIndex(index)
+                    
+                    logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "The listener \(listener) it has been removed")
+                    return
+                }
+            }
+            
+            //
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Listener \(listener) is not registered in the system")
+            
+        #endif
+        #if os(OSX)
+            
+            // in OSX there are no hardware buttons
+            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there aren't hardware buttons")
+            
+        #endif
+
     }
 
     /**
@@ -97,7 +189,41 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
        @since ARP1.0
     */
     public func removeButtonListeners() {
-        // TODO: Not implemented.
+        
+        #if os(iOS)
+            
+            var listCount:Int = listeners!.count
+            
+            // Remove all the listeners
+            listeners!.removeAll(keepCapacity: false)
+            
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removed \(listCount) listeners from the system")
+            
+        #endif
+        #if os(OSX)
+            
+            // in OSX there are no hardware buttons
+            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there aren't hardware buttons")
+            
+        #endif
+    }
+
+    
+    
+    /**
+    Returns a variable stored in the memory stack
+    
+    :param: attr Attribute to query
+    :returns: The value of the attribute
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
+    */
+    private func getSysValue(attr: String) -> String {
+        var size : UInt = 0
+        sysctlbyname(attr, nil, &size, nil, 0)
+        var machine = [CChar](count: Int(size), repeatedValue: 0)
+        sysctlbyname(attr, &machine, &size, nil, 0)
+        return String.fromCString(machine)!
     }
 
 }
