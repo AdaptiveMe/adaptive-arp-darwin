@@ -99,8 +99,30 @@ public class BaseViewController : UIViewController {
         return true
     }
     
+    public func showInternalMedia(titleLabel:String, backLabel:String, url : NSURL, showNavBar : Bool, showAnimated : Bool = true) -> Bool {
+        objc_sync_enter(self)
+        
+        var properties = NavigationProperties(navigationBarHidden: showNavBar, navigationBarTitle: titleLabel, navigationBarBackLabel: backLabel, navigationUrl: url)
+        
+        dispatch_async(dispatch_get_main_queue()) {
+            
+            // TODO: Generate Media player view controller
+            
+            // var browserView : BrowserViewController = BrowserViewController(navigationBarHidden: !properties.navigationBarHidden, navigationBarTitle: properties.navigationBarTitle, navigationBarBackLabel: properties.navigationBarBackLabel, navigationUrl: properties.navigationUrl!)
+            // self.navigationController!.pushViewController(browserView, animated: showAnimated)
+        }
+        if showAnimated {
+            NSThread.sleepForTimeInterval(0.750)
+        }
+        
+        objc_sync_exit(self)
+        return true
+    }
+    
     public override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
         if (segue.identifier == "showBrowser" && segue.destinationViewController is BrowserViewController) {
+            
             var browserView : BrowserViewController = segue.destinationViewController as BrowserViewController
             ViewCurrent.setView(browserView)
             var properties : NavigationProperties = sender as NavigationProperties
@@ -108,6 +130,10 @@ public class BaseViewController : UIViewController {
             browserView.navigationBarHidden = !properties.navigationBarHidden
             browserView.navigationBarTitle = properties.navigationBarTitle
             browserView.navigationUrl = properties.navigationUrl
+            
+        } else if (segue.identifier == "showMedia" /*&& segue.destinationViewController is BrowserViewController*/) {
+            
+            // TODO: Generate Media player view controller
         }
     }
 }

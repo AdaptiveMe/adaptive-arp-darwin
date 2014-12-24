@@ -31,7 +31,8 @@
 
 #if os(iOS)
     import Realm
-#elseif os(OSX)
+#endif
+#if os(OSX)
     import Realm
 #endif
 
@@ -40,14 +41,14 @@ private var resourceManagerInstancePool : [String:AppResourceManager] = [String:
 public class AppResourceManager {
     
     var realm : RLMRealm!
-    let logger:ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge().getDelegate()!
+    let logger:ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
     let logCategory = "AppResourceManager"
     
     /// Singleton instance
     public class var sharedInstance : AppResourceManager {
         var threadSafeInstance : AppResourceManager? = resourceManagerInstancePool[NSThread.currentThread().description]
         
-        let logger:ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge().getDelegate()!
+        let logger:ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
         let logCategory = "AppResourceManager"
         
         if threadSafeInstance == nil {
@@ -71,7 +72,7 @@ public class AppResourceManager {
     }
     
     internal func retrieveResource(id : String, rootPath : String, secure : Bool) -> ResourceData? {
-
+        
         var resourceId : String! = ""
         if secure {
             resourceId = "\(rootPath)\(id)".sha256()
@@ -148,7 +149,7 @@ public class AppResourceManager {
                 }
             } else {
                 if resourceRecipe.hasPrefix("Z") {
-                
+                    
                     logger.log(ILoggingLogLevel.DEBUG, category: logCategory, message: "retrieveResource('\(rootPath)\(id)') -> Inflating \(resourceData.cooked_length) to \(resourceData.raw_length) bytes.")
                     
                     var clonedData : ResourceData = ResourceData()
@@ -162,7 +163,7 @@ public class AppResourceManager {
                     resourceData = clonedData
                 }
                 return resourceData
-
+                
             }
         } else {
             return nil
@@ -199,19 +200,20 @@ public class AppResourceManager {
     
     internal func protectRealmFile(path : String) -> Bool {
         #if os(iOS)
-        logger.log(ILoggingLogLevel.DEBUG, category: logCategory, message: "protectRealmFile start.")
-        var error: NSError?
-        let success = NSFileManager.defaultManager().setAttributes([NSFileProtectionKey: NSFileProtectionComplete],
+            logger.log(ILoggingLogLevel.DEBUG, category: logCategory, message: "protectRealmFile start.")
+            var error: NSError?
+            let success = NSFileManager.defaultManager().setAttributes([NSFileProtectionKey: NSFileProtectionComplete],
             ofItemAtPath: path, error: &error)
-        if !success {
+            if !success {
             logger.log(ILoggingLogLevel.DEBUG, category: logCategory, message: "protectRealmFile failed. Error: '\(error?.localizedDescription)'")
-        } else {
+            } else {
             logger.log(ILoggingLogLevel.DEBUG, category: logCategory, message: "protectRealmFile success.")
-        }
-        return success
-        #elseif os(OSX)
-        logger.log(ILoggingLogLevel.DEBUG, category: logCategory, message: "protectRealmFile not supported on this platform.")
-        return false
+            }
+            return success
+        #endif
+        #if os(OSX)
+            logger.log(ILoggingLogLevel.DEBUG, category: logCategory, message: "protectRealmFile not supported on this platform.")
+            return false
         #endif
     }
 

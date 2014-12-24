@@ -12,7 +12,7 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     /// Logging variable
-    let logger:ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge().getDelegate()!
+    let logger:ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
     let logCategory:String = "NSApplication"
     
     func applicationWillBecomeActive(notification: NSNotification) {

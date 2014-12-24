@@ -33,14 +33,15 @@ import Foundation
 
 #if os(iOS)
     import UIKit
-#elseif os(OSX)
+#endif
+#if os(OSX)
     import Cocoa
 #endif
 
 public class HttpInterceptorProtocol : NSURLProtocol {
     
     /// Logging variable
-    let logger:ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge().getDelegate()!
+    let logger:ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
     let loggerTag:String = "HttpInterceptorProtocol"
     
     /// Connection
@@ -98,16 +99,6 @@ public class HttpInterceptorProtocol : NSURLProtocol {
         
         var method = newRequest.HTTPMethod
         var url = newRequest.URL!.absoluteString
-        
-        // HOWTO override headers
-        // var newHeaders = NSMutableDictionary(dictionary: newRequest.allHTTPHeaderFields!)
-        // newHeaders.setValue("Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)", forKey: "User-Agent")
-        // newRequest.allHTTPHeaderFields = newHeaders
-        
-        
-        // HOWTO: referer
-        // var referer:String? = request.valueForHTTPHeaderField("referer")
-        // logger.log(ILoggingLogLevel.INFO, category:"HttpInterceptorProtocol", message: "referer: \(referer)")
         
         if let url = url {
             

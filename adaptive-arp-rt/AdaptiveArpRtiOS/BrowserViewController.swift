@@ -34,6 +34,7 @@ import UIKit
 public class BrowserViewController: BaseViewController, UIWebViewDelegate {
     
     var webView: UIWebView?
+    
     /// Defaults
     public var navigationBarHidden : Bool = false
     public var navigationBarTitle : String = "Browser"
