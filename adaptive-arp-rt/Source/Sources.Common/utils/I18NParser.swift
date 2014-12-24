@@ -33,7 +33,7 @@ import Foundation
 public class I18NParser : NSObject, NSXMLParserDelegate {
     
     /// Logging variable
-    let logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge().getDelegate()!
+    let logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
     let loggerTag : String = "I18NParser"
     
     /// Locales supported (filled by the getLocaleSupportedDescriptors method)
