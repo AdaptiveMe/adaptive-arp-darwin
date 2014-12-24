@@ -33,7 +33,7 @@ import XCTest
 
 class BrowserTest: XCTestCase {
     
-    var browserImpl:IBrowser = AppRegistryBridge.sharedInstance.getDelegate()!.getBrowserBridge().getDelegate()!
+    var browserImpl:IBrowser = AppRegistryBridge.sharedInstance.getBrowserBridge()
     let CORRECT_URL_1:String = "http://www.google.com"
 
     override func setUp() {
