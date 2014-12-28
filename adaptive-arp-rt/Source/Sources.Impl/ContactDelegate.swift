@@ -45,7 +45,7 @@ import Foundation
 public class ContactDelegate : BasePIMDelegate, IContact {
     
     /// Logger variable
-    let logger : ILogging = AppRegistryBridge.sharedInstance.getDelegate()!.getLoggingBridge().getDelegate()!
+    let logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
     let loggerTag : String = "ContactDelegate"
     
     /// Constants taht defines field labels for PIM management
@@ -103,39 +103,39 @@ public class ContactDelegate : BasePIMDelegate, IContact {
         ("other",ContactPhoneType.Other)
     ]
 
-     /**
-        Default Constructor.
-     */
-     public override init() {
-          super.init()
-     }
+    /**
+       Default Constructor.
+    */
+    public override init() {
+        super.init()
+    }
 
-     /**
-        Get all the details of a contact according to its id
+    /**
+       Get all the details of a contact according to its id
 
-        @param contact  id to search for
-        @param callback called for return
-        @since ARP1.0
-     */
-     public func getContact(contact : ContactUid, callback : IContactResultCallback) {
+       @param contact  id to search for
+       @param callback called for return
+       @since ARP1.0
+    */
+    public func getContact(contact : ContactUid, callback : IContactResultCallback) {
         
         // fill all tthe group fields to query all the information
         var fields: [IContactFieldGroup] = [IContactFieldGroup.PERSONAL_INFO, IContactFieldGroup.PROFESSIONAL_INFO, IContactFieldGroup.ADDRESSES, IContactFieldGroup.PHONES, IContactFieldGroup.EMAILS, IContactFieldGroup.WEBSITES, IContactFieldGroup.SOCIALS, IContactFieldGroup.TAGS]
         
         self.getContactsGeneric(callback, contact: contact, fields: fields, filter: nil, term: "")
-     }
+    }
 
-     /**
-        Get the contact photo
+    /**
+       Get the contact photo
 
-        @param contact  id to search for
-        @param callback called for return
-        @since ARP1.0
-     */
-     public func getContactPhoto(contact : ContactUid, callback : IContactPhotoResultCallback) {
+       @param contact  id to search for
+       @param callback called for return
+       @since ARP1.0
+    */
+    public func getContactPhoto(contact : ContactUid, callback : IContactPhotoResultCallback) {
         
         #if os(iOS)
-        
+            
             if self.checkContactPermissions(nil, callbackPhoto: callback) {
                 
                 // Get the address book and the contact list
@@ -171,94 +171,97 @@ public class ContactDelegate : BasePIMDelegate, IContact {
                 callback.onResult(array)
             }
             
-        #elseif os(OSX)
-            // TODO: implement this for OSX
         #endif
-     }
+        #if os(OSX)
+            
+            // TODO: implement this for OSX
+            
+        #endif
+    }
 
-     /**
-        Get all contacts
+    /**
+       Get all contacts
 
-        @param callback called for return
-        @since ARP1.0
-     */
-     public func getContacts(callback : IContactResultCallback) {
+       @param callback called for return
+       @since ARP1.0
+    */
+    public func getContacts(callback : IContactResultCallback) {
         
         // fill all tthe group fields to query all the information
         var fields: [IContactFieldGroup] = [IContactFieldGroup.PERSONAL_INFO, IContactFieldGroup.PROFESSIONAL_INFO, IContactFieldGroup.ADDRESSES, IContactFieldGroup.PHONES, IContactFieldGroup.EMAILS, IContactFieldGroup.WEBSITES, IContactFieldGroup.SOCIALS, IContactFieldGroup.TAGS]
         
         self.getContactsGeneric(callback, contact: nil, fields: fields, filter: nil, term: "")
-     }
+    }
 
-     /**
-        Get marked fields of all contacts
+    /**
+       Get marked fields of all contacts
 
-        @param callback called for return
-        @param fields   to get for each Contact
-        @since ARP1.0
-     */
-     public func getContactsForFields(callback : IContactResultCallback, fields : [IContactFieldGroup]) {
+       @param callback called for return
+       @param fields   to get for each Contact
+       @since ARP1.0
+    */
+    public func getContactsForFields(callback : IContactResultCallback, fields : [IContactFieldGroup]) {
         
         self.getContactsGeneric(callback, contact: nil, fields: fields, filter: nil, term: "")
-     }
+    }
 
-     /**
-        Get marked fields of all contacts according to a filter
+    /**
+       Get marked fields of all contacts according to a filter
 
-        @param callback called for return
-        @param fields   to get for each Contact
-        @param filter   to search for
-        @since ARP1.0
-     */
-     public func getContactsWithFilter(callback : IContactResultCallback, fields : [IContactFieldGroup], filter : [IContactFilter]) {
+       @param callback called for return
+       @param fields   to get for each Contact
+       @param filter   to search for
+       @since ARP1.0
+    */
+    public func getContactsWithFilter(callback : IContactResultCallback, fields : [IContactFieldGroup], filter : [IContactFilter]) {
         
         self.getContactsGeneric(callback, contact: nil, fields: fields, filter: filter, term: "")
-     }
+    }
 
-     /**
-        Search contacts according to a term and send it to the callback
+    /**
+       Search contacts according to a term and send it to the callback
 
-        @param term     string to search
-        @param callback called for return
-        @since ARP1.0
-     */
-     public func searchContacts(term : String, callback : IContactResultCallback) {
+       @param term     string to search
+       @param callback called for return
+       @since ARP1.0
+    */
+    public func searchContacts(term : String, callback : IContactResultCallback) {
         
         // fill all tthe group fields to query all the information
         var fields: [IContactFieldGroup] = [IContactFieldGroup.PERSONAL_INFO, IContactFieldGroup.PROFESSIONAL_INFO, IContactFieldGroup.ADDRESSES, IContactFieldGroup.PHONES, IContactFieldGroup.EMAILS, IContactFieldGroup.WEBSITES, IContactFieldGroup.SOCIALS, IContactFieldGroup.TAGS]
         
         self.getContactsGeneric(callback, contact: nil, fields: fields, filter: nil, term: term)
-     }
+    }
 
-     /**
-        Search contacts according to a term with a filter and send it to the callback
+    /**
+       Search contacts according to a term with a filter and send it to the callback
 
-        @param term     string to search
-        @param callback called for return
-        @param filter   to search for
-        @since ARP1.0
-     */
-     public func searchContactsWithFilter(term : String, callback : IContactResultCallback, filter : [IContactFilter]) {
+       @param term     string to search
+       @param callback called for return
+       @param filter   to search for
+       @since ARP1.0
+    */
+    public func searchContactsWithFilter(term : String, callback : IContactResultCallback, filter : [IContactFilter]) {
         
         // fill all tthe group fields to query all the information
         var fields: [IContactFieldGroup] = [IContactFieldGroup.PERSONAL_INFO, IContactFieldGroup.PROFESSIONAL_INFO, IContactFieldGroup.ADDRESSES, IContactFieldGroup.PHONES, IContactFieldGroup.EMAILS, IContactFieldGroup.WEBSITES, IContactFieldGroup.SOCIALS, IContactFieldGroup.TAGS]
         
         
         self.getContactsGeneric(callback, contact: nil, fields: fields, filter: filter, term: term)
-     }
+    }
 
-     /**
-        Set the contact photo
+    /**
+       Set the contact photo
 
-        @param contact  id to assign the photo
-        @param pngImage photo as byte array
-        @return true if set is successful;false otherwise
-        @since ARP1.0
-     */
-     public func setContactPhoto(contact : ContactUid, pngImage : [Byte]) -> Bool {
+       @param contact  id to assign the photo
+       @param pngImage photo as byte array
+       @return true if set is successful;false otherwise
+       @since ARP1.0
+    */
+    public func setContactPhoto(contact : ContactUid, pngImage : [Byte]) -> Bool {
         
         #if os(iOS)
-        
+            
             if self.checkContactPermissions(nil, callbackPhoto: nil) {
                 
                 // Get the address book and the contact list
@@ -304,22 +307,22 @@ public class ContactDelegate : BasePIMDelegate, IContact {
                 return false
             }
             
-        #elseif os(OSX)
+        #endif
+        #if os(OSX)
             
             // TODO: implement this for OSX
             return false
             
         #endif
-     }
+    }
     
     
     
     /**
-    Get Formated label from ios label
+       Get Formated label from ios label
     
-    @param nonFormatedLabel ios label for type
-    
-    @return Formated label
+       @param nonFormatedLabel ios label for type
+       @return Formated label
     */
     private func getLabel(nonFormatedLabel: String?) -> String {
         
@@ -336,13 +339,12 @@ public class ContactDelegate : BasePIMDelegate, IContact {
     }
     
     /**
-    Get Address formated label from ios label
+       Get Address formated label from ios label
     
-    @param  addressType ios label for address
-    
-    @return API Bean for address type
+       @param  addressType ios label for address
+       @return API Bean for address type
     */
-    func getAddressTypeLabel(addressType: String) -> ContactAddressType {
+    private func getAddressTypeLabel(addressType: String) -> ContactAddressType {
         
         for (key, value) in PIM_ADDR_LABELS {
             if key == addressType {
@@ -354,13 +356,12 @@ public class ContactDelegate : BasePIMDelegate, IContact {
     }
     
     /**
-    Get mail formated label from ios label
+       Get mail formated label from ios label
     
-    @param  mailType ios label for mail
-    
-    @return API Bean for mail type
+       @param  mailType ios label for mail
+       @return API Bean for mail type
     */
-    func getMailTypeLabel(mailType: String) -> ContactEmailType {
+    private func getMailTypeLabel(mailType: String) -> ContactEmailType {
         
         for (key, value) in PIM_MAIL_LABELS {
             if key == mailType {
@@ -372,13 +373,12 @@ public class ContactDelegate : BasePIMDelegate, IContact {
     }
     
     /**
-    Get Phone formated label from ios label
+       Get Phone formated label from ios label
     
-    @param  phoneType ios label for phone
-    
-    @return API Bean for phone type
+       @param  phoneType ios label for phone
+       @return API Bean for phone type
     */
-    func getPhoneTypeLabel(phoneType: String) -> ContactPhoneType {
+    private func getPhoneTypeLabel(phoneType: String) -> ContactPhoneType {
         
         for (key, value) in PIM_PHONE_LABELS {
             if key == phoneType {
@@ -390,11 +390,10 @@ public class ContactDelegate : BasePIMDelegate, IContact {
     }
     
     /**
-    Method that returns a reference to the Address Book
+       Method that returns a reference to the Address Book
     
-    @param  abRef Address Book reference
-    
-    @return Address Book reference
+       @param  abRef Address Book reference
+       @return Address Book reference
     */
     #if os(iOS)
     private func extractABAddressBookRef(abRef: Unmanaged<ABAddressBookRef>!) -> ABAddressBookRef? {
@@ -407,11 +406,10 @@ public class ContactDelegate : BasePIMDelegate, IContact {
     #endif
     
     /**
-    Checks permission to acces to Address Book
+       Checks permission to acces to Address Book
     
-    @param  callback Callback for error and warning responses
-    
-    @return true if granted access, false otherwise
+       @param  callback Callback for error and warning responses
+       @return true if granted access, false otherwise
     */
     private func checkContactPermissions(callback: IContactResultCallback?, callbackPhoto: IContactPhotoResultCallback?) -> Bool {
         
@@ -485,7 +483,8 @@ public class ContactDelegate : BasePIMDelegate, IContact {
             
             return ret
             
-        #elseif os(OSX)
+        #endif
+        #if os(OSX)
             
             // TODO: implement this for OSX
             return false
@@ -495,15 +494,13 @@ public class ContactDelegate : BasePIMDelegate, IContact {
     }
     
     /**
-    This function covers all the ways to call the PIM Api, this function is the delegate for all the other functions
+       This function covers all the ways to call the PIM Api, this function is the delegate for all the other functions
     
-    :param: callback Callback to launch when the operation finishes
-    :param: contact  ContaUid to query all the parameters
-    :param: fields   Group of fields to query
-    :param: filter   Predefined filters to query to database
-    :param: term     Term to find
-    :author: Ferran Vila Conesa
-    :since: ARP1.0
+       @param callback Callback to launch when the operation finishes
+       @param contact  ContaUid to query all the parameters
+       @param fields   Group of fields to query
+       @param filter   Predefined filters to query to database
+       @param term     Term to find
     */
     private func getContactsGeneric(callback: IContactResultCallback, contact: ContactUid?, fields: [IContactFieldGroup]?, filter: [IContactFilter]?, term: String) {
     
@@ -930,8 +927,9 @@ public class ContactDelegate : BasePIMDelegate, IContact {
                 callback.onResult(contacts)
                 
             } // if self.checkContactPermissions(callback)
-    
-        #elseif os(OSX)
+            
+        #endif
+        #if os(OSX)
     
             // TODO: implement this for OSX
     

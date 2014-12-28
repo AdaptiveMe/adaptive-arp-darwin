@@ -44,32 +44,32 @@ import Foundation
 public class BrowserDelegate : BaseUIDelegate, IBrowser {
 
     /// Logger variable
-    let logger : ILogging = AppRegistryBridge.sharedInstance.getDelegate()!.getLoggingBridge().getDelegate()!
+    let logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
     let loggerTag : String = "BrowserDelegate"
     
     #if os(iOS)
-        /// Application variable
-        var application:UIApplication? = nil
+    /// Application variable
+    var application:UIApplication? = nil
     #endif
 
-     /**
-        Default Constructor.
-     */
-     public override init() {
-          super.init()
+    /**
+       Default Constructor.
+    */
+    public override init() {
+        super.init()
         #if os(iOS)
             self.application = (AppRegistryBridge.sharedInstance.getPlatformContext().getContext() as UIApplication)
         #endif
-     }
+    }
 
-     /**
-        Method for opening a URL like a link in the native default browser
+    /**
+       Method for opening a URL like a link in the native default browser
 
-        @param url Url to open
-        @return The result of the operation
-        @since ARP1.0
-     */
-     public func openExtenalBrowser(url : String) -> Bool {
+       @param url Url to open
+       @return The result of the operation
+       @since ARP1.0
+    */
+    public func openExtenalBrowser(url : String) -> Bool {
         
         #if os(iOS)
             
@@ -85,23 +85,26 @@ public class BrowserDelegate : BaseUIDelegate, IBrowser {
                 return false
             }
             
-            #elseif os(OSX)
+        #endif
+        #if os(OSX)
+            
             // TODO: implement this part when the OSX part has a Base View Controller
             return false
+            
         #endif
         
-     }
+    }
 
-     /**
-        Method for opening a browser embedded into the application
+    /**
+       Method for opening a browser embedded into the application
 
-        @param url            Url to open
-        @param title          Title of the Navigation bar
-        @param backButtonText Title of the Back button bar
-        @return The result of the operation
-        @since ARP1.0
-     */
-     public func openInternalBrowser(url : String, title : String, backButtonText : String) -> Bool {
+       @param url            Url to open
+       @param title          Title of the Navigation bar
+       @param backButtonText Title of the Back button bar
+       @return The result of the operation
+       @since ARP1.0
+    */
+    public func openInternalBrowser(url : String, title : String, backButtonText : String) -> Bool {
         
         #if os(iOS)
             
@@ -115,32 +118,35 @@ public class BrowserDelegate : BaseUIDelegate, IBrowser {
                 return false
             }
             
-            #elseif os(OSX)
+        #endif
+        #if os(OSX)
+            
             // TODO: implement this part when the OSX part has a Base View Controller
             return false
+            
         #endif
-     }
-
-     /**
-        Method for opening a browser embedded into the application in a modal window
-
-        @param url            Url to open
-        @param title          Title of the Navigation bar
-        @param backButtonText Title of the Back button bar
-        @return The result of the operation
-        @since ARP1.0
-     */
-     public func openInternalBrowserModal(url : String, title : String, backButtonText : String) -> Bool {
-          
-        // TODO: Implement this method. ¿What is the difference between this method and without modal?
-        return false
-     }
+    }
 
     /**
-    Private method to check if an application is able to open an url
+       Method for opening a browser embedded into the application in a modal window
 
-    @param url  Url to check
-    @return The result of the operation
+       @param url            Url to open
+       @param title          Title of the Navigation bar
+       @param backButtonText Title of the Back button bar
+       @return The result of the operation
+       @since ARP1.0
+    */
+    public func openInternalBrowserModal(url : String, title : String, backButtonText : String) -> Bool {
+        
+        // TODO: Implement this method. ¿What is the difference between this method and without modal?
+        return false
+    }
+
+    /**
+       Private method to check if an application is able to open an url
+
+       @param url  Url to check
+       @return The result of the operation
     */
     private func checkURl(url: String) -> Bool {
         // Check if the string is empty
@@ -159,12 +165,13 @@ public class BrowserDelegate : BaseUIDelegate, IBrowser {
             
             // Check if it is possible to open the url
             if !application!.canOpenURL(url) {
-            
+                
                 logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The application cannot open this type of url: \(url)")
                 return false
             }
             
-            #elseif os(OSX)
+        #endif
+        #if os(OSX)
             // TODO: check how in OSX we can check if it is possible to open an url
         #endif
         

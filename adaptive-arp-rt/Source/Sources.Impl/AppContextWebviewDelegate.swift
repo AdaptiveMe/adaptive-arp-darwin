@@ -39,6 +39,9 @@ import Foundation
    Auto-generated implementation of IAppContextWebview specification.
 */
 public class AppContextWebviewDelegate : NSObject, IAppContextWebview {
+    
+    var primaryView:AnyObject? = nil
+    var webViewList:[AnyObject] = [AnyObject]()
 
     /**
        Default Constructor.
@@ -57,7 +60,23 @@ not be added using this method.
        @since ARP1.0
     */
     public func addWebview(webView : AnyObject) {
-        // TODO: Not implemented.
+        
+        var exists = false;
+        
+        // Check if the webview is alredy in the array
+        if let instance:AnyObject = webView as AnyObject? {
+            for w in webViewList {
+                if (w as NSObject == instance as NSObject) {
+                    exists = true
+                    break
+                }
+            }
+        }
+        
+        // Avoid duplicate entries.
+        if !exists {
+            webViewList.append(webView)
+        }
     }
 
     /**
@@ -88,9 +107,13 @@ WebView, WKWebView, etc.
        @since ARP1.0
     */
     public func getWebviewPrimary() -> AnyObject {
-        var response : AnyObject
-        // TODO: Not implemented.
-        return ""
+        
+        return self.primaryView!
+    }
+    
+    /// Set the primary webview
+    public func setWebviewPrimary(webView : AnyObject) {
+        self.primaryView = webView
     }
 
     /**
@@ -101,9 +124,20 @@ This method will always return at least one element; the primary webview.
        @since ARP1.0
     */
     public func getWebviews() -> [AnyObject] {
-        var response : [AnyObject]
-        // TODO: Not implemented.
-        return [AnyObject]()
+        
+        var webViewListFull:[AnyObject] = [AnyObject]()
+        
+        // Primary webview
+        if (self.primaryView != nil) {
+            webViewListFull.append(self.primaryView!)
+        }
+        
+        // Other webviews
+        for webView in self.webViewList {
+            webViewListFull.append(webView)
+        }
+        
+        return webViewListFull
     }
 
     /**
@@ -114,7 +148,13 @@ ARP functions and release resources. The primary webview can not be removed.
        @since ARP1.0
     */
     public func removeWebview(webView : AnyObject) {
-        // TODO: Not implemented.
+        
+        for (index, webView) in enumerate(self.webViewList) {
+            if (webView as NSObject == webView as NSObject) {
+                self.webViewList.removeAtIndex(index)
+                return
+            }
+        }
     }
 
 }

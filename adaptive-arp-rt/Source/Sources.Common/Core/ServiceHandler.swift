@@ -35,7 +35,7 @@ import Foundation
 public class ServiceHandler:NSObject {
     
     /// Logging variable
-    let logger:ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge().getDelegate()!
+    let logger:ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
     let loggerTag:String = "ServiceHandler"
     
     /// Queue for executing async tasks
@@ -114,10 +114,7 @@ public class ServiceHandler:NSObject {
         }
         
         // PARSE THE PARAMETERS
-        
-        //println(request.HTTPBody)
-        println(NSJSONSerialization.JSONObjectWithData(request.HTTPBody!, options: NSJSONReadingOptions.allZeros, error: nil))
-        
+                
         // EXECUTE THE METHOD
         
         logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Executing \"\(method)\" method defined in \"\(type)\" api interface based on \"\(group)\" class")

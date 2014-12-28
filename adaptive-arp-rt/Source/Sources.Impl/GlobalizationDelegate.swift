@@ -39,7 +39,15 @@ import Foundation
    Auto-generated implementation of IGlobalization specification.
 */
 public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
-
+    
+    /// Logger variable
+    let logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+    let loggerTag : String = "GlobalizationDelegate"
+    
+    /// i18n config file
+    let I18N_CONFIG_FILE: String = "i18n-config.xml";
+    let I18N_LANG_FILE: String = ".plist";
+    
     /**
        Default Constructor.
     */
@@ -54,9 +62,36 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
        @since ARP1.0
     */
     public func getLocaleSupportedDescriptors() -> [Locale] {
-        var response : [Locale]
-        // TODO: Not implemented.
-        return [Locale]()
+        
+        // Read the i18n config file
+        var resourceData : ResourceData? = AppResourceManager.sharedInstance.retrieveConfigResource(I18N_CONFIG_FILE)
+        if resourceData == nil {
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error reading i18n config file: \(I18N_CONFIG_FILE)")
+            // TODO: change by nil when the return type will be optional
+            return [Locale()]
+        }
+        
+        let data: Foundation.NSData? = resourceData!.data
+        if data == nil {
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error reading i18n config file: \(I18N_CONFIG_FILE)")
+            // TODO: change by nil when the return type will be optional
+            return [Locale()]
+        }
+        
+        var parserDelegate:I18NParser = I18NParser()
+        
+        // Create the parser and parse the xml
+        var xmlParser = NSXMLParser(data: data)
+        xmlParser.delegate = parserDelegate
+        
+        if xmlParser.parse() {
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Returning locales \(parserDelegate.getLocales())")
+            return parserDelegate.getLocales()
+        } else {
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error parsing i18n config file: \(I18N_CONFIG_FILE)")
+            // TODO: change by nil when the return type will be optional
+            return [Locale()]
+        }
     }
 
     /**
@@ -68,9 +103,51 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
        @since ARP1.0
     */
     public func getResourceLiteral(key : String, locale : Locale) -> String {
-        var response : String
-        // TODO: Not implemented.
-        return String()
+        
+        var filePath:String = getLanguageFilePath(locale)
+        var resourceData : ResourceData? = AppResourceManager.sharedInstance.retrieveConfigResource(filePath)
+        if resourceData == nil {
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error reading i18n LANGUAGE file: \(filePath)")
+            // TODO: change by nil when the return type will be optional
+            return ""
+        }
+        
+        var anError : NSError?
+        let data: NSData? = resourceData!.data
+        
+        if data == nil {
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error reading i18n LANGUAGE file: \(filePath)")
+            // TODO: change by nil when the return type will be optional
+            return ""
+        }
+        
+        let dict : AnyObject! = NSPropertyListSerialization.propertyListWithData(data!, options: 0,format: nil, error: &anError)
+        
+        if dict != nil {
+            if let ocDictionary = dict as? NSDictionary {
+                
+                //var swiftDict : Dictionary<String,String> = Dictionary<String,String>()
+                
+                for k : AnyObject in ocDictionary.allKeys{
+                    let stringKey : String = k as String
+                    
+                    if key == stringKey {
+                        
+                        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Returning value: \(ocDictionary[stringKey]) for key: \(stringKey)")
+                        return (ocDictionary[stringKey] as String)
+                    }
+                }
+            } else {
+                logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Sorry, couldn't read the file \(filePath.lastPathComponent)")
+                // TODO: change by nil when the return type will be optional
+                return ""
+            }
+        } else if let theError = anError {
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Sorry, couldn't read the file \(filePath.lastPathComponent):\n\t"+theError.localizedDescription)
+        }
+        
+        // TODO: change by nil when the return type will be optional
+        return ""
     }
 
     /**
@@ -81,9 +158,60 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
        @since ARP1.0
     */
     public func getResourceLiterals(locale : Locale) -> [KeyPair] {
-        var response : [KeyPair]
-        // TODO: Not implemented.
-        return [KeyPair]()
+        
+        var swiftDict : [KeyPair] = [KeyPair]()
+        
+        var filePath:String = getLanguageFilePath(locale)
+        var resourceData : ResourceData? = AppResourceManager.sharedInstance.retrieveConfigResource(filePath)
+        if resourceData == nil {
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error reading i18n LANGUAGE file: \(filePath)")
+            // TODO: change by nil when the return type will be optional
+            return [KeyPair()]
+        }
+        
+        var anError : NSError?
+        let data: NSData? = resourceData!.data
+        
+        if data == nil {
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error reading i18n LANGUAGE file: \(filePath)")
+            // TODO: change by nil when the return type will be optional
+            return [KeyPair()]
+        }
+        
+        let dict : AnyObject! = NSPropertyListSerialization.propertyListWithData(data!, options: 0,format: nil, error: &anError)
+        
+        if dict != nil {
+            if let ocDictionary = dict as? NSDictionary {
+                
+                for k : AnyObject in ocDictionary.allKeys{
+                    
+                    let stringKey : String = k as String
+                    
+                    swiftDict.append(KeyPair(keyName: stringKey, keyValue: ocDictionary[stringKey] as String))
+                }
+            } else {
+                logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Sorry, couldn't read the file \(filePath.lastPathComponent)")
+                // TODO: change by nil when the return type will be optional
+                return [KeyPair()]
+            }
+        } else if let theError = anError {
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Sorry, couldn't read the file \(filePath.lastPathComponent):\n\t"+theError.localizedDescription)
+        }
+        
+        return swiftDict
+    }
+    
+    /**
+    Returns the full path for an specific language file
+    
+    :param: locale Locale bean
+    
+    :returns: Full path of language file
+    :author: Ferran Vila Conesa
+    :since: ARP1.0
+    */
+    private func getLanguageFilePath(locale: Locale) -> String {
+        return "\(locale.getLanguage()!)-\(locale.getCountry()!)\(I18N_LANG_FILE)"
     }
 
 }

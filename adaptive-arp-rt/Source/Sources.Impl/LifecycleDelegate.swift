@@ -39,12 +39,30 @@ import Foundation
    Auto-generated implementation of ILifecycle specification.
 */
 public class LifecycleDelegate : BaseApplicationDelegate, ILifecycle {
+    
+    /// Logger variable
+    let logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+    let loggerTag : String = "LifecycleDelegate"
+    
+    /// Array for saving the registered listeners
+    var listeners:[ILifecycleListener]!
+    
+    // Workaround: for saving an static class variable for swift
+    private struct SubStruct { static var staticVariable: Bool = false }
+    
+    // Variable that determines the foreground/background status of the app
+    public class var isBackgroundClassVariable: Bool
+        {
+        get { return SubStruct.staticVariable }
+        set { SubStruct.staticVariable = newValue }
+    }
 
     /**
        Default Constructor.
     */
     public override init() {
         super.init()
+        listeners = [ILifecycleListener]()
     }
 
     /**
@@ -54,7 +72,9 @@ public class LifecycleDelegate : BaseApplicationDelegate, ILifecycle {
        @since ARP1.0
     */
     public func addLifecycleListener(listener : ILifecycleListener) {
-        // TODO: Not implemented.
+        
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Adding one listener to the pull")
+        listeners.append(listener)
     }
 
     /**
@@ -64,9 +84,8 @@ public class LifecycleDelegate : BaseApplicationDelegate, ILifecycle {
        @since ARP1.0
     */
     public func isBackground() -> Bool {
-        var response : Bool
-        // TODO: Not implemented.
-        return false
+        
+        return SubStruct.staticVariable
     }
 
     /**
@@ -76,7 +95,16 @@ public class LifecycleDelegate : BaseApplicationDelegate, ILifecycle {
        @since ARP1.0
     */
     public func removeLifecycleListener(listener : ILifecycleListener) {
-        // TODO: Not implemented.
+        
+        for (index, l) in enumerate(listeners) {
+            if(l.isEqual(listener)) {
+                
+                listeners.removeAtIndex(index)
+                logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing \(listener) to the service pull")
+                return
+            }
+        }
+        logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "\(listener) is not founded in the pull for removing")
     }
 
     /**
@@ -85,7 +113,49 @@ public class LifecycleDelegate : BaseApplicationDelegate, ILifecycle {
        @since ARP1.0
     */
     public func removeLifecycleListeners() {
-        // TODO: Not implemented.
+        
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing all the listeners from thee service pull")
+        listeners.removeAll(keepCapacity: false)
+    }
+    
+    /**
+       This function is called by the Appdelegeate in order to propagate an event to the listeners
+    
+       @param lifecycle LifeCycle event
+    */
+    public func changeListenersStatus(lifecycle:Lifecycle) {
+        
+        // Iterate all over the listeners and fire the event
+        for (index, l) in enumerate(listeners) {
+            l.onResult(lifecycle)
+        }
+    }
+    
+    /**
+       This function is called by the Appdelegeate in order to propagate an event to the listeners
+    
+       @param lifecycle LifeCycle event
+       @param warning Warning event
+    */
+    public func changeListenerWarningStatus(lifecycle:Lifecycle, warning: ILifecycleListenerWarning) {
+        
+        // Iterate all over the listeners and fire the event
+        for (index, l) in enumerate(listeners) {
+            l.onWarning(lifecycle, warning: warning)
+        }
+    }
+    
+    /**
+       This function is called by the Appdelegeate in order to propagate an event to the listeners
+    
+       @param error Error event
+    */
+    public func changeListenerErrorStatus(error: ILifecycleListenerError) {
+        
+        // Iterate all over the listeners and fire the event
+        for (index, l) in enumerate(listeners) {
+            l.onError(error)
+        }
     }
 
 }

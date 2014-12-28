@@ -33,18 +33,33 @@ Release:
 */
 
 import Foundation
+#if os(iOS)
+    import UIKit
+#endif
 
 /**
    Interface for Managing the Telephony operations
    Auto-generated implementation of ITelephony specification.
 */
 public class TelephonyDelegate : BaseCommunicationDelegate, ITelephony {
+    
+    /// Logger variable
+    let logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+    let loggerTag : String = "TelephonyDelegate"
+    
+    #if os(iOS)
+    /// Application variable
+    var application:UIApplication? = nil
+    #endif
 
     /**
        Default Constructor.
     */
     public override init() {
         super.init()
+        #if os(iOS)
+            self.application = (AppRegistryBridge.sharedInstance.getPlatformContext().getContext() as UIApplication)
+        #endif
     }
 
     /**
@@ -55,9 +70,51 @@ public class TelephonyDelegate : BaseCommunicationDelegate, ITelephony {
        @since ARP1.0
     */
     public func call(number : String) -> ITelephonyStatus {
-        var response : ITelephonyStatus
-        // TODO: Not implemented.
-        return ITelephonyStatus.Unknown
+        
+        // Check the correct format of the number
+        if !Utils.isPhoneNumberCorrect(number) {
+            
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The number: \(number) has an incorrect format")
+            return ITelephonyStatus.Failed
+        }
+        
+        let url: NSURL = NSURL(string: "tel://\(number)")!
+        
+        #if os(iOS)
+            // Check if it is possible to open the url
+            if !application!.canOpenURL(url) {
+                
+                logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The url: \(url) is not possible to open by the application")
+                return ITelephonyStatus.Failed
+            }
+        #endif
+        #if os(OSX)
+            
+            // TODO: implement this for OSX
+            
+        #endif
+        
+        var result: Bool = false
+        
+        #if os(iOS)
+            // Make the call
+            result =  application!.openURL(url)
+            
+            if !result {
+                logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "It is not posible to make the call")
+                return ITelephonyStatus.Failed
+            } else {
+                
+                return ITelephonyStatus.Dialing
+            }
+        #endif
+        #if os(OSX)
+            
+            // TODO: implement this for OSX
+            
+            return ITelephonyStatus.Failed
+            
+        #endif
     }
 
 }

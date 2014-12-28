@@ -43,41 +43,41 @@ import MessageUI
 public class MessagingDelegate : UIViewController, /*BasePIMDelegate,*/ IMessaging, MFMessageComposeViewControllerDelegate {
     
     /// Logger variable
-    let logger : ILogging = AppRegistryBridge.sharedInstance.getDelegate()!.getLoggingBridge().getDelegate()!
+    let logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
     let loggerTag : String = "MessagingDelegate"
     
     /// Callbacks
     var smsCallback:IMessagingCallback!
     
     /**
-    Group of API.
+       Group of API.
     */
     private var apiGroup : IAdaptiveRPGroup?
     
     /**
-    Return the API group for the given interface.
+       Return the API group for the given interface.
     */
     public final func getAPIGroup() -> IAdaptiveRPGroup {
         return self.apiGroup!
     }
     
-     /**
-        Default Constructor.
-     */
-     public override init() {
+    /**
+       Default Constructor.
+    */
+    public override init() {
         super.init()
         self.apiGroup = IAdaptiveRPGroup.PIM
-     }
+    }
 
-     /**
-        Send text SMS
+    /**
+       Send text SMS
 
-        @param number   to send
-        @param text     to send
-        @param callback with the result
-        @since ARP1.0
-     */
-     public func sendSMS(number : String, text : String, callback : IMessagingCallback) {
+       @param number   to send
+       @param text     to send
+       @param callback with the result
+       @since ARP1.0
+    */
+    public func sendSMS(number : String, text : String, callback : IMessagingCallback) {
         
         // Check if the device can send SMS
         if !(MFMessageComposeViewController.canSendText()) {
@@ -110,15 +110,14 @@ public class MessagingDelegate : UIViewController, /*BasePIMDelegate,*/ IMessagi
             logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "There is no a current view controller on the stack")
             callback.onError(IMessagingCallbackError.NotSent)
         }
-     }
+    }
     
+    /**
+       This method is the metod called by the OS when the user leaves the sms screen. This method receives the result of the opertaion
     
-    
-    /// This method is the metod called by the OS when the user leaves the smss screen. This method receives the result of the opertaion
-    /// :param: controller MFMessageComposeViewController used to fire this event
-    /// :param: result  Send SMS result
-    /// :author: Ferran Vila Conesa
-    /// :since: ARP1.0
+       @param controller MFMessageComposeViewController used to fire this event
+       @param result  Send SMS result
+    */
     public func messageComposeViewController(controller: MFMessageComposeViewController!, didFinishWithResult result: MessageComposeResult) {
         
         switch result.value {
@@ -165,28 +164,29 @@ public class MessagingDelegate : UIViewController, /*BasePIMDelegate,*/ IMessagi
 
 }
     
-#elseif os(OSX)
+#endif
+#if os(OSX)
     
 /**
-Interface for Managing the Messaging operations
-Auto-generated implementation of IMessaging specification.
+   Interface for Managing the Messaging operations
+   Auto-generated implementation of IMessaging specification.
 */
 public class MessagingDelegate : BasePIMDelegate, IMessaging {
     
     /**
-    Default Constructor.
+       Default Constructor.
     */
     public override init() {
         super.init()
     }
     
     /**
-    Send text SMS
+       Send text SMS
     
-    @param number   to send
-    @param text     to send
-    @param callback with the result
-    @since ARP1.0
+       @param number   to send
+       @param text     to send
+       @param callback with the result
+       @since ARP1.0
     */
     public func sendSMS(number : String, text : String, callback : IMessagingCallback) {
         

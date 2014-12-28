@@ -55,7 +55,8 @@ public class LoggingDelegate : BaseUtilDelegate, ILogging {
        @since ARP1.0
     */
     public func log(level : ILoggingLogLevel, message : String) {
-        // TODO: Not implemented.
+        
+        log(level, category: "GENERAL", message: message);
     }
 
     /**
@@ -67,7 +68,26 @@ public class LoggingDelegate : BaseUtilDelegate, ILogging {
        @since ARP1.0
     */
     public func log(level : ILoggingLogLevel, category : String, message : String) {
-        // TODO: Not implemented.
+        
+        switch level {
+            
+        case ILoggingLogLevel.DEBUG:
+            #if DEBUG
+                NSLog("[DEBUG - \(category)] \(message)")
+            #endif
+            
+        case ILoggingLogLevel.INFO:
+            NSLog("[INFO - \(category)] \(message)")
+            
+        case ILoggingLogLevel.WARN:
+            NSLog("[WARN - \(category)] \(message)")
+            
+        case ILoggingLogLevel.ERROR:
+            NSLog("[ERROR - \(category)] \(message)")
+            
+        case ILoggingLogLevel.Unknown:
+            NSLog("[INFO - \(category)] \(message)")
+        }
     }
 
 }

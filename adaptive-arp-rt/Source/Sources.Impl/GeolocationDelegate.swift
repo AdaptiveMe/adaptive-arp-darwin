@@ -39,12 +39,20 @@ import Foundation
    Auto-generated implementation of IGeolocation specification.
 */
 public class GeolocationDelegate : BaseSensorDelegate, IGeolocation {
+    
+    /// Logger variable
+    let logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+    let loggerTag : String = "GeolocationDelegate"
+    
+    /// Array for saving the registered listeners
+    var delegates:[GeolocationDelegateHelper]!
 
     /**
        Default Constructor.
     */
     public override init() {
         super.init()
+        delegates = [GeolocationDelegateHelper]()
     }
 
     /**
@@ -54,7 +62,13 @@ public class GeolocationDelegate : BaseSensorDelegate, IGeolocation {
        @since ARP1.0
     */
     public func addGeolocationListener(listener : IGeolocationListener) {
-        // TODO: Not implemented.
+        
+        // Create a new location manager, add to the list and then initialize the geolocation updates
+        var geo:GeolocationDelegateHelper = GeolocationDelegateHelper(listener: listener)
+        self.delegates.append(geo)
+        geo.initLocationManager()
+        
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Adding listener: \(geo.getListener())")
     }
 
     /**
@@ -64,7 +78,19 @@ public class GeolocationDelegate : BaseSensorDelegate, IGeolocation {
        @since ARP1.0
     */
     public func removeGeolocationListener(listener : IGeolocationListener) {
-        // TODO: Not implemented.
+        
+        for (index,delegate) in enumerate(delegates) {
+            
+            if delegate.isEqual(listener) {
+                
+                logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing listener: \(delegate.getListener())")
+                
+                // stop the geolocations updates
+                delegate.stopUpdatingLocation()
+                
+                self.delegates.removeAtIndex(index)
+            }
+        }
     }
 
     /**
@@ -73,7 +99,21 @@ public class GeolocationDelegate : BaseSensorDelegate, IGeolocation {
        @since ARP1.0
     */
     public func removeGeolocationListeners() {
-        // TODO: Not implemented.
+        
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing all the geolocation listeners")
+        
+        for (index,delegate) in enumerate(delegates) {
+            
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing listener: \(delegate.getListener())")
+            
+            // stop the geolocations updates
+            delegate.stopUpdatingLocation()
+            
+            self.delegates.removeAtIndex(index)
+        }
+        
+        // Remove all the elements in the array just in case
+        self.delegates.removeAll(keepCapacity: false)
     }
 
 }

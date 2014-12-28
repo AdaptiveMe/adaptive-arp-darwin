@@ -39,12 +39,21 @@ import Foundation
    Auto-generated implementation of IService specification.
 */
 public class ServiceDelegate : BaseCommunicationDelegate, IService {
+    
+    /// Logger variable
+    let logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+    let loggerTag : String = "ServiceDelegate"
+    
+    /// Array of registered services
+    var services : [Service]!
 
     /**
        Default Constructor.
     */
     public override init() {
         super.init()
+        
+        services = [Service]()
     }
 
     /**
@@ -55,8 +64,19 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
        @since ARP1.0
     */
     public func getService(serviceName : String) -> Service {
-        var response : Service
-        // TODO: Not implemented.
+        
+        for service in services {
+            
+            if(service.getName() == serviceName) {
+                
+                logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Returning \(service.getName()!) from the service pull")
+                return service
+            }
+        }
+        
+        logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "\(serviceName) is not founded on the pull")
+        
+        // TODO: Return nil when the return value will be optional
         return Service()
     }
 
@@ -69,7 +89,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
        @since ARP1.0
     */
     public func invokeService(serviceRequest : ServiceRequest, service : Service, callback : IServiceResultCallback) {
-        // TODO: Not implemented.
+        // TODO: Not implemented. Find the previous version without Alamofire
     }
 
     /**
@@ -80,8 +100,9 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
        @since ARP1.0
     */
     public func isRegistered(service : Service) -> Bool {
-        var response : Bool
-        // TODO: Not implemented.
+        
+        // TODO: Return this when the return value will be optional
+        // return self.getService(service.getName()!) != nil ? true : false
         return false
     }
 
@@ -93,8 +114,9 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
        @since ARP1.0
     */
     public func isRegistered(serviceName : String) -> Bool {
-        var response : Bool
-        // TODO: Not implemented.
+        
+        // TODO: Return this when the return value will be optional
+        // return self.getService(serviceName) != nil ? true : false
         return false
     }
 
@@ -105,7 +127,15 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
        @since ARP1.0
     */
     public func registerService(service : Service) {
-        // TODO: Not implemented.
+        
+        if service.getName() == "" || service.getName()!.isEmpty {
+            
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The service has no name. Impossible to add to the pull")
+        } else {
+            
+            services.append(service)
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Adding \(service.getName()!) to the service pull")
+        }
     }
 
     /**
@@ -115,7 +145,20 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
        @since ARP1.0
     */
     public func unregisterService(service : Service) {
-        // TODO: Not implemented.
+        
+        for (index, s) in enumerate(services) {
+            
+            if(s == service) {
+                
+                services.removeAtIndex(index)
+                
+                logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing \(service.getName()!) to the service pull")
+                
+                return
+            }
+        }
+        
+        logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "\(service.getName()!) is not founded in the pull for removing")
     }
 
     /**
@@ -124,7 +167,10 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
        @since ARP1.0
     */
     public func unregisterServices() {
-        // TODO: Not implemented.
+        
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing all services from thee service pull")
+        
+        services.removeAll(keepCapacity: false)
     }
 
 }

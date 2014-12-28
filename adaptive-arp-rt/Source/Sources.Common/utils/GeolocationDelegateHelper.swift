@@ -36,7 +36,7 @@ import CoreLocation
 public class GeolocationDelegateHelper: NSObject, CLLocationManagerDelegate {
     
     /// Logging variable
-    let logger: ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge().getDelegate()!
+    let logger: ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
     let loggerTag: String = "GeolocationDelegateHelper"
     
     /// Geo location manager

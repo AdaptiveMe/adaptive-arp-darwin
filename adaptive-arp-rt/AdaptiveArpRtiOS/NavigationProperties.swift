@@ -32,12 +32,14 @@
 import Foundation
 
 class NavigationProperties {
+    
+    /// Navigation property fields
     var navigationBarHidden : Bool = false
     var navigationBarTitle : String = "Browser"
     var navigationBarBackLabel : String = "Back"
     var navigationUrl : NSURL?
     
-    
+    /// Default constructor
     init(navigationBarHidden: Bool, navigationBarTitle: String, navigationBarBackLabel: String, navigationUrl: NSURL) {
         self.navigationBarHidden = navigationBarHidden
         self.navigationBarTitle = navigationBarTitle

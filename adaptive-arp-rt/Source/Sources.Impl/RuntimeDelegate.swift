@@ -39,6 +39,10 @@ import Foundation
    Auto-generated implementation of IRuntime specification.
 */
 public class RuntimeDelegate : BaseSystemDelegate, IRuntime {
+    
+    /// Logger variable
+    let logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+    let loggerTag : String = "RuntimeDelegate"
 
     /**
        Default Constructor.
@@ -53,7 +57,10 @@ public class RuntimeDelegate : BaseSystemDelegate, IRuntime {
        @since ARP1.0
     */
     public func dismissApplication() {
-        // TODO: Not implemented.
+        
+        // In iOS there is no API provided for quitting the applications
+        // :see: https://developer.apple.com/library/ios/qa/qa1561/_index.html
+        logger.log(ILoggingLogLevel.ERROR, category:loggerTag, message: "There is no API provided for gracefully terminating an iOS application.")
     }
 
     /**
@@ -63,8 +70,9 @@ public class RuntimeDelegate : BaseSystemDelegate, IRuntime {
        @since ARP1.0
     */
     public func dismissSplashScreen() -> Bool {
-        var response : Bool
-        // TODO: Not implemented.
+        
+        logger.log(ILoggingLogLevel.ERROR, category:loggerTag, message: "There is no API provided for dismissing the splash screen inside an iOS application")
+        
         return false
     }
 
