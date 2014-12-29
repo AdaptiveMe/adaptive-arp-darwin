@@ -86,7 +86,80 @@ public class NetworkReachabilityDelegate : BaseCommunicationDelegate, INetworkRe
     */
     public func isNetworkServiceReachable(url : String, callback : INetworkReachabilityCallback) {
         
-        // TODO: Not implemented. Find implementation without Alamofire
+        // TODO: handle http status WARNING codes for: NotRegisteredService, NotTrusted, IncorrectScheme
+        
+        // Check the url for malforming
+        if(Utils.validateUrl(url)){
+            callback.onError(INetworkReachabilityCallbackError.MalformedUrl)
+            self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Url malformed: \(url)")
+            return
+        }
+        
+        var nsUrl:NSURL = NSURL(string: url)!
+        var request = NSURLRequest(URL: nsUrl)
+        
+        // Creating NSOperationQueue to which the handler block is dispatched when the request completes or failed
+        var queue: NSOperationQueue = NSOperationQueue()
+        
+        // Sending Asynchronous request using NSURLConnection
+        NSURLConnection.sendAsynchronousRequest(request, queue: queue, completionHandler:{
+            (response:NSURLResponse!, responseData:NSData!, error: NSError!) -> Void in
+            
+            if (error != nil){
+                
+                callback.onError(INetworkReachabilityCallbackError.Unreachable)
+                
+                self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "\(error.description)")
+                
+            } else {
+                
+                let httpResponse: NSHTTPURLResponse = response as NSHTTPURLResponse
+                
+                //Converting data to String
+                let responseText:NSString = NSString(data:responseData, encoding:NSUTF8StringEncoding)!
+                
+                // Check for Not secured url
+                if (url as NSString).containsString("https://") {
+                    self.logger.log(ILoggingLogLevel.DEBUG, category: self.loggerTag, message: "Secured URL (https): \(url)")
+                } else {
+                    self.logger.log(ILoggingLogLevel.WARN, category: self.loggerTag, message: "NOT Secured URL (https): \(url)")
+                    
+                    callback.onWarning(true, warning: INetworkReachabilityCallbackWarning.NotSecure)
+                }
+                
+                self.logger.log(ILoggingLogLevel.DEBUG, category: self.loggerTag, message: "status code: \(httpResponse.statusCode)")
+                
+                switch (httpResponse.statusCode) {
+                case 200..<299:
+                    callback.onResult(true)
+                case 300..<399:
+                    callback.onWarning(true, warning: INetworkReachabilityCallbackWarning.Redirected)
+                case 400:
+                    callback.onError(INetworkReachabilityCallbackError.Wrong_Params)
+                case 401:
+                    callback.onError(INetworkReachabilityCallbackError.NotAuthenticated)
+                case 403:
+                    callback.onError(INetworkReachabilityCallbackError.Forbidden)
+                case 404:
+                    callback.onError(INetworkReachabilityCallbackError.NotFound)
+                case 405:
+                    callback.onError(INetworkReachabilityCallbackError.MethodNotAllowed)
+                case 406:
+                    callback.onError(INetworkReachabilityCallbackError.NotAllowed)
+                case 408:
+                    callback.onError(INetworkReachabilityCallbackError.TimeOut)
+                case 444:
+                    callback.onError(INetworkReachabilityCallbackError.NoResponse)
+                case 400..<499:
+                    callback.onError(INetworkReachabilityCallbackError.Unreachable)
+                case 500..<599:
+                    callback.onError(INetworkReachabilityCallbackError.Unreachable)
+                default:
+                    callback.onError(INetworkReachabilityCallbackError.Unknown)
+                    
+                }
+            }
+        })
     }
 
 }
