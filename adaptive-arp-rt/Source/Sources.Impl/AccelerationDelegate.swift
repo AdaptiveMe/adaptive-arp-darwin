@@ -33,18 +33,34 @@ Release:
 */
 
 import Foundation
+#if os(iOS)
+    import CoreMotion
+#endif
 
 /**
    Interface defining methods about the acceleration sensor
    Auto-generated implementation of IAcceleration specification.
 */
 public class AccelerationDelegate : BaseSensorDelegate, IAcceleration {
+    
+    /// Logger variable
+    let logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+    let loggerTag : String = "AccelerationDelegate"
+    
+    #if os(iOS)
+        var motionManager: CMMotionManager!
+        var listeners:[IAccelerationListener]!
+    #endif
 
     /**
        Default Constructor.
     */
     public override init() {
         super.init()
+        #if os(iOS)
+            motionManager = CMMotionManager()
+            listeners = [IAccelerationListener]()
+        #endif
     }
 
     /**
@@ -54,7 +70,47 @@ public class AccelerationDelegate : BaseSensorDelegate, IAcceleration {
        @since ARP1.0
     */
     public func addAccelerationListener(listener : IAccelerationListener) {
-        // TODO: Not implemented.
+        
+        #if os(iOS)
+            if motionManager.accelerometerAvailable {
+                
+                // check if listener exists
+                for (index, l) in enumerate(listeners) {
+                    if listener.isEqual(l) {
+                        logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The listener is alredy on the pull. Replacing...")
+                        self.removeAccelerationListener(listener)
+                    }
+                }
+                
+                // add the listener
+                listeners.append(listener)
+                logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Adding \(listener) to the acceleration listeners pull")
+                
+                let queue = NSOperationQueue()
+                
+                motionManager.startAccelerometerUpdatesToQueue(
+                    queue,
+                    withHandler:{(data: CMAccelerometerData!, error: NSError!) in
+                        
+                        // Create the accelerometer object and send it to the listener
+                        
+                        var date = NSDate()
+                        var timestamp:Int = Int(date.timeIntervalSince1970*1000)
+                        
+                        var a:Acceleration = Acceleration(x: data.acceleration.x, y: data.acceleration.y, z: data.acceleration.z, timestamp: timestamp)
+                        listener.onResult(a)
+                    }
+                )
+            } else {
+                logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The Accelerometer is not available")
+                listener.onError(IAccelerationListenerError.Unavailable)
+            }
+        #endif
+        #if os(OSX)
+            
+            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The Accelerometer is not supported by the current Operating System")
+            
+        #endif
     }
 
     /**
@@ -64,7 +120,30 @@ public class AccelerationDelegate : BaseSensorDelegate, IAcceleration {
        @since ARP1.0
     */
     public func removeAccelerationListener(listener : IAccelerationListener) {
-        // TODO: Not implemented.
+        
+        #if os(iOS)
+            
+            for (index, l) in enumerate(listeners) {
+                
+                if(listener.isEqual(l)) {
+                    
+                    listeners.removeAtIndex(index)
+                    
+                    logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing \(listener) from the listeners pull")
+                    
+                    return
+                }
+            }
+            
+            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "\(listener) is not founded in the pull for removing")
+            
+        #endif
+        #if os(OSX)
+            
+            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The Accelerometer is not supported by the current Operating System")
+            
+        #endif
+        
     }
 
     /**
@@ -73,7 +152,18 @@ public class AccelerationDelegate : BaseSensorDelegate, IAcceleration {
        @since ARP1.0
     */
     public func removeAccelerationListeners() {
-        // TODO: Not implemented.
+        
+        #if os(iOS)
+            
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing all the acceleration listeners...")
+            listeners.removeAll(keepCapacity: false)
+            
+        #endif
+        #if os(OSX)
+            
+            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The Accelerometer is not supported by the current Operating System")
+            
+        #endif
     }
 
 }
