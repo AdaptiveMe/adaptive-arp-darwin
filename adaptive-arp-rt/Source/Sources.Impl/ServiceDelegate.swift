@@ -206,7 +206,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
         } else {
             
             // Check if the service exists
-            if service.isEqual(self.getService(service.getName())){
+            if service.isEqual(self.getService(service.getName()!)){
                 logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The service \(service.getName()!) is alredy on the pull, replacing...")
                 self.unregisterService(service)
             }
@@ -226,7 +226,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
         
         for (index, s) in enumerate(services) {
             
-            if(s == service) {
+            if(service.isEqual(s)) {
                 
                 services.removeAtIndex(index)
                 
