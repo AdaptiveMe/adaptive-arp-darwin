@@ -93,8 +93,11 @@ public class GeolocationDelegateHelper: NSObject, CLLocationManagerDelegate {
         var horizontalAccuracy:Float = Float(locationObject.horizontalAccuracy)
         var verticalAccuracy:Float = Float(locationObject.verticalAccuracy)
         
+        var date = NSDate()
+        var timestamp:Int = Int(date.timeIntervalSince1970*1000)
+        
         // Create a method Geolocation and send ot to the listener
-        var geolocation: Geolocation = Geolocation(latitude: latitude, longitude: longitude, altitude: altitude, xDoP: horizontalAccuracy, yDoP: verticalAccuracy, timestamp: -1 /** TODO: */)
+        var geolocation: Geolocation = Geolocation(latitude: latitude, longitude: longitude, altitude: altitude, xDoP: horizontalAccuracy, yDoP: verticalAccuracy, timestamp: timestamp)
         
         logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Updating the geolocation delegate at \(locationObject.timestamp)")
         
