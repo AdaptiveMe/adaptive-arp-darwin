@@ -29,7 +29,6 @@
 * =====================================================================================================================
 */
 
-import ObjectiveC
 import Foundation
 
 public class ServiceHandler:NSObject {
@@ -37,12 +36,6 @@ public class ServiceHandler:NSObject {
     /// Logging variable
     let logger:ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
     let loggerTag:String = "ServiceHandler"
-    
-    /// Queue for executing async tasks
-    var queue:dispatch_queue_t!
-    let queueLabel = "AdaptiveAsync"
-    
-    let callbackIdentifierKey:String = "id"
     
     /// Singleton instance
     public class var sharedInstance : ServiceHandler {
@@ -54,92 +47,20 @@ public class ServiceHandler:NSObject {
     
     /// Constructor
     public override init() {
-        
-        // Create a queue for executing async methods
-        queue = dispatch_queue_create(queueLabel, nil)
     }
     
     /// Method that handles the url from the JS and execute the native methods. This method could return some data in the syncronous methods or execute some callback/listeners in the asyncronous ones
     /// :param: url HTML5 url to parse
     /// :return: Data for returning the syncronous responses
-    public func handleServiceUrl(request:NSMutableURLRequest) -> NSData? {
+    public func handleServiceUrl(apiRequest:APIRequest) -> NSString {
         
-        // The url format is: [SCHEMA]://adaptiveapp/[BASE_CLASS]/[GROUP]/[TYPE]/[METHOD]?id=idCallback/listener
+        // 1. Get the Service Type // MARK: maybe store inside the APIRequest
+        // 2. Obtain the bridge: AppRegistryBridge.sharedInstance.getBridge()
+        // 3. Execute the method
+        // 3.1 Difference between the sync or async method (asyncId on APIBridge) dispatch_async(GCD.backgroundQueue(),{...});
+        // 4 Return the response
         
-        var url = request.URL!.absoluteString!
-        
-        var nsurl:NSURL = NSURL(string: url)!
-        var parameters:String? = nsurl.query
-        var callbackIdentifier:Int?
-        var isAsync:Bool = false
-        
-        // URL parameters
-        
-        if let parameters = parameters {
-            
-            // ASYNCRONOUS REQUESTS : The url has parameters, so there is a callback or a listener
-            
-            isAsync = true
-            
-            var paramArr:[String] = parameters.componentsSeparatedByString("&")
-            
-            for parameter:String in paramArr {
-                var kvArr:[String] = parameter.componentsSeparatedByString("=")
-                
-                if kvArr[0] == callbackIdentifierKey {
-                    callbackIdentifier = kvArr[1].toInt()
-                }
-            }
-            
-            if callbackIdentifier == nil {
-                logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Executing a asyncronous API method without the \"\(callbackIdentifierKey)\" parameter in the URL")
-                return nil
-            }
-            
-        }
-        
-        // URL PATH: obtain method and class and base class
-        
-        // This works even if the url has parameters or not
-        var path:String = url.componentsSeparatedByString("?")[0]
-        var pathArray:[String] = path.componentsSeparatedByString("/")
-        
-        var method:String = pathArray[pathArray.count-1]
-        var type:String = pathArray[pathArray.count-2]
-        var group:String = pathArray[pathArray.count-3]
-        
-        if method.isEmpty || type.isEmpty {
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error trying to obtain the method and the type for executing the native call")
-            return nil
-        }
-        
-        // PARSE THE PARAMETERS
-                
-        // EXECUTE THE METHOD
-        
-        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Executing \"\(method)\" method defined in \"\(type)\" api interface based on \"\(group)\" class")
-            
-        if isAsync {
-            
-            dispatch_async(GCD.backgroundQueue(),{
-                
-                // TODO: Get the class from the registry and execute the method and return the value
-                
-            });
-            
-        } else {
-            
-            var ret:NSData?
-            
-            dispatch_sync(GCD.mainQueue(),{
-                
-                // TODO: Get the class from the registry and execute the method and return the value
-            });
-            
-            return ret
-        }
-        
-        return nil
+        return ""
     }
 }
 

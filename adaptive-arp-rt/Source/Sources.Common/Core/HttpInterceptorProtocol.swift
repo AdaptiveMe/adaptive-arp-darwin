@@ -33,7 +33,7 @@ import Foundation
 
 #if os(iOS)
     import UIKit
-#endif
+#endif 
 #if os(OSX)
     import Cocoa
 #endif
@@ -124,31 +124,16 @@ public class HttpInterceptorProtocol : NSURLProtocol {
                 
                 // ADAPTIVE NATIVE CALLS
                 
-                var data:NSData? = ServiceHandler.sharedInstance.handleServiceUrl(newRequest)
-                var response:NSURLResponse?
+                // Parse the http body request and converto into a APIRequest Object
+                var apiRequest:APIRequest = APIRequest.Serializer.fromJSON(NSString(data: newRequest.HTTPBody!, encoding: NSUTF8StringEncoding)!)
                 
-                if let data = data {
-                    
-                    // syncronous responses
-                    var jsonData:NSData? = NSJSONSerialization.dataWithJSONObject(data, options: NSJSONWritingOptions.allZeros, error: nil)
-                    
-                    if let jsonData = jsonData {
-                        
-                        response = NSURLResponse(URL: self.request.URL, MIMEType: "application/javascript", expectedContentLength:jsonData.length, textEncodingName: "utf-8")
-                        self.client!.URLProtocol(self, didLoadData: jsonData)
-                        
-                    } else {
-                        logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "There is an error parsing the syncronous response to JSON")
-                        
-                        response = NSURLResponse(URL: self.request.URL, MIMEType: "application/javascript", expectedContentLength:0, textEncodingName: "utf-8")
-                    }
-                    
-                } else {
-                    // asyncronous responses
-                    response = NSURLResponse(URL: self.request.URL, MIMEType: "application/javascript", expectedContentLength: 0, textEncodingName: "utf-8")
-                }
+                // Call the service and return the data
+                var data:NSString = ServiceHandler.sharedInstance.handleServiceUrl(apiRequest)
                 
-                self.client!.URLProtocol(self, didReceiveResponse: response!, cacheStoragePolicy: .NotAllowed)
+                // Create the response
+                var response:NSURLResponse = NSURLResponse(URL: self.request.URL, MIMEType: "application/javascript", expectedContentLength:data.length, textEncodingName: "utf-8")
+                self.client!.URLProtocol(self, didLoadData: data.dataUsingEncoding(NSUTF8StringEncoding)!)
+                self.client!.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: .NotAllowed)
                 self.client!.URLProtocolDidFinishLoading(self)
                 
             } else {
