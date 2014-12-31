@@ -33,7 +33,7 @@ import Foundation
 
 #if os(iOS)
     import UIKit
-#endif
+#endif 
 #if os(OSX)
     import Cocoa
 #endif
@@ -124,32 +124,37 @@ public class HttpInterceptorProtocol : NSURLProtocol {
                 
                 // ADAPTIVE NATIVE CALLS
                 
-                var data:NSData? = ServiceHandler.sharedInstance.handleServiceUrl(newRequest)
-                var response:NSURLResponse?
                 
-                if let data = data {
+                if let body:NSData = newRequest.HTTPBody {
                     
-                    // syncronous responses
-                    var jsonData:NSData? = NSJSONSerialization.dataWithJSONObject(data, options: NSJSONWritingOptions.allZeros, error: nil)
-                    
-                    if let jsonData = jsonData {
+                    if let bodyString:NSString = NSString(data: body, encoding: NSUTF8StringEncoding) {
                         
-                        response = NSURLResponse(URL: self.request.URL, MIMEType: "application/javascript", expectedContentLength:jsonData.length, textEncodingName: "utf-8")
-                        self.client!.URLProtocol(self, didLoadData: jsonData)
+                        // Parse the http body request and converto into a APIRequest Object
+                        var apiRequest:APIRequest = APIRequest.Serializer.fromJSON(bodyString)
+                        
+                        // Call the service and return the data
+                        var data:NSString = ServiceHandler.sharedInstance.handleServiceUrl(apiRequest)
+                        
+                        // Create the response
+                        var response:NSURLResponse = NSURLResponse(URL: self.request.URL, MIMEType: "application/javascript", expectedContentLength:data.length, textEncodingName: "utf-8")
+                        
+                        if let nsData:NSData = data.dataUsingEncoding(NSUTF8StringEncoding) {
+                            
+                            self.client!.URLProtocol(self, didLoadData: nsData)
+                            self.client!.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: .NotAllowed)
+                            self.client!.URLProtocolDidFinishLoading(self)
+                            
+                        } else {
+                            logger.log(ILoggingLogLevel.ERROR, category:loggerTag, message: "There is a a problem converting the response to nsdata")
+                        }
                         
                     } else {
-                        logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "There is an error parsing the syncronous response to JSON")
-                        
-                        response = NSURLResponse(URL: self.request.URL, MIMEType: "application/javascript", expectedContentLength:0, textEncodingName: "utf-8")
+                        logger.log(ILoggingLogLevel.ERROR, category:loggerTag, message: "There is a a problem converting the body to string")
                     }
                     
                 } else {
-                    // asyncronous responses
-                    response = NSURLResponse(URL: self.request.URL, MIMEType: "application/javascript", expectedContentLength: 0, textEncodingName: "utf-8")
+                    logger.log(ILoggingLogLevel.ERROR, category:loggerTag, message: "There is a a problem obtaining the body of the request")
                 }
-                
-                self.client!.URLProtocol(self, didReceiveResponse: response!, cacheStoragePolicy: .NotAllowed)
-                self.client!.URLProtocolDidFinishLoading(self)
                 
             } else {
                 

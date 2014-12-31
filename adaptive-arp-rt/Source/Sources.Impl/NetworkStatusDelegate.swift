@@ -39,12 +39,23 @@ import Foundation
    Auto-generated implementation of INetworkStatus specification.
 */
 public class NetworkStatusDelegate : BaseCommunicationDelegate, INetworkStatus {
+    
+    /// Logger variable
+    let logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+    let loggerTag : String = "NetworkStatusDelegate"
+    
+    /// Listeners Pull
+    var listeners:[INetworkStatusListener]!
+    
+    /// Reachability Utils
+    var reachability:Reachability? = nil
 
     /**
        Default Constructor.
     */
     public override init() {
         super.init()
+        listeners = [INetworkStatusListener]()
     }
 
     /**
@@ -54,7 +65,50 @@ public class NetworkStatusDelegate : BaseCommunicationDelegate, INetworkStatus {
        @since ARP1.0
     */
     public func addNetworkStatusListener(listener : INetworkStatusListener) {
-        // TODO: Not implemented.
+        
+        // check if listener exists
+        for (index, l) in enumerate(listeners) {
+            if listener.isEqual(l) {
+                logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The listener is alredy on the pull. Replacing...")
+                self.removeNetworkStatusListener(listener)
+            }
+        }
+        
+        // add the listener
+        listeners.append(listener)
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Adding \(listener) to the listeners pull")
+        
+        if reachability == nil {
+            
+            reachability = Reachability.reachabilityForInternetConnection()
+            
+            // Clousure for when unreachable
+            reachability!.whenReachable = { reachability in
+                
+                // Iterate all over the listeners and notify
+                for (index, l) in enumerate(self.listeners) {
+                    if reachability.isReachableViaWiFi() {
+                        self.logger.log(ILoggingLogLevel.DEBUG, category: self.loggerTag, message: "Listener \(listener) reachable via WIFI")
+                        l.onResult(ICapabilitiesNet.WIFI)
+                    } else {
+                        self.logger.log(ILoggingLogLevel.DEBUG, category: self.loggerTag, message: "Listener \(listener) reachable via WAN")
+                        // MARK: it is not possible to determine the G version of the connection: GSM, GPRS, HSPA, etc...
+                        l.onResult(ICapabilitiesNet.GSM)
+                    }
+                }
+            }
+            
+            // Clousure for unreachable
+            reachability!.whenUnreachable = { reachability in
+                // Iterate all over the listeners and notify
+                for (index, l) in enumerate(self.listeners) {
+                    
+                    self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "Listener \(listener) unreachable")
+                    // TODO: change for the unreachable error
+                    l.onError(INetworkStatusListenerError.Unknown)
+                }
+            }
+        }
     }
 
     /**
@@ -64,7 +118,20 @@ public class NetworkStatusDelegate : BaseCommunicationDelegate, INetworkStatus {
        @since ARP1.0
     */
     public func removeNetworkStatusListener(listener : INetworkStatusListener) {
-        // TODO: Not implemented.
+        
+        for (index, l) in enumerate(listeners) {
+            
+            if(listener.isEqual(l)) {
+                
+                listeners.removeAtIndex(index)
+                
+                logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing \(listener) from the listeners pull")
+                
+                return
+            }
+        }
+        
+        logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "\(listener) is not founded in the pull for removing")
     }
 
     /**
@@ -73,7 +140,9 @@ public class NetworkStatusDelegate : BaseCommunicationDelegate, INetworkStatus {
        @since ARP1.0
     */
     public func removeNetworkStatusListeners() {
-        // TODO: Not implemented.
+        
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing all the listeners...")
+        listeners.removeAll(keepCapacity: false)
     }
 
 }
