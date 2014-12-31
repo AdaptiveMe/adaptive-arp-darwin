@@ -124,17 +124,37 @@ public class HttpInterceptorProtocol : NSURLProtocol {
                 
                 // ADAPTIVE NATIVE CALLS
                 
-                // Parse the http body request and converto into a APIRequest Object
-                var apiRequest:APIRequest = APIRequest.Serializer.fromJSON(NSString(data: newRequest.HTTPBody!, encoding: NSUTF8StringEncoding)!)
                 
-                // Call the service and return the data
-                var data:NSString = ServiceHandler.sharedInstance.handleServiceUrl(apiRequest)
-                
-                // Create the response
-                var response:NSURLResponse = NSURLResponse(URL: self.request.URL, MIMEType: "application/javascript", expectedContentLength:data.length, textEncodingName: "utf-8")
-                self.client!.URLProtocol(self, didLoadData: data.dataUsingEncoding(NSUTF8StringEncoding)!)
-                self.client!.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: .NotAllowed)
-                self.client!.URLProtocolDidFinishLoading(self)
+                if let body:NSData = newRequest.HTTPBody {
+                    
+                    if let bodyString:NSString = NSString(data: body, encoding: NSUTF8StringEncoding) {
+                        
+                        // Parse the http body request and converto into a APIRequest Object
+                        var apiRequest:APIRequest = APIRequest.Serializer.fromJSON(bodyString)
+                        
+                        // Call the service and return the data
+                        var data:NSString = ServiceHandler.sharedInstance.handleServiceUrl(apiRequest)
+                        
+                        // Create the response
+                        var response:NSURLResponse = NSURLResponse(URL: self.request.URL, MIMEType: "application/javascript", expectedContentLength:data.length, textEncodingName: "utf-8")
+                        
+                        if let nsData:NSData = data.dataUsingEncoding(NSUTF8StringEncoding) {
+                            
+                            self.client!.URLProtocol(self, didLoadData: nsData)
+                            self.client!.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: .NotAllowed)
+                            self.client!.URLProtocolDidFinishLoading(self)
+                            
+                        } else {
+                            logger.log(ILoggingLogLevel.ERROR, category:loggerTag, message: "There is a a problem converting the response to nsdata")
+                        }
+                        
+                    } else {
+                        logger.log(ILoggingLogLevel.ERROR, category:loggerTag, message: "There is a a problem converting the body to string")
+                    }
+                    
+                } else {
+                    logger.log(ILoggingLogLevel.ERROR, category:loggerTag, message: "There is a a problem obtaining the body of the request")
+                }
                 
             } else {
                 

@@ -49,17 +49,49 @@ public class ServiceHandler:NSObject {
     public override init() {
     }
     
-    /// Method that handles the url from the JS and execute the native methods. This method could return some data in the syncronous methods or execute some callback/listeners in the asyncronous ones
-    /// :param: url HTML5 url to parse
+    /// Method that executes the method with the parameters from the APIRequest object send it by the Typescript. This method could return some data in the syncronous methods or execute some callback/listeners in the asyncronous ones
+    /// :param: apiRequest API Request object
     /// :return: Data for returning the syncronous responses
     public func handleServiceUrl(apiRequest:APIRequest) -> NSString {
         
-        // 1. Get the Service Type // MARK: maybe store inside the APIRequest
-        // 2. Obtain the bridge: AppRegistryBridge.sharedInstance.getBridge()
-        // 3. Execute the method
-        // 3.1 Difference between the sync or async method (asyncId on APIBridge) dispatch_async(GCD.backgroundQueue(),{...});
-        // 4 Return the response
+        // TODO: change the bridgetype to obtain from the APIRequest. The method for obtaining this vould be a part of the conditional if below.
+        var bridgeType:String? = "IDatabase"
         
+        if let bridgeType:String = bridgeType {
+            
+            // Get the bridge
+            if let bridge:APIBridge = AppRegistryBridge.sharedInstance.getBridge(bridgeType) {
+                
+                if let asyncId:Int? = apiRequest.getAsyncId() {
+                    
+                    // async methods (executed in a background queue)
+                    dispatch_async(GCD.backgroundQueue(), {
+                        
+                        if let result:String = bridge.invoke(apiRequest) {
+                        } else {
+                            self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "There is an error executing the asyncronous method: \(apiRequest.getMethodName())")
+                        }
+                    })
+                    
+                } else {
+                    
+                    // sync methods (executed in the main queue)
+                    if let result:String = bridge.invoke(apiRequest) {
+                        return result
+                    } else {
+                        self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "There is an error executing the syncronous method: \(apiRequest.getMethodName())")
+                    }
+                }
+                
+            } else {
+                logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "There is no bridge with the identifier: \(bridgeType)")
+            }
+            
+        } else {
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "There is no bridge type inside the API Request object")
+        }
+        
+        // Default return value
         return ""
     }
 }
