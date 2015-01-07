@@ -36,6 +36,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             
     var window: UIWindow?
     
+    override init() {
+        super.init()
+        AppRegistryBridge.sharedInstance.getLoggingBridge().setDelegate(LoggingDelegate())
+        // TODO - register all required delegates.
+    }
+    
     /// Logger variable
     let logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
     let loggerTag : String = "AppDelegate"
