@@ -56,10 +56,6 @@ public class APIRequest : NSObject {
     */
     var methodName : String?
     /**
-       Types of the request parameters.
-    */
-    var parameterTypes : [String]?
-    /**
        Parameters of the request as JSON formatted strings.
     */
     var parameters : [String]?
@@ -76,28 +72,30 @@ public class APIRequest : NSObject {
     /**
        Constructor with method name. No parameters
 
+       @param bridgeType Name of the bridge to be invoked.
        @param methodName Name of the method
        @since ARP1.0
     */
-    public init(methodName: String) {
+    public init(bridgeType: String, methodName: String) {
         super.init()
+        self.bridgeType = bridgeType
         self.methodName = methodName
     }
 
     /**
        Constructor with all the parameters
 
-       @param methodName     Name of the method
-       @param parameters     Array of parameters as JSON formatted strings.
-       @param parameterTypes Array of parameters types
-       @param asyncId        Id of callback or listener or zero if none for synchronous calls.
+       @param bridgeType Name of the bridge to be invoked.
+       @param methodName Name of the method
+       @param parameters Array of parameters as JSON formatted strings.
+       @param asyncId    Id of callback or listener or zero if none for synchronous calls.
        @since ARP1.0
     */
-    public init(methodName: String, parameters: [String], parameterTypes: [String], asyncId: Int) {
+    public init(bridgeType: String, methodName: String, parameters: [String], asyncId: Int) {
         super.init()
+        self.bridgeType = bridgeType
         self.methodName = methodName
         self.parameters = parameters
-        self.parameterTypes = parameterTypes
         self.asyncId = asyncId
     }
 
@@ -161,26 +159,6 @@ listener.
     }
 
     /**
-       Parameter types Getter
-
-       @return Parameter types
-       @since ARP1.0
-    */
-    public func getParameterTypes() -> [String]? {
-        return self.parameterTypes
-    }
-
-    /**
-       Parameter types setter
-
-       @param parameterTypes Parameter types
-       @since ARP1.0
-    */
-    public func setParameterTypes(parameterTypes: [String]) {
-        self.parameterTypes = parameterTypes
-    }
-
-    /**
        Parameters Getter
 
        @return Parameters
@@ -233,16 +211,6 @@ listener.
                 }
             }
 
-            if let value : AnyObject = dict.objectForKey("parameterTypes") {
-                if "\(value)" as NSString != "<null>" {
-                    var parameterTypes : [String] = [String]()
-                    for (var i = 0;i < (value as NSArray).count ; i++) {
-                        parameterTypes.append((value as NSArray)[i] as String)
-                    }
-                    resultObject.parameterTypes = parameterTypes
-                }
-            }
-
             if let value : AnyObject = dict.objectForKey("parameters") {
                 if "\(value)" as NSString != "<null>" {
                     var parameters : [String] = [String]()
@@ -265,22 +233,6 @@ listener.
             object.asyncId != nil ? jsonString.appendString("\"asyncId\": \(object.asyncId!), ") : jsonString.appendString("\"asyncId\": null, ")
             object.bridgeType != nil ? jsonString.appendString("\"bridgeType\": \"\(object.bridgeType!)\", ") : jsonString.appendString("\"bridgeType\": null, ")
             object.methodName != nil ? jsonString.appendString("\"methodName\": \"\(object.methodName!)\", ") : jsonString.appendString("\"methodName\": null, ")
-            if (object.parameterTypes != nil) {
-                // Start array of objects.
-                jsonString.appendString("\"parameterTypes\": [");
-
-                for var i = 0; i < object.parameterTypes!.count; i++ {
-                    jsonString.appendString("\"\(JSONUtil.escapeString(object.parameterTypes![i]))\"");
-                    if (i < object.parameterTypes!.count-1) {
-                        jsonString.appendString(", ");
-                    }
-                }
-
-                // End array of objects.
-                jsonString.appendString("], ");
-            } else {
-                jsonString.appendString("\"parameterTypes\": null, ")
-            }
             if (object.parameters != nil) {
                 // Start array of objects.
                 jsonString.appendString("\"parameters\": [");
