@@ -173,7 +173,7 @@ WebView, WKWebView, etc.
        @return Object representing the specific and primary webview instance of the application.
        @since ARP1.0
     */
-    public func getWebviewPrimary() -> AnyObject {
+    public func getWebviewPrimary() -> AnyObject? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -203,7 +203,7 @@ This method will always return at least one element; the primary webview.
        @return Array with all the Webview instances being managed by ARP.
        @since ARP1.0
     */
-    public func getWebviews() -> [AnyObject] {
+    public func getWebviews() -> [AnyObject]? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()

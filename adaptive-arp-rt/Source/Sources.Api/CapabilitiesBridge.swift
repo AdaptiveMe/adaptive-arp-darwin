@@ -77,24 +77,24 @@ public class CapabilitiesBridge : BaseSystemBridge, ICapabilities, APIBridge {
        @return true is supported, false otherwise.
        @since ARP1.0
     */
-    public func hasButtonSupport(type : ICapabilitiesButton ) -> Bool {
+    public func hasButtonSupport(type : ICapabilitiesButton ) -> Bool? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "CapabilitiesBridge executing hasButtonSupport({\(type)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasButtonSupport({\(type)}).")
         }
 
-        var result : Bool = false
+        var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.hasButtonSupport(type)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "CapabilitiesBridge executed 'hasButtonSupport' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executed 'hasButtonSupport' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "CapabilitiesBridge no delegate for 'hasButtonSupport'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge no delegate for 'hasButtonSupport'.")
             }
         }
         return result        
@@ -108,24 +108,24 @@ the device.
        @return true if supported, false otherwise.
        @since ARP1.0
     */
-    public func hasCommunicationSupport(type : ICapabilitiesCommunication ) -> Bool {
+    public func hasCommunicationSupport(type : ICapabilitiesCommunication ) -> Bool? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "CapabilitiesBridge executing hasCommunicationSupport({\(type)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasCommunicationSupport({\(type)}).")
         }
 
-        var result : Bool = false
+        var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.hasCommunicationSupport(type)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "CapabilitiesBridge executed 'hasCommunicationSupport' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executed 'hasCommunicationSupport' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "CapabilitiesBridge no delegate for 'hasCommunicationSupport'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge no delegate for 'hasCommunicationSupport'.")
             }
         }
         return result        
@@ -138,24 +138,24 @@ the device.
        @return true if supported, false otherwise.
        @since ARP1.0
     */
-    public func hasDataSupport(type : ICapabilitiesData ) -> Bool {
+    public func hasDataSupport(type : ICapabilitiesData ) -> Bool? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "CapabilitiesBridge executing hasDataSupport({\(type)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasDataSupport({\(type)}).")
         }
 
-        var result : Bool = false
+        var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.hasDataSupport(type)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "CapabilitiesBridge executed 'hasDataSupport' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executed 'hasDataSupport' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "CapabilitiesBridge no delegate for 'hasDataSupport'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge no delegate for 'hasDataSupport'.")
             }
         }
         return result        
@@ -169,24 +169,24 @@ device.
        @return true if supported, false otherwise.
        @since ARP1.0
     */
-    public func hasMediaSupport(type : ICapabilitiesMedia ) -> Bool {
+    public func hasMediaSupport(type : ICapabilitiesMedia ) -> Bool? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "CapabilitiesBridge executing hasMediaSupport({\(type)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasMediaSupport({\(type)}).")
         }
 
-        var result : Bool = false
+        var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.hasMediaSupport(type)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "CapabilitiesBridge executed 'hasMediaSupport' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executed 'hasMediaSupport' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "CapabilitiesBridge no delegate for 'hasMediaSupport'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge no delegate for 'hasMediaSupport'.")
             }
         }
         return result        
@@ -199,24 +199,24 @@ device.
        @return true if supported, false otherwise.
        @since ARP1.0
     */
-    public func hasNetSupport(type : ICapabilitiesNet ) -> Bool {
+    public func hasNetSupport(type : ICapabilitiesNet ) -> Bool? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "CapabilitiesBridge executing hasNetSupport({\(type)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasNetSupport({\(type)}).")
         }
 
-        var result : Bool = false
+        var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.hasNetSupport(type)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "CapabilitiesBridge executed 'hasNetSupport' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executed 'hasNetSupport' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "CapabilitiesBridge no delegate for 'hasNetSupport'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge no delegate for 'hasNetSupport'.")
             }
         }
         return result        
@@ -230,24 +230,24 @@ device.
        @return true if supported, false otherwise.
        @since ARP1.0
     */
-    public func hasNotificationSupport(type : ICapabilitiesNotification ) -> Bool {
+    public func hasNotificationSupport(type : ICapabilitiesNotification ) -> Bool? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "CapabilitiesBridge executing hasNotificationSupport({\(type)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasNotificationSupport({\(type)}).")
         }
 
-        var result : Bool = false
+        var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.hasNotificationSupport(type)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "CapabilitiesBridge executed 'hasNotificationSupport' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executed 'hasNotificationSupport' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "CapabilitiesBridge no delegate for 'hasNotificationSupport'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge no delegate for 'hasNotificationSupport'.")
             }
         }
         return result        
@@ -261,24 +261,24 @@ device.
        @return true if supported, false otherwise.
        @since ARP1.0
     */
-    public func hasSensorSupport(type : ICapabilitiesSensor ) -> Bool {
+    public func hasSensorSupport(type : ICapabilitiesSensor ) -> Bool? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "CapabilitiesBridge executing hasSensorSupport({\(type)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasSensorSupport({\(type)}).")
         }
 
-        var result : Bool = false
+        var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.hasSensorSupport(type)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "CapabilitiesBridge executed 'hasSensorSupport' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executed 'hasSensorSupport' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "CapabilitiesBridge no delegate for 'hasSensorSupport'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge no delegate for 'hasSensorSupport'.")
             }
         }
         return result        

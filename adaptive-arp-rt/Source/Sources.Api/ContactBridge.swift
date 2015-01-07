@@ -83,17 +83,17 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executing getContact({\(contact)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing getContact({\(contact)},{\(callback)}).")
         }
 
         if (self.delegate != nil) {
             self.delegate!.getContact(contact, callback: callback)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executed 'getContact' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executed 'getContact' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "ContactBridge no delegate for 'getContact'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "ContactBridge no delegate for 'getContact'.")
             }
         }
         
@@ -112,17 +112,17 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executing getContactPhoto({\(contact)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing getContactPhoto({\(contact)},{\(callback)}).")
         }
 
         if (self.delegate != nil) {
             self.delegate!.getContactPhoto(contact, callback: callback)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executed 'getContactPhoto' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executed 'getContactPhoto' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "ContactBridge no delegate for 'getContactPhoto'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "ContactBridge no delegate for 'getContactPhoto'.")
             }
         }
         
@@ -140,17 +140,17 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executing getContacts({\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing getContacts({\(callback)}).")
         }
 
         if (self.delegate != nil) {
             self.delegate!.getContacts(callback)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executed 'getContacts' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executed 'getContacts' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "ContactBridge no delegate for 'getContacts'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "ContactBridge no delegate for 'getContacts'.")
             }
         }
         
@@ -169,17 +169,17 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executing getContactsForFields({\(callback)},{\(fields)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing getContactsForFields({\(callback)},{\(fields)}).")
         }
 
         if (self.delegate != nil) {
             self.delegate!.getContactsForFields(callback, fields: fields)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executed 'getContactsForFields' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executed 'getContactsForFields' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "ContactBridge no delegate for 'getContactsForFields'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "ContactBridge no delegate for 'getContactsForFields'.")
             }
         }
         
@@ -199,17 +199,17 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executing getContactsWithFilter({\(callback)},{\(fields)},{\(filter)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing getContactsWithFilter({\(callback)},{\(fields)},{\(filter)}).")
         }
 
         if (self.delegate != nil) {
             self.delegate!.getContactsWithFilter(callback, fields: fields, filter: filter)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executed 'getContactsWithFilter' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executed 'getContactsWithFilter' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "ContactBridge no delegate for 'getContactsWithFilter'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "ContactBridge no delegate for 'getContactsWithFilter'.")
             }
         }
         
@@ -228,17 +228,17 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executing searchContacts({\(term)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing searchContacts({\(term)},{\(callback)}).")
         }
 
         if (self.delegate != nil) {
             self.delegate!.searchContacts(term, callback: callback)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executed 'searchContacts' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executed 'searchContacts' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "ContactBridge no delegate for 'searchContacts'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "ContactBridge no delegate for 'searchContacts'.")
             }
         }
         
@@ -258,17 +258,17 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executing searchContactsWithFilter({\(term)},{\(callback)},{\(filter)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing searchContactsWithFilter({\(term)},{\(callback)},{\(filter)}).")
         }
 
         if (self.delegate != nil) {
             self.delegate!.searchContactsWithFilter(term, callback: callback, filter: filter)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executed 'searchContactsWithFilter' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executed 'searchContactsWithFilter' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "ContactBridge no delegate for 'searchContactsWithFilter'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "ContactBridge no delegate for 'searchContactsWithFilter'.")
             }
         }
         
@@ -282,24 +282,24 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
        @return true if set is successful;false otherwise
        @since ARP1.0
     */
-    public func setContactPhoto(contact : ContactUid , pngImage : [Byte] ) -> Bool {
+    public func setContactPhoto(contact : ContactUid , pngImage : [Byte] ) -> Bool? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executing setContactPhoto({\(contact)},{\(pngImage)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing setContactPhoto({\(contact)},{\(pngImage)}).")
         }
 
-        var result : Bool = false
+        var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.setContactPhoto(contact, pngImage: pngImage)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "ContactBridge executed 'setContactPhoto' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executed 'setContactPhoto' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "ContactBridge no delegate for 'setContactPhoto'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "ContactBridge no delegate for 'setContactPhoto'.")
             }
         }
         return result        

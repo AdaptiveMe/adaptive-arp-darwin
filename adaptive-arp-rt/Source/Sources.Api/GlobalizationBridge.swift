@@ -76,24 +76,24 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
        @return List of locales
        @since ARP1.0
     */
-    public func getLocaleSupportedDescriptors() -> [Locale] {
+    public func getLocaleSupportedDescriptors() -> [Locale]? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "GlobalizationBridge executing getLocaleSupportedDescriptors.")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executing getLocaleSupportedDescriptors.")
         }
 
         var result : [Locale]? = nil
         if (self.delegate != nil) {
             result = self.delegate!.getLocaleSupportedDescriptors()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "GlobalizationBridge executed 'getLocaleSupportedDescriptors' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executed 'getLocaleSupportedDescriptors' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "GlobalizationBridge no delegate for 'getLocaleSupportedDescriptors'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "GlobalizationBridge no delegate for 'getLocaleSupportedDescriptors'.")
             }
         }
         return result!        
@@ -107,24 +107,24 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
        @return Localized text.
        @since ARP1.0
     */
-    public func getResourceLiteral(key : String , locale : Locale ) -> String {
+    public func getResourceLiteral(key : String , locale : Locale ) -> String? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "GlobalizationBridge executing getResourceLiteral({\(key)},{\(locale)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executing getResourceLiteral({\(key)},{\(locale)}).")
         }
 
         var result : String? = nil
         if (self.delegate != nil) {
             result = self.delegate!.getResourceLiteral(key, locale: locale)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "GlobalizationBridge executed 'getResourceLiteral' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executed 'getResourceLiteral' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "GlobalizationBridge no delegate for 'getResourceLiteral'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "GlobalizationBridge no delegate for 'getResourceLiteral'.")
             }
         }
         return result!        
@@ -137,24 +137,24 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
        @return Localized texts in the form of an object.
        @since ARP1.0
     */
-    public func getResourceLiterals(locale : Locale ) -> [KeyPair] {
+    public func getResourceLiterals(locale : Locale ) -> [KeyPair]? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "GlobalizationBridge executing getResourceLiterals({\(locale)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executing getResourceLiterals({\(locale)}).")
         }
 
         var result : [KeyPair]? = nil
         if (self.delegate != nil) {
             result = self.delegate!.getResourceLiterals(locale)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "GlobalizationBridge executed 'getResourceLiterals' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executed 'getResourceLiterals' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "GlobalizationBridge no delegate for 'getResourceLiterals'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "GlobalizationBridge no delegate for 'getResourceLiterals'.")
             }
         }
         return result!        

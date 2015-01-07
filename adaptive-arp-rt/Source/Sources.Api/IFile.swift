@@ -49,7 +49,7 @@ public protocol IFile : NSObjectProtocol {
        @return True if the folder/file is readable, false otherwise.
        @since ARP1.0
     */
-    func canRead(descriptor : FileDescriptor) -> Bool 
+    func canRead(descriptor : FileDescriptor) -> Bool?
 
     /**
        Determine whether the current file/folder can be written to.
@@ -58,7 +58,7 @@ public protocol IFile : NSObjectProtocol {
        @return True if the folder/file is writable, false otherwise.
        @since ARP1.0
     */
-    func canWrite(descriptor : FileDescriptor) -> Bool 
+    func canWrite(descriptor : FileDescriptor) -> Bool?
 
     /**
        Creates a file with the specified name.
@@ -78,7 +78,7 @@ deleted if the cascade parameter is set to true.
        @return True if files (and sub-files and folders) whether deleted.
        @since ARP1.0
     */
-    func delete(descriptor : FileDescriptor, cascade : Bool) -> Bool 
+    func delete(descriptor : FileDescriptor, cascade : Bool) -> Bool?
 
     /**
        Check whether the file/path exists.
@@ -87,7 +87,7 @@ deleted if the cascade parameter is set to true.
        @return True if the file exists in the filesystem, false otherwise.
        @since ARP1.0
     */
-    func exists(descriptor : FileDescriptor) -> Bool 
+    func exists(descriptor : FileDescriptor) -> Bool?
 
     /**
        Loads the content of the file.
@@ -105,7 +105,7 @@ deleted if the cascade parameter is set to true.
        @return Storage Type file
        @since ARP1.0
     */
-    func getFileStorageType(descriptor : FileDescriptor) -> IFileSystemStorageType 
+    func getFileStorageType(descriptor : FileDescriptor) -> IFileSystemStorageType?
 
     /**
        Returns the file type
@@ -114,7 +114,7 @@ deleted if the cascade parameter is set to true.
        @return Returns the file type of the file
        @since ARP1.0
     */
-    func getFileType(descriptor : FileDescriptor) -> IFileSystemType 
+    func getFileType(descriptor : FileDescriptor) -> IFileSystemType?
 
     /**
        Returns the security type of the file
@@ -123,7 +123,7 @@ deleted if the cascade parameter is set to true.
        @return Security Level of the file
        @since ARP1.0
     */
-    func getSecurityType(descriptor : FileDescriptor) -> IFileSystemSecurity 
+    func getSecurityType(descriptor : FileDescriptor) -> IFileSystemSecurity?
 
     /**
        Check whether this is a path of a file.
@@ -132,7 +132,7 @@ deleted if the cascade parameter is set to true.
        @return true if this is a path to a folder/directory, false if this is a path to a file.
        @since ARP1.0
     */
-    func isDirectory(descriptor : FileDescriptor) -> Bool 
+    func isDirectory(descriptor : FileDescriptor) -> Bool?
 
     /**
        List all the files matching the speficied regex filter within this file/path reference. If the reference
@@ -163,7 +163,7 @@ any results.
        @return True if the path was created, false otherwise (or it exists already).
        @since ARP1.0
     */
-    func mkDir(descriptor : FileDescriptor, recursive : Bool) -> Bool 
+    func mkDir(descriptor : FileDescriptor, recursive : Bool) -> Bool?
 
     /**
        Moves the current file to the given file destination, optionally overwriting and creating the path to the

@@ -49,7 +49,7 @@ public protocol IBrowser : IBaseUI {
        @return The result of the operation
        @since ARP1.0
     */
-    func openExtenalBrowser(url : String) -> Bool 
+    func openExtenalBrowser(url : String) -> Bool?
 
     /**
        Method for opening a browser embedded into the application in a modal window
@@ -60,7 +60,7 @@ public protocol IBrowser : IBaseUI {
        @return The result of the operation
        @since ARP1.0
     */
-    func openInternalBrowserModal(url : String, title : String, backButtonText : String) -> Bool 
+    func openInternalBrowserModal(url : String, title : String, backButtonText : String) -> Bool?
 
     /**
        Method for opening a browser embedded into the application
@@ -71,7 +71,7 @@ public protocol IBrowser : IBaseUI {
        @return The result of the operation
        @since ARP1.0
     */
-    func openInternalBrowser(url : String, title : String, backButtonText : String) -> Bool 
+    func openInternalBrowser(url : String, title : String, backButtonText : String) -> Bool?
 
 }
 

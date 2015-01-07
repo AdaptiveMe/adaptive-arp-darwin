@@ -69,7 +69,7 @@ public class TelephonyDelegate : BaseCommunicationDelegate, ITelephony {
        @return Status of the call
        @since ARP1.0
     */
-    public func call(number : String) -> ITelephonyStatus {
+    public func call(number : String) -> ITelephonyStatus? {
         
         // Check the correct format of the number
         if !Utils.isPhoneNumberCorrect(number) {

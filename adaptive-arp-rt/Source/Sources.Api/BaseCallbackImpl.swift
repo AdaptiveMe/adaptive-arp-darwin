@@ -71,7 +71,7 @@ public class BaseCallbackImpl : NSObject, IBaseCallback {
     /**
        Return the API group for the given interface.
     */
-    public func getAPIGroup() -> IAdaptiveRPGroup {
+    public func getAPIGroup() -> IAdaptiveRPGroup? {
         return self.apiGroup!
     }
 

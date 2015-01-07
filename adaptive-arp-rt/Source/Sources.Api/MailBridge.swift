@@ -83,17 +83,17 @@ public class MailBridge : BasePIMBridge, IMail, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "MailBridge executing sendEmail({\(data)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "MailBridge executing sendEmail({\(data)},{\(callback)}).")
         }
 
         if (self.delegate != nil) {
             self.delegate!.sendEmail(data, callback: callback)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "MailBridge executed 'sendEmail' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "MailBridge executed 'sendEmail' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "MailBridge no delegate for 'sendEmail'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "MailBridge no delegate for 'sendEmail'.")
             }
         }
         

@@ -55,7 +55,7 @@ public protocol IRuntime : IBaseSystem {
        @return true if the application has dismissed the splash screen;false otherwise
        @since ARP1.0
     */
-    func dismissSplashScreen() -> Bool 
+    func dismissSplashScreen() -> Bool?
 
 }
 

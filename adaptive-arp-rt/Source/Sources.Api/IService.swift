@@ -49,7 +49,7 @@ public protocol IService : IBaseCommunication {
        @return A service, if registered, or null of the service does not exist.
        @since ARP1.0
     */
-    func getService(serviceName : String) -> Service 
+    func getService(serviceName : String) -> Service?
 
     /**
        Request async a service for an Url
@@ -68,7 +68,7 @@ public protocol IService : IBaseCommunication {
        @return True if the service is registered, false otherwise.
        @since ARP1.0
     */
-    func isRegistered(serviceName : String) -> Bool 
+    func isRegistered(serviceName : String) -> Bool?
 
     /**
        Check whether a service by the given service is already registered.
@@ -77,7 +77,7 @@ public protocol IService : IBaseCommunication {
        @return True if the service is registered, false otherwise.
        @since ARP1.0
     */
-    func isRegistered(service : Service) -> Bool 
+    func isRegistered(service : Service) -> Bool?
 
     /**
        Register a new service

@@ -81,17 +81,17 @@ public class RuntimeBridge : BaseSystemBridge, IRuntime, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "RuntimeBridge executing dismissApplication.")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "RuntimeBridge executing dismissApplication.")
         }
 
         if (self.delegate != nil) {
             self.delegate!.dismissApplication()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "RuntimeBridge executed 'dismissApplication' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "RuntimeBridge executed 'dismissApplication' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "RuntimeBridge no delegate for 'dismissApplication'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "RuntimeBridge no delegate for 'dismissApplication'.")
             }
         }
         
@@ -103,24 +103,24 @@ public class RuntimeBridge : BaseSystemBridge, IRuntime, APIBridge {
        @return true if the application has dismissed the splash screen;false otherwise
        @since ARP1.0
     */
-    public func dismissSplashScreen() -> Bool {
+    public func dismissSplashScreen() -> Bool? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "RuntimeBridge executing dismissSplashScreen.")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "RuntimeBridge executing dismissSplashScreen.")
         }
 
-        var result : Bool = false
+        var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.dismissSplashScreen()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "RuntimeBridge executed 'dismissSplashScreen' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "RuntimeBridge executed 'dismissSplashScreen' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "RuntimeBridge no delegate for 'dismissSplashScreen'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "RuntimeBridge no delegate for 'dismissSplashScreen'.")
             }
         }
         return result        

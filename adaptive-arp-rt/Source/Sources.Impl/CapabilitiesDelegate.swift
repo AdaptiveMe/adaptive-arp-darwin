@@ -77,7 +77,7 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
        @return true is supported, false otherwise.
        @since ARP1.0
     */
-    public func hasButtonSupport(type : ICapabilitiesButton) -> Bool {
+    public func hasButtonSupport(type : ICapabilitiesButton) -> Bool? {
         
         switch type {
             
@@ -122,7 +122,7 @@ the device.
        @return true if supported, false otherwise.
        @since ARP1.0
     */
-    public func hasCommunicationSupport(type : ICapabilitiesCommunication) -> Bool {
+    public func hasCommunicationSupport(type : ICapabilitiesCommunication) -> Bool? {
         
         switch type {
             
@@ -185,7 +185,7 @@ the device.
        @return true if supported, false otherwise.
        @since ARP1.0
     */
-    public func hasDataSupport(type : ICapabilitiesData) -> Bool {
+    public func hasDataSupport(type : ICapabilitiesData) -> Bool? {
         
         switch type {
             
@@ -211,7 +211,7 @@ device.
        @return true if supported, false otherwise.
        @since ARP1.0
     */
-    public func hasMediaSupport(type : ICapabilitiesMedia) -> Bool {
+    public func hasMediaSupport(type : ICapabilitiesMedia) -> Bool? {
         
         switch type {
             
@@ -250,7 +250,7 @@ device.
        @return true if supported, false otherwise.
        @since ARP1.0
     */
-    public func hasNetSupport(type : ICapabilitiesNet) -> Bool {
+    public func hasNetSupport(type : ICapabilitiesNet) -> Bool? {
         
         switch type {
             
@@ -288,7 +288,7 @@ device.
        @return true if supported, false otherwise.
        @since ARP1.0
     */
-    public func hasNotificationSupport(type : ICapabilitiesNotification) -> Bool {
+    public func hasNotificationSupport(type : ICapabilitiesNotification) -> Bool? {
         
         switch type {
             
@@ -317,7 +317,7 @@ device.
        @return true if supported, false otherwise.
        @since ARP1.0
     */
-    public func hasSensorSupport(type : ICapabilitiesSensor) -> Bool {
+    public func hasSensorSupport(type : ICapabilitiesSensor) -> Bool? {
         
         #if os(iOS)
             var motionManager: CMMotionManager = CMMotionManager()

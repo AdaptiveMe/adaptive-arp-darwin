@@ -71,7 +71,7 @@ public class AppContextDelegate : NSObject, IAppContext {
        @return Object representing the specific singleton application context provided by the OS.
        @since ARP1.0
     */
-    public func getContext() -> AnyObject {
+    public func getContext() -> AnyObject? {
         return self.context
     }
 
@@ -81,7 +81,7 @@ public class AppContextDelegate : NSObject, IAppContext {
        @return Type of platform context.
        @since ARP1.0
     */
-    public func getContextType() -> IOSType {
+    public func getContextType() -> IOSType? {
         return self.type
     }
 

@@ -69,7 +69,7 @@ public class RuntimeDelegate : BaseSystemDelegate, IRuntime {
        @return true if the application has dismissed the splash screen;false otherwise
        @since ARP1.0
     */
-    public func dismissSplashScreen() -> Bool {
+    public func dismissSplashScreen() -> Bool? {
         
         logger.log(ILoggingLogLevel.ERROR, category:loggerTag, message: "There is no API provided for dismissing the splash screen inside an iOS application")
         

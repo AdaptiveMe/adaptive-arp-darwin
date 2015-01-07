@@ -77,24 +77,24 @@ public class TelephonyBridge : BaseCommunicationBridge, ITelephony, APIBridge {
        @return Status of the call
        @since ARP1.0
     */
-    public func call(number : String ) -> ITelephonyStatus {
+    public func call(number : String ) -> ITelephonyStatus? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "TelephonyBridge executing call({\(number)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "TelephonyBridge executing call({\(number)}).")
         }
 
         var result : ITelephonyStatus? = nil
         if (self.delegate != nil) {
             result = self.delegate!.call(number)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "TelephonyBridge executed 'call' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "TelephonyBridge executed 'call' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "TelephonyBridge no delegate for 'call'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "TelephonyBridge no delegate for 'call'.")
             }
         }
         return result!        

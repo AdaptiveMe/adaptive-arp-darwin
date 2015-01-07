@@ -55,7 +55,7 @@ public class BaseUtilBridge : NSObject, IBaseUtil {
     /**
        Return the API group for the given interface.
     */
-    public final func getAPIGroup() -> IAdaptiveRPGroup {
+    public final func getAPIGroup() -> IAdaptiveRPGroup? {
         return self.apiGroup!
     }
 

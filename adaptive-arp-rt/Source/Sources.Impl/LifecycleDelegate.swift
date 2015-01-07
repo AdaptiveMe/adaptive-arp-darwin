@@ -83,7 +83,7 @@ public class LifecycleDelegate : BaseApplicationDelegate, ILifecycle {
        @return true if the application is in background;false otherwise
        @since ARP1.0
     */
-    public func isBackground() -> Bool {
+    public func isBackground() -> Bool? {
         
         return SubStruct.staticVariable
     }

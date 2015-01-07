@@ -56,7 +56,7 @@ public protocol IDevice : IBaseSystem {
        @return DeviceInfo for the current device.
        @since ARP1.0
     */
-    func getDeviceInfo() -> DeviceInfo 
+    func getDeviceInfo() -> DeviceInfo?
 
     /**
        Gets the current Locale for the device.
@@ -64,7 +64,7 @@ public protocol IDevice : IBaseSystem {
        @return The current Locale information.
        @since ARP1.0
     */
-    func getLocaleCurrent() -> Locale 
+    func getLocaleCurrent() -> Locale?
 
     /**
        De-registers an existing listener from receiving button events.

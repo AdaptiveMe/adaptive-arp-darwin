@@ -76,24 +76,24 @@ public class OSBridge : BaseSystemBridge, IOS, APIBridge {
        @return OSInfo with name, version and vendor of the OS.
        @since ARP1.0
     */
-    public func getOSInfo() -> OSInfo {
+    public func getOSInfo() -> OSInfo? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "OSBridge executing getOSInfo.")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "OSBridge executing getOSInfo.")
         }
 
         var result : OSInfo? = nil
         if (self.delegate != nil) {
             result = self.delegate!.getOSInfo()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "OSBridge executed 'getOSInfo' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "OSBridge executed 'getOSInfo' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "OSBridge no delegate for 'getOSInfo'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "OSBridge no delegate for 'getOSInfo'.")
             }
         }
         return result!        

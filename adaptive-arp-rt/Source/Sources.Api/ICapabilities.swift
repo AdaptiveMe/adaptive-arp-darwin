@@ -49,7 +49,7 @@ public protocol ICapabilities : IBaseSystem {
        @return true is supported, false otherwise.
        @since ARP1.0
     */
-    func hasButtonSupport(type : ICapabilitiesButton) -> Bool 
+    func hasButtonSupport(type : ICapabilitiesButton) -> Bool?
 
     /**
        Determines whether a specific Communication capability is supported by
@@ -59,7 +59,7 @@ the device.
        @return true if supported, false otherwise.
        @since ARP1.0
     */
-    func hasCommunicationSupport(type : ICapabilitiesCommunication) -> Bool 
+    func hasCommunicationSupport(type : ICapabilitiesCommunication) -> Bool?
 
     /**
        Determines whether a specific Data capability is supported by the device.
@@ -68,7 +68,7 @@ the device.
        @return true if supported, false otherwise.
        @since ARP1.0
     */
-    func hasDataSupport(type : ICapabilitiesData) -> Bool 
+    func hasDataSupport(type : ICapabilitiesData) -> Bool?
 
     /**
        Determines whether a specific Media capability is supported by the
@@ -78,7 +78,7 @@ device.
        @return true if supported, false otherwise.
        @since ARP1.0
     */
-    func hasMediaSupport(type : ICapabilitiesMedia) -> Bool 
+    func hasMediaSupport(type : ICapabilitiesMedia) -> Bool?
 
     /**
        Determines whether a specific Net capability is supported by the device.
@@ -87,7 +87,7 @@ device.
        @return true if supported, false otherwise.
        @since ARP1.0
     */
-    func hasNetSupport(type : ICapabilitiesNet) -> Bool 
+    func hasNetSupport(type : ICapabilitiesNet) -> Bool?
 
     /**
        Determines whether a specific Notification capability is supported by the
@@ -97,7 +97,7 @@ device.
        @return true if supported, false otherwise.
        @since ARP1.0
     */
-    func hasNotificationSupport(type : ICapabilitiesNotification) -> Bool 
+    func hasNotificationSupport(type : ICapabilitiesNotification) -> Bool?
 
     /**
        Determines whether a specific Sensor capability is supported by the
@@ -107,7 +107,7 @@ device.
        @return true if supported, false otherwise.
        @since ARP1.0
     */
-    func hasSensorSupport(type : ICapabilitiesSensor) -> Bool 
+    func hasSensorSupport(type : ICapabilitiesSensor) -> Bool?
 
 }
 

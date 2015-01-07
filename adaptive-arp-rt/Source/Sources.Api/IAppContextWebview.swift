@@ -76,7 +76,7 @@ WebView, WKWebView, etc.
        @return Object representing the specific and primary webview instance of the application.
        @since ARP1.0
     */
-    func getWebviewPrimary() -> AnyObject 
+    func getWebviewPrimary() -> AnyObject?
 
     /**
        Returns an array of webviews currently managed by the context - composed of primary and the list of those added.
@@ -85,7 +85,7 @@ This method will always return at least one element; the primary webview.
        @return Array with all the Webview instances being managed by ARP.
        @since ARP1.0
     */
-    func getWebviews() -> [AnyObject] 
+    func getWebviews() -> [AnyObject]?
 
     /**
        When a webview is disposed - no longer in use from an external activity - the webview should be removed to unbind

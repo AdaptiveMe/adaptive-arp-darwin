@@ -77,24 +77,24 @@ public class BrowserBridge : BaseUIBridge, IBrowser, APIBridge {
        @return The result of the operation
        @since ARP1.0
     */
-    public func openExtenalBrowser(url : String ) -> Bool {
+    public func openExtenalBrowser(url : String ) -> Bool? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "BrowserBridge executing openExtenalBrowser({\(url)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "BrowserBridge executing openExtenalBrowser({\(url)}).")
         }
 
-        var result : Bool = false
+        var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.openExtenalBrowser(url)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "BrowserBridge executed 'openExtenalBrowser' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "BrowserBridge executed 'openExtenalBrowser' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "BrowserBridge no delegate for 'openExtenalBrowser'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "BrowserBridge no delegate for 'openExtenalBrowser'.")
             }
         }
         return result        
@@ -109,24 +109,24 @@ public class BrowserBridge : BaseUIBridge, IBrowser, APIBridge {
        @return The result of the operation
        @since ARP1.0
     */
-    public func openInternalBrowser(url : String , title : String , backButtonText : String ) -> Bool {
+    public func openInternalBrowser(url : String , title : String , backButtonText : String ) -> Bool? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "BrowserBridge executing openInternalBrowser({\(url)},{\(title)},{\(backButtonText)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "BrowserBridge executing openInternalBrowser({\(url)},{\(title)},{\(backButtonText)}).")
         }
 
-        var result : Bool = false
+        var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.openInternalBrowser(url, title: title, backButtonText: backButtonText)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "BrowserBridge executed 'openInternalBrowser' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "BrowserBridge executed 'openInternalBrowser' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "BrowserBridge no delegate for 'openInternalBrowser'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "BrowserBridge no delegate for 'openInternalBrowser'.")
             }
         }
         return result        
@@ -141,24 +141,24 @@ public class BrowserBridge : BaseUIBridge, IBrowser, APIBridge {
        @return The result of the operation
        @since ARP1.0
     */
-    public func openInternalBrowserModal(url : String , title : String , backButtonText : String ) -> Bool {
+    public func openInternalBrowserModal(url : String , title : String , backButtonText : String ) -> Bool? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "BrowserBridge executing openInternalBrowserModal({\(url)},{\(title)},{\(backButtonText)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "BrowserBridge executing openInternalBrowserModal({\(url)},{\(title)},{\(backButtonText)}).")
         }
 
-        var result : Bool = false
+        var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.openInternalBrowserModal(url, title: title, backButtonText: backButtonText)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "BrowserBridge executed 'openInternalBrowserModal' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "BrowserBridge executed 'openInternalBrowserModal' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "BrowserBridge no delegate for 'openInternalBrowserModal'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "BrowserBridge no delegate for 'openInternalBrowserModal'.")
             }
         }
         return result        

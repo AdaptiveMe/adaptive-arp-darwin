@@ -69,7 +69,7 @@ public class BrowserDelegate : BaseUIDelegate, IBrowser {
        @return The result of the operation
        @since ARP1.0
     */
-    public func openExtenalBrowser(url : String) -> Bool {
+    public func openExtenalBrowser(url : String) -> Bool? {
         
         #if os(iOS)
             
@@ -104,7 +104,7 @@ public class BrowserDelegate : BaseUIDelegate, IBrowser {
        @return The result of the operation
        @since ARP1.0
     */
-    public func openInternalBrowser(url : String, title : String, backButtonText : String) -> Bool {
+    public func openInternalBrowser(url : String, title : String, backButtonText : String) -> Bool? {
         
         #if os(iOS)
             
@@ -136,7 +136,7 @@ public class BrowserDelegate : BaseUIDelegate, IBrowser {
        @return The result of the operation
        @since ARP1.0
     */
-    public func openInternalBrowserModal(url : String, title : String, backButtonText : String) -> Bool {
+    public func openInternalBrowserModal(url : String, title : String, backButtonText : String) -> Bool? {
         
         // TODO: Implement this method. ¿What is the difference between this method and without modal?
         return false

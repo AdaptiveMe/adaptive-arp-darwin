@@ -87,7 +87,7 @@ public class OSDelegate : BaseSystemDelegate, IOS {
        @return OSInfo with name, version and vendor of the OS.
        @since ARP1.0
     */
-    public func getOSInfo() -> OSInfo {
+    public func getOSInfo() -> OSInfo? {
         
         logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "name: \(self.osInfo!.getName()), version: \(self.osInfo!.getVersion()), vendor: \(self.osInfo!.getVendor())")
         

@@ -231,7 +231,7 @@ public class DatabaseDelegate : BaseDataDelegate, IDatabase {
         }
         
         
-        if self.existsTable(database, databaseTable: databaseTable) {
+        if self.existsTable(database, databaseTable: databaseTable)! {
             var query:String = "DROP TABLE `\(databaseTable.getName()!)`"
             let stmt = self.db!.prepare(query)
             self.logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Query: \(query)")
@@ -359,7 +359,7 @@ should be passed as a parameter
        @return True if exists, false otherwise
        @since ARP1.0
     */
-    public func existsDatabase(database : Database) -> Bool {
+    public func existsDatabase(database : Database) -> Bool? {
         
         if !self.checkDatabaseName(database) {
             return false
@@ -390,7 +390,7 @@ should be passed as a parameter
        @return True if exists, false otherwise
        @since ARP1.0
     */
-    public func existsTable(database : Database, databaseTable : DatabaseTable) -> Bool {
+    public func existsTable(database : Database, databaseTable : DatabaseTable) -> Bool? {
         
         if !self.openDatabase(database) {
             self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The database is not found in the file system")
@@ -439,7 +439,7 @@ should be passed as a parameter
             return false
         }
         
-        if !self.existsDatabase(database) {
+        if !self.existsDatabase(database)! {
             self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The database you are trying to open is not created")
             return false
         }

@@ -82,17 +82,17 @@ public class AccelerationBridge : BaseSensorBridge, IAcceleration, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AccelerationBridge executing addAccelerationListener({\(listener)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AccelerationBridge executing addAccelerationListener({\(listener)}).")
         }
 
         if (self.delegate != nil) {
             self.delegate!.addAccelerationListener(listener)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AccelerationBridge executed 'addAccelerationListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AccelerationBridge executed 'addAccelerationListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AccelerationBridge no delegate for 'addAccelerationListener'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AccelerationBridge no delegate for 'addAccelerationListener'.")
             }
         }
         
@@ -110,17 +110,17 @@ public class AccelerationBridge : BaseSensorBridge, IAcceleration, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AccelerationBridge executing removeAccelerationListener({\(listener)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AccelerationBridge executing removeAccelerationListener({\(listener)}).")
         }
 
         if (self.delegate != nil) {
             self.delegate!.removeAccelerationListener(listener)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AccelerationBridge executed 'removeAccelerationListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AccelerationBridge executed 'removeAccelerationListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AccelerationBridge no delegate for 'removeAccelerationListener'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AccelerationBridge no delegate for 'removeAccelerationListener'.")
             }
         }
         
@@ -137,17 +137,17 @@ public class AccelerationBridge : BaseSensorBridge, IAcceleration, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AccelerationBridge executing removeAccelerationListeners.")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AccelerationBridge executing removeAccelerationListeners.")
         }
 
         if (self.delegate != nil) {
             self.delegate!.removeAccelerationListeners()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AccelerationBridge executed 'removeAccelerationListeners' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AccelerationBridge executed 'removeAccelerationListeners' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AccelerationBridge no delegate for 'removeAccelerationListeners'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AccelerationBridge no delegate for 'removeAccelerationListeners'.")
             }
         }
         

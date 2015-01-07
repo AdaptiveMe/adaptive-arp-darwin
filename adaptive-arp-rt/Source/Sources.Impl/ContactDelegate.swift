@@ -258,7 +258,7 @@ public class ContactDelegate : BasePIMDelegate, IContact {
        @return true if set is successful;false otherwise
        @since ARP1.0
     */
-    public func setContactPhoto(contact : ContactUid, pngImage : [Byte]) -> Bool {
+    public func setContactPhoto(contact : ContactUid, pngImage : [Byte]) -> Bool? {
         
         #if os(iOS)
             

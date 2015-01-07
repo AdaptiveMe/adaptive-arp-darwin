@@ -66,7 +66,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
        @return A service, if registered, or null of the service does not exist.
        @since ARP1.0
     */
-    public func getService(serviceName : String) -> Service {
+    public func getService(serviceName : String) -> Service? {
         
         for service in services {
             
@@ -100,7 +100,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
         
         let t = async(q) { () -> String? in
             
-            if(!self.isRegistered(service)){
+            if(!self.isRegistered(service)!){
                 callback.onError(IServiceResultCallbackError.NotRegisteredService)
                 self.logger.log(ILoggingLogLevel.ERROR, category: "ServiceImpl", message: "\(service.getName()) is not registered on the pull")
                 return nil
@@ -171,7 +171,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
        @return True if the service is registered, false otherwise.
        @since ARP1.0
     */
-    public func isRegistered(service : Service) -> Bool {
+    public func isRegistered(service : Service) -> Bool? {
         
         // TODO: Return this when the return value will be optional
         // return self.getService(service.getName()!) != nil ? true : false
@@ -185,7 +185,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
        @return True if the service is registered, false otherwise.
        @since ARP1.0
     */
-    public func isRegistered(serviceName : String) -> Bool {
+    public func isRegistered(serviceName : String) -> Bool? {
         
         // TODO: Return this when the return value will be optional
         // return self.getService(serviceName) != nil ? true : false

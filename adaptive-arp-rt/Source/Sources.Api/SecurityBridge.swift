@@ -84,17 +84,17 @@ public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "SecurityBridge executing deleteSecureKeyValuePairs({\(keys)},{\(publicAccessName)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "SecurityBridge executing deleteSecureKeyValuePairs({\(keys)},{\(publicAccessName)},{\(callback)}).")
         }
 
         if (self.delegate != nil) {
             self.delegate!.deleteSecureKeyValuePairs(keys, publicAccessName: publicAccessName, callback: callback)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "SecurityBridge executed 'deleteSecureKeyValuePairs' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "SecurityBridge executed 'deleteSecureKeyValuePairs' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "SecurityBridge no delegate for 'deleteSecureKeyValuePairs'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "SecurityBridge no delegate for 'deleteSecureKeyValuePairs'.")
             }
         }
         
@@ -114,17 +114,17 @@ public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "SecurityBridge executing getSecureKeyValuePairs({\(keys)},{\(publicAccessName)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "SecurityBridge executing getSecureKeyValuePairs({\(keys)},{\(publicAccessName)},{\(callback)}).")
         }
 
         if (self.delegate != nil) {
             self.delegate!.getSecureKeyValuePairs(keys, publicAccessName: publicAccessName, callback: callback)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "SecurityBridge executed 'getSecureKeyValuePairs' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "SecurityBridge executed 'getSecureKeyValuePairs' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "SecurityBridge no delegate for 'getSecureKeyValuePairs'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "SecurityBridge no delegate for 'getSecureKeyValuePairs'.")
             }
         }
         
@@ -136,24 +136,24 @@ public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
        @return true if the device has been modified; false otherwise
        @since ARP1.0
     */
-    public func isDeviceModified() -> Bool {
+    public func isDeviceModified() -> Bool? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "SecurityBridge executing isDeviceModified.")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "SecurityBridge executing isDeviceModified.")
         }
 
-        var result : Bool = false
+        var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.isDeviceModified()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "SecurityBridge executed 'isDeviceModified' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "SecurityBridge executed 'isDeviceModified' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "SecurityBridge no delegate for 'isDeviceModified'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "SecurityBridge no delegate for 'isDeviceModified'.")
             }
         }
         return result        
@@ -173,17 +173,17 @@ public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "SecurityBridge executing setSecureKeyValuePairs({\(keyValues)},{\(publicAccessName)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "SecurityBridge executing setSecureKeyValuePairs({\(keyValues)},{\(publicAccessName)},{\(callback)}).")
         }
 
         if (self.delegate != nil) {
             self.delegate!.setSecureKeyValuePairs(keyValues, publicAccessName: publicAccessName, callback: callback)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "SecurityBridge executed 'setSecureKeyValuePairs' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "SecurityBridge executed 'setSecureKeyValuePairs' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "SecurityBridge no delegate for 'setSecureKeyValuePairs'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "SecurityBridge no delegate for 'setSecureKeyValuePairs'.")
             }
         }
         

@@ -84,17 +84,17 @@ public class MessagingBridge : BasePIMBridge, IMessaging, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "MessagingBridge executing sendSMS({\(number)},{\(text)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "MessagingBridge executing sendSMS({\(number)},{\(text)},{\(callback)}).")
         }
 
         if (self.delegate != nil) {
             self.delegate!.sendSMS(number, text: text, callback: callback)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "MessagingBridge executed 'sendSMS' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "MessagingBridge executed 'sendSMS' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "MessagingBridge no delegate for 'sendSMS'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "MessagingBridge no delegate for 'sendSMS'.")
             }
         }
         

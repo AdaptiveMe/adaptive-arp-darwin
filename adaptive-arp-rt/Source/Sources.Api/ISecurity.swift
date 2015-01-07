@@ -68,7 +68,7 @@ public protocol ISecurity : IBaseSecurity {
        @return true if the device has been modified; false otherwise
        @since ARP1.0
     */
-    func isDeviceModified() -> Bool 
+    func isDeviceModified() -> Bool?
 
     /**
        Stores in the device internal storage the specified item/s.

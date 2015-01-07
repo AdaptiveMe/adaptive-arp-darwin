@@ -79,24 +79,24 @@ This method does not create the actual file in the specified folder.
        @return A reference to a new or existing location in the filesystem.
        @since ARP1.0
     */
-    public func createFileDescriptor(parent : FileDescriptor , name : String ) -> FileDescriptor {
+    public func createFileDescriptor(parent : FileDescriptor , name : String ) -> FileDescriptor? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executing createFileDescriptor({\(parent)},{\(name)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileSystemBridge executing createFileDescriptor({\(parent)},{\(name)}).")
         }
 
         var result : FileDescriptor? = nil
         if (self.delegate != nil) {
             result = self.delegate!.createFileDescriptor(parent, name: name)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'createFileDescriptor' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileSystemBridge executed 'createFileDescriptor' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "FileSystemBridge no delegate for 'createFileDescriptor'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileSystemBridge no delegate for 'createFileDescriptor'.")
             }
         }
         return result!        
@@ -110,24 +110,24 @@ This path is volatile and may be cleaned by the OS periodically.
        @return Path to the application's cache folder.
        @since ARP1.0
     */
-    public func getApplicationCacheFolder() -> FileDescriptor {
+    public func getApplicationCacheFolder() -> FileDescriptor? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executing getApplicationCacheFolder.")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileSystemBridge executing getApplicationCacheFolder.")
         }
 
         var result : FileDescriptor? = nil
         if (self.delegate != nil) {
             result = self.delegate!.getApplicationCacheFolder()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'getApplicationCacheFolder' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileSystemBridge executed 'getApplicationCacheFolder' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "FileSystemBridge no delegate for 'getApplicationCacheFolder'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileSystemBridge no delegate for 'getApplicationCacheFolder'.")
             }
         }
         return result!        
@@ -140,24 +140,24 @@ This path must always be writable by the current application.
        @return Path to the application's cloud storage folder.
        @since ARP1.0
     */
-    public func getApplicationCloudFolder() -> FileDescriptor {
+    public func getApplicationCloudFolder() -> FileDescriptor? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executing getApplicationCloudFolder.")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileSystemBridge executing getApplicationCloudFolder.")
         }
 
         var result : FileDescriptor? = nil
         if (self.delegate != nil) {
             result = self.delegate!.getApplicationCloudFolder()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'getApplicationCloudFolder' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileSystemBridge executed 'getApplicationCloudFolder' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "FileSystemBridge no delegate for 'getApplicationCloudFolder'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileSystemBridge no delegate for 'getApplicationCloudFolder'.")
             }
         }
         return result!        
@@ -170,24 +170,24 @@ This path must always be writable by the current application.
        @return Path to the application's documents folder.
        @since ARP1.0
     */
-    public func getApplicationDocumentsFolder() -> FileDescriptor {
+    public func getApplicationDocumentsFolder() -> FileDescriptor? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executing getApplicationDocumentsFolder.")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileSystemBridge executing getApplicationDocumentsFolder.")
         }
 
         var result : FileDescriptor? = nil
         if (self.delegate != nil) {
             result = self.delegate!.getApplicationDocumentsFolder()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'getApplicationDocumentsFolder' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileSystemBridge executed 'getApplicationDocumentsFolder' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "FileSystemBridge no delegate for 'getApplicationDocumentsFolder'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileSystemBridge no delegate for 'getApplicationDocumentsFolder'.")
             }
         }
         return result!        
@@ -200,24 +200,24 @@ This path may or may not be directly readable or writable - it usually contains 
        @return Path to the application folder.
        @since ARP1.0
     */
-    public func getApplicationFolder() -> FileDescriptor {
+    public func getApplicationFolder() -> FileDescriptor? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executing getApplicationFolder.")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileSystemBridge executing getApplicationFolder.")
         }
 
         var result : FileDescriptor? = nil
         if (self.delegate != nil) {
             result = self.delegate!.getApplicationFolder()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'getApplicationFolder' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileSystemBridge executed 'getApplicationFolder' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "FileSystemBridge no delegate for 'getApplicationFolder'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileSystemBridge no delegate for 'getApplicationFolder'.")
             }
         }
         return result!        
@@ -230,24 +230,24 @@ This path must always be writable by the current application.
        @return Path to the application's protected storage folder.
        @since ARP1.0
     */
-    public func getApplicationProtectedFolder() -> FileDescriptor {
+    public func getApplicationProtectedFolder() -> FileDescriptor? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executing getApplicationProtectedFolder.")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileSystemBridge executing getApplicationProtectedFolder.")
         }
 
         var result : FileDescriptor? = nil
         if (self.delegate != nil) {
             result = self.delegate!.getApplicationProtectedFolder()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'getApplicationProtectedFolder' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileSystemBridge executed 'getApplicationProtectedFolder' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "FileSystemBridge no delegate for 'getApplicationProtectedFolder'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileSystemBridge no delegate for 'getApplicationProtectedFolder'.")
             }
         }
         return result!        
@@ -259,24 +259,24 @@ This path must always be writable by the current application.
        @return char with the directory/file separator.
        @since ARP1.0
     */
-    public func getSeparator() -> Character {
+    public func getSeparator() -> Character? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executing getSeparator.")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileSystemBridge executing getSeparator.")
         }
 
-        var result : Character = " "
+        var result : Character? = " "
         if (self.delegate != nil) {
             result = self.delegate!.getSeparator()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'getSeparator' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileSystemBridge executed 'getSeparator' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "FileSystemBridge no delegate for 'getSeparator'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileSystemBridge no delegate for 'getSeparator'.")
             }
         }
         return result        
@@ -291,24 +291,24 @@ This path may or may not be writable by the current application.
        @return Path to the application's documents folder.
        @since ARP1.0
     */
-    public func getSystemExternalFolder() -> FileDescriptor {
+    public func getSystemExternalFolder() -> FileDescriptor? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executing getSystemExternalFolder.")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileSystemBridge executing getSystemExternalFolder.")
         }
 
         var result : FileDescriptor? = nil
         if (self.delegate != nil) {
             result = self.delegate!.getSystemExternalFolder()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'getSystemExternalFolder' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileSystemBridge executed 'getSystemExternalFolder' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "FileSystemBridge no delegate for 'getSystemExternalFolder'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileSystemBridge no delegate for 'getSystemExternalFolder'.")
             }
         }
         return result!        

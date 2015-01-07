@@ -120,7 +120,7 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
        @return DeviceInfo for the current device.
        @since ARP1.0
     */
-    public func getDeviceInfo() -> DeviceInfo {
+    public func getDeviceInfo() -> DeviceInfo? {
         
         logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "name: \(self.deviceInfo!.getName()), model: \(self.deviceInfo!.getModel()), vendor: \(self.deviceInfo!.getVendor()), uuid: \(self.deviceInfo!.getUuid())")
         
@@ -133,7 +133,7 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
        @return The current Locale information.
        @since ARP1.0
     */
-    public func getLocaleCurrent() -> Locale {
+    public func getLocaleCurrent() -> Locale? {
         
         // Gets the current locale of the device
         let currentLocale: NSLocale = NSLocale.currentLocale()

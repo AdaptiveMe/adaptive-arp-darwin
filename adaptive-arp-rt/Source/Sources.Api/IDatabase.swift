@@ -111,7 +111,7 @@ should be passed as a parameter
        @return True if exists, false otherwise
        @since ARP1.0
     */
-    func existsDatabase(database : Database) -> Bool 
+    func existsDatabase(database : Database) -> Bool?
 
     /**
        Checks if databaseTable exists by given database name.
@@ -121,7 +121,7 @@ should be passed as a parameter
        @return True if exists, false otherwise
        @since ARP1.0
     */
-    func existsTable(database : Database, databaseTable : DatabaseTable) -> Bool 
+    func existsTable(database : Database, databaseTable : DatabaseTable) -> Bool?
 
 }
 

@@ -114,7 +114,7 @@ public protocol IContact : IBasePIM {
        @return true if set is successful;false otherwise
        @since ARP1.0
     */
-    func setContactPhoto(contact : ContactUid, pngImage : [Byte]) -> Bool 
+    func setContactPhoto(contact : ContactUid, pngImage : [Byte]) -> Bool?
 
 }
 

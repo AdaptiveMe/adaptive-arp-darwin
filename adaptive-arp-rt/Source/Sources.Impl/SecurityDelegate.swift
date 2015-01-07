@@ -199,7 +199,7 @@ public class SecurityDelegate : BaseSecurityDelegate, ISecurity {
        @return true if the device has been modified; false otherwise
        @since ARP1.0
     */
-    public func isDeviceModified() -> Bool {
+    public func isDeviceModified() -> Bool? {
         
         // In order to check the jailbreak we open certain files and if the content is readable, the device is jailbreaked
         for file:String in listOfCommonHacks {

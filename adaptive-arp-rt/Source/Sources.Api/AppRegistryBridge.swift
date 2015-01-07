@@ -45,7 +45,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
     */
     private var apiGroup : IAdaptiveRPGroup = IAdaptiveRPGroup.Kernel;
 
-    public func getAPIGroup() -> IAdaptiveRPGroup {
+    public func getAPIGroup() -> IAdaptiveRPGroup? {
         return self.apiGroup
     }
 
@@ -101,17 +101,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : AccelerationBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getAccelerationBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getAccelerationBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getAccelerationBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getAccelerationBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getAccelerationBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getAccelerationBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getAccelerationBridge'.")
             }
         }
         return result!        
@@ -129,17 +129,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : AdsBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getAdsBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getAdsBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getAdsBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getAdsBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getAdsBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getAdsBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getAdsBridge'.")
             }
         }
         return result!        
@@ -157,17 +157,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : AlarmBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getAlarmBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getAlarmBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getAlarmBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getAlarmBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getAlarmBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getAlarmBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getAlarmBridge'.")
             }
         }
         return result!        
@@ -185,17 +185,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : AmbientLightBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getAmbientLightBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getAmbientLightBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getAmbientLightBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getAmbientLightBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getAmbientLightBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getAmbientLightBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getAmbientLightBridge'.")
             }
         }
         return result!        
@@ -213,17 +213,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : AnalyticsBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getAnalyticsBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getAnalyticsBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getAnalyticsBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getAnalyticsBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getAnalyticsBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getAnalyticsBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getAnalyticsBridge'.")
             }
         }
         return result!        
@@ -241,17 +241,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : AudioBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getAudioBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getAudioBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getAudioBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getAudioBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getAudioBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getAudioBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getAudioBridge'.")
             }
         }
         return result!        
@@ -269,17 +269,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : BarcodeBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getBarcodeBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getBarcodeBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getBarcodeBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getBarcodeBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getBarcodeBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getBarcodeBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getBarcodeBridge'.")
             }
         }
         return result!        
@@ -297,17 +297,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : BarometerBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getBarometerBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getBarometerBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getBarometerBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getBarometerBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getBarometerBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getBarometerBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getBarometerBridge'.")
             }
         }
         return result!        
@@ -325,17 +325,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : BluetoothBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getBluetoothBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getBluetoothBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getBluetoothBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getBluetoothBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getBluetoothBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getBluetoothBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getBluetoothBridge'.")
             }
         }
         return result!        
@@ -353,17 +353,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : BrowserBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getBrowserBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getBrowserBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getBrowserBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getBrowserBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getBrowserBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getBrowserBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getBrowserBridge'.")
             }
         }
         return result!        
@@ -381,17 +381,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : CalendarBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getCalendarBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getCalendarBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getCalendarBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getCalendarBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getCalendarBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getCalendarBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getCalendarBridge'.")
             }
         }
         return result!        
@@ -409,17 +409,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : CameraBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getCameraBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getCameraBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getCameraBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getCameraBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getCameraBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getCameraBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getCameraBridge'.")
             }
         }
         return result!        
@@ -437,17 +437,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : CapabilitiesBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getCapabilitiesBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getCapabilitiesBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getCapabilitiesBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getCapabilitiesBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getCapabilitiesBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getCapabilitiesBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getCapabilitiesBridge'.")
             }
         }
         return result!        
@@ -465,17 +465,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : CloudBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getCloudBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getCloudBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getCloudBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getCloudBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getCloudBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getCloudBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getCloudBridge'.")
             }
         }
         return result!        
@@ -493,17 +493,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : CompressionBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getCompressionBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getCompressionBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getCompressionBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getCompressionBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getCompressionBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getCompressionBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getCompressionBridge'.")
             }
         }
         return result!        
@@ -521,17 +521,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : ConcurrentBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getConcurrentBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getConcurrentBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getConcurrentBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getConcurrentBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getConcurrentBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getConcurrentBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getConcurrentBridge'.")
             }
         }
         return result!        
@@ -549,17 +549,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : ContactBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getContactBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getContactBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getContactBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getContactBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getContactBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getContactBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getContactBridge'.")
             }
         }
         return result!        
@@ -577,17 +577,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : CryptoBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getCryptoBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getCryptoBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getCryptoBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getCryptoBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getCryptoBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getCryptoBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getCryptoBridge'.")
             }
         }
         return result!        
@@ -605,17 +605,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : DataStreamBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getDataStreamBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getDataStreamBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getDataStreamBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getDataStreamBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getDataStreamBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getDataStreamBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getDataStreamBridge'.")
             }
         }
         return result!        
@@ -633,17 +633,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : DatabaseBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getDatabaseBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getDatabaseBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getDatabaseBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getDatabaseBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getDatabaseBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getDatabaseBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getDatabaseBridge'.")
             }
         }
         return result!        
@@ -661,17 +661,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : DesktopBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getDesktopBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getDesktopBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getDesktopBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getDesktopBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getDesktopBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getDesktopBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getDesktopBridge'.")
             }
         }
         return result!        
@@ -689,17 +689,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : DeviceBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getDeviceBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getDeviceBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getDeviceBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getDeviceBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getDeviceBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getDeviceBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getDeviceBridge'.")
             }
         }
         return result!        
@@ -717,17 +717,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : DisplayBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getDisplayBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getDisplayBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getDisplayBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getDisplayBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getDisplayBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getDisplayBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getDisplayBridge'.")
             }
         }
         return result!        
@@ -745,17 +745,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : FacebookBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getFacebookBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getFacebookBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getFacebookBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getFacebookBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getFacebookBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getFacebookBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getFacebookBridge'.")
             }
         }
         return result!        
@@ -773,17 +773,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : FileSystemBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getFileSystemBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getFileSystemBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getFileSystemBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getFileSystemBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getFileSystemBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getFileSystemBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getFileSystemBridge'.")
             }
         }
         return result!        
@@ -801,17 +801,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : GeolocationBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getGeolocationBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getGeolocationBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getGeolocationBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getGeolocationBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getGeolocationBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getGeolocationBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getGeolocationBridge'.")
             }
         }
         return result!        
@@ -829,17 +829,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : GlobalizationBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getGlobalizationBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getGlobalizationBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getGlobalizationBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getGlobalizationBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getGlobalizationBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getGlobalizationBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getGlobalizationBridge'.")
             }
         }
         return result!        
@@ -857,17 +857,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : GooglePlusBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getGooglePlusBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getGooglePlusBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getGooglePlusBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getGooglePlusBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getGooglePlusBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getGooglePlusBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getGooglePlusBridge'.")
             }
         }
         return result!        
@@ -885,17 +885,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : GyroscopeBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getGyroscopeBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getGyroscopeBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getGyroscopeBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getGyroscopeBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getGyroscopeBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getGyroscopeBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getGyroscopeBridge'.")
             }
         }
         return result!        
@@ -913,17 +913,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : ImagingBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getImagingBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getImagingBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getImagingBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getImagingBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getImagingBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getImagingBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getImagingBridge'.")
             }
         }
         return result!        
@@ -941,17 +941,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : InternalStorageBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getInternalStorageBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getInternalStorageBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getInternalStorageBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getInternalStorageBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getInternalStorageBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getInternalStorageBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getInternalStorageBridge'.")
             }
         }
         return result!        
@@ -969,17 +969,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : LifecycleBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getLifecycleBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getLifecycleBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getLifecycleBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getLifecycleBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getLifecycleBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getLifecycleBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getLifecycleBridge'.")
             }
         }
         return result!        
@@ -997,17 +997,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : LinkedInBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getLinkedInBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getLinkedInBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getLinkedInBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getLinkedInBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getLinkedInBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getLinkedInBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getLinkedInBridge'.")
             }
         }
         return result!        
@@ -1038,17 +1038,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : MagnetometerBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getMagnetometerBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getMagnetometerBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getMagnetometerBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getMagnetometerBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getMagnetometerBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getMagnetometerBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getMagnetometerBridge'.")
             }
         }
         return result!        
@@ -1066,17 +1066,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : MailBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getMailBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getMailBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getMailBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getMailBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getMailBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getMailBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getMailBridge'.")
             }
         }
         return result!        
@@ -1094,17 +1094,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : ManagementBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getManagementBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getManagementBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getManagementBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getManagementBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getManagementBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getManagementBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getManagementBridge'.")
             }
         }
         return result!        
@@ -1122,17 +1122,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : MapBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getMapBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getMapBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getMapBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getMapBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getMapBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getMapBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getMapBridge'.")
             }
         }
         return result!        
@@ -1150,17 +1150,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : MessagingBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getMessagingBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getMessagingBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getMessagingBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getMessagingBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getMessagingBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getMessagingBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getMessagingBridge'.")
             }
         }
         return result!        
@@ -1178,17 +1178,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : NFCBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getNFCBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getNFCBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getNFCBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getNFCBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getNFCBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getNFCBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getNFCBridge'.")
             }
         }
         return result!        
@@ -1206,17 +1206,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : NetworkInfoBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getNetworkInfoBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getNetworkInfoBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getNetworkInfoBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getNetworkInfoBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getNetworkInfoBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getNetworkInfoBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getNetworkInfoBridge'.")
             }
         }
         return result!        
@@ -1234,17 +1234,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : NetworkNamingBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getNetworkNamingBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getNetworkNamingBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getNetworkNamingBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getNetworkNamingBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getNetworkNamingBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getNetworkNamingBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getNetworkNamingBridge'.")
             }
         }
         return result!        
@@ -1262,17 +1262,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : NetworkReachabilityBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getNetworkReachabilityBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getNetworkReachabilityBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getNetworkReachabilityBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getNetworkReachabilityBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getNetworkReachabilityBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getNetworkReachabilityBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getNetworkReachabilityBridge'.")
             }
         }
         return result!        
@@ -1290,17 +1290,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : NetworkStatusBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getNetworkStatusBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getNetworkStatusBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getNetworkStatusBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getNetworkStatusBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getNetworkStatusBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getNetworkStatusBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getNetworkStatusBridge'.")
             }
         }
         return result!        
@@ -1318,17 +1318,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : NotificationBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getNotificationBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getNotificationBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getNotificationBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getNotificationBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getNotificationBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getNotificationBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getNotificationBridge'.")
             }
         }
         return result!        
@@ -1346,17 +1346,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : NotificationLocalBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getNotificationLocalBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getNotificationLocalBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getNotificationLocalBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getNotificationLocalBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getNotificationLocalBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getNotificationLocalBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getNotificationLocalBridge'.")
             }
         }
         return result!        
@@ -1374,17 +1374,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : OAuthBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getOAuthBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getOAuthBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getOAuthBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getOAuthBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getOAuthBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getOAuthBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getOAuthBridge'.")
             }
         }
         return result!        
@@ -1402,17 +1402,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : OCRBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getOCRBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getOCRBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getOCRBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getOCRBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getOCRBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getOCRBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getOCRBridge'.")
             }
         }
         return result!        
@@ -1430,17 +1430,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : OSBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getOSBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getOSBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getOSBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getOSBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getOSBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getOSBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getOSBridge'.")
             }
         }
         return result!        
@@ -1458,17 +1458,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : OpenIdBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getOpenIdBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getOpenIdBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getOpenIdBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getOpenIdBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getOpenIdBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getOpenIdBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getOpenIdBridge'.")
             }
         }
         return result!        
@@ -1486,17 +1486,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : PrintingBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getPrintingBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getPrintingBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getPrintingBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getPrintingBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getPrintingBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getPrintingBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getPrintingBridge'.")
             }
         }
         return result!        
@@ -1514,17 +1514,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : ProximityBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getProximityBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getProximityBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getProximityBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getProximityBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getProximityBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getProximityBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getProximityBridge'.")
             }
         }
         return result!        
@@ -1542,17 +1542,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : QRCodeBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getQRCodeBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getQRCodeBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getQRCodeBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getQRCodeBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getQRCodeBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getQRCodeBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getQRCodeBridge'.")
             }
         }
         return result!        
@@ -1570,17 +1570,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : RSSBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getRSSBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getRSSBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getRSSBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getRSSBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getRSSBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getRSSBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getRSSBridge'.")
             }
         }
         return result!        
@@ -1598,17 +1598,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : RuntimeBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getRuntimeBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getRuntimeBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getRuntimeBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getRuntimeBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getRuntimeBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getRuntimeBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getRuntimeBridge'.")
             }
         }
         return result!        
@@ -1626,17 +1626,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : SecurityBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getSecurityBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getSecurityBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getSecurityBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getSecurityBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getSecurityBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getSecurityBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getSecurityBridge'.")
             }
         }
         return result!        
@@ -1654,17 +1654,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : ServiceBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getServiceBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getServiceBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getServiceBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getServiceBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getServiceBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getServiceBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getServiceBridge'.")
             }
         }
         return result!        
@@ -1682,17 +1682,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : SettingsBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getSettingsBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getSettingsBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getSettingsBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getSettingsBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getSettingsBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getSettingsBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getSettingsBridge'.")
             }
         }
         return result!        
@@ -1710,17 +1710,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : SocketBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getSocketBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getSocketBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getSocketBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getSocketBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getSocketBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getSocketBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getSocketBridge'.")
             }
         }
         return result!        
@@ -1738,17 +1738,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : StoreBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getStoreBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getStoreBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getStoreBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getStoreBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getStoreBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getStoreBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getStoreBridge'.")
             }
         }
         return result!        
@@ -1766,17 +1766,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : TelephonyBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getTelephonyBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getTelephonyBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getTelephonyBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getTelephonyBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getTelephonyBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getTelephonyBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getTelephonyBridge'.")
             }
         }
         return result!        
@@ -1794,17 +1794,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : TimerBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getTimerBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getTimerBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getTimerBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getTimerBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getTimerBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getTimerBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getTimerBridge'.")
             }
         }
         return result!        
@@ -1822,17 +1822,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : TwitterBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getTwitterBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getTwitterBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getTwitterBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getTwitterBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getTwitterBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getTwitterBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getTwitterBridge'.")
             }
         }
         return result!        
@@ -1850,17 +1850,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : UIBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getUIBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getUIBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getUIBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getUIBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getUIBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getUIBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getUIBridge'.")
             }
         }
         return result!        
@@ -1878,17 +1878,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : UpdateBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getUpdateBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getUpdateBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getUpdateBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getUpdateBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getUpdateBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getUpdateBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getUpdateBridge'.")
             }
         }
         return result!        
@@ -1906,17 +1906,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : VibrationBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getVibrationBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getVibrationBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getVibrationBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getVibrationBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getVibrationBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getVibrationBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getVibrationBridge'.")
             }
         }
         return result!        
@@ -1934,17 +1934,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : VideoBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getVideoBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getVideoBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getVideoBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getVideoBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getVideoBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getVideoBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getVideoBridge'.")
             }
         }
         return result!        
@@ -1962,17 +1962,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : WalletBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getWalletBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getWalletBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getWalletBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getWalletBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getWalletBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getWalletBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getWalletBridge'.")
             }
         }
         return result!        
@@ -1990,17 +1990,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : XMLBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getXMLBridge().")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getXMLBridge().")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getXMLBridge()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getXMLBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getXMLBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getXMLBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getXMLBridge'.")
             }
         }
         return result!        
@@ -2019,17 +2019,17 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var result : APIBridge? = nil
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getBridge(\(bridgeType)).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getBridge(\(bridgeType)).")
         }
 
         if (self.delegate != nil) {
             result = self.delegate!.getBridge(bridgeType)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getBridge' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
             }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getBridge'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getBridge'.")
             }
         }
         return result!        
@@ -2047,18 +2047,18 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getPlatformContext.")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getPlatformContext.")
         }
 
         var result : AppContextBridge? = nil
         if (self.delegate != nil) {
             result = self.delegate!.getPlatformContext()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getPlatformContext' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getPlatformContext' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getPlatformContext'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getPlatformContext'.")
             }
         }
         return result!        
@@ -2076,18 +2076,18 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getPlatformContextWeb.")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getPlatformContextWeb.")
         }
 
         var result : AppContextWebviewBridge? = nil
         if (self.delegate != nil) {
             result = self.delegate!.getPlatformContextWeb()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getPlatformContextWeb' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getPlatformContextWeb' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getPlatformContextWeb'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getPlatformContextWeb'.")
             }
         }
         return result!        

@@ -82,17 +82,17 @@ public class NetworkStatusBridge : BaseCommunicationBridge, INetworkStatus, APIB
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkStatusBridge executing addNetworkStatusListener({\(listener)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "NetworkStatusBridge executing addNetworkStatusListener({\(listener)}).")
         }
 
         if (self.delegate != nil) {
             self.delegate!.addNetworkStatusListener(listener)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkStatusBridge executed 'addNetworkStatusListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "NetworkStatusBridge executed 'addNetworkStatusListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "NetworkStatusBridge no delegate for 'addNetworkStatusListener'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "NetworkStatusBridge no delegate for 'addNetworkStatusListener'.")
             }
         }
         
@@ -110,17 +110,17 @@ public class NetworkStatusBridge : BaseCommunicationBridge, INetworkStatus, APIB
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkStatusBridge executing removeNetworkStatusListener({\(listener)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "NetworkStatusBridge executing removeNetworkStatusListener({\(listener)}).")
         }
 
         if (self.delegate != nil) {
             self.delegate!.removeNetworkStatusListener(listener)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkStatusBridge executed 'removeNetworkStatusListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "NetworkStatusBridge executed 'removeNetworkStatusListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "NetworkStatusBridge no delegate for 'removeNetworkStatusListener'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "NetworkStatusBridge no delegate for 'removeNetworkStatusListener'.")
             }
         }
         
@@ -137,17 +137,17 @@ public class NetworkStatusBridge : BaseCommunicationBridge, INetworkStatus, APIB
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkStatusBridge executing removeNetworkStatusListeners.")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "NetworkStatusBridge executing removeNetworkStatusListeners.")
         }
 
         if (self.delegate != nil) {
             self.delegate!.removeNetworkStatusListeners()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "NetworkStatusBridge executed 'removeNetworkStatusListeners' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "NetworkStatusBridge executed 'removeNetworkStatusListeners' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "NetworkStatusBridge no delegate for 'removeNetworkStatusListeners'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "NetworkStatusBridge no delegate for 'removeNetworkStatusListeners'.")
             }
         }
         

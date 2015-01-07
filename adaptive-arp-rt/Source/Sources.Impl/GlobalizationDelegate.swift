@@ -61,7 +61,7 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
        @return List of locales
        @since ARP1.0
     */
-    public func getLocaleSupportedDescriptors() -> [Locale] {
+    public func getLocaleSupportedDescriptors() -> [Locale]? {
         
         // Read the i18n config file
         var resourceData : ResourceData? = AppResourceManager.sharedInstance.retrieveConfigResource(I18N_CONFIG_FILE)
@@ -102,7 +102,7 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
        @return Localized text.
        @since ARP1.0
     */
-    public func getResourceLiteral(key : String, locale : Locale) -> String {
+    public func getResourceLiteral(key : String, locale : Locale) -> String? {
         
         var filePath:String = getLanguageFilePath(locale)
         var resourceData : ResourceData? = AppResourceManager.sharedInstance.retrieveConfigResource(filePath)
@@ -157,7 +157,7 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
        @return Localized texts in the form of an object.
        @since ARP1.0
     */
-    public func getResourceLiterals(locale : Locale) -> [KeyPair] {
+    public func getResourceLiterals(locale : Locale) -> [KeyPair]? {
         
         var swiftDict : [KeyPair] = [KeyPair]()
         
