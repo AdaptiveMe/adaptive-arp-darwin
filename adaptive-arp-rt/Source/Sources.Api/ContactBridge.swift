@@ -367,7 +367,11 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
                     pngImage7!.append(Byte((pngImageElement7 as NSString).intValue))
                 }
                 var response7 : Bool? = self.setContactPhoto(contact7!, pngImage: pngImage7!)
-                responseJSON = nil //TODO - Serialize this.gson.toJson(response7);
+                if let response7 = response7 {
+                    responseJSON = "{ \(response7) }"
+                 } else {
+                    responseJSON = "{ false }"
+                 }
             default:
                 // 404 - response null.
                 responseJSON = nil

@@ -285,10 +285,10 @@ public class ServiceBridge : BaseCommunicationBridge, IService, APIBridge {
             case "getService":
                 var serviceName0 : String? = request.getParameters()![0]
                 var response0 : Service? = self.getService(serviceName0!)
-                if (response0 != nil) {
-                    responseJSON = nil //TODO - Serialize this.gson.toJson(response0);
+                if let response0 = response0 {
+                    responseJSON = Service.Serializer.toJSON(response0)
                 } else {
-                    responseJSON = nil
+                    responseJSON = "{ null }"
                 }
             case "invokeService":
                 var serviceRequest1 : ServiceRequest? = ServiceRequest.Serializer.fromJSON(request.getParameters()![0])
@@ -304,13 +304,21 @@ public class ServiceBridge : BaseCommunicationBridge, IService, APIBridge {
             case "unregisterServices":
                 self.unregisterServices();
             case "isRegistered_service":
-                var service5 : Service? = nil //TODO Deserialize this.gson.fromJson(request.getParameters()[0], Service.class)
+                var service5 : Service? = Service.Serializer.fromJSON(request.getParameters()![0])
                 var response5 : Bool? = self.isRegistered(service5!)
-                responseJSON = nil //TODO Serialize this.gson.toJson(response5);
+                if let response5 = response5 {
+                    responseJSON = "{ \(response5) }"
+                 } else {
+                    responseJSON = "{ false }"
+                 }
             case "isRegistered_serviceName":
-                var serviceName6 : String? = nil //TODO Deserialize this.gson.fromJson(request.getParameters()[0], String.class)
+                var serviceName6 : String? = request.getParameters()![0]
                 var response6 : Bool? = self.isRegistered(serviceName6!)
-                responseJSON = nil //TODO Serialize this.gson.toJson(response6);
+                if let response6 = response6 {
+                    responseJSON = "{ \(response6) }"
+                 } else {
+                    responseJSON = "{ false }"
+                 }
             default:
                 // 404 - response null.
                 responseJSON = nil

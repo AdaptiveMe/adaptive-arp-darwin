@@ -225,17 +225,17 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
                 self.addButtonListener(listener0!);
             case "getDeviceInfo":
                 var response1 : DeviceInfo? = self.getDeviceInfo()
-                if (response1 != nil) {
-                    responseJSON = nil //TODO - Serialize this.gson.toJson(response1);
+                if let response1 = response1 {
+                    responseJSON = DeviceInfo.Serializer.toJSON(response1)
                 } else {
-                    responseJSON = nil
+                    responseJSON = "{ null }"
                 }
             case "getLocaleCurrent":
                 var response2 : Locale? = self.getLocaleCurrent()
-                if (response2 != nil) {
-                    responseJSON = nil //TODO - Serialize this.gson.toJson(response2);
+                if let response2 = response2 {
+                    responseJSON = Locale.Serializer.toJSON(response2)
                 } else {
-                    responseJSON = nil
+                    responseJSON = "{ null }"
                 }
             case "removeButtonListener":
                 var listener3 : IButtonListener? =  ButtonListenerImpl(id: request.getAsyncId()!)

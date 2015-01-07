@@ -139,7 +139,11 @@ public class RuntimeBridge : BaseSystemBridge, IRuntime, APIBridge {
                 self.dismissApplication();
             case "dismissSplashScreen":
                 var response1 : Bool? = self.dismissSplashScreen()
-                responseJSON = nil //TODO - Serialize this.gson.toJson(response1);
+                if let response1 = response1 {
+                    responseJSON = "{ \(response1) }"
+                 } else {
+                    responseJSON = "{ false }"
+                 }
             default:
                 // 404 - response null.
                 responseJSON = nil

@@ -327,55 +327,59 @@ This path may or may not be writable by the current application.
                 var parent0 : FileDescriptor? = FileDescriptor.Serializer.fromJSON(request.getParameters()![0])
                 var name0 : String? = request.getParameters()![1]
                 var response0 : FileDescriptor? = self.createFileDescriptor(parent0!, name: name0!)
-                if (response0 != nil) {
-                    responseJSON = nil //TODO - Serialize this.gson.toJson(response0);
+                if let response0 = response0 {
+                    responseJSON = FileDescriptor.Serializer.toJSON(response0)
                 } else {
-                    responseJSON = nil
+                    responseJSON = "{ null }"
                 }
             case "getApplicationCacheFolder":
                 var response1 : FileDescriptor? = self.getApplicationCacheFolder()
-                if (response1 != nil) {
-                    responseJSON = nil //TODO - Serialize this.gson.toJson(response1);
+                if let response1 = response1 {
+                    responseJSON = FileDescriptor.Serializer.toJSON(response1)
                 } else {
-                    responseJSON = nil
+                    responseJSON = "{ null }"
                 }
             case "getApplicationCloudFolder":
                 var response2 : FileDescriptor? = self.getApplicationCloudFolder()
-                if (response2 != nil) {
-                    responseJSON = nil //TODO - Serialize this.gson.toJson(response2);
+                if let response2 = response2 {
+                    responseJSON = FileDescriptor.Serializer.toJSON(response2)
                 } else {
-                    responseJSON = nil
+                    responseJSON = "{ null }"
                 }
             case "getApplicationDocumentsFolder":
                 var response3 : FileDescriptor? = self.getApplicationDocumentsFolder()
-                if (response3 != nil) {
-                    responseJSON = nil //TODO - Serialize this.gson.toJson(response3);
+                if let response3 = response3 {
+                    responseJSON = FileDescriptor.Serializer.toJSON(response3)
                 } else {
-                    responseJSON = nil
+                    responseJSON = "{ null }"
                 }
             case "getApplicationFolder":
                 var response4 : FileDescriptor? = self.getApplicationFolder()
-                if (response4 != nil) {
-                    responseJSON = nil //TODO - Serialize this.gson.toJson(response4);
+                if let response4 = response4 {
+                    responseJSON = FileDescriptor.Serializer.toJSON(response4)
                 } else {
-                    responseJSON = nil
+                    responseJSON = "{ null }"
                 }
             case "getApplicationProtectedFolder":
                 var response5 : FileDescriptor? = self.getApplicationProtectedFolder()
-                if (response5 != nil) {
-                    responseJSON = nil //TODO - Serialize this.gson.toJson(response5);
+                if let response5 = response5 {
+                    responseJSON = FileDescriptor.Serializer.toJSON(response5)
                 } else {
-                    responseJSON = nil
+                    responseJSON = "{ null }"
                 }
             case "getSeparator":
                 var response6 : Character? = self.getSeparator()
-                responseJSON = nil //TODO - Serialize this.gson.toJson(response6);
+                if let response6 = response6 {
+                    responseJSON = "{ \"\(response6)\" }"
+                 } else {
+                    responseJSON = "{ \"\" }"
+                 }
             case "getSystemExternalFolder":
                 var response7 : FileDescriptor? = self.getSystemExternalFolder()
-                if (response7 != nil) {
-                    responseJSON = nil //TODO - Serialize this.gson.toJson(response7);
+                if let response7 = response7 {
+                    responseJSON = FileDescriptor.Serializer.toJSON(response7)
                 } else {
-                    responseJSON = nil
+                    responseJSON = "{ null }"
                 }
             default:
                 // 404 - response null.

@@ -107,14 +107,14 @@ public class LoggingBridge : BaseUtilBridge, ILogging, APIBridge {
         var responseJSON : String? = ""
         switch request.getMethodName()! {
             case "log_level_message":
-                var level0 : ILoggingLogLevel? = nil //TODO Deserialize this.gson.fromJson(request.getParameters()[0], ILoggingLogLevel.class)
-                var message0 : String? = nil //TODO Deserialize this.gson.fromJson(request.getParameters()[1], String.class)
-                self.log(level0!, message: message0!)
+                var level0 : ILoggingLogLevel? = ILoggingLogLevel.toEnum(JSONUtil.dictionifyJSON(request.getParameters()![0])["value"] as String!)
+                var message0 : String? = request.getParameters()![1]
+                self.log(level0!, message: message0!);
             case "log_level_category_message":
-                var level1 : ILoggingLogLevel? = nil //TODO Deserialize this.gson.fromJson(request.getParameters()[0], ILoggingLogLevel.class)
-                var category1 : String? = nil //TODO Deserialize this.gson.fromJson(request.getParameters()[1], String.class)
-                var message1 : String? = nil //TODO Deserialize this.gson.fromJson(request.getParameters()[2], String.class)
-                self.log(level1!, category: category1!, message: message1!)
+                var level1 : ILoggingLogLevel? = ILoggingLogLevel.toEnum(JSONUtil.dictionifyJSON(request.getParameters()![0])["value"] as String!)
+                var category1 : String? = request.getParameters()![1]
+                var message1 : String? = request.getParameters()![2]
+                self.log(level1!, category: category1!, message: message1!);
             default:
                 // 404 - response null.
                 responseJSON = nil

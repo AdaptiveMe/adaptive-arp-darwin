@@ -171,27 +171,45 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
         switch request.getMethodName()! {
             case "getLocaleSupportedDescriptors":
                 var response0 : [Locale]? = self.getLocaleSupportedDescriptors()
-                if (response0 != nil) {
-                    responseJSON = nil //TODO - Serialize this.gson.toJson(response0);
+                if let response0 = response0 {
+                    var response0JSONArray : NSMutableString = NSMutableString()
+                    response0JSONArray.appendString("{[ ")
+                    for (index, obj) in enumerate(response0) {
+                        response0JSONArray.appendString(Locale.Serializer.toJSON(obj))
+                        if index < response0.count-1 {
+                            response0JSONArray.appendString(", ")
+                        }
+                    }
+                    response0JSONArray.appendString(" ]}")
+                    responseJSON = response0JSONArray as String
                 } else {
-                    responseJSON = nil
+                    responseJSON = "{ null }"
                 }
             case "getResourceLiteral":
                 var key1 : String? = request.getParameters()![0]
                 var locale1 : Locale? = Locale.Serializer.fromJSON(request.getParameters()![1])
                 var response1 : String? = self.getResourceLiteral(key1!, locale: locale1!)
-                if (response1 != nil) {
-                    responseJSON = nil //TODO - Serialize this.gson.toJson(response1);
+                if let response1 = response1 {
+                    responseJSON = "{ \"\(response1)\" }"
                 } else {
-                    responseJSON = nil
+                    responseJSON = "{ null }"
                 }
             case "getResourceLiterals":
                 var locale2 : Locale? = Locale.Serializer.fromJSON(request.getParameters()![0])
                 var response2 : [KeyPair]? = self.getResourceLiterals(locale2!)
-                if (response2 != nil) {
-                    responseJSON = nil //TODO - Serialize this.gson.toJson(response2);
+                if let response2 = response2 {
+                    var response2JSONArray : NSMutableString = NSMutableString()
+                    response2JSONArray.appendString("{[ ")
+                    for (index, obj) in enumerate(response2) {
+                        response2JSONArray.appendString(KeyPair.Serializer.toJSON(obj))
+                        if index < response2.count-1 {
+                            response2JSONArray.appendString(", ")
+                        }
+                    }
+                    response2JSONArray.appendString(" ]}")
+                    responseJSON = response2JSONArray as String
                 } else {
-                    responseJSON = nil
+                    responseJSON = "{ null }"
                 }
             default:
                 // 404 - response null.

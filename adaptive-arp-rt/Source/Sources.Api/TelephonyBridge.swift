@@ -112,10 +112,10 @@ public class TelephonyBridge : BaseCommunicationBridge, ITelephony, APIBridge {
             case "call":
                 var number0 : String? = request.getParameters()![0]
                 var response0 : ITelephonyStatus? = self.call(number0!)
-                if (response0 != nil) {
-                    responseJSON = nil //TODO - Serialize this.gson.toJson(response0);
+                if let response0 = response0 {
+                    responseJSON = "{ \"value\": \"\(response0.toString())\" }"
                 } else {
-                    responseJSON = nil
+                    responseJSON = "{ \"value\": \"Unknown\" }"
                 }
             default:
                 // 404 - response null.

@@ -176,19 +176,31 @@ public class BrowserBridge : BaseUIBridge, IBrowser, APIBridge {
             case "openExtenalBrowser":
                 var url0 : String? = request.getParameters()![0]
                 var response0 : Bool? = self.openExtenalBrowser(url0!)
-                responseJSON = nil //TODO - Serialize this.gson.toJson(response0);
+                if let response0 = response0 {
+                    responseJSON = "{ \(response0) }"
+                 } else {
+                    responseJSON = "{ false }"
+                 }
             case "openInternalBrowser":
                 var url1 : String? = request.getParameters()![0]
                 var title1 : String? = request.getParameters()![1]
                 var backButtonText1 : String? = request.getParameters()![2]
                 var response1 : Bool? = self.openInternalBrowser(url1!, title: title1!, backButtonText: backButtonText1!)
-                responseJSON = nil //TODO - Serialize this.gson.toJson(response1);
+                if let response1 = response1 {
+                    responseJSON = "{ \(response1) }"
+                 } else {
+                    responseJSON = "{ false }"
+                 }
             case "openInternalBrowserModal":
                 var url2 : String? = request.getParameters()![0]
                 var title2 : String? = request.getParameters()![1]
                 var backButtonText2 : String? = request.getParameters()![2]
                 var response2 : Bool? = self.openInternalBrowserModal(url2!, title: title2!, backButtonText: backButtonText2!)
-                responseJSON = nil //TODO - Serialize this.gson.toJson(response2);
+                if let response2 = response2 {
+                    responseJSON = "{ \(response2) }"
+                 } else {
+                    responseJSON = "{ false }"
+                 }
             default:
                 // 404 - response null.
                 responseJSON = nil

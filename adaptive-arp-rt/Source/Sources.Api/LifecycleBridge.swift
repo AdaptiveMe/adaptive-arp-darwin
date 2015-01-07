@@ -196,7 +196,11 @@ public class LifecycleBridge : BaseApplicationBridge, ILifecycle, APIBridge {
                 self.addLifecycleListener(listener0!);
             case "isBackground":
                 var response1 : Bool? = self.isBackground()
-                responseJSON = nil //TODO - Serialize this.gson.toJson(response1);
+                if let response1 = response1 {
+                    responseJSON = "{ \(response1) }"
+                 } else {
+                    responseJSON = "{ false }"
+                 }
             case "removeLifecycleListener":
                 var listener2 : ILifecycleListener? =  LifecycleListenerImpl(id: request.getAsyncId()!)
                 self.removeLifecycleListener(listener2!);

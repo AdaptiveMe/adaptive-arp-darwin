@@ -218,7 +218,11 @@ public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
                 self.getSecureKeyValuePairs(keys1!, publicAccessName: publicAccessName1!, callback: callback1!);
             case "isDeviceModified":
                 var response2 : Bool? = self.isDeviceModified()
-                responseJSON = nil //TODO - Serialize this.gson.toJson(response2);
+                if let response2 = response2 {
+                    responseJSON = "{ \(response2) }"
+                 } else {
+                    responseJSON = "{ false }"
+                 }
             case "setSecureKeyValuePairs":
                 var keyValues3 : [SecureKeyPair]? = [SecureKeyPair]()
                 var keyValuesArray3 : [String] = JSONUtil.stringElementToArray(request.getParameters()![0])

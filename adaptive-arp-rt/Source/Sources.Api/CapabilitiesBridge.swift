@@ -296,31 +296,59 @@ device.
             case "hasButtonSupport":
                 var type0 : ICapabilitiesButton? = ICapabilitiesButton.toEnum(JSONUtil.dictionifyJSON(request.getParameters()![0])["value"] as String!)
                 var response0 : Bool? = self.hasButtonSupport(type0!)
-                responseJSON = nil //TODO - Serialize this.gson.toJson(response0);
+                if let response0 = response0 {
+                    responseJSON = "{ \(response0) }"
+                 } else {
+                    responseJSON = "{ false }"
+                 }
             case "hasCommunicationSupport":
                 var type1 : ICapabilitiesCommunication? = ICapabilitiesCommunication.toEnum(JSONUtil.dictionifyJSON(request.getParameters()![0])["value"] as String!)
                 var response1 : Bool? = self.hasCommunicationSupport(type1!)
-                responseJSON = nil //TODO - Serialize this.gson.toJson(response1);
+                if let response1 = response1 {
+                    responseJSON = "{ \(response1) }"
+                 } else {
+                    responseJSON = "{ false }"
+                 }
             case "hasDataSupport":
                 var type2 : ICapabilitiesData? = ICapabilitiesData.toEnum(JSONUtil.dictionifyJSON(request.getParameters()![0])["value"] as String!)
                 var response2 : Bool? = self.hasDataSupport(type2!)
-                responseJSON = nil //TODO - Serialize this.gson.toJson(response2);
+                if let response2 = response2 {
+                    responseJSON = "{ \(response2) }"
+                 } else {
+                    responseJSON = "{ false }"
+                 }
             case "hasMediaSupport":
                 var type3 : ICapabilitiesMedia? = ICapabilitiesMedia.toEnum(JSONUtil.dictionifyJSON(request.getParameters()![0])["value"] as String!)
                 var response3 : Bool? = self.hasMediaSupport(type3!)
-                responseJSON = nil //TODO - Serialize this.gson.toJson(response3);
+                if let response3 = response3 {
+                    responseJSON = "{ \(response3) }"
+                 } else {
+                    responseJSON = "{ false }"
+                 }
             case "hasNetSupport":
                 var type4 : ICapabilitiesNet? = ICapabilitiesNet.toEnum(JSONUtil.dictionifyJSON(request.getParameters()![0])["value"] as String!)
                 var response4 : Bool? = self.hasNetSupport(type4!)
-                responseJSON = nil //TODO - Serialize this.gson.toJson(response4);
+                if let response4 = response4 {
+                    responseJSON = "{ \(response4) }"
+                 } else {
+                    responseJSON = "{ false }"
+                 }
             case "hasNotificationSupport":
                 var type5 : ICapabilitiesNotification? = ICapabilitiesNotification.toEnum(JSONUtil.dictionifyJSON(request.getParameters()![0])["value"] as String!)
                 var response5 : Bool? = self.hasNotificationSupport(type5!)
-                responseJSON = nil //TODO - Serialize this.gson.toJson(response5);
+                if let response5 = response5 {
+                    responseJSON = "{ \(response5) }"
+                 } else {
+                    responseJSON = "{ false }"
+                 }
             case "hasSensorSupport":
                 var type6 : ICapabilitiesSensor? = ICapabilitiesSensor.toEnum(JSONUtil.dictionifyJSON(request.getParameters()![0])["value"] as String!)
                 var response6 : Bool? = self.hasSensorSupport(type6!)
-                responseJSON = nil //TODO - Serialize this.gson.toJson(response6);
+                if let response6 = response6 {
+                    responseJSON = "{ \(response6) }"
+                 } else {
+                    responseJSON = "{ false }"
+                 }
             default:
                 // 404 - response null.
                 responseJSON = nil

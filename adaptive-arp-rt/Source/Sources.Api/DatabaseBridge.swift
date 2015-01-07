@@ -363,12 +363,20 @@ should be passed as a parameter
             case "existsDatabase":
                 var database6 : Database? = Database.Serializer.fromJSON(request.getParameters()![0])
                 var response6 : Bool? = self.existsDatabase(database6!)
-                responseJSON = nil //TODO - Serialize this.gson.toJson(response6);
+                if let response6 = response6 {
+                    responseJSON = "{ \(response6) }"
+                 } else {
+                    responseJSON = "{ false }"
+                 }
             case "existsTable":
                 var database7 : Database? = Database.Serializer.fromJSON(request.getParameters()![0])
                 var databaseTable7 : DatabaseTable? = DatabaseTable.Serializer.fromJSON(request.getParameters()![1])
                 var response7 : Bool? = self.existsTable(database7!, databaseTable: databaseTable7!)
-                responseJSON = nil //TODO - Serialize this.gson.toJson(response7);
+                if let response7 = response7 {
+                    responseJSON = "{ \(response7) }"
+                 } else {
+                    responseJSON = "{ false }"
+                 }
             default:
                 // 404 - response null.
                 responseJSON = nil

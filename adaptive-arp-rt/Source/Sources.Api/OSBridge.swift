@@ -110,10 +110,10 @@ public class OSBridge : BaseSystemBridge, IOS, APIBridge {
         switch request.getMethodName()! {
             case "getOSInfo":
                 var response0 : OSInfo? = self.getOSInfo()
-                if (response0 != nil) {
-                    responseJSON = nil //TODO - Serialize this.gson.toJson(response0);
+                if let response0 = response0 {
+                    responseJSON = OSInfo.Serializer.toJSON(response0)
                 } else {
-                    responseJSON = nil
+                    responseJSON = "{ null }"
                 }
             default:
                 // 404 - response null.
