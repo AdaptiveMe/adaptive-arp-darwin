@@ -48,11 +48,15 @@ public class APIRequest : NSObject {
     */
     var asyncId : Int?
     /**
-       String representing the method name to call
+       String representing the bridge type to obtain.
+    */
+    var bridgeType : String?
+    /**
+       String representing the method name to call.
     */
     var methodName : String?
     /**
-       Types of the request parameters
+       Types of the request parameters.
     */
     var parameterTypes : [String]?
     /**
@@ -114,6 +118,26 @@ listener.
     */
     public func setAsyncId(asyncId: Int) {
         self.asyncId = asyncId
+    }
+
+    /**
+       Bridge Type Getter
+
+       @return Bridge Type
+       @since ARP1.0
+    */
+    public func getBridgeType() -> String? {
+        return self.bridgeType
+    }
+
+    /**
+       Bridge Type Setter
+
+       @param bridgeType Bridge Type
+       @since ARP1.0
+    */
+    public func setBridgeType(bridgeType: String) {
+        self.bridgeType = bridgeType
     }
 
     /**
@@ -197,6 +221,12 @@ listener.
                 }
             }
 
+            if let value : AnyObject = dict.objectForKey("bridgeType") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.bridgeType = (value as String)
+                }
+            }
+
             if let value : AnyObject = dict.objectForKey("methodName") {
                 if "\(value)" as NSString != "<null>" {
                     resultObject.methodName = (value as String)
@@ -233,6 +263,7 @@ listener.
 
             // Fields.
             object.asyncId != nil ? jsonString.appendString("\"asyncId\": \(object.asyncId!), ") : jsonString.appendString("\"asyncId\": null, ")
+            object.bridgeType != nil ? jsonString.appendString("\"bridgeType\": \"\(object.bridgeType!)\", ") : jsonString.appendString("\"bridgeType\": null, ")
             object.methodName != nil ? jsonString.appendString("\"methodName\": \"\(object.methodName!)\", ") : jsonString.appendString("\"methodName\": null, ")
             if (object.parameterTypes != nil) {
                 // Start array of objects.

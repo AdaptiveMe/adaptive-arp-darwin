@@ -40,6 +40,7 @@ import Foundation
 public enum INetworkStatusListenerError {
 
     case NoPermission
+    case Unreachable
     case Unknown
 
     /**
@@ -48,6 +49,7 @@ public enum INetworkStatusListenerError {
     public func toString() -> String {
         switch self {
             case .NoPermission: return "NoPermission"
+            case .Unreachable: return "Unreachable"
             case .Unknown: return "Unknown"
         }
     }
@@ -59,6 +61,7 @@ public enum INetworkStatusListenerError {
         if let validString = string {
             switch validString {
                 case "NoPermission": return .NoPermission
+                case "Unreachable": return .Unreachable
                 case "Unknown": return .Unknown
             default: return .Unknown
             }
