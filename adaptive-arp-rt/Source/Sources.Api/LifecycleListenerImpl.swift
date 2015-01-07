@@ -55,9 +55,12 @@ public class LifecycleListenerImpl : BaseListenerImpl, ILifecycleListener {
        @param error Type of error encountered during reading.
        @since ARP1.0
     */
-    public func onError(error : ILifecycleListenerError)  {
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleLifecycleListenerError( '\(getId())', JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    public func onError(error : ILifecycleListenerError) { 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleLifecycleListenerError( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -66,9 +69,12 @@ public class LifecycleListenerImpl : BaseListenerImpl, ILifecycleListener {
        @param lifecycle Lifecycle element
        @since ARP1.0
     */
-    public func onResult(lifecycle : Lifecycle)  {
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleLifecycleListenerResult( '\(getId())', JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    public func onResult(lifecycle : Lifecycle) { 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString(Lifecycle.Serializer.toJSON(lifecycle))
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleLifecycleListenerResult( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -78,9 +84,16 @@ public class LifecycleListenerImpl : BaseListenerImpl, ILifecycleListener {
        @param warning Type of warning encountered during reading.
        @since ARP1.0
     */
-    public func onWarning(lifecycle : Lifecycle, warning : ILifecycleListenerWarning)  {
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleLifecycleListenerWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    public func onWarning(lifecycle : Lifecycle, warning : ILifecycleListenerWarning) { 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString(Lifecycle.Serializer.toJSON(lifecycle))
+        responseJS.appendString("\")")
+        responseJS.appendString(", ")
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleLifecycleListenerWarning( \"\(getId())\", \(responseJS as String))")
     }
 
 }

@@ -56,8 +56,11 @@ public class SecurityResultCallbackImpl : BaseCallbackImpl, ISecurityResultCallb
        @since ARP1.0
     */
     public func onError(error : ISecurityResultCallbackError) { 
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackError( '\(getId())', JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackError( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -67,8 +70,18 @@ public class SecurityResultCallbackImpl : BaseCallbackImpl, ISecurityResultCallb
        @since ARP1.0
     */
     public func onResult(keyValues : [SecureKeyPair]) { 
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{[")
+        for (index,obj) in enumerate(keyValues) {
+            responseJS.appendString(SecureKeyPair.Serializer.toJSON(obj))
+            if index < keyValues.count-1 {
+                responseJS.appendString(", ")
+            }
+        }
+        responseJS.appendString("]}")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackResult( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -79,8 +92,22 @@ public class SecurityResultCallbackImpl : BaseCallbackImpl, ISecurityResultCallb
        @since ARP1.0
     */
     public func onWarning(keyValues : [SecureKeyPair], warning : ISecurityResultCallbackWarning) { 
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{[")
+        for (index,obj) in enumerate(keyValues) {
+            responseJS.appendString(SecureKeyPair.Serializer.toJSON(obj))
+            if index < keyValues.count-1 {
+                responseJS.appendString(", ")
+            }
+        }
+        responseJS.appendString("]}")
+        responseJS.appendString("\")")
+        responseJS.appendString(", ")
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackWarning( \"\(getId())\", \(responseJS as String))")
     }
 
 }

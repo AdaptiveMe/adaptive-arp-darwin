@@ -56,8 +56,11 @@ public class ServiceResultCallbackImpl : BaseCallbackImpl, IServiceResultCallbac
        @since ARP1.0
     */
     public func onError(error : IServiceResultCallbackError) { 
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleServiceResultCallbackError( '\(getId())', JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleServiceResultCallbackError( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -67,8 +70,11 @@ public class ServiceResultCallbackImpl : BaseCallbackImpl, IServiceResultCallbac
        @since ARP1.0
     */
     public func onResult(response : ServiceResponse) { 
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleServiceResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString(ServiceResponse.Serializer.toJSON(response))
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleServiceResultCallbackResult( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -79,8 +85,15 @@ public class ServiceResultCallbackImpl : BaseCallbackImpl, IServiceResultCallbac
        @since ARP1.0
     */
     public func onWarning(response : ServiceResponse, warning : IServiceResultCallbackWarning) { 
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleServiceResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString(ServiceResponse.Serializer.toJSON(response))
+        responseJS.appendString("\")")
+        responseJS.appendString(", ")
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleServiceResultCallbackWarning( \"\(getId())\", \(responseJS as String))")
     }
 
 }

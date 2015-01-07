@@ -56,8 +56,11 @@ public class FileListResultCallbackImpl : BaseCallbackImpl, IFileListResultCallb
        @since ARP1.0
     */
     public func onError(error : IFileListResultCallbackError) { 
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackError( '\(getId())', JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackError( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -67,8 +70,18 @@ public class FileListResultCallbackImpl : BaseCallbackImpl, IFileListResultCallb
        @since ARP1.0
     */
     public func onResult(files : [FileDescriptor]) { 
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{[")
+        for (index,obj) in enumerate(files) {
+            responseJS.appendString(FileDescriptor.Serializer.toJSON(obj))
+            if index < files.count-1 {
+                responseJS.appendString(", ")
+            }
+        }
+        responseJS.appendString("]}")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackResult( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -79,8 +92,22 @@ public class FileListResultCallbackImpl : BaseCallbackImpl, IFileListResultCallb
        @since ARP1.0
     */
     public func onWarning(files : [FileDescriptor], warning : IFileListResultCallbackWarning) { 
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{[")
+        for (index,obj) in enumerate(files) {
+            responseJS.appendString(FileDescriptor.Serializer.toJSON(obj))
+            if index < files.count-1 {
+                responseJS.appendString(", ")
+            }
+        }
+        responseJS.appendString("]}")
+        responseJS.appendString("\")")
+        responseJS.appendString(", ")
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackWarning( \"\(getId())\", \(responseJS as String))")
     }
 
 }

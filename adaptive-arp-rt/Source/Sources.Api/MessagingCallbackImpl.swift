@@ -56,8 +56,11 @@ public class MessagingCallbackImpl : BaseCallbackImpl, IMessagingCallback {
        @since ARP1.0
     */
     public func onError(error : IMessagingCallbackError) { 
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleMessagingCallbackError( '\(getId())', JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleMessagingCallbackError( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -67,8 +70,11 @@ public class MessagingCallbackImpl : BaseCallbackImpl, IMessagingCallback {
        @since ARP1.0
     */
     public func onResult(success : Bool) { 
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleMessagingCallbackResult( '\(getId())', JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{ \(success) }")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleMessagingCallbackResult( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -79,8 +85,15 @@ public class MessagingCallbackImpl : BaseCallbackImpl, IMessagingCallback {
        @since ARP1.0
     */
     public func onWarning(success : Bool, warning : IMessagingCallbackWarning) { 
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleMessagingCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{ \(success) }")
+        responseJS.appendString("\")")
+        responseJS.appendString(", ")
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleMessagingCallbackWarning( \"\(getId())\", \(responseJS as String))")
     }
 
 }

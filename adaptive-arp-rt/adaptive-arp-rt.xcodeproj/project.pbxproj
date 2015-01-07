@@ -40,8 +40,6 @@
 		4E43B06A1A48211200E61B83 /* AppRegistryBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF1F1A48211100E61B83 /* AppRegistryBridge.swift */; };
 		4E43B06B1A48211200E61B83 /* AppRegistryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF201A48211100E61B83 /* AppRegistryDelegate.swift */; };
 		4E43B06C1A48211200E61B83 /* AppRegistryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF201A48211100E61B83 /* AppRegistryDelegate.swift */; };
-		4E43B06D1A48211200E61B83 /* AppResourceCallbackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF211A48211100E61B83 /* AppResourceCallbackImpl.swift */; };
-		4E43B06E1A48211200E61B83 /* AppResourceCallbackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF211A48211100E61B83 /* AppResourceCallbackImpl.swift */; };
 		4E43B06F1A48211200E61B83 /* AudioBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF221A48211100E61B83 /* AudioBridge.swift */; };
 		4E43B0701A48211200E61B83 /* AudioBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF221A48211100E61B83 /* AudioBridge.swift */; };
 		4E43B0711A48211200E61B83 /* BarcodeBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF231A48211100E61B83 /* BarcodeBridge.swift */; };
@@ -220,22 +218,6 @@
 		4E43B11E1A48211200E61B83 /* IAppContextWebview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF791A48211100E61B83 /* IAppContextWebview.swift */; };
 		4E43B11F1A48211200E61B83 /* IAppRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF7A1A48211100E61B83 /* IAppRegistry.swift */; };
 		4E43B1201A48211200E61B83 /* IAppRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF7A1A48211100E61B83 /* IAppRegistry.swift */; };
-		4E43B1211A48211200E61B83 /* IAppResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF7B1A48211100E61B83 /* IAppResource.swift */; };
-		4E43B1221A48211200E61B83 /* IAppResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF7B1A48211100E61B83 /* IAppResource.swift */; };
-		4E43B1231A48211200E61B83 /* IAppResourceCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF7C1A48211100E61B83 /* IAppResourceCallback.swift */; };
-		4E43B1241A48211200E61B83 /* IAppResourceCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF7C1A48211100E61B83 /* IAppResourceCallback.swift */; };
-		4E43B1251A48211200E61B83 /* IAppResourceCallbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF7D1A48211100E61B83 /* IAppResourceCallbackError.swift */; };
-		4E43B1261A48211200E61B83 /* IAppResourceCallbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF7D1A48211100E61B83 /* IAppResourceCallbackError.swift */; };
-		4E43B1271A48211200E61B83 /* IAppResourceCallbackWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF7E1A48211100E61B83 /* IAppResourceCallbackWarning.swift */; };
-		4E43B1281A48211200E61B83 /* IAppResourceCallbackWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF7E1A48211100E61B83 /* IAppResourceCallbackWarning.swift */; };
-		4E43B1291A48211200E61B83 /* IAppResourceFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF7F1A48211100E61B83 /* IAppResourceFormat.swift */; };
-		4E43B12A1A48211200E61B83 /* IAppResourceFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF7F1A48211100E61B83 /* IAppResourceFormat.swift */; };
-		4E43B12B1A48211200E61B83 /* IAppResourceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF801A48211100E61B83 /* IAppResourceHandler.swift */; };
-		4E43B12C1A48211200E61B83 /* IAppResourceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF801A48211100E61B83 /* IAppResourceHandler.swift */; };
-		4E43B12D1A48211200E61B83 /* IAppResourcePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF811A48211100E61B83 /* IAppResourcePayload.swift */; };
-		4E43B12E1A48211200E61B83 /* IAppResourcePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF811A48211100E61B83 /* IAppResourcePayload.swift */; };
-		4E43B12F1A48211200E61B83 /* IAppResourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF821A48211100E61B83 /* IAppResourceType.swift */; };
-		4E43B1301A48211200E61B83 /* IAppResourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF821A48211100E61B83 /* IAppResourceType.swift */; };
 		4E43B1311A48211200E61B83 /* IAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF831A48211100E61B83 /* IAudio.swift */; };
 		4E43B1321A48211200E61B83 /* IAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF831A48211100E61B83 /* IAudio.swift */; };
 		4E43B1331A48211200E61B83 /* IBarcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF841A48211100E61B83 /* IBarcode.swift */; };
@@ -835,7 +817,6 @@
 		C3D72DD31A49C47800D10B30 /* AppContextWebviewBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF1E1A48211100E61B83 /* AppContextWebviewBridge.swift */; };
 		C3D72DD41A49C47800D10B30 /* AppRegistryBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF1F1A48211100E61B83 /* AppRegistryBridge.swift */; };
 		C3D72DD51A49C47800D10B30 /* AppRegistryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF201A48211100E61B83 /* AppRegistryDelegate.swift */; };
-		C3D72DD61A49C47800D10B30 /* AppResourceCallbackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF211A48211100E61B83 /* AppResourceCallbackImpl.swift */; };
 		C3D72DD71A49C47800D10B30 /* AudioBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF221A48211100E61B83 /* AudioBridge.swift */; };
 		C3D72DD81A49C47800D10B30 /* BarcodeBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF231A48211100E61B83 /* BarcodeBridge.swift */; };
 		C3D72DD91A49C47800D10B30 /* BarometerBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF241A48211100E61B83 /* BarometerBridge.swift */; };
@@ -925,14 +906,6 @@
 		C3D72E2D1A49C47800D10B30 /* IAppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF781A48211100E61B83 /* IAppContext.swift */; };
 		C3D72E2E1A49C47800D10B30 /* IAppContextWebview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF791A48211100E61B83 /* IAppContextWebview.swift */; };
 		C3D72E2F1A49C47800D10B30 /* IAppRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF7A1A48211100E61B83 /* IAppRegistry.swift */; };
-		C3D72E301A49C47800D10B30 /* IAppResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF7B1A48211100E61B83 /* IAppResource.swift */; };
-		C3D72E311A49C47800D10B30 /* IAppResourceCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF7C1A48211100E61B83 /* IAppResourceCallback.swift */; };
-		C3D72E321A49C47800D10B30 /* IAppResourceCallbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF7D1A48211100E61B83 /* IAppResourceCallbackError.swift */; };
-		C3D72E331A49C47800D10B30 /* IAppResourceCallbackWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF7E1A48211100E61B83 /* IAppResourceCallbackWarning.swift */; };
-		C3D72E341A49C47800D10B30 /* IAppResourceFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF7F1A48211100E61B83 /* IAppResourceFormat.swift */; };
-		C3D72E351A49C47800D10B30 /* IAppResourceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF801A48211100E61B83 /* IAppResourceHandler.swift */; };
-		C3D72E361A49C47800D10B30 /* IAppResourcePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF811A48211100E61B83 /* IAppResourcePayload.swift */; };
-		C3D72E371A49C47800D10B30 /* IAppResourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF821A48211100E61B83 /* IAppResourceType.swift */; };
 		C3D72E381A49C47800D10B30 /* IAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF831A48211100E61B83 /* IAudio.swift */; };
 		C3D72E391A49C47800D10B30 /* IBarcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF841A48211100E61B83 /* IBarcode.swift */; };
 		C3D72E3A1A49C47800D10B30 /* IBarometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF851A48211100E61B83 /* IBarometer.swift */; };
@@ -1153,7 +1126,6 @@
 		C3D72F111A49C47900D10B30 /* AppContextWebviewBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF1E1A48211100E61B83 /* AppContextWebviewBridge.swift */; };
 		C3D72F121A49C47900D10B30 /* AppRegistryBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF1F1A48211100E61B83 /* AppRegistryBridge.swift */; };
 		C3D72F131A49C47900D10B30 /* AppRegistryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF201A48211100E61B83 /* AppRegistryDelegate.swift */; };
-		C3D72F141A49C47900D10B30 /* AppResourceCallbackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF211A48211100E61B83 /* AppResourceCallbackImpl.swift */; };
 		C3D72F151A49C47900D10B30 /* AudioBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF221A48211100E61B83 /* AudioBridge.swift */; };
 		C3D72F161A49C47900D10B30 /* BarcodeBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF231A48211100E61B83 /* BarcodeBridge.swift */; };
 		C3D72F171A49C47900D10B30 /* BarometerBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF241A48211100E61B83 /* BarometerBridge.swift */; };
@@ -1243,14 +1215,6 @@
 		C3D72F6B1A49C47900D10B30 /* IAppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF781A48211100E61B83 /* IAppContext.swift */; };
 		C3D72F6C1A49C47900D10B30 /* IAppContextWebview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF791A48211100E61B83 /* IAppContextWebview.swift */; };
 		C3D72F6D1A49C47900D10B30 /* IAppRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF7A1A48211100E61B83 /* IAppRegistry.swift */; };
-		C3D72F6E1A49C47900D10B30 /* IAppResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF7B1A48211100E61B83 /* IAppResource.swift */; };
-		C3D72F6F1A49C47900D10B30 /* IAppResourceCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF7C1A48211100E61B83 /* IAppResourceCallback.swift */; };
-		C3D72F701A49C47900D10B30 /* IAppResourceCallbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF7D1A48211100E61B83 /* IAppResourceCallbackError.swift */; };
-		C3D72F711A49C47900D10B30 /* IAppResourceCallbackWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF7E1A48211100E61B83 /* IAppResourceCallbackWarning.swift */; };
-		C3D72F721A49C47900D10B30 /* IAppResourceFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF7F1A48211100E61B83 /* IAppResourceFormat.swift */; };
-		C3D72F731A49C47900D10B30 /* IAppResourceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF801A48211100E61B83 /* IAppResourceHandler.swift */; };
-		C3D72F741A49C47900D10B30 /* IAppResourcePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF811A48211100E61B83 /* IAppResourcePayload.swift */; };
-		C3D72F751A49C47900D10B30 /* IAppResourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF821A48211100E61B83 /* IAppResourceType.swift */; };
 		C3D72F761A49C47900D10B30 /* IAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF831A48211100E61B83 /* IAudio.swift */; };
 		C3D72F771A49C47900D10B30 /* IBarcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF841A48211100E61B83 /* IBarcode.swift */; };
 		C3D72F781A49C47900D10B30 /* IBarometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF851A48211100E61B83 /* IBarometer.swift */; };
@@ -1659,7 +1623,6 @@
 		4E43AF1E1A48211100E61B83 /* AppContextWebviewBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContextWebviewBridge.swift; sourceTree = "<group>"; };
 		4E43AF1F1A48211100E61B83 /* AppRegistryBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRegistryBridge.swift; sourceTree = "<group>"; };
 		4E43AF201A48211100E61B83 /* AppRegistryDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRegistryDelegate.swift; sourceTree = "<group>"; };
-		4E43AF211A48211100E61B83 /* AppResourceCallbackImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppResourceCallbackImpl.swift; sourceTree = "<group>"; };
 		4E43AF221A48211100E61B83 /* AudioBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioBridge.swift; sourceTree = "<group>"; };
 		4E43AF231A48211100E61B83 /* BarcodeBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeBridge.swift; sourceTree = "<group>"; };
 		4E43AF241A48211100E61B83 /* BarometerBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarometerBridge.swift; sourceTree = "<group>"; };
@@ -1749,14 +1712,6 @@
 		4E43AF781A48211100E61B83 /* IAppContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppContext.swift; sourceTree = "<group>"; };
 		4E43AF791A48211100E61B83 /* IAppContextWebview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppContextWebview.swift; sourceTree = "<group>"; };
 		4E43AF7A1A48211100E61B83 /* IAppRegistry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppRegistry.swift; sourceTree = "<group>"; };
-		4E43AF7B1A48211100E61B83 /* IAppResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppResource.swift; sourceTree = "<group>"; };
-		4E43AF7C1A48211100E61B83 /* IAppResourceCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppResourceCallback.swift; sourceTree = "<group>"; };
-		4E43AF7D1A48211100E61B83 /* IAppResourceCallbackError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppResourceCallbackError.swift; sourceTree = "<group>"; };
-		4E43AF7E1A48211100E61B83 /* IAppResourceCallbackWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppResourceCallbackWarning.swift; sourceTree = "<group>"; };
-		4E43AF7F1A48211100E61B83 /* IAppResourceFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppResourceFormat.swift; sourceTree = "<group>"; };
-		4E43AF801A48211100E61B83 /* IAppResourceHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppResourceHandler.swift; sourceTree = "<group>"; };
-		4E43AF811A48211100E61B83 /* IAppResourcePayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppResourcePayload.swift; sourceTree = "<group>"; };
-		4E43AF821A48211100E61B83 /* IAppResourceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppResourceType.swift; sourceTree = "<group>"; };
 		4E43AF831A48211100E61B83 /* IAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAudio.swift; sourceTree = "<group>"; };
 		4E43AF841A48211100E61B83 /* IBarcode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBarcode.swift; sourceTree = "<group>"; };
 		4E43AF851A48211100E61B83 /* IBarometer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBarometer.swift; sourceTree = "<group>"; };
@@ -2157,7 +2112,6 @@
 				4E43AF1E1A48211100E61B83 /* AppContextWebviewBridge.swift */,
 				4E43AF1F1A48211100E61B83 /* AppRegistryBridge.swift */,
 				4E43AF201A48211100E61B83 /* AppRegistryDelegate.swift */,
-				4E43AF211A48211100E61B83 /* AppResourceCallbackImpl.swift */,
 				4E43AF221A48211100E61B83 /* AudioBridge.swift */,
 				4E43AF231A48211100E61B83 /* BarcodeBridge.swift */,
 				4E43AF241A48211100E61B83 /* BarometerBridge.swift */,
@@ -2247,14 +2201,6 @@
 				4E43AF781A48211100E61B83 /* IAppContext.swift */,
 				4E43AF791A48211100E61B83 /* IAppContextWebview.swift */,
 				4E43AF7A1A48211100E61B83 /* IAppRegistry.swift */,
-				4E43AF7B1A48211100E61B83 /* IAppResource.swift */,
-				4E43AF7C1A48211100E61B83 /* IAppResourceCallback.swift */,
-				4E43AF7D1A48211100E61B83 /* IAppResourceCallbackError.swift */,
-				4E43AF7E1A48211100E61B83 /* IAppResourceCallbackWarning.swift */,
-				4E43AF7F1A48211100E61B83 /* IAppResourceFormat.swift */,
-				4E43AF801A48211100E61B83 /* IAppResourceHandler.swift */,
-				4E43AF811A48211100E61B83 /* IAppResourcePayload.swift */,
-				4E43AF821A48211100E61B83 /* IAppResourceType.swift */,
 				4E43AF831A48211100E61B83 /* IAudio.swift */,
 				4E43AF841A48211100E61B83 /* IBarcode.swift */,
 				4E43AF851A48211100E61B83 /* IBarometer.swift */,
@@ -3189,13 +3135,11 @@
 				4E43B25D1A48211200E61B83 /* Lifecycle.swift in Sources */,
 				4E43B2871A48211200E61B83 /* NotificationLocalBridge.swift in Sources */,
 				4E43B07D1A48211200E61B83 /* BaseDataBridge.swift in Sources */,
-				4E43B12B1A48211200E61B83 /* IAppResourceHandler.swift in Sources */,
 				4E43B05B1A48211200E61B83 /* AmbientLightBridge.swift in Sources */,
 				4E43B2F71A48212D00E61B83 /* AppContextDelegate.swift in Sources */,
 				4E43B0671A48211200E61B83 /* AppContextWebviewBridge.swift in Sources */,
 				4E43B19D1A48211200E61B83 /* IDataStream.swift in Sources */,
 				4E43B0E51A48211200E61B83 /* DisplayBridge.swift in Sources */,
-				4E43B1271A48211200E61B83 /* IAppResourceCallbackWarning.swift in Sources */,
 				4E43B18B1A48211200E61B83 /* IContactResultCallbackWarning.swift in Sources */,
 				4E43B32F1A48212D00E61B83 /* NetworkReachabilityDelegate.swift in Sources */,
 				4E43B1151A48211200E61B83 /* IAlarm.swift in Sources */,
@@ -3257,7 +3201,6 @@
 				4E43B18D1A48211200E61B83 /* ICrypto.swift in Sources */,
 				4E43B1F71A48211200E61B83 /* IMessagingCallbackError.swift in Sources */,
 				4E43B1511A48211200E61B83 /* IBaseSystem.swift in Sources */,
-				4E43B1211A48211200E61B83 /* IAppResource.swift in Sources */,
 				4E43B1911A48211200E61B83 /* IDatabaseResultCallback.swift in Sources */,
 				4E43B36C1A48228700E61B83 /* BitExtension.swift in Sources */,
 				4E43B0AF1A48211200E61B83 /* ContactBridge.swift in Sources */,
@@ -3328,16 +3271,13 @@
 				4E43B1D31A48211200E61B83 /* IGooglePlus.swift in Sources */,
 				4E43B30B1A48212D00E61B83 /* BaseSecurityDelegate.swift in Sources */,
 				4E43B3981A48228700E61B83 /* GeolocationDelegateHelper.swift in Sources */,
-				4E43B1251A48211200E61B83 /* IAppResourceCallbackError.swift in Sources */,
 				4E43B28B1A48211200E61B83 /* OCRBridge.swift in Sources */,
 				4E43B0511A48211200E61B83 /* Acceleration.swift in Sources */,
-				4E43B1291A48211200E61B83 /* IAppResourceFormat.swift in Sources */,
 				4E43B1CD1A48211200E61B83 /* IGeolocationListenerError.swift in Sources */,
 				4E43B2FF1A48212D00E61B83 /* BaseCommunicationDelegate.swift in Sources */,
 				4E43B29D1A48211200E61B83 /* SecureKeyPair.swift in Sources */,
 				4E43B0931A48211200E61B83 /* BaseUtilBridge.swift in Sources */,
 				4E43B2711A48211200E61B83 /* MapBridge.swift in Sources */,
-				4E43B12F1A48211200E61B83 /* IAppResourceType.swift in Sources */,
 				4E43B15F1A48211200E61B83 /* IButtonListenerWarning.swift in Sources */,
 				4E43B2451A48211200E61B83 /* IStore.swift in Sources */,
 				4E43B0911A48211200E61B83 /* BaseUIBridge.swift in Sources */,
@@ -3382,7 +3322,6 @@
 				4E43B2631A48211200E61B83 /* LifecycleState.swift in Sources */,
 				4E43B1791A48211200E61B83 /* IConcurrent.swift in Sources */,
 				4E43B1FB1A48211200E61B83 /* INetworkInfo.swift in Sources */,
-				4E43B06D1A48211200E61B83 /* AppResourceCallbackImpl.swift in Sources */,
 				4E43B38A1A48228700E61B83 /* StringExtension.swift in Sources */,
 				4E43B0A71A48211200E61B83 /* ConcurrentBridge.swift in Sources */,
 				4E43B1E71A48211200E61B83 /* ILoggingLogLevel.swift in Sources */,
@@ -3427,7 +3366,6 @@
 				4E43B0B11A48211200E61B83 /* ContactEmail.swift in Sources */,
 				4E43B0E31A48211200E61B83 /* DeviceInfo.swift in Sources */,
 				4E43B17F1A48211200E61B83 /* IContactFilter.swift in Sources */,
-				4E43B12D1A48211200E61B83 /* IAppResourcePayload.swift in Sources */,
 				4E43B3291A48212D00E61B83 /* LoggingDelegate.swift in Sources */,
 				4E43B26B1A48211200E61B83 /* MagnetometerBridge.swift in Sources */,
 				4E43B1431A48211200E61B83 /* IBaseMedia.swift in Sources */,
@@ -3444,7 +3382,6 @@
 				4E43B0D31A48211200E61B83 /* DatabaseColumn.swift in Sources */,
 				4E43B2491A48211200E61B83 /* ITelephonyStatus.swift in Sources */,
 				4E43B20D1A48211200E61B83 /* INetworkStatusListenerWarning.swift in Sources */,
-				4E43B1231A48211200E61B83 /* IAppResourceCallback.swift in Sources */,
 				4E43B2B51A48211200E61B83 /* SettingsBridge.swift in Sources */,
 				4E43B0D11A48211200E61B83 /* DatabaseBridge.swift in Sources */,
 				4E43B27F1A48211200E61B83 /* NetworkStatusBridge.swift in Sources */,
@@ -3527,7 +3464,6 @@
 				C3D72FE31A49C47900D10B30 /* INetworkStatusListenerError.swift in Sources */,
 				C3D72F3A1A49C47900D10B30 /* ContactPhone.swift in Sources */,
 				C3D72F131A49C47900D10B30 /* AppRegistryDelegate.swift in Sources */,
-				C3D72F6F1A49C47900D10B30 /* IAppResourceCallback.swift in Sources */,
 				C3D72F961A49C47900D10B30 /* ICapabilitiesNotification.swift in Sources */,
 				C3D7304D1A49C4E300D10B30 /* GeolocationDelegateHelper.swift in Sources */,
 				C3D72FF41A49C47900D10B30 /* ISecurityResultCallback.swift in Sources */,
@@ -3554,7 +3490,6 @@
 				C3D730281A49C47900D10B30 /* ProximityBridge.swift in Sources */,
 				C3D72F8E1A49C47900D10B30 /* ICalendar.swift in Sources */,
 				C3D72F6A1A49C47900D10B30 /* IAnalytics.swift in Sources */,
-				C3D72F731A49C47900D10B30 /* IAppResourceHandler.swift in Sources */,
 				C3D730371A49C47900D10B30 /* ServiceSession.swift in Sources */,
 				C3D72F071A49C47900D10B30 /* AccelerationBridge.swift in Sources */,
 				C3D72FF91A49C47900D10B30 /* IServiceProtocolVersion.swift in Sources */,
@@ -3579,7 +3514,6 @@
 				C3D72FAF1A49C47900D10B30 /* IDisplay.swift in Sources */,
 				C3D72FB21A49C47900D10B30 /* IFileDataLoadResultCallback.swift in Sources */,
 				C3D72FE61A49C47900D10B30 /* INotification.swift in Sources */,
-				C3D72F701A49C47900D10B30 /* IAppResourceCallbackError.swift in Sources */,
 				C3D7303E1A49C47900D10B30 /* UIBridge.swift in Sources */,
 				C3D7304F1A49C4E300D10B30 /* Utils.swift in Sources */,
 				C3D72F561A49C47900D10B30 /* FileDataStoreResultCallbackImpl.swift in Sources */,
@@ -3592,9 +3526,7 @@
 				C3D7302B1A49C47900D10B30 /* RuntimeBridge.swift in Sources */,
 				C3D72F441A49C47900D10B30 /* CryptoBridge.swift in Sources */,
 				C3D730341A49C47900D10B30 /* ServiceRequest.swift in Sources */,
-				C3D72F711A49C47900D10B30 /* IAppResourceCallbackWarning.swift in Sources */,
 				C3D7303C1A49C47900D10B30 /* TimerBridge.swift in Sources */,
-				C3D72F141A49C47900D10B30 /* AppResourceCallbackImpl.swift in Sources */,
 				C3D7300B1A49C47900D10B30 /* KeyPair.swift in Sources */,
 				C3D72F5D1A49C47900D10B30 /* GeolocationListenerImpl.swift in Sources */,
 				C3D72FDD1A49C47900D10B30 /* INetworkReachability.swift in Sources */,
@@ -3626,7 +3558,6 @@
 				C39ED7241A4AA9730081C13F /* BaseViewController.swift in Sources */,
 				C3D72F7A1A49C47900D10B30 /* IBaseCallback.swift in Sources */,
 				C3D72F3C1A49C47900D10B30 /* ContactPhotoResultCallbackImpl.swift in Sources */,
-				C3D72F751A49C47900D10B30 /* IAppResourceType.swift in Sources */,
 				C3D72F791A49C47900D10B30 /* IBaseApplication.swift in Sources */,
 				C3D7302A1A49C47900D10B30 /* RSSBridge.swift in Sources */,
 				C3D72F9E1A49C47900D10B30 /* IContactPhotoResultCallback.swift in Sources */,
@@ -3639,7 +3570,6 @@
 				C3D72F3F1A49C47900D10B30 /* ContactSocial.swift in Sources */,
 				C3D72F2A1A49C47900D10B30 /* Button.swift in Sources */,
 				C3D72F841A49C47900D10B30 /* IBaseSensor.swift in Sources */,
-				C3D72F6E1A49C47900D10B30 /* IAppResource.swift in Sources */,
 				C3D7303F1A49C47900D10B30 /* UpdateBridge.swift in Sources */,
 				C3D72FD41A49C47900D10B30 /* IMail.swift in Sources */,
 				C3D730021A49C47900D10B30 /* ITelephonyStatus.swift in Sources */,
@@ -3724,11 +3654,9 @@
 				C3D72FE51A49C47900D10B30 /* INFC.swift in Sources */,
 				C3D72FB31A49C47900D10B30 /* IFileDataLoadResultCallbackError.swift in Sources */,
 				C3D7304C1A49C4E300D10B30 /* Await.swift in Sources */,
-				C3D72F741A49C47900D10B30 /* IAppResourcePayload.swift in Sources */,
 				C3D72FB61A49C47900D10B30 /* IFileDataStoreResultCallbackError.swift in Sources */,
 				C3D72F7E1A49C47900D10B30 /* IBaseListener.swift in Sources */,
 				C3D7304B1A49C4E300D10B30 /* JSONUtil.swift in Sources */,
-				C3D72F721A49C47900D10B30 /* IAppResourceFormat.swift in Sources */,
 				C3D72F931A49C47900D10B30 /* ICapabilitiesData.swift in Sources */,
 				C3D72FD71A49C47900D10B30 /* IMessaging.swift in Sources */,
 				C3D730161A49C47900D10B30 /* MapBridge.swift in Sources */,
@@ -3925,14 +3853,12 @@
 				4E43B25E1A48211200E61B83 /* Lifecycle.swift in Sources */,
 				4E43B2881A48211200E61B83 /* NotificationLocalBridge.swift in Sources */,
 				4E43B07E1A48211200E61B83 /* BaseDataBridge.swift in Sources */,
-				4E43B12C1A48211200E61B83 /* IAppResourceHandler.swift in Sources */,
 				4E43B05C1A48211200E61B83 /* AmbientLightBridge.swift in Sources */,
 				4E43B2F81A48212D00E61B83 /* AppContextDelegate.swift in Sources */,
 				4E43B0681A48211200E61B83 /* AppContextWebviewBridge.swift in Sources */,
 				4E43B19E1A48211200E61B83 /* IDataStream.swift in Sources */,
 				C39ED7311A4AE37F0081C13F /* Reachability.swift in Sources */,
 				4E43B0E61A48211200E61B83 /* DisplayBridge.swift in Sources */,
-				4E43B1281A48211200E61B83 /* IAppResourceCallbackWarning.swift in Sources */,
 				4E43B18C1A48211200E61B83 /* IContactResultCallbackWarning.swift in Sources */,
 				4E43B3301A48212D00E61B83 /* NetworkReachabilityDelegate.swift in Sources */,
 				4E43B1161A48211200E61B83 /* IAlarm.swift in Sources */,
@@ -3992,7 +3918,6 @@
 				4E43B18E1A48211200E61B83 /* ICrypto.swift in Sources */,
 				4E43B1F81A48211200E61B83 /* IMessagingCallbackError.swift in Sources */,
 				4E43B1521A48211200E61B83 /* IBaseSystem.swift in Sources */,
-				4E43B1221A48211200E61B83 /* IAppResource.swift in Sources */,
 				4E43B1921A48211200E61B83 /* IDatabaseResultCallback.swift in Sources */,
 				4E43B36D1A48228700E61B83 /* BitExtension.swift in Sources */,
 				4E43B0B01A48211200E61B83 /* ContactBridge.swift in Sources */,
@@ -4063,16 +3988,13 @@
 				4E43B1D41A48211200E61B83 /* IGooglePlus.swift in Sources */,
 				4E43B30C1A48212D00E61B83 /* BaseSecurityDelegate.swift in Sources */,
 				4E43B3991A48228700E61B83 /* GeolocationDelegateHelper.swift in Sources */,
-				4E43B1261A48211200E61B83 /* IAppResourceCallbackError.swift in Sources */,
 				4E43B28C1A48211200E61B83 /* OCRBridge.swift in Sources */,
 				4E43B0521A48211200E61B83 /* Acceleration.swift in Sources */,
-				4E43B12A1A48211200E61B83 /* IAppResourceFormat.swift in Sources */,
 				4E43B1CE1A48211200E61B83 /* IGeolocationListenerError.swift in Sources */,
 				4E43B3001A48212D00E61B83 /* BaseCommunicationDelegate.swift in Sources */,
 				4E43B29E1A48211200E61B83 /* SecureKeyPair.swift in Sources */,
 				4E43B0941A48211200E61B83 /* BaseUtilBridge.swift in Sources */,
 				4E43B2721A48211200E61B83 /* MapBridge.swift in Sources */,
-				4E43B1301A48211200E61B83 /* IAppResourceType.swift in Sources */,
 				4E43B1601A48211200E61B83 /* IButtonListenerWarning.swift in Sources */,
 				4E43B2461A48211200E61B83 /* IStore.swift in Sources */,
 				4E43B0921A48211200E61B83 /* BaseUIBridge.swift in Sources */,
@@ -4115,7 +4037,6 @@
 				4E43B2641A48211200E61B83 /* LifecycleState.swift in Sources */,
 				4E43B17A1A48211200E61B83 /* IConcurrent.swift in Sources */,
 				4E43B1FC1A48211200E61B83 /* INetworkInfo.swift in Sources */,
-				4E43B06E1A48211200E61B83 /* AppResourceCallbackImpl.swift in Sources */,
 				4E43B38B1A48228700E61B83 /* StringExtension.swift in Sources */,
 				4E43B0A81A48211200E61B83 /* ConcurrentBridge.swift in Sources */,
 				4E43B1E81A48211200E61B83 /* ILoggingLogLevel.swift in Sources */,
@@ -4160,7 +4081,6 @@
 				4E43B0B21A48211200E61B83 /* ContactEmail.swift in Sources */,
 				4E43B0E41A48211200E61B83 /* DeviceInfo.swift in Sources */,
 				4E43B1801A48211200E61B83 /* IContactFilter.swift in Sources */,
-				4E43B12E1A48211200E61B83 /* IAppResourcePayload.swift in Sources */,
 				4E43B32A1A48212D00E61B83 /* LoggingDelegate.swift in Sources */,
 				4E43B26C1A48211200E61B83 /* MagnetometerBridge.swift in Sources */,
 				4E43B1441A48211200E61B83 /* IBaseMedia.swift in Sources */,
@@ -4177,7 +4097,6 @@
 				4E43B0D41A48211200E61B83 /* DatabaseColumn.swift in Sources */,
 				4E43B24A1A48211200E61B83 /* ITelephonyStatus.swift in Sources */,
 				4E43B20E1A48211200E61B83 /* INetworkStatusListenerWarning.swift in Sources */,
-				4E43B1241A48211200E61B83 /* IAppResourceCallback.swift in Sources */,
 				4E43B2B61A48211200E61B83 /* SettingsBridge.swift in Sources */,
 				4E43B0D21A48211200E61B83 /* DatabaseBridge.swift in Sources */,
 				4E43B2801A48211200E61B83 /* NetworkStatusBridge.swift in Sources */,
@@ -4246,7 +4165,6 @@
 				C3D72DFC1A49C47800D10B30 /* ContactPhone.swift in Sources */,
 				C3D72E541A49C47800D10B30 /* ICapabilitiesCommunication.swift in Sources */,
 				C3D72E4B1A49C47800D10B30 /* IBluetooth.swift in Sources */,
-				C3D72E321A49C47800D10B30 /* IAppResourceCallbackError.swift in Sources */,
 				C3D72E601A49C47800D10B30 /* IContactPhotoResultCallback.swift in Sources */,
 				C3D72E111A49C47800D10B30 /* DeviceInfo.swift in Sources */,
 				C3D72DCC1A49C47800D10B30 /* AlarmBridge.swift in Sources */,
@@ -4254,7 +4172,6 @@
 				C3D72E8C1A49C47800D10B30 /* IInternalStorage.swift in Sources */,
 				C3D72DF11A49C47800D10B30 /* CloudBridge.swift in Sources */,
 				C3D72DE51A49C47800D10B30 /* BaseSensorBridge.swift in Sources */,
-				C3D72E331A49C47800D10B30 /* IAppResourceCallbackWarning.swift in Sources */,
 				C3D72E8F1A49C47800D10B30 /* ILifecycleListenerError.swift in Sources */,
 				C3D72EB31A49C47800D10B30 /* IRSS.swift in Sources */,
 				C3D72DCE1A49C47800D10B30 /* AnalyticsBridge.swift in Sources */,
@@ -4300,7 +4217,6 @@
 				C3D72E8E1A49C47800D10B30 /* ILifecycleListener.swift in Sources */,
 				C3D72EB41A49C47800D10B30 /* IRuntime.swift in Sources */,
 				C3D72DD41A49C47800D10B30 /* AppRegistryBridge.swift in Sources */,
-				C3D72E311A49C47800D10B30 /* IAppResourceCallback.swift in Sources */,
 				C3D72E991A49C47800D10B30 /* IMessaging.swift in Sources */,
 				C3D730481A49C4E300D10B30 /* I18NParser.swift in Sources */,
 				C3D72E381A49C47800D10B30 /* IAudio.swift in Sources */,
@@ -4313,19 +4229,16 @@
 				C3D72DFF1A49C47800D10B30 /* ContactProfessionalInfo.swift in Sources */,
 				C3D72DEF1A49C47800D10B30 /* CameraBridge.swift in Sources */,
 				C3D72E4D1A49C47800D10B30 /* IButtonListener.swift in Sources */,
-				C3D72E341A49C47800D10B30 /* IAppResourceFormat.swift in Sources */,
 				C3D72E121A49C47800D10B30 /* DisplayBridge.swift in Sources */,
 				C3D72E421A49C47800D10B30 /* IBaseNotification.swift in Sources */,
 				C3D72E4F1A49C47800D10B30 /* IButtonListenerWarning.swift in Sources */,
 				C3D72E3E1A49C47800D10B30 /* IBaseCommunication.swift in Sources */,
 				C3D72DE21A49C47800D10B30 /* BasePIMBridge.swift in Sources */,
-				C3D72E301A49C47800D10B30 /* IAppResource.swift in Sources */,
 				C3D72E281A49C47800D10B30 /* IAdaptiveRPGroup.swift in Sources */,
 				C3D72EFB1A49C47800D10B30 /* SocketBridge.swift in Sources */,
 				C3D72E171A49C47800D10B30 /* FileDataLoadResultCallbackImpl.swift in Sources */,
 				C3D72E5D1A49C47800D10B30 /* IContact.swift in Sources */,
 				C3D72E6E1A49C47800D10B30 /* IDataStream.swift in Sources */,
-				C3D72DD61A49C47800D10B30 /* AppResourceCallbackImpl.swift in Sources */,
 				C3D72EF41A49C47800D10B30 /* ServiceEndpoint.swift in Sources */,
 				C3D72ECB1A49C47800D10B30 /* IWallet.swift in Sources */,
 				C3D72EA41A49C47800D10B30 /* INetworkStatusListener.swift in Sources */,
@@ -4357,7 +4270,6 @@
 				C3D72EA81A49C47800D10B30 /* INotification.swift in Sources */,
 				C3D72E8B1A49C47800D10B30 /* IImaging.swift in Sources */,
 				C3D72EF71A49C47800D10B30 /* ServiceResponse.swift in Sources */,
-				C3D72E361A49C47800D10B30 /* IAppResourcePayload.swift in Sources */,
 				C3D72E2A1A49C47800D10B30 /* IAlarm.swift in Sources */,
 				C3D72DE81A49C47800D10B30 /* BaseUIBridge.swift in Sources */,
 				C3D72E731A49C47800D10B30 /* IFile.swift in Sources */,
@@ -4374,7 +4286,6 @@
 				C3D72EDA1A49C47800D10B30 /* MessagingCallbackImpl.swift in Sources */,
 				C3D72E7B1A49C47800D10B30 /* IFileListResultCallbackError.swift in Sources */,
 				C3D72EAF1A49C47800D10B30 /* IOSType.swift in Sources */,
-				C3D72E371A49C47800D10B30 /* IAppResourceType.swift in Sources */,
 				C3D72EA91A49C47800D10B30 /* INotificationLocal.swift in Sources */,
 				C3D72DDE1A49C47800D10B30 /* BaseDataBridge.swift in Sources */,
 				C3D72E151A49C47800D10B30 /* EmailAttachmentData.swift in Sources */,
@@ -4485,7 +4396,6 @@
 				C3D72E051A49C47800D10B30 /* ContactWebsite.swift in Sources */,
 				C3D72EFC1A49C47800D10B30 /* StoreBridge.swift in Sources */,
 				C3D72E1F1A49C47800D10B30 /* GeolocationListenerImpl.swift in Sources */,
-				C3D72E351A49C47800D10B30 /* IAppResourceHandler.swift in Sources */,
 				C3D72EB51A49C47800D10B30 /* ISecurity.swift in Sources */,
 				C3D72DED1A49C47800D10B30 /* ButtonListenerImpl.swift in Sources */,
 				C3D72E661A49C47800D10B30 /* ICrypto.swift in Sources */,

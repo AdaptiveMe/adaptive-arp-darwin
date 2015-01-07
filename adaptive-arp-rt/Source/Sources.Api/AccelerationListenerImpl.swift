@@ -56,9 +56,12 @@ listener and subsequently, the listener will be deactivated and removed from the
        @param error Error fired
        @since ARP1.0
     */
-    public func onError(error : IAccelerationListenerError)  {
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAccelerationListenerError( '\(getId())', JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    public func onError(error : IAccelerationListenerError) { 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAccelerationListenerError( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -67,9 +70,12 @@ listener and subsequently, the listener will be deactivated and removed from the
        @param acceleration Acceleration received
        @since ARP1.0
     */
-    public func onResult(acceleration : Acceleration)  {
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAccelerationListenerResult( '\(getId())', JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    public func onResult(acceleration : Acceleration) { 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString(Acceleration.Serializer.toJSON(acceleration))
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAccelerationListenerResult( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -79,9 +85,16 @@ listener and subsequently, the listener will be deactivated and removed from the
        @param warning      Warning fired
        @since ARP1.0
     */
-    public func onWarning(acceleration : Acceleration, warning : IAccelerationListenerWarning)  {
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAccelerationListenerWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    public func onWarning(acceleration : Acceleration, warning : IAccelerationListenerWarning) { 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString(Acceleration.Serializer.toJSON(acceleration))
+        responseJS.appendString("\")")
+        responseJS.appendString(", ")
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAccelerationListenerWarning( \"\(getId())\", \(responseJS as String))")
     }
 
 }

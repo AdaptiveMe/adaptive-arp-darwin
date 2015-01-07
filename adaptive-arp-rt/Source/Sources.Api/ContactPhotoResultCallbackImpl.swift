@@ -56,8 +56,11 @@ public class ContactPhotoResultCallbackImpl : BaseCallbackImpl, IContactPhotoRes
        @since ARP1.0
     */
     public func onError(error : IContactPhotoResultCallbackError) { 
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackError( '\(getId())', JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackError( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -67,8 +70,18 @@ public class ContactPhotoResultCallbackImpl : BaseCallbackImpl, IContactPhotoRes
        @since ARP1.0
     */
     public func onResult(contactPhoto : [Byte]) { 
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{[")
+        for (index,obj) in enumerate(contactPhoto) {
+            responseJS.appendString("\(obj.value)")
+            if index < contactPhoto.count-1 {
+                responseJS.appendString(", ")
+            }
+        }
+        responseJS.appendString("]}")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackResult( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -79,8 +92,22 @@ public class ContactPhotoResultCallbackImpl : BaseCallbackImpl, IContactPhotoRes
        @since ARP1.0
     */
     public func onWarning(contactPhoto : [Byte], warning : IContactPhotoResultCallbackWarning) { 
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{[")
+        for (index,obj) in enumerate(contactPhoto) {
+            responseJS.appendString("\(obj.value)")
+            if index < contactPhoto.count-1 {
+                responseJS.appendString(", ")
+            }
+        }
+        responseJS.appendString("]}")
+        responseJS.appendString("\")")
+        responseJS.appendString(", ")
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackWarning( \"\(getId())\", \(responseJS as String))")
     }
 
 }

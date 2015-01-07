@@ -56,8 +56,11 @@ public class FileDataStoreResultCallbackImpl : BaseCallbackImpl, IFileDataStoreR
        @since ARP1.0
     */
     public func onError(error : IFileDataStoreResultCallbackError) { 
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileDataStoreResultCallbackError( '\(getId())', JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileDataStoreResultCallbackError( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -67,8 +70,11 @@ public class FileDataStoreResultCallbackImpl : BaseCallbackImpl, IFileDataStoreR
        @since ARP1.0
     */
     public func onResult(file : FileDescriptor) { 
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileDataStoreResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString(FileDescriptor.Serializer.toJSON(file))
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileDataStoreResultCallbackResult( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -79,8 +85,15 @@ public class FileDataStoreResultCallbackImpl : BaseCallbackImpl, IFileDataStoreR
        @since ARP1.0
     */
     public func onWarning(file : FileDescriptor, warning : IFileDataStoreResultCallbackWarning) { 
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileDataStoreResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString(FileDescriptor.Serializer.toJSON(file))
+        responseJS.appendString("\")")
+        responseJS.appendString(", ")
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileDataStoreResultCallbackWarning( \"\(getId())\", \(responseJS as String))")
     }
 
 }

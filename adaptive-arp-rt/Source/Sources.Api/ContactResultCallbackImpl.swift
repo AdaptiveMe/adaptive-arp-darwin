@@ -56,8 +56,11 @@ public class ContactResultCallbackImpl : BaseCallbackImpl, IContactResultCallbac
        @since ARP1.0
     */
     public func onError(error : IContactResultCallbackError) { 
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleContactResultCallbackError( '\(getId())', JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleContactResultCallbackError( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -67,8 +70,18 @@ public class ContactResultCallbackImpl : BaseCallbackImpl, IContactResultCallbac
        @since ARP1.0
     */
     public func onResult(contacts : [Contact]) { 
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleContactResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{[")
+        for (index,obj) in enumerate(contacts) {
+            responseJS.appendString(Contact.Serializer.toJSON(obj))
+            if index < contacts.count-1 {
+                responseJS.appendString(", ")
+            }
+        }
+        responseJS.appendString("]}")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleContactResultCallbackResult( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -79,8 +92,22 @@ public class ContactResultCallbackImpl : BaseCallbackImpl, IContactResultCallbac
        @since ARP1.0
     */
     public func onWarning(contacts : [Contact], warning : IContactResultCallbackWarning) { 
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleContactResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{[")
+        for (index,obj) in enumerate(contacts) {
+            responseJS.appendString(Contact.Serializer.toJSON(obj))
+            if index < contacts.count-1 {
+                responseJS.appendString(", ")
+            }
+        }
+        responseJS.appendString("]}")
+        responseJS.appendString("\")")
+        responseJS.appendString(", ")
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleContactResultCallbackWarning( \"\(getId())\", \(responseJS as String))")
     }
 
 }

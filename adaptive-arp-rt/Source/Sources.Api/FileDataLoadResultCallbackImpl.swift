@@ -56,8 +56,11 @@ public class FileDataLoadResultCallbackImpl : BaseCallbackImpl, IFileDataLoadRes
        @since ARP1.0
     */
     public func onError(error : IFileDataLoadResultCallbackError) { 
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileDataLoadResultCallbackError( '\(getId())', JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileDataLoadResultCallbackError( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -67,8 +70,18 @@ public class FileDataLoadResultCallbackImpl : BaseCallbackImpl, IFileDataLoadRes
        @since ARP1.0
     */
     public func onResult(data : [Byte]) { 
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileDataLoadResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{[")
+        for (index,obj) in enumerate(data) {
+            responseJS.appendString("\(obj.value)")
+            if index < data.count-1 {
+                responseJS.appendString(", ")
+            }
+        }
+        responseJS.appendString("]}")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileDataLoadResultCallbackResult( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -79,8 +92,22 @@ public class FileDataLoadResultCallbackImpl : BaseCallbackImpl, IFileDataLoadRes
        @since ARP1.0
     */
     public func onWarning(data : [Byte], warning : IFileDataLoadResultCallbackWarning) { 
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileDataLoadResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{[")
+        for (index,obj) in enumerate(data) {
+            responseJS.appendString("\(obj.value)")
+            if index < data.count-1 {
+                responseJS.appendString(", ")
+            }
+        }
+        responseJS.appendString("]}")
+        responseJS.appendString("\")")
+        responseJS.appendString(", ")
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileDataLoadResultCallbackWarning( \"\(getId())\", \(responseJS as String))")
     }
 
 }

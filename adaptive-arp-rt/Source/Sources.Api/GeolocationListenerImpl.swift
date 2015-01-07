@@ -55,9 +55,12 @@ public class GeolocationListenerImpl : BaseListenerImpl, IGeolocationListener {
        @param error Type of error encountered during reading.
        @since ARP1.0
     */
-    public func onError(error : IGeolocationListenerError)  {
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleGeolocationListenerError( '\(getId())', JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    public func onError(error : IGeolocationListenerError) { 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleGeolocationListenerError( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -66,9 +69,12 @@ public class GeolocationListenerImpl : BaseListenerImpl, IGeolocationListener {
        @param geolocation Geolocation Bean
        @since ARP1.0
     */
-    public func onResult(geolocation : Geolocation)  {
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleGeolocationListenerResult( '\(getId())', JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    public func onResult(geolocation : Geolocation) { 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString(Geolocation.Serializer.toJSON(geolocation))
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleGeolocationListenerResult( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -78,9 +84,16 @@ public class GeolocationListenerImpl : BaseListenerImpl, IGeolocationListener {
        @param warning Type of warning encountered during reading.
        @since ARP1.0
     */
-    public func onWarning(geolocation : Geolocation, warning : IGeolocationListenerWarning)  {
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleGeolocationListenerWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    public func onWarning(geolocation : Geolocation, warning : IGeolocationListenerWarning) { 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString(Geolocation.Serializer.toJSON(geolocation))
+        responseJS.appendString("\")")
+        responseJS.appendString(", ")
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleGeolocationListenerWarning( \"\(getId())\", \(responseJS as String))")
     }
 
 }

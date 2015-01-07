@@ -55,9 +55,12 @@ public class NetworkStatusListenerImpl : BaseListenerImpl, INetworkStatusListene
        @param error Type of error encountered during reading.
        @since ARP1.0
     */
-    public func onError(error : INetworkStatusListenerError)  {
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerError( '\(getId())', JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    public func onError(error : INetworkStatusListenerError) { 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerError( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -66,9 +69,12 @@ public class NetworkStatusListenerImpl : BaseListenerImpl, INetworkStatusListene
        @param network Change to this network.
        @since ARP1.0
     */
-    public func onResult(network : ICapabilitiesNet)  {
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerResult( '\(getId())', JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    public func onResult(network : ICapabilitiesNet) { 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{ \"value\": \"\(network.toString())\" }")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerResult( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -78,9 +84,16 @@ public class NetworkStatusListenerImpl : BaseListenerImpl, INetworkStatusListene
        @param warning Type of warning encountered during reading.
        @since ARP1.0
     */
-    public func onWarning(network : ICapabilitiesNet, warning : INetworkStatusListenerWarning)  {
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    public func onWarning(network : ICapabilitiesNet, warning : INetworkStatusListenerWarning) { 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{ \"value\": \"\(network.toString())\" }")
+        responseJS.appendString("\")")
+        responseJS.appendString(", ")
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerWarning( \"\(getId())\", \(responseJS as String))")
     }
 
 }

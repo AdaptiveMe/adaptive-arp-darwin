@@ -55,9 +55,12 @@ public class ButtonListenerImpl : BaseListenerImpl, IButtonListener {
        @param error occurred
        @since ARP1.0
     */
-    public func onError(error : IButtonListenerError)  {
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleButtonListenerError( '\(getId())', JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    public func onError(error : IButtonListenerError) { 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleButtonListenerError( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -66,9 +69,12 @@ public class ButtonListenerImpl : BaseListenerImpl, IButtonListener {
        @param button pressed
        @since ARP1.0
     */
-    public func onResult(button : Button)  {
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleButtonListenerResult( '\(getId())', JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    public func onResult(button : Button) { 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString(Button.Serializer.toJSON(button))
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleButtonListenerResult( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -78,9 +84,16 @@ public class ButtonListenerImpl : BaseListenerImpl, IButtonListener {
        @param warning happened
        @since ARP1.0
     */
-    public func onWarning(button : Button, warning : IButtonListenerWarning)  {
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleButtonListenerWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
-        /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
+    public func onWarning(button : Button, warning : IButtonListenerWarning) { 
+        var responseJS : NSMutableString = NSMutableString()
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString(Button.Serializer.toJSON(button))
+        responseJS.appendString("\")")
+        responseJS.appendString(", ")
+        responseJS.appendString("JSON.parse(\"")
+        responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
+        responseJS.appendString("\")")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleButtonListenerWarning( \"\(getId())\", \(responseJS as String))")
     }
 
 }
