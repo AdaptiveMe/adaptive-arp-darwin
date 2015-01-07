@@ -104,8 +104,7 @@ public class NetworkStatusDelegate : BaseCommunicationDelegate, INetworkStatus {
                 for (index, l) in enumerate(self.listeners) {
                     
                     self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "Listener \(listener) unreachable")
-                    // TODO: change for the unreachable error
-                    l.onError(INetworkStatusListenerError.Unknown)
+                    l.onError(INetworkStatusListenerError.Unreachable)
                 }
             }
         }

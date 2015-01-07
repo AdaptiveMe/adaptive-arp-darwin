@@ -67,15 +67,13 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
         var resourceData : ResourceData? = AppResourceManager.sharedInstance.retrieveConfigResource(I18N_CONFIG_FILE)
         if resourceData == nil {
             logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error reading i18n config file: \(I18N_CONFIG_FILE)")
-            // TODO: change by nil when the return type will be optional
-            return [Locale()]
+            return nil
         }
         
         let data: Foundation.NSData? = resourceData!.data
         if data == nil {
             logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error reading i18n config file: \(I18N_CONFIG_FILE)")
-            // TODO: change by nil when the return type will be optional
-            return [Locale()]
+            return nil
         }
         
         var parserDelegate:I18NParser = I18NParser()
@@ -89,8 +87,7 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
             return parserDelegate.getLocales()
         } else {
             logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error parsing i18n config file: \(I18N_CONFIG_FILE)")
-            // TODO: change by nil when the return type will be optional
-            return [Locale()]
+            return nil
         }
     }
 
@@ -108,8 +105,7 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
         var resourceData : ResourceData? = AppResourceManager.sharedInstance.retrieveConfigResource(filePath)
         if resourceData == nil {
             logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error reading i18n LANGUAGE file: \(filePath)")
-            // TODO: change by nil when the return type will be optional
-            return ""
+            return nil
         }
         
         var anError : NSError?
@@ -117,8 +113,7 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
         
         if data == nil {
             logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error reading i18n LANGUAGE file: \(filePath)")
-            // TODO: change by nil when the return type will be optional
-            return ""
+            return nil
         }
         
         let dict : AnyObject! = NSPropertyListSerialization.propertyListWithData(data!, options: 0,format: nil, error: &anError)
@@ -139,15 +134,13 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
                 }
             } else {
                 logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Sorry, couldn't read the file \(filePath.lastPathComponent)")
-                // TODO: change by nil when the return type will be optional
-                return ""
+                return nil
             }
         } else if let theError = anError {
             logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Sorry, couldn't read the file \(filePath.lastPathComponent):\n\t"+theError.localizedDescription)
         }
         
-        // TODO: change by nil when the return type will be optional
-        return ""
+        return nil
     }
 
     /**
@@ -165,8 +158,7 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
         var resourceData : ResourceData? = AppResourceManager.sharedInstance.retrieveConfigResource(filePath)
         if resourceData == nil {
             logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error reading i18n LANGUAGE file: \(filePath)")
-            // TODO: change by nil when the return type will be optional
-            return [KeyPair()]
+            return nil
         }
         
         var anError : NSError?
@@ -174,8 +166,7 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
         
         if data == nil {
             logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error reading i18n LANGUAGE file: \(filePath)")
-            // TODO: change by nil when the return type will be optional
-            return [KeyPair()]
+            return nil
         }
         
         let dict : AnyObject! = NSPropertyListSerialization.propertyListWithData(data!, options: 0,format: nil, error: &anError)
@@ -191,8 +182,7 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
                 }
             } else {
                 logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Sorry, couldn't read the file \(filePath.lastPathComponent)")
-                // TODO: change by nil when the return type will be optional
-                return [KeyPair()]
+                return nil
             }
         } else if let theError = anError {
             logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Sorry, couldn't read the file \(filePath.lastPathComponent):\n\t"+theError.localizedDescription)

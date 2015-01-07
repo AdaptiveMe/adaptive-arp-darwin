@@ -108,7 +108,7 @@ public class AppResourceManager {
                         let setup = (key: keyData!, iv: ivData!)
                         
                         // Decrypt data type
-                        var typeData : NSData = NSData(base64EncodedString: resourceData.raw_type, options: nil)!.decrypt(Cipher.ChaCha20(setup))!
+                        var typeData : NSData = NSData(base64EncodedString: resourceData.raw_type, options: nil)!.decrypt(Cipher.ChaCha20Enum(setup))!
                         var typeString : NSString = NSString(data: typeData, encoding: NSUTF8StringEncoding)!
                         decryptedData.raw_type = typeString as String
                         
@@ -118,7 +118,7 @@ public class AppResourceManager {
                             
                             // Data is Encrypted and Zipped
                             logger.log(ILoggingLogLevel.DEBUG, category: logCategory, message: "retrieveResource('\(rootPath)\(id)') -> Decrypting \(resourceData.cooked_length) bytes.")
-                            var payloadDecrypted : NSData = resourceData.data.decrypt(Cipher.ChaCha20(setup))!
+                            var payloadDecrypted : NSData = resourceData.data.decrypt(Cipher.ChaCha20Enum(setup))!
                             
                             logger.log(ILoggingLogLevel.DEBUG, category: logCategory, message: "retrieveResource('\(rootPath)\(id)') -> Inflating \(resourceData.cooked_length) to \(resourceData.raw_length) bytes.")
                             decryptedData.data = payloadDecrypted.gzipInflate()
@@ -127,7 +127,7 @@ public class AppResourceManager {
                             
                             // Data is only Encrypted
                             logger.log(ILoggingLogLevel.DEBUG, category: logCategory, message: "retrieveResource('\(rootPath)\(id)') -> Decrypting \(resourceData.cooked_length) bytes.")
-                            decryptedData.data = resourceData.data.decrypt(Cipher.ChaCha20(setup))!
+                            decryptedData.data = resourceData.data.decrypt(Cipher.ChaCha20Enum(setup))!
                             
                         } else {
                             

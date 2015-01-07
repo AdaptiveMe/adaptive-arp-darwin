@@ -54,10 +54,7 @@ public class ServiceHandler:NSObject {
     /// :return: Data for returning the syncronous responses
     public func handleServiceUrl(apiRequest:APIRequest) -> NSString {
         
-        // TODO: change the bridgetype to obtain from the APIRequest. The method for obtaining this vould be a part of the conditional if below.
-        var bridgeType:String? = "IDatabase"
-        
-        if let bridgeType:String = bridgeType {
+        if let bridgeType:String = apiRequest.getBridgeType() {
             
             // Get the bridge
             if let bridge:APIBridge = AppRegistryBridge.sharedInstance.getBridge(bridgeType) {
