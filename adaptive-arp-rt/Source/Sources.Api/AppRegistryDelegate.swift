@@ -74,6 +74,7 @@ public class AppRegistryDelegate : NSObject, IAppRegistry {
     private var __deviceBridge : DeviceBridge? = nil
     private var __displayBridge : DisplayBridge? = nil
     private var __facebookBridge : FacebookBridge? = nil
+    private var __fileBridge : FileBridge? = nil
     private var __filesystemBridge : FileSystemBridge? = nil
     private var __geolocationBridge : GeolocationBridge? = nil
     private var __globalizationBridge : GlobalizationBridge? = nil
@@ -406,6 +407,18 @@ public class AppRegistryDelegate : NSObject, IAppRegistry {
             __facebookBridge = FacebookBridge(delegate: nil);
         }
         return __facebookBridge!
+    }
+
+    /**
+       Returns a reference to the registered FileBridge.
+
+       @return FileBridge reference or nil if a bridge of this type is not registered.
+    */
+    public final func getFileBridge() -> FileBridge {
+         if(__fileBridge == nil) {
+            __fileBridge = FileBridge(delegate: nil);
+        }
+        return __fileBridge!
     }
 
     /**
@@ -1028,6 +1041,9 @@ public class AppRegistryDelegate : NSObject, IAppRegistry {
 
             case "IFacebook":
                 return getFacebookBridge()
+
+            case "IFile":
+                return getFileBridge()
 
             case "IFileSystem":
                 return getFileSystemBridge()

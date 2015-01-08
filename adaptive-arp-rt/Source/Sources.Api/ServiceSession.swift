@@ -41,7 +41,7 @@ import Foundation
    @since ARP1.0
    @version 1.0
 */
-public class ServiceSession : NSObject {
+public class ServiceSession : APIBean {
 
     /**
        The attributes of the response

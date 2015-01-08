@@ -211,6 +211,13 @@ public protocol IAppRegistry : NSObjectProtocol {
     func getFacebookBridge() -> FacebookBridge
 
     /**
+       Returns a reference to the registered FileBridge.
+
+       @return FileBridge reference or null if a bridge of this type is not registered.
+    */
+    func getFileBridge() -> FileBridge
+
+    /**
        Returns a reference to the registered FileSystemBridge.
 
        @return FileSystemBridge reference or null if a bridge of this type is not registered.

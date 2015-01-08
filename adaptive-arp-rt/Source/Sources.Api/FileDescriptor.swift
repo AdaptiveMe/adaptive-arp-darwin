@@ -35,13 +35,13 @@ Release:
 import Foundation
 
 /**
-   Created by clozano on 19/12/14.
+   Implementation of FileDescriptor bean.
 
    @author Carlos Lozano Diez
    @since 1.0
    @version 1.0
 */
-public class FileDescriptor : NSObject {
+public class FileDescriptor : APIBean {
 
     var dateCreated : Int?
     var dateModified : Int?
