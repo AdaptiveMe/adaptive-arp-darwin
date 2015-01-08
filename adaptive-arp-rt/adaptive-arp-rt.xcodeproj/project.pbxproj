@@ -783,6 +783,12 @@
 		4E8FFC6D1A48473B00F0A8AE /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E8FFC6C1A48473B00F0A8AE /* libsqlite3.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4E8FFC6E1A4848BC00F0A8AE /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E43B6C71A48292D00E61B83 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4E8FFC721A4848D800F0A8AE /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E43B6B61A48292200E61B83 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4ECEE8171A5EB1CF0058E5ED /* FileBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECEE8161A5EB1CF0058E5ED /* FileBridge.swift */; };
+		4ECEE8181A5EB1CF0058E5ED /* FileBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECEE8161A5EB1CF0058E5ED /* FileBridge.swift */; };
+		4ECEE8221A5EB1EA0058E5ED /* FileDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECEE8211A5EB1EA0058E5ED /* FileDelegate.swift */; };
+		4ECEE8231A5EB1EA0058E5ED /* FileDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECEE8211A5EB1EA0058E5ED /* FileDelegate.swift */; };
+		4ECEE8241A5EB3AF0058E5ED /* FileBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECEE8161A5EB1CF0058E5ED /* FileBridge.swift */; };
+		4ECEE8251A5EB3AF0058E5ED /* FileBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECEE8161A5EB1CF0058E5ED /* FileBridge.swift */; };
 		4EDB4E531A028C89008A2C4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB4E521A028C89008A2C4F /* AppDelegate.swift */; };
 		4EDB4E551A028C89008A2C4F /* AdaptiveArpRtiOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB4E541A028C89008A2C4F /* AdaptiveArpRtiOS.xcdatamodeld */; };
 		4EDB4E571A028C89008A2C4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB4E561A028C89008A2C4F /* ViewController.swift */; };
@@ -2002,6 +2008,8 @@
 		4E8FFC681A48472E00F0A8AE /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/libz.dylib; sourceTree = DEVELOPER_DIR; };
 		4E8FFC6A1A48473500F0A8AE /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/libc++.dylib"; sourceTree = DEVELOPER_DIR; };
 		4E8FFC6C1A48473B00F0A8AE /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/libsqlite3.dylib; sourceTree = DEVELOPER_DIR; };
+		4ECEE8161A5EB1CF0058E5ED /* FileBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileBridge.swift; sourceTree = "<group>"; };
+		4ECEE8211A5EB1EA0058E5ED /* FileDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDelegate.swift; sourceTree = "<group>"; };
 		4EDB4E4E1A028C89008A2C4F /* AdaptiveArpRtiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdaptiveArpRtiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EDB4E511A028C89008A2C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EDB4E521A028C89008A2C4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -2176,6 +2184,7 @@
 				4E43AF5F1A48211100E61B83 /* EmailAddress.swift */,
 				4E43AF601A48211100E61B83 /* EmailAttachmentData.swift */,
 				4E43AF611A48211100E61B83 /* FacebookBridge.swift */,
+				4ECEE8161A5EB1CF0058E5ED /* FileBridge.swift */,
 				4E43AF621A48211100E61B83 /* FileDataLoadResultCallbackImpl.swift */,
 				4E43AF631A48211100E61B83 /* FileDataStoreResultCallbackImpl.swift */,
 				4E43AF641A48211100E61B83 /* FileDescriptor.swift */,
@@ -2437,6 +2446,7 @@
 				4E43B2E31A48212D00E61B83 /* ContactDelegate.swift */,
 				4E43B2E41A48212D00E61B83 /* DatabaseDelegate.swift */,
 				4E43B2E51A48212D00E61B83 /* DeviceDelegate.swift */,
+				4ECEE8211A5EB1EA0058E5ED /* FileDelegate.swift */,
 				4E43B2E61A48212D00E61B83 /* FileSystemDelegate.swift */,
 				4E43B2E71A48212D00E61B83 /* GeolocationDelegate.swift */,
 				4E43B2E81A48212D00E61B83 /* GlobalizationDelegate.swift */,
@@ -3295,6 +3305,7 @@
 				4E43B11B1A48211200E61B83 /* IAppContext.swift in Sources */,
 				4E43B2FB1A48212D00E61B83 /* BaseApplicationDelegate.swift in Sources */,
 				4E43B2C31A48211200E61B83 /* UpdateBridge.swift in Sources */,
+				4ECEE8171A5EB1CF0058E5ED /* FileBridge.swift in Sources */,
 				4E43B2AD1A48211200E61B83 /* ServiceRequest.swift in Sources */,
 				4E43B23F1A48211200E61B83 /* IServiceType.swift in Sources */,
 				4E43B22F1A48211200E61B83 /* ISecurityResultCallbackError.swift in Sources */,
@@ -3308,6 +3319,7 @@
 				4E43B09D1A48211200E61B83 /* CalendarBridge.swift in Sources */,
 				4E43B0F91A48211200E61B83 /* FileSystemBridge.swift in Sources */,
 				4E43B15B1A48211200E61B83 /* IButtonListener.swift in Sources */,
+				4ECEE8221A5EB1EA0058E5ED /* FileDelegate.swift in Sources */,
 				4E43B0A91A48211200E61B83 /* Contact.swift in Sources */,
 				4E43B25B1A48211200E61B83 /* KeyPair.swift in Sources */,
 				4E43B1011A48211200E61B83 /* GlobalizationBridge.swift in Sources */,
@@ -3526,6 +3538,7 @@
 				C3D7302B1A49C47900D10B30 /* RuntimeBridge.swift in Sources */,
 				C3D72F441A49C47900D10B30 /* CryptoBridge.swift in Sources */,
 				C3D730341A49C47900D10B30 /* ServiceRequest.swift in Sources */,
+				4ECEE8251A5EB3AF0058E5ED /* FileBridge.swift in Sources */,
 				C3D7303C1A49C47900D10B30 /* TimerBridge.swift in Sources */,
 				C3D7300B1A49C47900D10B30 /* KeyPair.swift in Sources */,
 				C3D72F5D1A49C47900D10B30 /* GeolocationListenerImpl.swift in Sources */,
@@ -3796,6 +3809,7 @@
 				4E43B1A81A48211200E61B83 /* IFile.swift in Sources */,
 				4E43B0D81A48211200E61B83 /* DatabaseRow.swift in Sources */,
 				4E43B1961A48211200E61B83 /* IDatabaseResultCallbackWarning.swift in Sources */,
+				4ECEE8231A5EB1EA0058E5ED /* FileDelegate.swift in Sources */,
 				4E43B1AE1A48211200E61B83 /* IFileDataLoadResultCallbackWarning.swift in Sources */,
 				4E43B3911A48228700E61B83 /* UInt64Extension.swift in Sources */,
 				4E43B3381A48212D00E61B83 /* SecurityDelegate.swift in Sources */,
@@ -4044,6 +4058,7 @@
 				4E43B2061A48211200E61B83 /* INetworkReachabilityCallbackWarning.swift in Sources */,
 				4E43B1761A48211200E61B83 /* ICloud.swift in Sources */,
 				4E43B0A01A48211200E61B83 /* CameraBridge.swift in Sources */,
+				4ECEE8181A5EB1CF0058E5ED /* FileBridge.swift in Sources */,
 				4E43B3321A48212D00E61B83 /* NetworkStatusDelegate.swift in Sources */,
 				4E43B0801A48211200E61B83 /* BaseListenerImpl.swift in Sources */,
 				4E43B0F01A48211200E61B83 /* FileDataLoadResultCallbackImpl.swift in Sources */,
@@ -4356,6 +4371,7 @@
 				C3D72EC21A49C47800D10B30 /* IStore.swift in Sources */,
 				C3D72ED91A49C47800D10B30 /* MessagingBridge.swift in Sources */,
 				C3D72E2D1A49C47800D10B30 /* IAppContext.swift in Sources */,
+				4ECEE8241A5EB3AF0058E5ED /* FileBridge.swift in Sources */,
 				C3D72E261A49C47800D10B30 /* IAccelerationListenerWarning.swift in Sources */,
 				C3D72F051A49C47800D10B30 /* XMLBridge.swift in Sources */,
 				C3D72F041A49C47800D10B30 /* WalletBridge.swift in Sources */,

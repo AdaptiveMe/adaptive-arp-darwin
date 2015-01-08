@@ -50,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppRegistryBridge.sharedInstance.getContactBridge().setDelegate(ContactDelegate())
         AppRegistryBridge.sharedInstance.getDatabaseBridge().setDelegate(DatabaseDelegate())
         AppRegistryBridge.sharedInstance.getDeviceBridge().setDelegate(DeviceDelegate())
+        AppRegistryBridge.sharedInstance.getFileBridge().setDelegate(FileDelegate())
         AppRegistryBridge.sharedInstance.getFileSystemBridge().setDelegate(FileSystemDelegate())
         AppRegistryBridge.sharedInstance.getGeolocationBridge().setDelegate(GeolocationDelegate())
         AppRegistryBridge.sharedInstance.getGlobalizationBridge().setDelegate(GlobalizationDelegate())
