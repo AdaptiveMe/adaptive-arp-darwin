@@ -9,22 +9,22 @@
 import Foundation
 
 public enum Cipher {
-    case ChaCha20(key: NSData, iv: NSData)
+    case ChaCha20Enum(key: NSData, iv: NSData)
     
     public func encrypt(message: NSData) -> NSData? {
         switch (self) {
-            case .ChaCha20(let key, let iv):
-                var chacha = ChaCha20(key: key, iv: iv);
-                return chacha.encrypt(message)
+        case .ChaCha20Enum(let key, let iv):
+            var chacha = ChaCha20(key: key, iv: iv)
+            return chacha!.encrypt(message)
         }
     }
     
     public func decrypt(message: NSData) -> NSData? {
         switch (self) {
-        case .ChaCha20(let key, let iv):
+        case .ChaCha20Enum(let key, let iv):
             var chacha = ChaCha20(key: key, iv: iv);
-            return chacha.decrypt(message)
+            return chacha!.decrypt(message)
         }
     }
-
+    
 }

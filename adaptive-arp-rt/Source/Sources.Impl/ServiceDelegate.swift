@@ -79,8 +79,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
         
         logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "\(serviceName) is not founded on the pull")
         
-        // TODO: Return nil when the return value will be optional
-        return Service()
+        return nil
     }
 
     /**
@@ -173,9 +172,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
     */
     public func isRegistered(service : Service) -> Bool? {
         
-        // TODO: Return this when the return value will be optional
-        // return self.getService(service.getName()!) != nil ? true : false
-        return false
+        return self.getService(service.getName()!) != nil ? true : false
     }
 
     /**
@@ -187,9 +184,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
     */
     public func isRegistered(serviceName : String) -> Bool? {
         
-        // TODO: Return this when the return value will be optional
-        // return self.getService(serviceName) != nil ? true : false
-        return false
+        return self.getService(serviceName) != nil ? true : false
     }
 
     /**

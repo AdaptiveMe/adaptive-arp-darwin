@@ -36,10 +36,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             
     var window: UIWindow?
     
+    /// Init method of the AppDelegate
     override init() {
         super.init()
+        
+        // Register all the delegates
+        AppRegistryBridge.sharedInstance.getPlatformContext().setDelegate(AppContextDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().setDelegate(AppContextWebviewDelegate())
+        
+        AppRegistryBridge.sharedInstance.getAccelerationBridge().setDelegate(AccelerationDelegate())
+        AppRegistryBridge.sharedInstance.getBrowserBridge().setDelegate(BrowserDelegate())
+        AppRegistryBridge.sharedInstance.getCapabilitiesBridge().setDelegate(CapabilitiesDelegate())
+        AppRegistryBridge.sharedInstance.getContactBridge().setDelegate(ContactDelegate())
+        AppRegistryBridge.sharedInstance.getDatabaseBridge().setDelegate(DatabaseDelegate())
+        AppRegistryBridge.sharedInstance.getDeviceBridge().setDelegate(DeviceDelegate())
+        AppRegistryBridge.sharedInstance.getFileSystemBridge().setDelegate(FileSystemDelegate())
+        AppRegistryBridge.sharedInstance.getGeolocationBridge().setDelegate(GeolocationDelegate())
+        AppRegistryBridge.sharedInstance.getGlobalizationBridge().setDelegate(GlobalizationDelegate())
+        AppRegistryBridge.sharedInstance.getLifecycleBridge().setDelegate(LifecycleDelegate())
         AppRegistryBridge.sharedInstance.getLoggingBridge().setDelegate(LoggingDelegate())
-        // TODO - register all required delegates.
+        AppRegistryBridge.sharedInstance.getMailBridge().setDelegate(MailDelegate())
+        AppRegistryBridge.sharedInstance.getMessagingBridge().setDelegate(MessagingDelegate())
+        AppRegistryBridge.sharedInstance.getNetworkReachabilityBridge().setDelegate(NetworkReachabilityDelegate())
+        AppRegistryBridge.sharedInstance.getNetworkStatusBridge().setDelegate(NetworkStatusDelegate())
+        AppRegistryBridge.sharedInstance.getOSBridge().setDelegate(OSDelegate())
+        AppRegistryBridge.sharedInstance.getRuntimeBridge().setDelegate(RuntimeDelegate())
+        AppRegistryBridge.sharedInstance.getSecurityBridge().setDelegate(SecurityDelegate())
+        AppRegistryBridge.sharedInstance.getServiceBridge().setDelegate(ServiceDelegate())
+        AppRegistryBridge.sharedInstance.getTelephonyBridge().setDelegate(TelephonyDelegate())
+        AppRegistryBridge.sharedInstance.getVideoBridge().setDelegate(VideoDelegate())
     }
     
     /// Logger variable
