@@ -18,3 +18,5 @@ adaptive-arp-rt/.idea/
 
 
 adaptive-arp-rt/App.Source/www/.idea/
+
+*.swift.new
