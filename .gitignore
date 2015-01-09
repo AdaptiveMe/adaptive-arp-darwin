@@ -1,5 +1,6 @@
 *.xccheckout
 *.xcbkptlist
+*.swift.new
 
 
 adaptive-arp-rt/.idea/
