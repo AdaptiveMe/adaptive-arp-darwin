@@ -40,10 +40,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     override init() {
         super.init()
         
-        // Register all the delegates
+        // Register Logging delegate
+        AppRegistryBridge.sharedInstance.getLoggingBridge().setDelegate(LoggingDelegate())
+        
+        // Register the application delegates
         AppRegistryBridge.sharedInstance.getPlatformContext().setDelegate(AppContextDelegate())
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().setDelegate(AppContextWebviewDelegate())
         
+        // REgister all the delegates
         AppRegistryBridge.sharedInstance.getAccelerationBridge().setDelegate(AccelerationDelegate())
         AppRegistryBridge.sharedInstance.getBrowserBridge().setDelegate(BrowserDelegate())
         AppRegistryBridge.sharedInstance.getCapabilitiesBridge().setDelegate(CapabilitiesDelegate())
@@ -55,7 +59,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppRegistryBridge.sharedInstance.getGeolocationBridge().setDelegate(GeolocationDelegate())
         AppRegistryBridge.sharedInstance.getGlobalizationBridge().setDelegate(GlobalizationDelegate())
         AppRegistryBridge.sharedInstance.getLifecycleBridge().setDelegate(LifecycleDelegate())
-        AppRegistryBridge.sharedInstance.getLoggingBridge().setDelegate(LoggingDelegate())
         AppRegistryBridge.sharedInstance.getMailBridge().setDelegate(MailDelegate())
         AppRegistryBridge.sharedInstance.getMessagingBridge().setDelegate(MessagingDelegate())
         AppRegistryBridge.sharedInstance.getNetworkReachabilityBridge().setDelegate(NetworkReachabilityDelegate())
