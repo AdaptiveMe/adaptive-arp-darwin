@@ -43,7 +43,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
     /**
        Group of API.
     */
-    private var apiGroup : IAdaptiveRPGroup = IAdaptiveRPGroup.Kernel;
+    private var apiGroup : IAdaptiveRPGroup = IAdaptiveRPGroup.Kernel
 
     public func getAPIGroup() -> IAdaptiveRPGroup? {
         return self.apiGroup
@@ -2058,6 +2058,35 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         } else {
             if (logger != nil) {
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getBridge'.")
+            }
+        }
+        return result!        
+    }
+
+    /**
+       Method that returns the API version of the implementation.
+
+       @return API Version string.
+       @since ARP1.0
+    */
+    public func getAPIVersion() -> String? {
+        // Start logging elapsed time.
+        var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+        var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
+
+        if (logger != nil) {
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getAPIVersion.")
+        }
+
+        var result : String? = nil
+        if (self.delegate != nil) {
+            result = self.delegate!.getAPIVersion()
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executed 'getAPIVersion' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+             }
+        } else {
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getAPIVersion'.")
             }
         }
         return result!        
