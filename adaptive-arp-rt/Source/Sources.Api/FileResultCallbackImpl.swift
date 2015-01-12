@@ -60,7 +60,7 @@ public class FileResultCallbackImpl : BaseCallbackImpl, IFileResultCallback {
         responseJS.appendString("JSON.parse(\"")
         responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
         responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileResultCallbackError( \"\(getId())\", \(responseJS as String))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileResultCallbackError( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -74,7 +74,7 @@ public class FileResultCallbackImpl : BaseCallbackImpl, IFileResultCallback {
         responseJS.appendString("JSON.parse(\"")
         responseJS.appendString(FileDescriptor.Serializer.toJSON(storageFile))
         responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileResultCallbackResult( \"\(getId())\", \(responseJS as String))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileResultCallbackResult( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -93,7 +93,7 @@ public class FileResultCallbackImpl : BaseCallbackImpl, IFileResultCallback {
         responseJS.appendString("JSON.parse(\"")
         responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
         responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileResultCallbackWarning( \"\(getId())\", \(responseJS as String))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileResultCallbackWarning( \"\(getId())\", \(responseJS as String))")
     }
 
 }

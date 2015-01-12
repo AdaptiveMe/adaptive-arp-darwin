@@ -60,7 +60,7 @@ public class NetworkStatusListenerImpl : BaseListenerImpl, INetworkStatusListene
         responseJS.appendString("JSON.parse(\"")
         responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
         responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerError( \"\(getId())\", \(responseJS as String))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkStatusListenerError( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -74,7 +74,7 @@ public class NetworkStatusListenerImpl : BaseListenerImpl, INetworkStatusListene
         responseJS.appendString("JSON.parse(\"")
         responseJS.appendString("{ \"value\": \"\(network.toString())\" }")
         responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerResult( \"\(getId())\", \(responseJS as String))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkStatusListenerResult( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -93,7 +93,7 @@ public class NetworkStatusListenerImpl : BaseListenerImpl, INetworkStatusListene
         responseJS.appendString("JSON.parse(\"")
         responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
         responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerWarning( \"\(getId())\", \(responseJS as String))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkStatusListenerWarning( \"\(getId())\", \(responseJS as String))")
     }
 
 }

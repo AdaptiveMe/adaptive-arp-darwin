@@ -60,7 +60,7 @@ public class LifecycleListenerImpl : BaseListenerImpl, ILifecycleListener {
         responseJS.appendString("JSON.parse(\"")
         responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
         responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleLifecycleListenerError( \"\(getId())\", \(responseJS as String))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleLifecycleListenerError( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -74,7 +74,7 @@ public class LifecycleListenerImpl : BaseListenerImpl, ILifecycleListener {
         responseJS.appendString("JSON.parse(\"")
         responseJS.appendString(Lifecycle.Serializer.toJSON(lifecycle))
         responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleLifecycleListenerResult( \"\(getId())\", \(responseJS as String))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleLifecycleListenerResult( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -93,7 +93,7 @@ public class LifecycleListenerImpl : BaseListenerImpl, ILifecycleListener {
         responseJS.appendString("JSON.parse(\"")
         responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
         responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleLifecycleListenerWarning( \"\(getId())\", \(responseJS as String))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleLifecycleListenerWarning( \"\(getId())\", \(responseJS as String))")
     }
 
 }

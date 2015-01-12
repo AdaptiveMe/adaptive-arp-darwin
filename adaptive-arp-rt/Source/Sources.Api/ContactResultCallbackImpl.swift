@@ -60,7 +60,7 @@ public class ContactResultCallbackImpl : BaseCallbackImpl, IContactResultCallbac
         responseJS.appendString("JSON.parse(\"")
         responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
         responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleContactResultCallbackError( \"\(getId())\", \(responseJS as String))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactResultCallbackError( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -81,7 +81,7 @@ public class ContactResultCallbackImpl : BaseCallbackImpl, IContactResultCallbac
         }
         responseJS.appendString("]}")
         responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleContactResultCallbackResult( \"\(getId())\", \(responseJS as String))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactResultCallbackResult( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -107,7 +107,7 @@ public class ContactResultCallbackImpl : BaseCallbackImpl, IContactResultCallbac
         responseJS.appendString("JSON.parse(\"")
         responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
         responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleContactResultCallbackWarning( \"\(getId())\", \(responseJS as String))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactResultCallbackWarning( \"\(getId())\", \(responseJS as String))")
     }
 
 }

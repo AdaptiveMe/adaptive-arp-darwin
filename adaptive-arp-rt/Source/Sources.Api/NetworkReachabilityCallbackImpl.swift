@@ -60,7 +60,7 @@ public class NetworkReachabilityCallbackImpl : BaseCallbackImpl, INetworkReachab
         responseJS.appendString("JSON.parse(\"")
         responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
         responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkReachabilityCallbackError( \"\(getId())\", \(responseJS as String))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkReachabilityCallbackError( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -74,7 +74,7 @@ public class NetworkReachabilityCallbackImpl : BaseCallbackImpl, INetworkReachab
         responseJS.appendString("JSON.parse(\"")
         responseJS.appendString("{ \(reachable) }")
         responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkReachabilityCallbackResult( \"\(getId())\", \(responseJS as String))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkReachabilityCallbackResult( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -93,7 +93,7 @@ public class NetworkReachabilityCallbackImpl : BaseCallbackImpl, INetworkReachab
         responseJS.appendString("JSON.parse(\"")
         responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
         responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkReachabilityCallbackWarning( \"\(getId())\", \(responseJS as String))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkReachabilityCallbackWarning( \"\(getId())\", \(responseJS as String))")
     }
 
 }

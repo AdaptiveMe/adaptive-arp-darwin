@@ -60,7 +60,7 @@ public class SecurityResultCallbackImpl : BaseCallbackImpl, ISecurityResultCallb
         responseJS.appendString("JSON.parse(\"")
         responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
         responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackError( \"\(getId())\", \(responseJS as String))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleSecurityResultCallbackError( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -81,7 +81,7 @@ public class SecurityResultCallbackImpl : BaseCallbackImpl, ISecurityResultCallb
         }
         responseJS.appendString("]}")
         responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackResult( \"\(getId())\", \(responseJS as String))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleSecurityResultCallbackResult( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -107,7 +107,7 @@ public class SecurityResultCallbackImpl : BaseCallbackImpl, ISecurityResultCallb
         responseJS.appendString("JSON.parse(\"")
         responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
         responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackWarning( \"\(getId())\", \(responseJS as String))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleSecurityResultCallbackWarning( \"\(getId())\", \(responseJS as String))")
     }
 
 }

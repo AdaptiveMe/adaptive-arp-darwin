@@ -60,7 +60,7 @@ public class ButtonListenerImpl : BaseListenerImpl, IButtonListener {
         responseJS.appendString("JSON.parse(\"")
         responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
         responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleButtonListenerError( \"\(getId())\", \(responseJS as String))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleButtonListenerError( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -74,7 +74,7 @@ public class ButtonListenerImpl : BaseListenerImpl, IButtonListener {
         responseJS.appendString("JSON.parse(\"")
         responseJS.appendString(Button.Serializer.toJSON(button))
         responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleButtonListenerResult( \"\(getId())\", \(responseJS as String))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleButtonListenerResult( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -93,7 +93,7 @@ public class ButtonListenerImpl : BaseListenerImpl, IButtonListener {
         responseJS.appendString("JSON.parse(\"")
         responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
         responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleButtonListenerWarning( \"\(getId())\", \(responseJS as String))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleButtonListenerWarning( \"\(getId())\", \(responseJS as String))")
     }
 
 }
