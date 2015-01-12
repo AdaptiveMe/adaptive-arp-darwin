@@ -1186,6 +1186,13 @@ public class AppRegistryDelegate : NSObject, IAppRegistry {
     }
 
     /**
+       Method that returns the API version of the implementation.
+    */
+    public func getAPIVersion() -> String? {
+        return "v2.0.3"
+    }
+
+    /**
        Returns a reference to the Platform Context
     */
     private var __appcontextBridge : AppContextBridge? = nil
