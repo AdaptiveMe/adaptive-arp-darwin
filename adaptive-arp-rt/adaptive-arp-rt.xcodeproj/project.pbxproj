@@ -2620,13 +2620,13 @@
 		4EDB4E4F1A028C89008A2C4F /* AdaptiveArpRtiOS */ = {
 			isa = PBXGroup;
 			children = (
-				4E3535321A1D2B3100A9ACC7 /* LaunchScreen@2x.png */,
 				4EDB4E521A028C89008A2C4F /* AppDelegate.swift */,
+				4EDB4E561A028C89008A2C4F /* ViewController.swift */,
 				4E8FFC5B1A483D0800F0A8AE /* BaseViewController.swift */,
 				4E8FFC5F1A483D7F00F0A8AE /* BrowserViewController.swift */,
 				4E8FFC5D1A483D4C00F0A8AE /* NavigationProperties.swift */,
-				4EDB4E561A028C89008A2C4F /* ViewController.swift */,
 				4EDB4E5B1A028C89008A2C4F /* Images.xcassets */,
+				4E3535321A1D2B3100A9ACC7 /* LaunchScreen@2x.png */,
 				4EDB4E541A028C89008A2C4F /* AdaptiveArpRtiOS.xcdatamodeld */,
 				4EDB4E5D1A028C89008A2C4F /* LaunchScreen.xib */,
 				4EDB4E581A028C89008A2C4F /* Main.storyboard */,
