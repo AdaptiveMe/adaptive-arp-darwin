@@ -75,6 +75,13 @@ public class BaseCallbackImpl : NSObject, IBaseCallback {
         return self.apiGroup!
     }
 
+    /**
+       Return the API version for the given interface.
+    */
+    public final func getAPIVersion() -> String {
+        return "v2.0.3"
+    }
+
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
