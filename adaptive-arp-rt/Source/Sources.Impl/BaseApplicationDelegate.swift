@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.2
+    * @version v2.0.3
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -57,6 +57,13 @@ public class BaseApplicationDelegate : NSObject, IBaseApplication {
     */
     public final func getAPIGroup() -> IAdaptiveRPGroup? {
         return self.apiGroup!
+    }
+
+    /**
+       Return the API version for the given interface.
+    */
+    public final func getAPIVersion() -> String? {
+        return "v2.0.3"
     }
 
 }

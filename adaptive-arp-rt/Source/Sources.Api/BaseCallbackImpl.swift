@@ -78,7 +78,7 @@ public class BaseCallbackImpl : NSObject, IBaseCallback {
     /**
        Return the API version for the given interface.
     */
-    public final func getAPIVersion() -> String {
+    public final func getAPIVersion() -> String? {
         return "v2.0.3"
     }
 
