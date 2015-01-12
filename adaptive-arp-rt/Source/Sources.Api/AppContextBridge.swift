@@ -43,7 +43,7 @@ public class AppContextBridge : NSObject, IAppContext {
     /**
        Group of API.
     */
-    private var apiGroup : IAdaptiveRPGroup = IAdaptiveRPGroup.Kernel;
+    private var apiGroup : IAdaptiveRPGroup = IAdaptiveRPGroup.Kernel
 
     public func getAPIGroup() -> IAdaptiveRPGroup? {
         return self.apiGroup
