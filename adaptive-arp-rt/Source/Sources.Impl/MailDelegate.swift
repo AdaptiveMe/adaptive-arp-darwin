@@ -39,7 +39,7 @@ import MessageUI
    Interface for Managing the Mail operations
    Auto-generated implementation of IMail specification.
 */
-public class MailDelegate : UIViewController, /*BasePIMDelegate,*/ IMail, MFMailComposeViewControllerDelegate {
+public class MailDelegate : UIViewController, /*BasePIMDelegate,*/ IMail, MFMailComposeViewControllerDelegate { // TODO: Should delegate avoid extending UIViewController to prevent dupl. NSObject inheritance?
     
     /// Logger variable
     let logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -58,6 +58,13 @@ public class MailDelegate : UIViewController, /*BasePIMDelegate,*/ IMail, MFMail
     */
     public final func getAPIGroup() -> IAdaptiveRPGroup? {
         return self.apiGroup!
+    }
+    
+    /**
+    Return the API version for the given interface.
+    */
+    public final func getAPIVersion() -> String? {
+        return "v2.0.3"
     }
     
     /**
