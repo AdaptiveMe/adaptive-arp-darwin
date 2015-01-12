@@ -45,10 +45,18 @@ public protocol IAdaptiveRP : NSObjectProtocol {
     /**
        Method that returns the API group of the implementation
 
-       @return API GRoup
+       @return API Group name.
        @since ARP1.0
     */
     func getAPIGroup() -> IAdaptiveRPGroup?
+
+    /**
+       Method that returns the API version of the implementation.
+
+       @return API Version string.
+       @since ARP1.0
+    */
+    func getAPIVersion() -> String?
 
 }
 

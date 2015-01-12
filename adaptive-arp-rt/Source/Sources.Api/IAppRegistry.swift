@@ -541,6 +541,14 @@ public protocol IAppRegistry : NSObjectProtocol {
     func getBridge(bridgeType : String) -> APIBridge?
 
     /**
+       Method that returns the API version of the implementation.
+
+       @return API Version string.
+       @since ARP1.0
+    */
+    func getAPIVersion() -> String?
+
+    /**
        Returns a reference to the Platform Context
 
        @return Reference to the platform context
