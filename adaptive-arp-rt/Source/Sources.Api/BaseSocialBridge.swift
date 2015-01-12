@@ -60,6 +60,13 @@ public class BaseSocialBridge : NSObject, IBaseSocial {
     }
 
     /**
+       Return the API version for the given interface.
+    */
+    public final func getAPIVersion() -> String {
+        return "v2.0.3"
+    }
+
+    /**
        Invokes the given method specified in the API request object.
 
        @param request APIRequest object containing method name and parameters.
