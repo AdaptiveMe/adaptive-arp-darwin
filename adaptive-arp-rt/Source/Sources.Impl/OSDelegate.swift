@@ -59,9 +59,9 @@ public class OSDelegate : BaseSystemDelegate, IOS {
     public override init() {
         super.init()
         
-        var osName : String
+        var osName : IOSType
         #if os(iOS)
-            osName = "iOS"
+            osName = IOSType.iOS
             
             // FIX: operatingSystemVersion not available in iOS 7.1
             //var processInfoOs : NSOperatingSystemVersion = NSProcessInfo.processInfo().operatingSystemVersion
@@ -69,7 +69,7 @@ public class OSDelegate : BaseSystemDelegate, IOS {
             
         #endif
         #if os(OSX)
-            osName = "OSX"
+            osName = IOSType.OSX
             
             var processInfoOs : NSOperatingSystemVersion = NSProcessInfo.processInfo().operatingSystemVersion
             var osVersion : String = "\(processInfoOs.majorVersion).\(processInfoOs.minorVersion)"
