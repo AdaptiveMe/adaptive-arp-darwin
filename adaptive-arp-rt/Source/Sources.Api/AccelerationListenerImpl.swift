@@ -61,7 +61,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         responseJS.appendString("JSON.parse(\"")
         responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
         responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAccelerationListenerError( \"\(getId())\", \(responseJS as String))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleAccelerationListenerError( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -75,7 +75,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         responseJS.appendString("JSON.parse(\"")
         responseJS.appendString(Acceleration.Serializer.toJSON(acceleration))
         responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAccelerationListenerResult( \"\(getId())\", \(responseJS as String))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleAccelerationListenerResult( \"\(getId())\", \(responseJS as String))")
     }
 
     /**
@@ -94,7 +94,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         responseJS.appendString("JSON.parse(\"")
         responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
         responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAccelerationListenerWarning( \"\(getId())\", \(responseJS as String))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleAccelerationListenerWarning( \"\(getId())\", \(responseJS as String))")
     }
 
 }

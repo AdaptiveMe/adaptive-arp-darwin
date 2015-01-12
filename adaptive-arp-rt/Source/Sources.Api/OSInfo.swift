@@ -46,7 +46,7 @@ public class OSInfo : APIBean {
     /**
        The name of the operating system.
     */
-    var name : String?
+    var name : IOSType?
     /**
        The vendor of the operating system.
     */
@@ -73,7 +73,7 @@ public class OSInfo : APIBean {
        @param vendor  of the OS.
        @since ARP1.0
     */
-    public init(name: String, version: String, vendor: String) {
+    public init(name: IOSType, version: String, vendor: String) {
         super.init()
         self.name = name
         self.version = version
@@ -86,7 +86,7 @@ public class OSInfo : APIBean {
        @return OS name.
        @since ARP1.0
     */
-    public func getName() -> String? {
+    public func getName() -> IOSType? {
         return self.name
     }
 
@@ -95,7 +95,7 @@ public class OSInfo : APIBean {
 
        @param name The name of the operating system.
     */
-    public func setName(name: String) {
+    public func setName(name: IOSType) {
         self.name = name
     }
 
@@ -154,7 +154,7 @@ public class OSInfo : APIBean {
 
             if let value : AnyObject = dict.objectForKey("name") {
                 if "\(value)" as NSString != "<null>" {
-                    resultObject.name = (value as String)
+                    resultObject.name = IOSType.toEnum(((value as NSDictionary)["value"]) as NSString)
                 }
             }
 
@@ -179,7 +179,7 @@ public class OSInfo : APIBean {
             jsonString.appendString("{ ")
 
             // Fields.
-            object.name != nil ? jsonString.appendString("\"name\": \"\(object.name!)\", ") : jsonString.appendString("\"name\": null, ")
+            object.name != nil ? jsonString.appendString("\"name\": { \"value\": \"\(JSONUtil.escapeString(object.name!.toString()))\"}, ") : jsonString.appendString("\"name\": null, ")
             object.vendor != nil ? jsonString.appendString("\"vendor\": \"\(object.vendor!)\", ") : jsonString.appendString("\"vendor\": null, ")
             object.version != nil ? jsonString.appendString("\"version\": \"\(object.version!)\"") : jsonString.appendString("\"version\": null")
 
