@@ -62,6 +62,11 @@ public class HttpInterceptorProtocol : NSURLProtocol {
         return "https://adaptiveapp/"
     }
     
+    /// Custom header for versioning check
+    private class var adaptiveVersionHeader:NSString {
+        return "X-AdaptiveVersion"
+    }
+    
     /// Constructor
     override public init() {
         super.init()
@@ -128,6 +133,17 @@ public class HttpInterceptorProtocol : NSURLProtocol {
                 if let body:NSData = newRequest.HTTPBody {
                     
                     if let bodyString:NSString = NSString(data: body, encoding: NSUTF8StringEncoding) {
+                        
+                        // Check the version of the API inside the request headers
+                        var requestHeaders = NSMutableDictionary(dictionary: newRequest.allHTTPHeaderFields!)
+                        
+                        if let tsVersion: AnyObject = requestHeaders.objectForKey(HttpInterceptorProtocol.adaptiveVersionHeader) {
+                            if !tsVersion.isEqual(AppRegistryBridge.sharedInstance.getAPIVersion()){
+                                logger.log(ILoggingLogLevel.WARN, category:loggerTag, message: "The API version of the Typescript API is not the same as the Platform API version")
+                            }
+                        } else {
+                            logger.log(ILoggingLogLevel.ERROR, category:loggerTag, message: "There is no custom header (\(HttpInterceptorProtocol.adaptiveVersionHeader)) in the request indicating the TS version ")
+                        }
                         
                         // Parse the http body request and converto into a APIRequest Object
                         var apiRequest:APIRequest = APIRequest.Serializer.fromJSON(bodyString)
