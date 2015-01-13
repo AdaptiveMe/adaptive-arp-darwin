@@ -613,7 +613,7 @@ new destination file.
                 self.listFiles(descriptor10!, callback: callback10!);
             case "listFilesForRegex":
                 var descriptor11 : FileDescriptor? = FileDescriptor.Serializer.fromJSON(request.getParameters()![0])
-                var regex11 : String? = request.getParameters()![1]
+                var regex11 : String? = JSONUtil.unescapeString(request.getParameters()![1])
                 var callback11 : IFileListResultCallback? =  FileListResultCallbackImpl(id: request.getAsyncId()!)
                 self.listFilesForRegex(descriptor11!, regex: regex11!, callback: callback11!);
             case "mkDir":

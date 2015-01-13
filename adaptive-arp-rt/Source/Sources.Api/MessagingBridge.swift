@@ -110,8 +110,8 @@ public class MessagingBridge : BasePIMBridge, IMessaging, APIBridge {
         var responseJSON : String? = ""
         switch request.getMethodName()! {
             case "sendSMS":
-                var number0 : String? = request.getParameters()![0]
-                var text0 : String? = request.getParameters()![1]
+                var number0 : String? = JSONUtil.unescapeString(request.getParameters()![0])
+                var text0 : String? = JSONUtil.unescapeString(request.getParameters()![1])
                 var callback0 : IMessagingCallback? =  MessagingCallbackImpl(id: request.getAsyncId()!)
                 self.sendSMS(number0!, text: text0!, callback: callback0!);
             default:

@@ -347,11 +347,11 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
                 }
                 self.getContactsWithFilter(callback4!, fields: fields4!, filter: filter4!);
             case "searchContacts":
-                var term5 : String? = request.getParameters()![0]
+                var term5 : String? = JSONUtil.unescapeString(request.getParameters()![0])
                 var callback5 : IContactResultCallback? =  ContactResultCallbackImpl(id: request.getAsyncId()!)
                 self.searchContacts(term5!, callback: callback5!);
             case "searchContactsWithFilter":
-                var term6 : String? = request.getParameters()![0]
+                var term6 : String? = JSONUtil.unescapeString(request.getParameters()![0])
                 var callback6 : IContactResultCallback? =  ContactResultCallbackImpl(id: request.getAsyncId()!)
                 var filter6 : [IContactFilter]? = [IContactFilter]()
                 var filterArray6 : [String] = JSONUtil.stringElementToArray(request.getParameters()![2])

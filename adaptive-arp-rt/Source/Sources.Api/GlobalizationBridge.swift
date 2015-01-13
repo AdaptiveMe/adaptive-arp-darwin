@@ -71,7 +71,36 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
     }
 
     /**
-       List of supported locales for the application
+       Returns the default locale of the application defined in the configuration file
+
+       @return Default Locale of the application
+       @since ARP1.0
+    */
+    public func getDefaultLocale() -> Locale? {
+        // Start logging elapsed time.
+        var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+        var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
+
+        if (logger != nil) {
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executing getDefaultLocale.")
+        }
+
+        var result : Locale? = nil
+        if (self.delegate != nil) {
+            result = self.delegate!.getDefaultLocale()
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executed 'getDefaultLocale' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+             }
+        } else {
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "GlobalizationBridge no delegate for 'getDefaultLocale'.")
+            }
+        }
+        return result!        
+    }
+
+    /**
+       List of supported locales for the application defined in the configuration file
 
        @return List of locales
        @since ARP1.0
@@ -169,45 +198,52 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
     public override func invoke(request : APIRequest) -> String? {
         var responseJSON : String? = ""
         switch request.getMethodName()! {
-            case "getLocaleSupportedDescriptors":
-                var response0 : [Locale]? = self.getLocaleSupportedDescriptors()
+            case "getDefaultLocale":
+                var response0 : Locale? = self.getDefaultLocale()
                 if let response0 = response0 {
-                    var response0JSONArray : NSMutableString = NSMutableString()
-                    response0JSONArray.appendString("{[ ")
-                    for (index, obj) in enumerate(response0) {
-                        response0JSONArray.appendString(Locale.Serializer.toJSON(obj))
-                        if index < response0.count-1 {
-                            response0JSONArray.appendString(", ")
+                    responseJSON = Locale.Serializer.toJSON(response0)
+                } else {
+                    responseJSON = "{ null }"
+                }
+            case "getLocaleSupportedDescriptors":
+                var response1 : [Locale]? = self.getLocaleSupportedDescriptors()
+                if let response1 = response1 {
+                    var response1JSONArray : NSMutableString = NSMutableString()
+                    response1JSONArray.appendString("{[ ")
+                    for (index, obj) in enumerate(response1) {
+                        response1JSONArray.appendString(Locale.Serializer.toJSON(obj))
+                        if index < response1.count-1 {
+                            response1JSONArray.appendString(", ")
                         }
                     }
-                    response0JSONArray.appendString(" ]}")
-                    responseJSON = response0JSONArray as String
+                    response1JSONArray.appendString(" ]}")
+                    responseJSON = response1JSONArray as String
                 } else {
                     responseJSON = "{ null }"
                 }
             case "getResourceLiteral":
-                var key1 : String? = request.getParameters()![0]
-                var locale1 : Locale? = Locale.Serializer.fromJSON(request.getParameters()![1])
-                var response1 : String? = self.getResourceLiteral(key1!, locale: locale1!)
-                if let response1 = response1 {
-                    responseJSON = "{ \"\(response1)\" }"
+                var key2 : String? = JSONUtil.unescapeString(request.getParameters()![0])
+                var locale2 : Locale? = Locale.Serializer.fromJSON(request.getParameters()![1])
+                var response2 : String? = self.getResourceLiteral(key2!, locale: locale2!)
+                if let response2 = response2 {
+                    responseJSON = "{ \"\(response2)\" }"
                 } else {
                     responseJSON = "{ null }"
                 }
             case "getResourceLiterals":
-                var locale2 : Locale? = Locale.Serializer.fromJSON(request.getParameters()![0])
-                var response2 : [KeyPair]? = self.getResourceLiterals(locale2!)
-                if let response2 = response2 {
-                    var response2JSONArray : NSMutableString = NSMutableString()
-                    response2JSONArray.appendString("{[ ")
-                    for (index, obj) in enumerate(response2) {
-                        response2JSONArray.appendString(KeyPair.Serializer.toJSON(obj))
-                        if index < response2.count-1 {
-                            response2JSONArray.appendString(", ")
+                var locale3 : Locale? = Locale.Serializer.fromJSON(request.getParameters()![0])
+                var response3 : [KeyPair]? = self.getResourceLiterals(locale3!)
+                if let response3 = response3 {
+                    var response3JSONArray : NSMutableString = NSMutableString()
+                    response3JSONArray.appendString("{[ ")
+                    for (index, obj) in enumerate(response3) {
+                        response3JSONArray.appendString(KeyPair.Serializer.toJSON(obj))
+                        if index < response3.count-1 {
+                            response3JSONArray.appendString(", ")
                         }
                     }
-                    response2JSONArray.appendString(" ]}")
-                    responseJSON = response2JSONArray as String
+                    response3JSONArray.appendString(" ]}")
+                    responseJSON = response3JSONArray as String
                 } else {
                     responseJSON = "{ null }"
                 }

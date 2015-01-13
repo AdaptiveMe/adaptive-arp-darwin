@@ -54,6 +54,18 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
     public override init() {
         super.init()
     }
+    
+    /**
+    Returns the default locale of the application defined in the configuration file
+    
+    @return Default Locale of the application
+    @since ARP1.0
+    */
+    public func getDefaultLocale() -> Locale? {
+        var response : Locale
+        // TODO: Not implemented.
+        return Locale()
+    }
 
     /**
        List of supported locales for the application

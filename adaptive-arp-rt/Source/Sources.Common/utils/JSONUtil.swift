@@ -40,6 +40,13 @@ public struct JSONUtil {
         return resultString
     }
     
+    public static func unescapeString(string: String) -> String {
+        var resultString : String = string
+        // Replace " with \"
+        resultString = resultString.stringByReplacingOccurrencesOfString("\"", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        return resultString
+    }
+    
     public static func stringElementToArray(string : String) -> [String] {
         var theResult : [String] = [String]()
         var theString : NSString = string

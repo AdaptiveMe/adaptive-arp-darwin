@@ -283,7 +283,7 @@ public class ServiceBridge : BaseCommunicationBridge, IService, APIBridge {
         var responseJSON : String? = ""
         switch request.getMethodName()! {
             case "getService":
-                var serviceName0 : String? = request.getParameters()![0]
+                var serviceName0 : String? = JSONUtil.unescapeString(request.getParameters()![0])
                 var response0 : Service? = self.getService(serviceName0!)
                 if let response0 = response0 {
                     responseJSON = Service.Serializer.toJSON(response0)
@@ -312,7 +312,7 @@ public class ServiceBridge : BaseCommunicationBridge, IService, APIBridge {
                     responseJSON = "{ false }"
                  }
             case "isRegistered_serviceName":
-                var serviceName6 : String? = request.getParameters()![0]
+                var serviceName6 : String? = JSONUtil.unescapeString(request.getParameters()![0])
                 var response6 : Bool? = self.isRegistered(serviceName6!)
                 if let response6 = response6 {
                     responseJSON = "{ \(response6) }"

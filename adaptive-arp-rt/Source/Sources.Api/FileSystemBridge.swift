@@ -325,7 +325,7 @@ This path may or may not be writable by the current application.
         switch request.getMethodName()! {
             case "createFileDescriptor":
                 var parent0 : FileDescriptor? = FileDescriptor.Serializer.fromJSON(request.getParameters()![0])
-                var name0 : String? = request.getParameters()![1]
+                var name0 : String? = JSONUtil.unescapeString(request.getParameters()![1])
                 var response0 : FileDescriptor? = self.createFileDescriptor(parent0!, name: name0!)
                 if let response0 = response0 {
                     responseJSON = FileDescriptor.Serializer.toJSON(response0)

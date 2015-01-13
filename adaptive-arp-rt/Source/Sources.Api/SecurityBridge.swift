@@ -204,7 +204,7 @@ public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
                 for keysElement0 in keysArray0 {
                     keys0!.append(keysElement0)
                 }
-                var publicAccessName0 : String? = request.getParameters()![1]
+                var publicAccessName0 : String? = JSONUtil.unescapeString(request.getParameters()![1])
                 var callback0 : ISecurityResultCallback? =  SecurityResultCallbackImpl(id: request.getAsyncId()!)
                 self.deleteSecureKeyValuePairs(keys0!, publicAccessName: publicAccessName0!, callback: callback0!);
             case "getSecureKeyValuePairs":
@@ -213,7 +213,7 @@ public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
                 for keysElement1 in keysArray1 {
                     keys1!.append(keysElement1)
                 }
-                var publicAccessName1 : String? = request.getParameters()![1]
+                var publicAccessName1 : String? = JSONUtil.unescapeString(request.getParameters()![1])
                 var callback1 : ISecurityResultCallback? =  SecurityResultCallbackImpl(id: request.getAsyncId()!)
                 self.getSecureKeyValuePairs(keys1!, publicAccessName: publicAccessName1!, callback: callback1!);
             case "isDeviceModified":
@@ -229,7 +229,7 @@ public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
                 for keyValuesElement3 in keyValuesArray3 {
                     keyValues3!.append(SecureKeyPair.Serializer.fromJSON(keyValuesElement3))
                 }
-                var publicAccessName3 : String? = request.getParameters()![1]
+                var publicAccessName3 : String? = JSONUtil.unescapeString(request.getParameters()![1])
                 var callback3 : ISecurityResultCallback? =  SecurityResultCallbackImpl(id: request.getAsyncId()!)
                 self.setSecureKeyValuePairs(keyValues3!, publicAccessName: publicAccessName3!, callback: callback3!);
             default:

@@ -108,7 +108,7 @@ public class VideoBridge : BaseMediaBridge, IVideo, APIBridge {
         var responseJSON : String? = ""
         switch request.getMethodName()! {
             case "playStream":
-                var url0 : String? = request.getParameters()![0]
+                var url0 : String? = JSONUtil.unescapeString(request.getParameters()![0])
                 self.playStream(url0!);
             default:
                 // 404 - response null.

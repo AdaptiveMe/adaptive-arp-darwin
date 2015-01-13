@@ -342,7 +342,7 @@ should be passed as a parameter
                 self.deleteTable(database3!, databaseTable: databaseTable3!, callback: callback3!);
             case "executeSqlStatement":
                 var database4 : Database? = Database.Serializer.fromJSON(request.getParameters()![0])
-                var statement4 : String? = request.getParameters()![1]
+                var statement4 : String? = JSONUtil.unescapeString(request.getParameters()![1])
                 var replacements4 : [String]? = [String]()
                 var replacementsArray4 : [String] = JSONUtil.stringElementToArray(request.getParameters()![2])
                 for replacementsElement4 in replacementsArray4 {

@@ -108,12 +108,12 @@ public class LoggingBridge : BaseUtilBridge, ILogging, APIBridge {
         switch request.getMethodName()! {
             case "log_level_message":
                 var level0 : ILoggingLogLevel? = ILoggingLogLevel.toEnum(JSONUtil.dictionifyJSON(request.getParameters()![0])["value"] as String!)
-                var message0 : String? = request.getParameters()![1]
+                var message0 : String? = JSONUtil.unescapeString(request.getParameters()![1])
                 self.log(level0!, message: message0!);
             case "log_level_category_message":
                 var level1 : ILoggingLogLevel? = ILoggingLogLevel.toEnum(JSONUtil.dictionifyJSON(request.getParameters()![0])["value"] as String!)
-                var category1 : String? = request.getParameters()![1]
-                var message1 : String? = request.getParameters()![2]
+                var category1 : String? = JSONUtil.unescapeString(request.getParameters()![1])
+                var message1 : String? = JSONUtil.unescapeString(request.getParameters()![2])
                 self.log(level1!, category: category1!, message: message1!);
             default:
                 // 404 - response null.

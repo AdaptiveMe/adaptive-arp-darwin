@@ -110,7 +110,7 @@ public class TelephonyBridge : BaseCommunicationBridge, ITelephony, APIBridge {
         var responseJSON : String? = ""
         switch request.getMethodName()! {
             case "call":
-                var number0 : String? = request.getParameters()![0]
+                var number0 : String? = JSONUtil.unescapeString(request.getParameters()![0])
                 var response0 : ITelephonyStatus? = self.call(number0!)
                 if let response0 = response0 {
                     responseJSON = "{ \"value\": \"\(response0.toString())\" }"

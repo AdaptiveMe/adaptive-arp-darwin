@@ -138,11 +138,11 @@ public class NetworkReachabilityBridge : BaseCommunicationBridge, INetworkReacha
         var responseJSON : String? = ""
         switch request.getMethodName()! {
             case "isNetworkReachable":
-                var host0 : String? = request.getParameters()![0]
+                var host0 : String? = JSONUtil.unescapeString(request.getParameters()![0])
                 var callback0 : INetworkReachabilityCallback? =  NetworkReachabilityCallbackImpl(id: request.getAsyncId()!)
                 self.isNetworkReachable(host0!, callback: callback0!);
             case "isNetworkServiceReachable":
-                var url1 : String? = request.getParameters()![0]
+                var url1 : String? = JSONUtil.unescapeString(request.getParameters()![0])
                 var callback1 : INetworkReachabilityCallback? =  NetworkReachabilityCallbackImpl(id: request.getAsyncId()!)
                 self.isNetworkServiceReachable(url1!, callback: callback1!);
             default:
