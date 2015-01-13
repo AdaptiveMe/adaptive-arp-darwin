@@ -101,14 +101,14 @@ public class ServiceCookie : APIBean {
     /**
        Contructor with fields
 
-       @param cookieName     Name of the cookie
-       @param cookieValue    Value of the cookie
-       @param domain   Domain of the cookie
-       @param path     Path of the cookie
-       @param scheme   Scheme of the cookie
-       @param secure   Privacy of the cookie
-       @param expiry   Expiration date of the cookie
-       @param creation Creation date of the cookie
+       @param cookieName  Name of the cookie
+       @param cookieValue Value of the cookie
+       @param domain      Domain of the cookie
+       @param path        Path of the cookie
+       @param scheme      Scheme of the cookie
+       @param secure      Privacy of the cookie
+       @param expiry      Expiration date of the cookie
+       @param creation    Creation date of the cookie
        @since ARP1.0
     */
     public init(cookieName: String, cookieValue: String, domain: String, path: String, scheme: String, secure: Bool, expiry: Int, creation: Int) {

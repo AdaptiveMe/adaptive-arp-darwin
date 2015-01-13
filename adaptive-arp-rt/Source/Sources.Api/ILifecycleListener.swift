@@ -62,7 +62,7 @@ public protocol ILifecycleListener : IBaseListener {
        Data received with warning
 
        @param lifecycle Lifecycle element
-       @param warning Type of warning encountered during reading.
+       @param warning   Type of warning encountered during reading.
        @since ARP1.0
     */
     func onWarning(lifecycle : Lifecycle, warning : ILifecycleListenerWarning)
