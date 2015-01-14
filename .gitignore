@@ -12,3 +12,6 @@ adaptive-arp-rt/adaptive-arp-rt.xcodeproj/project.xcworkspace/xcuserdata/
 adaptive-arp-rt/adaptive-arp-rt.xcodeproj/xcuserdata/
 
 adaptive-arp-rt/App.Source/www/.idea/
+adaptive-arp-rt/App.Source/.idea/
+
+update_repo.sh

@@ -59,7 +59,11 @@ public class ServiceHandler:NSObject {
             // Get the bridge
             if let bridge:APIBridge = AppRegistryBridge.sharedInstance.getBridge(bridgeType) {
                 
-                if let asyncId:Int? = apiRequest.getAsyncId() {
+                //logger.log(ILoggingLogLevel.INFO, category: loggerTag, message: "ASYNC ID: \(apiRequest.getAsyncId())")
+                
+                if apiRequest.getAsyncId() != -1 {
+                    
+                    let asyncId:Int? = apiRequest.getAsyncId()
                     
                     // async methods (executed in a background queue)
                     dispatch_async(GCD.backgroundQueue(), {
@@ -74,6 +78,7 @@ public class ServiceHandler:NSObject {
                     
                     // sync methods (executed in the main queue)
                     if let result:String = bridge.invoke(apiRequest) {
+                        //logger.log(ILoggingLogLevel.INFO, category: loggerTag, message: "SYNC SERVICE RESULT: \(result)")
                         return result
                     } else {
                         self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "There is an error executing the syncronous method: \(apiRequest.getMethodName())")
