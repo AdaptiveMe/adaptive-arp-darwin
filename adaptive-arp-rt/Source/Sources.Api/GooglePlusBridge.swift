@@ -87,7 +87,7 @@ public class GooglePlusBridge : BaseSocialBridge, IGooglePlus, APIBridge {
                 responseCode = 404
                 responseMessage = "GooglePlusBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.3."
         }
-        response.setResponse(responseJSON!)
+        response.setResponse(JSONUtil.escapeString(responseJSON!))
         response.setStatusCode(responseCode)
         response.setStatusMessage(responseMessage)
         return response
