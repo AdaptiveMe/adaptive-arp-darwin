@@ -44,13 +44,17 @@ import Foundation
 public class APIResponse : NSObject {
 
     /**
-       String representing the response
+       String representing the JavaScript value or JSON object representation of the response.
     */
     var response : String?
     /**
        Status code of the response
     */
     var statusCode : Int?
+    /**
+       Status message of the response
+    */
+    var statusMessage : String?
 
     /**
        Default constructor
@@ -62,10 +66,10 @@ public class APIResponse : NSObject {
     }
 
     /**
-       Constructor with parameters
+       Constructor with parameters.
 
-       @param response   String representing the response
-       @param statusCode Status code of the response
+       @param response   String representing the JavaScript value or JSON object representation of the response.
+       @param statusCode Status code of the response (200 = OK, others are warning or error conditions).
        @since ARP1.0
     */
     public init(response: String, statusCode: Int) {
@@ -75,9 +79,23 @@ public class APIResponse : NSObject {
     }
 
     /**
+       Constructor with parameters.
+
+       @param response      String representing the JavaScript value or JSON object representation of the response.
+       @param statusCode    Status code of the response (200 = OK, others are warning or error conditions).
+       @param statusMessage Status message of the response.
+    */
+    public init(response: String, statusCode: Int, statusMessage: String) {
+        super.init()
+        self.response = response
+        self.statusCode = statusCode
+        self.statusMessage = statusMessage
+    }
+
+    /**
        Response getter
 
-       @return String representing the response
+       @return String representing the JavaScript value or JSON object representation of the response.
        @since ARP1.0
     */
     public func getResponse() -> String? {
@@ -87,7 +105,7 @@ public class APIResponse : NSObject {
     /**
        Response setter
 
-       @param response String representing the response
+       @param response String representing the JavaScript value or JSON object representation of the response.
     */
     public func setResponse(response: String) {
         self.response = response
@@ -96,7 +114,7 @@ public class APIResponse : NSObject {
     /**
        Status code getter
 
-       @return Status code of the response
+       @return Status code of the response (200 = OK, others are warning or error conditions).
     */
     public func getStatusCode() -> Int? {
         return self.statusCode
@@ -105,10 +123,28 @@ public class APIResponse : NSObject {
     /**
        Status code setter
 
-       @param statusCode Status code of the response
+       @param statusCode Status code of the response  (200 = OK, others are warning or error conditions).
     */
     public func setStatusCode(statusCode: Int) {
         self.statusCode = statusCode
+    }
+
+    /**
+       Status message getter
+
+       @return Status message of the response.
+    */
+    public func getStatusMessage() -> String? {
+        return self.statusMessage
+    }
+
+    /**
+       Status message setter.
+
+       @param statusMessage Status message of the response
+    */
+    public func setStatusMessage(statusMessage: String) {
+        self.statusMessage = statusMessage
     }
 
 
@@ -138,6 +174,12 @@ public class APIResponse : NSObject {
                 }
             }
 
+            if let value : AnyObject = dict.objectForKey("statusMessage") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.statusMessage = (value as String)
+                }
+            }
+
             return resultObject
         }
 
@@ -148,7 +190,8 @@ public class APIResponse : NSObject {
 
             // Fields.
             object.response != nil ? jsonString.appendString("\"response\": \"\(object.response!)\", ") : jsonString.appendString("\"response\": null, ")
-            object.statusCode != nil ? jsonString.appendString("\"statusCode\": \(object.statusCode!)") : jsonString.appendString("\"statusCode\": null")
+            object.statusCode != nil ? jsonString.appendString("\"statusCode\": \(object.statusCode!), ") : jsonString.appendString("\"statusCode\": null, ")
+            object.statusMessage != nil ? jsonString.appendString("\"statusMessage\": \"\(object.statusMessage!)\"") : jsonString.appendString("\"statusMessage\": null")
 
             // End Object to JSON
             jsonString.appendString(" }")
