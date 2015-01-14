@@ -800,6 +800,10 @@
 		4EDB4E7F1A028C9A008A2C4F /* AdaptiveArpRtOSX.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB4E7E1A028C9A008A2C4F /* AdaptiveArpRtOSX.xcdatamodeld */; };
 		4EDB4E811A028C9A008A2C4F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB4E801A028C9A008A2C4F /* Images.xcassets */; };
 		4EDB4E841A028C9A008A2C4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB4E821A028C9A008A2C4F /* Main.storyboard */; };
+		C307456E1A6664B300796509 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307456D1A6664B300796509 /* APIResponse.swift */; };
+		C307456F1A6664B300796509 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307456D1A6664B300796509 /* APIResponse.swift */; };
+		C30745701A6664B300796509 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307456D1A6664B300796509 /* APIResponse.swift */; };
+		C30745711A6664B300796509 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307456D1A6664B300796509 /* APIResponse.swift */; };
 		C39ED7241A4AA9730081C13F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8FFC5B1A483D0800F0A8AE /* BaseViewController.swift */; };
 		C39ED7251A4AA9800081C13F /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8FFC5F1A483D7F00F0A8AE /* BrowserViewController.swift */; };
 		C39ED7261A4AA9800081C13F /* NavigationProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8FFC5D1A483D4C00F0A8AE /* NavigationProperties.swift */; };
@@ -2027,6 +2031,7 @@
 		4EDB4E831A028C9A008A2C4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4EDB4E891A028C9A008A2C4F /* AdaptiveArpRtOSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdaptiveArpRtOSXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EDB4E8E1A028C9A008A2C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C307456D1A6664B300796509 /* APIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		C34E61E41A0A4A240039A104 /* ContactTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTest.swift; sourceTree = "<group>"; };
 		C38C36831A13A44600BC26CE /* GlobalizationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalizationTest.swift; sourceTree = "<group>"; };
 		C39ED72F1A4AE37F0081C13F /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -2116,6 +2121,7 @@
 				4E43AF1A1A48211100E61B83 /* APIBean.swift */,
 				4E43AF1B1A48211100E61B83 /* APIBridge.swift */,
 				4E43AF1C1A48211100E61B83 /* APIRequest.swift */,
+				C307456D1A6664B300796509 /* APIResponse.swift */,
 				4E43AF1D1A48211100E61B83 /* AppContextBridge.swift */,
 				4E43AF1E1A48211100E61B83 /* AppContextWebviewBridge.swift */,
 				4E43AF1F1A48211100E61B83 /* AppRegistryBridge.swift */,
@@ -3284,6 +3290,7 @@
 				4E43B28B1A48211200E61B83 /* OCRBridge.swift in Sources */,
 				4E43B0511A48211200E61B83 /* Acceleration.swift in Sources */,
 				4E43B1CD1A48211200E61B83 /* IGeolocationListenerError.swift in Sources */,
+				C307456E1A6664B300796509 /* APIResponse.swift in Sources */,
 				4E43B2FF1A48212D00E61B83 /* BaseCommunicationDelegate.swift in Sources */,
 				4E43B29D1A48211200E61B83 /* SecureKeyPair.swift in Sources */,
 				4E43B0931A48211200E61B83 /* BaseUtilBridge.swift in Sources */,
@@ -3474,6 +3481,7 @@
 				C3D72FA41A49C47900D10B30 /* ICrypto.swift in Sources */,
 				C3D72F5E1A49C47900D10B30 /* GlobalizationBridge.swift in Sources */,
 				C3D72FE31A49C47900D10B30 /* INetworkStatusListenerError.swift in Sources */,
+				C307456F1A6664B300796509 /* APIResponse.swift in Sources */,
 				C3D72F3A1A49C47900D10B30 /* ContactPhone.swift in Sources */,
 				C3D72F131A49C47900D10B30 /* AppRegistryDelegate.swift in Sources */,
 				C3D72F961A49C47900D10B30 /* ICapabilitiesNotification.swift in Sources */,
@@ -3968,6 +3976,7 @@
 				4E43B0981A48211200E61B83 /* BrowserBridge.swift in Sources */,
 				4E43B0CE1A48211200E61B83 /* CryptoBridge.swift in Sources */,
 				4E43B2341A48211200E61B83 /* IService.swift in Sources */,
+				C30745701A6664B300796509 /* APIResponse.swift in Sources */,
 				4EDB4E7B1A028C9A008A2C4F /* AppDelegate.swift in Sources */,
 				4E43B0701A48211200E61B83 /* AudioBridge.swift in Sources */,
 				4E43B30E1A48212D00E61B83 /* BaseSensorDelegate.swift in Sources */,
@@ -4274,6 +4283,7 @@
 				C3D72E7C1A49C47800D10B30 /* IFileListResultCallbackWarning.swift in Sources */,
 				C3D72EDF1A49C47800D10B30 /* NetworkStatusBridge.swift in Sources */,
 				C3D72DDD1A49C47800D10B30 /* BaseCommunicationBridge.swift in Sources */,
+				C30745711A6664B300796509 /* APIResponse.swift in Sources */,
 				C3D72DE91A49C47800D10B30 /* BaseUtilBridge.swift in Sources */,
 				C3D72EFF1A49C47800D10B30 /* TwitterBridge.swift in Sources */,
 				C3D72E8D1A49C47800D10B30 /* ILifecycle.swift in Sources */,

@@ -39,7 +39,11 @@ public class I18NParser : NSObject, NSXMLParserDelegate {
     /// Locales supported (filled by the getLocaleSupportedDescriptors method)
     var localesArray:[Locale]
     
+    /// Default Locale
+    var defaultLocale:Locale
+    
     let I18N_SUPLANG_ELEM: String = "supportedLanguage"
+    let I18N_SUPLANG_DEFAULT: String = "default"
     let I18N_SUPLANG_ATTR_LANG: String = "language"
     let I18N_SUPLANG_ATTR_CNTR: String = "country"
     
@@ -48,6 +52,7 @@ public class I18NParser : NSObject, NSXMLParserDelegate {
     */
     public override init(){
         localesArray = []
+        defaultLocale = Locale()
         super.init()
     }
     
@@ -67,9 +72,14 @@ public class I18NParser : NSObject, NSXMLParserDelegate {
             logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Reading language: \(attributeDict[I18N_SUPLANG_ATTR_LANG])")
             
             var locale:Locale = Locale()
-            locale.setLanguage("\(attributeDict[I18N_SUPLANG_ATTR_CNTR]!)")
+            locale.setLanguage("\(attributeDict[I18N_SUPLANG_ATTR_LANG]!)")
             locale.setCountry("\(attributeDict[I18N_SUPLANG_ATTR_CNTR]!)")
             localesArray.append(locale)
+        } else if elementName == I18N_SUPLANG_DEFAULT {
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Reading default language: \(attributeDict[I18N_SUPLANG_ATTR_LANG])")
+            
+            defaultLocale.setLanguage("\(attributeDict[I18N_SUPLANG_ATTR_LANG]!)")
+            defaultLocale.setCountry("\(attributeDict[I18N_SUPLANG_ATTR_CNTR]!)")
         }
     }
     
@@ -80,5 +90,14 @@ public class I18NParser : NSObject, NSXMLParserDelegate {
     */
     public func getLocales() -> [Locale] {
         return localesArray
+    }
+    
+    /**
+    Returns the deault locale of the application
+    
+    :returns: Default Locale
+    */
+    public func getDefaultLocale() -> Locale {
+        return defaultLocale
     }
 }

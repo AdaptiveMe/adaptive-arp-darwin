@@ -62,6 +62,11 @@ public class HttpInterceptorProtocol : NSURLProtocol {
         return "https://adaptiveapp/"
     }
     
+    /// Custom header for versioning check
+    private class var adaptiveVersionHeader:NSString {
+        return "X-AdaptiveVersion"
+    }
+    
     /// Constructor
     override public init() {
         super.init()
@@ -129,19 +134,39 @@ public class HttpInterceptorProtocol : NSURLProtocol {
                     
                     if let bodyString:NSString = NSString(data: body, encoding: NSUTF8StringEncoding) {
                         
+                        // Check the version of the API inside the request headers
+                        var requestHeaders = NSMutableDictionary(dictionary: newRequest.allHTTPHeaderFields!)
+                        
+                        if let tsVersion: AnyObject = requestHeaders.objectForKey(HttpInterceptorProtocol.adaptiveVersionHeader) {
+                            if !tsVersion.isEqual(AppRegistryBridge.sharedInstance.getAPIVersion()){
+                                logger.log(ILoggingLogLevel.WARN, category:loggerTag, message: "The API version of the Typescript API is not the same as the Platform API version")
+                            }
+                        } else {
+                            logger.log(ILoggingLogLevel.ERROR, category:loggerTag, message: "There is no custom header (\(HttpInterceptorProtocol.adaptiveVersionHeader)) in the request indicating the TS version ")
+                        }
+                        
                         // Parse the http body request and converto into a APIRequest Object
                         var apiRequest:APIRequest = APIRequest.Serializer.fromJSON(bodyString)
+                        
+                        //logger.log(ILoggingLogLevel.INFO, category: loggerTag, message: "API REQUEST [\(apiRequest.getBridgeType()!).\(apiRequest.getMethodName()!)]: \(apiRequest)")
                         
                         // Call the service and return the data
                         var data:NSString = ServiceHandler.sharedInstance.handleServiceUrl(apiRequest)
                         
-                        // Create the response
-                        var response:NSURLResponse = NSURLResponse(URL: self.request.URL, MIMEType: "application/javascript", expectedContentLength:data.length, textEncodingName: "utf-8")
+                        //logger.log(ILoggingLogLevel.INFO, category: loggerTag, message: "RESPONSE DATA: \(data)")
+                        
+                        // Create the response                        
+                        var responseHeaders = NSMutableDictionary(dictionary: requestHeaders)
+                        responseHeaders.setValue("application/javascript; charset=utf-8", forKey: "Content-Type")
+                        responseHeaders.setValue("\(data.length)", forKey: "Content-Length")
+                        var response : NSHTTPURLResponse! = NSHTTPURLResponse(URL: self.request.URL, statusCode: 200, HTTPVersion: "1.1", headerFields: responseHeaders)
                         
                         if let nsData:NSData = data.dataUsingEncoding(NSUTF8StringEncoding) {
                             
-                            self.client!.URLProtocol(self, didLoadData: nsData)
+                            //logger.log(ILoggingLogLevel.INFO, category: loggerTag, message: "RESPONSE NSDATA: \(nsData)")
+                            
                             self.client!.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: .NotAllowed)
+                            self.client!.URLProtocol(self, didLoadData: nsData)
                             self.client!.URLProtocolDidFinishLoading(self)
                             
                         } else {
