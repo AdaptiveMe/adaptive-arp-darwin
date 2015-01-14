@@ -529,26 +529,29 @@ new destination file.
        Invokes the given method specified in the API request object.
 
        @param request APIRequest object containing method name and parameters.
-       @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+       @return APIResponse with status code, message and JSON response or a JSON null string for void functions. Status code 200 is OK, all others are HTTP standard error conditions.
     */
-    public override func invoke(request : APIRequest) -> String? {
-        var responseJSON : String? = ""
+    public override func invoke(request : APIRequest) -> APIResponse? {
+        var response : APIResponse = APIResponse()
+        var responseCode : Int = 200
+        var responseMessage : String = "OK"
+        var responseJSON : String? = "null"
         switch request.getMethodName()! {
             case "canRead":
                 var descriptor0 : FileDescriptor? = FileDescriptor.Serializer.fromJSON(request.getParameters()![0])
                 var response0 : Bool? = self.canRead(descriptor0!)
                 if let response0 = response0 {
-                    responseJSON = "{ \(response0) }"
+                    responseJSON = "\(response0)"
                  } else {
-                    responseJSON = "{ false }"
+                    responseJSON = "false"
                  }
             case "canWrite":
                 var descriptor1 : FileDescriptor? = FileDescriptor.Serializer.fromJSON(request.getParameters()![0])
                 var response1 : Bool? = self.canWrite(descriptor1!)
                 if let response1 = response1 {
-                    responseJSON = "{ \(response1) }"
+                    responseJSON = "\(response1)"
                  } else {
-                    responseJSON = "{ false }"
+                    responseJSON = "false"
                  }
             case "create":
                 var descriptor2 : FileDescriptor? = FileDescriptor.Serializer.fromJSON(request.getParameters()![0])
@@ -559,17 +562,17 @@ new destination file.
                 var cascade3 : Bool? = (request.getParameters()![1] as NSString).boolValue
                 var response3 : Bool? = self.delete(descriptor3!, cascade: cascade3!)
                 if let response3 = response3 {
-                    responseJSON = "{ \(response3) }"
+                    responseJSON = "\(response3)"
                  } else {
-                    responseJSON = "{ false }"
+                    responseJSON = "false"
                  }
             case "exists":
                 var descriptor4 : FileDescriptor? = FileDescriptor.Serializer.fromJSON(request.getParameters()![0])
                 var response4 : Bool? = self.exists(descriptor4!)
                 if let response4 = response4 {
-                    responseJSON = "{ \(response4) }"
+                    responseJSON = "\(response4)"
                  } else {
-                    responseJSON = "{ false }"
+                    responseJSON = "false"
                  }
             case "getContent":
                 var descriptor5 : FileDescriptor? = FileDescriptor.Serializer.fromJSON(request.getParameters()![0])
@@ -603,9 +606,9 @@ new destination file.
                 var descriptor9 : FileDescriptor? = FileDescriptor.Serializer.fromJSON(request.getParameters()![0])
                 var response9 : Bool? = self.isDirectory(descriptor9!)
                 if let response9 = response9 {
-                    responseJSON = "{ \(response9) }"
+                    responseJSON = "\(response9)"
                  } else {
-                    responseJSON = "{ false }"
+                    responseJSON = "false"
                  }
             case "listFiles":
                 var descriptor10 : FileDescriptor? = FileDescriptor.Serializer.fromJSON(request.getParameters()![0])
@@ -621,9 +624,9 @@ new destination file.
                 var recursive12 : Bool? = (request.getParameters()![1] as NSString).boolValue
                 var response12 : Bool? = self.mkDir(descriptor12!, recursive: recursive12!)
                 if let response12 = response12 {
-                    responseJSON = "{ \(response12) }"
+                    responseJSON = "\(response12)"
                  } else {
-                    responseJSON = "{ false }"
+                    responseJSON = "false"
                  }
             case "move":
                 var source13 : FileDescriptor? = FileDescriptor.Serializer.fromJSON(request.getParameters()![0])
@@ -643,9 +646,13 @@ new destination file.
                 self.setContent(descriptor14!, content: content14!, callback: callback14!);
             default:
                 // 404 - response null.
-                responseJSON = nil
+                responseCode = 404
+                responseMessage = "FileBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.3."
         }
-        return responseJSON
+        response.setResponse(responseJSON!)
+        response.setStatusCode(responseCode)
+        response.setStatusMessage(responseMessage)
+        return response
     }
 }
 /**

@@ -157,10 +157,13 @@ public class NetworkStatusBridge : BaseCommunicationBridge, INetworkStatus, APIB
        Invokes the given method specified in the API request object.
 
        @param request APIRequest object containing method name and parameters.
-       @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+       @return APIResponse with status code, message and JSON response or a JSON null string for void functions. Status code 200 is OK, all others are HTTP standard error conditions.
     */
-    public override func invoke(request : APIRequest) -> String? {
-        var responseJSON : String? = ""
+    public override func invoke(request : APIRequest) -> APIResponse? {
+        var response : APIResponse = APIResponse()
+        var responseCode : Int = 200
+        var responseMessage : String = "OK"
+        var responseJSON : String? = "null"
         switch request.getMethodName()! {
             case "addNetworkStatusListener":
                 var listener0 : INetworkStatusListener? =  NetworkStatusListenerImpl(id: request.getAsyncId()!)
@@ -172,9 +175,13 @@ public class NetworkStatusBridge : BaseCommunicationBridge, INetworkStatus, APIB
                 self.removeNetworkStatusListeners();
             default:
                 // 404 - response null.
-                responseJSON = nil
+                responseCode = 404
+                responseMessage = "NetworkStatusBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.3."
         }
-        return responseJSON
+        response.setResponse(responseJSON!)
+        response.setStatusCode(responseCode)
+        response.setStatusMessage(responseMessage)
+        return response
     }
 }
 /**

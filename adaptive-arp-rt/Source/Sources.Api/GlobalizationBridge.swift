@@ -193,17 +193,20 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
        Invokes the given method specified in the API request object.
 
        @param request APIRequest object containing method name and parameters.
-       @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+       @return APIResponse with status code, message and JSON response or a JSON null string for void functions. Status code 200 is OK, all others are HTTP standard error conditions.
     */
-    public override func invoke(request : APIRequest) -> String? {
-        var responseJSON : String? = ""
+    public override func invoke(request : APIRequest) -> APIResponse? {
+        var response : APIResponse = APIResponse()
+        var responseCode : Int = 200
+        var responseMessage : String = "OK"
+        var responseJSON : String? = "null"
         switch request.getMethodName()! {
             case "getDefaultLocale":
                 var response0 : Locale? = self.getDefaultLocale()
                 if let response0 = response0 {
                     responseJSON = Locale.Serializer.toJSON(response0)
                 } else {
-                    responseJSON = "{ null }"
+                    responseJSON = "null"
                 }
             case "getLocaleSupportedDescriptors":
                 var response1 : [Locale]? = self.getLocaleSupportedDescriptors()
@@ -219,16 +222,16 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
                     response1JSONArray.appendString(" ]}")
                     responseJSON = response1JSONArray as String
                 } else {
-                    responseJSON = "{ null }"
+                    responseJSON = "null"
                 }
             case "getResourceLiteral":
                 var key2 : String? = JSONUtil.unescapeString(request.getParameters()![0])
                 var locale2 : Locale? = Locale.Serializer.fromJSON(request.getParameters()![1])
                 var response2 : String? = self.getResourceLiteral(key2!, locale: locale2!)
                 if let response2 = response2 {
-                    responseJSON = "{ \"\(response2)\" }"
+                    responseJSON = "\"\(response2)\""
                 } else {
-                    responseJSON = "{ null }"
+                    responseJSON = "null"
                 }
             case "getResourceLiterals":
                 var locale3 : Locale? = Locale.Serializer.fromJSON(request.getParameters()![0])
@@ -245,13 +248,17 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
                     response3JSONArray.appendString(" ]}")
                     responseJSON = response3JSONArray as String
                 } else {
-                    responseJSON = "{ null }"
+                    responseJSON = "null"
                 }
             default:
                 // 404 - response null.
-                responseJSON = nil
+                responseCode = 404
+                responseMessage = "GlobalizationBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.3."
         }
-        return responseJSON
+        response.setResponse(responseJSON!)
+        response.setStatusCode(responseCode)
+        response.setStatusMessage(responseMessage)
+        return response
     }
 }
 /**

@@ -215,10 +215,13 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
        Invokes the given method specified in the API request object.
 
        @param request APIRequest object containing method name and parameters.
-       @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+       @return APIResponse with status code, message and JSON response or a JSON null string for void functions. Status code 200 is OK, all others are HTTP standard error conditions.
     */
-    public override func invoke(request : APIRequest) -> String? {
-        var responseJSON : String? = ""
+    public override func invoke(request : APIRequest) -> APIResponse? {
+        var response : APIResponse = APIResponse()
+        var responseCode : Int = 200
+        var responseMessage : String = "OK"
+        var responseJSON : String? = "null"
         switch request.getMethodName()! {
             case "addButtonListener":
                 var listener0 : IButtonListener? =  ButtonListenerImpl(id: request.getAsyncId()!)
@@ -228,14 +231,14 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
                 if let response1 = response1 {
                     responseJSON = DeviceInfo.Serializer.toJSON(response1)
                 } else {
-                    responseJSON = "{ null }"
+                    responseJSON = "null"
                 }
             case "getLocaleCurrent":
                 var response2 : Locale? = self.getLocaleCurrent()
                 if let response2 = response2 {
                     responseJSON = Locale.Serializer.toJSON(response2)
                 } else {
-                    responseJSON = "{ null }"
+                    responseJSON = "null"
                 }
             case "removeButtonListener":
                 var listener3 : IButtonListener? =  ButtonListenerImpl(id: request.getAsyncId()!)
@@ -244,9 +247,13 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
                 self.removeButtonListeners();
             default:
                 // 404 - response null.
-                responseJSON = nil
+                responseCode = 404
+                responseMessage = "DeviceBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.3."
         }
-        return responseJSON
+        response.setResponse(responseJSON!)
+        response.setStatusCode(responseCode)
+        response.setStatusMessage(responseMessage)
+        return response
     }
 }
 /**

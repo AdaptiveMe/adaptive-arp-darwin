@@ -151,7 +151,8 @@ public class HttpInterceptorProtocol : NSURLProtocol {
                         //logger.log(ILoggingLogLevel.INFO, category: loggerTag, message: "API REQUEST [\(apiRequest.getBridgeType()!).\(apiRequest.getMethodName()!)]: \(apiRequest)")
                         
                         // Call the service and return the data
-                        var data:NSString = ServiceHandler.sharedInstance.handleServiceUrl(apiRequest)
+                        var apiResponse:APIResponse = ServiceHandler.sharedInstance.handleServiceUrl(apiRequest)
+                        var data:NSString = APIResponse.Serializer.toJSON(apiResponse)
                         
                         //logger.log(ILoggingLogLevel.INFO, category: loggerTag, message: "RESPONSE DATA: \(data)")
                         

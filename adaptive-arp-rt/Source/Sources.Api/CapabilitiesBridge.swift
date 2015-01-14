@@ -288,72 +288,79 @@ device.
        Invokes the given method specified in the API request object.
 
        @param request APIRequest object containing method name and parameters.
-       @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+       @return APIResponse with status code, message and JSON response or a JSON null string for void functions. Status code 200 is OK, all others are HTTP standard error conditions.
     */
-    public override func invoke(request : APIRequest) -> String? {
-        var responseJSON : String? = ""
+    public override func invoke(request : APIRequest) -> APIResponse? {
+        var response : APIResponse = APIResponse()
+        var responseCode : Int = 200
+        var responseMessage : String = "OK"
+        var responseJSON : String? = "null"
         switch request.getMethodName()! {
             case "hasButtonSupport":
                 var type0 : ICapabilitiesButton? = ICapabilitiesButton.toEnum(JSONUtil.dictionifyJSON(request.getParameters()![0])["value"] as String!)
                 var response0 : Bool? = self.hasButtonSupport(type0!)
                 if let response0 = response0 {
-                    responseJSON = "{ \(response0) }"
+                    responseJSON = "\(response0)"
                  } else {
-                    responseJSON = "{ false }"
+                    responseJSON = "false"
                  }
             case "hasCommunicationSupport":
                 var type1 : ICapabilitiesCommunication? = ICapabilitiesCommunication.toEnum(JSONUtil.dictionifyJSON(request.getParameters()![0])["value"] as String!)
                 var response1 : Bool? = self.hasCommunicationSupport(type1!)
                 if let response1 = response1 {
-                    responseJSON = "{ \(response1) }"
+                    responseJSON = "\(response1)"
                  } else {
-                    responseJSON = "{ false }"
+                    responseJSON = "false"
                  }
             case "hasDataSupport":
                 var type2 : ICapabilitiesData? = ICapabilitiesData.toEnum(JSONUtil.dictionifyJSON(request.getParameters()![0])["value"] as String!)
                 var response2 : Bool? = self.hasDataSupport(type2!)
                 if let response2 = response2 {
-                    responseJSON = "{ \(response2) }"
+                    responseJSON = "\(response2)"
                  } else {
-                    responseJSON = "{ false }"
+                    responseJSON = "false"
                  }
             case "hasMediaSupport":
                 var type3 : ICapabilitiesMedia? = ICapabilitiesMedia.toEnum(JSONUtil.dictionifyJSON(request.getParameters()![0])["value"] as String!)
                 var response3 : Bool? = self.hasMediaSupport(type3!)
                 if let response3 = response3 {
-                    responseJSON = "{ \(response3) }"
+                    responseJSON = "\(response3)"
                  } else {
-                    responseJSON = "{ false }"
+                    responseJSON = "false"
                  }
             case "hasNetSupport":
                 var type4 : ICapabilitiesNet? = ICapabilitiesNet.toEnum(JSONUtil.dictionifyJSON(request.getParameters()![0])["value"] as String!)
                 var response4 : Bool? = self.hasNetSupport(type4!)
                 if let response4 = response4 {
-                    responseJSON = "{ \(response4) }"
+                    responseJSON = "\(response4)"
                  } else {
-                    responseJSON = "{ false }"
+                    responseJSON = "false"
                  }
             case "hasNotificationSupport":
                 var type5 : ICapabilitiesNotification? = ICapabilitiesNotification.toEnum(JSONUtil.dictionifyJSON(request.getParameters()![0])["value"] as String!)
                 var response5 : Bool? = self.hasNotificationSupport(type5!)
                 if let response5 = response5 {
-                    responseJSON = "{ \(response5) }"
+                    responseJSON = "\(response5)"
                  } else {
-                    responseJSON = "{ false }"
+                    responseJSON = "false"
                  }
             case "hasSensorSupport":
                 var type6 : ICapabilitiesSensor? = ICapabilitiesSensor.toEnum(JSONUtil.dictionifyJSON(request.getParameters()![0])["value"] as String!)
                 var response6 : Bool? = self.hasSensorSupport(type6!)
                 if let response6 = response6 {
-                    responseJSON = "{ \(response6) }"
+                    responseJSON = "\(response6)"
                  } else {
-                    responseJSON = "{ false }"
+                    responseJSON = "false"
                  }
             default:
                 // 404 - response null.
-                responseJSON = nil
+                responseCode = 404
+                responseMessage = "CapabilitiesBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.3."
         }
-        return responseJSON
+        response.setResponse(responseJSON!)
+        response.setStatusCode(responseCode)
+        response.setStatusMessage(responseMessage)
+        return response
     }
 }
 /**

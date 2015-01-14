@@ -52,7 +52,7 @@ public class ServiceHandler:NSObject {
     /// Method that executes the method with the parameters from the APIRequest object send it by the Typescript. This method could return some data in the syncronous methods or execute some callback/listeners in the asyncronous ones
     /// :param: apiRequest API Request object
     /// :return: Data for returning the syncronous responses
-    public func handleServiceUrl(apiRequest:APIRequest) -> NSString {
+    public func handleServiceUrl(apiRequest:APIRequest) -> APIResponse {
         
         if let bridgeType:String = apiRequest.getBridgeType() {
             
@@ -68,7 +68,7 @@ public class ServiceHandler:NSObject {
                     // async methods (executed in a background queue)
                     dispatch_async(GCD.backgroundQueue(), {
                         
-                        if let result:String = bridge.invoke(apiRequest) {
+                        if let result:APIResponse = bridge.invoke(apiRequest) {
                         } else {
                             self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "There is an error executing the asyncronous method: \(apiRequest.getMethodName())")
                         }
@@ -77,7 +77,7 @@ public class ServiceHandler:NSObject {
                 } else {
                     
                     // sync methods (executed in the main queue)
-                    if let result:String = bridge.invoke(apiRequest) {
+                    if let result:APIResponse = bridge.invoke(apiRequest) {
                         //logger.log(ILoggingLogLevel.INFO, category: loggerTag, message: "SYNC SERVICE RESULT: \(result)")
                         return result
                     } else {
@@ -94,7 +94,7 @@ public class ServiceHandler:NSObject {
         }
         
         // Default return value
-        return ""
+        return APIResponse(response: "", statusCode: 404, statusMessage: "Please see native platform log for details.")
     }
 }
 

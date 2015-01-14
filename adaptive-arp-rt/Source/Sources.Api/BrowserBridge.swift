@@ -168,18 +168,21 @@ public class BrowserBridge : BaseUIBridge, IBrowser, APIBridge {
        Invokes the given method specified in the API request object.
 
        @param request APIRequest object containing method name and parameters.
-       @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+       @return APIResponse with status code, message and JSON response or a JSON null string for void functions. Status code 200 is OK, all others are HTTP standard error conditions.
     */
-    public override func invoke(request : APIRequest) -> String? {
-        var responseJSON : String? = ""
+    public override func invoke(request : APIRequest) -> APIResponse? {
+        var response : APIResponse = APIResponse()
+        var responseCode : Int = 200
+        var responseMessage : String = "OK"
+        var responseJSON : String? = "null"
         switch request.getMethodName()! {
             case "openExtenalBrowser":
                 var url0 : String? = JSONUtil.unescapeString(request.getParameters()![0])
                 var response0 : Bool? = self.openExtenalBrowser(url0!)
                 if let response0 = response0 {
-                    responseJSON = "{ \(response0) }"
+                    responseJSON = "\(response0)"
                  } else {
-                    responseJSON = "{ false }"
+                    responseJSON = "false"
                  }
             case "openInternalBrowser":
                 var url1 : String? = JSONUtil.unescapeString(request.getParameters()![0])
@@ -187,9 +190,9 @@ public class BrowserBridge : BaseUIBridge, IBrowser, APIBridge {
                 var backButtonText1 : String? = JSONUtil.unescapeString(request.getParameters()![2])
                 var response1 : Bool? = self.openInternalBrowser(url1!, title: title1!, backButtonText: backButtonText1!)
                 if let response1 = response1 {
-                    responseJSON = "{ \(response1) }"
+                    responseJSON = "\(response1)"
                  } else {
-                    responseJSON = "{ false }"
+                    responseJSON = "false"
                  }
             case "openInternalBrowserModal":
                 var url2 : String? = JSONUtil.unescapeString(request.getParameters()![0])
@@ -197,15 +200,19 @@ public class BrowserBridge : BaseUIBridge, IBrowser, APIBridge {
                 var backButtonText2 : String? = JSONUtil.unescapeString(request.getParameters()![2])
                 var response2 : Bool? = self.openInternalBrowserModal(url2!, title: title2!, backButtonText: backButtonText2!)
                 if let response2 = response2 {
-                    responseJSON = "{ \(response2) }"
+                    responseJSON = "\(response2)"
                  } else {
-                    responseJSON = "{ false }"
+                    responseJSON = "false"
                  }
             default:
                 // 404 - response null.
-                responseJSON = nil
+                responseCode = 404
+                responseMessage = "BrowserBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.3."
         }
-        return responseJSON
+        response.setResponse(responseJSON!)
+        response.setStatusCode(responseCode)
+        response.setStatusMessage(responseMessage)
+        return response
     }
 }
 /**
