@@ -89,7 +89,9 @@ public class BaseViewController : UIViewController {
         
         dispatch_async(dispatch_get_main_queue()) {
             var browserView : BrowserViewController = BrowserViewController(navigationBarHidden: !properties.navigationBarHidden, navigationBarTitle: properties.navigationBarTitle, navigationBarBackLabel: properties.navigationBarBackLabel, navigationUrl: properties.navigationUrl!)
-            self.navigationController!.pushViewController(browserView, animated: showAnimated)
+            // TODO: Modal vs no Modal
+            //self.navigationController!.pushViewController(browserView, animated: showAnimated)
+            ViewCurrent.getView()?.presentViewController(browserView, animated: true, completion: nil)
         }
         if showAnimated {
             NSThread.sleepForTimeInterval(0.750)
