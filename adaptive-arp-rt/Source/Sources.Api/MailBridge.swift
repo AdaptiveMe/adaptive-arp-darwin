@@ -83,7 +83,7 @@ public class MailBridge : BasePIMBridge, IMail, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "MailBridge executing sendEmail({\(data)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "MailBridge executing sendEmail('\(data)','\(callback)').")
         }
 
         if (self.delegate != nil) {

@@ -83,7 +83,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing getContact({\(contact)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing getContact('\(contact)','\(callback)').")
         }
 
         if (self.delegate != nil) {
@@ -112,7 +112,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing getContactPhoto({\(contact)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing getContactPhoto('\(contact)','\(callback)').")
         }
 
         if (self.delegate != nil) {
@@ -140,7 +140,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing getContacts({\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing getContacts('\(callback)').")
         }
 
         if (self.delegate != nil) {
@@ -169,7 +169,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing getContactsForFields({\(callback)},{\(fields)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing getContactsForFields('\(callback)','\(fields)').")
         }
 
         if (self.delegate != nil) {
@@ -199,7 +199,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing getContactsWithFilter({\(callback)},{\(fields)},{\(filter)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing getContactsWithFilter('\(callback)','\(fields)','\(filter)').")
         }
 
         if (self.delegate != nil) {
@@ -228,7 +228,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing searchContacts({\(term)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing searchContacts('\(term)','\(callback)').")
         }
 
         if (self.delegate != nil) {
@@ -258,7 +258,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing searchContactsWithFilter({\(term)},{\(callback)},{\(filter)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing searchContactsWithFilter('\(term)','\(callback)','\(filter)').")
         }
 
         if (self.delegate != nil) {
@@ -288,7 +288,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing setContactPhoto({\(contact)},{\(pngImage)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing setContactPhoto('\(contact)','\(pngImage)').")
         }
 
         var result : Bool? = false

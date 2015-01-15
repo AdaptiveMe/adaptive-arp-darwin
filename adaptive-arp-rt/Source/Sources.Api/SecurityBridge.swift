@@ -84,7 +84,7 @@ public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "SecurityBridge executing deleteSecureKeyValuePairs({\(keys)},{\(publicAccessName)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "SecurityBridge executing deleteSecureKeyValuePairs('\(keys)','\(publicAccessName)','\(callback)').")
         }
 
         if (self.delegate != nil) {
@@ -114,7 +114,7 @@ public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "SecurityBridge executing getSecureKeyValuePairs({\(keys)},{\(publicAccessName)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "SecurityBridge executing getSecureKeyValuePairs('\(keys)','\(publicAccessName)','\(callback)').")
         }
 
         if (self.delegate != nil) {
@@ -173,7 +173,7 @@ public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "SecurityBridge executing setSecureKeyValuePairs({\(keyValues)},{\(publicAccessName)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "SecurityBridge executing setSecureKeyValuePairs('\(keyValues)','\(publicAccessName)','\(callback)').")
         }
 
         if (self.delegate != nil) {

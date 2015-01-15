@@ -82,7 +82,7 @@ public class LifecycleBridge : BaseApplicationBridge, ILifecycle, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "LifecycleBridge executing addLifecycleListener({\(listener)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "LifecycleBridge executing addLifecycleListener('\(listener)').")
         }
 
         if (self.delegate != nil) {
@@ -139,7 +139,7 @@ public class LifecycleBridge : BaseApplicationBridge, ILifecycle, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "LifecycleBridge executing removeLifecycleListener({\(listener)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "LifecycleBridge executing removeLifecycleListener('\(listener)').")
         }
 
         if (self.delegate != nil) {
