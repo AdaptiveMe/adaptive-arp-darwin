@@ -56,11 +56,8 @@ public class FileListResultCallbackImpl : BaseCallbackImpl, IFileListResultCallb
        @since ARP1.0
     */
     public func onError(error : IFileListResultCallbackError) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileListResultCallbackError( \"\(getId())\", \(responseJS as String))")
+        var param0 : String = "IFileListResultCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\" }))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileListResultCallbackError( \"\(getId())\", \(param0))")
     }
 
     /**
@@ -70,18 +67,17 @@ public class FileListResultCallbackImpl : BaseCallbackImpl, IFileListResultCallb
        @since ARP1.0
     */
     public func onResult(files : [FileDescriptor]) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{[")
+        var param0Array : NSMutableString = NSMutableString()
+        param0Array.appendString("[")
         for (index,obj) in enumerate(files) {
-            responseJS.appendString(FileDescriptor.Serializer.toJSON(obj))
+            param0Array.appendString("FileDescriptor.toObject(JSON.parse(\"\(FileDescriptor.Serializer.toJSON(obj))\"))")
             if index < files.count-1 {
-                responseJS.appendString(", ")
+                param0Array.appendString(", ")
             }
         }
-        responseJS.appendString("]}")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileListResultCallbackResult( \"\(getId())\", \(responseJS as String))")
+        param0Array.appendString("]")
+        var param0 : String = param0Array as String
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileListResultCallbackResult( \"\(getId())\", \(param0))")
     }
 
     /**
@@ -92,22 +88,18 @@ public class FileListResultCallbackImpl : BaseCallbackImpl, IFileListResultCallb
        @since ARP1.0
     */
     public func onWarning(files : [FileDescriptor], warning : IFileListResultCallbackWarning) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{[")
+        var param0Array : NSMutableString = NSMutableString()
+        param0Array.appendString("[")
         for (index,obj) in enumerate(files) {
-            responseJS.appendString(FileDescriptor.Serializer.toJSON(obj))
+            param0Array.appendString("FileDescriptor.toObject(JSON.parse(\"\(FileDescriptor.Serializer.toJSON(obj))\"))")
             if index < files.count-1 {
-                responseJS.appendString(", ")
+                param0Array.appendString(", ")
             }
         }
-        responseJS.appendString("]}")
-        responseJS.appendString("\")")
-        responseJS.appendString(", ")
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileListResultCallbackWarning( \"\(getId())\", \(responseJS as String))")
+        param0Array.appendString("]")
+        var param0 : String = param0Array as String
+        var param1 : String = "IFileListResultCallbackWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\" }))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileListResultCallbackWarning( \"\(getId())\", \(param0), \(param1))")
     }
 
 }

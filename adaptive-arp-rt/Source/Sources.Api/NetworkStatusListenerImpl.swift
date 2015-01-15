@@ -56,11 +56,8 @@ public class NetworkStatusListenerImpl : BaseListenerImpl, INetworkStatusListene
        @since ARP1.0
     */
     public func onError(error : INetworkStatusListenerError) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkStatusListenerError( \"\(getId())\", \(responseJS as String))")
+        var param0 : String = "INetworkStatusListenerError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\" }))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkStatusListenerError( \"\(getId())\", \(param0))")
     }
 
     /**
@@ -70,11 +67,8 @@ public class NetworkStatusListenerImpl : BaseListenerImpl, INetworkStatusListene
        @since ARP1.0
     */
     public func onResult(network : ICapabilitiesNet) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \"value\": \"\(network.toString())\" }")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkStatusListenerResult( \"\(getId())\", \(responseJS as String))")
+        var param0 : String = "ICapabilitiesNet.toObject(JSON.parse(\"{ \"value\": \"\(network.toString())\" }))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkStatusListenerResult( \"\(getId())\", \(param0))")
     }
 
     /**
@@ -85,15 +79,9 @@ public class NetworkStatusListenerImpl : BaseListenerImpl, INetworkStatusListene
        @since ARP1.0
     */
     public func onWarning(network : ICapabilitiesNet, warning : INetworkStatusListenerWarning) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \"value\": \"\(network.toString())\" }")
-        responseJS.appendString("\")")
-        responseJS.appendString(", ")
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkStatusListenerWarning( \"\(getId())\", \(responseJS as String))")
+        var param0 : String = "ICapabilitiesNet.toObject(JSON.parse(\"{ \"value\": \"\(network.toString())\" }))"
+        var param1 : String = "INetworkStatusListenerWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\" }))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkStatusListenerWarning( \"\(getId())\", \(param0), \(param1))")
     }
 
 }

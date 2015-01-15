@@ -56,11 +56,8 @@ public class ContactPhotoResultCallbackImpl : BaseCallbackImpl, IContactPhotoRes
        @since ARP1.0
     */
     public func onError(error : IContactPhotoResultCallbackError) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactPhotoResultCallbackError( \"\(getId())\", \(responseJS as String))")
+        var param0 : String = "IContactPhotoResultCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\" }))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactPhotoResultCallbackError( \"\(getId())\", \(param0))")
     }
 
     /**
@@ -70,18 +67,17 @@ public class ContactPhotoResultCallbackImpl : BaseCallbackImpl, IContactPhotoRes
        @since ARP1.0
     */
     public func onResult(contactPhoto : [Byte]) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{[")
+        var param0Array : NSMutableString = NSMutableString()
+        param0Array.appendString("[")
         for (index,obj) in enumerate(contactPhoto) {
-            responseJS.appendString("\(obj.value)")
+            param0Array.appendString("\(obj.value)")
             if index < contactPhoto.count-1 {
-                responseJS.appendString(", ")
+                param0Array.appendString(", ")
             }
         }
-        responseJS.appendString("]}")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactPhotoResultCallbackResult( \"\(getId())\", \(responseJS as String))")
+        param0Array.appendString("]")
+        var param0 : String = param0Array as String
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactPhotoResultCallbackResult( \"\(getId())\", \(param0))")
     }
 
     /**
@@ -92,22 +88,18 @@ public class ContactPhotoResultCallbackImpl : BaseCallbackImpl, IContactPhotoRes
        @since ARP1.0
     */
     public func onWarning(contactPhoto : [Byte], warning : IContactPhotoResultCallbackWarning) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{[")
+        var param0Array : NSMutableString = NSMutableString()
+        param0Array.appendString("[")
         for (index,obj) in enumerate(contactPhoto) {
-            responseJS.appendString("\(obj.value)")
+            param0Array.appendString("\(obj.value)")
             if index < contactPhoto.count-1 {
-                responseJS.appendString(", ")
+                param0Array.appendString(", ")
             }
         }
-        responseJS.appendString("]}")
-        responseJS.appendString("\")")
-        responseJS.appendString(", ")
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactPhotoResultCallbackWarning( \"\(getId())\", \(responseJS as String))")
+        param0Array.appendString("]")
+        var param0 : String = param0Array as String
+        var param1 : String = "IContactPhotoResultCallbackWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\" }))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactPhotoResultCallbackWarning( \"\(getId())\", \(param0), \(param1))")
     }
 
 }

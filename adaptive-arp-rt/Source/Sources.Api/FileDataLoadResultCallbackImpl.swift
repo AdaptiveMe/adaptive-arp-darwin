@@ -56,11 +56,8 @@ public class FileDataLoadResultCallbackImpl : BaseCallbackImpl, IFileDataLoadRes
        @since ARP1.0
     */
     public func onError(error : IFileDataLoadResultCallbackError) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileDataLoadResultCallbackError( \"\(getId())\", \(responseJS as String))")
+        var param0 : String = "IFileDataLoadResultCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\" }))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileDataLoadResultCallbackError( \"\(getId())\", \(param0))")
     }
 
     /**
@@ -70,18 +67,17 @@ public class FileDataLoadResultCallbackImpl : BaseCallbackImpl, IFileDataLoadRes
        @since ARP1.0
     */
     public func onResult(data : [Byte]) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{[")
+        var param0Array : NSMutableString = NSMutableString()
+        param0Array.appendString("[")
         for (index,obj) in enumerate(data) {
-            responseJS.appendString("\(obj.value)")
+            param0Array.appendString("\(obj.value)")
             if index < data.count-1 {
-                responseJS.appendString(", ")
+                param0Array.appendString(", ")
             }
         }
-        responseJS.appendString("]}")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileDataLoadResultCallbackResult( \"\(getId())\", \(responseJS as String))")
+        param0Array.appendString("]")
+        var param0 : String = param0Array as String
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileDataLoadResultCallbackResult( \"\(getId())\", \(param0))")
     }
 
     /**
@@ -92,22 +88,18 @@ public class FileDataLoadResultCallbackImpl : BaseCallbackImpl, IFileDataLoadRes
        @since ARP1.0
     */
     public func onWarning(data : [Byte], warning : IFileDataLoadResultCallbackWarning) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{[")
+        var param0Array : NSMutableString = NSMutableString()
+        param0Array.appendString("[")
         for (index,obj) in enumerate(data) {
-            responseJS.appendString("\(obj.value)")
+            param0Array.appendString("\(obj.value)")
             if index < data.count-1 {
-                responseJS.appendString(", ")
+                param0Array.appendString(", ")
             }
         }
-        responseJS.appendString("]}")
-        responseJS.appendString("\")")
-        responseJS.appendString(", ")
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileDataLoadResultCallbackWarning( \"\(getId())\", \(responseJS as String))")
+        param0Array.appendString("]")
+        var param0 : String = param0Array as String
+        var param1 : String = "IFileDataLoadResultCallbackWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\" }))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileDataLoadResultCallbackWarning( \"\(getId())\", \(param0), \(param1))")
     }
 
 }

@@ -56,11 +56,8 @@ public class SecurityResultCallbackImpl : BaseCallbackImpl, ISecurityResultCallb
        @since ARP1.0
     */
     public func onError(error : ISecurityResultCallbackError) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleSecurityResultCallbackError( \"\(getId())\", \(responseJS as String))")
+        var param0 : String = "ISecurityResultCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\" }))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleSecurityResultCallbackError( \"\(getId())\", \(param0))")
     }
 
     /**
@@ -70,18 +67,17 @@ public class SecurityResultCallbackImpl : BaseCallbackImpl, ISecurityResultCallb
        @since ARP1.0
     */
     public func onResult(keyValues : [SecureKeyPair]) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{[")
+        var param0Array : NSMutableString = NSMutableString()
+        param0Array.appendString("[")
         for (index,obj) in enumerate(keyValues) {
-            responseJS.appendString(SecureKeyPair.Serializer.toJSON(obj))
+            param0Array.appendString("SecureKeyPair.toObject(JSON.parse(\"\(SecureKeyPair.Serializer.toJSON(obj))\"))")
             if index < keyValues.count-1 {
-                responseJS.appendString(", ")
+                param0Array.appendString(", ")
             }
         }
-        responseJS.appendString("]}")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleSecurityResultCallbackResult( \"\(getId())\", \(responseJS as String))")
+        param0Array.appendString("]")
+        var param0 : String = param0Array as String
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleSecurityResultCallbackResult( \"\(getId())\", \(param0))")
     }
 
     /**
@@ -92,22 +88,18 @@ public class SecurityResultCallbackImpl : BaseCallbackImpl, ISecurityResultCallb
        @since ARP1.0
     */
     public func onWarning(keyValues : [SecureKeyPair], warning : ISecurityResultCallbackWarning) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{[")
+        var param0Array : NSMutableString = NSMutableString()
+        param0Array.appendString("[")
         for (index,obj) in enumerate(keyValues) {
-            responseJS.appendString(SecureKeyPair.Serializer.toJSON(obj))
+            param0Array.appendString("SecureKeyPair.toObject(JSON.parse(\"\(SecureKeyPair.Serializer.toJSON(obj))\"))")
             if index < keyValues.count-1 {
-                responseJS.appendString(", ")
+                param0Array.appendString(", ")
             }
         }
-        responseJS.appendString("]}")
-        responseJS.appendString("\")")
-        responseJS.appendString(", ")
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleSecurityResultCallbackWarning( \"\(getId())\", \(responseJS as String))")
+        param0Array.appendString("]")
+        var param0 : String = param0Array as String
+        var param1 : String = "ISecurityResultCallbackWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\" }))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleSecurityResultCallbackWarning( \"\(getId())\", \(param0), \(param1))")
     }
 
 }
