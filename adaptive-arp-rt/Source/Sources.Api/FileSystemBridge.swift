@@ -373,9 +373,9 @@ This path may or may not be writable by the current application.
             case "getSeparator":
                 var response6 : Character? = self.getSeparator()
                 if let response6 = response6 {
-                    responseJSON = "\"\(response6)\""
+                    responseJSON = "\(response6)"
                  } else {
-                    responseJSON = "\"\""
+                    responseJSON = "null"
                  }
             case "getSystemExternalFolder":
                 var response7 : FileDescriptor? = self.getSystemExternalFolder()

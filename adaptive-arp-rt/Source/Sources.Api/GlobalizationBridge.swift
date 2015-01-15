@@ -229,7 +229,7 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
                 var locale2 : Locale? = Locale.Serializer.fromJSON(request.getParameters()![1])
                 var response2 : String? = self.getResourceLiteral(key2!, locale: locale2!)
                 if let response2 = response2 {
-                    responseJSON = "\"\(response2)\""
+                    responseJSON = "\(response2)"
                 } else {
                     responseJSON = "null"
                 }
