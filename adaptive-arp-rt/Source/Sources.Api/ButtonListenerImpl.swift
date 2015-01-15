@@ -56,11 +56,8 @@ public class ButtonListenerImpl : BaseListenerImpl, IButtonListener {
        @since ARP1.0
     */
     public func onError(error : IButtonListenerError) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleButtonListenerError( \"\(getId())\", \(responseJS as String))")
+        var param0 : String = "IButtonListenerError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\" }))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleButtonListenerError( \"\(getId())\", \(param0))")
     }
 
     /**
@@ -70,11 +67,8 @@ public class ButtonListenerImpl : BaseListenerImpl, IButtonListener {
        @since ARP1.0
     */
     public func onResult(button : Button) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString(Button.Serializer.toJSON(button))
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleButtonListenerResult( \"\(getId())\", \(responseJS as String))")
+        var param0 : String = "Button.toObject(JSON.parse(\"\(Button.Serializer.toJSON(button))\"))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleButtonListenerResult( \"\(getId())\", \(param0))")
     }
 
     /**
@@ -85,15 +79,9 @@ public class ButtonListenerImpl : BaseListenerImpl, IButtonListener {
        @since ARP1.0
     */
     public func onWarning(button : Button, warning : IButtonListenerWarning) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString(Button.Serializer.toJSON(button))
-        responseJS.appendString("\")")
-        responseJS.appendString(", ")
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleButtonListenerWarning( \"\(getId())\", \(responseJS as String))")
+        var param0 : String = "Button.toObject(JSON.parse(\"\(Button.Serializer.toJSON(button))\"))"
+        var param1 : String = "IButtonListenerWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\" }))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleButtonListenerWarning( \"\(getId())\", \(param0), \(param1))")
     }
 
 }

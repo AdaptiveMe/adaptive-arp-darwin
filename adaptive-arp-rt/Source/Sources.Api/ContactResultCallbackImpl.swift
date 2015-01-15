@@ -56,11 +56,8 @@ public class ContactResultCallbackImpl : BaseCallbackImpl, IContactResultCallbac
        @since ARP1.0
     */
     public func onError(error : IContactResultCallbackError) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactResultCallbackError( \"\(getId())\", \(responseJS as String))")
+        var param0 : String = "IContactResultCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\" }))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactResultCallbackError( \"\(getId())\", \(param0))")
     }
 
     /**
@@ -70,18 +67,17 @@ public class ContactResultCallbackImpl : BaseCallbackImpl, IContactResultCallbac
        @since ARP1.0
     */
     public func onResult(contacts : [Contact]) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{[")
+        var param0Array : NSMutableString = NSMutableString()
+        param0Array.appendString("[")
         for (index,obj) in enumerate(contacts) {
-            responseJS.appendString(Contact.Serializer.toJSON(obj))
+            param0Array.appendString("Contact.toObject(JSON.parse(\"\(Contact.Serializer.toJSON(obj))\"))")
             if index < contacts.count-1 {
-                responseJS.appendString(", ")
+                param0Array.appendString(", ")
             }
         }
-        responseJS.appendString("]}")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactResultCallbackResult( \"\(getId())\", \(responseJS as String))")
+        param0Array.appendString("]")
+        var param0 : String = param0Array as String
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactResultCallbackResult( \"\(getId())\", \(param0))")
     }
 
     /**
@@ -92,22 +88,18 @@ public class ContactResultCallbackImpl : BaseCallbackImpl, IContactResultCallbac
        @since ARP1.0
     */
     public func onWarning(contacts : [Contact], warning : IContactResultCallbackWarning) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{[")
+        var param0Array : NSMutableString = NSMutableString()
+        param0Array.appendString("[")
         for (index,obj) in enumerate(contacts) {
-            responseJS.appendString(Contact.Serializer.toJSON(obj))
+            param0Array.appendString("Contact.toObject(JSON.parse(\"\(Contact.Serializer.toJSON(obj))\"))")
             if index < contacts.count-1 {
-                responseJS.appendString(", ")
+                param0Array.appendString(", ")
             }
         }
-        responseJS.appendString("]}")
-        responseJS.appendString("\")")
-        responseJS.appendString(", ")
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactResultCallbackWarning( \"\(getId())\", \(responseJS as String))")
+        param0Array.appendString("]")
+        var param0 : String = param0Array as String
+        var param1 : String = "IContactResultCallbackWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\" }))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactResultCallbackWarning( \"\(getId())\", \(param0), \(param1))")
     }
 
 }

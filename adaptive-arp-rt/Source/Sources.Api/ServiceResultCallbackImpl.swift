@@ -56,11 +56,8 @@ public class ServiceResultCallbackImpl : BaseCallbackImpl, IServiceResultCallbac
        @since ARP1.0
     */
     public func onError(error : IServiceResultCallbackError) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleServiceResultCallbackError( \"\(getId())\", \(responseJS as String))")
+        var param0 : String = "IServiceResultCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\" }))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleServiceResultCallbackError( \"\(getId())\", \(param0))")
     }
 
     /**
@@ -70,11 +67,8 @@ public class ServiceResultCallbackImpl : BaseCallbackImpl, IServiceResultCallbac
        @since ARP1.0
     */
     public func onResult(response : ServiceResponse) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString(ServiceResponse.Serializer.toJSON(response))
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleServiceResultCallbackResult( \"\(getId())\", \(responseJS as String))")
+        var param0 : String = "ServiceResponse.toObject(JSON.parse(\"\(ServiceResponse.Serializer.toJSON(response))\"))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleServiceResultCallbackResult( \"\(getId())\", \(param0))")
     }
 
     /**
@@ -85,15 +79,9 @@ public class ServiceResultCallbackImpl : BaseCallbackImpl, IServiceResultCallbac
        @since ARP1.0
     */
     public func onWarning(response : ServiceResponse, warning : IServiceResultCallbackWarning) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString(ServiceResponse.Serializer.toJSON(response))
-        responseJS.appendString("\")")
-        responseJS.appendString(", ")
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleServiceResultCallbackWarning( \"\(getId())\", \(responseJS as String))")
+        var param0 : String = "ServiceResponse.toObject(JSON.parse(\"\(ServiceResponse.Serializer.toJSON(response))\"))"
+        var param1 : String = "IServiceResultCallbackWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\" }))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleServiceResultCallbackWarning( \"\(getId())\", \(param0), \(param1))")
     }
 
 }

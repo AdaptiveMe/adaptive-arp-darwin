@@ -56,11 +56,8 @@ public class FileResultCallbackImpl : BaseCallbackImpl, IFileResultCallback {
        @since ARP1.0
     */
     public func onError(error : IFileResultCallbackError) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileResultCallbackError( \"\(getId())\", \(responseJS as String))")
+        var param0 : String = "IFileResultCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\" }))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileResultCallbackError( \"\(getId())\", \(param0))")
     }
 
     /**
@@ -70,11 +67,8 @@ public class FileResultCallbackImpl : BaseCallbackImpl, IFileResultCallback {
        @since ARP1.0
     */
     public func onResult(storageFile : FileDescriptor) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString(FileDescriptor.Serializer.toJSON(storageFile))
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileResultCallbackResult( \"\(getId())\", \(responseJS as String))")
+        var param0 : String = "FileDescriptor.toObject(JSON.parse(\"\(FileDescriptor.Serializer.toJSON(storageFile))\"))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileResultCallbackResult( \"\(getId())\", \(param0))")
     }
 
     /**
@@ -85,15 +79,9 @@ public class FileResultCallbackImpl : BaseCallbackImpl, IFileResultCallback {
        @since ARP1.0
     */
     public func onWarning(file : FileDescriptor, warning : IFileResultCallbackWarning) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString(FileDescriptor.Serializer.toJSON(file))
-        responseJS.appendString("\")")
-        responseJS.appendString(", ")
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileResultCallbackWarning( \"\(getId())\", \(responseJS as String))")
+        var param0 : String = "FileDescriptor.toObject(JSON.parse(\"\(FileDescriptor.Serializer.toJSON(file))\"))"
+        var param1 : String = "IFileResultCallbackWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\" }))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileResultCallbackWarning( \"\(getId())\", \(param0), \(param1))")
     }
 
 }

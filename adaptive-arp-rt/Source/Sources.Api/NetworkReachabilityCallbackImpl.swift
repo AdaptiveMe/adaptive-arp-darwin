@@ -56,11 +56,8 @@ public class NetworkReachabilityCallbackImpl : BaseCallbackImpl, INetworkReachab
        @since ARP1.0
     */
     public func onError(error : INetworkReachabilityCallbackError) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkReachabilityCallbackError( \"\(getId())\", \(responseJS as String))")
+        var param0 : String = "INetworkReachabilityCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\" }))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkReachabilityCallbackError( \"\(getId())\", \(param0))")
     }
 
     /**
@@ -70,11 +67,8 @@ public class NetworkReachabilityCallbackImpl : BaseCallbackImpl, INetworkReachab
        @since ARP1.0
     */
     public func onResult(reachable : Bool) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \(reachable) }")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkReachabilityCallbackResult( \"\(getId())\", \(responseJS as String))")
+        var param0 : String = "\(reachable)"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkReachabilityCallbackResult( \"\(getId())\", \(param0))")
     }
 
     /**
@@ -85,15 +79,9 @@ public class NetworkReachabilityCallbackImpl : BaseCallbackImpl, INetworkReachab
        @since ARP1.0
     */
     public func onWarning(reachable : Bool, warning : INetworkReachabilityCallbackWarning) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \(reachable) }")
-        responseJS.appendString("\")")
-        responseJS.appendString(", ")
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkReachabilityCallbackWarning( \"\(getId())\", \(responseJS as String))")
+        var param0 : String = "\(reachable)"
+        var param1 : String = "INetworkReachabilityCallbackWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\" }))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkReachabilityCallbackWarning( \"\(getId())\", \(param0), \(param1))")
     }
 
 }

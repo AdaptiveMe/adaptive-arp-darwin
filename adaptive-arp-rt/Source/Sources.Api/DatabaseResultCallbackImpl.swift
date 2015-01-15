@@ -56,11 +56,8 @@ public class DatabaseResultCallbackImpl : BaseCallbackImpl, IDatabaseResultCallb
        @since ARP1.0
     */
     public func onError(error : IDatabaseResultCallbackError) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseResultCallbackError( \"\(getId())\", \(responseJS as String))")
+        var param0 : String = "IDatabaseResultCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\" }))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseResultCallbackError( \"\(getId())\", \(param0))")
     }
 
     /**
@@ -70,11 +67,8 @@ public class DatabaseResultCallbackImpl : BaseCallbackImpl, IDatabaseResultCallb
        @since ARP1.0
     */
     public func onResult(database : Database) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString(Database.Serializer.toJSON(database))
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseResultCallbackResult( \"\(getId())\", \(responseJS as String))")
+        var param0 : String = "Database.toObject(JSON.parse(\"\(Database.Serializer.toJSON(database))\"))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseResultCallbackResult( \"\(getId())\", \(param0))")
     }
 
     /**
@@ -85,15 +79,9 @@ public class DatabaseResultCallbackImpl : BaseCallbackImpl, IDatabaseResultCallb
        @since ARP1.0
     */
     public func onWarning(database : Database, warning : IDatabaseResultCallbackWarning) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString(Database.Serializer.toJSON(database))
-        responseJS.appendString("\")")
-        responseJS.appendString(", ")
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseResultCallbackWarning( \"\(getId())\", \(responseJS as String))")
+        var param0 : String = "Database.toObject(JSON.parse(\"\(Database.Serializer.toJSON(database))\"))"
+        var param1 : String = "IDatabaseResultCallbackWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\" }))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseResultCallbackWarning( \"\(getId())\", \(param0), \(param1))")
     }
 
 }

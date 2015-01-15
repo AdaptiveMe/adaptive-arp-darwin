@@ -56,11 +56,8 @@ public class DatabaseTableResultCallbackImpl : BaseCallbackImpl, IDatabaseTableR
        @since ARP1.0
     */
     public func onError(error : IDatabaseTableResultCallbackError) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseTableResultCallbackError( \"\(getId())\", \(responseJS as String))")
+        var param0 : String = "IDatabaseTableResultCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\" }))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseTableResultCallbackError( \"\(getId())\", \(param0))")
     }
 
     /**
@@ -70,11 +67,8 @@ public class DatabaseTableResultCallbackImpl : BaseCallbackImpl, IDatabaseTableR
        @since ARP1.0
     */
     public func onResult(databaseTable : DatabaseTable) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString(DatabaseTable.Serializer.toJSON(databaseTable))
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseTableResultCallbackResult( \"\(getId())\", \(responseJS as String))")
+        var param0 : String = "DatabaseTable.toObject(JSON.parse(\"\(DatabaseTable.Serializer.toJSON(databaseTable))\"))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseTableResultCallbackResult( \"\(getId())\", \(param0))")
     }
 
     /**
@@ -85,15 +79,9 @@ public class DatabaseTableResultCallbackImpl : BaseCallbackImpl, IDatabaseTableR
        @since ARP1.0
     */
     public func onWarning(databaseTable : DatabaseTable, warning : IDatabaseTableResultCallbackWarning) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString(DatabaseTable.Serializer.toJSON(databaseTable))
-        responseJS.appendString("\")")
-        responseJS.appendString(", ")
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseTableResultCallbackWarning( \"\(getId())\", \(responseJS as String))")
+        var param0 : String = "DatabaseTable.toObject(JSON.parse(\"\(DatabaseTable.Serializer.toJSON(databaseTable))\"))"
+        var param1 : String = "IDatabaseTableResultCallbackWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\" }))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseTableResultCallbackWarning( \"\(getId())\", \(param0), \(param1))")
     }
 
 }

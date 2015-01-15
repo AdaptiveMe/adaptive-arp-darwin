@@ -56,11 +56,8 @@ public class MessagingCallbackImpl : BaseCallbackImpl, IMessagingCallback {
        @since ARP1.0
     */
     public func onError(error : IMessagingCallbackError) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \"value\": \"\(error.toString())\" }")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleMessagingCallbackError( \"\(getId())\", \(responseJS as String))")
+        var param0 : String = "IMessagingCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\" }))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleMessagingCallbackError( \"\(getId())\", \(param0))")
     }
 
     /**
@@ -70,11 +67,8 @@ public class MessagingCallbackImpl : BaseCallbackImpl, IMessagingCallback {
        @since ARP1.0
     */
     public func onResult(success : Bool) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \(success) }")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleMessagingCallbackResult( \"\(getId())\", \(responseJS as String))")
+        var param0 : String = "\(success)"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleMessagingCallbackResult( \"\(getId())\", \(param0))")
     }
 
     /**
@@ -85,15 +79,9 @@ public class MessagingCallbackImpl : BaseCallbackImpl, IMessagingCallback {
        @since ARP1.0
     */
     public func onWarning(success : Bool, warning : IMessagingCallbackWarning) { 
-        var responseJS : NSMutableString = NSMutableString()
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \(success) }")
-        responseJS.appendString("\")")
-        responseJS.appendString(", ")
-        responseJS.appendString("JSON.parse(\"")
-        responseJS.appendString("{ \"value\": \"\(warning.toString())\" }")
-        responseJS.appendString("\")")
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleMessagingCallbackWarning( \"\(getId())\", \(responseJS as String))")
+        var param0 : String = "\(success)"
+        var param1 : String = "IMessagingCallbackWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\" }))"
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleMessagingCallbackWarning( \"\(getId())\", \(param0), \(param1))")
     }
 
 }
