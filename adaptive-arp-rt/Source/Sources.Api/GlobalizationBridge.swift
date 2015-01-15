@@ -229,7 +229,7 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
                 var locale2 : Locale? = Locale.Serializer.fromJSON(request.getParameters()![1])
                 var response2 : String? = self.getResourceLiteral(key2!, locale: locale2!)
                 if let response2 = response2 {
-                    responseJSON = "\"\(response2)\""
+                    responseJSON = "\(response2)"
                 } else {
                     responseJSON = "null"
                 }
@@ -255,7 +255,7 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
                 responseCode = 404
                 responseMessage = "GlobalizationBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.3."
         }
-        response.setResponse(responseJSON!)
+        response.setResponse(JSONUtil.escapeString(responseJSON!))
         response.setStatusCode(responseCode)
         response.setStatusMessage(responseMessage)
         return response
