@@ -56,7 +56,7 @@ public class FileListResultCallbackImpl : BaseCallbackImpl, IFileListResultCallb
        @since ARP1.0
     */
     public func onError(error : IFileListResultCallbackError) { 
-        var param0 : String = "IFileListResultCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\" }))"
+        var param0 : String = "IFileListResultCallbackError.toObject(JSON.parse(" + JSONUtil.escapeString("{ \"value\": \"\(error.toString()) }") + "))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileListResultCallbackError( \"\(getId())\", \(param0))")
     }
 
@@ -70,7 +70,7 @@ public class FileListResultCallbackImpl : BaseCallbackImpl, IFileListResultCallb
         var param0Array : NSMutableString = NSMutableString()
         param0Array.appendString("[")
         for (index,obj) in enumerate(files) {
-            param0Array.appendString("FileDescriptor.toObject(JSON.parse(\"\(FileDescriptor.Serializer.toJSON(obj))\"))")
+            param0Array.appendString("FileDescriptor.toObject(JSON.parse(" + JSONUtil.escapeString("\(FileDescriptor.Serializer.toJSON(obj))") + "))")
             if index < files.count-1 {
                 param0Array.appendString(", ")
             }
@@ -91,14 +91,14 @@ public class FileListResultCallbackImpl : BaseCallbackImpl, IFileListResultCallb
         var param0Array : NSMutableString = NSMutableString()
         param0Array.appendString("[")
         for (index,obj) in enumerate(files) {
-            param0Array.appendString("FileDescriptor.toObject(JSON.parse(\"\(FileDescriptor.Serializer.toJSON(obj))\"))")
+            param0Array.appendString("FileDescriptor.toObject(JSON.parse(" + JSONUtil.escapeString("\(FileDescriptor.Serializer.toJSON(obj))") + "))")
             if index < files.count-1 {
                 param0Array.appendString(", ")
             }
         }
         param0Array.appendString("]")
         var param0 : String = param0Array as String
-        var param1 : String = "IFileListResultCallbackWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\" }))"
+        var param1 : String = "IFileListResultCallbackWarning.toObject(JSON.parse(" + JSONUtil.escapeString("{ \"value\": \"\(warning.toString()) }") + "))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileListResultCallbackWarning( \"\(getId())\", \(param0), \(param1))")
     }
 

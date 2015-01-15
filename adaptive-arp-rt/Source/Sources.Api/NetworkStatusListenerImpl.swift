@@ -56,7 +56,7 @@ public class NetworkStatusListenerImpl : BaseListenerImpl, INetworkStatusListene
        @since ARP1.0
     */
     public func onError(error : INetworkStatusListenerError) { 
-        var param0 : String = "INetworkStatusListenerError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\" }))"
+        var param0 : String = "INetworkStatusListenerError.toObject(JSON.parse(" + JSONUtil.escapeString("{ \"value\": \"\(error.toString()) }") + "))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkStatusListenerError( \"\(getId())\", \(param0))")
     }
 
@@ -67,7 +67,7 @@ public class NetworkStatusListenerImpl : BaseListenerImpl, INetworkStatusListene
        @since ARP1.0
     */
     public func onResult(network : ICapabilitiesNet) { 
-        var param0 : String = "ICapabilitiesNet.toObject(JSON.parse(\"{ \"value\": \"\(network.toString())\" }))"
+        var param0 : String = "ICapabilitiesNet.toObject(JSON.parse(" + JSONUtil.escapeString("{ \"value\": \"\(network.toString()) }") + "))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkStatusListenerResult( \"\(getId())\", \(param0))")
     }
 
@@ -79,8 +79,8 @@ public class NetworkStatusListenerImpl : BaseListenerImpl, INetworkStatusListene
        @since ARP1.0
     */
     public func onWarning(network : ICapabilitiesNet, warning : INetworkStatusListenerWarning) { 
-        var param0 : String = "ICapabilitiesNet.toObject(JSON.parse(\"{ \"value\": \"\(network.toString())\" }))"
-        var param1 : String = "INetworkStatusListenerWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\" }))"
+        var param0 : String = "ICapabilitiesNet.toObject(JSON.parse(" + JSONUtil.escapeString("{ \"value\": \"\(network.toString()) }") + "))"
+        var param1 : String = "INetworkStatusListenerWarning.toObject(JSON.parse(" + JSONUtil.escapeString("{ \"value\": \"\(warning.toString()) }") + "))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkStatusListenerWarning( \"\(getId())\", \(param0), \(param1))")
     }
 
