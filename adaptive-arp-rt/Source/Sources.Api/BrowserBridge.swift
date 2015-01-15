@@ -83,7 +83,7 @@ public class BrowserBridge : BaseUIBridge, IBrowser, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "BrowserBridge executing openExtenalBrowser({\(url)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "BrowserBridge executing openExtenalBrowser('\(url)').")
         }
 
         var result : Bool? = false
@@ -115,7 +115,7 @@ public class BrowserBridge : BaseUIBridge, IBrowser, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "BrowserBridge executing openInternalBrowser({\(url)},{\(title)},{\(backButtonText)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "BrowserBridge executing openInternalBrowser('\(url)','\(title)','\(backButtonText)').")
         }
 
         var result : Bool? = false
@@ -147,7 +147,7 @@ public class BrowserBridge : BaseUIBridge, IBrowser, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "BrowserBridge executing openInternalBrowserModal({\(url)},{\(title)},{\(backButtonText)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "BrowserBridge executing openInternalBrowserModal('\(url)','\(title)','\(backButtonText)').")
         }
 
         var result : Bool? = false

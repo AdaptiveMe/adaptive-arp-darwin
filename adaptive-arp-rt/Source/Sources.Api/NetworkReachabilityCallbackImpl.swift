@@ -56,7 +56,7 @@ public class NetworkReachabilityCallbackImpl : BaseCallbackImpl, INetworkReachab
        @since ARP1.0
     */
     public func onError(error : INetworkReachabilityCallbackError) { 
-        var param0 : String = "INetworkReachabilityCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\" }))"
+        var param0 : String = "INetworkReachabilityCallbackError.toObject(JSON.parse(" + JSONUtil.escapeString("{ \"value\": \"\(error.toString()) }") + "))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkReachabilityCallbackError( \"\(getId())\", \(param0))")
     }
 
@@ -80,7 +80,7 @@ public class NetworkReachabilityCallbackImpl : BaseCallbackImpl, INetworkReachab
     */
     public func onWarning(reachable : Bool, warning : INetworkReachabilityCallbackWarning) { 
         var param0 : String = "\(reachable)"
-        var param1 : String = "INetworkReachabilityCallbackWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\" }))"
+        var param1 : String = "INetworkReachabilityCallbackWarning.toObject(JSON.parse(" + JSONUtil.escapeString("{ \"value\": \"\(warning.toString()) }") + "))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkReachabilityCallbackWarning( \"\(getId())\", \(param0), \(param1))")
     }
 

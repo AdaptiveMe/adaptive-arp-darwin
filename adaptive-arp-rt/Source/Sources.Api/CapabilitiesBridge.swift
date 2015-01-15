@@ -83,7 +83,7 @@ public class CapabilitiesBridge : BaseSystemBridge, ICapabilities, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasButtonSupport({\(type)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasButtonSupport('\(type)').")
         }
 
         var result : Bool? = false
@@ -114,7 +114,7 @@ the device.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasCommunicationSupport({\(type)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasCommunicationSupport('\(type)').")
         }
 
         var result : Bool? = false
@@ -144,7 +144,7 @@ the device.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasDataSupport({\(type)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasDataSupport('\(type)').")
         }
 
         var result : Bool? = false
@@ -175,7 +175,7 @@ device.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasMediaSupport({\(type)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasMediaSupport('\(type)').")
         }
 
         var result : Bool? = false
@@ -205,7 +205,7 @@ device.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasNetSupport({\(type)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasNetSupport('\(type)').")
         }
 
         var result : Bool? = false
@@ -236,7 +236,7 @@ device.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasNotificationSupport({\(type)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasNotificationSupport('\(type)').")
         }
 
         var result : Bool? = false
@@ -267,7 +267,7 @@ device.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasSensorSupport({\(type)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasSensorSupport('\(type)').")
         }
 
         var result : Bool? = false

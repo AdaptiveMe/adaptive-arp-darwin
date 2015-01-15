@@ -56,7 +56,7 @@ public class FileResultCallbackImpl : BaseCallbackImpl, IFileResultCallback {
        @since ARP1.0
     */
     public func onError(error : IFileResultCallbackError) { 
-        var param0 : String = "IFileResultCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\" }))"
+        var param0 : String = "IFileResultCallbackError.toObject(JSON.parse(" + JSONUtil.escapeString("{ \"value\": \"\(error.toString()) }") + "))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileResultCallbackError( \"\(getId())\", \(param0))")
     }
 
@@ -67,7 +67,7 @@ public class FileResultCallbackImpl : BaseCallbackImpl, IFileResultCallback {
        @since ARP1.0
     */
     public func onResult(storageFile : FileDescriptor) { 
-        var param0 : String = "FileDescriptor.toObject(JSON.parse(\"\(FileDescriptor.Serializer.toJSON(storageFile))\"))"
+        var param0 : String = "FileDescriptor.toObject(JSON.parse(" + JSONUtil.escapeString(FileDescriptor.Serializer.toJSON(storageFile)) + "))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileResultCallbackResult( \"\(getId())\", \(param0))")
     }
 
@@ -79,8 +79,8 @@ public class FileResultCallbackImpl : BaseCallbackImpl, IFileResultCallback {
        @since ARP1.0
     */
     public func onWarning(file : FileDescriptor, warning : IFileResultCallbackWarning) { 
-        var param0 : String = "FileDescriptor.toObject(JSON.parse(\"\(FileDescriptor.Serializer.toJSON(file))\"))"
-        var param1 : String = "IFileResultCallbackWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\" }))"
+        var param0 : String = "FileDescriptor.toObject(JSON.parse(" + JSONUtil.escapeString(FileDescriptor.Serializer.toJSON(file)) + "))"
+        var param1 : String = "IFileResultCallbackWarning.toObject(JSON.parse(" + JSONUtil.escapeString("{ \"value\": \"\(warning.toString()) }") + "))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileResultCallbackWarning( \"\(getId())\", \(param0), \(param1))")
     }
 

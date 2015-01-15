@@ -82,7 +82,7 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DeviceBridge executing addButtonListener({\(listener)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DeviceBridge executing addButtonListener('\(listener)').")
         }
 
         if (self.delegate != nil) {
@@ -168,7 +168,7 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DeviceBridge executing removeButtonListener({\(listener)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DeviceBridge executing removeButtonListener('\(listener)').")
         }
 
         if (self.delegate != nil) {

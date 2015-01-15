@@ -84,7 +84,7 @@ public class MessagingBridge : BasePIMBridge, IMessaging, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "MessagingBridge executing sendSMS({\(number)},{\(text)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "MessagingBridge executing sendSMS('\(number)','\(text)','\(callback)').")
         }
 
         if (self.delegate != nil) {

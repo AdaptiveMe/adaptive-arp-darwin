@@ -94,7 +94,7 @@ not be added using this method.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppContextWebviewBridge executing addWebview({\(webView)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppContextWebviewBridge executing addWebview('\(webView)').")
         }
 
         if (self.delegate != nil) {
@@ -121,7 +121,7 @@ not be added using this method.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppContextWebviewBridge executing executeJavaScript({\(javaScriptText)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppContextWebviewBridge executing executeJavaScript('\(javaScriptText)').")
         }
 
         if (self.delegate != nil) {
@@ -149,7 +149,7 @@ not be added using this method.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppContextWebviewBridge executing executeJavaScript({\(javaScriptText)},{\(webViewReference)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppContextWebviewBridge executing executeJavaScript('\(javaScriptText)','\(webViewReference)').")
         }
 
         if (self.delegate != nil) {
@@ -239,7 +239,7 @@ ARP functions and release resources. The primary webview can not be removed.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppContextWebviewBridge executing removeWebview({\(webView)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "AppContextWebviewBridge executing removeWebview('\(webView)').")
         }
 
         if (self.delegate != nil) {

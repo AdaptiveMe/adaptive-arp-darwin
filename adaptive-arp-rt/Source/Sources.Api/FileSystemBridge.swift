@@ -85,7 +85,7 @@ This method does not create the actual file in the specified folder.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileSystemBridge executing createFileDescriptor({\(parent)},{\(name)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileSystemBridge executing createFileDescriptor('\(parent)','\(name)').")
         }
 
         var result : FileDescriptor? = nil

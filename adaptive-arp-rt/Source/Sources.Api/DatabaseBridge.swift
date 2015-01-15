@@ -83,7 +83,7 @@ public class DatabaseBridge : BaseDataBridge, IDatabase, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing createDatabase({\(database)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing createDatabase('\(database)','\(callback)').")
         }
 
         if (self.delegate != nil) {
@@ -113,7 +113,7 @@ public class DatabaseBridge : BaseDataBridge, IDatabase, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing createTable({\(database)},{\(databaseTable)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing createTable('\(database)','\(databaseTable)','\(callback)').")
         }
 
         if (self.delegate != nil) {
@@ -142,7 +142,7 @@ public class DatabaseBridge : BaseDataBridge, IDatabase, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing deleteDatabase({\(database)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing deleteDatabase('\(database)','\(callback)').")
         }
 
         if (self.delegate != nil) {
@@ -172,7 +172,7 @@ public class DatabaseBridge : BaseDataBridge, IDatabase, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing deleteTable({\(database)},{\(databaseTable)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing deleteTable('\(database)','\(databaseTable)','\(callback)').")
         }
 
         if (self.delegate != nil) {
@@ -204,7 +204,7 @@ should be passed as a parameter
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing executeSqlStatement({\(database)},{\(statement)},{\(replacements)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing executeSqlStatement('\(database)','\(statement)','\(replacements)','\(callback)').")
         }
 
         if (self.delegate != nil) {
@@ -236,7 +236,7 @@ should be passed as a parameter
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing executeSqlTransactions({\(database)},{\(statements)},{\(rollbackFlag)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing executeSqlTransactions('\(database)','\(statements)','\(rollbackFlag)','\(callback)').")
         }
 
         if (self.delegate != nil) {
@@ -265,7 +265,7 @@ should be passed as a parameter
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing existsDatabase({\(database)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing existsDatabase('\(database)').")
         }
 
         var result : Bool? = false
@@ -296,7 +296,7 @@ should be passed as a parameter
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing existsTable({\(database)},{\(databaseTable)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing existsTable('\(database)','\(databaseTable)').")
         }
 
         var result : Bool? = false

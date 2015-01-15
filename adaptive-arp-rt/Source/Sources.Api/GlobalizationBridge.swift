@@ -142,7 +142,7 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executing getResourceLiteral({\(key)},{\(locale)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executing getResourceLiteral('\(key)','\(locale)').")
         }
 
         var result : String? = nil
@@ -172,7 +172,7 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executing getResourceLiterals({\(locale)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executing getResourceLiterals('\(locale)').")
         }
 
         var result : [KeyPair]? = nil

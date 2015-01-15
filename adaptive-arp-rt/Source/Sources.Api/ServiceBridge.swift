@@ -83,7 +83,7 @@ public class ServiceBridge : BaseCommunicationBridge, IService, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executing getService({\(serviceName)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executing getService('\(serviceName)').")
         }
 
         var result : Service? = nil
@@ -114,7 +114,7 @@ public class ServiceBridge : BaseCommunicationBridge, IService, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executing invokeService({\(serviceRequest)},{\(service)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executing invokeService('\(serviceRequest)','\(service)','\(callback)').")
         }
 
         if (self.delegate != nil) {
@@ -143,7 +143,7 @@ public class ServiceBridge : BaseCommunicationBridge, IService, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executing isRegistered({\(service)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executing isRegistered('\(service)').")
         }
 
         var result : Bool? = false
@@ -173,7 +173,7 @@ public class ServiceBridge : BaseCommunicationBridge, IService, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executing isRegistered({\(serviceName)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executing isRegistered('\(serviceName)').")
         }
 
         var result : Bool? = false
@@ -202,7 +202,7 @@ public class ServiceBridge : BaseCommunicationBridge, IService, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executing registerService({\(service)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executing registerService('\(service)').")
         }
 
         if (self.delegate != nil) {
@@ -230,7 +230,7 @@ public class ServiceBridge : BaseCommunicationBridge, IService, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executing unregisterService({\(service)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executing unregisterService('\(service)').")
         }
 
         if (self.delegate != nil) {

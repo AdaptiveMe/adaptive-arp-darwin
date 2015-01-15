@@ -83,7 +83,7 @@ public class FileBridge : BaseDataBridge, IFile, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing canRead({\(descriptor)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing canRead('\(descriptor)').")
         }
 
         var result : Bool? = false
@@ -113,7 +113,7 @@ public class FileBridge : BaseDataBridge, IFile, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing canWrite({\(descriptor)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing canWrite('\(descriptor)').")
         }
 
         var result : Bool? = false
@@ -143,7 +143,7 @@ public class FileBridge : BaseDataBridge, IFile, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing create({\(descriptor)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing create('\(descriptor)','\(callback)').")
         }
 
         if (self.delegate != nil) {
@@ -174,7 +174,7 @@ deleted if the cascade parameter is set to true.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing delete({\(descriptor)},{\(cascade)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing delete('\(descriptor)','\(cascade)').")
         }
 
         var result : Bool? = false
@@ -204,7 +204,7 @@ deleted if the cascade parameter is set to true.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing exists({\(descriptor)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing exists('\(descriptor)').")
         }
 
         var result : Bool? = false
@@ -234,7 +234,7 @@ deleted if the cascade parameter is set to true.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing getContent({\(descriptor)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing getContent('\(descriptor)','\(callback)').")
         }
 
         if (self.delegate != nil) {
@@ -263,7 +263,7 @@ deleted if the cascade parameter is set to true.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing getFileStorageType({\(descriptor)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing getFileStorageType('\(descriptor)').")
         }
 
         var result : IFileSystemStorageType? = nil
@@ -293,7 +293,7 @@ deleted if the cascade parameter is set to true.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing getFileType({\(descriptor)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing getFileType('\(descriptor)').")
         }
 
         var result : IFileSystemType? = nil
@@ -323,7 +323,7 @@ deleted if the cascade parameter is set to true.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing getSecurityType({\(descriptor)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing getSecurityType('\(descriptor)').")
         }
 
         var result : IFileSystemSecurity? = nil
@@ -353,7 +353,7 @@ deleted if the cascade parameter is set to true.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing isDirectory({\(descriptor)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing isDirectory('\(descriptor)').")
         }
 
         var result : Bool? = false
@@ -384,7 +384,7 @@ any results.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing listFiles({\(descriptor)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing listFiles('\(descriptor)','\(callback)').")
         }
 
         if (self.delegate != nil) {
@@ -415,7 +415,7 @@ is a file, it will not yield any results.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing listFilesForRegex({\(descriptor)},{\(regex)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing listFilesForRegex('\(descriptor)','\(regex)','\(callback)').")
         }
 
         if (self.delegate != nil) {
@@ -445,7 +445,7 @@ is a file, it will not yield any results.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing mkDir({\(descriptor)},{\(recursive)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing mkDir('\(descriptor)','\(recursive)').")
         }
 
         var result : Bool? = false
@@ -479,7 +479,7 @@ new destination file.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing move({\(source)},{\(destination)},{\(createPath)},{\(overwrite)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing move('\(source)','\(destination)','\(createPath)','\(overwrite)','\(callback)').")
         }
 
         if (self.delegate != nil) {
@@ -509,7 +509,7 @@ new destination file.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing setContent({\(descriptor)},{\(content)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing setContent('\(descriptor)','\(content)','\(callback)').")
         }
 
         if (self.delegate != nil) {

@@ -83,7 +83,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing getContact({\(contact)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing getContact('\(contact)','\(callback)').")
         }
 
         if (self.delegate != nil) {
@@ -112,7 +112,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing getContactPhoto({\(contact)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing getContactPhoto('\(contact)','\(callback)').")
         }
 
         if (self.delegate != nil) {
@@ -140,7 +140,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing getContacts({\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing getContacts('\(callback)').")
         }
 
         if (self.delegate != nil) {
@@ -169,7 +169,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing getContactsForFields({\(callback)},{\(fields)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing getContactsForFields('\(callback)','\(fields)').")
         }
 
         if (self.delegate != nil) {
@@ -199,7 +199,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing getContactsWithFilter({\(callback)},{\(fields)},{\(filter)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing getContactsWithFilter('\(callback)','\(fields)','\(filter)').")
         }
 
         if (self.delegate != nil) {
@@ -228,7 +228,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing searchContacts({\(term)},{\(callback)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing searchContacts('\(term)','\(callback)').")
         }
 
         if (self.delegate != nil) {
@@ -258,7 +258,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing searchContactsWithFilter({\(term)},{\(callback)},{\(filter)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing searchContactsWithFilter('\(term)','\(callback)','\(filter)').")
         }
 
         if (self.delegate != nil) {
@@ -288,7 +288,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing setContactPhoto({\(contact)},{\(pngImage)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ContactBridge executing setContactPhoto('\(contact)','\(pngImage)').")
         }
 
         var result : Bool? = false
@@ -331,7 +331,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
             case "getContactsForFields":
                 var callback3 : IContactResultCallback? =  ContactResultCallbackImpl(id: request.getAsyncId()!)
                 var fields3 : [IContactFieldGroup]? = [IContactFieldGroup]()
-                var fieldsArray3 : [String] = JSONUtil.stringElementToArray(request.getParameters()![1])
+                var fieldsArray3 : [String] = JSONUtil.stringElementToArray(request.getParameters()![0])
                 for fieldsElement3 in fieldsArray3 {
                     fields3!.append(IContactFieldGroup.toEnum(JSONUtil.dictionifyJSON(fieldsElement3)["value"] as String!))
                 }
@@ -339,12 +339,12 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
             case "getContactsWithFilter":
                 var callback4 : IContactResultCallback? =  ContactResultCallbackImpl(id: request.getAsyncId()!)
                 var fields4 : [IContactFieldGroup]? = [IContactFieldGroup]()
-                var fieldsArray4 : [String] = JSONUtil.stringElementToArray(request.getParameters()![1])
+                var fieldsArray4 : [String] = JSONUtil.stringElementToArray(request.getParameters()![0])
                 for fieldsElement4 in fieldsArray4 {
                     fields4!.append(IContactFieldGroup.toEnum(JSONUtil.dictionifyJSON(fieldsElement4)["value"] as String!))
                 }
                 var filter4 : [IContactFilter]? = [IContactFilter]()
-                var filterArray4 : [String] = JSONUtil.stringElementToArray(request.getParameters()![2])
+                var filterArray4 : [String] = JSONUtil.stringElementToArray(request.getParameters()![1])
                 for filterElement4 in filterArray4 {
                     filter4!.append(IContactFilter.toEnum(JSONUtil.dictionifyJSON(filterElement4)["value"] as String!))
                 }
@@ -357,7 +357,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
                 var term6 : String? = JSONUtil.unescapeString(request.getParameters()![0])
                 var callback6 : IContactResultCallback? =  ContactResultCallbackImpl(id: request.getAsyncId()!)
                 var filter6 : [IContactFilter]? = [IContactFilter]()
-                var filterArray6 : [String] = JSONUtil.stringElementToArray(request.getParameters()![2])
+                var filterArray6 : [String] = JSONUtil.stringElementToArray(request.getParameters()![1])
                 for filterElement6 in filterArray6 {
                     filter6!.append(IContactFilter.toEnum(JSONUtil.dictionifyJSON(filterElement6)["value"] as String!))
                 }

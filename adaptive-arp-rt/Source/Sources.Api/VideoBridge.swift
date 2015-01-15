@@ -82,7 +82,7 @@ public class VideoBridge : BaseMediaBridge, IVideo, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "VideoBridge executing playStream({\(url)}).")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "VideoBridge executing playStream('\(url)').")
         }
 
         if (self.delegate != nil) {

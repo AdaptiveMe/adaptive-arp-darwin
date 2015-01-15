@@ -56,7 +56,7 @@ public class DatabaseResultCallbackImpl : BaseCallbackImpl, IDatabaseResultCallb
        @since ARP1.0
     */
     public func onError(error : IDatabaseResultCallbackError) { 
-        var param0 : String = "IDatabaseResultCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\" }))"
+        var param0 : String = "IDatabaseResultCallbackError.toObject(JSON.parse(" + JSONUtil.escapeString("{ \"value\": \"\(error.toString()) }") + "))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseResultCallbackError( \"\(getId())\", \(param0))")
     }
 
@@ -67,7 +67,7 @@ public class DatabaseResultCallbackImpl : BaseCallbackImpl, IDatabaseResultCallb
        @since ARP1.0
     */
     public func onResult(database : Database) { 
-        var param0 : String = "Database.toObject(JSON.parse(\"\(Database.Serializer.toJSON(database))\"))"
+        var param0 : String = "Database.toObject(JSON.parse(" + JSONUtil.escapeString(Database.Serializer.toJSON(database)) + "))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseResultCallbackResult( \"\(getId())\", \(param0))")
     }
 
@@ -79,8 +79,8 @@ public class DatabaseResultCallbackImpl : BaseCallbackImpl, IDatabaseResultCallb
        @since ARP1.0
     */
     public func onWarning(database : Database, warning : IDatabaseResultCallbackWarning) { 
-        var param0 : String = "Database.toObject(JSON.parse(\"\(Database.Serializer.toJSON(database))\"))"
-        var param1 : String = "IDatabaseResultCallbackWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\" }))"
+        var param0 : String = "Database.toObject(JSON.parse(" + JSONUtil.escapeString(Database.Serializer.toJSON(database)) + "))"
+        var param1 : String = "IDatabaseResultCallbackWarning.toObject(JSON.parse(" + JSONUtil.escapeString("{ \"value\": \"\(warning.toString()) }") + "))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseResultCallbackWarning( \"\(getId())\", \(param0), \(param1))")
     }
 
