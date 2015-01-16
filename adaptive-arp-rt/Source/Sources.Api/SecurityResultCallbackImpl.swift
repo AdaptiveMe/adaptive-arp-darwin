@@ -70,7 +70,7 @@ public class SecurityResultCallbackImpl : BaseCallbackImpl, ISecurityResultCallb
         var param0Array : NSMutableString = NSMutableString()
         param0Array.appendString("[")
         for (index,obj) in enumerate(keyValues) {
-            param0Array.appendString("Adaptive.SecureKeyPair.toObject(JSON.parse("\(SecureKeyPair.Serializer.toJSON(obj))"))")
+            param0Array.appendString("Adaptive.SecureKeyPair.toObject(JSON.parse(\"\(SecureKeyPair.Serializer.toJSON(obj))\"))")
             if index < keyValues.count-1 {
                 param0Array.appendString(", ")
             }
@@ -91,7 +91,7 @@ public class SecurityResultCallbackImpl : BaseCallbackImpl, ISecurityResultCallb
         var param0Array : NSMutableString = NSMutableString()
         param0Array.appendString("[")
         for (index,obj) in enumerate(keyValues) {
-            param0Array.appendString("Adaptive.SecureKeyPair.toObject(JSON.parse("\(SecureKeyPair.Serializer.toJSON(obj))"))")
+            param0Array.appendString("Adaptive.SecureKeyPair.toObject(JSON.parse(\"\(SecureKeyPair.Serializer.toJSON(obj))\"))")
             if index < keyValues.count-1 {
                 param0Array.appendString(", ")
             }

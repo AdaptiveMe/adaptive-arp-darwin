@@ -70,7 +70,7 @@ public class ContactResultCallbackImpl : BaseCallbackImpl, IContactResultCallbac
         var param0Array : NSMutableString = NSMutableString()
         param0Array.appendString("[")
         for (index,obj) in enumerate(contacts) {
-            param0Array.appendString("Adaptive.Contact.toObject(JSON.parse("\(Contact.Serializer.toJSON(obj))"))")
+            param0Array.appendString("Adaptive.Contact.toObject(JSON.parse(\"\(Contact.Serializer.toJSON(obj))\"))")
             if index < contacts.count-1 {
                 param0Array.appendString(", ")
             }
@@ -91,7 +91,7 @@ public class ContactResultCallbackImpl : BaseCallbackImpl, IContactResultCallbac
         var param0Array : NSMutableString = NSMutableString()
         param0Array.appendString("[")
         for (index,obj) in enumerate(contacts) {
-            param0Array.appendString("Adaptive.Contact.toObject(JSON.parse("\(Contact.Serializer.toJSON(obj))"))")
+            param0Array.appendString("Adaptive.Contact.toObject(JSON.parse(\"\(Contact.Serializer.toJSON(obj))\"))")
             if index < contacts.count-1 {
                 param0Array.appendString(", ")
             }
