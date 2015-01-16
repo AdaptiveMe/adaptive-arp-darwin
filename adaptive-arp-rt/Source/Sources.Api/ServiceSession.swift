@@ -160,10 +160,10 @@ public class ServiceSession : APIBean {
             // Fields.
             if (object.attributes != nil) {
                 // Start array of objects.
-                jsonString.appendString("\"attributes\": [");
+                jsonString.appendString("\"attributes\": [")
 
                 for var i = 0; i < object.attributes!.count; i++ {
-                    jsonString.appendString("\"\(JSONUtil.escapeString(object.attributes![i]))\"");
+                    jsonString.appendString("\"\(JSONUtil.escapeString(object.attributes![i]))\"")
                     if (i < object.attributes!.count-1) {
                         jsonString.appendString(", ");
                     }
@@ -176,7 +176,7 @@ public class ServiceSession : APIBean {
             }
             if (object.cookies != nil) {
                 // Start array of objects.
-                jsonString.appendString("\"cookies\": [");
+                jsonString.appendString("\"cookies\": [")
 
                 for var i = 0; i < object.cookies!.count; i++ {
                     jsonString.appendString(ServiceCookie.Serializer.toJSON(object.cookies![i]))

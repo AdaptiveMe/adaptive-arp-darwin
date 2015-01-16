@@ -129,7 +129,7 @@ Possible lifecycle States:
             jsonString.appendString("{ ")
 
             // Fields.
-            object.state != nil ? jsonString.appendString("\"state\": { \"value\": \"\(JSONUtil.escapeString(object.state!.toString()))\"}") : jsonString.appendString("\"state\": null")
+            object.state != nil ? jsonString.appendString("\"state\": { \"value\": \"\(object.state!.toString())\"}") : jsonString.appendString("\"state\": null")
 
             // End Object to JSON
             jsonString.appendString(" }")

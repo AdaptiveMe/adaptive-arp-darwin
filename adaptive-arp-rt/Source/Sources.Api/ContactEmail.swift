@@ -182,9 +182,9 @@ public class ContactEmail : APIBean {
             jsonString.appendString("{ ")
 
             // Fields.
-            object.email != nil ? jsonString.appendString("\"email\": \"\(object.email!)\", ") : jsonString.appendString("\"email\": null, ")
+            object.email != nil ? jsonString.appendString("\"email\": \"\(JSONUtil.escapeString(object.email!))\", ") : jsonString.appendString("\"email\": null, ")
             object.primary != nil ? jsonString.appendString("\"primary\": \(object.primary!), ") : jsonString.appendString("\"primary\": null, ")
-            object.type != nil ? jsonString.appendString("\"type\": { \"value\": \"\(JSONUtil.escapeString(object.type!.toString()))\"}") : jsonString.appendString("\"type\": null")
+            object.type != nil ? jsonString.appendString("\"type\": { \"value\": \"\(object.type!.toString())\"}") : jsonString.appendString("\"type\": null")
 
             // End Object to JSON
             jsonString.appendString(" }")

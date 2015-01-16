@@ -413,13 +413,13 @@ public class ServiceRequest : APIBean {
             jsonString.appendString("{ ")
 
             // Fields.
-            object.content != nil ? jsonString.appendString("\"content\": \"\(object.content!)\", ") : jsonString.appendString("\"content\": null, ")
+            object.content != nil ? jsonString.appendString("\"content\": \"\(JSONUtil.escapeString(object.content!))\", ") : jsonString.appendString("\"content\": null, ")
             if (object.contentBinary != nil) {
                 // Start array of objects.
-                jsonString.appendString("\"contentBinary\": [");
+                jsonString.appendString("\"contentBinary\": [")
 
                 for var i = 0; i < object.contentBinary!.count; i++ {
-                    jsonString.appendString("\(object.contentBinary![i])");
+                    jsonString.appendString("\(object.contentBinary![i])")
                     if (i < object.contentBinary!.count-1) {
                         jsonString.appendString(", ");
                     }
@@ -431,14 +431,14 @@ public class ServiceRequest : APIBean {
                 jsonString.appendString("\"contentBinary\": null, ")
             }
             object.contentBinaryLength != nil ? jsonString.appendString("\"contentBinaryLength\": \(object.contentBinaryLength!), ") : jsonString.appendString("\"contentBinaryLength\": null, ")
-            object.contentEncoding != nil ? jsonString.appendString("\"contentEncoding\": \"\(object.contentEncoding!)\", ") : jsonString.appendString("\"contentEncoding\": null, ")
+            object.contentEncoding != nil ? jsonString.appendString("\"contentEncoding\": \"\(JSONUtil.escapeString(object.contentEncoding!))\", ") : jsonString.appendString("\"contentEncoding\": null, ")
             object.contentLength != nil ? jsonString.appendString("\"contentLength\": \(object.contentLength!), ") : jsonString.appendString("\"contentLength\": null, ")
-            object.contentType != nil ? jsonString.appendString("\"contentType\": \"\(object.contentType!)\", ") : jsonString.appendString("\"contentType\": null, ")
-            object.method != nil ? jsonString.appendString("\"method\": \"\(object.method!)\", ") : jsonString.appendString("\"method\": null, ")
-            object.protocolVersion != nil ? jsonString.appendString("\"protocolVersion\": { \"value\": \"\(JSONUtil.escapeString(object.protocolVersion!.toString()))\"}, ") : jsonString.appendString("\"protocolVersion\": null, ")
+            object.contentType != nil ? jsonString.appendString("\"contentType\": \"\(JSONUtil.escapeString(object.contentType!))\", ") : jsonString.appendString("\"contentType\": null, ")
+            object.method != nil ? jsonString.appendString("\"method\": \"\(JSONUtil.escapeString(object.method!))\", ") : jsonString.appendString("\"method\": null, ")
+            object.protocolVersion != nil ? jsonString.appendString("\"protocolVersion\": { \"value\": \"\(object.protocolVersion!.toString())\"}, ") : jsonString.appendString("\"protocolVersion\": null, ")
             if (object.serviceHeaders != nil) {
                 // Start array of objects.
-                jsonString.appendString("\"serviceHeaders\": [");
+                jsonString.appendString("\"serviceHeaders\": [")
 
                 for var i = 0; i < object.serviceHeaders!.count; i++ {
                     jsonString.appendString(ServiceHeader.Serializer.toJSON(object.serviceHeaders![i]))

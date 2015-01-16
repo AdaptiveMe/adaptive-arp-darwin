@@ -182,9 +182,9 @@ public class ContactProfessionalInfo : APIBean {
             jsonString.appendString("{ ")
 
             // Fields.
-            object.company != nil ? jsonString.appendString("\"company\": \"\(object.company!)\", ") : jsonString.appendString("\"company\": null, ")
-            object.jobDescription != nil ? jsonString.appendString("\"jobDescription\": \"\(object.jobDescription!)\", ") : jsonString.appendString("\"jobDescription\": null, ")
-            object.jobTitle != nil ? jsonString.appendString("\"jobTitle\": \"\(object.jobTitle!)\"") : jsonString.appendString("\"jobTitle\": null")
+            object.company != nil ? jsonString.appendString("\"company\": \"\(JSONUtil.escapeString(object.company!))\", ") : jsonString.appendString("\"company\": null, ")
+            object.jobDescription != nil ? jsonString.appendString("\"jobDescription\": \"\(JSONUtil.escapeString(object.jobDescription!))\", ") : jsonString.appendString("\"jobDescription\": null, ")
+            object.jobTitle != nil ? jsonString.appendString("\"jobTitle\": \"\(JSONUtil.escapeString(object.jobTitle!))\"") : jsonString.appendString("\"jobTitle\": null")
 
             // End Object to JSON
             jsonString.appendString(" }")

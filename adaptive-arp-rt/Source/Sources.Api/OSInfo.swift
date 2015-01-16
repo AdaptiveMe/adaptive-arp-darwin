@@ -179,9 +179,9 @@ public class OSInfo : APIBean {
             jsonString.appendString("{ ")
 
             // Fields.
-            object.name != nil ? jsonString.appendString("\"name\": { \"value\": \"\(JSONUtil.escapeString(object.name!.toString()))\"}, ") : jsonString.appendString("\"name\": null, ")
-            object.vendor != nil ? jsonString.appendString("\"vendor\": \"\(object.vendor!)\", ") : jsonString.appendString("\"vendor\": null, ")
-            object.version != nil ? jsonString.appendString("\"version\": \"\(object.version!)\"") : jsonString.appendString("\"version\": null")
+            object.name != nil ? jsonString.appendString("\"name\": { \"value\": \"\(object.name!.toString())\"}, ") : jsonString.appendString("\"name\": null, ")
+            object.vendor != nil ? jsonString.appendString("\"vendor\": \"\(JSONUtil.escapeString(object.vendor!))\", ") : jsonString.appendString("\"vendor\": null, ")
+            object.version != nil ? jsonString.appendString("\"version\": \"\(JSONUtil.escapeString(object.version!))\"") : jsonString.appendString("\"version\": null")
 
             // End Object to JSON
             jsonString.appendString(" }")

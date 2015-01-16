@@ -118,7 +118,7 @@ public class Button : APIBean {
             jsonString.appendString("{ ")
 
             // Fields.
-            object.type != nil ? jsonString.appendString("\"type\": { \"value\": \"\(JSONUtil.escapeString(object.type!.toString()))\"}") : jsonString.appendString("\"type\": null")
+            object.type != nil ? jsonString.appendString("\"type\": { \"value\": \"\(object.type!.toString())\"}") : jsonString.appendString("\"type\": null")
 
             // End Object to JSON
             jsonString.appendString(" }")

@@ -150,8 +150,8 @@ public class ContactAddress : APIBean {
             jsonString.appendString("{ ")
 
             // Fields.
-            object.address != nil ? jsonString.appendString("\"address\": \"\(object.address!)\", ") : jsonString.appendString("\"address\": null, ")
-            object.type != nil ? jsonString.appendString("\"type\": { \"value\": \"\(JSONUtil.escapeString(object.type!.toString()))\"}") : jsonString.appendString("\"type\": null")
+            object.address != nil ? jsonString.appendString("\"address\": \"\(JSONUtil.escapeString(object.address!))\", ") : jsonString.appendString("\"address\": null, ")
+            object.type != nil ? jsonString.appendString("\"type\": { \"value\": \"\(object.type!.toString())\"}") : jsonString.appendString("\"type\": null")
 
             // End Object to JSON
             jsonString.appendString(" }")

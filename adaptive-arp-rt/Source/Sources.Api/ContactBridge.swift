@@ -333,7 +333,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
                 var fields3 : [IContactFieldGroup]? = [IContactFieldGroup]()
                 var fieldsArray3 : [String] = JSONUtil.stringElementToArray(request.getParameters()![0])
                 for fieldsElement3 in fieldsArray3 {
-                    fields3!.append(IContactFieldGroup.toEnum(JSONUtil.dictionifyJSON(fieldsElement3)["value"] as String!))
+                    fields3!.append(IContactFieldGroup.toEnum(JSONUtil.dictionifyJSON(fieldsElement3)["value"] as String!)) /* MARK */
                 }
                 self.getContactsForFields(callback3!, fields: fields3!);
             case "getContactsWithFilter":
@@ -341,12 +341,12 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
                 var fields4 : [IContactFieldGroup]? = [IContactFieldGroup]()
                 var fieldsArray4 : [String] = JSONUtil.stringElementToArray(request.getParameters()![0])
                 for fieldsElement4 in fieldsArray4 {
-                    fields4!.append(IContactFieldGroup.toEnum(JSONUtil.dictionifyJSON(fieldsElement4)["value"] as String!))
+                    fields4!.append(IContactFieldGroup.toEnum(JSONUtil.dictionifyJSON(fieldsElement4)["value"] as String!)) /* MARK */
                 }
                 var filter4 : [IContactFilter]? = [IContactFilter]()
                 var filterArray4 : [String] = JSONUtil.stringElementToArray(request.getParameters()![1])
                 for filterElement4 in filterArray4 {
-                    filter4!.append(IContactFilter.toEnum(JSONUtil.dictionifyJSON(filterElement4)["value"] as String!))
+                    filter4!.append(IContactFilter.toEnum(JSONUtil.dictionifyJSON(filterElement4)["value"] as String!)) /* MARK */
                 }
                 self.getContactsWithFilter(callback4!, fields: fields4!, filter: filter4!);
             case "searchContacts":
@@ -359,7 +359,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
                 var filter6 : [IContactFilter]? = [IContactFilter]()
                 var filterArray6 : [String] = JSONUtil.stringElementToArray(request.getParameters()![1])
                 for filterElement6 in filterArray6 {
-                    filter6!.append(IContactFilter.toEnum(JSONUtil.dictionifyJSON(filterElement6)["value"] as String!))
+                    filter6!.append(IContactFilter.toEnum(JSONUtil.dictionifyJSON(filterElement6)["value"] as String!)) /* MARK */
                 }
                 self.searchContactsWithFilter(term6!, callback: callback6!, filter: filter6!);
             case "setContactPhoto":

@@ -150,8 +150,8 @@ public class ServiceHeader : APIBean {
             jsonString.appendString("{ ")
 
             // Fields.
-            object.data != nil ? jsonString.appendString("\"data\": \"\(object.data!)\", ") : jsonString.appendString("\"data\": null, ")
-            object.name != nil ? jsonString.appendString("\"name\": \"\(object.name!)\"") : jsonString.appendString("\"name\": null")
+            object.data != nil ? jsonString.appendString("\"data\": \"\(JSONUtil.escapeString(object.data!))\", ") : jsonString.appendString("\"data\": null, ")
+            object.name != nil ? jsonString.appendString("\"name\": \"\(JSONUtil.escapeString(object.name!))\"") : jsonString.appendString("\"name\": null")
 
             // End Object to JSON
             jsonString.appendString(" }")

@@ -150,8 +150,8 @@ public class Locale : APIBean {
             jsonString.appendString("{ ")
 
             // Fields.
-            object.country != nil ? jsonString.appendString("\"country\": \"\(object.country!)\", ") : jsonString.appendString("\"country\": null, ")
-            object.language != nil ? jsonString.appendString("\"language\": \"\(object.language!)\"") : jsonString.appendString("\"language\": null")
+            object.country != nil ? jsonString.appendString("\"country\": \"\(JSONUtil.escapeString(object.country!))\", ") : jsonString.appendString("\"country\": null, ")
+            object.language != nil ? jsonString.appendString("\"language\": \"\(JSONUtil.escapeString(object.language!))\"") : jsonString.appendString("\"language\": null")
 
             // End Object to JSON
             jsonString.appendString(" }")

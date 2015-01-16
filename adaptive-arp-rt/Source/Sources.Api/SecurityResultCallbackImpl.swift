@@ -56,7 +56,7 @@ public class SecurityResultCallbackImpl : BaseCallbackImpl, ISecurityResultCallb
        @since ARP1.0
     */
     public func onError(error : ISecurityResultCallbackError) { 
-        var param0 : String = "ISecurityResultCallbackError.toObject(JSON.parse(" + JSONUtil.escapeString("{ \"value\": \"\(error.toString()) }") + "))"
+        var param0 : String = "Adaptive.ISecurityResultCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleSecurityResultCallbackError( \"\(getId())\", \(param0))")
     }
 
@@ -70,7 +70,7 @@ public class SecurityResultCallbackImpl : BaseCallbackImpl, ISecurityResultCallb
         var param0Array : NSMutableString = NSMutableString()
         param0Array.appendString("[")
         for (index,obj) in enumerate(keyValues) {
-            param0Array.appendString("SecureKeyPair.toObject(JSON.parse(" + JSONUtil.escapeString("\(SecureKeyPair.Serializer.toJSON(obj))") + "))")
+            param0Array.appendString("Adaptive.SecureKeyPair.toObject(JSON.parse(\"\(SecureKeyPair.Serializer.toJSON(obj))\"))")
             if index < keyValues.count-1 {
                 param0Array.appendString(", ")
             }
@@ -91,14 +91,14 @@ public class SecurityResultCallbackImpl : BaseCallbackImpl, ISecurityResultCallb
         var param0Array : NSMutableString = NSMutableString()
         param0Array.appendString("[")
         for (index,obj) in enumerate(keyValues) {
-            param0Array.appendString("SecureKeyPair.toObject(JSON.parse(" + JSONUtil.escapeString("\(SecureKeyPair.Serializer.toJSON(obj))") + "))")
+            param0Array.appendString("Adaptive.SecureKeyPair.toObject(JSON.parse(\"\(SecureKeyPair.Serializer.toJSON(obj))\"))")
             if index < keyValues.count-1 {
                 param0Array.appendString(", ")
             }
         }
         param0Array.appendString("]")
         var param0 : String = param0Array as String
-        var param1 : String = "ISecurityResultCallbackWarning.toObject(JSON.parse(" + JSONUtil.escapeString("{ \"value\": \"\(warning.toString()) }") + "))"
+        var param1 : String = "Adaptive.ISecurityResultCallbackWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\"}\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleSecurityResultCallbackWarning( \"\(getId())\", \(param0), \(param1))")
     }
 

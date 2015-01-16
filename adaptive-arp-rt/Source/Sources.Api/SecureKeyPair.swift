@@ -150,8 +150,8 @@ public class SecureKeyPair : APIBean {
             jsonString.appendString("{ ")
 
             // Fields.
-            object.secureData != nil ? jsonString.appendString("\"secureData\": \"\(object.secureData!)\", ") : jsonString.appendString("\"secureData\": null, ")
-            object.secureKey != nil ? jsonString.appendString("\"secureKey\": \"\(object.secureKey!)\"") : jsonString.appendString("\"secureKey\": null")
+            object.secureData != nil ? jsonString.appendString("\"secureData\": \"\(JSONUtil.escapeString(object.secureData!))\", ") : jsonString.appendString("\"secureData\": null, ")
+            object.secureKey != nil ? jsonString.appendString("\"secureKey\": \"\(JSONUtil.escapeString(object.secureKey!))\"") : jsonString.appendString("\"secureKey\": null")
 
             // End Object to JSON
             jsonString.appendString(" }")

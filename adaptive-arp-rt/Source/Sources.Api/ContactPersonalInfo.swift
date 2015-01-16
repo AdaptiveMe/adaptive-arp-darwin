@@ -214,10 +214,10 @@ public class ContactPersonalInfo : APIBean {
             jsonString.appendString("{ ")
 
             // Fields.
-            object.lastName != nil ? jsonString.appendString("\"lastName\": \"\(object.lastName!)\", ") : jsonString.appendString("\"lastName\": null, ")
-            object.middleName != nil ? jsonString.appendString("\"middleName\": \"\(object.middleName!)\", ") : jsonString.appendString("\"middleName\": null, ")
-            object.name != nil ? jsonString.appendString("\"name\": \"\(object.name!)\", ") : jsonString.appendString("\"name\": null, ")
-            object.title != nil ? jsonString.appendString("\"title\": { \"value\": \"\(JSONUtil.escapeString(object.title!.toString()))\"}") : jsonString.appendString("\"title\": null")
+            object.lastName != nil ? jsonString.appendString("\"lastName\": \"\(JSONUtil.escapeString(object.lastName!))\", ") : jsonString.appendString("\"lastName\": null, ")
+            object.middleName != nil ? jsonString.appendString("\"middleName\": \"\(JSONUtil.escapeString(object.middleName!))\", ") : jsonString.appendString("\"middleName\": null, ")
+            object.name != nil ? jsonString.appendString("\"name\": \"\(JSONUtil.escapeString(object.name!))\", ") : jsonString.appendString("\"name\": null, ")
+            object.title != nil ? jsonString.appendString("\"title\": { \"value\": \"\(object.title!.toString())\"}") : jsonString.appendString("\"title\": null")
 
             // End Object to JSON
             jsonString.appendString(" }")

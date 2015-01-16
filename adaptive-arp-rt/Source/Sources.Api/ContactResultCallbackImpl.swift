@@ -56,7 +56,7 @@ public class ContactResultCallbackImpl : BaseCallbackImpl, IContactResultCallbac
        @since ARP1.0
     */
     public func onError(error : IContactResultCallbackError) { 
-        var param0 : String = "IContactResultCallbackError.toObject(JSON.parse(" + JSONUtil.escapeString("{ \"value\": \"\(error.toString()) }") + "))"
+        var param0 : String = "Adaptive.IContactResultCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactResultCallbackError( \"\(getId())\", \(param0))")
     }
 
@@ -70,7 +70,7 @@ public class ContactResultCallbackImpl : BaseCallbackImpl, IContactResultCallbac
         var param0Array : NSMutableString = NSMutableString()
         param0Array.appendString("[")
         for (index,obj) in enumerate(contacts) {
-            param0Array.appendString("Contact.toObject(JSON.parse(" + JSONUtil.escapeString("\(Contact.Serializer.toJSON(obj))") + "))")
+            param0Array.appendString("Adaptive.Contact.toObject(JSON.parse(\"\(Contact.Serializer.toJSON(obj))\"))")
             if index < contacts.count-1 {
                 param0Array.appendString(", ")
             }
@@ -91,14 +91,14 @@ public class ContactResultCallbackImpl : BaseCallbackImpl, IContactResultCallbac
         var param0Array : NSMutableString = NSMutableString()
         param0Array.appendString("[")
         for (index,obj) in enumerate(contacts) {
-            param0Array.appendString("Contact.toObject(JSON.parse(" + JSONUtil.escapeString("\(Contact.Serializer.toJSON(obj))") + "))")
+            param0Array.appendString("Adaptive.Contact.toObject(JSON.parse(\"\(Contact.Serializer.toJSON(obj))\"))")
             if index < contacts.count-1 {
                 param0Array.appendString(", ")
             }
         }
         param0Array.appendString("]")
         var param0 : String = param0Array as String
-        var param1 : String = "IContactResultCallbackWarning.toObject(JSON.parse(" + JSONUtil.escapeString("{ \"value\": \"\(warning.toString()) }") + "))"
+        var param1 : String = "Adaptive.IContactResultCallbackWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\"}\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactResultCallbackWarning( \"\(getId())\", \(param0), \(param1))")
     }
 

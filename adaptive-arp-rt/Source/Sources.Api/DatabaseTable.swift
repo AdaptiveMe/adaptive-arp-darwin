@@ -268,7 +268,7 @@ public class DatabaseTable : APIBean {
             object.columnCount != nil ? jsonString.appendString("\"columnCount\": \(object.columnCount!), ") : jsonString.appendString("\"columnCount\": null, ")
             if (object.databaseColumns != nil) {
                 // Start array of objects.
-                jsonString.appendString("\"databaseColumns\": [");
+                jsonString.appendString("\"databaseColumns\": [")
 
                 for var i = 0; i < object.databaseColumns!.count; i++ {
                     jsonString.appendString(DatabaseColumn.Serializer.toJSON(object.databaseColumns![i]))
@@ -284,7 +284,7 @@ public class DatabaseTable : APIBean {
             }
             if (object.databaseRows != nil) {
                 // Start array of objects.
-                jsonString.appendString("\"databaseRows\": [");
+                jsonString.appendString("\"databaseRows\": [")
 
                 for var i = 0; i < object.databaseRows!.count; i++ {
                     jsonString.appendString(DatabaseRow.Serializer.toJSON(object.databaseRows![i]))
@@ -298,7 +298,7 @@ public class DatabaseTable : APIBean {
             } else {
                 jsonString.appendString("\"databaseRows\": null, ")
             }
-            object.name != nil ? jsonString.appendString("\"name\": \"\(object.name!)\", ") : jsonString.appendString("\"name\": null, ")
+            object.name != nil ? jsonString.appendString("\"name\": \"\(JSONUtil.escapeString(object.name!))\", ") : jsonString.appendString("\"name\": null, ")
             object.rowCount != nil ? jsonString.appendString("\"rowCount\": \(object.rowCount!)") : jsonString.appendString("\"rowCount\": null")
 
             // End Object to JSON

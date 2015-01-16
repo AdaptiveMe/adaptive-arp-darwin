@@ -355,13 +355,13 @@ public class ServiceCookie : APIBean {
             jsonString.appendString("{ ")
 
             // Fields.
-            object.cookieName != nil ? jsonString.appendString("\"cookieName\": \"\(object.cookieName!)\", ") : jsonString.appendString("\"cookieName\": null, ")
-            object.cookieValue != nil ? jsonString.appendString("\"cookieValue\": \"\(object.cookieValue!)\", ") : jsonString.appendString("\"cookieValue\": null, ")
+            object.cookieName != nil ? jsonString.appendString("\"cookieName\": \"\(JSONUtil.escapeString(object.cookieName!))\", ") : jsonString.appendString("\"cookieName\": null, ")
+            object.cookieValue != nil ? jsonString.appendString("\"cookieValue\": \"\(JSONUtil.escapeString(object.cookieValue!))\", ") : jsonString.appendString("\"cookieValue\": null, ")
             object.creation != nil ? jsonString.appendString("\"creation\": \(object.creation!), ") : jsonString.appendString("\"creation\": null, ")
-            object.domain != nil ? jsonString.appendString("\"domain\": \"\(object.domain!)\", ") : jsonString.appendString("\"domain\": null, ")
+            object.domain != nil ? jsonString.appendString("\"domain\": \"\(JSONUtil.escapeString(object.domain!))\", ") : jsonString.appendString("\"domain\": null, ")
             object.expiry != nil ? jsonString.appendString("\"expiry\": \(object.expiry!), ") : jsonString.appendString("\"expiry\": null, ")
-            object.path != nil ? jsonString.appendString("\"path\": \"\(object.path!)\", ") : jsonString.appendString("\"path\": null, ")
-            object.scheme != nil ? jsonString.appendString("\"scheme\": \"\(object.scheme!)\", ") : jsonString.appendString("\"scheme\": null, ")
+            object.path != nil ? jsonString.appendString("\"path\": \"\(JSONUtil.escapeString(object.path!))\", ") : jsonString.appendString("\"path\": null, ")
+            object.scheme != nil ? jsonString.appendString("\"scheme\": \"\(JSONUtil.escapeString(object.scheme!))\", ") : jsonString.appendString("\"scheme\": null, ")
             object.secure != nil ? jsonString.appendString("\"secure\": \(object.secure!)") : jsonString.appendString("\"secure\": null")
 
             // End Object to JSON

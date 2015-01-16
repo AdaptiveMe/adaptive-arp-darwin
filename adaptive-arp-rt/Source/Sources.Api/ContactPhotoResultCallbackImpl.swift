@@ -56,7 +56,7 @@ public class ContactPhotoResultCallbackImpl : BaseCallbackImpl, IContactPhotoRes
        @since ARP1.0
     */
     public func onError(error : IContactPhotoResultCallbackError) { 
-        var param0 : String = "IContactPhotoResultCallbackError.toObject(JSON.parse(" + JSONUtil.escapeString("{ \"value\": \"\(error.toString()) }") + "))"
+        var param0 : String = "Adaptive.IContactPhotoResultCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactPhotoResultCallbackError( \"\(getId())\", \(param0))")
     }
 
@@ -98,7 +98,7 @@ public class ContactPhotoResultCallbackImpl : BaseCallbackImpl, IContactPhotoRes
         }
         param0Array.appendString("]")
         var param0 : String = param0Array as String
-        var param1 : String = "IContactPhotoResultCallbackWarning.toObject(JSON.parse(" + JSONUtil.escapeString("{ \"value\": \"\(warning.toString()) }") + "))"
+        var param1 : String = "Adaptive.IContactPhotoResultCallbackWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\"}\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactPhotoResultCallbackWarning( \"\(getId())\", \(param0), \(param1))")
     }
 

@@ -246,11 +246,11 @@ public class ServiceEndpoint : APIBean {
             jsonString.appendString("{ ")
 
             // Fields.
-            object.host != nil ? jsonString.appendString("\"host\": \"\(object.host!)\", ") : jsonString.appendString("\"host\": null, ")
-            object.path != nil ? jsonString.appendString("\"path\": \"\(object.path!)\", ") : jsonString.appendString("\"path\": null, ")
+            object.host != nil ? jsonString.appendString("\"host\": \"\(JSONUtil.escapeString(object.host!))\", ") : jsonString.appendString("\"host\": null, ")
+            object.path != nil ? jsonString.appendString("\"path\": \"\(JSONUtil.escapeString(object.path!))\", ") : jsonString.appendString("\"path\": null, ")
             object.port != nil ? jsonString.appendString("\"port\": \(object.port!), ") : jsonString.appendString("\"port\": null, ")
-            object.proxy != nil ? jsonString.appendString("\"proxy\": \"\(object.proxy!)\", ") : jsonString.appendString("\"proxy\": null, ")
-            object.scheme != nil ? jsonString.appendString("\"scheme\": \"\(object.scheme!)\"") : jsonString.appendString("\"scheme\": null")
+            object.proxy != nil ? jsonString.appendString("\"proxy\": \"\(JSONUtil.escapeString(object.proxy!))\", ") : jsonString.appendString("\"proxy\": null, ")
+            object.scheme != nil ? jsonString.appendString("\"scheme\": \"\(JSONUtil.escapeString(object.scheme!))\"") : jsonString.appendString("\"scheme\": null")
 
             // End Object to JSON
             jsonString.appendString(" }")

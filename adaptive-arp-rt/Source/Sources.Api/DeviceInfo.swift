@@ -213,10 +213,10 @@ be unique for a specific instance of an application on a specific device.
             jsonString.appendString("{ ")
 
             // Fields.
-            object.model != nil ? jsonString.appendString("\"model\": \"\(object.model!)\", ") : jsonString.appendString("\"model\": null, ")
-            object.name != nil ? jsonString.appendString("\"name\": \"\(object.name!)\", ") : jsonString.appendString("\"name\": null, ")
-            object.uuid != nil ? jsonString.appendString("\"uuid\": \"\(object.uuid!)\", ") : jsonString.appendString("\"uuid\": null, ")
-            object.vendor != nil ? jsonString.appendString("\"vendor\": \"\(object.vendor!)\"") : jsonString.appendString("\"vendor\": null")
+            object.model != nil ? jsonString.appendString("\"model\": \"\(JSONUtil.escapeString(object.model!))\", ") : jsonString.appendString("\"model\": null, ")
+            object.name != nil ? jsonString.appendString("\"name\": \"\(JSONUtil.escapeString(object.name!))\", ") : jsonString.appendString("\"name\": null, ")
+            object.uuid != nil ? jsonString.appendString("\"uuid\": \"\(JSONUtil.escapeString(object.uuid!))\", ") : jsonString.appendString("\"uuid\": null, ")
+            object.vendor != nil ? jsonString.appendString("\"vendor\": \"\(JSONUtil.escapeString(object.vendor!))\"") : jsonString.appendString("\"vendor\": null")
 
             // End Object to JSON
             jsonString.appendString(" }")
