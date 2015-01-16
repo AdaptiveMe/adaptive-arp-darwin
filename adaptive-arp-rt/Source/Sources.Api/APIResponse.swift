@@ -189,9 +189,9 @@ public class APIResponse : NSObject {
             jsonString.appendString("{ ")
 
             // Fields.
-            object.response != nil ? jsonString.appendString("\"response\": \"\(object.response!)\", ") : jsonString.appendString("\"response\": null, ")
+            object.response != nil ? jsonString.appendString("\"response\": \"\(JSONUtil.escapeString(object.response!))\", ") : jsonString.appendString("\"response\": null, ")
             object.statusCode != nil ? jsonString.appendString("\"statusCode\": \(object.statusCode!), ") : jsonString.appendString("\"statusCode\": null, ")
-            object.statusMessage != nil ? jsonString.appendString("\"statusMessage\": \"\(object.statusMessage!)\"") : jsonString.appendString("\"statusMessage\": null")
+            object.statusMessage != nil ? jsonString.appendString("\"statusMessage\": \"\(JSONUtil.escapeString(object.statusMessage!))\"") : jsonString.appendString("\"statusMessage\": null")
 
             // End Object to JSON
             jsonString.appendString(" }")

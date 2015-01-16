@@ -150,8 +150,8 @@ public class ContactSocial : APIBean {
             jsonString.appendString("{ ")
 
             // Fields.
-            object.profileUrl != nil ? jsonString.appendString("\"profileUrl\": \"\(object.profileUrl!)\", ") : jsonString.appendString("\"profileUrl\": null, ")
-            object.socialNetwork != nil ? jsonString.appendString("\"socialNetwork\": { \"value\": \"\(JSONUtil.escapeString(object.socialNetwork!.toString()))\"}") : jsonString.appendString("\"socialNetwork\": null")
+            object.profileUrl != nil ? jsonString.appendString("\"profileUrl\": \"\(JSONUtil.escapeString(object.profileUrl!))\", ") : jsonString.appendString("\"profileUrl\": null, ")
+            object.socialNetwork != nil ? jsonString.appendString("\"socialNetwork\": { \"value\": \"\(object.socialNetwork!.toString())\"}") : jsonString.appendString("\"socialNetwork\": null")
 
             // End Object to JSON
             jsonString.appendString(" }")

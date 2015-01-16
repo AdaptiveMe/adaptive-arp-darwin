@@ -150,8 +150,8 @@ public class ContactTag : APIBean {
             jsonString.appendString("{ ")
 
             // Fields.
-            object.tagName != nil ? jsonString.appendString("\"tagName\": \"\(object.tagName!)\", ") : jsonString.appendString("\"tagName\": null, ")
-            object.tagValue != nil ? jsonString.appendString("\"tagValue\": \"\(object.tagValue!)\"") : jsonString.appendString("\"tagValue\": null")
+            object.tagName != nil ? jsonString.appendString("\"tagName\": \"\(JSONUtil.escapeString(object.tagName!))\", ") : jsonString.appendString("\"tagName\": null, ")
+            object.tagValue != nil ? jsonString.appendString("\"tagValue\": \"\(JSONUtil.escapeString(object.tagValue!))\"") : jsonString.appendString("\"tagValue\": null")
 
             // End Object to JSON
             jsonString.appendString(" }")

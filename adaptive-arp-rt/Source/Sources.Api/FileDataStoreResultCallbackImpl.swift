@@ -56,7 +56,7 @@ public class FileDataStoreResultCallbackImpl : BaseCallbackImpl, IFileDataStoreR
        @since ARP1.0
     */
     public func onError(error : IFileDataStoreResultCallbackError) { 
-        var param0 : String = "IFileDataStoreResultCallbackError.toObject(JSON.parse(" + JSONUtil.escapeString("{ \"value\": \"\(error.toString()) }") + "))"
+        var param0 : String = "Adaptive.IFileDataStoreResultCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileDataStoreResultCallbackError( \"\(getId())\", \(param0))")
     }
 
@@ -67,7 +67,7 @@ public class FileDataStoreResultCallbackImpl : BaseCallbackImpl, IFileDataStoreR
        @since ARP1.0
     */
     public func onResult(file : FileDescriptor) { 
-        var param0 : String = "FileDescriptor.toObject(JSON.parse(" + JSONUtil.escapeString(FileDescriptor.Serializer.toJSON(file)) + "))"
+        var param0 : String = "Adaptive.FileDescriptor.toObject(JSON.parse(\"\(FileDescriptor.Serializer.toJSON(file))\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileDataStoreResultCallbackResult( \"\(getId())\", \(param0))")
     }
 
@@ -79,8 +79,8 @@ public class FileDataStoreResultCallbackImpl : BaseCallbackImpl, IFileDataStoreR
        @since ARP1.0
     */
     public func onWarning(file : FileDescriptor, warning : IFileDataStoreResultCallbackWarning) { 
-        var param0 : String = "FileDescriptor.toObject(JSON.parse(" + JSONUtil.escapeString(FileDescriptor.Serializer.toJSON(file)) + "))"
-        var param1 : String = "IFileDataStoreResultCallbackWarning.toObject(JSON.parse(" + JSONUtil.escapeString("{ \"value\": \"\(warning.toString()) }") + "))"
+        var param0 : String = "Adaptive.FileDescriptor.toObject(JSON.parse(\"\(FileDescriptor.Serializer.toJSON(file))\"))"
+        var param1 : String = "Adaptive.IFileDataStoreResultCallbackWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\"}\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileDataStoreResultCallbackWarning( \"\(getId())\", \(param0), \(param1))")
     }
 

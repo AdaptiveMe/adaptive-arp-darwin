@@ -56,7 +56,7 @@ public class FileDataLoadResultCallbackImpl : BaseCallbackImpl, IFileDataLoadRes
        @since ARP1.0
     */
     public func onError(error : IFileDataLoadResultCallbackError) { 
-        var param0 : String = "IFileDataLoadResultCallbackError.toObject(JSON.parse(" + JSONUtil.escapeString("{ \"value\": \"\(error.toString()) }") + "))"
+        var param0 : String = "Adaptive.IFileDataLoadResultCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileDataLoadResultCallbackError( \"\(getId())\", \(param0))")
     }
 
@@ -98,7 +98,7 @@ public class FileDataLoadResultCallbackImpl : BaseCallbackImpl, IFileDataLoadRes
         }
         param0Array.appendString("]")
         var param0 : String = param0Array as String
-        var param1 : String = "IFileDataLoadResultCallbackWarning.toObject(JSON.parse(" + JSONUtil.escapeString("{ \"value\": \"\(warning.toString()) }") + "))"
+        var param1 : String = "Adaptive.IFileDataLoadResultCallbackWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\"}\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileDataLoadResultCallbackWarning( \"\(getId())\", \(param0), \(param1))")
     }
 

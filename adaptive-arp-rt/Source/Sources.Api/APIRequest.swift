@@ -231,14 +231,14 @@ listener.
 
             // Fields.
             object.asyncId != nil ? jsonString.appendString("\"asyncId\": \(object.asyncId!), ") : jsonString.appendString("\"asyncId\": null, ")
-            object.bridgeType != nil ? jsonString.appendString("\"bridgeType\": \"\(object.bridgeType!)\", ") : jsonString.appendString("\"bridgeType\": null, ")
-            object.methodName != nil ? jsonString.appendString("\"methodName\": \"\(object.methodName!)\", ") : jsonString.appendString("\"methodName\": null, ")
+            object.bridgeType != nil ? jsonString.appendString("\"bridgeType\": \"\(JSONUtil.escapeString(object.bridgeType!))\", ") : jsonString.appendString("\"bridgeType\": null, ")
+            object.methodName != nil ? jsonString.appendString("\"methodName\": \"\(JSONUtil.escapeString(object.methodName!))\", ") : jsonString.appendString("\"methodName\": null, ")
             if (object.parameters != nil) {
                 // Start array of objects.
-                jsonString.appendString("\"parameters\": [");
+                jsonString.appendString("\"parameters\": [")
 
                 for var i = 0; i < object.parameters!.count; i++ {
-                    jsonString.appendString("\"\(JSONUtil.escapeString(object.parameters![i]))\"");
+                    jsonString.appendString("\"\(JSONUtil.escapeString(object.parameters![i]))\"")
                     if (i < object.parameters!.count-1) {
                         jsonString.appendString(", ");
                     }

@@ -118,7 +118,7 @@ public class DatabaseColumn : APIBean {
             jsonString.appendString("{ ")
 
             // Fields.
-            object.name != nil ? jsonString.appendString("\"name\": \"\(object.name!)\"") : jsonString.appendString("\"name\": null")
+            object.name != nil ? jsonString.appendString("\"name\": \"\(JSONUtil.escapeString(object.name!))\"") : jsonString.appendString("\"name\": null")
 
             // End Object to JSON
             jsonString.appendString(" }")

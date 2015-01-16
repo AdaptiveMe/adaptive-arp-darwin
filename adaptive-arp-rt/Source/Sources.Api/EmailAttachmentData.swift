@@ -251,10 +251,10 @@ public class EmailAttachmentData : APIBean {
             // Fields.
             if (object.data != nil) {
                 // Start array of objects.
-                jsonString.appendString("\"data\": [");
+                jsonString.appendString("\"data\": [")
 
                 for var i = 0; i < object.data!.count; i++ {
-                    jsonString.appendString("\(object.data![i])");
+                    jsonString.appendString("\(object.data![i])")
                     if (i < object.data!.count-1) {
                         jsonString.appendString(", ");
                     }
@@ -265,9 +265,9 @@ public class EmailAttachmentData : APIBean {
             } else {
                 jsonString.appendString("\"data\": null, ")
             }
-            object.fileName != nil ? jsonString.appendString("\"fileName\": \"\(object.fileName!)\", ") : jsonString.appendString("\"fileName\": null, ")
-            object.mimeType != nil ? jsonString.appendString("\"mimeType\": \"\(object.mimeType!)\", ") : jsonString.appendString("\"mimeType\": null, ")
-            object.referenceUrl != nil ? jsonString.appendString("\"referenceUrl\": \"\(object.referenceUrl!)\", ") : jsonString.appendString("\"referenceUrl\": null, ")
+            object.fileName != nil ? jsonString.appendString("\"fileName\": \"\(JSONUtil.escapeString(object.fileName!))\", ") : jsonString.appendString("\"fileName\": null, ")
+            object.mimeType != nil ? jsonString.appendString("\"mimeType\": \"\(JSONUtil.escapeString(object.mimeType!))\", ") : jsonString.appendString("\"mimeType\": null, ")
+            object.referenceUrl != nil ? jsonString.appendString("\"referenceUrl\": \"\(JSONUtil.escapeString(object.referenceUrl!))\", ") : jsonString.appendString("\"referenceUrl\": null, ")
             object.size != nil ? jsonString.appendString("\"size\": \(object.size!)") : jsonString.appendString("\"size\": null")
 
             // End Object to JSON

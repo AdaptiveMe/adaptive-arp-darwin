@@ -124,10 +124,10 @@ public class DatabaseRow : APIBean {
             // Fields.
             if (object.values != nil) {
                 // Start array of objects.
-                jsonString.appendString("\"values\": [");
+                jsonString.appendString("\"values\": [")
 
                 for var i = 0; i < object.values!.count; i++ {
-                    jsonString.appendString("\"\(JSONUtil.escapeString(object.values![i]))\"");
+                    jsonString.appendString("\"\(JSONUtil.escapeString(object.values![i]))\"")
                     if (i < object.values!.count-1) {
                         jsonString.appendString(", ");
                     }

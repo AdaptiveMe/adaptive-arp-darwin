@@ -150,8 +150,8 @@ public class KeyPair : APIBean {
             jsonString.appendString("{ ")
 
             // Fields.
-            object.keyName != nil ? jsonString.appendString("\"keyName\": \"\(object.keyName!)\", ") : jsonString.appendString("\"keyName\": null, ")
-            object.keyValue != nil ? jsonString.appendString("\"keyValue\": \"\(object.keyValue!)\"") : jsonString.appendString("\"keyValue\": null")
+            object.keyName != nil ? jsonString.appendString("\"keyName\": \"\(JSONUtil.escapeString(object.keyName!))\", ") : jsonString.appendString("\"keyName\": null, ")
+            object.keyValue != nil ? jsonString.appendString("\"keyValue\": \"\(JSONUtil.escapeString(object.keyValue!))\"") : jsonString.appendString("\"keyValue\": null")
 
             // End Object to JSON
             jsonString.appendString(" }")
