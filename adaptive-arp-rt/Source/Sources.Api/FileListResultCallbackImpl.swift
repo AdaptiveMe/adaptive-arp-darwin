@@ -70,7 +70,7 @@ public class FileListResultCallbackImpl : BaseCallbackImpl, IFileListResultCallb
         var param0Array : NSMutableString = NSMutableString()
         param0Array.appendString("[")
         for (index,obj) in enumerate(files) {
-            param0Array.appendString("Adaptive.FileDescriptor.toObject(JSON.parse(\"\(FileDescriptor.Serializer.toJSON(obj))\"))")
+            param0Array.appendString("Adaptive.FileDescriptor.toObject(JSON.parse(\"\(JSONUtil.escapeString(FileDescriptor.Serializer.toJSON(obj)))\"))")
             if index < files.count-1 {
                 param0Array.appendString(", ")
             }
@@ -91,7 +91,7 @@ public class FileListResultCallbackImpl : BaseCallbackImpl, IFileListResultCallb
         var param0Array : NSMutableString = NSMutableString()
         param0Array.appendString("[")
         for (index,obj) in enumerate(files) {
-            param0Array.appendString("Adaptive.FileDescriptor.toObject(JSON.parse(\"\(FileDescriptor.Serializer.toJSON(obj))\"))")
+            param0Array.appendString("Adaptive.FileDescriptor.toObject(JSON.parse(\"\(JSONUtil.escapeString(FileDescriptor.Serializer.toJSON(obj)))\"))")
             if index < files.count-1 {
                 param0Array.appendString(", ")
             }

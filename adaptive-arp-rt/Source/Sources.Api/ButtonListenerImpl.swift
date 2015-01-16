@@ -67,7 +67,7 @@ public class ButtonListenerImpl : BaseListenerImpl, IButtonListener {
        @since ARP1.0
     */
     public func onResult(button : Button) { 
-        var param0 : String = "Adaptive.Button.toObject(JSON.parse(\"\(Button.Serializer.toJSON(button))\"))"
+        var param0 : String = "Adaptive.Button.toObject(JSON.parse(\"\(JSONUtil.escapeString(Button.Serializer.toJSON(button)))\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleButtonListenerResult( \"\(getId())\", \(param0))")
     }
 
@@ -79,7 +79,7 @@ public class ButtonListenerImpl : BaseListenerImpl, IButtonListener {
        @since ARP1.0
     */
     public func onWarning(button : Button, warning : IButtonListenerWarning) { 
-        var param0 : String = "Adaptive.Button.toObject(JSON.parse(\"\(Button.Serializer.toJSON(button))\"))"
+        var param0 : String = "Adaptive.Button.toObject(JSON.parse(\"\(JSONUtil.escapeString(Button.Serializer.toJSON(button)))\"))"
         var param1 : String = "Adaptive.IButtonListenerWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\"}\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleButtonListenerWarning( \"\(getId())\", \(param0), \(param1))")
     }

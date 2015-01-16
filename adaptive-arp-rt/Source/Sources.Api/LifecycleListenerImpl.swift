@@ -67,7 +67,7 @@ public class LifecycleListenerImpl : BaseListenerImpl, ILifecycleListener {
        @since ARP1.0
     */
     public func onResult(lifecycle : Lifecycle) { 
-        var param0 : String = "Adaptive.Lifecycle.toObject(JSON.parse(\"\(Lifecycle.Serializer.toJSON(lifecycle))\"))"
+        var param0 : String = "Adaptive.Lifecycle.toObject(JSON.parse(\"\(JSONUtil.escapeString(Lifecycle.Serializer.toJSON(lifecycle)))\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleLifecycleListenerResult( \"\(getId())\", \(param0))")
     }
 
@@ -79,7 +79,7 @@ public class LifecycleListenerImpl : BaseListenerImpl, ILifecycleListener {
        @since ARP1.0
     */
     public func onWarning(lifecycle : Lifecycle, warning : ILifecycleListenerWarning) { 
-        var param0 : String = "Adaptive.Lifecycle.toObject(JSON.parse(\"\(Lifecycle.Serializer.toJSON(lifecycle))\"))"
+        var param0 : String = "Adaptive.Lifecycle.toObject(JSON.parse(\"\(JSONUtil.escapeString(Lifecycle.Serializer.toJSON(lifecycle)))\"))"
         var param1 : String = "Adaptive.ILifecycleListenerWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\"}\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleLifecycleListenerWarning( \"\(getId())\", \(param0), \(param1))")
     }
