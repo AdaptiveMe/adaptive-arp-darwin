@@ -67,7 +67,7 @@ public class FileResultCallbackImpl : BaseCallbackImpl, IFileResultCallback {
        @since ARP1.0
     */
     public func onResult(storageFile : FileDescriptor) { 
-        var param0 : String = "Adaptive.FileDescriptor.toObject(JSON.parse(\"\(FileDescriptor.Serializer.toJSON(storageFile))\"))"
+        var param0 : String = "Adaptive.FileDescriptor.toObject(JSON.parse(\"\(JSONUtil.escapeString(FileDescriptor.Serializer.toJSON(storageFile)))\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileResultCallbackResult( \"\(getId())\", \(param0))")
     }
 
@@ -79,7 +79,7 @@ public class FileResultCallbackImpl : BaseCallbackImpl, IFileResultCallback {
        @since ARP1.0
     */
     public func onWarning(file : FileDescriptor, warning : IFileResultCallbackWarning) { 
-        var param0 : String = "Adaptive.FileDescriptor.toObject(JSON.parse(\"\(FileDescriptor.Serializer.toJSON(file))\"))"
+        var param0 : String = "Adaptive.FileDescriptor.toObject(JSON.parse(\"\(JSONUtil.escapeString(FileDescriptor.Serializer.toJSON(file)))\"))"
         var param1 : String = "Adaptive.IFileResultCallbackWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\"}\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileResultCallbackWarning( \"\(getId())\", \(param0), \(param1))")
     }

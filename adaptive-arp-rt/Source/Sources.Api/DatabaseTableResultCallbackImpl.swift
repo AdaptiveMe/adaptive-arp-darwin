@@ -67,7 +67,7 @@ public class DatabaseTableResultCallbackImpl : BaseCallbackImpl, IDatabaseTableR
        @since ARP1.0
     */
     public func onResult(databaseTable : DatabaseTable) { 
-        var param0 : String = "Adaptive.DatabaseTable.toObject(JSON.parse(\"\(DatabaseTable.Serializer.toJSON(databaseTable))\"))"
+        var param0 : String = "Adaptive.DatabaseTable.toObject(JSON.parse(\"\(JSONUtil.escapeString(DatabaseTable.Serializer.toJSON(databaseTable)))\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseTableResultCallbackResult( \"\(getId())\", \(param0))")
     }
 
@@ -79,7 +79,7 @@ public class DatabaseTableResultCallbackImpl : BaseCallbackImpl, IDatabaseTableR
        @since ARP1.0
     */
     public func onWarning(databaseTable : DatabaseTable, warning : IDatabaseTableResultCallbackWarning) { 
-        var param0 : String = "Adaptive.DatabaseTable.toObject(JSON.parse(\"\(DatabaseTable.Serializer.toJSON(databaseTable))\"))"
+        var param0 : String = "Adaptive.DatabaseTable.toObject(JSON.parse(\"\(JSONUtil.escapeString(DatabaseTable.Serializer.toJSON(databaseTable)))\"))"
         var param1 : String = "Adaptive.IDatabaseTableResultCallbackWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\"}\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseTableResultCallbackWarning( \"\(getId())\", \(param0), \(param1))")
     }

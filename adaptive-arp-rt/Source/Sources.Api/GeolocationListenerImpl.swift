@@ -67,7 +67,7 @@ public class GeolocationListenerImpl : BaseListenerImpl, IGeolocationListener {
        @since ARP1.0
     */
     public func onResult(geolocation : Geolocation) { 
-        var param0 : String = "Adaptive.Geolocation.toObject(JSON.parse(\"\(Geolocation.Serializer.toJSON(geolocation))\"))"
+        var param0 : String = "Adaptive.Geolocation.toObject(JSON.parse(\"\(JSONUtil.escapeString(Geolocation.Serializer.toJSON(geolocation)))\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleGeolocationListenerResult( \"\(getId())\", \(param0))")
     }
 
@@ -79,7 +79,7 @@ public class GeolocationListenerImpl : BaseListenerImpl, IGeolocationListener {
        @since ARP1.0
     */
     public func onWarning(geolocation : Geolocation, warning : IGeolocationListenerWarning) { 
-        var param0 : String = "Adaptive.Geolocation.toObject(JSON.parse(\"\(Geolocation.Serializer.toJSON(geolocation))\"))"
+        var param0 : String = "Adaptive.Geolocation.toObject(JSON.parse(\"\(JSONUtil.escapeString(Geolocation.Serializer.toJSON(geolocation)))\"))"
         var param1 : String = "Adaptive.IGeolocationListenerWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\"}\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleGeolocationListenerWarning( \"\(getId())\", \(param0), \(param1))")
     }

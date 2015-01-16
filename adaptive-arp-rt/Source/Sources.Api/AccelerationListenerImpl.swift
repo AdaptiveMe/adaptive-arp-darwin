@@ -68,7 +68,7 @@ listener and subsequently, the listener will be deactivated and removed from the
        @since ARP1.0
     */
     public func onResult(acceleration : Acceleration) { 
-        var param0 : String = "Adaptive.Acceleration.toObject(JSON.parse(\"\(Acceleration.Serializer.toJSON(acceleration))\"))"
+        var param0 : String = "Adaptive.Acceleration.toObject(JSON.parse(\"\(JSONUtil.escapeString(Acceleration.Serializer.toJSON(acceleration)))\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleAccelerationListenerResult( \"\(getId())\", \(param0))")
     }
 
@@ -80,7 +80,7 @@ listener and subsequently, the listener will be deactivated and removed from the
        @since ARP1.0
     */
     public func onWarning(acceleration : Acceleration, warning : IAccelerationListenerWarning) { 
-        var param0 : String = "Adaptive.Acceleration.toObject(JSON.parse(\"\(Acceleration.Serializer.toJSON(acceleration))\"))"
+        var param0 : String = "Adaptive.Acceleration.toObject(JSON.parse(\"\(JSONUtil.escapeString(Acceleration.Serializer.toJSON(acceleration)))\"))"
         var param1 : String = "Adaptive.IAccelerationListenerWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\"}\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleAccelerationListenerWarning( \"\(getId())\", \(param0), \(param1))")
     }

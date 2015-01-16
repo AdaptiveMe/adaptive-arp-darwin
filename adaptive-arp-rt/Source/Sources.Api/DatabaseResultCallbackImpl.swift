@@ -67,7 +67,7 @@ public class DatabaseResultCallbackImpl : BaseCallbackImpl, IDatabaseResultCallb
        @since ARP1.0
     */
     public func onResult(database : Database) { 
-        var param0 : String = "Adaptive.Database.toObject(JSON.parse(\"\(Database.Serializer.toJSON(database))\"))"
+        var param0 : String = "Adaptive.Database.toObject(JSON.parse(\"\(JSONUtil.escapeString(Database.Serializer.toJSON(database)))\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseResultCallbackResult( \"\(getId())\", \(param0))")
     }
 
@@ -79,7 +79,7 @@ public class DatabaseResultCallbackImpl : BaseCallbackImpl, IDatabaseResultCallb
        @since ARP1.0
     */
     public func onWarning(database : Database, warning : IDatabaseResultCallbackWarning) { 
-        var param0 : String = "Adaptive.Database.toObject(JSON.parse(\"\(Database.Serializer.toJSON(database))\"))"
+        var param0 : String = "Adaptive.Database.toObject(JSON.parse(\"\(JSONUtil.escapeString(Database.Serializer.toJSON(database)))\"))"
         var param1 : String = "Adaptive.IDatabaseResultCallbackWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\"}\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseResultCallbackWarning( \"\(getId())\", \(param0), \(param1))")
     }
