@@ -87,7 +87,7 @@ public class TimerBridge : BaseUtilBridge, ITimer, APIBridge {
                 responseCode = 404
                 responseMessage = "TimerBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.3."
         }
-        response.setResponse(JSONUtil.escapeString(responseJSON!))
+        response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)
         response.setStatusMessage(responseMessage)
         return response
