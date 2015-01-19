@@ -154,7 +154,7 @@ public class HttpInterceptorProtocol : NSURLProtocol {
                         var apiResponse:APIResponse = ServiceHandler.sharedInstance.handleServiceUrl(apiRequest)
                         var data:NSString = APIResponse.Serializer.toJSON(apiResponse)
                         
-                        //logger.log(ILoggingLogLevel.INFO, category: loggerTag, message: "RESPONSE DATA: \(data)")
+                        logger.log(ILoggingLogLevel.INFO, category: loggerTag, message: "RESPONSE DATA: \(data)")
                         
                         // Create the response                        
                         var responseHeaders = NSMutableDictionary(dictionary: requestHeaders)

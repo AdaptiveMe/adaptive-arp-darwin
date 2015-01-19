@@ -93,8 +93,8 @@ public class ServiceHandler:NSObject {
             logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "There is no bridge type inside the API Request object")
         }
         
-        // Default return value
-        return APIResponse(response: "", statusCode: 404, statusMessage: "Please see native platform log for details.")
+        // Asynchronous responses
+        return APIResponse(response: "", statusCode: 200, statusMessage: "Please see native platform log for details.")
     }
 }
 

@@ -1,145 +1,128 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>
-<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>
-<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>
-<html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js"> <!--<![endif]-->
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
     <title></title>
-    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <!--<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />-->
+    <link rel="stylesheet" href="css/flat-theme/jquery.mobile.flatui.min.css"/>
+    <link rel="stylesheet" href="css/jquery.mobile.iscrollview.css"/>
+    <link rel="stylesheet" href="css/jquery.mobile.iscrollview-pull.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <style>
-        body {
-            padding-top: 50px;
-            padding-bottom: 20px;
-        }
-    </style>
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="css/main.css">
-
-    <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/Adaptive.js"></script>
 </head>
 <body>
-<!--[if lt IE 7]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-    your browser</a> to improve your experience.</p>
-<![endif]-->
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Adaptive RT</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <form class="navbar-form navbar-right" role="form">
-                <div class="form-group">
-                    <input type="text" placeholder="Email" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input type="password" placeholder="Password" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-success">Sign in</button>
-            </form>
-        </div>
-        <!--/.navbar-collapse -->
+
+<div id="home" data-role="page">
+
+    <div data-role="header" data-theme="a" data-position="fixed" data-id="header" data-tap-toggle="false"
+         data-transition="none">
+        <h1 class="">Adaptive RT <span class="adaptive-version"></span></h1>
+        <a href="#left-panel" data-theme="a" data-icon="carat-r" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-nodisc-icon">Open left panel</a>
+        <a href="#info" data-transition="slide" data-theme="a" data-icon="info" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-nodisc-icon">Info</a>
     </div>
+    <!-- /header -->
+
+    <div data-iscroll="" data-role="content" class="ui-mini ui-content" role="main">
+
+        <h3 class="ui-bar ui-bar-b">Synchronous Methods</h3>
+        <div class="ui-body">
+            <p><span id="os-info"></span></p>
+            <p><span id="i18n-resource"></span></p>
+            <button id="open-browser" class="ui-btn">Open Internal Browser</button>
+            <button id="open-browser-modal" class="ui-btn">Open Internal Browser (Modal)</button>
+            <p><span id="capabilities"></span></p>
+            <p><span id="device"></span></p>
+        </div>
+
+        <h3 class="ui-bar ui-bar-b">Asynchronous Methods (callback)</h3>
+        <div class="ui-body">
+            <div id="contacts-error" class="alert-panel ui-bar ui-bar-d ui-corner-all"></div>
+            <div id="contacts-warning" class="alert-panel ui-bar ui-bar-e ui-corner-all"></div>
+            <p><span id="contacts"></span></p>
+            <!--<ul data-role="listview" data-inset="true">
+                    <li data-role="list-divider">Friday, October 8, 2010 <span class="ui-li-count">2</span></li>
+                    <li><a href="index.html">
+                    <h2>Stephen Weber</h2>
+                    <p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
+                    <p>Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.</p>
+                        <p class="ui-li-aside"><strong>6:24</strong>PM</p>
+                    </a></li>
+                    <li><a href="index.html">
+                    <h2>jQuery Team</h2>
+                    <p><strong>Boston Conference Planning</strong></p>
+                    <p>In preparation for the upcoming conference in Boston, we need to start gathering a list of sponsors and speakers.</p>
+                        <p class="ui-li-aside"><strong>9:18</strong>AM</p>
+                    </a></li>
+                    <li data-role="list-divider">Thursday, October 7, 2010 <span class="ui-li-count">1</span></li>
+                    <li><a href="index.html">
+                    <h2>Avery Walker</h2>
+                    <p><strong>Re: Dinner Tonight</strong></p>
+                    <p>Sure, let's plan on meeting at Highland Kitchen at 8:00 tonight. Can't wait!</p>
+                        <p class="ui-li-aside"><strong>4:48</strong>PM</p>
+                    </a></li>
+            </ul>-->
+        </div>
+
+        <h3 class="ui-bar ui-bar-b">Asynchronous Methods (listener)</h3>
+        <div class="ui-body">
+            <p>TODO...</p>
+        </div>
+
+    </div>
+    <!-- /content -->
+
+    <div data-role="footer" data-theme="a" data-position="fixed" data-id="footer" data-tap-toggle="false"
+         data-transition="none" class="ui-footer">
+        <h4 class="footer-text">&copy; 2015 Adaptive.me Forged with <span style="color: red">&hearts;</span> in
+            Barcelona</h4>
+    </div>
+    <!-- /footer -->
+
+    <div data-role="panel" id="left-panel" data-theme="a">
+        <p class="ui-mini">Left reveal panel.</p>
+    </div><!-- /panel -->
+
+</div>
+<!-- /page -->
+
+<div id="info" data-role="page">
+    <div data-role="header" data-theme="a" data-position="fixed" data-id="header" data-tap-toggle="false"
+         data-transition="none">
+        <h1 class="">Adaptive RT <span class="adaptive-version"></span></h1>
+        <a href="#home" data-transition="slide" data-theme="a" data-icon="carat-l" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-nodisc-icon">Open left panel</a>
+    </div>
+    <!-- /header -->
+
+    <div data-iscroll="" data-role="content" class="ui-mini ui-content" role="main">
+
+        <h3 class="ui-bar ui-bar-e">Lorem Ipsum</h3>
+        <div class="ui-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <h3 class="ui-bar ui-bar-e">Lorem Ipsum</h3>
+        <div class="ui-body">
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+        </div>
+
+    </div>
+    <!-- /content -->
+
+    <div data-role="footer" data-theme="a" data-position="fixed" data-id="footer" data-tap-toggle="false"
+         data-transition="none" class="ui-footer">
+        <h4 class="footer-text">&copy; 2015 Adaptive.me Forged with <span style="color: red">&hearts;</span> in
+            Barcelona</h4>
+    </div>
+    <!-- /footer -->
 </div>
 
-<!-- Main jumbotron for a primary marketing message or call to action
-<div class="jumbotron">
-  <div class="container">
-    <h1>Hello, Developer!</h1>
-    <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-    <p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
-  </div>
-</div> -->
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a id="create-database" class="btn btn-primary btn-lg" role="button">createDatabase &raquo;</a></p>
-            <p><a id="exists-database" class="btn btn-primary btn-lg" role="button">existsDatabase &raquo;</a></p>
-        </div>
-    </div>
-
-
-    <!-- Example row of columns
-    <div class="row">
-      <div class="col-md-4">
-        <h2>Heading</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-      </div>
-      <div class="col-md-4">
-        <h2>Heading</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-     </div>
-      <div class="col-md-4">
-        <h2>Heading</h2>
-        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-default" href="/#" role="button">View details &raquo;</a></p>
-      </div>
-    </div> -->
-
-    <hr>
-
-    <footer>
-        <p>&copy; Company 2014 Carlos Lozano Diez t/a Adaptive.me</p>
-    </footer>
-</div>
-<!-- /container -->
-<script src="js/vendor/jquery-1.11.1.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
-
-<script src="js/vendor/bootstrap.min.js"></script>
-
-<script src="js/plugins.js"></script>
-<script src="js/adaptive.js"></script>
+<script src="js/iscroll.js"></script>
+<script src="js/jquery.mobile.iscrollview.js"></script>
 <script src="js/main.js"></script>
-
-<script type="application/javascript">
-
-    var bridgePath = "https://adaptiveapp";
-
-    $("#create-database").click(function(){
-        callAsyncCallback("/IAdaptiveRP/IBaseData/IDatabase/createDatabase?id=1");
-    });
-                                
-    $("#exists-database").click(function(){
-        callAsyncCallback("/IAdaptiveRP/IBaseData/IDatabase/existsDatabase");
-    });
-
-    function callAsyncCallback(url) {
-
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", bridgePath + url, false);
-        xhr.setRequestHeader("Content-type", "application/json");
-        // TODO: send parameters
-        //xhr.send();
-        xhr.send('{"request":{"database":{"name":"testDatabase","compress":false}}}');
-        if (xhr.status == 200) {
-        }
-        else {
-            console.error("ERROR: " + xhr.status);
-        }
-        return xhr
-    }
-</script>
-
 </body>
 </html>

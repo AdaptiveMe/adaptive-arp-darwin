@@ -68,6 +68,8 @@ public class BrowserViewController: BaseViewController, UIWebViewDelegate {
         webView = UIWebView()
         webView?.delegate = self
         self.view = webView
+        
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().addWebview(self.webView!)
     }
     
     override public func viewWillAppear(animated: Bool) {
@@ -106,5 +108,10 @@ public class BrowserViewController: BaseViewController, UIWebViewDelegate {
     
     public func webViewDidFinishLoad(webView: UIWebView) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+    }
+    
+    public override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().removeWebview(self.webView!)
     }
 }

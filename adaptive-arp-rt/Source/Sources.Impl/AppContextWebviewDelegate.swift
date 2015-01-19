@@ -33,12 +33,20 @@ Release:
 */
 
 import Foundation
+#if os(iOS)
+    import UIKit
+#endif
 
 /**
    Interface for webview context management purposes
    Auto-generated implementation of IAppContextWebview specification.
 */
 public class AppContextWebviewDelegate : NSObject, IAppContextWebview {
+    
+    
+    /// Logger variable
+    let logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+    let loggerTag : String = "AppContextWebviewDelegate"
     
     var primaryView:AnyObject? = nil
     var webViewList:[AnyObject] = [AnyObject]()
@@ -85,7 +93,12 @@ not be added using this method.
        @param javaScriptText    The javascript expression to execute on the webview.
     */
     public func executeJavaScript(javaScriptText : String) {
-        // TODO: Not implemented.
+        
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "JSON to TS: \(javaScriptText)")
+        
+        dispatch_async(dispatch_get_main_queue()) {
+            var result = self.getWebviewPrimary()?.stringByEvaluatingJavaScriptFromString(javaScriptText)
+        }
     }
 
     /**
@@ -95,7 +108,13 @@ not be added using this method.
        @param webViewReference  The target webview on which to execute the expression.
     */
     public func executeJavaScript(javaScriptText : String, webViewReference : AnyObject) {
-        // TODO: Not implemented.
+        
+        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "JSON to TS: \(javaScriptText)")
+        
+        #if os(iOS)
+            (webViewReference as UIWebView).stringByEvaluatingJavaScriptFromString(javaScriptText)
+        #endif
+        // TODO: implement this for OSX
     }
 
     /**

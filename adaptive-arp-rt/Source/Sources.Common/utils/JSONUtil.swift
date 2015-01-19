@@ -55,16 +55,16 @@ public struct JSONUtil {
         var theStringArr = split(theString as String) {$0 == ","}
         for quotedString in theStringArr {
             var unquotedString : NSString = quotedString
-            unquotedString = unquotedString.substringFromIndex(1)
-            unquotedString = unquotedString.substringToIndex(unquotedString.length - 1)
+            //unquotedString = unquotedString.substringFromIndex(1)
+            //unquotedString = unquotedString.substringToIndex(unquotedString.length - 1)
             theResult.append(unquotedString as String)
         }
         return theResult
     }
     
     public static func dictionifyJSON(string : String) -> NSDictionary {
-        var data:NSData = string.dataUsingEncoding(NSUTF8StringEncoding)!
-        var jsonError: NSError?
-        return NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
+        var data:NSData = string.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
+        var error: NSError?
+        return NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &error) as NSDictionary
     }
 }

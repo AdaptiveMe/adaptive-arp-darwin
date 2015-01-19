@@ -110,7 +110,7 @@ public class BrowserDelegate : BaseUIDelegate, IBrowser {
             
             if checkURl(url) {
                 if (BaseViewController.ViewCurrent.getView() != nil) {
-                    return (BaseViewController.ViewCurrent.getView()! as BaseViewController).showInternalBrowser(title, backLabel: backButtonText, url: NSURL(string: url)!, showNavBar: true, showAnimated: true)
+                    return (BaseViewController.ViewCurrent.getView()! as BaseViewController).showInternalBrowser(title, backLabel: backButtonText, url: NSURL(string: url)!, showNavBar: true, showAnimated: true, modal: false)
                 } else {
                     return false
                 }
@@ -138,8 +138,25 @@ public class BrowserDelegate : BaseUIDelegate, IBrowser {
     */
     public func openInternalBrowserModal(url : String, title : String, backButtonText : String) -> Bool? {
         
-        // TODO: Implement this method. ¿What is the difference between this method and without modal?
-        return false
+        #if os(iOS)
+            
+            if checkURl(url) {
+                if (BaseViewController.ViewCurrent.getView() != nil) {
+                    return (BaseViewController.ViewCurrent.getView()! as BaseViewController).showInternalBrowser(title, backLabel: backButtonText, url: NSURL(string: url)!, showNavBar: true, showAnimated: true, modal: true)
+                } else {
+                    return false
+                }
+            } else {
+                return false
+            }
+            
+        #endif
+        #if os(OSX)
+            
+            // TODO: implement this part when the OSX part has a Base View Controller
+            return false
+            
+        #endif
     }
 
     /**

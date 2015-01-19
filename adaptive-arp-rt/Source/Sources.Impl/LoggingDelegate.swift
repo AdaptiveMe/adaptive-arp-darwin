@@ -80,10 +80,10 @@ public class LoggingDelegate : BaseUtilDelegate, ILogging {
             NSLog("[INFO - \(category)] \(message)")
             
         case ILoggingLogLevel.WARN:
-            NSLog("[WARN - \(category)] \(message)")
+            NSLog("🚸[WARN - \(category)] \(message)")
             
         case ILoggingLogLevel.ERROR:
-            NSLog("[ERROR - \(category)] \(message)")
+            NSLog("⛔️[ERROR - \(category)] \(message)")
             
         case ILoggingLogLevel.Unknown:
             NSLog("[INFO - \(category)] \(message)")
