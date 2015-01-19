@@ -2851,11 +2851,11 @@
 					};
 					4EDB4E4D1A028C89008A2C4F = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 5T7H4AR6JF;
+						DevelopmentTeam = 2G3S9L8W64;
 					};
 					4EDB4E631A028C89008A2C4F = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 5T7H4AR6JF;
+						DevelopmentTeam = 2G3S9L8W64;
 						TestTargetID = 4EDB4E4D1A028C89008A2C4F;
 					};
 					4EDB4E751A028C99008A2C4F = {

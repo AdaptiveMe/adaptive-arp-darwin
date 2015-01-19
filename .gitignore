@@ -25,3 +25,5 @@ adaptive-arp-rt/App.Source/.idea/
 adaptive-arp-rt/App.Source/Gruntfile.js
 adaptive-arp-rt/App.Source/package.json
 adaptive-arp-rt/App.Source/README.md
+
+adaptive-arp-rt/App.Source/www/js/Adaptive.js
