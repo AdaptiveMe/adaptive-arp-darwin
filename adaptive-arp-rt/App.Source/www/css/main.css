@@ -212,6 +212,10 @@ p {
     margin-bottom: 5px;
 }
 
+.ui-header .ui-title {
+    text-align: center;
+    margin: 0;
+}
 
 
 

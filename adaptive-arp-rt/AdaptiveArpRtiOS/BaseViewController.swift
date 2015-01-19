@@ -82,16 +82,21 @@ public class BaseViewController : UIViewController {
         }
     }
     
-    public func showInternalBrowser(titleLabel:String, backLabel:String, url : NSURL, showNavBar : Bool, showAnimated : Bool = true) -> Bool {
+    public func showInternalBrowser(titleLabel:String, backLabel:String, url : NSURL, showNavBar : Bool, showAnimated : Bool = true, modal : Bool = false) -> Bool {
         objc_sync_enter(self)
         
         var properties = NavigationProperties(navigationBarHidden: showNavBar, navigationBarTitle: titleLabel, navigationBarBackLabel: backLabel, navigationUrl: url)
         
         dispatch_async(dispatch_get_main_queue()) {
             var browserView : BrowserViewController = BrowserViewController(navigationBarHidden: !properties.navigationBarHidden, navigationBarTitle: properties.navigationBarTitle, navigationBarBackLabel: properties.navigationBarBackLabel, navigationUrl: properties.navigationUrl!)
-            // TODO: Modal vs no Modal
-            //self.navigationController!.pushViewController(browserView, animated: showAnimated)
-            ViewCurrent.getView()?.presentViewController(browserView, animated: true, completion: nil)
+            
+            if modal {
+                // TODO: present the top bar when presenting modal view controllers
+                self.navigationController!.presentViewController(browserView, animated: true, completion: nil)
+            } else {
+                self.navigationController!.pushViewController(browserView, animated: showAnimated)
+            }
+            
         }
         if showAnimated {
             NSThread.sleepForTimeInterval(0.750)

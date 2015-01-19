@@ -868,6 +868,9 @@ public class ContactDelegate : BasePIMDelegate, IContact {
                             
                             var contactPersonalInfo:ContactPersonalInfo = ContactPersonalInfo()
                             
+                            
+                            // TODO: READ SUFFICE
+                            
                             // The title (Dr, Mr, Mrs, Ms) information is not provided by the iOS and OSX API
                             
                             var firstNameValue = ABRecordCopyValue(record, kABPersonFirstNameProperty).toOpaque()

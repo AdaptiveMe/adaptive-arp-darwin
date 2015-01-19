@@ -530,6 +530,8 @@ declare module Adaptive {
         getXMLBridge(): IXML;
         /**
            Return the API version for the given interface.
+
+           @return {String} The version of the API.
         */
         getAPIVersion(): string;
     }
@@ -5561,6 +5563,8 @@ Possible lifecycle States:
         getAPIGroup(): IAdaptiveRPGroup;
         /**
            Return the API version for the given interface.
+
+           @return {String} The version of the API.
         */
         getAPIVersion(): string;
     }
@@ -5816,6 +5820,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         getAPIGroup(): IAdaptiveRPGroup;
         /**
            Return the API version for the given interface.
+
+           @return {String} The version of the API.
         */
         getAPIVersion(): string;
     }
@@ -6380,6 +6386,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         getAPIGroup(): IAdaptiveRPGroup;
         /**
            Return the API version for the given interface.
+
+           @return {String} The version of the API.
         */
         getAPIVersion(): string;
     }
@@ -6404,6 +6412,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         getAPIGroup(): IAdaptiveRPGroup;
         /**
            Return the API version for the given interface.
+
+           @return {String} The version of the API.
         */
         getAPIVersion(): string;
     }
@@ -6428,6 +6438,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         getAPIGroup(): IAdaptiveRPGroup;
         /**
            Return the API version for the given interface.
+
+           @return {String} The version of the API.
         */
         getAPIVersion(): string;
     }
@@ -6452,6 +6464,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         getAPIGroup(): IAdaptiveRPGroup;
         /**
            Return the API version for the given interface.
+
+           @return {String} The version of the API.
         */
         getAPIVersion(): string;
     }
@@ -6476,6 +6490,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         getAPIGroup(): IAdaptiveRPGroup;
         /**
            Return the API version for the given interface.
+
+           @return {String} The version of the API.
         */
         getAPIVersion(): string;
     }
@@ -6500,6 +6516,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         getAPIGroup(): IAdaptiveRPGroup;
         /**
            Return the API version for the given interface.
+
+           @return {String} The version of the API.
         */
         getAPIVersion(): string;
     }
@@ -6524,6 +6542,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         getAPIGroup(): IAdaptiveRPGroup;
         /**
            Return the API version for the given interface.
+
+           @return {String} The version of the API.
         */
         getAPIVersion(): string;
     }
@@ -6548,6 +6568,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         getAPIGroup(): IAdaptiveRPGroup;
         /**
            Return the API version for the given interface.
+
+           @return {String} The version of the API.
         */
         getAPIVersion(): string;
     }
@@ -6572,6 +6594,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         getAPIGroup(): IAdaptiveRPGroup;
         /**
            Return the API version for the given interface.
+
+           @return {String} The version of the API.
         */
         getAPIVersion(): string;
     }
@@ -6596,6 +6620,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         getAPIGroup(): IAdaptiveRPGroup;
         /**
            Return the API version for the given interface.
+
+           @return {String} The version of the API.
         */
         getAPIVersion(): string;
     }
@@ -6620,6 +6646,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         getAPIGroup(): IAdaptiveRPGroup;
         /**
            Return the API version for the given interface.
+
+           @return {String} The version of the API.
         */
         getAPIVersion(): string;
     }
@@ -6644,6 +6672,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         getAPIGroup(): IAdaptiveRPGroup;
         /**
            Return the API version for the given interface.
+
+           @return {String} The version of the API.
         */
         getAPIVersion(): string;
     }
@@ -6668,6 +6698,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         getAPIGroup(): IAdaptiveRPGroup;
         /**
            Return the API version for the given interface.
+
+           @return {String} The version of the API.
         */
         getAPIVersion(): string;
     }
@@ -6692,6 +6724,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         getAPIGroup(): IAdaptiveRPGroup;
         /**
            Return the API version for the given interface.
+
+           @return {String} The version of the API.
         */
         getAPIVersion(): string;
     }
@@ -7202,6 +7236,8 @@ listener and subsequently, the listener will be deactivated and removed from the
         getXMLBridge(): IXML;
         /**
            Return the API version for the given interface.
+
+           @return {String} The version of the API.
         */
         getAPIVersion(): string;
     }

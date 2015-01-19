@@ -1,8 +1,9 @@
 /// <reference path="Adaptive.d.ts" />
-/// <reference path="jquery.d.ts" />
 /// <reference path="jquerymobile.d.ts" />
 
 $(document).ready(function () {
+
+    $('.alert-panel').hide();
 
     // Adaptive Bridges
     var os:Adaptive.IOS = Adaptive.AppRegistryBridge.getInstance().getOSBridge();
@@ -10,10 +11,11 @@ $(document).ready(function () {
     var browser:Adaptive.IBrowser = Adaptive.AppRegistryBridge.getInstance().getBrowserBridge();
     var capabilities:Adaptive.ICapabilities = Adaptive.AppRegistryBridge.getInstance().getCapabilitiesBridge();
     var device:Adaptive.IDevice = Adaptive.AppRegistryBridge.getInstance().getDeviceBridge();
+    var contact:Adaptive.IContact = Adaptive.AppRegistryBridge.getInstance().getContactBridge();
 
     // Adaptive version
     var version:string = Adaptive.AppRegistryBridge.getInstance().getAPIVersion();
-    $('#adaptive-version').html(version);
+    $('.adaptive-version').html(version);
 
     // Synchronous Method (getOSInfo)
     var osInfo:Adaptive.OSInfo = os.getOSInfo();
@@ -28,6 +30,9 @@ $(document).ready(function () {
     $('#open-browser').click(function () {
         browser.openInternalBrowser("http://www.google.es", "Google Page", "Back")
     });
+    $('#open-browser-modal').click(function () {
+        browser.openInternalBrowserModal("http://www.google.es", "Google Page", "Back")
+    });
 
     // Capabilities
     $('#capabilities').html("<b>Has camera support?</b> " + capabilities.hasMediaSupport(Adaptive.ICapabilitiesMedia.Camera));
@@ -41,23 +46,42 @@ $(document).ready(function () {
 
 
     // Asynchronous Method (callback) (getContacts)
-    /**
-     var contactsBridge:Adaptive.IContact = Adaptive.AppRegistryBridge.getInstance().getContactBridge();
+    var callback:Adaptive.IContactResultCallback = new Adaptive.ContactResultCallback(
+        function onError(error:Adaptive.IContactResultCallbackError) {
+            console.error("ERROR: " + error.toString());
+            $('#contacts-error').html("ERROR: " + error.toString()).show();
+        },
+        function onResult(contacts:Adaptive.Contact[]) {
+            //$('#contacts').html(contacts[0].getPersonalInfo().getName()+"");
+            for (var i = 0; i < contacts.length; i++) {
+                //$('#contacts').html($('#contacts').html() + contacts[i].getPersonalInfo().getName()+"<br>");
+                $('#contacts').html($('#contacts').html() + contacts[i].getPersonalInfo().name + " " + contacts[i].getPersonalInfo().getMiddleName() + " " + contacts[i].getPersonalInfo().getLastName() + "<br>");
+            }
+            /*var contact:Adaptive.Contact = null;
+            for (contact in contacts){
 
-     var callback:Adaptive.IContactResultCallback = new Adaptive.ContactResultCallback(
-     function onError(error:Adaptive.IContactResultCallbackError) {
-            console.error("ERROR: " + error.toString)
+                var html = $('#contacts').html();
+
+                //$('#contacts').html(html + contact.getPersonalInfo().getName()+"");
+
+                console.log(Adaptive.Contact.toObject(contact));
+
+                $('#contacts').html(html + Adaptive.Contact.toObject(contact).getPersonalInfo().getName()+"");
+
+                //var pInfo = Adaptive.Contact.toObject(contact).getPersonalInfo();
+
+                //console.log(pInfo)
+
+                //$('#contacts').html($('#contacts').html() + pInfo.getTitle() + " " + pInfo.name + " " + pInfo.getMiddleName() + " " + pInfo.getLastName() + "<br>")
+            }*/
         },
-     function onResult(contacts:Adaptive.Contact[]) {
-            console.log(contacts);
-        },
-     function onWarning(contacts:Adaptive.Contact[], warning:Adaptive.IContactResultCallbackWarning) {
-            console.warn("WARNING: " + warning.toString());
-            console.log(contacts);
+        function onWarning(contacts:Adaptive.Contact[], warning:Adaptive.IContactResultCallbackWarning) {
+            console.error("WARNING: " + warning.toString());
+            $('#contacts-warning').html("WARNING: " + warning.toString()).show();
+            //$('#contacts').html(contacts+"")
         }
-     );
-     contactsBridge.getContactsForFields(callback, [Adaptive.IContactFieldGroup.PERSONAL_INFO]);
-     **/
+    );
+    contact.getContactsForFields(callback, [Adaptive.IContactFieldGroup.PERSONAL_INFO]);
 
 
     // Asynchronous Method (listener) (Lifecycle)
@@ -89,4 +113,7 @@ $(document).ready(function () {
         Adaptive.AppRegistryBridge.getInstance().getLoggingBridge().log_level_category_message(level, "APPLICATION", message);
     }
 
+    Adaptive.Contact.toObject(JSON.parse("{ \"contactAddresses\": null, \"contactEmails\": null, \"contactId\": \"6\", \"contactPhones\": null, \"contactSocials\": null, \"contactTags\": null, \"contactWebsites\": null, \"personalInfo\": { \"lastName\": \"Taylor\", \"middleName\": \"\", \"name\": \"David\", \"title\": null }, \"professionalInfo\": null }"))
+
 });
+

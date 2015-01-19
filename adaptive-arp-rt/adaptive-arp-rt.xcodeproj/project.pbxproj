@@ -1443,6 +1443,8 @@
 		C3D7304D1A49C4E300D10B30 /* GeolocationDelegateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43B3611A48228700E61B83 /* GeolocationDelegateHelper.swift */; };
 		C3D7304E1A49C4E300D10B30 /* I18NParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43B3621A48228700E61B83 /* I18NParser.swift */; };
 		C3D7304F1A49C4E300D10B30 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43B3631A48228700E61B83 /* Utils.swift */; };
+		C3FD2AB31A67F22500D87FD1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8FFC5B1A483D0800F0A8AE /* BaseViewController.swift */; };
+		C3FD2ABC1A67F22500D87FD1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8FFC5B1A483D0800F0A8AE /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -3983,6 +3985,7 @@
 				4E43B2121A48211200E61B83 /* INotification.swift in Sources */,
 				4E43B17C1A48211200E61B83 /* IContact.swift in Sources */,
 				4E43B3361A48212D00E61B83 /* RuntimeDelegate.swift in Sources */,
+				C3FD2ABC1A67F22500D87FD1 /* BaseViewController.swift in Sources */,
 				4E43B2B01A48211200E61B83 /* ServiceResponse.swift in Sources */,
 				4E43B1EE1A48211200E61B83 /* IMail.swift in Sources */,
 				4E43B19C1A48211200E61B83 /* IDatabaseTableResultCallbackWarning.swift in Sources */,
@@ -4203,6 +4206,7 @@
 				C3D72EFE1A49C47800D10B30 /* TimerBridge.swift in Sources */,
 				C3D72E0B1A49C47800D10B30 /* DatabaseRow.swift in Sources */,
 				C3D72EBE1A49C47800D10B30 /* IServiceResultCallbackWarning.swift in Sources */,
+				C3FD2AB31A67F22500D87FD1 /* BaseViewController.swift in Sources */,
 				C3D72ED01A49C47800D10B30 /* LifecycleListenerImpl.swift in Sources */,
 				C3D72EAA1A49C47800D10B30 /* InternalStorageBridge.swift in Sources */,
 				C3D72DDF1A49C47800D10B30 /* BaseListenerImpl.swift in Sources */,
