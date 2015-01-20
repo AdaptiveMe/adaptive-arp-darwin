@@ -42,7 +42,7 @@ public class AppResourceManager {
     
     var realm : RLMRealm!
     let logger:ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
-    let logCategory = "AppResourceManager"
+    let logCategory = "AppResourceManager" 
     
     /// Singleton instance
     public class var sharedInstance : AppResourceManager {
