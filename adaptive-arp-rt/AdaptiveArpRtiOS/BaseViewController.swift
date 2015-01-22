@@ -143,4 +143,21 @@ public class BaseViewController : UIViewController {
             // TODO: Generate Media player view controller
         }
     }
+    
+    override public func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+        var text=""
+        switch UIDevice.currentDevice().orientation{
+        case .Portrait:
+            text="Portrait"
+        case .PortraitUpsideDown:
+            text="PortraitUpsideDown"
+        case .LandscapeLeft:
+            text="LandscapeLeft"
+        case .LandscapeRight:
+            text="LandscapeRight"
+        default:
+            text="Another"
+        }
+        NSLog("You have moved: \(text)")
+    }
 }
