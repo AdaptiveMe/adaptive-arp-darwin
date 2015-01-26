@@ -30,6 +30,7 @@
 */
 
 import UIKit
+import AVKit
 
 public class BaseViewController : UIViewController {
     
@@ -106,17 +107,13 @@ public class BaseViewController : UIViewController {
         return true
     }
     
-    public func showInternalMedia(titleLabel:String, backLabel:String, url : NSURL, showNavBar : Bool, showAnimated : Bool = true) -> Bool {
+    public func showInternalMedia(url : NSURL, showAnimated : Bool = true) -> Bool {
         objc_sync_enter(self)
-        
-        var properties = NavigationProperties(navigationBarHidden: showNavBar, navigationBarTitle: titleLabel, navigationBarBackLabel: backLabel, navigationUrl: url)
         
         dispatch_async(dispatch_get_main_queue()) {
             
-            // TODO: Generate Media player view controller
-            
-            // var browserView : BrowserViewController = BrowserViewController(navigationBarHidden: !properties.navigationBarHidden, navigationBarTitle: properties.navigationBarTitle, navigationBarBackLabel: properties.navigationBarBackLabel, navigationUrl: properties.navigationUrl!)
-            // self.navigationController!.pushViewController(browserView, animated: showAnimated)
+            var mediaView : MediaViewController = MediaViewController(url: url)
+            self.navigationController!.presentViewController(mediaView, animated: showAnimated, completion: nil)
         }
         if showAnimated {
             NSThread.sleepForTimeInterval(0.750)
@@ -138,26 +135,10 @@ public class BaseViewController : UIViewController {
             browserView.navigationBarTitle = properties.navigationBarTitle
             browserView.navigationUrl = properties.navigationUrl
             
-        } else if (segue.identifier == "showMedia" /*&& segue.destinationViewController is BrowserViewController*/) {
+        } else if (segue.identifier == "showMedia" && segue.destinationViewController is MediaViewController) {
             
-            // TODO: Generate Media player view controller
+            var mediaView : MediaViewController = segue.destinationViewController as MediaViewController
+            ViewCurrent.setView(mediaView)
         }
-    }
-    
-    override public func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
-        var text=""
-        switch UIDevice.currentDevice().orientation{
-        case .Portrait:
-            text="Portrait"
-        case .PortraitUpsideDown:
-            text="PortraitUpsideDown"
-        case .LandscapeLeft:
-            text="LandscapeLeft"
-        case .LandscapeRight:
-            text="LandscapeRight"
-        default:
-            text="Another"
-        }
-        NSLog("You have moved: \(text)")
     }
 }

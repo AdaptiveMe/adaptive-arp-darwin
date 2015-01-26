@@ -75,7 +75,7 @@ public class VideoDelegate : BaseMediaDelegate, IVideo {
             
             if checkURl(url) {
                 if (BaseViewController.ViewCurrent.getView() != nil) {
-                    (BaseViewController.ViewCurrent.getView()! as BaseViewController).showInternalMedia("", backLabel: "", url: NSURL(string: url)!, showNavBar: false, showAnimated: true)
+                    (BaseViewController.ViewCurrent.getView()! as BaseViewController).showInternalMedia(NSURL(string: url)!, showAnimated: true)
                 } else {
                     logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The current View Controller has no presented view")
                 }
