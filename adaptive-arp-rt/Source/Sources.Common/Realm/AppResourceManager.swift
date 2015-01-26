@@ -171,7 +171,7 @@ public class AppResourceManager {
     }
     
     public func retrieveWebResource(id : String) -> ResourceData? {
-        logger.log(ILoggingLogLevel.DEBUG, category: logCategory, message: "retrieveWebResource('\(id)')")
+        //logger.log(ILoggingLogLevel.DEBUG, category: logCategory, message: "retrieveWebResource('\(id)')")
         var resourceData : ResourceData? = retrieveResource(id, rootPath: "www", secure: true)
         if resourceData == nil {
             resourceData = retrieveResource(id, rootPath: "www", secure: false)
