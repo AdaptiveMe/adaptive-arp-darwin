@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<io-config>
+    
+    <!-- List of registered eternal services you want to use in your application. You can use RegExp to match some patters -->
+    
+    <services>
+        <service name="google">
+            <end-point url="https?\:\/\/(www\.)?google(\.com)?">
+                <path path="/mail">
+                    <method method="GET" />
+                    <method method="POST" />
+                </path>
+                <path path="/search">
+                    <method method="GET" />
+                </path>
+            </end-point>
+        </service>
+    </services>
+    
+    <!-- List of external resources (another domains) you want to load in your application (jQuery, external js or css, etc...)
+     You can use RegExp to match some patters -->
+    
+    <resources>
+        <!-- <resource url="http\:\/\/html5demos\.com\/assets\/(.*)+\.mp4" />
+        <resource url="http\:\/\/html5demos\.com\/(.)+\.mp4" /> -->
+    </resources>
+</io-config>

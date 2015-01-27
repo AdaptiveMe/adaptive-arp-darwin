@@ -44,11 +44,23 @@ public struct Utils {
     */
     public static func validateUrl (stringURL : NSString) -> Bool {
         
-        var urlRegEx = "(http|https)://((\\w)*|([0-9]*)|([-|_])*)+([\\.|/]((\\w)*|([0-9]*)|([-|_])*))+"
-        let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray:[urlRegEx])
-        var urlTest = NSPredicate.predicateWithSubstitutionVariables(predicate)
-        
-        return predicate.evaluateWithObject(stringURL)
+        return validateRegexp(stringURL, regexp: "(http|https)://((\\w)*|([0-9]*)|([-|_])*)+([\\.|/]((\\w)*|([0-9]*)|([-|_])*))+")
+    }
+    
+    /**
+    Method that validates a regular expression
+    
+    :param: string String to evaluate
+    :param: regexp Regular Expression
+    
+    :returns: Value of the evaluation
+    */
+    public static func validateRegexp (string:String, regexp:String) -> Bool {
+        if Regex(regexp).test(string){
+            return true
+        } else {
+            return false
+        }
     }
     
     /**
@@ -60,17 +72,28 @@ public struct Utils {
     */
     public static func isPhoneNumberCorrect(phoneNumber: NSString) -> Bool {
         
-        var urlRegEx = "((\\+[1-9]{3,4}|0[1-9]{4}|00[1-9]{3})\\-?)?\\d{8,20}"
-        let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray:[urlRegEx])
-        var urlTest = NSPredicate.predicateWithSubstitutionVariables(predicate)
-        
-        return predicate.evaluateWithObject(phoneNumber)
-        
+        return validateRegexp(phoneNumber, regexp: "((\\+[1-9]{3,4}|0[1-9]{4}|00[1-9]{3})\\-?)?\\d{8,20}")
     }
     
     public static func normalizeString(m: String) -> String {
         
         return m.lowercaseString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+    }
+}
+
+class Regex {
+    let internalExpression: NSRegularExpression
+    let pattern: String
+    
+    init(_ pattern: String) {
+        self.pattern = pattern
+        var error: NSError?
+        self.internalExpression = NSRegularExpression(pattern: pattern, options: .CaseInsensitive, error: &error)!
+    }
+    
+    func test(input: String) -> Bool {
+        let matches = self.internalExpression.matchesInString(input, options: nil, range:NSMakeRange(0, countElements(input)))
+        return matches.count > 0
     }
 }
 
