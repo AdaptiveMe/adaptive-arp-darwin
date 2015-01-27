@@ -804,6 +804,7 @@
 		C307456F1A6664B300796509 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307456D1A6664B300796509 /* APIResponse.swift */; };
 		C30745701A6664B300796509 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307456D1A6664B300796509 /* APIResponse.swift */; };
 		C30745711A6664B300796509 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307456D1A6664B300796509 /* APIResponse.swift */; };
+		C3138D6B1A76371B0081DA12 /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3138D6A1A76371B0081DA12 /* MediaViewController.swift */; };
 		C39ED7241A4AA9730081C13F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8FFC5B1A483D0800F0A8AE /* BaseViewController.swift */; };
 		C39ED7251A4AA9800081C13F /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8FFC5F1A483D7F00F0A8AE /* BrowserViewController.swift */; };
 		C39ED7261A4AA9800081C13F /* NavigationProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8FFC5D1A483D4C00F0A8AE /* NavigationProperties.swift */; };
@@ -2034,6 +2035,7 @@
 		4EDB4E891A028C9A008A2C4F /* AdaptiveArpRtOSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdaptiveArpRtOSXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EDB4E8E1A028C9A008A2C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C307456D1A6664B300796509 /* APIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
+		C3138D6A1A76371B0081DA12 /* MediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
 		C34E61E41A0A4A240039A104 /* ContactTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTest.swift; sourceTree = "<group>"; };
 		C38C36831A13A44600BC26CE /* GlobalizationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalizationTest.swift; sourceTree = "<group>"; };
 		C39ED72F1A4AE37F0081C13F /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -2628,13 +2630,14 @@
 		4EDB4E4F1A028C89008A2C4F /* AdaptiveArpRtiOS */ = {
 			isa = PBXGroup;
 			children = (
+				4E3535321A1D2B3100A9ACC7 /* LaunchScreen@2x.png */,
 				4EDB4E521A028C89008A2C4F /* AppDelegate.swift */,
-				4EDB4E561A028C89008A2C4F /* ViewController.swift */,
 				4E8FFC5B1A483D0800F0A8AE /* BaseViewController.swift */,
 				4E8FFC5F1A483D7F00F0A8AE /* BrowserViewController.swift */,
+				C3138D6A1A76371B0081DA12 /* MediaViewController.swift */,
 				4E8FFC5D1A483D4C00F0A8AE /* NavigationProperties.swift */,
+				4EDB4E561A028C89008A2C4F /* ViewController.swift */,
 				4EDB4E5B1A028C89008A2C4F /* Images.xcassets */,
-				4E3535321A1D2B3100A9ACC7 /* LaunchScreen@2x.png */,
 				4EDB4E541A028C89008A2C4F /* AdaptiveArpRtiOS.xcdatamodeld */,
 				4EDB4E5D1A028C89008A2C4F /* LaunchScreen.xib */,
 				4EDB4E581A028C89008A2C4F /* Main.storyboard */,
@@ -2851,7 +2854,7 @@
 					};
 					4EDB4E4D1A028C89008A2C4F = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 2G3S9L8W64;
+						DevelopmentTeam = 5T7H4AR6JF;
 					};
 					4EDB4E631A028C89008A2C4F = {
 						CreatedOnToolsVersion = 6.1;
@@ -3062,6 +3065,7 @@
 				4E43B31B1A48212D00E61B83 /* ContactDelegate.swift in Sources */,
 				4E43B2731A48211200E61B83 /* MessagingBridge.swift in Sources */,
 				4E43B19F1A48211200E61B83 /* IDesktop.swift in Sources */,
+				C3138D6B1A76371B0081DA12 /* MediaViewController.swift in Sources */,
 				4E43B0831A48211200E61B83 /* BaseNotificationBridge.swift in Sources */,
 				4E43B1DF1A48211200E61B83 /* ILifecycleListenerError.swift in Sources */,
 				4E43B0BD1A48211200E61B83 /* ContactPhotoResultCallbackImpl.swift in Sources */,
