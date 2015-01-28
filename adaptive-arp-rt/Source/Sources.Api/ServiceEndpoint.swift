@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.3
+    * @version v2.0.4
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -48,9 +48,9 @@ public class ServiceEndpoint : APIBean {
     */
     var host : String?
     /**
-       The remote service path (to be added to the host and port url).
+       The remote service paths (to be added to the host and port url).
     */
-    var path : String?
+    var paths : [ServicePath]?
     /**
        The remote service accessible port.
     */
@@ -77,16 +77,16 @@ public class ServiceEndpoint : APIBean {
        Constructor with parameters
 
        @param host   Remote service host
-       @param path   Remote service Path
+       @param paths  Remote service Paths
        @param port   Remote service Port
        @param proxy  Proxy url "http://IP_ADDRESS:PORT_NUMBER"
        @param scheme Remote service scheme
        @since ARP1.0
     */
-    public init(host: String, path: String, port: Int, proxy: String, scheme: String) {
+    public init(host: String, paths: [ServicePath], port: Int, proxy: String, scheme: String) {
         super.init()
         self.host = host
-        self.path = path
+        self.paths = paths
         self.port = port
         self.proxy = proxy
         self.scheme = scheme
@@ -113,23 +113,23 @@ public class ServiceEndpoint : APIBean {
     }
 
     /**
-       Returns the Remote service Path
+       Returns the Remote service Paths
 
-       @return Remote service Path
+       @return Remote service Paths
        @since ARP1.0
     */
-    public func getPath() -> String? {
-        return self.path
+    public func getPaths() -> [ServicePath]? {
+        return self.paths
     }
 
     /**
-       Set the Remote service Path
+       Set the Remote service Paths
 
-       @param path Remote service Path
+       @param paths Remote service Paths
        @since ARP1.0
     */
-    public func setPath(path: String) {
-        self.path = path
+    public func setPaths(paths: [ServicePath]) {
+        self.paths = paths
     }
 
     /**
@@ -213,9 +213,13 @@ public class ServiceEndpoint : APIBean {
                 }
             }
 
-            if let value : AnyObject = dict.objectForKey("path") {
+            if let value : AnyObject = dict.objectForKey("paths") {
                 if "\(value)" as NSString != "<null>" {
-                    resultObject.path = (value as String)
+                    var paths : [ServicePath] = [ServicePath]()
+                    for (var i = 0;i < (value as NSArray).count ; i++) {
+                        paths.append(ServicePath.Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))
+                    }
+                    resultObject.paths = paths
                 }
             }
 
@@ -247,7 +251,22 @@ public class ServiceEndpoint : APIBean {
 
             // Fields.
             object.host != nil ? jsonString.appendString("\"host\": \"\(JSONUtil.escapeString(object.host!))\", ") : jsonString.appendString("\"host\": null, ")
-            object.path != nil ? jsonString.appendString("\"path\": \"\(JSONUtil.escapeString(object.path!))\", ") : jsonString.appendString("\"path\": null, ")
+            if (object.paths != nil) {
+                // Start array of objects.
+                jsonString.appendString("\"paths\": [")
+
+                for var i = 0; i < object.paths!.count; i++ {
+                    jsonString.appendString(ServicePath.Serializer.toJSON(object.paths![i]))
+                    if (i < object.paths!.count-1) {
+                        jsonString.appendString(", ");
+                    }
+                }
+
+                // End array of objects.
+                jsonString.appendString("], ");
+            } else {
+                jsonString.appendString("\"paths\": null, ")
+            }
             object.port != nil ? jsonString.appendString("\"port\": \(object.port!), ") : jsonString.appendString("\"port\": null, ")
             object.proxy != nil ? jsonString.appendString("\"proxy\": \"\(JSONUtil.escapeString(object.proxy!))\", ") : jsonString.appendString("\"proxy\": null, ")
             object.scheme != nil ? jsonString.appendString("\"scheme\": \"\(JSONUtil.escapeString(object.scheme!))\"") : jsonString.appendString("\"scheme\": null")

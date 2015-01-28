@@ -35,21 +35,25 @@ Release:
 import Foundation
 
 /**
-   Structure representing a row for a data table.
+   Structure representing a service path for one endpoint
 
-   @author Ferran Vila Conesa
+   @author fnva
    @since ARP1.0
    @version 1.0
 */
-public class DatabaseRow : APIBean {
+public class ServicePath : NSObject {
 
     /**
-       The values of the row.
+       The methods for calling a path
     */
-    var values : [String]?
+    var methods : [IServiceMethod]?
+    /**
+       The path for the endpoint
+    */
+    var path : String?
 
     /**
-       Default constructor
+       Default Constructor
 
        @since ARP1.0
     */
@@ -58,34 +62,51 @@ public class DatabaseRow : APIBean {
     }
 
     /**
-       Constructor for implementation using.
+       Constructor with parameters
 
-       @param values The values of the row
-       @since ARP1.0
+       @param path    The path for the endpoint
+       @param methods The methods for calling a path
     */
-    public init(values: [String]) {
+    public init(path: String, methods: [IServiceMethod]) {
         super.init()
-        self.values = values
+        self.path = path
+        self.methods = methods
     }
 
     /**
-       Returns the values of the row.
+       Endpoint's path methods setter
 
-       @return The values of the row.
-       @since ARP1.0
+       @return Endpoint's path methods
     */
-    public func getValues() -> [String]? {
-        return self.values
+    public func getMethods() -> [IServiceMethod]? {
+        return self.methods
     }
 
     /**
-       Sets the values of the row.
+       Endpoint's path methods setter
 
-       @param values The values of the row.
-       @since ARP1.0
+       @param methods Endpoint's path methods
     */
-    public func setValues(values: [String]) {
-        self.values = values
+    public func setMethods(methods: [IServiceMethod]) {
+        self.methods = methods
+    }
+
+    /**
+       Endpoint's Path Getter
+
+       @return Endpoint's Path
+    */
+    public func getPath() -> String? {
+        return self.path
+    }
+
+    /**
+       Endpoint's path setter
+
+       @param path Endpoint's path
+    */
+    public func setPath(path: String) {
+        self.path = path
     }
 
 
@@ -93,51 +114,58 @@ public class DatabaseRow : APIBean {
        JSON Serialization and deserialization support.
     */
     struct Serializer {
-        static func fromJSON(json : String) -> DatabaseRow {
+        static func fromJSON(json : String) -> ServicePath {
             var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
             var jsonError: NSError?
             let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
             return fromDictionary(dict)
         }
 
-        static func fromDictionary(dict : NSDictionary) -> DatabaseRow {
-            var resultObject : DatabaseRow = DatabaseRow()
+        static func fromDictionary(dict : NSDictionary) -> ServicePath {
+            var resultObject : ServicePath = ServicePath()
 
-            if let value : AnyObject = dict.objectForKey("values") {
+            if let value : AnyObject = dict.objectForKey("methods") {
                 if "\(value)" as NSString != "<null>" {
-                    var values : [String] = [String]()
+                    var methods : [IServiceMethod] = [IServiceMethod]()
                     for (var i = 0;i < (value as NSArray).count ; i++) {
-                        values.append((value as NSArray)[i] as String)
+                        methods.append(IServiceMethod.toEnum(((value as NSDictionary)["value"]) as NSString)
                     }
-                    resultObject.values = values
+                    resultObject.methods = methods
+                }
+            }
+
+            if let value : AnyObject = dict.objectForKey("path") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.path = (value as String)
                 }
             }
 
             return resultObject
         }
 
-        static func toJSON(object: DatabaseRow) -> String {
+        static func toJSON(object: ServicePath) -> String {
             var jsonString : NSMutableString = NSMutableString()
             // Start Object to JSON
             jsonString.appendString("{ ")
 
             // Fields.
-            if (object.values != nil) {
+            if (object.methods != nil) {
                 // Start array of objects.
-                jsonString.appendString("\"values\": [")
+                jsonString.appendString("\"methods\": [")
 
-                for var i = 0; i < object.values!.count; i++ {
-                    jsonString.appendString("\"\(JSONUtil.escapeString(object.values![i]))\"")
-                    if (i < object.values!.count-1) {
+                for var i = 0; i < object.methods!.count; i++ {
+                    jsonString.appendString("{ "value": \"\(object.methods![i].toString())\" }")
+                    if (i < object.methods!.count-1) {
                         jsonString.appendString(", ");
                     }
                 }
 
                 // End array of objects.
-                jsonString.appendString("]");
+                jsonString.appendString("], ");
             } else {
-                jsonString.appendString("\"values\": null")
+                jsonString.appendString("\"methods\": null, ")
             }
+            object.path != nil ? jsonString.appendString("\"path\": \"\(JSONUtil.escapeString(object.path!))\"") : jsonString.appendString("\"path\": null")
 
             // End Object to JSON
             jsonString.appendString(" }")

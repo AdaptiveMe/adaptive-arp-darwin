@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.3
+    * @version v2.0.4
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -63,7 +63,7 @@ public class BaseUtilDelegate : NSObject, IBaseUtil {
        Return the API version for the given interface.
     */
     public final func getAPIVersion() -> String? {
-        return "v2.0.3"
+        return "v2.0.4"
     }
 
 }
