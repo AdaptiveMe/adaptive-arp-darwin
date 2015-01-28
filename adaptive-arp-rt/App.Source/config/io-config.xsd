@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="io-config">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="services">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="service" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="end-point" maxOccurs="unbounded" minOccurs="1">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="path" maxOccurs="unbounded" minOccurs="1">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="method" maxOccurs="unbounded" minOccurs="1">
+                                                                    <xs:complexType>
+                                                                        <xs:simpleContent>
+                                                                            <xs:extension base="xs:string">
+                                                                                <xs:attribute type="method" name="method" use="required"/>
+                                                                            </xs:extension>
+                                                                        </xs:simpleContent>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                            <xs:attribute type="xs:string" name="path" use="required"/>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute type="xs:string" name="host" use="required"/>
+                                                <xs:attribute type="xs:integer" name="port" use="optional"/>
+                                                <xs:attribute type="url" name="proxy" use="optional"/>
+                                                <xs:attribute type="schema" name="scheme" use="optional"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:string" name="name" use="required"/>
+                                    <xs:attribute type="servicetype" name="type" use="optional"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="resources">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="resource" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute type="xs:string" name="url" use="required"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:simpleType name="servicetype">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ServiceTypeAmfSerialization" />
+            <xs:enumeration value="ServiceTypeGwtRpc" />
+            <xs:enumeration value="ServiceTypeOctetBinary" />
+            <xs:enumeration value="ServiceTypeRemotingSerialization" />
+            <xs:enumeration value="ServiceTypeRestJson" />
+            <xs:enumeration value="ServiceTypeRestXml" />
+            <xs:enumeration value="ServiceTypeSoapJson" />
+            <xs:enumeration value="ServiceTypeSoapXml" />
+            <xs:enumeration value="ServiceTypeXmlRpcJson" />
+            <xs:enumeration value="ServiceTypeXmlRpcXml" />
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="schema">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="http" />
+            <xs:enumeration value="https" />
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="url">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(https?://)?[-\w.]+(:\d{2,5})?(/([\w/_.]*)?)?" />
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="method">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Get" />
+            <xs:enumeration value="Post" />
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
