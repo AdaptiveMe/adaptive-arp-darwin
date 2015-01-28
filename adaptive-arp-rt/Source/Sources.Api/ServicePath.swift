@@ -128,7 +128,7 @@ public class ServicePath : NSObject {
                 if "\(value)" as NSString != "<null>" {
                     var methods : [IServiceMethod] = [IServiceMethod]()
                     for (var i = 0;i < (value as NSArray).count ; i++) {
-                        methods.append(IServiceMethod.toEnum(((value as NSDictionary)["value"]) as NSString)
+                        methods.append(IServiceMethod.toEnum(((value as NSDictionary)["value"]) as NSString))
                     }
                     resultObject.methods = methods
                 }
@@ -154,7 +154,7 @@ public class ServicePath : NSObject {
                 jsonString.appendString("\"methods\": [")
 
                 for var i = 0; i < object.methods!.count; i++ {
-                    jsonString.appendString("{ "value": \"\(object.methods![i].toString())\" }")
+                    jsonString.appendString("{ \"value\": \"\(object.methods![i].toString())\" }")
                     if (i < object.methods!.count-1) {
                         jsonString.appendString(", ");
                     }
