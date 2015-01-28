@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.3
+    * @version v2.0.4
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -44,10 +44,6 @@ import Foundation
 public class Service : APIBean {
 
     /**
-       The method used
-    */
-    var method : IServiceMethod?
-    /**
        The type of the service
     */
     var type : IServiceType?
@@ -58,7 +54,7 @@ public class Service : APIBean {
     /**
        Endpoint of the service
     */
-    var serviceEndpoint : ServiceEndpoint?
+    var serviceEndpoints : [ServiceEndpoint]?
 
     /**
        Default constructor
@@ -72,38 +68,16 @@ public class Service : APIBean {
     /**
        Constructor used by the implementation
 
-       @param serviceEndpoint Endpoint of the service
-       @param name            Name of the service
-       @param method          Method of the service
-       @param type            Type of the service
+       @param serviceEndpoints Endpoints of the service
+       @param name             Name of the service
+       @param type             Type of the service
        @since ARP1.0
     */
-    public init(serviceEndpoint: ServiceEndpoint, name: String, method: IServiceMethod, type: IServiceType) {
+    public init(serviceEndpoints: [ServiceEndpoint], name: String, type: IServiceType) {
         super.init()
-        self.serviceEndpoint = serviceEndpoint
+        self.serviceEndpoints = serviceEndpoints
         self.name = name
-        self.method = method
         self.type = type
-    }
-
-    /**
-       Returns the method
-
-       @return method
-       @since ARP1.0
-    */
-    public func getMethod() -> IServiceMethod? {
-        return self.method
-    }
-
-    /**
-       Set the method
-
-       @param method Method of the service
-       @since ARP1.0
-    */
-    public func setMethod(method: IServiceMethod) {
-        self.method = method
     }
 
     /**
@@ -147,23 +121,23 @@ public class Service : APIBean {
     }
 
     /**
-       Returns the serviceEndpoint
+       Returns the serviceEndpoints
 
-       @return serviceEndpoint
+       @return serviceEndpoints
        @since ARP1.0
     */
-    public func getServiceEndpoint() -> ServiceEndpoint? {
-        return self.serviceEndpoint
+    public func getServiceEndpoints() -> [ServiceEndpoint]? {
+        return self.serviceEndpoints
     }
 
     /**
-       Set the serviceEndpoint
+       Set the serviceEndpoints
 
-       @param serviceEndpoint Endpoint of the service
+       @param serviceEndpoints Endpoint of the service
        @since ARP1.0
     */
-    public func setServiceEndpoint(serviceEndpoint: ServiceEndpoint) {
-        self.serviceEndpoint = serviceEndpoint
+    public func setServiceEndpoints(serviceEndpoints: [ServiceEndpoint]) {
+        self.serviceEndpoints = serviceEndpoints
     }
 
 
@@ -181,21 +155,19 @@ public class Service : APIBean {
         static func fromDictionary(dict : NSDictionary) -> Service {
             var resultObject : Service = Service()
 
-            if let value : AnyObject = dict.objectForKey("method") {
-                if "\(value)" as NSString != "<null>" {
-                    resultObject.method = IServiceMethod.toEnum(((value as NSDictionary)["value"]) as NSString)
-                }
-            }
-
             if let value : AnyObject = dict.objectForKey("name") {
                 if "\(value)" as NSString != "<null>" {
                     resultObject.name = (value as String)
                 }
             }
 
-            if let value : AnyObject = dict.objectForKey("serviceEndpoint") {
+            if let value : AnyObject = dict.objectForKey("serviceEndpoints") {
                 if "\(value)" as NSString != "<null>" {
-                    resultObject.serviceEndpoint = ServiceEndpoint.Serializer.fromDictionary(value as NSDictionary)
+                    var serviceEndpoints : [ServiceEndpoint] = [ServiceEndpoint]()
+                    for (var i = 0;i < (value as NSArray).count ; i++) {
+                        serviceEndpoints.append(ServiceEndpoint.Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))
+                    }
+                    resultObject.serviceEndpoints = serviceEndpoints
                 }
             }
 
@@ -214,9 +186,23 @@ public class Service : APIBean {
             jsonString.appendString("{ ")
 
             // Fields.
-            object.method != nil ? jsonString.appendString("\"method\": { \"value\": \"\(object.method!.toString())\"}, ") : jsonString.appendString("\"method\": null, ")
             object.name != nil ? jsonString.appendString("\"name\": \"\(JSONUtil.escapeString(object.name!))\", ") : jsonString.appendString("\"name\": null, ")
-            object.serviceEndpoint != nil ? jsonString.appendString("\"serviceEndpoint\": \(ServiceEndpoint.Serializer.toJSON(object.serviceEndpoint!)), ") : jsonString.appendString("\"serviceEndpoint\": null, ")
+            if (object.serviceEndpoints != nil) {
+                // Start array of objects.
+                jsonString.appendString("\"serviceEndpoints\": [")
+
+                for var i = 0; i < object.serviceEndpoints!.count; i++ {
+                    jsonString.appendString(ServiceEndpoint.Serializer.toJSON(object.serviceEndpoints![i]))
+                    if (i < object.serviceEndpoints!.count-1) {
+                        jsonString.appendString(", ");
+                    }
+                }
+
+                // End array of objects.
+                jsonString.appendString("], ");
+            } else {
+                jsonString.appendString("\"serviceEndpoints\": null, ")
+            }
             object.type != nil ? jsonString.appendString("\"type\": { \"value\": \"\(object.type!.toString())\"}") : jsonString.appendString("\"type\": null")
 
             // End Object to JSON

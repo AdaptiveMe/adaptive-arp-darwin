@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.3
+    * @version v2.0.4
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -85,7 +85,7 @@ public class BarcodeBridge : BaseReaderBridge, IBarcode, APIBridge {
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "BarcodeBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.3."
+                responseMessage = "BarcodeBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.4."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)
