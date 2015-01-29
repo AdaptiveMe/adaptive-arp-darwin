@@ -61,7 +61,7 @@ public class ServiceSessionAttribute : KeyValue {
        @since v2.0.6
     */
     public override init(keyName: String, keyData: String) {
-        super.init(keyName: keyNamekeyData: keyData)
+        super.init(keyName: keyName, keyData: keyData)
     }
 
 

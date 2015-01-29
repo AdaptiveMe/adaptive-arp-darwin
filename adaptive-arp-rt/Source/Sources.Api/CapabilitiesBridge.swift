@@ -408,7 +408,7 @@ device.
                     response1JSONArray.appendString(" ]}")
                     responseJSON = response1JSONArray as String
                 } else {
-                    responseJSON = "{ "value": "Unknown" }"
+                    responseJSON = "{ \"value\": \"Unknown\" }"
                 }
             case "hasButtonSupport":
                 var type2 : ICapabilitiesButton? = ICapabilitiesButton.toEnum(JSONUtil.dictionifyJSON(request.getParameters()![0])["value"] as String!)
