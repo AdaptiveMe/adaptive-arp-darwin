@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.8
+    * @version v2.1.0
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -150,7 +150,7 @@ public class RuntimeBridge : BaseSystemBridge, IRuntime, APIBridge {
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "RuntimeBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.8."
+                responseMessage = "RuntimeBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.1.0."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)
