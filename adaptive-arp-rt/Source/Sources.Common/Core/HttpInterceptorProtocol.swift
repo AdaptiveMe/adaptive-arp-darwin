@@ -205,7 +205,7 @@ public class HttpInterceptorProtocol : NSURLProtocol {
                 
                 // TODO: Validate services, end-points, paths and methods...
                 
-                if IOParser.sharedInstance.validateResource(url) {
+                if IOParser.sharedInstance.validateResource(url) && method == "GET" {
                     
                     // VALIDATE RESOURCES
                     

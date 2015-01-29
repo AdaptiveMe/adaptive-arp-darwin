@@ -11,23 +11,23 @@ permissions and limitations under the License.
 
 Original author:
 
-    * Carlos Lozano Diez
-            <http://github.com/carloslozano>
-            <http://twitter.com/adaptivecoder>
-            <mailto:carlos@adaptive.me>
+* Carlos Lozano Diez
+<http://github.com/carloslozano>
+<http://twitter.com/adaptivecoder>
+<mailto:carlos@adaptive.me>
 
 Contributors:
 
-    * Ferran Vila Conesa
-             <http://github.com/fnva>
-             <http://twitter.com/ferran_vila>
-             <mailto:ferran.vila.conesa@gmail.com>
+* Ferran Vila Conesa
+<http://github.com/fnva>
+<http://twitter.com/ferran_vila>
+<mailto:ferran.vila.conesa@gmail.com>
 
-    * See source code files for contributors.
+* See source code files for contributors.
 
 Release:
 
-    * @version v2.0.2
+* @version v2.0.2
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -35,8 +35,8 @@ Release:
 import Foundation
 
 /**
-   Interface for Managing the Services operations
-   Auto-generated implementation of IService specification.
+Interface for Managing the Services operations
+Auto-generated implementation of IService specification.
 */
 public class ServiceDelegate : BaseCommunicationDelegate, IService {
     
@@ -49,201 +49,279 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
     
     /// Queue for the services calls
     let q : dispatch_queue_t = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-
+    
     /**
-       Default Constructor.
+    Default Constructor.
     */
     public override init() {
         super.init()
         
         services = [Service]()
     }
-
+    
     /**
-       Get a reference to a registered service by name.
-
-       @param serviceName Name of service.
-       @return A service, if registered, or null of the service does not exist.
-       @since ARP1.0
+    Get a reference to a registered service by name.
+    
+    @param serviceName Name of service.
+    @return A service, if registered, or null of the service does not exist.
+    @since ARP1.0
     */
-    public func getService(serviceName : String) -> Service? {
+    /*public func getService(serviceName : String) -> Service? {
+    
+    for service in services {
+    
+    if(service.getName() == serviceName) {
+    
+    logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Returning \(service.getName()!) from the service pull")
+    return service
+    }
+    }
+    
+    logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "\(serviceName) is not founded on the pull")
+    
+    return nil
+    }*/
+    
+    /**
+    Request async a service for an Url
+    
+    @param serviceRequest Service Request to invoke
+    @param service        Service to call
+    @param callback       Callback to execute with the result
+    @since ARP1.0
+    */
+    /*public func invokeService(serviceRequest : ServiceRequest, service : Service, callback : IServiceResultCallback) {
+    
+    // TODO: handle http status WARNING codes for: NotRegisteredService, NotTrusted, IncorrectScheme
+    // TODO: Use the encoding of the request in order to convert the string (*1)
+    
+    // Create a que task for executing the service
+    
+    let t = async(q) { () -> String? in
+    
+    if(!self.isRegistered(service)!){
+    callback.onError(IServiceResultCallbackError.NotRegisteredService)
+    self.logger.log(ILoggingLogLevel.ERROR, category: "ServiceImpl", message: "\(service.getName()) is not registered on the pull")
+    return nil
+    }
+    
+    // Prepare the url with all the parameters of the endpoint
+    /*
+    
+    TODO: change service invoke
+    
+    let endpoint: ServiceEndpoint = service.getServiceEndpoint()!
+    var url: String = endpoint.getScheme()!
+    url = url + "://"
+    url = url + endpoint.getHost()! + ":\(endpoint.getPort())"
+    url = url + endpoint.getPath()!
+    
+    self.logger.log(ILoggingLogLevel.DEBUG, category: "ServiceImpl", message: "The url of the request is: \(url)")
+    
+    // Check the url for malforming
+    if(Utils.validateUrl(url)){
+    callback.onError(IServiceResultCallbackError.MalformedUrl)
+    self.logger.log(ILoggingLogLevel.ERROR, category: "ServiceImpl", message: "Malformed url: \(url)")
+    return nil
+    }
+    
+    let stringData:String = serviceRequest.getContent()!
+    let data: NSData = stringData.dataUsingEncoding(NSUTF8StringEncoding)!
+    // Call the function that composes the Request
+    self.post(url, method: service.getMethod()!, contentType: serviceRequest.getContentType()!, contentLenght: serviceRequest.getContentLength()!, content: NSInputStream(data: data)) { (succeeded: UInt, responseContent: NSString?, warning: IServiceResultCallbackWarning?, error: IServiceResultCallbackError?) -> () in
+    
+    if(succeeded == 0) {
+    
+    // Compose the response
+    
+    // TODO: set the values for ContentType, ContentBinary, ContentBinaryLenght, headers and sessions
+    
+    var response: ServiceResponse = ServiceResponse()
+    
+    response.setContent(responseContent!)
+    response.setContentLength(responseContent!.length)
+    
+    self.logger.log(ILoggingLogLevel.DEBUG, category: "ServiceImpl", message: "\(service.getName()) is called correctly")
+    callback.onResult(response)
+    }
+    else if (succeeded == 1){
+    
+    // TODO: Compose the Service Response
+    
+    var response: ServiceResponse = ServiceResponse()
+    self.logger.log(ILoggingLogLevel.WARN, category: "ServiceImpl", message: "There was an warning calling the service: \(service.getName()) \(error!)")
+    callback.onWarning(response, warning: warning!)
+    }
+    else {
+    
+    self.logger.log(ILoggingLogLevel.ERROR, category: "ServiceImpl", message: "There was an error calling the service: \(service.getName()) \(error!)")
+    callback.onError(error!)
+    }
+    }
+    */
+    
+    return nil
+    }
+    
+    // Execute the task
+    var v: String? = t.await()
+    }*/
+    
+    /**
+    Check whether a service by the given service is already registered.
+    
+    @param service Service to check
+    @return True if the service is registered, false otherwise.
+    @since ARP1.0
+    */
+    /*public func isRegistered(service : Service) -> Bool? {
+    
+    return self.getService(service.getName()!) != nil ? true : false
+    }*/
+    
+    /**
+    Check whether a service by the given name is registered.
+    
+    @param serviceName Name of service.
+    @return True if the service is registered, false otherwise.
+    @since ARP1.0
+    */
+    /*public func isRegistered(serviceName : String) -> Bool? {
+    
+    return self.getService(serviceName) != nil ? true : false
+    }*/
+    
+    /**
+    Register a new service
+    
+    @param service to register
+    @since ARP1.0
+    */
+    /*public func registerService(service : Service) {
+    
+    if service.getName() == "" || service.getName()!.isEmpty {
+    
+    logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The service has no name. Impossible to add to the pull")
+    } else {
+    
+    // Check if the service exists
+    if service.isEqual(self.getService(service.getName()!)){
+    logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The service \(service.getName()!) is alredy on the pull, replacing...")
+    self.unregisterService(service)
+    }
+    
+    services.append(service)
+    logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Adding \(service.getName()!) to the service pull")
+    }
+    }*/
+    
+    /**
+    Unregister a service
+    
+    @param service to unregister
+    @since ARP1.0
+    */
+    /*public func unregisterService(service : Service) {
+    
+    for (index, s) in enumerate(services) {
+    
+    if(service.isEqual(s)) {
+    
+    services.removeAtIndex(index)
+    
+    logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing \(service.getName()!) to the service pull")
+    
+    return
+    }
+    }
+    
+    logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "\(service.getName()!) is not founded in the pull for removing")
+    }*/
+    
+    /**
+    Unregister all services.
+    
+    @since ARP1.0
+    */
+    /*public func unregisterServices() {
+    
+    logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing all services from thee service pull")
+    
+    services.removeAll(keepCapacity: false)
+    }*/
+    
+    /**
+    Create a service request for the given ServiceToken. This method creates the request, populating
+    existing headers and cookies for the same service. The request is populated with all the defaults
+    for the service being invoked and requires only the request body to be set. Headers and cookies may be
+    manipulated as needed by the application before submitting the ServiceRequest via invokeService.
+    
+    @param serviceToken ServiceToken to be used for the creation of the request.
+    @return ServiceRequest with pre-populated headers, cookies and defaults for the service.
+    @since v2.0.6
+    */
+    public func getServiceRequest(serviceToken : ServiceToken) -> ServiceRequest? {
         
-        for service in services {
-            
-            if(service.getName() == serviceName) {
-                
-                logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Returning \(service.getName()!) from the service pull")
-                return service
-            }
-        }
-        
-        logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "\(serviceName) is not founded on the pull")
-        
+        // TODO: MUST IMPLEMENT
         return nil
     }
-
+    
     /**
-       Request async a service for an Url
-
-       @param serviceRequest Service Request to invoke
-       @param service        Service to call
-       @param callback       Callback to execute with the result
-       @since ARP1.0
+    Obtains a ServiceToken for the given parameters to be used for the creation of requests.
+    
+    @param serviceName  Service name.
+    @param endpointName Endpoint name.
+    @param functionName Function name.
+    @param method       Method type.
+    @return ServiceToken to create a service request or null if the given parameter combination is not
+    configured in the platform's XML service definition file.
+    @since v2.0.6
     */
-    public func invokeService(serviceRequest : ServiceRequest, service : Service, callback : IServiceResultCallback) {
+    public func getServiceToken(serviceName : String, endpointName : String, functionName : String, method : IServiceMethod) -> ServiceToken? {
         
-        // TODO: handle http status WARNING codes for: NotRegisteredService, NotTrusted, IncorrectScheme
-        // TODO: Use the encoding of the request in order to convert the string (*1)
-        
-        // Create a que task for executing the service
-        
-        let t = async(q) { () -> String? in
-            
-            if(!self.isRegistered(service)!){
-                callback.onError(IServiceResultCallbackError.NotRegisteredService)
-                self.logger.log(ILoggingLogLevel.ERROR, category: "ServiceImpl", message: "\(service.getName()) is not registered on the pull")
-                return nil
-            }
-            
-            // Prepare the url with all the parameters of the endpoint
-            let endpoint: ServiceEndpoint = service.getServiceEndpoint()!
-            var url: String = endpoint.getScheme()!
-            url = url + "://"
-            url = url + endpoint.getHost()! + ":\(endpoint.getPort())"
-            url = url + endpoint.getPath()!
-            
-            self.logger.log(ILoggingLogLevel.DEBUG, category: "ServiceImpl", message: "The url of the request is: \(url)")
-            
-            // Check the url for malforming
-            if(Utils.validateUrl(url)){
-                callback.onError(IServiceResultCallbackError.MalformedUrl)
-                self.logger.log(ILoggingLogLevel.ERROR, category: "ServiceImpl", message: "Malformed url: \(url)")
-                return nil
-            }
-            
-            let stringData:String = serviceRequest.getContent()!
-            let data: NSData = stringData.dataUsingEncoding(NSUTF8StringEncoding)!
-            
-            // Call the function that composes the Request
-            self.post(url, method: service.getMethod()!, contentType: serviceRequest.getContentType()!, contentLenght: serviceRequest.getContentLength()!, content: NSInputStream(data: data)) { (succeeded: UInt, responseContent: NSString?, warning: IServiceResultCallbackWarning?, error: IServiceResultCallbackError?) -> () in
-                
-                if(succeeded == 0) {
-                    
-                    // Compose the response
-                    
-                    // TODO: set the values for ContentType, ContentBinary, ContentBinaryLenght, headers and sessions
-                    
-                    var response: ServiceResponse = ServiceResponse()
-                    
-                    response.setContent(responseContent!)
-                    response.setContentLength(responseContent!.length)
-                    
-                    self.logger.log(ILoggingLogLevel.DEBUG, category: "ServiceImpl", message: "\(service.getName()) is called correctly")
-                    callback.onResult(response)
-                }
-                else if (succeeded == 1){
-                    
-                    // TODO: Compose the Service Response
-                    
-                    var response: ServiceResponse = ServiceResponse()
-                    self.logger.log(ILoggingLogLevel.WARN, category: "ServiceImpl", message: "There was an warning calling the service: \(service.getName()) \(error!)")
-                    callback.onWarning(response, warning: warning!)
-                }
-                else {
-                    
-                    self.logger.log(ILoggingLogLevel.ERROR, category: "ServiceImpl", message: "There was an error calling the service: \(service.getName()) \(error!)")
-                    callback.onError(error!)
-                }
-            }
-            
-            return nil
-        }
-        
-        // Execute the task
-        var v: String? = t.await()
+        // TODO: MUST IMPLEMENT
+        return nil
     }
-
+    
     /**
-       Check whether a service by the given service is already registered.
-
-       @param service Service to check
-       @return True if the service is registered, false otherwise.
-       @since ARP1.0
+    Returns all the possible service tokens configured in the platform's XML service definition file.
+    
+    @return Array of service tokens configured.
+    @since v2.0.6
     */
-    public func isRegistered(service : Service) -> Bool? {
+    public func getServicesRegistered() -> [ServiceToken]? {
         
-        return self.getService(service.getName()!) != nil ? true : false
+        // TODO: MUST IMPLEMENT
+        return nil
     }
-
+    
     /**
-       Check whether a service by the given name is registered.
-
-       @param serviceName Name of service.
-       @return True if the service is registered, false otherwise.
-       @since ARP1.0
+    Executes the given ServiceRequest and provides responses to the given callback handler.
+    
+    @param serviceRequest ServiceRequest with the request body.
+    @param callback       IServiceResultCallback to handle the ServiceResponse.
+    @since v2.0.6
     */
-    public func isRegistered(serviceName : String) -> Bool? {
+    public func invokeService(serviceRequest : ServiceRequest, callback : IServiceResultCallback) {
         
-        return self.getService(serviceName) != nil ? true : false
+        // TODO: MUST IMPLEMENT
     }
-
+    
     /**
-       Register a new service
-
-       @param service to register
-       @since ARP1.0
+    Checks whether a specific service, endpoint, function and method type is configured in the platform's
+    XML service definition file.
+    
+    @param serviceName  Service name.
+    @param endpointName Endpoint name.
+    @param functionName Function name.
+    @param method       Method type.
+    @return Returns true if the service is configured, false otherwise.
+    @since v2.0.6
     */
-    public func registerService(service : Service) {
+    public func isServiceRegistered(serviceName : String, endpointName : String, functionName : String, method : IServiceMethod) -> Bool? {
         
-        if service.getName() == "" || service.getName()!.isEmpty {
-            
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The service has no name. Impossible to add to the pull")
-        } else {
-            
-            // Check if the service exists
-            if service.isEqual(self.getService(service.getName()!)){
-                logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The service \(service.getName()!) is alredy on the pull, replacing...")
-                self.unregisterService(service)
-            }
-            
-            services.append(service)
-            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Adding \(service.getName()!) to the service pull")
-        }
-    }
-
-    /**
-       Unregister a service
-
-       @param service to unregister
-       @since ARP1.0
-    */
-    public func unregisterService(service : Service) {
-        
-        for (index, s) in enumerate(services) {
-            
-            if(service.isEqual(s)) {
-                
-                services.removeAtIndex(index)
-                
-                logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing \(service.getName()!) to the service pull")
-                
-                return
-            }
-        }
-        
-        logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "\(service.getName()!) is not founded in the pull for removing")
-    }
-
-    /**
-       Unregister all services.
-
-       @since ARP1.0
-    */
-    public func unregisterServices() {
-        
-        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing all services from thee service pull")
-        
-        services.removeAll(keepCapacity: false)
+        // TODO: MUST IMPLEMENT
+        return nil
     }
     
     private func post(url : String, method: IServiceMethod, contentType: String, contentLenght: Int, content: NSInputStream, postCompleted : (succeeded: UInt, responseContent: NSString?, warning: IServiceResultCallbackWarning?, error: IServiceResultCallbackError?) -> ()) {
@@ -268,7 +346,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
         request.addValue(contentType, forHTTPHeaderField: "Content-Type")
         request.addValue(contentType, forHTTPHeaderField: "Accept")
         request.addValue(String(contentLenght), forHTTPHeaderField: "Content-Length")
-        request.HTTPMethod = method == IServiceMethod.Post ? "POST" : "GET"
+        request.HTTPMethod = method == IServiceMethod.POST ? "POST" : "GET"
         request.HTTPShouldUsePipelining = true
         
         
@@ -338,7 +416,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
         // Start the task
         task.resume()
     }
-
+    
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

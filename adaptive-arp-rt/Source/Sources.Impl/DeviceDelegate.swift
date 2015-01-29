@@ -11,23 +11,23 @@ permissions and limitations under the License.
 
 Original author:
 
-    * Carlos Lozano Diez
-            <http://github.com/carloslozano>
-            <http://twitter.com/adaptivecoder>
-            <mailto:carlos@adaptive.me>
+* Carlos Lozano Diez
+<http://github.com/carloslozano>
+<http://twitter.com/adaptivecoder>
+<mailto:carlos@adaptive.me>
 
 Contributors:
 
-    * Ferran Vila Conesa
-             <http://github.com/fnva>
-             <http://twitter.com/ferran_vila>
-             <mailto:ferran.vila.conesa@gmail.com>
+* Ferran Vila Conesa
+<http://github.com/fnva>
+<http://twitter.com/ferran_vila>
+<mailto:ferran.vila.conesa@gmail.com>
 
-    * See source code files for contributors.
+* See source code files for contributors.
 
 Release:
 
-    * @version v2.0.2
+* @version v2.0.2
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -41,11 +41,11 @@ import Foundation
 #endif
 
 /**
-   Interface for Managing the Device operations
-   Auto-generated implementation of IDevice specification.
+Interface for Managing the Device operations
+Auto-generated implementation of IDevice specification.
 */
 public class DeviceDelegate : BaseSystemDelegate, IDevice {
-
+    
     /// Logger variable
     let logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
     let loggerTag : String = "DeviceDelegate"
@@ -57,7 +57,7 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
     var listeners: [IButtonListener]?
     
     /**
-       Default Constructor.
+    Default Constructor.
     */
     public override init() {
         super.init()
@@ -78,12 +78,12 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
         #endif
         
     }
-
+    
     /**
-       Register a new listener that will receive button events.
-
-       @param listener to be registered.
-       @since ARP1.0
+    Register a new listener that will receive button events.
+    
+    @param listener to be registered.
+    @since ARP1.0
     */
     public func addButtonListener(listener : IButtonListener) {
         
@@ -113,12 +113,12 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
             
         #endif
     }
-
+    
     /**
-       Returns the device information for the current device executing the runtime.
-
-       @return DeviceInfo for the current device.
-       @since ARP1.0
+    Returns the device information for the current device executing the runtime.
+    
+    @return DeviceInfo for the current device.
+    @since ARP1.0
     */
     public func getDeviceInfo() -> DeviceInfo? {
         
@@ -126,12 +126,12 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
         
         return self.deviceInfo!
     }
-
+    
     /**
-       Gets the current Locale for the device.
-
-       @return The current Locale information.
-       @since ARP1.0
+    Gets the current Locale for the device.
+    
+    @return The current Locale information.
+    @since ARP1.0
     */
     public func getLocaleCurrent() -> Locale? {
         
@@ -148,12 +148,12 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
         
         return Locale(language: language, country: country)
     }
-
+    
     /**
-       De-registers an existing listener from receiving button events.
-
-       @param listener to be removed.
-       @since ARP1.0
+    De-registers an existing listener from receiving button events.
+    
+    @param listener to be removed.
+    @since ARP1.0
     */
     public func removeButtonListener(listener : IButtonListener) {
         
@@ -180,13 +180,13 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
             logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there aren't hardware buttons")
             
         #endif
-
+        
     }
-
+    
     /**
-       Removed all existing listeners from receiving button events.
-
-       @since ARP1.0
+    Removed all existing listeners from receiving button events.
+    
+    @since ARP1.0
     */
     public func removeButtonListeners() {
         
@@ -207,7 +207,52 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
             
         #endif
     }
-
+    
+    /**
+    Returns the current orientation of the device. Please note that this may be different from the orientation
+    of the display. For display orientation, use the IDisplay APIs.
+    
+    @return The current orientation of the device.
+    @since v2.0.5
+    */
+    public func getOrientationCurrent() -> ICapabilitiesOrientation? {
+        
+        // TODO: MUST IMPLEMENT
+        return nil
+    }
+    
+    /**
+    Add a listener to start receiving device orientation change events.
+    
+    @param listener Listener to add to receive orientation change events.
+    @since v2.0.5
+    */
+    public func addDeviceOrientationListener(listener : IDeviceOrientationListener) {
+        
+        // TODO: MUST IMPLEMENT
+    }
+    
+    /**
+    Remove a listener to stop receiving device orientation change events.
+    
+    @param listener Listener to remove from receiving orientation change events.
+    @since v2.0.5
+    */
+    public func removeDeviceOrientationListener(listener : IDeviceOrientationListener) {
+        
+        // TODO: MUST IMPLEMENT
+    }
+    
+    /**
+    Remove all listeners receiving device orientation events.
+    
+    @since v2.0.5
+    */
+    public func removeDeviceOrientationListeners() {
+        
+        // TODO: MUST IMPLEMENT
+    }
+    
     
     
     /**
@@ -225,7 +270,7 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
         sysctlbyname(attr, &machine, &size, nil, 0)
         return String.fromCString(machine)!
     }
-
+    
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
