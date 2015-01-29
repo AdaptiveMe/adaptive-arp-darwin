@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -53,7 +53,7 @@ public class FileListResultCallbackImpl : BaseCallbackImpl, IFileListResultCallb
        On error result of a file operation.
 
        @param error Error processing the request.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func onError(error : IFileListResultCallbackError) { 
         var param0 : String = "Adaptive.IFileListResultCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
@@ -64,7 +64,7 @@ public class FileListResultCallbackImpl : BaseCallbackImpl, IFileListResultCallb
        On correct result of a file operation.
 
        @param files Array of resulting files/folders.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func onResult(files : [FileDescriptor]) { 
         var param0Array : NSMutableString = NSMutableString()
@@ -85,7 +85,7 @@ public class FileListResultCallbackImpl : BaseCallbackImpl, IFileListResultCallb
 
        @param files   Array of resulting files/folders.
        @param warning Warning condition encountered.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func onWarning(files : [FileDescriptor], warning : IFileListResultCallbackWarning) { 
         var param0Array : NSMutableString = NSMutableString()

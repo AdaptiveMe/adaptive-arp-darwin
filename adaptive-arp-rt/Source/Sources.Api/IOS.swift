@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for Managing the OS operations
 
    @author Carlos Lozano Diez
-   @since ARP1.0
+   @since ARP 2.0
    @version 1.0
 */
 public protocol IOS : IBaseSystem {
@@ -46,7 +46,7 @@ public protocol IOS : IBaseSystem {
        Returns the OSInfo for the current operating system.
 
        @return OSInfo with name, version and vendor of the OS.
-       @since ARP1.0
+       @since ARP 2.0
     */
     func getOSInfo() -> OSInfo?
 

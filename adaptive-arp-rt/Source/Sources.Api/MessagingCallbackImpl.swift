@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -53,7 +53,7 @@ public class MessagingCallbackImpl : BaseCallbackImpl, IMessagingCallback {
        This method is called on Error
 
        @param error returned by the platform
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func onError(error : IMessagingCallbackError) { 
         var param0 : String = "Adaptive.IMessagingCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
@@ -64,7 +64,7 @@ public class MessagingCallbackImpl : BaseCallbackImpl, IMessagingCallback {
        This method is called on Result
 
        @param success true if sent;false otherwise
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func onResult(success : Bool) { 
         var param0 : String = "\(success)"
@@ -76,7 +76,7 @@ public class MessagingCallbackImpl : BaseCallbackImpl, IMessagingCallback {
 
        @param success true if sent;false otherwise
        @param warning returned by the platform
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func onWarning(success : Bool, warning : IMessagingCallbackWarning) { 
         var param0 : String = "\(success)"

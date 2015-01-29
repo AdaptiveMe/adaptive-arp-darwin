@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Structure representing the data of a http request or response header.
 
    @author Aryslan
-   @since ARP1.0
+   @since ARP 2.0
    @version 1.0
 */
 public class ServiceHeader : APIBean {
@@ -55,7 +55,7 @@ public class ServiceHeader : APIBean {
     /**
        Default constructor
 
-       @since ARP1.0
+       @since ARP 2.0
     */
     public override init() {
         super.init()
@@ -66,7 +66,7 @@ public class ServiceHeader : APIBean {
 
        @param name Name of the header
        @param data Value of the header
-       @since ARP1.0
+       @since ARP 2.0
     */
     public init(name: String, data: String) {
         super.init()
@@ -78,7 +78,7 @@ public class ServiceHeader : APIBean {
        Returns the header value
 
        @return ServiceHeader value
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getData() -> String? {
         return self.data
@@ -88,7 +88,7 @@ public class ServiceHeader : APIBean {
        Set the header value
 
        @param data ServiceHeader value
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setData(data: String) {
         self.data = data
@@ -98,7 +98,7 @@ public class ServiceHeader : APIBean {
        Returns the header name
 
        @return ServiceHeader name
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getName() -> String? {
         return self.name
@@ -108,7 +108,7 @@ public class ServiceHeader : APIBean {
        Set the header name
 
        @param name Name of the header
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setName(name: String) {
         self.name = name

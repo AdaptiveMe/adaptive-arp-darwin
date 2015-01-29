@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -74,7 +74,7 @@ public class OSBridge : BaseSystemBridge, IOS, APIBridge {
        Returns the OSInfo for the current operating system.
 
        @return OSInfo with name, version and vendor of the OS.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getOSInfo() -> OSInfo? {
         // Start logging elapsed time.
@@ -121,7 +121,7 @@ public class OSBridge : BaseSystemBridge, IOS, APIBridge {
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "OSBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.4."
+                responseMessage = "OSBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.5."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

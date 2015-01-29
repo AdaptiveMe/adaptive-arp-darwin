@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -53,7 +53,7 @@ public class GeolocationListenerImpl : BaseListenerImpl, IGeolocationListener {
        No data received - error condition, not authorized or hardware not available.
 
        @param error Type of error encountered during reading.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func onError(error : IGeolocationListenerError) { 
         var param0 : String = "Adaptive.IGeolocationListenerError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
@@ -64,7 +64,7 @@ public class GeolocationListenerImpl : BaseListenerImpl, IGeolocationListener {
        Correct data received.
 
        @param geolocation Geolocation Bean
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func onResult(geolocation : Geolocation) { 
         var param0 : String = "Adaptive.Geolocation.toObject(JSON.parse(\"\(JSONUtil.escapeString(Geolocation.Serializer.toJSON(geolocation)))\"))"
@@ -76,7 +76,7 @@ public class GeolocationListenerImpl : BaseListenerImpl, IGeolocationListener {
 
        @param geolocation Geolocation Bean
        @param warning     Type of warning encountered during reading.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func onWarning(geolocation : Geolocation, warning : IGeolocationListenerWarning) { 
         var param0 : String = "Adaptive.Geolocation.toObject(JSON.parse(\"\(JSONUtil.escapeString(Geolocation.Serializer.toJSON(geolocation)))\"))"

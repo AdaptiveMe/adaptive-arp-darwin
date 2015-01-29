@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Structure representing the a physical or logical button on a device.
 
    @author Francisco Javier Martin Bueno
-   @since ARP1.0
+   @since ARP 2.0
    @version 1.0
 */
 public class Button : APIBean {
@@ -51,7 +51,7 @@ public class Button : APIBean {
     /**
        Default constructor
 
-       @since ARP1.0
+       @since ARP 2.0
     */
     public override init() {
         super.init()
@@ -61,7 +61,7 @@ public class Button : APIBean {
        Constructor with fields
 
        @param type Button type.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public init(type: ICapabilitiesButton) {
         super.init()
@@ -72,7 +72,7 @@ public class Button : APIBean {
        Returns the button type
 
        @return type Button type.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getType() -> ICapabilitiesButton? {
         return self.type
@@ -82,7 +82,7 @@ public class Button : APIBean {
        Setter for the button type
 
        @param type Button Type
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setType(type: ICapabilitiesButton) {
         self.type = type

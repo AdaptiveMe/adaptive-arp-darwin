@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -85,7 +85,7 @@ public class UIBridge : BaseUIBridge, IUI, APIBridge {
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "UIBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.4."
+                responseMessage = "UIBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.5."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

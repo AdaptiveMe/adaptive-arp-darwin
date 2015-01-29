@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Represents a local or remote service response.
 
    @author Aryslan
-   @since ARP1.0
+   @since ARP 2.0
    @version 1.0
 */
 public class ServiceResponse : APIBean {
@@ -94,7 +94,7 @@ public class ServiceResponse : APIBean {
        @param contentBinaryLength The length in bytes for the binary Content.
        @param serviceHeaders      The serviceHeaders array (name,value pairs) to be included on the I/O service request.
        @param serviceSession      Information about the session
-       @since ARP1.0
+       @since ARP 2.0
     */
     public init(content: String, contentType: String, contentEncoding: String, contentLength: Int, contentBinary: [Byte], contentBinaryLength: Int, serviceHeaders: [ServiceHeader], serviceSession: ServiceSession) {
         super.init()
@@ -112,7 +112,7 @@ public class ServiceResponse : APIBean {
        Returns the content
 
        @return content
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getContent() -> String? {
         return self.content
@@ -122,7 +122,7 @@ public class ServiceResponse : APIBean {
        Set the content
 
        @param content Request/Response data content (plain text).
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setContent(content: String) {
         self.content = content
@@ -132,7 +132,7 @@ public class ServiceResponse : APIBean {
        Returns the binary content
 
        @return contentBinary
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getContentBinary() -> [Byte]? {
         return self.contentBinary
@@ -142,7 +142,7 @@ public class ServiceResponse : APIBean {
        Set the binary content
 
        @param contentBinary The byte[] representing the binary Content.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setContentBinary(contentBinary: [Byte]) {
         self.contentBinary = contentBinary
@@ -152,7 +152,7 @@ public class ServiceResponse : APIBean {
        Returns the binary content length
 
        @return contentBinaryLength
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getContentBinaryLength() -> Int? {
         return self.contentBinaryLength
@@ -162,7 +162,7 @@ public class ServiceResponse : APIBean {
        Set the binary content length
 
        @param contentBinaryLength The length in bytes for the binary Content.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setContentBinaryLength(contentBinaryLength: Int) {
         self.contentBinaryLength = contentBinaryLength
@@ -172,7 +172,7 @@ public class ServiceResponse : APIBean {
        Returns the content encoding
 
        @return contentEncoding
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getContentEncoding() -> String? {
         return self.contentEncoding
@@ -182,7 +182,7 @@ public class ServiceResponse : APIBean {
        Set the content encoding
 
        @param contentEncoding Encoding of the binary payload - by default assumed to be UTF8.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setContentEncoding(contentEncoding: String) {
         self.contentEncoding = contentEncoding
@@ -192,7 +192,7 @@ public class ServiceResponse : APIBean {
        Returns the content length
 
        @return contentLength
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getContentLength() -> Int? {
         return self.contentLength
@@ -202,7 +202,7 @@ public class ServiceResponse : APIBean {
        Set the content length
 
        @param contentLength The length in bytes for the Content field.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setContentLength(contentLength: Int) {
         self.contentLength = contentLength
@@ -212,7 +212,7 @@ public class ServiceResponse : APIBean {
        Returns the content type
 
        @return contentType
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getContentType() -> String? {
         return self.contentType
@@ -222,7 +222,7 @@ public class ServiceResponse : APIBean {
        Set the content type
 
        @param contentType The request/response content type (MIME TYPE).
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setContentType(contentType: String) {
         self.contentType = contentType
@@ -232,7 +232,7 @@ public class ServiceResponse : APIBean {
        Returns the array of ServiceHeader
 
        @return serviceHeaders
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getServiceHeaders() -> [ServiceHeader]? {
         return self.serviceHeaders
@@ -242,7 +242,7 @@ public class ServiceResponse : APIBean {
        Set the array of ServiceHeader
 
        @param serviceHeaders The serviceHeaders array (name,value pairs) to be included on the I/O service request.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setServiceHeaders(serviceHeaders: [ServiceHeader]) {
         self.serviceHeaders = serviceHeaders
@@ -252,7 +252,7 @@ public class ServiceResponse : APIBean {
        Getter for service session
 
        @return The element service session
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getServiceSession() -> ServiceSession? {
         return self.serviceSession
@@ -262,7 +262,7 @@ public class ServiceResponse : APIBean {
        Setter for service session
 
        @param serviceSession The element service session
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setServiceSession(serviceSession: ServiceSession) {
         self.serviceSession = serviceSession

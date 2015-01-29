@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for Managing the Security operations
 
    @author Aryslan
-   @since ARP1.0
+   @since ARP 2.0
    @version 1.0
 */
 public protocol ISecurity : IBaseSecurity {
@@ -48,7 +48,7 @@ public protocol ISecurity : IBaseSecurity {
        @param keys             Array with the key names to delete.
        @param publicAccessName The name of the shared internal storage object (if needed).
        @param callback         callback to be executed upon function result.
-       @since ARP 1.0
+       @since ARP 2.0
     */
     func deleteSecureKeyValuePairs(keys : [String], publicAccessName : String, callback : ISecurityResultCallback)
 
@@ -58,7 +58,7 @@ public protocol ISecurity : IBaseSecurity {
        @param keys             Array with the key names to retrieve.
        @param publicAccessName The name of the shared internal storage object (if needed).
        @param callback         callback to be executed upon function result.
-       @since ARP 1.0
+       @since ARP 2.0
     */
     func getSecureKeyValuePairs(keys : [String], publicAccessName : String, callback : ISecurityResultCallback)
 
@@ -66,7 +66,7 @@ public protocol ISecurity : IBaseSecurity {
        Returns if the device has been modified in anyhow
 
        @return true if the device has been modified; false otherwise
-       @since ARP1.0
+       @since ARP 2.0
     */
     func isDeviceModified() -> Bool?
 
@@ -76,7 +76,7 @@ public protocol ISecurity : IBaseSecurity {
        @param keyValues        Array containing the items to store on the device internal memory.
        @param publicAccessName The name of the shared internal storage object (if needed).
        @param callback         callback to be executed upon function result.
-       @since ARP 1.0
+       @since ARP 2.0
     */
     func setSecureKeyValuePairs(keyValues : [SecureKeyPair], publicAccessName : String, callback : ISecurityResultCallback)
 

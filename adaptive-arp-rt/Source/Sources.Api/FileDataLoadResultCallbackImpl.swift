@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -53,7 +53,7 @@ public class FileDataLoadResultCallbackImpl : BaseCallbackImpl, IFileDataLoadRes
        Error processing data retrieval/storage operation.
 
        @param error Error condition encountered.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func onError(error : IFileDataLoadResultCallbackError) { 
         var param0 : String = "Adaptive.IFileDataLoadResultCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
@@ -64,7 +64,7 @@ public class FileDataLoadResultCallbackImpl : BaseCallbackImpl, IFileDataLoadRes
        Result of data retrieval operation.
 
        @param data Data loaded.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func onResult(data : [Byte]) { 
         var param0Array : NSMutableString = NSMutableString()
@@ -85,7 +85,7 @@ public class FileDataLoadResultCallbackImpl : BaseCallbackImpl, IFileDataLoadRes
 
        @param data    File being loaded.
        @param warning Warning condition encountered.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func onWarning(data : [Byte], warning : IFileDataLoadResultCallbackWarning) { 
         var param0Array : NSMutableString = NSMutableString()

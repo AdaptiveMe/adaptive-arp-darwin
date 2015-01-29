@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for Managing the Cloud operations
 
    @author Ferran Vila Conesa
-   @since ARP1.0
+   @since ARP 2.0
    @version 1.0
 */
 public protocol IDatabaseResultCallback : IBaseCallback {
@@ -46,7 +46,7 @@ public protocol IDatabaseResultCallback : IBaseCallback {
        Result callback for error responses
 
        @param error Returned error
-       @since ARP1.0
+       @since ARP 2.0
     */
     func onError(error : IDatabaseResultCallbackError)
 
@@ -54,7 +54,7 @@ public protocol IDatabaseResultCallback : IBaseCallback {
        Result callback for correct responses
 
        @param database Returns the database
-       @since ARP1.0
+       @since ARP 2.0
     */
     func onResult(database : Database)
 
@@ -63,7 +63,7 @@ public protocol IDatabaseResultCallback : IBaseCallback {
 
        @param database Returns the database
        @param warning  Returned Warning
-       @since ARP1.0
+       @since ARP 2.0
     */
     func onWarning(database : Database, warning : IDatabaseResultCallbackWarning)
 

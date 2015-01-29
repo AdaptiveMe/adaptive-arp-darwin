@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -53,7 +53,7 @@ public class ButtonListenerImpl : BaseListenerImpl, IButtonListener {
        No data received
 
        @param error occurred
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func onError(error : IButtonListenerError) { 
         var param0 : String = "Adaptive.IButtonListenerError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
@@ -64,7 +64,7 @@ public class ButtonListenerImpl : BaseListenerImpl, IButtonListener {
        Called on button pressed
 
        @param button pressed
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func onResult(button : Button) { 
         var param0 : String = "Adaptive.Button.toObject(JSON.parse(\"\(JSONUtil.escapeString(Button.Serializer.toJSON(button)))\"))"
@@ -76,7 +76,7 @@ public class ButtonListenerImpl : BaseListenerImpl, IButtonListener {
 
        @param button  pressed
        @param warning happened
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func onWarning(button : Button, warning : IButtonListenerWarning) { 
         var param0 : String = "Adaptive.Button.toObject(JSON.parse(\"\(JSONUtil.escapeString(Button.Serializer.toJSON(button)))\"))"

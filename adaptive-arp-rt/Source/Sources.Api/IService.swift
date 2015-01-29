@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for Managing the Services operations
 
    @author Francisco Javier Martin Bueno
-   @since ARP1.0
+   @since ARP 2.0
    @version 1.0
 */
 public protocol IService : IBaseCommunication {
@@ -47,7 +47,7 @@ public protocol IService : IBaseCommunication {
 
        @param serviceName Name of service.
        @return A service, if registered, or null of the service does not exist.
-       @since ARP1.0
+       @since ARP 2.0
     */
     func getService(serviceName : String) -> Service?
 
@@ -57,7 +57,7 @@ public protocol IService : IBaseCommunication {
        @param serviceRequest Service Request to invoke
        @param service        Service to call
        @param callback       Callback to execute with the result
-       @since ARP1.0
+       @since ARP 2.0
     */
     func invokeService(serviceRequest : ServiceRequest, service : Service, callback : IServiceResultCallback)
 
@@ -66,7 +66,7 @@ public protocol IService : IBaseCommunication {
 
        @param serviceName Name of service.
        @return True if the service is registered, false otherwise.
-       @since ARP1.0
+       @since ARP 2.0
     */
     func isRegistered(serviceName : String) -> Bool?
 
@@ -75,7 +75,7 @@ public protocol IService : IBaseCommunication {
 
        @param service Service to check
        @return True if the service is registered, false otherwise.
-       @since ARP1.0
+       @since ARP 2.0
     */
     func isRegistered(service : Service) -> Bool?
 
@@ -83,14 +83,14 @@ public protocol IService : IBaseCommunication {
        Register a new service
 
        @param service to register
-       @since ARP1.0
+       @since ARP 2.0
     */
     func registerService(service : Service)
 
     /**
        Unregister all services.
 
-       @since ARP1.0
+       @since ARP 2.0
     */
     func unregisterServices()
 
@@ -98,7 +98,7 @@ public protocol IService : IBaseCommunication {
        Unregister a service
 
        @param service to unregister
-       @since ARP1.0
+       @since ARP 2.0
     */
     func unregisterService(service : Service)
 

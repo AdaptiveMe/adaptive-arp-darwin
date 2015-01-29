@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Structure representing a remote or local service access end-point.
 
    @author Aryslan
-   @since ARP1.0
+   @since ARP 2.0
    @version 1.0
 */
 public class ServiceEndpoint : APIBean {
@@ -67,7 +67,7 @@ public class ServiceEndpoint : APIBean {
     /**
        Default Constructor
 
-       @since ARP1.0
+       @since ARP 2.0
     */
     public override init() {
         super.init()
@@ -81,7 +81,7 @@ public class ServiceEndpoint : APIBean {
        @param port   Remote service Port
        @param proxy  Proxy url "http://IP_ADDRESS:PORT_NUMBER"
        @param scheme Remote service scheme
-       @since ARP1.0
+       @since ARP 2.0
     */
     public init(host: String, paths: [ServicePath], port: Int, proxy: String, scheme: String) {
         super.init()
@@ -96,7 +96,7 @@ public class ServiceEndpoint : APIBean {
        Returns the Remote service host
 
        @return Remote service host
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getHost() -> String? {
         return self.host
@@ -106,7 +106,7 @@ public class ServiceEndpoint : APIBean {
        Set the Remote service host
 
        @param host Remote service host
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setHost(host: String) {
         self.host = host
@@ -116,7 +116,7 @@ public class ServiceEndpoint : APIBean {
        Returns the Remote service Paths
 
        @return Remote service Paths
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getPaths() -> [ServicePath]? {
         return self.paths
@@ -126,7 +126,7 @@ public class ServiceEndpoint : APIBean {
        Set the Remote service Paths
 
        @param paths Remote service Paths
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setPaths(paths: [ServicePath]) {
         self.paths = paths
@@ -136,7 +136,7 @@ public class ServiceEndpoint : APIBean {
        Returns the Remote service Port
 
        @return Remote service Port
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getPort() -> Int? {
         return self.port
@@ -146,7 +146,7 @@ public class ServiceEndpoint : APIBean {
        Set the Remote service Port
 
        @param port Remote service Port
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setPort(port: Int) {
         self.port = port
@@ -156,7 +156,7 @@ public class ServiceEndpoint : APIBean {
        Return the Proxy url
 
        @return Proxy url
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getProxy() -> String? {
         return self.proxy
@@ -166,7 +166,7 @@ public class ServiceEndpoint : APIBean {
        Set the Proxy url
 
        @param proxy Proxy url
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setProxy(proxy: String) {
         self.proxy = proxy
@@ -176,7 +176,7 @@ public class ServiceEndpoint : APIBean {
        Returns the Remote service scheme
 
        @return Remote service scheme
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getScheme() -> String? {
         return self.scheme
@@ -186,7 +186,7 @@ public class ServiceEndpoint : APIBean {
        Set the Remote service scheme
 
        @param scheme Remote service scheme
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setScheme(scheme: String) {
         self.scheme = scheme

@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -77,7 +77,7 @@ This method does not create the actual file in the specified folder.
        @param parent Parent directory.
        @param name   Name of new file or directory.
        @return A reference to a new or existing location in the filesystem.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func createFileDescriptor(parent : FileDescriptor , name : String ) -> FileDescriptor? {
         // Start logging elapsed time.
@@ -108,7 +108,7 @@ This path must always be writable by the current application.
 This path is volatile and may be cleaned by the OS periodically.
 
        @return Path to the application's cache folder.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getApplicationCacheFolder() -> FileDescriptor? {
         // Start logging elapsed time.
@@ -138,7 +138,7 @@ This path is volatile and may be cleaned by the OS periodically.
 This path must always be writable by the current application.
 
        @return Path to the application's cloud storage folder.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getApplicationCloudFolder() -> FileDescriptor? {
         // Start logging elapsed time.
@@ -168,7 +168,7 @@ This path must always be writable by the current application.
 This path must always be writable by the current application.
 
        @return Path to the application's documents folder.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getApplicationDocumentsFolder() -> FileDescriptor? {
         // Start logging elapsed time.
@@ -198,7 +198,7 @@ This path must always be writable by the current application.
 This path may or may not be directly readable or writable - it usually contains the app binary and data.
 
        @return Path to the application folder.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getApplicationFolder() -> FileDescriptor? {
         // Start logging elapsed time.
@@ -228,7 +228,7 @@ This path may or may not be directly readable or writable - it usually contains 
 This path must always be writable by the current application.
 
        @return Path to the application's protected storage folder.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getApplicationProtectedFolder() -> FileDescriptor? {
         // Start logging elapsed time.
@@ -257,7 +257,7 @@ This path must always be writable by the current application.
        Returns the file system dependent file separator.
 
        @return char with the directory/file separator.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getSeparator() -> Character? {
         // Start logging elapsed time.
@@ -289,7 +289,7 @@ definition, not secure.
 This path may or may not be writable by the current application.
 
        @return Path to the application's documents folder.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getSystemExternalFolder() -> FileDescriptor? {
         // Start logging elapsed time.
@@ -387,7 +387,7 @@ This path may or may not be writable by the current application.
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "FileSystemBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.4."
+                responseMessage = "FileSystemBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.5."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

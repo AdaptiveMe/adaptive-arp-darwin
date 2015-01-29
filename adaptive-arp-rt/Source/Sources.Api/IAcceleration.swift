@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface defining methods about the acceleration sensor
 
    @author Carlos Lozano Diez
-   @since ARP1.0
+   @since ARP 2.0
    @version 1.0
 */
 public protocol IAcceleration : IBaseSensor {
@@ -46,7 +46,7 @@ public protocol IAcceleration : IBaseSensor {
        Register a new listener that will receive acceleration events.
 
        @param listener to be registered.
-       @since ARP1.0
+       @since ARP 2.0
     */
     func addAccelerationListener(listener : IAccelerationListener)
 
@@ -54,14 +54,14 @@ public protocol IAcceleration : IBaseSensor {
        De-registers an existing listener from receiving acceleration events.
 
        @param listener to be registered.
-       @since ARP1.0
+       @since ARP 2.0
     */
     func removeAccelerationListener(listener : IAccelerationListener)
 
     /**
        Removed all existing listeners from receiving acceleration events.
 
-       @since ARP1.0
+       @since ARP 2.0
     */
     func removeAccelerationListeners()
 

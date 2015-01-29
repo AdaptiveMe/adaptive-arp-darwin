@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for Managing the Network reachability operations
 
    @author Carlos Lozano Diez
-   @since ARP1.0
+   @since ARP 2.0
    @version 1.0
 */
 public protocol INetworkReachability : IBaseCommunication {
@@ -47,7 +47,7 @@ public protocol INetworkReachability : IBaseCommunication {
 
        @param host     domain name or ip address of host.
        @param callback Callback called at the end.
-       @since ARP1.0
+       @since ARP 2.0
     */
     func isNetworkReachable(host : String, callback : INetworkReachabilityCallback)
 
@@ -56,7 +56,7 @@ public protocol INetworkReachability : IBaseCommunication {
 
        @param url      to look for
        @param callback Callback called at the end
-       @since ARP1.0
+       @since ARP 2.0
     */
     func isNetworkServiceReachable(url : String, callback : INetworkReachabilityCallback)
 

@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for Managing the Contact operations
 
    @author Francisco Javier Martin Bueno
-   @since ARP1.0
+   @since ARP 2.0
    @version 1.0
 */
 public protocol IContactPhotoResultCallback : IBaseCallback {
@@ -46,7 +46,7 @@ public protocol IContactPhotoResultCallback : IBaseCallback {
        This method is called on Error
 
        @param error returned by the platform
-       @since ARP1.0
+       @since ARP 2.0
     */
     func onError(error : IContactPhotoResultCallbackError)
 
@@ -54,7 +54,7 @@ public protocol IContactPhotoResultCallback : IBaseCallback {
        This method is called on Result
 
        @param contactPhoto returned by the platform
-       @since ARP1.0
+       @since ARP 2.0
     */
     func onResult(contactPhoto : [Byte])
 
@@ -63,7 +63,7 @@ public protocol IContactPhotoResultCallback : IBaseCallback {
 
        @param contactPhoto returned by the platform
        @param warning      returned by the platform
-       @since ARP1.0
+       @since ARP 2.0
     */
     func onWarning(contactPhoto : [Byte], warning : IContactPhotoResultCallbackWarning)
 

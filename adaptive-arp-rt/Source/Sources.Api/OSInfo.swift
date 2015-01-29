@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Represents the basic information about the operating system.
 
    @author Francisco Javier Martin Bueno
-   @since ARP1.0
+   @since ARP 2.0
    @version 1.0
 */
 public class OSInfo : APIBean {
@@ -59,7 +59,7 @@ public class OSInfo : APIBean {
     /**
        Default constructor
 
-       @since ARP1.0
+       @since ARP 2.0
     */
     public override init() {
         super.init()
@@ -71,7 +71,7 @@ public class OSInfo : APIBean {
        @param name    of the OS.
        @param version of the OS.
        @param vendor  of the OS.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public init(name: IOSType, version: String, vendor: String) {
         super.init()
@@ -84,7 +84,7 @@ public class OSInfo : APIBean {
        Returns the name of the operating system.
 
        @return OS name.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getName() -> IOSType? {
         return self.name
@@ -103,7 +103,7 @@ public class OSInfo : APIBean {
        Returns the vendor of the operating system.
 
        @return OS vendor.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getVendor() -> String? {
         return self.vendor
@@ -122,7 +122,7 @@ public class OSInfo : APIBean {
        Returns the version of the operating system.
 
        @return OS version.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getVersion() -> String? {
         return self.version

@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Structure representing the column specification of a data column.
 
    @author Ferran Vila Conesa
-   @since ARP1.0
+   @since ARP 2.0
    @version 1.0
 */
 public class DatabaseColumn : APIBean {
@@ -51,7 +51,7 @@ public class DatabaseColumn : APIBean {
     /**
        Default constructor
 
-       @since ARP1.0
+       @since ARP 2.0
     */
     public override init() {
         super.init()
@@ -61,7 +61,7 @@ public class DatabaseColumn : APIBean {
        Constructor with fields
 
        @param name Name of the column
-       @since ARP1.0
+       @since ARP 2.0
     */
     public init(name: String) {
         super.init()
@@ -72,7 +72,7 @@ public class DatabaseColumn : APIBean {
        Returns the name of the column.
 
        @return The name of the column.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getName() -> String? {
         return self.name
@@ -82,7 +82,7 @@ public class DatabaseColumn : APIBean {
        Sets the name of the column.
 
        @param name The name of the column.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setName(name: String) {
         self.name = name

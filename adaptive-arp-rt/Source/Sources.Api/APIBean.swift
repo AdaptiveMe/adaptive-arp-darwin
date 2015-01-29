@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Structure representing a native response to the HTML5
 
    @author Carlos Lozano Diez
-   @since ARP1.0
+   @since ARP 2.0
    @version 1.0
 */
 public class APIBean : NSObject {
@@ -47,7 +47,7 @@ public class APIBean : NSObject {
     /**
        Default constructor
 
-       @since ARP1.0
+       @since ARP 2.0
     */
     public override init() {
         super.init()

@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -53,7 +53,7 @@ public class ContactResultCallbackImpl : BaseCallbackImpl, IContactResultCallbac
        This method is called on Error
 
        @param error returned by the platform
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func onError(error : IContactResultCallbackError) { 
         var param0 : String = "Adaptive.IContactResultCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
@@ -64,7 +64,7 @@ public class ContactResultCallbackImpl : BaseCallbackImpl, IContactResultCallbac
        This method is called on Result
 
        @param contacts returned by the platform
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func onResult(contacts : [Contact]) { 
         var param0Array : NSMutableString = NSMutableString()
@@ -85,7 +85,7 @@ public class ContactResultCallbackImpl : BaseCallbackImpl, IContactResultCallbac
 
        @param contacts returned by the platform
        @param warning  returned by the platform
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func onWarning(contacts : [Contact], warning : IContactResultCallbackWarning) { 
         var param0Array : NSMutableString = NSMutableString()

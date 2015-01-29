@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Structure representing the address data elements of a contact.
 
    @author Francisco Javier Martin Bueno
-   @since ARP1.0
+   @since ARP 2.0
    @version 1.0
 */
 public class ContactAddress : APIBean {
@@ -55,7 +55,7 @@ public class ContactAddress : APIBean {
     /**
        Default constructor
 
-       @since ARP1.0
+       @since ARP 2.0
     */
     public override init() {
         super.init()
@@ -66,7 +66,7 @@ public class ContactAddress : APIBean {
 
        @param address Address data.
        @param type    Address type.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public init(address: String, type: ContactAddressType) {
         super.init()
@@ -78,7 +78,7 @@ public class ContactAddress : APIBean {
        Returns the type of the address
 
        @return AddressType Address type.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getType() -> ContactAddressType? {
         return self.type
@@ -88,7 +88,7 @@ public class ContactAddress : APIBean {
        Set the address type
 
        @param type Address type.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setType(type: ContactAddressType) {
         self.type = type
@@ -98,7 +98,7 @@ public class ContactAddress : APIBean {
        Returns the Contact address
 
        @return address Address data.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getAddress() -> String? {
         return self.address
@@ -108,7 +108,7 @@ public class ContactAddress : APIBean {
        Set the address of the Contact
 
        @param address Address data.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setAddress(address: String) {
         self.address = address

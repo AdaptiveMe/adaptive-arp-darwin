@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for Managing the Geolocation results
 
    @author Francisco Javier Martin Bueno
-   @since ARP1.0
+   @since ARP 2.0
    @version 1.0
 */
 public protocol IGeolocationListener : IBaseListener {
@@ -46,7 +46,7 @@ public protocol IGeolocationListener : IBaseListener {
        No data received - error condition, not authorized or hardware not available.
 
        @param error Type of error encountered during reading.
-       @since ARP1.0
+       @since ARP 2.0
     */
     func onError(error : IGeolocationListenerError)
 
@@ -54,7 +54,7 @@ public protocol IGeolocationListener : IBaseListener {
        Correct data received.
 
        @param geolocation Geolocation Bean
-       @since ARP1.0
+       @since ARP 2.0
     */
     func onResult(geolocation : Geolocation)
 
@@ -63,7 +63,7 @@ public protocol IGeolocationListener : IBaseListener {
 
        @param geolocation Geolocation Bean
        @param warning     Type of warning encountered during reading.
-       @since ARP1.0
+       @since ARP 2.0
     */
     func onWarning(geolocation : Geolocation, warning : IGeolocationListenerWarning)
 

@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for Managing the Network reachability callback result
 
    @author Carlos Lozano Diez
-   @since ARP1.0
+   @since ARP 2.0
    @version 1.0
 */
 public protocol INetworkReachabilityCallback : IBaseCallback {
@@ -46,7 +46,7 @@ public protocol INetworkReachabilityCallback : IBaseCallback {
        No data received - error condition, not authorized .
 
        @param error Error value
-       @since ARP1.0
+       @since ARP 2.0
     */
     func onError(error : INetworkReachabilityCallbackError)
 
@@ -54,7 +54,7 @@ public protocol INetworkReachabilityCallback : IBaseCallback {
        Correct data received.
 
        @param reachable Indicates if the host is reachable
-       @since ARP1.0
+       @since ARP 2.0
     */
     func onResult(reachable : Bool)
 
@@ -63,7 +63,7 @@ public protocol INetworkReachabilityCallback : IBaseCallback {
 
        @param reachable Indicates if the host is reachable
        @param warning   Warning value
-       @since ARP1.0
+       @since ARP 2.0
     */
     func onWarning(reachable : Bool, warning : INetworkReachabilityCallbackWarning)
 

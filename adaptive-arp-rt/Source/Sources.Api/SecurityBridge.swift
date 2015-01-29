@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -76,7 +76,7 @@ public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
        @param keys             Array with the key names to delete.
        @param publicAccessName The name of the shared internal storage object (if needed).
        @param callback         callback to be executed upon function result.
-       @since ARP 1.0
+       @since ARP 2.0
     */
     public func deleteSecureKeyValuePairs(keys : [String] , publicAccessName : String , callback : ISecurityResultCallback ) {
         // Start logging elapsed time.
@@ -106,7 +106,7 @@ public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
        @param keys             Array with the key names to retrieve.
        @param publicAccessName The name of the shared internal storage object (if needed).
        @param callback         callback to be executed upon function result.
-       @since ARP 1.0
+       @since ARP 2.0
     */
     public func getSecureKeyValuePairs(keys : [String] , publicAccessName : String , callback : ISecurityResultCallback ) {
         // Start logging elapsed time.
@@ -134,7 +134,7 @@ public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
        Returns if the device has been modified in anyhow
 
        @return true if the device has been modified; false otherwise
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func isDeviceModified() -> Bool? {
         // Start logging elapsed time.
@@ -165,7 +165,7 @@ public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
        @param keyValues        Array containing the items to store on the device internal memory.
        @param publicAccessName The name of the shared internal storage object (if needed).
        @param callback         callback to be executed upon function result.
-       @since ARP 1.0
+       @since ARP 2.0
     */
     public func setSecureKeyValuePairs(keyValues : [SecureKeyPair] , publicAccessName : String , callback : ISecurityResultCallback ) {
         // Start logging elapsed time.
@@ -238,7 +238,7 @@ public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "SecurityBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.4."
+                responseMessage = "SecurityBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.5."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

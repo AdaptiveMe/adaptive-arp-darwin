@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -74,7 +74,7 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
        Returns the default locale of the application defined in the configuration file
 
        @return Default Locale of the application
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getDefaultLocale() -> Locale? {
         // Start logging elapsed time.
@@ -103,7 +103,7 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
        List of supported locales for the application defined in the configuration file
 
        @return List of locales
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getLocaleSupportedDescriptors() -> [Locale]? {
         // Start logging elapsed time.
@@ -134,7 +134,7 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
        @param key    to match text
        @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
        @return Localized text.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getResourceLiteral(key : String , locale : Locale ) -> String? {
         // Start logging elapsed time.
@@ -164,7 +164,7 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
 
        @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
        @return Localized texts in the form of an object.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getResourceLiterals(locale : Locale ) -> [KeyPair]? {
         // Start logging elapsed time.
@@ -253,7 +253,7 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "GlobalizationBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.4."
+                responseMessage = "GlobalizationBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.5."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

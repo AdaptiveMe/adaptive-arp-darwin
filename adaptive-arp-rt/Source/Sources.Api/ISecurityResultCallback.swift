@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for Managing the Security result callback
 
    @author Aryslan
-   @since ARP1.0
+   @since ARP 2.0
    @version 1.0
 */
 public protocol ISecurityResultCallback : IBaseCallback {
@@ -46,7 +46,7 @@ public protocol ISecurityResultCallback : IBaseCallback {
        No data received - error condition, not authorized .
 
        @param error Error values
-       @since ARP1.0
+       @since ARP 2.0
     */
     func onError(error : ISecurityResultCallbackError)
 
@@ -54,7 +54,7 @@ public protocol ISecurityResultCallback : IBaseCallback {
        Correct data received.
 
        @param keyValues key and values
-       @since ARP1.0
+       @since ARP 2.0
     */
     func onResult(keyValues : [SecureKeyPair])
 
@@ -63,7 +63,7 @@ public protocol ISecurityResultCallback : IBaseCallback {
 
        @param keyValues key and values
        @param warning   Warning values
-       @since ARP1.0
+       @since ARP 2.0
     */
     func onWarning(keyValues : [SecureKeyPair], warning : ISecurityResultCallbackWarning)
 

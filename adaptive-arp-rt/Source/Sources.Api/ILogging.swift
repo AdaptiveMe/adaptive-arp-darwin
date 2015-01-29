@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for Managing the Logging operations
 
    @author Ferran Vila Conesa
-   @since ARP1.0
+   @since ARP 2.0
    @version 1.0
 */
 public protocol ILogging : IBaseUtil {
@@ -48,7 +48,7 @@ public protocol ILogging : IBaseUtil {
        @param level    Log level
        @param category Category/tag name to identify/filter the log.
        @param message  Message to be logged
-       @since ARP1.0
+       @since ARP 2.0
     */
     func log(level : ILoggingLogLevel, category : String, message : String)
 
@@ -57,7 +57,7 @@ public protocol ILogging : IBaseUtil {
 
        @param level   Log level
        @param message Message to be logged
-       @since ARP1.0
+       @since ARP 2.0
     */
     func log(level : ILoggingLogLevel, message : String)
 

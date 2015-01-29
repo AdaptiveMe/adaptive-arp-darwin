@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Represents a session object for HTTP request and responses
 
    @author Ferran Vila Conesa
-   @since ARP1.0
+   @since ARP 2.0
    @version 1.0
 */
 public class ServiceSession : APIBean {
@@ -55,7 +55,7 @@ public class ServiceSession : APIBean {
     /**
        Default constructor
 
-       @since ARP1.0
+       @since ARP 2.0
     */
     public override init() {
         super.init()
@@ -66,7 +66,7 @@ public class ServiceSession : APIBean {
 
        @param cookies    The cookies of the response
        @param attributes Attributes of the response
-       @since ARP1.0
+       @since ARP 2.0
     */
     public init(cookies: [ServiceCookie], attributes: [String]) {
         super.init()
@@ -78,7 +78,7 @@ public class ServiceSession : APIBean {
        Gets the attributes of the response
 
        @return Attributes of the response
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getAttributes() -> [String]? {
         return self.attributes
@@ -88,7 +88,7 @@ public class ServiceSession : APIBean {
        Sets the attributes for the response
 
        @param attributes Attributes of the response
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setAttributes(attributes: [String]) {
         self.attributes = attributes
@@ -98,7 +98,7 @@ public class ServiceSession : APIBean {
        Returns the cookies of the response
 
        @return The cookies of the response
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getCookies() -> [ServiceCookie]? {
         return self.cookies
@@ -108,7 +108,7 @@ public class ServiceSession : APIBean {
        Sets the cookies of the response
 
        @param cookies The cookies of the response
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setCookies(cookies: [ServiceCookie]) {
         self.cookies = cookies

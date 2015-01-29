@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -53,7 +53,7 @@ public class ServiceResultCallbackImpl : BaseCallbackImpl, IServiceResultCallbac
        This method is called on Error
 
        @param error returned by the platform
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func onError(error : IServiceResultCallbackError) { 
         var param0 : String = "Adaptive.IServiceResultCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
@@ -64,7 +64,7 @@ public class ServiceResultCallbackImpl : BaseCallbackImpl, IServiceResultCallbac
        This method is called on Result
 
        @param response data
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func onResult(response : ServiceResponse) { 
         var param0 : String = "Adaptive.ServiceResponse.toObject(JSON.parse(\"\(JSONUtil.escapeString(ServiceResponse.Serializer.toJSON(response)))\"))"
@@ -76,7 +76,7 @@ public class ServiceResultCallbackImpl : BaseCallbackImpl, IServiceResultCallbac
 
        @param response data
        @param warning  returned by the platform
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func onWarning(response : ServiceResponse, warning : IServiceResultCallbackWarning) { 
         var param0 : String = "Adaptive.ServiceResponse.toObject(JSON.parse(\"\(JSONUtil.escapeString(ServiceResponse.Serializer.toJSON(response)))\"))"

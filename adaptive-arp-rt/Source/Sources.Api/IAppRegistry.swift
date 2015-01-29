@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface to retrieve auto-registered service implementation references.
 
    @author Carlos Lozano Diez
-   @since ARP1.0
+   @since ARP 2.0
    @version 1.0
 */
 public protocol IAppRegistry : NSObjectProtocol {
@@ -544,7 +544,7 @@ public protocol IAppRegistry : NSObjectProtocol {
        Method that returns the API version of the implementation.
 
        @return API Version string.
-       @since ARP1.0
+       @since ARP 2.0
     */
     func getAPIVersion() -> String?
 
@@ -552,7 +552,7 @@ public protocol IAppRegistry : NSObjectProtocol {
        Returns a reference to the Platform Context
 
        @return Reference to the platform context
-       @since ARP1.0
+       @since ARP 2.0
     */
     func getPlatformContext() -> AppContextBridge 
 
@@ -560,7 +560,7 @@ public protocol IAppRegistry : NSObjectProtocol {
        Returns a reference to the Webview platform context
 
        @return Reference to the Webview Context
-       @since ARP1.0
+       @since ARP 2.0
     */
     func getPlatformContextWeb() -> AppContextWebviewBridge 
 

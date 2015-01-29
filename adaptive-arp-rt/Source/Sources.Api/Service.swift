@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Represents an instance of a service.
 
    @author Aryslan
-   @since ARP1.0
+   @since ARP 2.0
    @version 1.0
 */
 public class Service : APIBean {
@@ -59,7 +59,7 @@ public class Service : APIBean {
     /**
        Default constructor
 
-       @since ARP1.0
+       @since ARP 2.0
     */
     public override init() {
         super.init()
@@ -71,7 +71,7 @@ public class Service : APIBean {
        @param serviceEndpoints Endpoints of the service
        @param name             Name of the service
        @param type             Type of the service
-       @since ARP1.0
+       @since ARP 2.0
     */
     public init(serviceEndpoints: [ServiceEndpoint], name: String, type: IServiceType) {
         super.init()
@@ -84,7 +84,7 @@ public class Service : APIBean {
        Returns the type
 
        @return type
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getType() -> IServiceType? {
         return self.type
@@ -94,7 +94,7 @@ public class Service : APIBean {
        Set the type
 
        @param type Type of the service
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setType(type: IServiceType) {
         self.type = type
@@ -104,7 +104,7 @@ public class Service : APIBean {
        Returns the name
 
        @return name
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getName() -> String? {
         return self.name
@@ -114,7 +114,7 @@ public class Service : APIBean {
        Set the name
 
        @param name Name of the service
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setName(name: String) {
         self.name = name
@@ -124,7 +124,7 @@ public class Service : APIBean {
        Returns the serviceEndpoints
 
        @return serviceEndpoints
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getServiceEndpoints() -> [ServiceEndpoint]? {
         return self.serviceEndpoints
@@ -134,7 +134,7 @@ public class Service : APIBean {
        Set the serviceEndpoints
 
        @param serviceEndpoints Endpoint of the service
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setServiceEndpoints(serviceEndpoints: [ServiceEndpoint]) {
         self.serviceEndpoints = serviceEndpoints

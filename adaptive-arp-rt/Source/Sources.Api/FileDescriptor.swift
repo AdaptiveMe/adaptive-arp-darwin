@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -61,7 +61,7 @@ public class FileDescriptor : APIBean {
        Returns the milliseconds passed since 1/1/1970 since the file was created.
 
        @return Timestamp in milliseconds.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getDateCreated() -> Int? {
         return self.dateCreated
@@ -80,7 +80,7 @@ public class FileDescriptor : APIBean {
        Returns the milliseconds passed since 1/1/1970 since the file was modified.
 
        @return Timestamp in milliseconds.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getDateModified() -> Int? {
         return self.dateModified
@@ -99,7 +99,7 @@ public class FileDescriptor : APIBean {
        Returns the name of the file if the reference is a file or the last path element of the folder.
 
        @return The name of the file.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getName() -> String? {
         return self.name
@@ -118,7 +118,7 @@ public class FileDescriptor : APIBean {
        Returns the path element of the file or folder (excluding the last path element if it's a directory).
 
        @return The path to the file.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getPath() -> String? {
         return self.path
@@ -137,7 +137,7 @@ public class FileDescriptor : APIBean {
        Returns the resolved absolute path elements of the file and/or folders (including the last path element).
 
        @return The absolute path to the file.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getPathAbsolute() -> String? {
         return self.pathAbsolute
@@ -156,7 +156,7 @@ public class FileDescriptor : APIBean {
        Returns the size in bytes of the file or -1 if the reference is a folder.
 
        @return Size in bytes of file.
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getSize() -> Int? {
         return self.size
