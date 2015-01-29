@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -75,7 +75,7 @@ public class DatabaseBridge : BaseDataBridge, IDatabase, APIBridge {
 
        @param callback Asynchronous callback
        @param database Database object to create
-       @since ARP 2.0
+       @since v2.0
     */
     public func createDatabase(database : Database , callback : IDatabaseResultCallback ) {
         // Start logging elapsed time.
@@ -105,7 +105,7 @@ public class DatabaseBridge : BaseDataBridge, IDatabase, APIBridge {
        @param database      Database for databaseTable creating.
        @param databaseTable DatabaseTable object with the name of the databaseTable inside.
        @param callback      DatabaseTable callback with the response
-       @since ARP 2.0
+       @since v2.0
     */
     public func createTable(database : Database , databaseTable : DatabaseTable , callback : IDatabaseTableResultCallback ) {
         // Start logging elapsed time.
@@ -134,7 +134,7 @@ public class DatabaseBridge : BaseDataBridge, IDatabase, APIBridge {
 
        @param database Database object to delete
        @param callback Asynchronous callback
-       @since ARP 2.0
+       @since v2.0
     */
     public func deleteDatabase(database : Database , callback : IDatabaseResultCallback ) {
         // Start logging elapsed time.
@@ -164,7 +164,7 @@ public class DatabaseBridge : BaseDataBridge, IDatabase, APIBridge {
        @param database      Database for databaseTable removal.
        @param databaseTable DatabaseTable object with the name of the databaseTable inside.
        @param callback      DatabaseTable callback with the response
-       @since ARP 2.0
+       @since v2.0
     */
     public func deleteTable(database : Database , databaseTable : DatabaseTable , callback : IDatabaseTableResultCallback ) {
         // Start logging elapsed time.
@@ -196,7 +196,7 @@ should be passed as a parameter
        @param statement    SQL statement.
        @param replacements List of SQL statement replacements.
        @param callback     DatabaseTable callback with the response.
-       @since ARP 2.0
+       @since v2.0
     */
     public func executeSqlStatement(database : Database , statement : String , replacements : [String] , callback : IDatabaseTableResultCallback ) {
         // Start logging elapsed time.
@@ -228,7 +228,7 @@ should be passed as a parameter
        @param rollbackFlag Indicates if rollback should be performed when any
                     statement execution fails.
        @param callback     DatabaseTable callback with the response.
-       @since ARP 2.0
+       @since v2.0
     */
     public func executeSqlTransactions(database : Database , statements : [String] , rollbackFlag : Bool , callback : IDatabaseTableResultCallback ) {
         // Start logging elapsed time.
@@ -257,7 +257,7 @@ should be passed as a parameter
 
        @param database Database Object to check if exists
        @return True if exists, false otherwise
-       @since ARP 2.0
+       @since v2.0
     */
     public func existsDatabase(database : Database ) -> Bool? {
         // Start logging elapsed time.
@@ -288,7 +288,7 @@ should be passed as a parameter
        @param database      Database for databaseTable consulting.
        @param databaseTable DatabaseTable object with the name of the databaseTable inside.
        @return True if exists, false otherwise
-       @since ARP 2.0
+       @since v2.0
     */
     public func existsTable(database : Database , databaseTable : DatabaseTable ) -> Bool? {
         // Start logging elapsed time.
@@ -383,7 +383,7 @@ should be passed as a parameter
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "DatabaseBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.5."
+                responseMessage = "DatabaseBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.6."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Structure representing the data of a single acceleration reading.
 
    @author Carlos Lozano Diez
-   @since ARP 2.0
+   @since v2.0
    @version 1.0
 */
 public class Acceleration : APIBean {
@@ -63,7 +63,7 @@ public class Acceleration : APIBean {
     /**
        Default constructor
 
-       @since ARP 2.0
+       @since v2.0
     */
     public override init() {
         super.init()
@@ -76,7 +76,7 @@ public class Acceleration : APIBean {
        @param y         Y Coordinate
        @param z         Z Coordinate
        @param timestamp Timestamp
-       @since ARP 2.0
+       @since v2.0
     */
     public init(x: Double, y: Double, z: Double, timestamp: Int) {
         super.init()
@@ -90,7 +90,7 @@ public class Acceleration : APIBean {
        Timestamp Getter
 
        @return Timestamp
-       @since ARP 2.0
+       @since v2.0
     */
     public func getTimestamp() -> Int? {
         return self.timestamp
@@ -100,7 +100,7 @@ public class Acceleration : APIBean {
        Timestamp Setter
 
        @param timestamp Timestamp
-       @since ARP 2.0
+       @since v2.0
     */
     public func setTimestamp(timestamp: Int) {
         self.timestamp = timestamp
@@ -110,7 +110,7 @@ public class Acceleration : APIBean {
        X Coordinate Getter
 
        @return X-axis component of the acceleration.
-       @since ARP 2.0
+       @since v2.0
     */
     public func getX() -> Double? {
         return self.x
@@ -120,7 +120,7 @@ public class Acceleration : APIBean {
        X Coordinate Setter
 
        @param x X-axis component of the acceleration.
-       @since ARP 2.0
+       @since v2.0
     */
     public func setX(x: Double) {
         self.x = x
@@ -130,7 +130,7 @@ public class Acceleration : APIBean {
        Y Coordinate Getter
 
        @return Y-axis component of the acceleration.
-       @since ARP 2.0
+       @since v2.0
     */
     public func getY() -> Double? {
         return self.y
@@ -140,7 +140,7 @@ public class Acceleration : APIBean {
        Y Coordinate Setter
 
        @param y Y-axis component of the acceleration.
-       @since ARP 2.0
+       @since v2.0
     */
     public func setY(y: Double) {
         self.y = y
@@ -150,7 +150,7 @@ public class Acceleration : APIBean {
        Z Coordinate Getter
 
        @return Z-axis component of the acceleration.
-       @since ARP 2.0
+       @since v2.0
     */
     public func getZ() -> Double? {
         return self.z
@@ -160,7 +160,7 @@ public class Acceleration : APIBean {
        Z Coordinate Setter
 
        @param z Z Coordinate
-       @since ARP 2.0
+       @since v2.0
     */
     public func setZ(z: Double) {
         self.z = z

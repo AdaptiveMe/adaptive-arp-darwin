@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Structure representing the personal info data elements of a contact.
 
    @author Francisco Javier Martin Bueno
-   @since ARP 2.0
+   @since v2.0
    @version 1.0
 */
 public class ContactPersonalInfo : APIBean {
@@ -63,7 +63,7 @@ public class ContactPersonalInfo : APIBean {
     /**
        Default constructor
 
-       @since ARP 2.0
+       @since v2.0
     */
     public override init() {
         super.init()
@@ -76,7 +76,7 @@ public class ContactPersonalInfo : APIBean {
        @param middleName of the Contact
        @param lastName   of the Contact
        @param title      of the Contact
-       @since ARP 2.0
+       @since v2.0
     */
     public init(name: String, middleName: String, lastName: String, title: ContactPersonalInfoTitle) {
         super.init()
@@ -90,7 +90,7 @@ public class ContactPersonalInfo : APIBean {
        Returns the title of the Contact
 
        @return Title
-       @since ARP 2.0
+       @since v2.0
     */
     public func getTitle() -> ContactPersonalInfoTitle? {
         return self.title
@@ -100,7 +100,7 @@ public class ContactPersonalInfo : APIBean {
        Set the Title of the Contact
 
        @param title of the Contact
-       @since ARP 2.0
+       @since v2.0
     */
     public func setTitle(title: ContactPersonalInfoTitle) {
         self.title = title
@@ -110,7 +110,7 @@ public class ContactPersonalInfo : APIBean {
        Returns the last name of the Contact
 
        @return lastName
-       @since ARP 2.0
+       @since v2.0
     */
     public func getLastName() -> String? {
         return self.lastName
@@ -120,7 +120,7 @@ public class ContactPersonalInfo : APIBean {
        Set the last name of the Contact
 
        @param lastName of the Contact
-       @since ARP 2.0
+       @since v2.0
     */
     public func setLastName(lastName: String) {
         self.lastName = lastName
@@ -130,7 +130,7 @@ public class ContactPersonalInfo : APIBean {
        Returns the middle name of the Contact
 
        @return middelName
-       @since ARP 2.0
+       @since v2.0
     */
     public func getMiddleName() -> String? {
         return self.middleName
@@ -140,7 +140,7 @@ public class ContactPersonalInfo : APIBean {
        Set the middle name of the Contact
 
        @param middleName of the Contact
-       @since ARP 2.0
+       @since v2.0
     */
     public func setMiddleName(middleName: String) {
         self.middleName = middleName
@@ -150,7 +150,7 @@ public class ContactPersonalInfo : APIBean {
        Returns the name of the Contact
 
        @return name
-       @since ARP 2.0
+       @since v2.0
     */
     public func getName() -> String? {
         return self.name
@@ -160,7 +160,7 @@ public class ContactPersonalInfo : APIBean {
        Set the name of the Contact
 
        @param name of the Contact
-       @since ARP 2.0
+       @since v2.0
     */
     public func setName(name: String) {
         self.name = name

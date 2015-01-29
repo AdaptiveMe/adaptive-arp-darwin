@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for testing the Capabilities operations
 
    @author Carlos Lozano Diez
-   @since ARP 2.0
+   @since v2.0
    @version 1.0
 */
 public protocol ICapabilities : IBaseSystem {
@@ -48,7 +48,7 @@ the platform, this method will return the current orientation. To capture device
 changes please use the IDevice and IDisplay functions and listeners API respectively.
 
        @return The default orientation for the device/display.
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     func getOrientationDefault() -> ICapabilitiesOrientation?
 
@@ -57,7 +57,7 @@ changes please use the IDevice and IDisplay functions and listeners API respecti
 support at least one orientation. This is usually PortaitUp.
 
        @return The orientations supported by the device/display of the platform.
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     func getOrientationsSupported() -> [ICapabilitiesOrientation]?
 
@@ -66,7 +66,7 @@ support at least one orientation. This is usually PortaitUp.
 
        @param type Type of feature to check.
        @return true is supported, false otherwise.
-       @since ARP 2.0
+       @since v2.0
     */
     func hasButtonSupport(type : ICapabilitiesButton) -> Bool?
 
@@ -76,7 +76,7 @@ the device.
 
        @param type Type of feature to check.
        @return true if supported, false otherwise.
-       @since ARP 2.0
+       @since v2.0
     */
     func hasCommunicationSupport(type : ICapabilitiesCommunication) -> Bool?
 
@@ -85,7 +85,7 @@ the device.
 
        @param type Type of feature to check.
        @return true if supported, false otherwise.
-       @since ARP 2.0
+       @since v2.0
     */
     func hasDataSupport(type : ICapabilitiesData) -> Bool?
 
@@ -95,7 +95,7 @@ device.
 
        @param type Type of feature to check.
        @return true if supported, false otherwise.
-       @since ARP 2.0
+       @since v2.0
     */
     func hasMediaSupport(type : ICapabilitiesMedia) -> Bool?
 
@@ -104,7 +104,7 @@ device.
 
        @param type Type of feature to check.
        @return true if supported, false otherwise.
-       @since ARP 2.0
+       @since v2.0
     */
     func hasNetSupport(type : ICapabilitiesNet) -> Bool?
 
@@ -114,7 +114,7 @@ device.
 
        @param type Type of feature to check.
        @return true if supported, false otherwise.
-       @since ARP 2.0
+       @since v2.0
     */
     func hasNotificationSupport(type : ICapabilitiesNotification) -> Bool?
 
@@ -123,7 +123,7 @@ device.
 
        @param orientation Orientation type.
        @return True if the given orientation is supported, false otherwise.
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     func hasOrientationSupport(orientation : ICapabilitiesOrientation) -> Bool?
 
@@ -133,7 +133,7 @@ device.
 
        @param type Type of feature to check.
        @return true if supported, false otherwise.
-       @since ARP 2.0
+       @since v2.0
     */
     func hasSensorSupport(type : ICapabilitiesSensor) -> Bool?
 

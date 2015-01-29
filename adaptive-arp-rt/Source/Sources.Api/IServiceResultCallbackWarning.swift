@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -39,8 +39,8 @@ import Foundation
 */
 public enum IServiceResultCallbackWarning {
 
+    case CertificateUntrusted
     case NotSecure
-    case NotTrusted
     case Redirected
     case Wrong_Params
     case Unknown
@@ -50,8 +50,8 @@ public enum IServiceResultCallbackWarning {
     */
     public func toString() -> String {
         switch self {
+            case .CertificateUntrusted: return "CertificateUntrusted"
             case .NotSecure: return "NotSecure"
-            case .NotTrusted: return "NotTrusted"
             case .Redirected: return "Redirected"
             case .Wrong_Params: return "Wrong_Params"
             case .Unknown: return "Unknown"
@@ -64,8 +64,8 @@ public enum IServiceResultCallbackWarning {
     public static func toEnum(string:String?) -> IServiceResultCallbackWarning {
         if let validString = string {
             switch validString {
+                case "CertificateUntrusted": return .CertificateUntrusted
                 case "NotSecure": return .NotSecure
-                case "NotTrusted": return .NotTrusted
                 case "Redirected": return .Redirected
                 case "Wrong_Params": return .Wrong_Params
                 case "Unknown": return .Unknown

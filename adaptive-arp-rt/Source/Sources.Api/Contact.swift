@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Structure representing the data elements of a contact.
 
    @author Francisco Javier Martin Bueno
-   @since ARP 2.0
+   @since v2.0
    @version 1.0
 */
 public class Contact : ContactUid {
@@ -79,7 +79,7 @@ public class Contact : ContactUid {
     /**
        Default Constructor
 
-       @since ARP 2.0
+       @since v2.0
     */
     public override init() {
         super.init()
@@ -89,7 +89,7 @@ public class Contact : ContactUid {
        Constructor used by implementation to set the Contact.
 
        @param contactId of the Contact
-       @since ARP 2.0
+       @since v2.0
     */
     public override init(contactId: String) {
         super.init(contactId: contactId)
@@ -107,7 +107,7 @@ public class Contact : ContactUid {
        @param contactWebsites  Websites of the contact
        @param contactSocials   Social Networks of the contact
        @param contactTags      Tags of the contact
-       @since ARP 2.0
+       @since v2.0
     */
     public init(contactId: String, personalInfo: ContactPersonalInfo, professionalInfo: ContactProfessionalInfo, contactAddresses: [ContactAddress], contactPhones: [ContactPhone], contactEmails: [ContactEmail], contactWebsites: [ContactWebsite], contactSocials: [ContactSocial], contactTags: [ContactTag]) {
         super.init(contactId: contactId)
@@ -125,7 +125,7 @@ public class Contact : ContactUid {
        Returns all the addresses of the Contact
 
        @return ContactAddress[]
-       @since ARP 2.0
+       @since v2.0
     */
     public func getContactAddresses() -> [ContactAddress]? {
         return self.contactAddresses
@@ -135,7 +135,7 @@ public class Contact : ContactUid {
        Set the addresses of the Contact
 
        @param contactAddresses Addresses of the contact
-       @since ARP 2.0
+       @since v2.0
     */
     public func setContactAddresses(contactAddresses: [ContactAddress]) {
         self.contactAddresses = contactAddresses
@@ -145,7 +145,7 @@ public class Contact : ContactUid {
        Returns all the emails of the Contact
 
        @return ContactEmail[]
-       @since ARP 2.0
+       @since v2.0
     */
     public func getContactEmails() -> [ContactEmail]? {
         return self.contactEmails
@@ -155,7 +155,7 @@ public class Contact : ContactUid {
        Set the emails of the Contact
 
        @param contactEmails Emails of the contact
-       @since ARP 2.0
+       @since v2.0
     */
     public func setContactEmails(contactEmails: [ContactEmail]) {
         self.contactEmails = contactEmails
@@ -165,7 +165,7 @@ public class Contact : ContactUid {
        Returns all the phones of the Contact
 
        @return ContactPhone[]
-       @since ARP 2.0
+       @since v2.0
     */
     public func getContactPhones() -> [ContactPhone]? {
         return self.contactPhones
@@ -175,7 +175,7 @@ public class Contact : ContactUid {
        Set the phones of the Contact
 
        @param contactPhones Phones of the contact
-       @since ARP 2.0
+       @since v2.0
     */
     public func setContactPhones(contactPhones: [ContactPhone]) {
         self.contactPhones = contactPhones
@@ -185,7 +185,7 @@ public class Contact : ContactUid {
        Returns all the social network info of the Contact
 
        @return ContactSocial[]
-       @since ARP 2.0
+       @since v2.0
     */
     public func getContactSocials() -> [ContactSocial]? {
         return self.contactSocials
@@ -195,7 +195,7 @@ public class Contact : ContactUid {
        Set the social network info of the Contact
 
        @param contactSocials Social Networks of the contact
-       @since ARP 2.0
+       @since v2.0
     */
     public func setContactSocials(contactSocials: [ContactSocial]) {
         self.contactSocials = contactSocials
@@ -205,7 +205,7 @@ public class Contact : ContactUid {
        Returns the additional tags of the Contact
 
        @return ContactTag[]
-       @since ARP 2.0
+       @since v2.0
     */
     public func getContactTags() -> [ContactTag]? {
         return self.contactTags
@@ -215,7 +215,7 @@ public class Contact : ContactUid {
        Set the additional tags of the Contact
 
        @param contactTags Tags of the contact
-       @since ARP 2.0
+       @since v2.0
     */
     public func setContactTags(contactTags: [ContactTag]) {
         self.contactTags = contactTags
@@ -225,7 +225,7 @@ public class Contact : ContactUid {
        Returns all the websites of the Contact
 
        @return ContactWebsite[]
-       @since ARP 2.0
+       @since v2.0
     */
     public func getContactWebsites() -> [ContactWebsite]? {
         return self.contactWebsites
@@ -235,7 +235,7 @@ public class Contact : ContactUid {
        Set the websites of the Contact
 
        @param contactWebsites Websites of the contact
-       @since ARP 2.0
+       @since v2.0
     */
     public func setContactWebsites(contactWebsites: [ContactWebsite]) {
         self.contactWebsites = contactWebsites
@@ -245,7 +245,7 @@ public class Contact : ContactUid {
        Returns the personal info of the Contact
 
        @return ContactPersonalInfo of the Contact
-       @since ARP 2.0
+       @since v2.0
     */
     public func getPersonalInfo() -> ContactPersonalInfo? {
         return self.personalInfo
@@ -255,7 +255,7 @@ public class Contact : ContactUid {
        Set the personal info of the Contact
 
        @param personalInfo Personal Information
-       @since ARP 2.0
+       @since v2.0
     */
     public func setPersonalInfo(personalInfo: ContactPersonalInfo) {
         self.personalInfo = personalInfo
@@ -265,7 +265,7 @@ public class Contact : ContactUid {
        Returns the professional info of the Contact
 
        @return Array of personal info
-       @since ARP 2.0
+       @since v2.0
     */
     public func getProfessionalInfo() -> ContactProfessionalInfo? {
         return self.professionalInfo
@@ -275,7 +275,7 @@ public class Contact : ContactUid {
        Set the professional info of the Contact
 
        @param professionalInfo Professional Information
-       @since ARP 2.0
+       @since v2.0
     */
     public func setProfessionalInfo(professionalInfo: ContactProfessionalInfo) {
         self.professionalInfo = professionalInfo

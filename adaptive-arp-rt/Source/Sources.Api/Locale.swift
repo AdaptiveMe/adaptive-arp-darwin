@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Represents a specific user or system locate.
 
    @author Aryslan
-   @since ARP 2.0
+   @since v2.0
    @version 1.0
 */
 public class Locale : APIBean {
@@ -55,7 +55,7 @@ public class Locale : APIBean {
     /**
        Default constructor
 
-       @since ARP 2.0
+       @since v2.0
     */
     public override init() {
         super.init()
@@ -66,7 +66,7 @@ public class Locale : APIBean {
 
        @param country  Country of the Locale
        @param language Language of the Locale
-       @since ARP 2.0
+       @since v2.0
     */
     public init(language: String, country: String) {
         super.init()
@@ -78,7 +78,7 @@ public class Locale : APIBean {
        Returns the country code
 
        @return country code
-       @since ARP 2.0
+       @since v2.0
     */
     public func getCountry() -> String? {
         return self.country
@@ -88,7 +88,7 @@ public class Locale : APIBean {
        Set the country code
 
        @param country code
-       @since ARP 2.0
+       @since v2.0
     */
     public func setCountry(country: String) {
         self.country = country
@@ -98,7 +98,7 @@ public class Locale : APIBean {
        Returns the language code
 
        @return language code
-       @since ARP 2.0
+       @since v2.0
     */
     public func getLanguage() -> String? {
         return self.language
@@ -108,7 +108,7 @@ public class Locale : APIBean {
        Set the language code
 
        @param language code
-       @since ARP 2.0
+       @since v2.0
     */
     public func setLanguage(language: String) {
         self.language = language

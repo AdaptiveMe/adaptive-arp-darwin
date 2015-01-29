@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -53,7 +53,7 @@ public class SecurityResultCallbackImpl : BaseCallbackImpl, ISecurityResultCallb
        No data received - error condition, not authorized .
 
        @param error Error values
-       @since ARP 2.0
+       @since v2.0
     */
     public func onError(error : ISecurityResultCallbackError) { 
         var param0 : String = "Adaptive.ISecurityResultCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
@@ -64,7 +64,7 @@ public class SecurityResultCallbackImpl : BaseCallbackImpl, ISecurityResultCallb
        Correct data received.
 
        @param keyValues key and values
-       @since ARP 2.0
+       @since v2.0
     */
     public func onResult(keyValues : [SecureKeyPair]) { 
         var param0Array : NSMutableString = NSMutableString()
@@ -85,7 +85,7 @@ public class SecurityResultCallbackImpl : BaseCallbackImpl, ISecurityResultCallb
 
        @param keyValues key and values
        @param warning   Warning values
-       @since ARP 2.0
+       @since v2.0
     */
     public func onWarning(keyValues : [SecureKeyPair], warning : ISecurityResultCallbackWarning) { 
         var param0Array : NSMutableString = NSMutableString()

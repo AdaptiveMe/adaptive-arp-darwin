@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Structure representing the assigned tags data elements of a contact.
 
    @author Francisco Javier Martin Bueno
-   @since ARP 2.0
+   @since v2.0
    @version 1.0
 */
 public class ContactTag : APIBean {
@@ -55,7 +55,7 @@ public class ContactTag : APIBean {
     /**
        Default constructor
 
-       @since ARP 2.0
+       @since v2.0
     */
     public override init() {
         super.init()
@@ -66,7 +66,7 @@ public class ContactTag : APIBean {
 
        @param tagValue Value of the tag
        @param tagName  Name of the tag
-       @since ARP 2.0
+       @since v2.0
     */
     public init(tagName: String, tagValue: String) {
         super.init()
@@ -78,7 +78,7 @@ public class ContactTag : APIBean {
        Returns the tagName of the Tag
 
        @return tagName
-       @since ARP 2.0
+       @since v2.0
     */
     public func getTagName() -> String? {
         return self.tagName
@@ -88,7 +88,7 @@ public class ContactTag : APIBean {
        Set the tagName of the Tag
 
        @param tagName Name of the tag
-       @since ARP 2.0
+       @since v2.0
     */
     public func setTagName(tagName: String) {
         self.tagName = tagName
@@ -98,7 +98,7 @@ public class ContactTag : APIBean {
        Returns the tagValue of the Tag
 
        @return tagValue
-       @since ARP 2.0
+       @since v2.0
     */
     public func getTagValue() -> String? {
         return self.tagValue
@@ -108,7 +108,7 @@ public class ContactTag : APIBean {
        Set the tagValue of the Tag
 
        @param tagValue Value of the tag
-       @since ARP 2.0
+       @since v2.0
     */
     public func setTagValue(tagValue: String) {
         self.tagValue = tagValue

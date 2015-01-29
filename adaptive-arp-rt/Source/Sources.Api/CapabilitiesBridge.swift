@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -76,7 +76,7 @@ the platform, this method will return the current orientation. To capture device
 changes please use the IDevice and IDisplay functions and listeners API respectively.
 
        @return The default orientation for the device/display.
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     public func getOrientationDefault() -> ICapabilitiesOrientation? {
         // Start logging elapsed time.
@@ -106,7 +106,7 @@ changes please use the IDevice and IDisplay functions and listeners API respecti
 support at least one orientation. This is usually PortaitUp.
 
        @return The orientations supported by the device/display of the platform.
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     public func getOrientationsSupported() -> [ICapabilitiesOrientation]? {
         // Start logging elapsed time.
@@ -136,7 +136,7 @@ support at least one orientation. This is usually PortaitUp.
 
        @param type Type of feature to check.
        @return true is supported, false otherwise.
-       @since ARP 2.0
+       @since v2.0
     */
     public func hasButtonSupport(type : ICapabilitiesButton ) -> Bool? {
         // Start logging elapsed time.
@@ -167,7 +167,7 @@ the device.
 
        @param type Type of feature to check.
        @return true if supported, false otherwise.
-       @since ARP 2.0
+       @since v2.0
     */
     public func hasCommunicationSupport(type : ICapabilitiesCommunication ) -> Bool? {
         // Start logging elapsed time.
@@ -197,7 +197,7 @@ the device.
 
        @param type Type of feature to check.
        @return true if supported, false otherwise.
-       @since ARP 2.0
+       @since v2.0
     */
     public func hasDataSupport(type : ICapabilitiesData ) -> Bool? {
         // Start logging elapsed time.
@@ -228,7 +228,7 @@ device.
 
        @param type Type of feature to check.
        @return true if supported, false otherwise.
-       @since ARP 2.0
+       @since v2.0
     */
     public func hasMediaSupport(type : ICapabilitiesMedia ) -> Bool? {
         // Start logging elapsed time.
@@ -258,7 +258,7 @@ device.
 
        @param type Type of feature to check.
        @return true if supported, false otherwise.
-       @since ARP 2.0
+       @since v2.0
     */
     public func hasNetSupport(type : ICapabilitiesNet ) -> Bool? {
         // Start logging elapsed time.
@@ -289,7 +289,7 @@ device.
 
        @param type Type of feature to check.
        @return true if supported, false otherwise.
-       @since ARP 2.0
+       @since v2.0
     */
     public func hasNotificationSupport(type : ICapabilitiesNotification ) -> Bool? {
         // Start logging elapsed time.
@@ -319,7 +319,7 @@ device.
 
        @param orientation Orientation type.
        @return True if the given orientation is supported, false otherwise.
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     public func hasOrientationSupport(orientation : ICapabilitiesOrientation ) -> Bool? {
         // Start logging elapsed time.
@@ -350,7 +350,7 @@ device.
 
        @param type Type of feature to check.
        @return true if supported, false otherwise.
-       @since ARP 2.0
+       @since v2.0
     */
     public func hasSensorSupport(type : ICapabilitiesSensor ) -> Bool? {
         // Start logging elapsed time.
@@ -477,7 +477,7 @@ device.
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "CapabilitiesBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.5."
+                responseMessage = "CapabilitiesBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.6."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

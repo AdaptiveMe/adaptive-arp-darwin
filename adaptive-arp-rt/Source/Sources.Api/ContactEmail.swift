@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Structure representing the email data elements of a contact.
 
    @author Francisco Javier Martin Bueno
-   @since ARP 2.0
+   @since v2.0
    @version 1.0
 */
 public class ContactEmail : APIBean {
@@ -59,7 +59,7 @@ public class ContactEmail : APIBean {
     /**
        Default constructor
 
-       @since ARP 2.0
+       @since v2.0
     */
     public override init() {
         super.init()
@@ -71,7 +71,7 @@ public class ContactEmail : APIBean {
        @param type    Type of the email
        @param primary Is email primary
        @param email   Email of the contact
-       @since ARP 2.0
+       @since v2.0
     */
     public init(type: ContactEmailType, primary: Bool, email: String) {
         super.init()
@@ -84,7 +84,7 @@ public class ContactEmail : APIBean {
        Returns the type of the email
 
        @return EmailType
-       @since ARP 2.0
+       @since v2.0
     */
     public func getType() -> ContactEmailType? {
         return self.type
@@ -94,7 +94,7 @@ public class ContactEmail : APIBean {
        Set the type of the email
 
        @param type Type of the email
-       @since ARP 2.0
+       @since v2.0
     */
     public func setType(type: ContactEmailType) {
         self.type = type
@@ -104,7 +104,7 @@ public class ContactEmail : APIBean {
        Returns the email of the Contact
 
        @return email
-       @since ARP 2.0
+       @since v2.0
     */
     public func getEmail() -> String? {
         return self.email
@@ -114,7 +114,7 @@ public class ContactEmail : APIBean {
        Set the email of the Contact
 
        @param email Email of the contact
-       @since ARP 2.0
+       @since v2.0
     */
     public func setEmail(email: String) {
         self.email = email
@@ -124,7 +124,7 @@ public class ContactEmail : APIBean {
        Returns if the email is primary
 
        @return true if the email is primary; false otherwise
-       @since ARP 2.0
+       @since v2.0
     */
     public func getPrimary() -> Bool? {
         return self.primary
@@ -134,7 +134,7 @@ public class ContactEmail : APIBean {
        Set if the email
 
        @param primary true if the email is primary; false otherwise
-       @since ARP 2.0
+       @since v2.0
     */
     public func setPrimary(primary: Bool) {
         self.primary = primary

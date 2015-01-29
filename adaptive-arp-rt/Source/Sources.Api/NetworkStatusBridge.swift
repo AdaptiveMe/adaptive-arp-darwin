@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -74,7 +74,7 @@ public class NetworkStatusBridge : BaseCommunicationBridge, INetworkStatus, APIB
        Add the listener for network status changes of the app
 
        @param listener Listener with the result
-       @since ARP 2.0
+       @since v2.0
     */
     public func addNetworkStatusListener(listener : INetworkStatusListener ) {
         // Start logging elapsed time.
@@ -102,7 +102,7 @@ public class NetworkStatusBridge : BaseCommunicationBridge, INetworkStatus, APIB
        Un-registers an existing listener from receiving network status events.
 
        @param listener Listener with the result
-       @since ARP 2.0
+       @since v2.0
     */
     public func removeNetworkStatusListener(listener : INetworkStatusListener ) {
         // Start logging elapsed time.
@@ -129,7 +129,7 @@ public class NetworkStatusBridge : BaseCommunicationBridge, INetworkStatus, APIB
     /**
        Removes all existing listeners from receiving network status events.
 
-       @since ARP 2.0
+       @since v2.0
     */
     public func removeNetworkStatusListeners() {
         // Start logging elapsed time.
@@ -176,7 +176,7 @@ public class NetworkStatusBridge : BaseCommunicationBridge, INetworkStatus, APIB
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "NetworkStatusBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.5."
+                responseMessage = "NetworkStatusBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.6."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

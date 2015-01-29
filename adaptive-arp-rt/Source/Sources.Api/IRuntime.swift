@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,14 +38,14 @@ import Foundation
    Interface for Managing the Runtime operations
 
    @author Carlos Lozano Diez
-   @since ARP 2.0
+   @since v2.0
    @version 1.0
 */
 public protocol IRuntime : IBaseSystem {
     /**
        Dismiss the current Application
 
-       @since ARP 2.0
+       @since v2.0
     */
     func dismissApplication()
 
@@ -53,7 +53,7 @@ public protocol IRuntime : IBaseSystem {
        Whether the application dismiss the splash screen successfully or not
 
        @return true if the application has dismissed the splash screen;false otherwise
-       @since ARP 2.0
+       @since v2.0
     */
     func dismissSplashScreen() -> Bool?
 

@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,69 +38,64 @@ import Foundation
    Interface for Managing the Services operations
 
    @author Francisco Javier Martin Bueno
-   @since ARP 2.0
+   @since v2.0
    @version 1.0
 */
 public protocol IService : IBaseCommunication {
     /**
-       Get a reference to a registered service by name.
+       Create a service request for the given ServiceToken. This method creates the request, populating
+existing headers and cookies for the same service. The request is populated with all the defaults
+for the service being invoked and requires only the request body to be set. Headers and cookies may be
+manipulated as needed by the application before submitting the ServiceRequest via invokeService.
 
-       @param serviceName Name of service.
-       @return A service, if registered, or null of the service does not exist.
-       @since ARP 2.0
+       @param serviceToken ServiceToken to be used for the creation of the request.
+       @return ServiceRequest with pre-populated headers, cookies and defaults for the service.
+       @since v2.0.6
     */
-    func getService(serviceName : String) -> Service?
+    func getServiceRequest(serviceToken : ServiceToken) -> ServiceRequest?
 
     /**
-       Request async a service for an Url
+       Obtains a ServiceToken for the given parameters to be used for the creation of requests.
 
-       @param serviceRequest Service Request to invoke
-       @param service        Service to call
-       @param callback       Callback to execute with the result
-       @since ARP 2.0
+       @param serviceName  Service name.
+       @param endpointName Endpoint name.
+       @param functionName Function name.
+       @param method       Method type.
+       @return ServiceToken to create a service request or null if the given parameter combination is not
+configured in the platform's XML service definition file.
+       @since v2.0.6
     */
-    func invokeService(serviceRequest : ServiceRequest, service : Service, callback : IServiceResultCallback)
+    func getServiceToken(serviceName : String, endpointName : String, functionName : String, method : IServiceMethod) -> ServiceToken?
 
     /**
-       Check whether a service by the given name is registered.
+       Returns all the possible service tokens configured in the platform's XML service definition file.
 
-       @param serviceName Name of service.
-       @return True if the service is registered, false otherwise.
-       @since ARP 2.0
+       @return Array of service tokens configured.
+       @since v2.0.6
     */
-    func isRegistered(serviceName : String) -> Bool?
+    func getServicesRegistered() -> [ServiceToken]?
 
     /**
-       Check whether a service by the given service is already registered.
+       Executes the given ServiceRequest and provides responses to the given callback handler.
 
-       @param service Service to check
-       @return True if the service is registered, false otherwise.
-       @since ARP 2.0
+       @param serviceRequest ServiceRequest with the request body.
+       @param callback       IServiceResultCallback to handle the ServiceResponse.
+       @since v2.0.6
     */
-    func isRegistered(service : Service) -> Bool?
+    func invokeService(serviceRequest : ServiceRequest, callback : IServiceResultCallback)
 
     /**
-       Register a new service
+       Checks whether a specific service, endpoint, function and method type is configured in the platform's
+XML service definition file.
 
-       @param service to register
-       @since ARP 2.0
+       @param serviceName  Service name.
+       @param endpointName Endpoint name.
+       @param functionName Function name.
+       @param method       Method type.
+       @return Returns true if the service is configured, false otherwise.
+       @since v2.0.6
     */
-    func registerService(service : Service)
-
-    /**
-       Unregister all services.
-
-       @since ARP 2.0
-    */
-    func unregisterServices()
-
-    /**
-       Unregister a service
-
-       @param service to unregister
-       @since ARP 2.0
-    */
-    func unregisterService(service : Service)
+    func isServiceRegistered(serviceName : String, endpointName : String, functionName : String, method : IServiceMethod) -> Bool?
 
 }
 

@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,36 +38,28 @@ import Foundation
    Structure representing a remote or local service access end-point.
 
    @author Aryslan
-   @since ARP 2.0
+   @since v2.0
    @version 1.0
 */
-public class ServiceEndpoint : APIBean {
+public class ServiceEndpoint : NSObject {
 
     /**
-       The remote service host (alias or IP).
+       Type of validation to be performed for SSL hosts.
     */
-    var host : String?
+    var validationType : IServiceCertificateValidation?
     /**
-       The remote service paths (to be added to the host and port url).
+       The remote service hostURI URI (alias or IP) composed of scheme://hostURI:port (http://hostURI:8080).
+    */
+    var hostURI : String?
+    /**
+       The remote service paths (to be added to the hostURI and port url).
     */
     var paths : [ServicePath]?
-    /**
-       The remote service accessible port.
-    */
-    var port : Int?
-    /**
-       The proxy url - if needed - to access the remote service. If IP and port are used, use the following syntax: "http://<IP>:<Port>".
-    */
-    var proxy : String?
-    /**
-       The remote service scheme.
-    */
-    var scheme : String?
 
     /**
        Default Constructor
 
-       @since ARP 2.0
+       @since v2.0
     */
     public override init() {
         super.init()
@@ -76,47 +68,61 @@ public class ServiceEndpoint : APIBean {
     /**
        Constructor with parameters
 
-       @param host   Remote service host
-       @param paths  Remote service Paths
-       @param port   Remote service Port
-       @param proxy  Proxy url "http://IP_ADDRESS:PORT_NUMBER"
-       @param scheme Remote service scheme
-       @since ARP 2.0
+       @param hostURI Remote service hostURI
+       @param paths   Remote service Paths
+       @since v2.0.6
     */
-    public init(host: String, paths: [ServicePath], port: Int, proxy: String, scheme: String) {
+    public init(hostURI: String, paths: [ServicePath]) {
         super.init()
-        self.host = host
+        self.hostURI = hostURI
         self.paths = paths
-        self.port = port
-        self.proxy = proxy
-        self.scheme = scheme
     }
 
     /**
-       Returns the Remote service host
+       Gets the validation type for the certificate of a SSL host.
 
-       @return Remote service host
-       @since ARP 2.0
+       @return Type of validation.
+       @since v2.0.6
     */
-    public func getHost() -> String? {
-        return self.host
+    public func getValidationType() -> IServiceCertificateValidation? {
+        return self.validationType
     }
 
     /**
-       Set the Remote service host
+       Sets the validation type for the certificate of a SSL host.
 
-       @param host Remote service host
-       @since ARP 2.0
+       @param validationType Type of validation.
+       @since v2.0.6
     */
-    public func setHost(host: String) {
-        self.host = host
+    public func setValidationType(validationType: IServiceCertificateValidation) {
+        self.validationType = validationType
+    }
+
+    /**
+       Returns the Remote service hostURI
+
+       @return Remote service hostURI
+       @since v2.0
+    */
+    public func getHostURI() -> String? {
+        return self.hostURI
+    }
+
+    /**
+       Set the Remote service hostURI
+
+       @param hostURI Remote service hostURI
+       @since v2.0
+    */
+    public func setHostURI(hostURI: String) {
+        self.hostURI = hostURI
     }
 
     /**
        Returns the Remote service Paths
 
        @return Remote service Paths
-       @since ARP 2.0
+       @since v2.0
     */
     public func getPaths() -> [ServicePath]? {
         return self.paths
@@ -126,70 +132,10 @@ public class ServiceEndpoint : APIBean {
        Set the Remote service Paths
 
        @param paths Remote service Paths
-       @since ARP 2.0
+       @since v2.0
     */
     public func setPaths(paths: [ServicePath]) {
         self.paths = paths
-    }
-
-    /**
-       Returns the Remote service Port
-
-       @return Remote service Port
-       @since ARP 2.0
-    */
-    public func getPort() -> Int? {
-        return self.port
-    }
-
-    /**
-       Set the Remote service Port
-
-       @param port Remote service Port
-       @since ARP 2.0
-    */
-    public func setPort(port: Int) {
-        self.port = port
-    }
-
-    /**
-       Return the Proxy url
-
-       @return Proxy url
-       @since ARP 2.0
-    */
-    public func getProxy() -> String? {
-        return self.proxy
-    }
-
-    /**
-       Set the Proxy url
-
-       @param proxy Proxy url
-       @since ARP 2.0
-    */
-    public func setProxy(proxy: String) {
-        self.proxy = proxy
-    }
-
-    /**
-       Returns the Remote service scheme
-
-       @return Remote service scheme
-       @since ARP 2.0
-    */
-    public func getScheme() -> String? {
-        return self.scheme
-    }
-
-    /**
-       Set the Remote service scheme
-
-       @param scheme Remote service scheme
-       @since ARP 2.0
-    */
-    public func setScheme(scheme: String) {
-        self.scheme = scheme
     }
 
 
@@ -207,9 +153,9 @@ public class ServiceEndpoint : APIBean {
         static func fromDictionary(dict : NSDictionary) -> ServiceEndpoint {
             var resultObject : ServiceEndpoint = ServiceEndpoint()
 
-            if let value : AnyObject = dict.objectForKey("host") {
+            if let value : AnyObject = dict.objectForKey("hostURI") {
                 if "\(value)" as NSString != "<null>" {
-                    resultObject.host = (value as String)
+                    resultObject.hostURI = (value as String)
                 }
             }
 
@@ -223,21 +169,9 @@ public class ServiceEndpoint : APIBean {
                 }
             }
 
-            if let value : AnyObject = dict.objectForKey("port") {
+            if let value : AnyObject = dict.objectForKey("validationType") {
                 if "\(value)" as NSString != "<null>" {
-                    resultObject.port = (value as Int)
-                }
-            }
-
-            if let value : AnyObject = dict.objectForKey("proxy") {
-                if "\(value)" as NSString != "<null>" {
-                    resultObject.proxy = (value as String)
-                }
-            }
-
-            if let value : AnyObject = dict.objectForKey("scheme") {
-                if "\(value)" as NSString != "<null>" {
-                    resultObject.scheme = (value as String)
+                    resultObject.validationType = IServiceCertificateValidation.toEnum(((value as NSDictionary)["value"]) as NSString)
                 }
             }
 
@@ -250,7 +184,7 @@ public class ServiceEndpoint : APIBean {
             jsonString.appendString("{ ")
 
             // Fields.
-            object.host != nil ? jsonString.appendString("\"host\": \"\(JSONUtil.escapeString(object.host!))\", ") : jsonString.appendString("\"host\": null, ")
+            object.hostURI != nil ? jsonString.appendString("\"hostURI\": \"\(JSONUtil.escapeString(object.hostURI!))\", ") : jsonString.appendString("\"hostURI\": null, ")
             if (object.paths != nil) {
                 // Start array of objects.
                 jsonString.appendString("\"paths\": [")
@@ -267,9 +201,7 @@ public class ServiceEndpoint : APIBean {
             } else {
                 jsonString.appendString("\"paths\": null, ")
             }
-            object.port != nil ? jsonString.appendString("\"port\": \(object.port!), ") : jsonString.appendString("\"port\": null, ")
-            object.proxy != nil ? jsonString.appendString("\"proxy\": \"\(JSONUtil.escapeString(object.proxy!))\", ") : jsonString.appendString("\"proxy\": null, ")
-            object.scheme != nil ? jsonString.appendString("\"scheme\": \"\(JSONUtil.escapeString(object.scheme!))\"") : jsonString.appendString("\"scheme\": null")
+            object.validationType != nil ? jsonString.appendString("\"validationType\": { \"value\": \"\(object.validationType!.toString())\"}") : jsonString.appendString("\"validationType\": null")
 
             // End Object to JSON
             jsonString.appendString(" }")

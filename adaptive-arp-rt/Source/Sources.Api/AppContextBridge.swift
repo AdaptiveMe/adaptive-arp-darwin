@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -83,7 +83,7 @@ public class AppContextBridge : NSObject, IAppContext {
        The main application context. This should be cast to the platform specific implementation.
 
        @return Object representing the specific singleton application context provided by the OS.
-       @since ARP 2.0
+       @since v2.0
     */
     public func getContext() -> AnyObject? {
         // Start logging elapsed time.
@@ -112,7 +112,7 @@ public class AppContextBridge : NSObject, IAppContext {
        The type of context provided by the getContext method.
 
        @return Type of platform context.
-       @since ARP 2.0
+       @since v2.0
     */
     public func getContextType() -> IOSType? {
         // Start logging elapsed time.

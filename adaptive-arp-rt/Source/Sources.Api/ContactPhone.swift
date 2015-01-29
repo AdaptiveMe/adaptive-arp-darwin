@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Structure representing the phone data elements of a contact.
 
    @author Francisco Javier Martin Bueno
-   @since ARP 2.0
+   @since v2.0
    @version 1.0
 */
 public class ContactPhone : APIBean {
@@ -55,7 +55,7 @@ public class ContactPhone : APIBean {
     /**
        Default constructor
 
-       @since ARP 2.0
+       @since v2.0
     */
     public override init() {
         super.init()
@@ -66,7 +66,7 @@ public class ContactPhone : APIBean {
 
        @param phone     Phone number
        @param phoneType Type of Phone number
-       @since ARP 2.0
+       @since v2.0
     */
     public init(phone: String, phoneType: ContactPhoneType) {
         super.init()
@@ -78,7 +78,7 @@ public class ContactPhone : APIBean {
        Returns the phone phoneType
 
        @return phoneType
-       @since ARP 2.0
+       @since v2.0
     */
     public func getPhoneType() -> ContactPhoneType? {
         return self.phoneType
@@ -88,7 +88,7 @@ public class ContactPhone : APIBean {
        Set the phoneType of the phone number
 
        @param phoneType Type of Phone number
-       @since ARP 2.0
+       @since v2.0
     */
     public func setPhoneType(phoneType: ContactPhoneType) {
         self.phoneType = phoneType
@@ -98,7 +98,7 @@ public class ContactPhone : APIBean {
        Returns the phone number
 
        @return phone number
-       @since ARP 2.0
+       @since v2.0
     */
     public func getPhone() -> String? {
         return self.phone
@@ -108,7 +108,7 @@ public class ContactPhone : APIBean {
        Set the phone number
 
        @param phone number
-       @since ARP 2.0
+       @since v2.0
     */
     public func setPhone(phone: String) {
         self.phone = phone

@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -54,7 +54,7 @@ public class DeviceOrientationListenerImpl : BaseListenerImpl, IDeviceOrientatio
 platform impedes the rotation of the device.
 
        @param error The error condition... generally unknown as it is unexpected!
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     public func onError(error : IDeviceOrientationListenerError) { 
         var param0 : String = "Adaptive.IDeviceOrientationListenerError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
@@ -65,7 +65,7 @@ platform impedes the rotation of the device.
        Event fired with the successful start and finish of a rotation.
 
        @param event RotationEvent containing origin, destination and state of the event.
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     public func onResult(event : RotationEvent) { 
         var param0 : String = "Adaptive.RotationEvent.toObject(JSON.parse(\"\(JSONUtil.escapeString(RotationEvent.Serializer.toJSON(event)))\"))"
@@ -78,7 +78,7 @@ event may be fired if the devices vetoes the rotation before rotation is complet
 
        @param event   RotationEvent containing origin, destination and state of the event.
        @param warning Type of condition that aborted rotation execution.
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     public func onWarning(event : RotationEvent, warning : IDeviceOrientationListenerWarning) { 
         var param0 : String = "Adaptive.RotationEvent.toObject(JSON.parse(\"\(JSONUtil.escapeString(RotationEvent.Serializer.toJSON(event)))\"))"

@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for Managing the Local Notifications operations
 
    @author Carlos Lozano Diez
-   @since ARP 2.0
+   @since v2.0
    @version 1.0
 */
 public protocol INotificationLocal : IBaseNotification {

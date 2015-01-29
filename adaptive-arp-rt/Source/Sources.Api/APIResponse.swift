@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Structure representing a JSON response to the HTML5 layer.
 
    @author Carlos Lozano Diez
-   @since ARP 2.0
+   @since v2.0
    @version 1.0
 */
 public class APIResponse : NSObject {
@@ -59,7 +59,7 @@ public class APIResponse : NSObject {
     /**
        Default constructor
 
-       @since ARP 2.0
+       @since v2.0
     */
     public override init() {
         super.init()
@@ -70,7 +70,7 @@ public class APIResponse : NSObject {
 
        @param response   String representing the JavaScript value or JSON object representation of the response.
        @param statusCode Status code of the response (200 = OK, others are warning or error conditions).
-       @since ARP 2.0
+       @since v2.0
     */
     public init(response: String, statusCode: Int) {
         super.init()
@@ -96,7 +96,7 @@ public class APIResponse : NSObject {
        Response getter
 
        @return String representing the JavaScript value or JSON object representation of the response.
-       @since ARP 2.0
+       @since v2.0
     */
     public func getResponse() -> String? {
         return self.response

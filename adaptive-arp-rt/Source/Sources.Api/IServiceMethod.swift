@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -39,8 +39,9 @@ import Foundation
 */
 public enum IServiceMethod {
 
-    case Post
-    case Get
+    case POST
+    case GET
+    case HEAD
     case Unknown
 
     /**
@@ -48,8 +49,9 @@ public enum IServiceMethod {
     */
     public func toString() -> String {
         switch self {
-            case .Post: return "Post"
-            case .Get: return "Get"
+            case .POST: return "POST"
+            case .GET: return "GET"
+            case .HEAD: return "HEAD"
             case .Unknown: return "Unknown"
         }
     }
@@ -60,8 +62,9 @@ public enum IServiceMethod {
     public static func toEnum(string:String?) -> IServiceMethod {
         if let validString = string {
             switch validString {
-                case "Post": return .Post
-                case "Get": return .Get
+                case "POST": return .POST
+                case "GET": return .GET
+                case "HEAD": return .HEAD
                 case "Unknown": return .Unknown
             default: return .Unknown
             }

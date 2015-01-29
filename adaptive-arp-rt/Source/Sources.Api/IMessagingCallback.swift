@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for Managing the Messaging responses
 
    @author Francisco Javier Martin Bueno
-   @since ARP 2.0
+   @since v2.0
    @version 1.0
 */
 public protocol IMessagingCallback : IBaseCallback {
@@ -46,7 +46,7 @@ public protocol IMessagingCallback : IBaseCallback {
        This method is called on Error
 
        @param error returned by the platform
-       @since ARP 2.0
+       @since v2.0
     */
     func onError(error : IMessagingCallbackError)
 
@@ -54,7 +54,7 @@ public protocol IMessagingCallback : IBaseCallback {
        This method is called on Result
 
        @param success true if sent;false otherwise
-       @since ARP 2.0
+       @since v2.0
     */
     func onResult(success : Bool)
 
@@ -63,7 +63,7 @@ public protocol IMessagingCallback : IBaseCallback {
 
        @param success true if sent;false otherwise
        @param warning returned by the platform
-       @since ARP 2.0
+       @since v2.0
     */
     func onWarning(success : Bool, warning : IMessagingCallbackWarning)
 

@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -44,6 +44,7 @@ public enum IServiceResultCallbackError {
     case MethodNotAllowed
     case NotAllowed
     case NotAuthenticated
+    case PaymentRequired
     case TimeOut
     case NoResponse
     case ServerError
@@ -62,6 +63,7 @@ public enum IServiceResultCallbackError {
             case .MethodNotAllowed: return "MethodNotAllowed"
             case .NotAllowed: return "NotAllowed"
             case .NotAuthenticated: return "NotAuthenticated"
+            case .PaymentRequired: return "PaymentRequired"
             case .TimeOut: return "TimeOut"
             case .NoResponse: return "NoResponse"
             case .ServerError: return "ServerError"
@@ -83,6 +85,7 @@ public enum IServiceResultCallbackError {
                 case "MethodNotAllowed": return .MethodNotAllowed
                 case "NotAllowed": return .NotAllowed
                 case "NotAuthenticated": return .NotAuthenticated
+                case "PaymentRequired": return .PaymentRequired
                 case "TimeOut": return .TimeOut
                 case "NoResponse": return .NoResponse
                 case "ServerError": return .ServerError

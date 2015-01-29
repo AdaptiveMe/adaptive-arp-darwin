@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -53,7 +53,7 @@ public class NetworkStatusListenerImpl : BaseListenerImpl, INetworkStatusListene
        No data received - error condition, not authorized or hardware not available.
 
        @param error Type of error encountered during reading.
-       @since ARP 2.0
+       @since v2.0
     */
     public func onError(error : INetworkStatusListenerError) { 
         var param0 : String = "Adaptive.INetworkStatusListenerError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
@@ -64,7 +64,7 @@ public class NetworkStatusListenerImpl : BaseListenerImpl, INetworkStatusListene
        Called when network connection changes somehow.
 
        @param network Change to this network.
-       @since ARP 2.0
+       @since v2.0
     */
     public func onResult(network : ICapabilitiesNet) { 
         var param0 : String = "Adaptive.ICapabilitiesNet.toObject(JSON.parse(\"{ \"value\": \"\(network.toString())\"}\"))"
@@ -76,7 +76,7 @@ public class NetworkStatusListenerImpl : BaseListenerImpl, INetworkStatusListene
 
        @param network Change to this network.
        @param warning Type of warning encountered during reading.
-       @since ARP 2.0
+       @since v2.0
     */
     public func onWarning(network : ICapabilitiesNet, warning : INetworkStatusListenerWarning) { 
         var param0 : String = "Adaptive.ICapabilitiesNet.toObject(JSON.parse(\"{ \"value\": \"\(network.toString())\"}\"))"

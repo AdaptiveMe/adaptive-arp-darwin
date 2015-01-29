@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,79 +38,79 @@ import Foundation
    Represents a session object for HTTP request and responses
 
    @author Ferran Vila Conesa
-   @since ARP 2.0
+   @since v2.0
    @version 1.0
 */
 public class ServiceSession : APIBean {
 
     /**
-       The attributes of the response
+       The attributes of the request or response.
     */
-    var attributes : [String]?
+    var attributes : [ServiceSessionAttribute]?
     /**
-       The cookies of the response
+       The cookies of the request or response.
     */
-    var cookies : [ServiceCookie]?
+    var cookies : [ServiceSessionCookie]?
 
     /**
-       Default constructor
+       Default constructor.
 
-       @since ARP 2.0
+       @since v2.0
     */
     public override init() {
         super.init()
     }
 
     /**
-       Constructor with fields
+       Constructor with fields.
 
-       @param cookies    The cookies of the response
-       @param attributes Attributes of the response
-       @since ARP 2.0
+       @param cookies    The cookies of the request or response.
+       @param attributes Attributes of the request or response.
+       @since v2.0
     */
-    public init(cookies: [ServiceCookie], attributes: [String]) {
+    public init(cookies: [ServiceSessionCookie], attributes: [ServiceSessionAttribute]) {
         super.init()
         self.cookies = cookies
         self.attributes = attributes
     }
 
     /**
-       Gets the attributes of the response
+       Gets the attributes of the request or response.
 
-       @return Attributes of the response
-       @since ARP 2.0
+       @return Attributes of the request or response.
+       @since v2.0
     */
-    public func getAttributes() -> [String]? {
+    public func getAttributes() -> [ServiceSessionAttribute]? {
         return self.attributes
     }
 
     /**
-       Sets the attributes for the response
+       Sets the attributes for the request or response.
 
-       @param attributes Attributes of the response
-       @since ARP 2.0
+       @param attributes Attributes of the request or response.
+       @since v2.0
     */
-    public func setAttributes(attributes: [String]) {
+    public func setAttributes(attributes: [ServiceSessionAttribute]) {
         self.attributes = attributes
     }
 
     /**
-       Returns the cookies of the response
+       Returns the cookies of the request or response.
 
-       @return The cookies of the response
-       @since ARP 2.0
+       @return The cookies of the request or response.
+       @since v2.0
     */
-    public func getCookies() -> [ServiceCookie]? {
+    public func getCookies() -> [ServiceSessionCookie]? {
         return self.cookies
     }
 
     /**
-       Sets the cookies of the response
+       Sets the cookies of the request or response.
 
-       @param cookies The cookies of the response
-       @since ARP 2.0
+       @param cookies The cookies of the request or response.
+       @since v2.0
     */
-    public func setCookies(cookies: [ServiceCookie]) {
+    public func setCookies(cookies: [ServiceSessionCookie]) {
         self.cookies = cookies
     }
 
@@ -131,9 +131,9 @@ public class ServiceSession : APIBean {
 
             if let value : AnyObject = dict.objectForKey("attributes") {
                 if "\(value)" as NSString != "<null>" {
-                    var attributes : [String] = [String]()
+                    var attributes : [ServiceSessionAttribute] = [ServiceSessionAttribute]()
                     for (var i = 0;i < (value as NSArray).count ; i++) {
-                        attributes.append((value as NSArray)[i] as String)
+                        attributes.append(ServiceSessionAttribute.Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))
                     }
                     resultObject.attributes = attributes
                 }
@@ -141,9 +141,9 @@ public class ServiceSession : APIBean {
 
             if let value : AnyObject = dict.objectForKey("cookies") {
                 if "\(value)" as NSString != "<null>" {
-                    var cookies : [ServiceCookie] = [ServiceCookie]()
+                    var cookies : [ServiceSessionCookie] = [ServiceSessionCookie]()
                     for (var i = 0;i < (value as NSArray).count ; i++) {
-                        cookies.append(ServiceCookie.Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))
+                        cookies.append(ServiceSessionCookie.Serializer.fromDictionary((value as NSArray)[i] as NSDictionary))
                     }
                     resultObject.cookies = cookies
                 }
@@ -163,7 +163,7 @@ public class ServiceSession : APIBean {
                 jsonString.appendString("\"attributes\": [")
 
                 for var i = 0; i < object.attributes!.count; i++ {
-                    jsonString.appendString("\"\(JSONUtil.escapeString(object.attributes![i]))\"")
+                    jsonString.appendString(ServiceSessionAttribute.Serializer.toJSON(object.attributes![i]))
                     if (i < object.attributes!.count-1) {
                         jsonString.appendString(", ");
                     }
@@ -179,7 +179,7 @@ public class ServiceSession : APIBean {
                 jsonString.appendString("\"cookies\": [")
 
                 for var i = 0; i < object.cookies!.count; i++ {
-                    jsonString.appendString(ServiceCookie.Serializer.toJSON(object.cookies![i]))
+                    jsonString.appendString(ServiceSessionCookie.Serializer.toJSON(object.cookies![i]))
                     if (i < object.cookies!.count-1) {
                         jsonString.appendString(", ");
                     }

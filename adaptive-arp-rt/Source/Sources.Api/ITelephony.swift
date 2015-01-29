@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for Managing the Telephony operations
 
    @author Francisco Javier Martin Bueno
-   @since ARP 2.0
+   @since v2.0
    @version 1.0
 */
 public protocol ITelephony : IBaseCommunication {
@@ -47,7 +47,7 @@ public protocol ITelephony : IBaseCommunication {
 
        @param number to call
        @return Status of the call
-       @since ARP 2.0
+       @since v2.0
     */
     func call(number : String) -> ITelephonyStatus?
 

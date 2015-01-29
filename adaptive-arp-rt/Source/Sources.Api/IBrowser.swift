@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for Managing the browser operations
 
    @author Francisco Javier Martin Bueno
-   @since ARP 2.0
+   @since v2.0
    @version 1.0
 */
 public protocol IBrowser : IBaseUI {
@@ -47,7 +47,7 @@ public protocol IBrowser : IBaseUI {
 
        @param url Url to open
        @return The result of the operation
-       @since ARP 2.0
+       @since v2.0
     */
     func openExtenalBrowser(url : String) -> Bool?
 
@@ -58,7 +58,7 @@ public protocol IBrowser : IBaseUI {
        @param title          Title of the Navigation bar
        @param backButtonText Title of the Back button bar
        @return The result of the operation
-       @since ARP 2.0
+       @since v2.0
     */
     func openInternalBrowserModal(url : String, title : String, backButtonText : String) -> Bool?
 
@@ -69,7 +69,7 @@ public protocol IBrowser : IBaseUI {
        @param title          Title of the Navigation bar
        @param backButtonText Title of the Back button bar
        @return The result of the operation
-       @since ARP 2.0
+       @since v2.0
     */
     func openInternalBrowser(url : String, title : String, backButtonText : String) -> Bool?
 

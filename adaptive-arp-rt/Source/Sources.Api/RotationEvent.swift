@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Object for reporting orientation change events for device and display.
 
    @author Carlos Lozano Diez
-   @since ARP 2.0.5
+   @since v2.0.5
    @version 1.0
 */
 public class RotationEvent : APIBean {
@@ -69,7 +69,7 @@ concluded.
     /**
        Default constructor.
 
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     public override init() {
         super.init()
@@ -82,7 +82,7 @@ concluded.
        @param destination Destination orientation when the event was fired.
        @param state       State of the event (WillBegin, DidFinish).
        @param timestamp   Timestamp in milliseconds when the event was fired.
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     public init(origin: ICapabilitiesOrientation, destination: ICapabilitiesOrientation, state: RotationEventState, timestamp: Int) {
         super.init()
@@ -96,7 +96,7 @@ concluded.
        Gets the destination orientation of the event.
 
        @return Destination orientation.
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     public func getDestination() -> ICapabilitiesOrientation? {
         return self.destination
@@ -106,7 +106,7 @@ concluded.
        Sets the destination orientation of the event.
 
        @param destination Destination orientation.
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     public func setDestination(destination: ICapabilitiesOrientation) {
         self.destination = destination
@@ -116,7 +116,7 @@ concluded.
        Get the origin orientation of the event.
 
        @return Origin orientation.
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     public func getOrigin() -> ICapabilitiesOrientation? {
         return self.origin
@@ -126,7 +126,7 @@ concluded.
        Set the origin orientation of the event.
 
        @param origin Origin orientation
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     public func setOrigin(origin: ICapabilitiesOrientation) {
         self.origin = origin
@@ -136,7 +136,7 @@ concluded.
        Gets the current state of the event.
 
        @return State of the event.
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     public func getState() -> RotationEventState? {
         return self.state
@@ -146,7 +146,7 @@ concluded.
        Sets the current state of the event.
 
        @param state The state of the event.
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     public func setState(state: RotationEventState) {
         self.state = state
@@ -156,7 +156,7 @@ concluded.
        Gets the timestamp in milliseconds of the event.
 
        @return Timestamp of the event.
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     public func getTimestamp() -> Int? {
         return self.timestamp
@@ -166,7 +166,7 @@ concluded.
        Sets the timestamp in milliseconds of the event.
 
        @param timestamp Timestamp of the event.
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     public func setTimestamp(timestamp: Int) {
         self.timestamp = timestamp

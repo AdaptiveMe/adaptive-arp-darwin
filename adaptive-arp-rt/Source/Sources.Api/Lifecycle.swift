@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Represents a specific application life-cycle stage.
 
    @author Francisco Javier Martin Bueno
-   @since ARP 2.0
+   @since v2.0
    @version 1.0
 */
 public class Lifecycle : APIBean {
@@ -62,7 +62,7 @@ Possible lifecycle States:
     /**
        Default constructor
 
-       @since ARP 2.0
+       @since v2.0
     */
     public override init() {
         super.init()
@@ -72,7 +72,7 @@ Possible lifecycle States:
        Constructor used by the implementation
 
        @param state of the app
-       @since ARP 2.0
+       @since v2.0
     */
     public init(state: LifecycleState) {
         super.init()
@@ -83,7 +83,7 @@ Possible lifecycle States:
        Returns the state of the application
 
        @return state of the app
-       @since ARP 2.0
+       @since v2.0
     */
     public func getState() -> LifecycleState? {
         return self.state
@@ -93,7 +93,7 @@ Possible lifecycle States:
        Set the State of the application
 
        @param state of the app
-       @since ARP 2.0
+       @since v2.0
     */
     public func setState(state: LifecycleState) {
         self.state = state

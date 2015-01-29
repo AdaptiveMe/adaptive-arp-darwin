@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for Managing the Display operations
 
    @author Carlos Lozano Diez
-   @since ARP 2.0
+   @since v2.0
    @version 1.0
 */
 public protocol IDisplay : IBaseSystem {
@@ -46,7 +46,7 @@ public protocol IDisplay : IBaseSystem {
        Add a listener to start receiving display orientation change events.
 
        @param listener Listener to add to receive orientation change events.
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     func addDisplayOrientationListener(listener : IDisplayOrientationListener)
 
@@ -55,7 +55,7 @@ public protocol IDisplay : IBaseSystem {
 of the device. For device orientation, use the IDevice APIs.
 
        @return The current orientation of the display.
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     func getOrientationCurrent() -> ICapabilitiesOrientation?
 
@@ -63,14 +63,14 @@ of the device. For device orientation, use the IDevice APIs.
        Remove a listener to stop receiving display orientation change events.
 
        @param listener Listener to remove from receiving orientation change events.
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     func removeDisplayOrientationListener(listener : IDisplayOrientationListener)
 
     /**
        Remove all listeners receiving display orientation events.
 
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     func removeDisplayOrientationListeners()
 

@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Represents a data table composed of databaseColumns and databaseRows.
 
    @author Ferran Vila Conesa
-   @since ARP 2.0
+   @since v2.0
    @version 1.0
 */
 public class DatabaseTable : APIBean {
@@ -67,7 +67,7 @@ public class DatabaseTable : APIBean {
     /**
        Default constructor
 
-       @since ARP 2.0
+       @since v2.0
     */
     public override init() {
         super.init()
@@ -77,7 +77,7 @@ public class DatabaseTable : APIBean {
        Constructor by default
 
        @param name The name of the table
-       @since ARP 2.0
+       @since v2.0
     */
     public init(name: String) {
         super.init()
@@ -92,7 +92,7 @@ public class DatabaseTable : APIBean {
        @param rowCount        The number of databaseRows
        @param databaseColumns The databaseColumns of the table
        @param databaseRows    The databaseRows of the table
-       @since ARP 2.0
+       @since v2.0
     */
     public init(name: String, columnCount: Int, rowCount: Int, databaseColumns: [DatabaseColumn], databaseRows: [DatabaseRow]) {
         super.init()
@@ -107,7 +107,7 @@ public class DatabaseTable : APIBean {
        Get the number of databaseColumns
 
        @return The number of databaseColumns
-       @since ARP 2.0
+       @since v2.0
     */
     public func getColumnCount() -> Int? {
         return self.columnCount
@@ -117,7 +117,7 @@ public class DatabaseTable : APIBean {
        Sets the number of databaseColumns
 
        @param columnCount The number of databaseColumns
-       @since ARP 2.0
+       @since v2.0
     */
     public func setColumnCount(columnCount: Int) {
         self.columnCount = columnCount
@@ -127,7 +127,7 @@ public class DatabaseTable : APIBean {
        Get the databaseColumns
 
        @return The databaseColumns
-       @since ARP 2.0
+       @since v2.0
     */
     public func getDatabaseColumns() -> [DatabaseColumn]? {
         return self.databaseColumns
@@ -137,7 +137,7 @@ public class DatabaseTable : APIBean {
        Sets the databaseColumns of the table
 
        @param databaseColumns The databaseColumns of the table
-       @since ARP 2.0
+       @since v2.0
     */
     public func setDatabaseColumns(databaseColumns: [DatabaseColumn]) {
         self.databaseColumns = databaseColumns
@@ -147,7 +147,7 @@ public class DatabaseTable : APIBean {
        Get the databaseRows of the table
 
        @return The databaseRows of the table
-       @since ARP 2.0
+       @since v2.0
     */
     public func getDatabaseRows() -> [DatabaseRow]? {
         return self.databaseRows
@@ -157,7 +157,7 @@ public class DatabaseTable : APIBean {
        Sets the databaseRows of the table
 
        @param databaseRows The databaseRows of the table
-       @since ARP 2.0
+       @since v2.0
     */
     public func setDatabaseRows(databaseRows: [DatabaseRow]) {
         self.databaseRows = databaseRows
@@ -167,7 +167,7 @@ public class DatabaseTable : APIBean {
        Returns the name of the table
 
        @return The name of the table
-       @since ARP 2.0
+       @since v2.0
     */
     public func getName() -> String? {
         return self.name
@@ -177,7 +177,7 @@ public class DatabaseTable : APIBean {
        Sets the name of the table
 
        @param name The name of the table
-       @since ARP 2.0
+       @since v2.0
     */
     public func setName(name: String) {
         self.name = name
@@ -187,7 +187,7 @@ public class DatabaseTable : APIBean {
        Get the number of databaseRows
 
        @return The number of databaseRows
-       @since ARP 2.0
+       @since v2.0
     */
     public func getRowCount() -> Int? {
         return self.rowCount
@@ -197,7 +197,7 @@ public class DatabaseTable : APIBean {
        Sets the number of databaseRows
 
        @param rowCount The number of databaseRows
-       @since ARP 2.0
+       @since v2.0
     */
     public func setRowCount(rowCount: Int) {
         self.rowCount = rowCount

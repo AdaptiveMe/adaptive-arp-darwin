@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -47,7 +47,7 @@ public protocol APIBridge : NSObjectProtocol {
 
        @param request APIRequest object containing method name and parameters.
        @return Object with JSON response or a zero length string is the response is asynchronous.
-       @since ARP 2.0
+       @since v2.0
     */
     func invoke(request : APIRequest) -> APIResponse?
 

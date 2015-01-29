@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,23 +38,16 @@ import Foundation
    Represents a local or remote service response.
 
    @author Aryslan
-   @since ARP 2.0
+   @since v2.0
    @version 1.0
 */
 public class ServiceResponse : APIBean {
 
     /**
-       Request/Response data content (plain text).
+       Response data content. The content should be in some well-known web format - in specific, binaries returned
+should be encoded in base64.
     */
     var content : String?
-    /**
-       The byte[] representing the binary Content.
-    */
-    var contentBinary : [Byte]?
-    /**
-       The length in bytes for the binary Content.
-    */
-    var contentBinaryLength : Int?
     /**
        Encoding of the binary payload - by default assumed to be UTF8.
     */
@@ -72,12 +65,14 @@ public class ServiceResponse : APIBean {
     */
     var serviceHeaders : [ServiceHeader]?
     /**
-       Information about the session
+       Information about the session.
     */
     var serviceSession : ServiceSession?
 
     /**
-       Default constructor
+       Default constructor.
+
+       @since v2.0
     */
     public override init() {
         super.init()
@@ -86,24 +81,20 @@ public class ServiceResponse : APIBean {
     /**
        Constructor with fields
 
-       @param content             Request/Response data content (plain text).
-       @param contentType         The request/response content type (MIME TYPE).
-       @param contentEncoding     Encoding of the binary payload - by default assumed to be UTF8.
-       @param contentLength       The length in bytes for the Content field.
-       @param contentBinary       The byte[] representing the binary Content.
-       @param contentBinaryLength The length in bytes for the binary Content.
-       @param serviceHeaders      The serviceHeaders array (name,value pairs) to be included on the I/O service request.
-       @param serviceSession      Information about the session
-       @since ARP 2.0
+       @param content         Request/Response data content (plain text).
+       @param contentType     The request/response content type (MIME TYPE).
+       @param contentEncoding Encoding of the binary payload - by default assumed to be UTF8.
+       @param contentLength   The length in bytes for the Content field.
+       @param serviceHeaders  The serviceHeaders array (name,value pairs) to be included on the I/O service request.
+       @param serviceSession  Information about the session
+       @since v2.0
     */
-    public init(content: String, contentType: String, contentEncoding: String, contentLength: Int, contentBinary: [Byte], contentBinaryLength: Int, serviceHeaders: [ServiceHeader], serviceSession: ServiceSession) {
+    public init(content: String, contentType: String, contentEncoding: String, contentLength: Int, serviceHeaders: [ServiceHeader], serviceSession: ServiceSession) {
         super.init()
         self.content = content
         self.contentType = contentType
         self.contentEncoding = contentEncoding
         self.contentLength = contentLength
-        self.contentBinary = contentBinary
-        self.contentBinaryLength = contentBinaryLength
         self.serviceHeaders = serviceHeaders
         self.serviceSession = serviceSession
     }
@@ -112,7 +103,7 @@ public class ServiceResponse : APIBean {
        Returns the content
 
        @return content
-       @since ARP 2.0
+       @since v2.0
     */
     public func getContent() -> String? {
         return self.content
@@ -122,57 +113,17 @@ public class ServiceResponse : APIBean {
        Set the content
 
        @param content Request/Response data content (plain text).
-       @since ARP 2.0
+       @since v2.0
     */
     public func setContent(content: String) {
         self.content = content
     }
 
     /**
-       Returns the binary content
-
-       @return contentBinary
-       @since ARP 2.0
-    */
-    public func getContentBinary() -> [Byte]? {
-        return self.contentBinary
-    }
-
-    /**
-       Set the binary content
-
-       @param contentBinary The byte[] representing the binary Content.
-       @since ARP 2.0
-    */
-    public func setContentBinary(contentBinary: [Byte]) {
-        self.contentBinary = contentBinary
-    }
-
-    /**
-       Returns the binary content length
-
-       @return contentBinaryLength
-       @since ARP 2.0
-    */
-    public func getContentBinaryLength() -> Int? {
-        return self.contentBinaryLength
-    }
-
-    /**
-       Set the binary content length
-
-       @param contentBinaryLength The length in bytes for the binary Content.
-       @since ARP 2.0
-    */
-    public func setContentBinaryLength(contentBinaryLength: Int) {
-        self.contentBinaryLength = contentBinaryLength
-    }
-
-    /**
        Returns the content encoding
 
        @return contentEncoding
-       @since ARP 2.0
+       @since v2.0
     */
     public func getContentEncoding() -> String? {
         return self.contentEncoding
@@ -182,7 +133,7 @@ public class ServiceResponse : APIBean {
        Set the content encoding
 
        @param contentEncoding Encoding of the binary payload - by default assumed to be UTF8.
-       @since ARP 2.0
+       @since v2.0
     */
     public func setContentEncoding(contentEncoding: String) {
         self.contentEncoding = contentEncoding
@@ -192,7 +143,7 @@ public class ServiceResponse : APIBean {
        Returns the content length
 
        @return contentLength
-       @since ARP 2.0
+       @since v2.0
     */
     public func getContentLength() -> Int? {
         return self.contentLength
@@ -202,7 +153,7 @@ public class ServiceResponse : APIBean {
        Set the content length
 
        @param contentLength The length in bytes for the Content field.
-       @since ARP 2.0
+       @since v2.0
     */
     public func setContentLength(contentLength: Int) {
         self.contentLength = contentLength
@@ -212,7 +163,7 @@ public class ServiceResponse : APIBean {
        Returns the content type
 
        @return contentType
-       @since ARP 2.0
+       @since v2.0
     */
     public func getContentType() -> String? {
         return self.contentType
@@ -222,7 +173,7 @@ public class ServiceResponse : APIBean {
        Set the content type
 
        @param contentType The request/response content type (MIME TYPE).
-       @since ARP 2.0
+       @since v2.0
     */
     public func setContentType(contentType: String) {
         self.contentType = contentType
@@ -232,7 +183,7 @@ public class ServiceResponse : APIBean {
        Returns the array of ServiceHeader
 
        @return serviceHeaders
-       @since ARP 2.0
+       @since v2.0
     */
     public func getServiceHeaders() -> [ServiceHeader]? {
         return self.serviceHeaders
@@ -242,7 +193,7 @@ public class ServiceResponse : APIBean {
        Set the array of ServiceHeader
 
        @param serviceHeaders The serviceHeaders array (name,value pairs) to be included on the I/O service request.
-       @since ARP 2.0
+       @since v2.0
     */
     public func setServiceHeaders(serviceHeaders: [ServiceHeader]) {
         self.serviceHeaders = serviceHeaders
@@ -252,7 +203,7 @@ public class ServiceResponse : APIBean {
        Getter for service session
 
        @return The element service session
-       @since ARP 2.0
+       @since v2.0
     */
     public func getServiceSession() -> ServiceSession? {
         return self.serviceSession
@@ -262,7 +213,7 @@ public class ServiceResponse : APIBean {
        Setter for service session
 
        @param serviceSession The element service session
-       @since ARP 2.0
+       @since v2.0
     */
     public func setServiceSession(serviceSession: ServiceSession) {
         self.serviceSession = serviceSession
@@ -286,21 +237,6 @@ public class ServiceResponse : APIBean {
             if let value : AnyObject = dict.objectForKey("content") {
                 if "\(value)" as NSString != "<null>" {
                     resultObject.content = (value as String)
-                }
-            }
-
-            if let value : AnyObject = dict.objectForKey("contentBinary") {
-                if "\(value)" as NSString != "<null>" {
-                    var contentBinary : [Byte] = [Byte](count: (value as NSArray).count, repeatedValue: 0)
-                    var contentBinaryData : NSData = (value as NSData)
-                    contentBinaryData.getBytes(&contentBinary, length: (value as NSArray).count * sizeof(UInt8))
-                    resultObject.contentBinary = contentBinary
-                }
-            }
-
-            if let value : AnyObject = dict.objectForKey("contentBinaryLength") {
-                if "\(value)" as NSString != "<null>" {
-                    resultObject.contentBinaryLength = (value as Int)
                 }
             }
 
@@ -348,23 +284,6 @@ public class ServiceResponse : APIBean {
 
             // Fields.
             object.content != nil ? jsonString.appendString("\"content\": \"\(JSONUtil.escapeString(object.content!))\", ") : jsonString.appendString("\"content\": null, ")
-            if (object.contentBinary != nil) {
-                // Start array of objects.
-                jsonString.appendString("\"contentBinary\": [")
-
-                for var i = 0; i < object.contentBinary!.count; i++ {
-                    jsonString.appendString("\(object.contentBinary![i])")
-                    if (i < object.contentBinary!.count-1) {
-                        jsonString.appendString(", ");
-                    }
-                }
-
-                // End array of objects.
-                jsonString.appendString("], ");
-            } else {
-                jsonString.appendString("\"contentBinary\": null, ")
-            }
-            object.contentBinaryLength != nil ? jsonString.appendString("\"contentBinaryLength\": \(object.contentBinaryLength!), ") : jsonString.appendString("\"contentBinaryLength\": null, ")
             object.contentEncoding != nil ? jsonString.appendString("\"contentEncoding\": \"\(JSONUtil.escapeString(object.contentEncoding!))\", ") : jsonString.appendString("\"contentEncoding\": null, ")
             object.contentLength != nil ? jsonString.appendString("\"contentLength\": \(object.contentLength!), ") : jsonString.appendString("\"contentLength\": null, ")
             object.contentType != nil ? jsonString.appendString("\"contentType\": \"\(JSONUtil.escapeString(object.contentType!))\", ") : jsonString.appendString("\"contentType\": null, ")

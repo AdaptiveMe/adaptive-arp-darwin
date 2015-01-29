@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Structure representing the basic device information.
 
    @author Francisco Javier Martin Bueno
-   @since ARP 2.0
+   @since v2.0
    @version 1.0
 */
 public class DeviceInfo : APIBean {
@@ -64,7 +64,7 @@ be unique for a specific instance of an application on a specific device.
     /**
        Default constructor
 
-       @since ARP 2.0
+       @since v2.0
     */
     public override init() {
         super.init()
@@ -77,7 +77,7 @@ be unique for a specific instance of an application on a specific device.
        @param model  of the device.
        @param vendor of the device.
        @param uuid   unique* identifier (* platform dependent).
-       @since ARP 2.0
+       @since v2.0
     */
     public init(name: String, model: String, vendor: String, uuid: String) {
         super.init()
@@ -91,7 +91,7 @@ be unique for a specific instance of an application on a specific device.
        Returns the model of the device.
 
        @return String with the model of the device.
-       @since ARP 2.0
+       @since v2.0
     */
     public func getModel() -> String? {
         return self.model
@@ -110,7 +110,7 @@ be unique for a specific instance of an application on a specific device.
        Returns the name of the device.
 
        @return String with device name.
-       @since ARP 2.0
+       @since v2.0
     */
     public func getName() -> String? {
         return self.name
@@ -129,7 +129,7 @@ be unique for a specific instance of an application on a specific device.
        Returns the platform dependent UUID of the device.
 
        @return String with the 128-bit device identifier.
-       @since ARP 2.0
+       @since v2.0
     */
     public func getUuid() -> String? {
         return self.uuid
@@ -150,7 +150,7 @@ be unique for a specific instance of an application on a specific device.
        Returns the vendor of the device.
 
        @return String with the vendor name.
-       @since ARP 2.0
+       @since v2.0
     */
     public func getVendor() -> String? {
         return self.vendor

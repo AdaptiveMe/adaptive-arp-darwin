@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for Managing the Globalization results
 
    @author Francisco Javier Martin Bueno
-   @since ARP 2.0
+   @since v2.0
    @version 1.0
 */
 public protocol IGlobalization : IBaseApplication {
@@ -46,7 +46,7 @@ public protocol IGlobalization : IBaseApplication {
        Returns the default locale of the application defined in the configuration file
 
        @return Default Locale of the application
-       @since ARP 2.0
+       @since v2.0
     */
     func getDefaultLocale() -> Locale?
 
@@ -54,7 +54,7 @@ public protocol IGlobalization : IBaseApplication {
        List of supported locales for the application defined in the configuration file
 
        @return List of locales
-       @since ARP 2.0
+       @since v2.0
     */
     func getLocaleSupportedDescriptors() -> [Locale]?
 
@@ -64,7 +64,7 @@ public protocol IGlobalization : IBaseApplication {
        @param key    to match text
        @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
        @return Localized text.
-       @since ARP 2.0
+       @since v2.0
     */
     func getResourceLiteral(key : String, locale : Locale) -> String?
 
@@ -73,7 +73,7 @@ public protocol IGlobalization : IBaseApplication {
 
        @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
        @return Localized texts in the form of an object.
-       @since ARP 2.0
+       @since v2.0
     */
     func getResourceLiterals(locale : Locale) -> [KeyPair]?
 

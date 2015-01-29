@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -73,7 +73,7 @@ public class RuntimeBridge : BaseSystemBridge, IRuntime, APIBridge {
     /**
        Dismiss the current Application
 
-       @since ARP 2.0
+       @since v2.0
     */
     public func dismissApplication() {
         // Start logging elapsed time.
@@ -101,7 +101,7 @@ public class RuntimeBridge : BaseSystemBridge, IRuntime, APIBridge {
        Whether the application dismiss the splash screen successfully or not
 
        @return true if the application has dismissed the splash screen;false otherwise
-       @since ARP 2.0
+       @since v2.0
     */
     public func dismissSplashScreen() -> Bool? {
         // Start logging elapsed time.
@@ -150,7 +150,7 @@ public class RuntimeBridge : BaseSystemBridge, IRuntime, APIBridge {
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "RuntimeBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.5."
+                responseMessage = "RuntimeBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.6."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

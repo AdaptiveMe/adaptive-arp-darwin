@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for Managing the Network status listener events
 
    @author Carlos Lozano Diez
-   @since ARP 2.0
+   @since v2.0
    @version 1.0
 */
 public protocol INetworkStatusListener : IBaseListener {
@@ -46,7 +46,7 @@ public protocol INetworkStatusListener : IBaseListener {
        No data received - error condition, not authorized or hardware not available.
 
        @param error Type of error encountered during reading.
-       @since ARP 2.0
+       @since v2.0
     */
     func onError(error : INetworkStatusListenerError)
 
@@ -54,7 +54,7 @@ public protocol INetworkStatusListener : IBaseListener {
        Called when network connection changes somehow.
 
        @param network Change to this network.
-       @since ARP 2.0
+       @since v2.0
     */
     func onResult(network : ICapabilitiesNet)
 
@@ -63,7 +63,7 @@ public protocol INetworkStatusListener : IBaseListener {
 
        @param network Change to this network.
        @param warning Type of warning encountered during reading.
-       @since ARP 2.0
+       @since v2.0
     */
     func onWarning(network : ICapabilitiesNet, warning : INetworkStatusListenerWarning)
 

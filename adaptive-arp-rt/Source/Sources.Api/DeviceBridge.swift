@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -74,7 +74,7 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
        Register a new listener that will receive button events.
 
        @param listener to be registered.
-       @since ARP 2.0
+       @since v2.0
     */
     public func addButtonListener(listener : IButtonListener ) {
         // Start logging elapsed time.
@@ -102,7 +102,7 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
        Add a listener to start receiving device orientation change events.
 
        @param listener Listener to add to receive orientation change events.
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     public func addDeviceOrientationListener(listener : IDeviceOrientationListener ) {
         // Start logging elapsed time.
@@ -130,7 +130,7 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
        Returns the device information for the current device executing the runtime.
 
        @return DeviceInfo for the current device.
-       @since ARP 2.0
+       @since v2.0
     */
     public func getDeviceInfo() -> DeviceInfo? {
         // Start logging elapsed time.
@@ -159,7 +159,7 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
        Gets the current Locale for the device.
 
        @return The current Locale information.
-       @since ARP 2.0
+       @since v2.0
     */
     public func getLocaleCurrent() -> Locale? {
         // Start logging elapsed time.
@@ -189,7 +189,7 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
 of the display. For display orientation, use the IDisplay APIs.
 
        @return The current orientation of the device.
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     public func getOrientationCurrent() -> ICapabilitiesOrientation? {
         // Start logging elapsed time.
@@ -218,7 +218,7 @@ of the display. For display orientation, use the IDisplay APIs.
        De-registers an existing listener from receiving button events.
 
        @param listener to be removed.
-       @since ARP 2.0
+       @since v2.0
     */
     public func removeButtonListener(listener : IButtonListener ) {
         // Start logging elapsed time.
@@ -245,7 +245,7 @@ of the display. For display orientation, use the IDisplay APIs.
     /**
        Removed all existing listeners from receiving button events.
 
-       @since ARP 2.0
+       @since v2.0
     */
     public func removeButtonListeners() {
         // Start logging elapsed time.
@@ -273,7 +273,7 @@ of the display. For display orientation, use the IDisplay APIs.
        Remove a listener to stop receiving device orientation change events.
 
        @param listener Listener to remove from receiving orientation change events.
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     public func removeDeviceOrientationListener(listener : IDeviceOrientationListener ) {
         // Start logging elapsed time.
@@ -300,7 +300,7 @@ of the display. For display orientation, use the IDisplay APIs.
     /**
        Remove all listeners receiving device orientation events.
 
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     public func removeDeviceOrientationListeners() {
         // Start logging elapsed time.
@@ -376,7 +376,7 @@ of the display. For display orientation, use the IDisplay APIs.
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "DeviceBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.5."
+                responseMessage = "DeviceBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.6."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

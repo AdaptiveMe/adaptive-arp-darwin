@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -75,7 +75,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
 
        @param contact  id to search for
        @param callback called for return
-       @since ARP 2.0
+       @since v2.0
     */
     public func getContact(contact : ContactUid , callback : IContactResultCallback ) {
         // Start logging elapsed time.
@@ -104,7 +104,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
 
        @param contact  id to search for
        @param callback called for return
-       @since ARP 2.0
+       @since v2.0
     */
     public func getContactPhoto(contact : ContactUid , callback : IContactPhotoResultCallback ) {
         // Start logging elapsed time.
@@ -132,7 +132,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
        Get all contacts
 
        @param callback called for return
-       @since ARP 2.0
+       @since v2.0
     */
     public func getContacts(callback : IContactResultCallback ) {
         // Start logging elapsed time.
@@ -161,7 +161,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
 
        @param callback called for return
        @param fields   to get for each Contact
-       @since ARP 2.0
+       @since v2.0
     */
     public func getContactsForFields(callback : IContactResultCallback , fields : [IContactFieldGroup] ) {
         // Start logging elapsed time.
@@ -191,7 +191,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
        @param callback called for return
        @param fields   to get for each Contact
        @param filter   to search for
-       @since ARP 2.0
+       @since v2.0
     */
     public func getContactsWithFilter(callback : IContactResultCallback , fields : [IContactFieldGroup] , filter : [IContactFilter] ) {
         // Start logging elapsed time.
@@ -220,7 +220,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
 
        @param term     string to search
        @param callback called for return
-       @since ARP 2.0
+       @since v2.0
     */
     public func searchContacts(term : String , callback : IContactResultCallback ) {
         // Start logging elapsed time.
@@ -250,7 +250,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
        @param term     string to search
        @param callback called for return
        @param filter   to search for
-       @since ARP 2.0
+       @since v2.0
     */
     public func searchContactsWithFilter(term : String , callback : IContactResultCallback , filter : [IContactFilter] ) {
         // Start logging elapsed time.
@@ -280,7 +280,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
        @param contact  id to assign the photo
        @param pngImage photo as byte array
        @return true if set is successful;false otherwise
-       @since ARP 2.0
+       @since v2.0
     */
     public func setContactPhoto(contact : ContactUid , pngImage : [Byte] ) -> Bool? {
         // Start logging elapsed time.
@@ -378,7 +378,7 @@ public class ContactBridge : BasePIMBridge, IContact, APIBridge {
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "ContactBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.5."
+                responseMessage = "ContactBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.6."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for Managing the File System operations
 
    @author Carlos Lozano Diez
-   @since ARP 2.0
+   @since v2.0
    @version 1.0
 */
 public protocol IFileSystem : IBaseData {
@@ -49,7 +49,7 @@ This method does not create the actual file in the specified folder.
        @param parent Parent directory.
        @param name   Name of new file or directory.
        @return A reference to a new or existing location in the filesystem.
-       @since ARP 2.0
+       @since v2.0
     */
     func createFileDescriptor(parent : FileDescriptor, name : String) -> FileDescriptor?
 
@@ -59,7 +59,7 @@ This path must always be writable by the current application.
 This path is volatile and may be cleaned by the OS periodically.
 
        @return Path to the application's cache folder.
-       @since ARP 2.0
+       @since v2.0
     */
     func getApplicationCacheFolder() -> FileDescriptor?
 
@@ -68,7 +68,7 @@ This path is volatile and may be cleaned by the OS periodically.
 This path must always be writable by the current application.
 
        @return Path to the application's cloud storage folder.
-       @since ARP 2.0
+       @since v2.0
     */
     func getApplicationCloudFolder() -> FileDescriptor?
 
@@ -77,7 +77,7 @@ This path must always be writable by the current application.
 This path must always be writable by the current application.
 
        @return Path to the application's documents folder.
-       @since ARP 2.0
+       @since v2.0
     */
     func getApplicationDocumentsFolder() -> FileDescriptor?
 
@@ -86,7 +86,7 @@ This path must always be writable by the current application.
 This path may or may not be directly readable or writable - it usually contains the app binary and data.
 
        @return Path to the application folder.
-       @since ARP 2.0
+       @since v2.0
     */
     func getApplicationFolder() -> FileDescriptor?
 
@@ -95,7 +95,7 @@ This path may or may not be directly readable or writable - it usually contains 
 This path must always be writable by the current application.
 
        @return Path to the application's protected storage folder.
-       @since ARP 2.0
+       @since v2.0
     */
     func getApplicationProtectedFolder() -> FileDescriptor?
 
@@ -103,7 +103,7 @@ This path must always be writable by the current application.
        Returns the file system dependent file separator.
 
        @return char with the directory/file separator.
-       @since ARP 2.0
+       @since v2.0
     */
     func getSeparator() -> Character?
 
@@ -114,7 +114,7 @@ definition, not secure.
 This path may or may not be writable by the current application.
 
        @return Path to the application's documents folder.
-       @since ARP 2.0
+       @since v2.0
     */
     func getSystemExternalFolder() -> FileDescriptor?
 

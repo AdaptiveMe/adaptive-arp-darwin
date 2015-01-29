@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,45 +38,73 @@ import Foundation
    Structure representing a service path for one endpoint
 
    @author fnva
-   @since ARP 2.0
+   @since v2.0.4
    @version 1.0
 */
 public class ServicePath : NSObject {
 
     /**
-       The methods for calling a path
+       Service endpoint type.
+    */
+    var type : IServiceType?
+    /**
+       The methods for calling a path.
     */
     var methods : [IServiceMethod]?
     /**
-       The path for the endpoint
+       The path for the endpoint.
     */
     var path : String?
 
     /**
-       Default Constructor
+       Default Constructor.
 
-       @since ARP 2.0
+       @since v2.0.4
     */
     public override init() {
         super.init()
     }
 
     /**
-       Constructor with parameters
+       Constructor with parameters.
 
        @param path    The path for the endpoint
        @param methods The methods for calling a path
+       @param type    Protocol type.
+       @since v2.0.6
     */
-    public init(path: String, methods: [IServiceMethod]) {
+    public init(path: String, methods: [IServiceMethod], type: IServiceType) {
         super.init()
         self.path = path
         self.methods = methods
+        self.type = type
+    }
+
+    /**
+       Gets the protocol for the path.
+
+       @return Type of protocol.
+       @since v2.0.6
+    */
+    public func getType() -> IServiceType? {
+        return self.type
+    }
+
+    /**
+       Sets the protocol for the path.
+
+       @param type Type of protocol.
+       @since v2.0.6
+    */
+    public func setType(type: IServiceType) {
+        self.type = type
     }
 
     /**
        Endpoint's path methods setter
 
        @return Endpoint's path methods
+       @since v2.0.4
     */
     public func getMethods() -> [IServiceMethod]? {
         return self.methods
@@ -86,6 +114,7 @@ public class ServicePath : NSObject {
        Endpoint's path methods setter
 
        @param methods Endpoint's path methods
+       @since v2.0.4
     */
     public func setMethods(methods: [IServiceMethod]) {
         self.methods = methods
@@ -95,6 +124,7 @@ public class ServicePath : NSObject {
        Endpoint's Path Getter
 
        @return Endpoint's Path
+       @since v2.0.4
     */
     public func getPath() -> String? {
         return self.path
@@ -104,6 +134,7 @@ public class ServicePath : NSObject {
        Endpoint's path setter
 
        @param path Endpoint's path
+       @since v2.0.4
     */
     public func setPath(path: String) {
         self.path = path
@@ -140,6 +171,12 @@ public class ServicePath : NSObject {
                 }
             }
 
+            if let value : AnyObject = dict.objectForKey("type") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.type = IServiceType.toEnum(((value as NSDictionary)["value"]) as NSString)
+                }
+            }
+
             return resultObject
         }
 
@@ -165,7 +202,8 @@ public class ServicePath : NSObject {
             } else {
                 jsonString.appendString("\"methods\": null, ")
             }
-            object.path != nil ? jsonString.appendString("\"path\": \"\(JSONUtil.escapeString(object.path!))\"") : jsonString.appendString("\"path\": null")
+            object.path != nil ? jsonString.appendString("\"path\": \"\(JSONUtil.escapeString(object.path!))\", ") : jsonString.appendString("\"path\": null, ")
+            object.type != nil ? jsonString.appendString("\"type\": { \"value\": \"\(object.type!.toString())\"}") : jsonString.appendString("\"type\": null")
 
             // End Object to JSON
             jsonString.appendString(" }")

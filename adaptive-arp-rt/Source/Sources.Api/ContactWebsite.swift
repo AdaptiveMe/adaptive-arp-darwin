@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Structure representing the website data elements of a contact.
 
    @author Francisco Javier Martin Bueno
-   @since ARP 2.0
+   @since v2.0
    @version 1.0
 */
 public class ContactWebsite : APIBean {
@@ -51,7 +51,7 @@ public class ContactWebsite : APIBean {
     /**
        Default constructor
 
-       @since ARP 2.0
+       @since v2.0
     */
     public override init() {
         super.init()
@@ -61,7 +61,7 @@ public class ContactWebsite : APIBean {
        Constructor used by the implementation
 
        @param url Url of the website
-       @since ARP 2.0
+       @since v2.0
     */
     public init(url: String) {
         super.init()
@@ -72,7 +72,7 @@ public class ContactWebsite : APIBean {
        Returns the url of the website
 
        @return website url
-       @since ARP 2.0
+       @since v2.0
     */
     public func getUrl() -> String? {
         return self.url
@@ -82,7 +82,7 @@ public class ContactWebsite : APIBean {
        Set the url of the website
 
        @param url Url of the website
-       @since ARP 2.0
+       @since v2.0
     */
     public func setUrl(url: String) {
         self.url = url

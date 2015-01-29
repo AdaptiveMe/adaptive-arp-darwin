@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for handling display orientation change events.
 
    @author Carlos Lozano Diez
-   @since ARP 2.0.5
+   @since v2.0.5
    @version 1.0
 */
 public protocol IDisplayOrientationListener : IBaseListener {
@@ -47,7 +47,7 @@ public protocol IDisplayOrientationListener : IBaseListener {
 platform impedes the rotation of the display.
 
        @param error The error condition... generally unknown as it is unexpected!
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     func onError(error : IDisplayOrientationListenerError)
 
@@ -55,7 +55,7 @@ platform impedes the rotation of the display.
        Event fired with the successful start and finish of a rotation.
 
        @param event RotationEvent containing origin, destination and state of the event.
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     func onResult(event : RotationEvent)
 
@@ -65,7 +65,7 @@ event may be fired if the application vetoes display rotation before rotation is
 
        @param event   RotationEvent containing origin, destination and state of the event.
        @param warning Type of condition that aborted rotation execution.
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     func onWarning(event : RotationEvent, warning : IDisplayOrientationListenerWarning)
 

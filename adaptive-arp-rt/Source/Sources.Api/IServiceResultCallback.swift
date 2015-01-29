@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for Managing the Services operations
 
    @author Francisco Javier Martin Bueno
-   @since ARP 2.0
+   @since v2.0
    @version 1.0
 */
 public protocol IServiceResultCallback : IBaseCallback {
@@ -46,7 +46,7 @@ public protocol IServiceResultCallback : IBaseCallback {
        This method is called on Error
 
        @param error returned by the platform
-       @since ARP 2.0
+       @since v2.0
     */
     func onError(error : IServiceResultCallbackError)
 
@@ -54,7 +54,7 @@ public protocol IServiceResultCallback : IBaseCallback {
        This method is called on Result
 
        @param response data
-       @since ARP 2.0
+       @since v2.0
     */
     func onResult(response : ServiceResponse)
 
@@ -63,7 +63,7 @@ public protocol IServiceResultCallback : IBaseCallback {
 
        @param response data
        @param warning  returned by the platform
-       @since ARP 2.0
+       @since v2.0
     */
     func onWarning(response : ServiceResponse, warning : IServiceResultCallbackWarning)
 

@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.5
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -74,7 +74,7 @@ public class DisplayBridge : BaseSystemBridge, IDisplay, APIBridge {
        Add a listener to start receiving display orientation change events.
 
        @param listener Listener to add to receive orientation change events.
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     public func addDisplayOrientationListener(listener : IDisplayOrientationListener ) {
         // Start logging elapsed time.
@@ -103,7 +103,7 @@ public class DisplayBridge : BaseSystemBridge, IDisplay, APIBridge {
 of the device. For device orientation, use the IDevice APIs.
 
        @return The current orientation of the display.
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     public func getOrientationCurrent() -> ICapabilitiesOrientation? {
         // Start logging elapsed time.
@@ -132,7 +132,7 @@ of the device. For device orientation, use the IDevice APIs.
        Remove a listener to stop receiving display orientation change events.
 
        @param listener Listener to remove from receiving orientation change events.
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     public func removeDisplayOrientationListener(listener : IDisplayOrientationListener ) {
         // Start logging elapsed time.
@@ -159,7 +159,7 @@ of the device. For device orientation, use the IDevice APIs.
     /**
        Remove all listeners receiving display orientation events.
 
-       @since ARP 2.0.5
+       @since v2.0.5
     */
     public func removeDisplayOrientationListeners() {
         // Start logging elapsed time.
@@ -213,7 +213,7 @@ of the device. For device orientation, use the IDevice APIs.
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "DisplayBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.5."
+                responseMessage = "DisplayBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.6."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)
