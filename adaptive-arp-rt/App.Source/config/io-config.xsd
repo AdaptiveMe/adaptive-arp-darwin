@@ -25,23 +25,25 @@
                                                                     </xs:complexType>
                                                                 </xs:element>
                                                             </xs:sequence>
-                                                            <xs:attribute type="xs:string" name="path" use="required"/>
+                                                            <xs:attribute type="path" name="path" use="required"/>
+                                                            <xs:attribute type="servicetype" name="type" use="required"/>
                                                         </xs:complexType>
                                                     </xs:element>
                                                 </xs:sequence>
-                                                <xs:attribute type="xs:string" name="host" use="required"/>
-                                                <xs:attribute type="xs:integer" name="port" use="optional"/>
-                                                <xs:attribute type="url" name="proxy" use="optional"/>
-                                                <xs:attribute type="schema" name="scheme" use="optional"/>
+                                                <xs:attribute type="NonEmptyString" name="host" use="required"/>
+                                                <xs:attribute type="validation" name="validation" use="required"/>
                                             </xs:complexType>
                                         </xs:element>
                                     </xs:sequence>
-                                    <xs:attribute type="xs:string" name="name" use="required"/>
-                                    <xs:attribute type="servicetype" name="type" use="optional"/>
+                                    <xs:attribute type="NonEmptyString" name="name" use="required" />
                                 </xs:complexType>
                             </xs:element>
                         </xs:sequence>
                     </xs:complexType>
+                    <xs:unique name="oneCustomerOrdersforEachCustomerID">
+                        <xs:selector xpath="service"/>
+                        <xs:field xpath="@name"/>
+                    </xs:unique>
                 </xs:element>
                 <xs:element name="resources">
                     <xs:complexType>
@@ -64,23 +66,10 @@
     
     <xs:simpleType name="servicetype">
         <xs:restriction base="xs:string">
-            <xs:enumeration value="ServiceTypeAmfSerialization" />
-            <xs:enumeration value="ServiceTypeGwtRpc" />
-            <xs:enumeration value="ServiceTypeOctetBinary" />
-            <xs:enumeration value="ServiceTypeRemotingSerialization" />
-            <xs:enumeration value="ServiceTypeRestJson" />
-            <xs:enumeration value="ServiceTypeRestXml" />
-            <xs:enumeration value="ServiceTypeSoapJson" />
-            <xs:enumeration value="ServiceTypeSoapXml" />
-            <xs:enumeration value="ServiceTypeXmlRpcJson" />
-            <xs:enumeration value="ServiceTypeXmlRpcXml" />
-        </xs:restriction>
-    </xs:simpleType>
-    
-    <xs:simpleType name="schema">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="http" />
-            <xs:enumeration value="https" />
+            <xs:enumeration value="OctetBinary" />
+            <xs:enumeration value="RestJson" />
+            <xs:enumeration value="RestXml" />
+            <xs:enumeration value="SoapXml" />
         </xs:restriction>
     </xs:simpleType>
     
@@ -92,8 +81,31 @@
     
     <xs:simpleType name="method">
         <xs:restriction base="xs:string">
-            <xs:enumeration value="Get" />
-            <xs:enumeration value="Post" />
+            <xs:enumeration value="GET" />
+            <xs:enumeration value="POST" />
+            <xs:enumeration value="HEAD" />
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="validation">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Extreme" />
+            <xs:enumeration value="Extended" />
+            <xs:enumeration value="Normal" />
+            <xs:enumeration value="None" />
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="NonEmptyString">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1" />
+            <xs:pattern value=".*[^\s].*" />
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="path">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="/(.*)" />
         </xs:restriction>
     </xs:simpleType>
 </xs:schema>

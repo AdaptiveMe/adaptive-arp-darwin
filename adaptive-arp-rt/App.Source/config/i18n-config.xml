@@ -5,7 +5,8 @@
     <!-- Default Language -->
     <default language="en" country="EN"/>
     
-    <!-- List of supported languages. Must exists [a-z][a-z]-[A-Z][A-Z].plist file  -->
+    <!-- List of supported languages. 
+    Must exists [a-z][a-z]-[A-Z][A-Z].plist file  -->
     <supportedLanguages>
         <supportedLanguage language="en" country="EN" />
         <supportedLanguage language="es" country="ES" />
