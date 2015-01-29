@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.6
+    * @version v2.0.8
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -63,7 +63,7 @@ public class BaseSystemDelegate : NSObject, IBaseSystem {
        Return the API version for the given interface.
     */
     public final func getAPIVersion() -> String? {
-        return "v2.0.6"
+        return "v2.0.8"
     }
 
 }

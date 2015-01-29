@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.6
+    * @version v2.0.8
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -85,7 +85,7 @@ public class FacebookBridge : BaseSocialBridge, IFacebook, APIBridge {
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "FacebookBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.6."
+                responseMessage = "FacebookBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.8."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)
