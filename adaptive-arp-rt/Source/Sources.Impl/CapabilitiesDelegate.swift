@@ -11,23 +11,23 @@ permissions and limitations under the License.
 
 Original author:
 
-    * Carlos Lozano Diez
-            <http://github.com/carloslozano>
-            <http://twitter.com/adaptivecoder>
-            <mailto:carlos@adaptive.me>
+* Carlos Lozano Diez
+<http://github.com/carloslozano>
+<http://twitter.com/adaptivecoder>
+<mailto:carlos@adaptive.me>
 
 Contributors:
 
-    * Ferran Vila Conesa
-             <http://github.com/fnva>
-             <http://twitter.com/ferran_vila>
-             <mailto:ferran.vila.conesa@gmail.com>
+* Ferran Vila Conesa
+<http://github.com/fnva>
+<http://twitter.com/ferran_vila>
+<mailto:ferran.vila.conesa@gmail.com>
 
-    * See source code files for contributors.
+* See source code files for contributors.
 
 Release:
 
-    * @version v2.0.2
+* @version v2.0.2
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -46,8 +46,8 @@ import Foundation
 #endif
 
 /**
-   Interface for testing the Capabilities operations
-   Auto-generated implementation of ICapabilities specification.
+Interface for testing the Capabilities operations
+Auto-generated implementation of ICapabilities specification.
 */
 public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
     
@@ -62,20 +62,20 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
     #if os(OSX)
     // TODO: define a "device for OSX"
     #endif
-
+    
     /**
-       Default Constructor.
+    Default Constructor.
     */
     public override init() {
         super.init()
     }
-
+    
     /**
-       Determines whether a specific hardware button is supported for interaction.
-
-       @param type Type of feature to check.
-       @return true is supported, false otherwise.
-       @since ARP1.0
+    Determines whether a specific hardware button is supported for interaction.
+    
+    @param type Type of feature to check.
+    @return true is supported, false otherwise.
+    @since ARP1.0
     */
     public func hasButtonSupport(type : ICapabilitiesButton) -> Bool? {
         
@@ -113,14 +113,14 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
             
         }
     }
-
+    
     /**
-       Determines whether a specific Communication capability is supported by
-the device.
-
-       @param type Type of feature to check.
-       @return true if supported, false otherwise.
-       @since ARP1.0
+    Determines whether a specific Communication capability is supported by
+    the device.
+    
+    @param type Type of feature to check.
+    @return true if supported, false otherwise.
+    @since ARP1.0
     */
     public func hasCommunicationSupport(type : ICapabilitiesCommunication) -> Bool? {
         
@@ -177,13 +177,13 @@ the device.
             
         }
     }
-
+    
     /**
-       Determines whether a specific Data capability is supported by the device.
-
-       @param type Type of feature to check.
-       @return true if supported, false otherwise.
-       @since ARP1.0
+    Determines whether a specific Data capability is supported by the device.
+    
+    @param type Type of feature to check.
+    @return true if supported, false otherwise.
+    @since ARP1.0
     */
     public func hasDataSupport(type : ICapabilitiesData) -> Bool? {
         
@@ -202,14 +202,14 @@ the device.
             return false
         }
     }
-
+    
     /**
-       Determines whether a specific Media capability is supported by the
-device.
-
-       @param type Type of feature to check.
-       @return true if supported, false otherwise.
-       @since ARP1.0
+    Determines whether a specific Media capability is supported by the
+    device.
+    
+    @param type Type of feature to check.
+    @return true if supported, false otherwise.
+    @since ARP1.0
     */
     public func hasMediaSupport(type : ICapabilitiesMedia) -> Bool? {
         
@@ -242,13 +242,13 @@ device.
             return false
         }
     }
-
+    
     /**
-       Determines whether a specific Net capability is supported by the device.
-
-       @param type Type of feature to check.
-       @return true if supported, false otherwise.
-       @since ARP1.0
+    Determines whether a specific Net capability is supported by the device.
+    
+    @param type Type of feature to check.
+    @return true if supported, false otherwise.
+    @since ARP1.0
     */
     public func hasNetSupport(type : ICapabilitiesNet) -> Bool? {
         
@@ -279,14 +279,14 @@ device.
             return false
         }
     }
-
+    
     /**
-       Determines whether a specific Notification capability is supported by the
-device.
-
-       @param type Type of feature to check.
-       @return true if supported, false otherwise.
-       @since ARP1.0
+    Determines whether a specific Notification capability is supported by the
+    device.
+    
+    @param type Type of feature to check.
+    @return true if supported, false otherwise.
+    @since ARP1.0
     */
     public func hasNotificationSupport(type : ICapabilitiesNotification) -> Bool? {
         
@@ -308,14 +308,14 @@ device.
             return false
         }
     }
-
+    
     /**
-       Determines whether a specific Sensor capability is supported by the
-device.
-
-       @param type Type of feature to check.
-       @return true if supported, false otherwise.
-       @since ARP1.0
+    Determines whether a specific Sensor capability is supported by the
+    device.
+    
+    @param type Type of feature to check.
+    @return true if supported, false otherwise.
+    @since ARP1.0
     */
     public func hasSensorSupport(type : ICapabilitiesSensor) -> Bool? {
         
@@ -390,7 +390,47 @@ device.
             
         }
     }
-
+    
+    /**
+    Determines whether the device/display supports a given orientation.
+    
+    @param orientation Orientation type.
+    @return True if the given orientation is supported, false otherwise.
+    @since v2.0.5
+    */
+    public func hasOrientationSupport(orientation : ICapabilitiesOrientation) -> Bool? {
+        
+        // TODO: MUST IMPLEMENT
+        return false
+    }
+    
+    /**
+    Obtains the default orientation of the device/display. If no default orientation is available on
+    the platform, this method will return the current orientation. To capture device or display orientation
+    changes please use the IDevice and IDisplay functions and listeners API respectively.
+    
+    @return The default orientation for the device/display.
+    @since v2.0.5
+    */
+    public func getOrientationDefault() -> ICapabilitiesOrientation? {
+        
+        // TODO: MUST IMPLEMENT
+        return nil
+    }
+    
+    /**
+    Provides the device/display orientations supported by the platform. A platform will usually
+    support at least one orientation. This is usually PortaitUp.
+    
+    @return The orientations supported by the device/display of the platform.
+    @since v2.0.5
+    */
+    public func getOrientationsSupported() -> [ICapabilitiesOrientation]? {
+        
+        // TODO: MUST IMPLEMENT
+        return nil
+    }
+    
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

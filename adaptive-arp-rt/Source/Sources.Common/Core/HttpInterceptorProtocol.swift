@@ -182,9 +182,9 @@ public class HttpInterceptorProtocol : NSURLProtocol {
                     logger.log(ILoggingLogLevel.ERROR, category:loggerTag, message: "There is a a problem obtaining the body of the request")
                 }
                 
-            } else {
+            } else if Utils.validateRegexp(url, regexp: "^data:(.*)\\/(.*);base64,(.*)") && method == "GET" {
                 
-                // EXTERNAL URL'S AND RESOURCES
+                // JAVASCRIPT INLINE REQUESTS
                 
                 NSURLProtocol.setProperty("", forKey: HttpInterceptorProtocol.httpInterceptorKey, inRequest: newRequest)
                 NSURLConnection.sendAsynchronousRequest(newRequest, queue: HttpInterceptorProtocol.queue, completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
@@ -198,6 +198,36 @@ public class HttpInterceptorProtocol : NSURLProtocol {
                         NSURLProtocol.removePropertyForKey(HttpInterceptorProtocol.httpInterceptorKey, inRequest: newRequest)
                     }
                 })
+            
+            } else {
+                
+                // EXTERNAL URL'S
+                
+                // TODO: Validate services, end-points, paths and methods...
+                
+                if IOParser.sharedInstance.validateResource(url) && method == "GET" {
+                    
+                    // VALIDATE RESOURCES
+                    
+                    NSURLProtocol.setProperty("", forKey: HttpInterceptorProtocol.httpInterceptorKey, inRequest: newRequest)
+                    NSURLConnection.sendAsynchronousRequest(newRequest, queue: HttpInterceptorProtocol.queue, completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+                        if (error == nil) {
+                            self.client!.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: .NotAllowed)
+                            self.client!.URLProtocol(self, didLoadData: data)
+                            self.client!.URLProtocolDidFinishLoading(self)
+                            NSURLProtocol.removePropertyForKey(HttpInterceptorProtocol.httpInterceptorKey, inRequest: newRequest)
+                        } else {
+                            self.client!.URLProtocol(self, didFailWithError: error)
+                            NSURLProtocol.removePropertyForKey(HttpInterceptorProtocol.httpInterceptorKey, inRequest: newRequest)
+                        }
+                    })
+                } else {
+                    var response : NSHTTPURLResponse! = NSHTTPURLResponse(URL: self.request.URL, statusCode: 403, HTTPVersion: "1.1", headerFields: nil)
+                    self.client!.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: .NotAllowed)
+                    self.client!.URLProtocol(self, didLoadData: "".dataUsingEncoding(NSUTF8StringEncoding)!)
+                    self.client!.URLProtocolDidFinishLoading(self)
+                    NSURLProtocol.removePropertyForKey(HttpInterceptorProtocol.httpInterceptorKey, inRequest: newRequest)
+                }
             }
         } else {
             logger.log(ILoggingLogLevel.ERROR, category:loggerTag, message: "The url received is null")

@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<i18n-config>
-	<default language="en" country="EN"/>
-	<supportedLanguages>
-		<supportedLanguage language="en" country="EN" />
+<i18n-config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="i18n-config.xsd">
+    
+    <!-- Default Language -->
+    <default language="en" country="EN"/>
+    
+    <!-- List of supported languages. 
+    Must exists [a-z][a-z]-[A-Z][A-Z].plist file  -->
+    <supportedLanguages>
+        <supportedLanguage language="en" country="EN" />
         <supportedLanguage language="es" country="ES" />
-	</supportedLanguages>
+    </supportedLanguages>
+    
 </i18n-config>
