@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.0
+    * @version v2.1.1
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -63,7 +63,7 @@ public class BaseSocialBridge : NSObject, IBaseSocial {
        Return the API version for the given interface.
     */
     public final func getAPIVersion() -> String? {
-        return "v2.1.0"
+        return "v2.1.1"
     }
 
     /**
@@ -81,7 +81,7 @@ public class BaseSocialBridge : NSObject, IBaseSocial {
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "BaseSocialBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.1.0."
+                responseMessage = "BaseSocialBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.1.1."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

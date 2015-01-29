@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.0
+    * @version v2.1.1
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -116,7 +116,7 @@ public class VideoBridge : BaseMediaBridge, IVideo, APIBridge {
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "VideoBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.1.0."
+                responseMessage = "VideoBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.1.1."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)
