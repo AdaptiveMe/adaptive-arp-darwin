@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for Managing the Geolocation operations
 
    @author Francisco Javier Martin Bueno
-   @since ARP1.0
+   @since v2.0
    @version 1.0
 */
 public protocol IGeolocation : IBaseSensor {
@@ -46,7 +46,7 @@ public protocol IGeolocation : IBaseSensor {
        Register a new listener that will receive geolocation events.
 
        @param listener to be registered.
-       @since ARP1.0
+       @since v2.0
     */
     func addGeolocationListener(listener : IGeolocationListener)
 
@@ -54,14 +54,14 @@ public protocol IGeolocation : IBaseSensor {
        De-registers an existing listener from receiving geolocation events.
 
        @param listener to be registered.
-       @since ARP1.0
+       @since v2.0
     */
     func removeGeolocationListener(listener : IGeolocationListener)
 
     /**
        Removed all existing listeners from receiving geolocation events.
 
-       @since ARP1.0
+       @since v2.0
     */
     func removeGeolocationListeners()
 

@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Structure representing the cookieValue of a http cookie.
 
    @author Aryslan
-   @since ARP1.0
+   @since ARP 2.0
    @version 1.0
 */
 public class ServiceCookie : APIBean {
@@ -79,7 +79,7 @@ public class ServiceCookie : APIBean {
     /**
        Default constructor
 
-       @since ARP1.0
+       @since ARP 2.0
     */
     public override init() {
         super.init()
@@ -90,7 +90,7 @@ public class ServiceCookie : APIBean {
 
        @param cookieName  Name of the cookie
        @param cookieValue Value of the cookie
-       @since ARP1.0
+       @since ARP 2.0
     */
     public init(cookieName: String, cookieValue: String) {
         super.init()
@@ -109,7 +109,7 @@ public class ServiceCookie : APIBean {
        @param secure      Privacy of the cookie
        @param expiry      Expiration date of the cookie
        @param creation    Creation date of the cookie
-       @since ARP1.0
+       @since ARP 2.0
     */
     public init(cookieName: String, cookieValue: String, domain: String, path: String, scheme: String, secure: Bool, expiry: Int, creation: Int) {
         super.init()
@@ -127,7 +127,7 @@ public class ServiceCookie : APIBean {
        Returns the cookie cookieName
 
        @return cookieName Name of the cookie
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getCookieName() -> String? {
         return self.cookieName
@@ -137,7 +137,7 @@ public class ServiceCookie : APIBean {
        Set the cookie cookieName
 
        @param cookieName Name of the cookie
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setCookieName(cookieName: String) {
         self.cookieName = cookieName
@@ -147,7 +147,7 @@ public class ServiceCookie : APIBean {
        Returns the cookie cookieValue
 
        @return Value of the cookie
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getCookieValue() -> String? {
         return self.cookieValue
@@ -157,7 +157,7 @@ public class ServiceCookie : APIBean {
        Set the cookie cookieValue
 
        @param cookieValue Value of the cookie
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setCookieValue(cookieValue: String) {
         self.cookieValue = cookieValue
@@ -167,7 +167,7 @@ public class ServiceCookie : APIBean {
        Returns the creation date
 
        @return Creation date of the cookie
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getCreation() -> Int? {
         return self.creation
@@ -177,7 +177,7 @@ public class ServiceCookie : APIBean {
        Sets the creation date
 
        @param creation Creation date of the cookie
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setCreation(creation: Int) {
         self.creation = creation
@@ -187,7 +187,7 @@ public class ServiceCookie : APIBean {
        Returns the domain
 
        @return domain
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getDomain() -> String? {
         return self.domain
@@ -197,7 +197,7 @@ public class ServiceCookie : APIBean {
        Set the domain
 
        @param domain Domain of the cookie
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setDomain(domain: String) {
         self.domain = domain
@@ -207,7 +207,7 @@ public class ServiceCookie : APIBean {
        Returns the expiration date in milis
 
        @return expiry
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getExpiry() -> Int? {
         return self.expiry
@@ -217,7 +217,7 @@ public class ServiceCookie : APIBean {
        Set the expiration date in milis
 
        @param expiry Expiration date of the cookie
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setExpiry(expiry: Int) {
         self.expiry = expiry
@@ -227,7 +227,7 @@ public class ServiceCookie : APIBean {
        Returns the path
 
        @return path
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getPath() -> String? {
         return self.path
@@ -237,7 +237,7 @@ public class ServiceCookie : APIBean {
        Set the path
 
        @param path Path of the cookie
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setPath(path: String) {
         self.path = path
@@ -247,7 +247,7 @@ public class ServiceCookie : APIBean {
        Returns the scheme
 
        @return scheme
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getScheme() -> String? {
         return self.scheme
@@ -257,7 +257,7 @@ public class ServiceCookie : APIBean {
        Set the scheme
 
        @param scheme Scheme of the cookie
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setScheme(scheme: String) {
         self.scheme = scheme
@@ -267,7 +267,7 @@ public class ServiceCookie : APIBean {
        Returns whether the cookie is secure or not
 
        @return true if the cookie is secure; false otherwise
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func getSecure() -> Bool? {
         return self.secure
@@ -277,7 +277,7 @@ public class ServiceCookie : APIBean {
        Set whether the cookie is secure or not
 
        @param secure Privacy of the cookie
-       @since ARP1.0
+       @since ARP 2.0
     */
     public func setSecure(secure: Bool) {
         self.secure = secure

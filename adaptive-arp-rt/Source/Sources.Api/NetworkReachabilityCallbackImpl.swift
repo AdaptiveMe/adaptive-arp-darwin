@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -53,7 +53,7 @@ public class NetworkReachabilityCallbackImpl : BaseCallbackImpl, INetworkReachab
        No data received - error condition, not authorized .
 
        @param error Error value
-       @since ARP1.0
+       @since v2.0
     */
     public func onError(error : INetworkReachabilityCallbackError) { 
         var param0 : String = "Adaptive.INetworkReachabilityCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
@@ -64,7 +64,7 @@ public class NetworkReachabilityCallbackImpl : BaseCallbackImpl, INetworkReachab
        Correct data received.
 
        @param reachable Indicates if the host is reachable
-       @since ARP1.0
+       @since v2.0
     */
     public func onResult(reachable : Bool) { 
         var param0 : String = "\(reachable)"
@@ -76,7 +76,7 @@ public class NetworkReachabilityCallbackImpl : BaseCallbackImpl, INetworkReachab
 
        @param reachable Indicates if the host is reachable
        @param warning   Warning value
-       @since ARP1.0
+       @since v2.0
     */
     public func onWarning(reachable : Bool, warning : INetworkReachabilityCallbackWarning) { 
         var param0 : String = "\(reachable)"

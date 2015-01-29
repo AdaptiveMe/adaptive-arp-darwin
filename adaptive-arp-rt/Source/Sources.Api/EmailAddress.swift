@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Structure representing the data elements of an email addressee.
 
    @author Francisco Javier Martin Bueno
-   @since ARP1.0
+   @since v2.0
    @version 1.0
 */
 public class EmailAddress : APIBean {
@@ -51,7 +51,7 @@ public class EmailAddress : APIBean {
     /**
        Default constructor
 
-       @since ARP1.0
+       @since v2.0
     */
     public override init() {
         super.init()
@@ -61,7 +61,7 @@ public class EmailAddress : APIBean {
        Constructor used by implementation
 
        @param address of the Email
-       @since ARP1.0
+       @since v2.0
     */
     public init(address: String) {
         super.init()
@@ -72,7 +72,7 @@ public class EmailAddress : APIBean {
        Returns the email address
 
        @return address of the Email
-       @since ARP1.0
+       @since v2.0
     */
     public func getAddress() -> String? {
         return self.address
@@ -82,7 +82,7 @@ public class EmailAddress : APIBean {
        Set the Email address
 
        @param address of the Email
-       @since ARP1.0
+       @since v2.0
     */
     public func setAddress(address: String) {
         self.address = address

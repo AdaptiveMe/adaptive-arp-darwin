@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -53,7 +53,7 @@ public class DatabaseTableResultCallbackImpl : BaseCallbackImpl, IDatabaseTableR
        Result callback for error responses
 
        @param error Returned error
-       @since ARP1.0
+       @since v2.0
     */
     public func onError(error : IDatabaseTableResultCallbackError) { 
         var param0 : String = "Adaptive.IDatabaseTableResultCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
@@ -64,7 +64,7 @@ public class DatabaseTableResultCallbackImpl : BaseCallbackImpl, IDatabaseTableR
        Result callback for correct responses
 
        @param databaseTable Returns the databaseTable
-       @since ARP1.0
+       @since v2.0
     */
     public func onResult(databaseTable : DatabaseTable) { 
         var param0 : String = "Adaptive.DatabaseTable.toObject(JSON.parse(\"\(JSONUtil.escapeString(DatabaseTable.Serializer.toJSON(databaseTable)))\"))"
@@ -76,7 +76,7 @@ public class DatabaseTableResultCallbackImpl : BaseCallbackImpl, IDatabaseTableR
 
        @param databaseTable Returns the databaseTable
        @param warning       Returned Warning
-       @since ARP1.0
+       @since v2.0
     */
     public func onWarning(databaseTable : DatabaseTable, warning : IDatabaseTableResultCallbackWarning) { 
         var param0 : String = "Adaptive.DatabaseTable.toObject(JSON.parse(\"\(JSONUtil.escapeString(DatabaseTable.Serializer.toJSON(databaseTable)))\"))"

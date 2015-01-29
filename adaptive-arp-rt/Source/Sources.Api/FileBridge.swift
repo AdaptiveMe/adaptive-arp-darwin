@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -75,7 +75,7 @@ public class FileBridge : BaseDataBridge, IFile, APIBridge {
 
        @param descriptor File descriptor of file or folder used for operation.
        @return True if the folder/file is readable, false otherwise.
-       @since ARP1.0
+       @since v2.0
     */
     public func canRead(descriptor : FileDescriptor ) -> Bool? {
         // Start logging elapsed time.
@@ -105,7 +105,7 @@ public class FileBridge : BaseDataBridge, IFile, APIBridge {
 
        @param descriptor File descriptor of file or folder used for operation.
        @return True if the folder/file is writable, false otherwise.
-       @since ARP1.0
+       @since v2.0
     */
     public func canWrite(descriptor : FileDescriptor ) -> Bool? {
         // Start logging elapsed time.
@@ -135,7 +135,7 @@ public class FileBridge : BaseDataBridge, IFile, APIBridge {
 
        @param descriptor File descriptor of file or folder used for operation.
        @param callback   Result of the operation.
-       @since ARP1.0
+       @since v2.0
     */
     public func create(descriptor : FileDescriptor , callback : IFileResultCallback ) {
         // Start logging elapsed time.
@@ -166,7 +166,7 @@ deleted if the cascade parameter is set to true.
        @param descriptor File descriptor of file or folder used for operation.
        @param cascade    Whether to delete sub-files and sub-folders.
        @return True if files (and sub-files and folders) whether deleted.
-       @since ARP1.0
+       @since v2.0
     */
     public func delete(descriptor : FileDescriptor , cascade : Bool ) -> Bool? {
         // Start logging elapsed time.
@@ -196,7 +196,7 @@ deleted if the cascade parameter is set to true.
 
        @param descriptor File descriptor of file or folder used for operation.
        @return True if the file exists in the filesystem, false otherwise.
-       @since ARP1.0
+       @since v2.0
     */
     public func exists(descriptor : FileDescriptor ) -> Bool? {
         // Start logging elapsed time.
@@ -226,7 +226,7 @@ deleted if the cascade parameter is set to true.
 
        @param descriptor File descriptor of file or folder used for operation.
        @param callback   Result of the operation.
-       @since ARP1.0
+       @since v2.0
     */
     public func getContent(descriptor : FileDescriptor , callback : IFileDataLoadResultCallback ) {
         // Start logging elapsed time.
@@ -255,7 +255,7 @@ deleted if the cascade parameter is set to true.
 
        @param descriptor File descriptor of file or folder used for operation.
        @return Storage Type file
-       @since ARP1.0
+       @since v2.0
     */
     public func getFileStorageType(descriptor : FileDescriptor ) -> IFileSystemStorageType? {
         // Start logging elapsed time.
@@ -285,7 +285,7 @@ deleted if the cascade parameter is set to true.
 
        @param descriptor File descriptor of file or folder used for operation.
        @return Returns the file type of the file
-       @since ARP1.0
+       @since v2.0
     */
     public func getFileType(descriptor : FileDescriptor ) -> IFileSystemType? {
         // Start logging elapsed time.
@@ -315,7 +315,7 @@ deleted if the cascade parameter is set to true.
 
        @param descriptor File descriptor of file or folder used for operation.
        @return Security Level of the file
-       @since ARP1.0
+       @since v2.0
     */
     public func getSecurityType(descriptor : FileDescriptor ) -> IFileSystemSecurity? {
         // Start logging elapsed time.
@@ -345,7 +345,7 @@ deleted if the cascade parameter is set to true.
 
        @param descriptor File descriptor of file or folder used for operation.
        @return true if this is a path to a folder/directory, false if this is a path to a file.
-       @since ARP1.0
+       @since v2.0
     */
     public func isDirectory(descriptor : FileDescriptor ) -> Bool? {
         // Start logging elapsed time.
@@ -376,7 +376,7 @@ any results.
 
        @param descriptor File descriptor of file or folder used for operation.
        @param callback   Result of operation.
-       @since ARP1.0
+       @since v2.0
     */
     public func listFiles(descriptor : FileDescriptor , callback : IFileListResultCallback ) {
         // Start logging elapsed time.
@@ -407,7 +407,7 @@ is a file, it will not yield any results.
        @param descriptor File descriptor of file or folder used for operation.
        @param regex      Filter (eg. *.jpg, *.png, Fil*) name string.
        @param callback   Result of operation.
-       @since ARP1.0
+       @since v2.0
     */
     public func listFilesForRegex(descriptor : FileDescriptor , regex : String , callback : IFileListResultCallback ) {
         // Start logging elapsed time.
@@ -437,7 +437,7 @@ is a file, it will not yield any results.
        @param descriptor File descriptor of file or folder used for operation.
        @param recursive  Whether to create all parent path elements.
        @return True if the path was created, false otherwise (or it exists already).
-       @since ARP1.0
+       @since v2.0
     */
     public func mkDir(descriptor : FileDescriptor , recursive : Bool ) -> Bool? {
         // Start logging elapsed time.
@@ -471,7 +471,7 @@ new destination file.
        @param createPath  True to create the path if it does not already exist.
        @param callback    Result of the operation.
        @param overwrite   True to create the path if it does not already exist.
-       @since ARP1.0
+       @since v2.0
     */
     public func move(source : FileDescriptor , destination : FileDescriptor , createPath : Bool , overwrite : Bool , callback : IFileResultCallback ) {
         // Start logging elapsed time.
@@ -501,7 +501,7 @@ new destination file.
        @param descriptor File descriptor of file or folder used for operation.
        @param content    Binary content to store in the file.
        @param callback   Result of the operation.
-       @since ARP1.0
+       @since v2.0
     */
     public func setContent(descriptor : FileDescriptor , content : [Byte] , callback : IFileDataStoreResultCallback ) {
         // Start logging elapsed time.
@@ -647,7 +647,7 @@ new destination file.
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "FileBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.4."
+                responseMessage = "FileBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.6."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

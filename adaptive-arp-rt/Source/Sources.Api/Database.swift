@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Structure representing a database reference.
 
    @author Ferran Vila Conesa
-   @since ARP1.0
+   @since v2.0
    @version 1.0
 */
 public class Database : APIBean {
@@ -55,7 +55,7 @@ public class Database : APIBean {
     /**
        Default constructor
 
-       @since ARP1.0
+       @since v2.0
     */
     public override init() {
         super.init()
@@ -65,7 +65,7 @@ public class Database : APIBean {
        Default constructor. The compress param is setted to false.
 
        @param name Name of the table.
-       @since ARP1.0
+       @since v2.0
     */
     public init(name: String) {
         super.init()
@@ -77,7 +77,7 @@ public class Database : APIBean {
 
        @param name     Name of the DatabaseTable.
        @param compress Compression enabled.
-       @since ARP1.0
+       @since v2.0
     */
     public init(name: String, compress: Bool) {
         super.init()
@@ -89,7 +89,7 @@ public class Database : APIBean {
        Returns if the table is compressed
 
        @return Compression enabled
-       @since ARP1.0
+       @since v2.0
     */
     public func getCompress() -> Bool? {
         return self.compress
@@ -99,7 +99,7 @@ public class Database : APIBean {
        Sets if the table is compressed or not.
 
        @param compress Compression enabled
-       @since ARP1.0
+       @since v2.0
     */
     public func setCompress(compress: Bool) {
         self.compress = compress
@@ -109,7 +109,7 @@ public class Database : APIBean {
        Returns the name.
 
        @return The name of the table.
-       @since ARP1.0
+       @since v2.0
     */
     public func getName() -> String? {
         return self.name
@@ -119,7 +119,7 @@ public class Database : APIBean {
        Sets the name of the table.
 
        @param name The name of the table.
-       @since ARP1.0
+       @since v2.0
     */
     public func setName(name: String) {
         self.name = name

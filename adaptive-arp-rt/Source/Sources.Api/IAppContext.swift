@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for context management purposes
 
    @author Carlos Lozano Diez
-   @since ARP1.0
+   @since v2.0
    @version 1.0
 */
 public protocol IAppContext : NSObjectProtocol {
@@ -46,7 +46,7 @@ public protocol IAppContext : NSObjectProtocol {
        The main application context. This should be cast to the platform specific implementation.
 
        @return Object representing the specific singleton application context provided by the OS.
-       @since ARP1.0
+       @since v2.0
     */
     func getContext() -> AnyObject?
 
@@ -54,7 +54,7 @@ public protocol IAppContext : NSObjectProtocol {
        The type of context provided by the getContext method.
 
        @return Type of platform context.
-       @since ARP1.0
+       @since v2.0
     */
     func getContextType() -> IOSType?
 

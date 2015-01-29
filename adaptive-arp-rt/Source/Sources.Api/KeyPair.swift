@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Represents a basic bean to store keyName pair values
 
    @author Ferran Vila Conesa
-   @since ARP1.0
+   @since v2.0
    @version 1.0
 */
 public class KeyPair : APIBean {
@@ -55,7 +55,7 @@ public class KeyPair : APIBean {
     /**
        Default Constructor
 
-       @since ARP1.0
+       @since v2.0
     */
     public override init() {
         super.init()
@@ -66,7 +66,7 @@ public class KeyPair : APIBean {
 
        @param keyName  Key of the element
        @param keyValue Value of the element
-       @since ARP1.0
+       @since v2.0
     */
     public init(keyName: String, keyValue: String) {
         super.init()
@@ -78,7 +78,7 @@ public class KeyPair : APIBean {
        Returns the keyName of the element
 
        @return Key of the element
-       @since ARP1.0
+       @since v2.0
     */
     public func getKeyName() -> String? {
         return self.keyName
@@ -88,7 +88,7 @@ public class KeyPair : APIBean {
        Sets the keyName of the element
 
        @param keyName Key of the element
-       @since ARP1.0
+       @since v2.0
     */
     public func setKeyName(keyName: String) {
         self.keyName = keyName
@@ -98,7 +98,7 @@ public class KeyPair : APIBean {
        Returns the keyValue of the element
 
        @return Value of the element
-       @since ARP1.0
+       @since v2.0
     */
     public func getKeyValue() -> String? {
         return self.keyValue
@@ -108,7 +108,7 @@ public class KeyPair : APIBean {
        Sets the keyValue of the element
 
        @param keyValue Value of the element
-       @since ARP1.0
+       @since v2.0
     */
     public func setKeyValue(keyValue: String) {
         self.keyValue = keyValue

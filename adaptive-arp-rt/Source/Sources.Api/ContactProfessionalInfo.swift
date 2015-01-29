@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Structure representing the professional info data elements of a contact.
 
    @author Francisco Javier Martin Bueno
-   @since ARP1.0
+   @since v2.0
    @version 1.0
 */
 public class ContactProfessionalInfo : APIBean {
@@ -59,7 +59,7 @@ public class ContactProfessionalInfo : APIBean {
     /**
        Default constructor
 
-       @since ARP1.0
+       @since v2.0
     */
     public override init() {
         super.init()
@@ -71,7 +71,7 @@ public class ContactProfessionalInfo : APIBean {
        @param jobTitle       The job title
        @param jobDescription The job description
        @param company        The company of the job
-       @since ARP1.0
+       @since v2.0
     */
     public init(jobTitle: String, jobDescription: String, company: String) {
         super.init()
@@ -84,7 +84,7 @@ public class ContactProfessionalInfo : APIBean {
        Returns the company of the job
 
        @return company
-       @since ARP1.0
+       @since v2.0
     */
     public func getCompany() -> String? {
         return self.company
@@ -94,7 +94,7 @@ public class ContactProfessionalInfo : APIBean {
        Set the company of the job
 
        @param company The company of the job
-       @since ARP1.0
+       @since v2.0
     */
     public func setCompany(company: String) {
         self.company = company
@@ -104,7 +104,7 @@ public class ContactProfessionalInfo : APIBean {
        Returns the description of the job
 
        @return description
-       @since ARP1.0
+       @since v2.0
     */
     public func getJobDescription() -> String? {
         return self.jobDescription
@@ -114,7 +114,7 @@ public class ContactProfessionalInfo : APIBean {
        Set the description of the job
 
        @param jobDescription The job description
-       @since ARP1.0
+       @since v2.0
     */
     public func setJobDescription(jobDescription: String) {
         self.jobDescription = jobDescription
@@ -124,7 +124,7 @@ public class ContactProfessionalInfo : APIBean {
        Returns the title of the job
 
        @return title
-       @since ARP1.0
+       @since v2.0
     */
     public func getJobTitle() -> String? {
         return self.jobTitle
@@ -134,7 +134,7 @@ public class ContactProfessionalInfo : APIBean {
        Set the title of the job
 
        @param jobTitle The job title
-       @since ARP1.0
+       @since v2.0
     */
     public func setJobTitle(jobTitle: String) {
         self.jobTitle = jobTitle

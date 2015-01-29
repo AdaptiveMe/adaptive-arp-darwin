@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Structure representing the internal unique identifier data elements of a contact.
 
    @author Francisco Javier Martin Bueno
-   @since ARP1.0
+   @since v2.0
    @version 1.0
 */
 public class ContactUid : APIBean {
@@ -51,7 +51,7 @@ public class ContactUid : APIBean {
     /**
        Default constructor
 
-       @since ARP1.0
+       @since v2.0
     */
     public override init() {
         super.init()
@@ -61,7 +61,7 @@ public class ContactUid : APIBean {
        Constructor used by implementation to set the Contact id.
 
        @param contactId Internal unique contact id.
-       @since ARP1.0
+       @since v2.0
     */
     public init(contactId: String) {
         super.init()
@@ -72,7 +72,7 @@ public class ContactUid : APIBean {
        Returns the contact id
 
        @return Contactid Internal unique contact id.
-       @since ARP1.0
+       @since v2.0
     */
     public func getContactId() -> String? {
         return self.contactId
@@ -82,7 +82,7 @@ public class ContactUid : APIBean {
        Set the id of the Contact
 
        @param contactId Internal unique contact id.
-       @since ARP1.0
+       @since v2.0
     */
     public func setContactId(contactId: String) {
         self.contactId = contactId

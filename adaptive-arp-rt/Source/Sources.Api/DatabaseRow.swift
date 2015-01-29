@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Structure representing a row for a data table.
 
    @author Ferran Vila Conesa
-   @since ARP1.0
+   @since v2.0
    @version 1.0
 */
 public class DatabaseRow : APIBean {
@@ -51,7 +51,7 @@ public class DatabaseRow : APIBean {
     /**
        Default constructor
 
-       @since ARP1.0
+       @since v2.0
     */
     public override init() {
         super.init()
@@ -61,7 +61,7 @@ public class DatabaseRow : APIBean {
        Constructor for implementation using.
 
        @param values The values of the row
-       @since ARP1.0
+       @since v2.0
     */
     public init(values: [String]) {
         super.init()
@@ -72,7 +72,7 @@ public class DatabaseRow : APIBean {
        Returns the values of the row.
 
        @return The values of the row.
-       @since ARP1.0
+       @since v2.0
     */
     public func getValues() -> [String]? {
         return self.values
@@ -82,7 +82,7 @@ public class DatabaseRow : APIBean {
        Sets the values of the row.
 
        @param values The values of the row.
-       @since ARP1.0
+       @since v2.0
     */
     public func setValues(values: [String]) {
         self.values = values

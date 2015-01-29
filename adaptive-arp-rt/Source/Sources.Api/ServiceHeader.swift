@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,80 +38,30 @@ import Foundation
    Structure representing the data of a http request or response header.
 
    @author Aryslan
-   @since ARP1.0
+   @since v2.0
    @version 1.0
 */
-public class ServiceHeader : APIBean {
+public class ServiceHeader : KeyValue {
+
 
     /**
-       Value of the header
-    */
-    var data : String?
-    /**
-       Name ot the header
-    */
-    var name : String?
+       Default constructor.
 
-    /**
-       Default constructor
-
-       @since ARP1.0
+       @since v2.0.6
     */
     public override init() {
         super.init()
     }
 
     /**
-       Constructor with fields
+       Convenience constructor.
 
-       @param name Name of the header
-       @param data Value of the header
-       @since ARP1.0
+       @param keyName Name of the key.
+       @param keyData Value of the key.
+       @since v2.0.6
     */
-    public init(name: String, data: String) {
-        super.init()
-        self.name = name
-        self.data = data
-    }
-
-    /**
-       Returns the header value
-
-       @return ServiceHeader value
-       @since ARP1.0
-    */
-    public func getData() -> String? {
-        return self.data
-    }
-
-    /**
-       Set the header value
-
-       @param data ServiceHeader value
-       @since ARP1.0
-    */
-    public func setData(data: String) {
-        self.data = data
-    }
-
-    /**
-       Returns the header name
-
-       @return ServiceHeader name
-       @since ARP1.0
-    */
-    public func getName() -> String? {
-        return self.name
-    }
-
-    /**
-       Set the header name
-
-       @param name Name of the header
-       @since ARP1.0
-    */
-    public func setName(name: String) {
-        self.name = name
+    public override init(keyName: String, keyData: String) {
+        super.init(keyName: keyNamekeyData: keyData)
     }
 
 
@@ -129,15 +79,15 @@ public class ServiceHeader : APIBean {
         static func fromDictionary(dict : NSDictionary) -> ServiceHeader {
             var resultObject : ServiceHeader = ServiceHeader()
 
-            if let value : AnyObject = dict.objectForKey("data") {
+            if let value : AnyObject = dict.objectForKey("keyData") {
                 if "\(value)" as NSString != "<null>" {
-                    resultObject.data = (value as String)
+                    resultObject.keyData = (value as String)
                 }
             }
 
-            if let value : AnyObject = dict.objectForKey("name") {
+            if let value : AnyObject = dict.objectForKey("keyName") {
                 if "\(value)" as NSString != "<null>" {
-                    resultObject.name = (value as String)
+                    resultObject.keyName = (value as String)
                 }
             }
 
@@ -150,8 +100,8 @@ public class ServiceHeader : APIBean {
             jsonString.appendString("{ ")
 
             // Fields.
-            object.data != nil ? jsonString.appendString("\"data\": \"\(JSONUtil.escapeString(object.data!))\", ") : jsonString.appendString("\"data\": null, ")
-            object.name != nil ? jsonString.appendString("\"name\": \"\(JSONUtil.escapeString(object.name!))\"") : jsonString.appendString("\"name\": null")
+            object.keyData != nil ? jsonString.appendString("\"keyData\": \"\(JSONUtil.escapeString(object.keyData!))\", ") : jsonString.appendString("\"keyData\": null, ")
+            object.keyName != nil ? jsonString.appendString("\"keyName\": \"\(JSONUtil.escapeString(object.keyName!))\"") : jsonString.appendString("\"keyName\": null")
 
             // End Object to JSON
             jsonString.appendString(" }")

@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for Managing the File loading callback responses
 
    @author Carlos Lozano Diez
-   @since ARP1.0
+   @since v2.0
    @version 1.0
 */
 public protocol IFileDataLoadResultCallback : IBaseCallback {
@@ -46,7 +46,7 @@ public protocol IFileDataLoadResultCallback : IBaseCallback {
        Error processing data retrieval/storage operation.
 
        @param error Error condition encountered.
-       @since ARP1.0
+       @since v2.0
     */
     func onError(error : IFileDataLoadResultCallbackError)
 
@@ -54,7 +54,7 @@ public protocol IFileDataLoadResultCallback : IBaseCallback {
        Result of data retrieval operation.
 
        @param data Data loaded.
-       @since ARP1.0
+       @since v2.0
     */
     func onResult(data : [Byte])
 
@@ -63,7 +63,7 @@ public protocol IFileDataLoadResultCallback : IBaseCallback {
 
        @param data    File being loaded.
        @param warning Warning condition encountered.
-       @since ARP1.0
+       @since v2.0
     */
     func onWarning(data : [Byte], warning : IFileDataLoadResultCallbackWarning)
 

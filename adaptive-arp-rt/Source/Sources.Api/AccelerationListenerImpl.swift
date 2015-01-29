@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -54,7 +54,7 @@ public class AccelerationListenerImpl : BaseListenerImpl, IAccelerationListener 
 listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.
 
        @param error Error fired
-       @since ARP1.0
+       @since v2.0
     */
     public func onError(error : IAccelerationListenerError) { 
         var param0 : String = "Adaptive.IAccelerationListenerError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
@@ -65,7 +65,7 @@ listener and subsequently, the listener will be deactivated and removed from the
        Correct data received.
 
        @param acceleration Acceleration received
-       @since ARP1.0
+       @since v2.0
     */
     public func onResult(acceleration : Acceleration) { 
         var param0 : String = "Adaptive.Acceleration.toObject(JSON.parse(\"\(JSONUtil.escapeString(Acceleration.Serializer.toJSON(acceleration)))\"))"
@@ -77,7 +77,7 @@ listener and subsequently, the listener will be deactivated and removed from the
 
        @param acceleration Acceleration received
        @param warning      Warning fired
-       @since ARP1.0
+       @since v2.0
     */
     public func onWarning(acceleration : Acceleration, warning : IAccelerationListenerWarning) { 
         var param0 : String = "Adaptive.Acceleration.toObject(JSON.parse(\"\(JSONUtil.escapeString(Acceleration.Serializer.toJSON(acceleration)))\"))"

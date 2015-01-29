@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for Managing the UI operations
 
    @author Carlos Lozano Diez
-   @since ARP1.0
+   @since v2.0
    @version 1.0
 */
 public protocol IUI : IBaseUI {

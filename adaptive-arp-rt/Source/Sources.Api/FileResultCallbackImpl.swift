@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -53,7 +53,7 @@ public class FileResultCallbackImpl : BaseCallbackImpl, IFileResultCallback {
        On error result of a file operation.
 
        @param error Error processing the request.
-       @since ARP1.0
+       @since v2.0
     */
     public func onError(error : IFileResultCallbackError) { 
         var param0 : String = "Adaptive.IFileResultCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
@@ -64,7 +64,7 @@ public class FileResultCallbackImpl : BaseCallbackImpl, IFileResultCallback {
        On correct result of a file operation.
 
        @param storageFile Reference to the resulting file.
-       @since ARP1.0
+       @since v2.0
     */
     public func onResult(storageFile : FileDescriptor) { 
         var param0 : String = "Adaptive.FileDescriptor.toObject(JSON.parse(\"\(JSONUtil.escapeString(FileDescriptor.Serializer.toJSON(storageFile)))\"))"
@@ -76,7 +76,7 @@ public class FileResultCallbackImpl : BaseCallbackImpl, IFileResultCallback {
 
        @param file    Reference to the offending file.
        @param warning Warning processing the request.
-       @since ARP1.0
+       @since v2.0
     */
     public func onWarning(file : FileDescriptor, warning : IFileResultCallbackWarning) { 
         var param0 : String = "Adaptive.FileDescriptor.toObject(JSON.parse(\"\(JSONUtil.escapeString(FileDescriptor.Serializer.toJSON(file)))\"))"

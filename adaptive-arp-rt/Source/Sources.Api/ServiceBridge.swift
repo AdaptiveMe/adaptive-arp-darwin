@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -71,54 +71,119 @@ public class ServiceBridge : BaseCommunicationBridge, IService, APIBridge {
     }
 
     /**
-       Get a reference to a registered service by name.
+       Create a service request for the given ServiceToken. This method creates the request, populating
+existing headers and cookies for the same service. The request is populated with all the defaults
+for the service being invoked and requires only the request body to be set. Headers and cookies may be
+manipulated as needed by the application before submitting the ServiceRequest via invokeService.
 
-       @param serviceName Name of service.
-       @return A service, if registered, or null of the service does not exist.
-       @since ARP1.0
+       @param serviceToken ServiceToken to be used for the creation of the request.
+       @return ServiceRequest with pre-populated headers, cookies and defaults for the service.
+       @since v2.0.6
     */
-    public func getService(serviceName : String ) -> Service? {
+    public func getServiceRequest(serviceToken : ServiceToken ) -> ServiceRequest? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executing getService('\(serviceName)').")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executing getServiceRequest('\(serviceToken)').")
         }
 
-        var result : Service? = nil
+        var result : ServiceRequest? = nil
         if (self.delegate != nil) {
-            result = self.delegate!.getService(serviceName)
+            result = self.delegate!.getServiceRequest(serviceToken)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executed 'getService' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executed 'getServiceRequest' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "ServiceBridge no delegate for 'getService'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "ServiceBridge no delegate for 'getServiceRequest'.")
             }
         }
         return result!        
     }
 
     /**
-       Request async a service for an Url
+       Obtains a ServiceToken for the given parameters to be used for the creation of requests.
 
-       @param serviceRequest Service Request to invoke
-       @param service        Service to call
-       @param callback       Callback to execute with the result
-       @since ARP1.0
+       @param serviceName  Service name.
+       @param endpointName Endpoint name.
+       @param functionName Function name.
+       @param method       Method type.
+       @return ServiceToken to create a service request or null if the given parameter combination is not
+configured in the platform's XML service definition file.
+       @since v2.0.6
     */
-    public func invokeService(serviceRequest : ServiceRequest , service : Service , callback : IServiceResultCallback ) {
+    public func getServiceToken(serviceName : String , endpointName : String , functionName : String , method : IServiceMethod ) -> ServiceToken? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executing invokeService('\(serviceRequest)','\(service)','\(callback)').")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executing getServiceToken('\(serviceName)','\(endpointName)','\(functionName)','\(method)').")
+        }
+
+        var result : ServiceToken? = nil
+        if (self.delegate != nil) {
+            result = self.delegate!.getServiceToken(serviceName, endpointName: endpointName, functionName: functionName, method: method)
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executed 'getServiceToken' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+             }
+        } else {
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "ServiceBridge no delegate for 'getServiceToken'.")
+            }
+        }
+        return result!        
+    }
+
+    /**
+       Returns all the possible service tokens configured in the platform's XML service definition file.
+
+       @return Array of service tokens configured.
+       @since v2.0.6
+    */
+    public func getServicesRegistered() -> [ServiceToken]? {
+        // Start logging elapsed time.
+        var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+        var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
+
+        if (logger != nil) {
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executing getServicesRegistered.")
+        }
+
+        var result : [ServiceToken]? = nil
+        if (self.delegate != nil) {
+            result = self.delegate!.getServicesRegistered()
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executed 'getServicesRegistered' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+             }
+        } else {
+            if (logger != nil) {
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "ServiceBridge no delegate for 'getServicesRegistered'.")
+            }
+        }
+        return result!        
+    }
+
+    /**
+       Executes the given ServiceRequest and provides responses to the given callback handler.
+
+       @param serviceRequest ServiceRequest with the request body.
+       @param callback       IServiceResultCallback to handle the ServiceResponse.
+       @since v2.0.6
+    */
+    public func invokeService(serviceRequest : ServiceRequest , callback : IServiceResultCallback ) {
+        // Start logging elapsed time.
+        var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+        var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
+
+        if (logger != nil) {
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executing invokeService('\(serviceRequest)','\(callback)').")
         }
 
         if (self.delegate != nil) {
-            self.delegate!.invokeService(serviceRequest, service: service, callback: callback)
+            self.delegate!.invokeService(serviceRequest, callback: callback)
             if (logger != nil) {
                 logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executed 'invokeService' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
@@ -131,146 +196,37 @@ public class ServiceBridge : BaseCommunicationBridge, IService, APIBridge {
     }
 
     /**
-       Check whether a service by the given service is already registered.
+       Checks whether a specific service, endpoint, function and method type is configured in the platform's
+XML service definition file.
 
-       @param service Service to check
-       @return True if the service is registered, false otherwise.
-       @since ARP1.0
+       @param serviceName  Service name.
+       @param endpointName Endpoint name.
+       @param functionName Function name.
+       @param method       Method type.
+       @return Returns true if the service is configured, false otherwise.
+       @since v2.0.6
     */
-    public func isRegistered(service : Service ) -> Bool? {
+    public func isServiceRegistered(serviceName : String , endpointName : String , functionName : String , method : IServiceMethod ) -> Bool? {
         // Start logging elapsed time.
         var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executing isRegistered('\(service)').")
+            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executing isServiceRegistered('\(serviceName)','\(endpointName)','\(functionName)','\(method)').")
         }
 
         var result : Bool? = false
         if (self.delegate != nil) {
-            result = self.delegate!.isRegistered(service)
+            result = self.delegate!.isServiceRegistered(serviceName, endpointName: endpointName, functionName: functionName, method: method)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executed 'isRegistered' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executed 'isServiceRegistered' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "ServiceBridge no delegate for 'isRegistered'.")
+                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "ServiceBridge no delegate for 'isServiceRegistered'.")
             }
         }
         return result        
-    }
-
-    /**
-       Check whether a service by the given name is registered.
-
-       @param serviceName Name of service.
-       @return True if the service is registered, false otherwise.
-       @since ARP1.0
-    */
-    public func isRegistered(serviceName : String ) -> Bool? {
-        // Start logging elapsed time.
-        var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-        var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
-
-        if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executing isRegistered('\(serviceName)').")
-        }
-
-        var result : Bool? = false
-        if (self.delegate != nil) {
-            result = self.delegate!.isRegistered(serviceName)
-            if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executed 'isRegistered' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
-             }
-        } else {
-            if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "ServiceBridge no delegate for 'isRegistered'.")
-            }
-        }
-        return result        
-    }
-
-    /**
-       Register a new service
-
-       @param service to register
-       @since ARP1.0
-    */
-    public func registerService(service : Service ) {
-        // Start logging elapsed time.
-        var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-        var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
-
-        if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executing registerService('\(service)').")
-        }
-
-        if (self.delegate != nil) {
-            self.delegate!.registerService(service)
-            if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executed 'registerService' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
-             }
-        } else {
-            if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "ServiceBridge no delegate for 'registerService'.")
-            }
-        }
-        
-    }
-
-    /**
-       Unregister a service
-
-       @param service to unregister
-       @since ARP1.0
-    */
-    public func unregisterService(service : Service ) {
-        // Start logging elapsed time.
-        var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-        var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
-
-        if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executing unregisterService('\(service)').")
-        }
-
-        if (self.delegate != nil) {
-            self.delegate!.unregisterService(service)
-            if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executed 'unregisterService' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
-             }
-        } else {
-            if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "ServiceBridge no delegate for 'unregisterService'.")
-            }
-        }
-        
-    }
-
-    /**
-       Unregister all services.
-
-       @since ARP1.0
-    */
-    public func unregisterServices() {
-        // Start logging elapsed time.
-        var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-        var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
-
-        if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executing unregisterServices.")
-        }
-
-        if (self.delegate != nil) {
-            self.delegate!.unregisterServices()
-            if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executed 'unregisterServices' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
-             }
-        } else {
-            if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "ServiceBridge no delegate for 'unregisterServices'.")
-            }
-        }
-        
     }
 
     /**
@@ -285,47 +241,60 @@ public class ServiceBridge : BaseCommunicationBridge, IService, APIBridge {
         var responseMessage : String = "OK"
         var responseJSON : String? = "null"
         switch request.getMethodName()! {
-            case "getService":
-                var serviceName0 : String? = JSONUtil.unescapeString(request.getParameters()![0])
-                var response0 : Service? = self.getService(serviceName0!)
+            case "getServiceRequest":
+                var serviceToken0 : ServiceToken? = ServiceToken.Serializer.fromJSON(request.getParameters()![0])
+                var response0 : ServiceRequest? = self.getServiceRequest(serviceToken0!)
                 if let response0 = response0 {
-                    responseJSON = Service.Serializer.toJSON(response0)
+                    responseJSON = ServiceRequest.Serializer.toJSON(response0)
+                } else {
+                    responseJSON = "null"
+                }
+            case "getServiceToken":
+                var serviceName1 : String? = JSONUtil.unescapeString(request.getParameters()![0])
+                var endpointName1 : String? = JSONUtil.unescapeString(request.getParameters()![1])
+                var functionName1 : String? = JSONUtil.unescapeString(request.getParameters()![2])
+                var method1 : IServiceMethod? = IServiceMethod.toEnum(JSONUtil.dictionifyJSON(request.getParameters()![3])["value"] as String!)
+                var response1 : ServiceToken? = self.getServiceToken(serviceName1!, endpointName: endpointName1!, functionName: functionName1!, method: method1!)
+                if let response1 = response1 {
+                    responseJSON = ServiceToken.Serializer.toJSON(response1)
+                } else {
+                    responseJSON = "null"
+                }
+            case "getServicesRegistered":
+                var response2 : [ServiceToken]? = self.getServicesRegistered()
+                if let response2 = response2 {
+                    var response2JSONArray : NSMutableString = NSMutableString()
+                    response2JSONArray.appendString("{[ ")
+                    for (index, obj) in enumerate(response2) {
+                        response2JSONArray.appendString(ServiceToken.Serializer.toJSON(obj))
+                        if index < response2.count-1 {
+                            response2JSONArray.appendString(", ")
+                        }
+                    }
+                    response2JSONArray.appendString(" ]}")
+                    responseJSON = response2JSONArray as String
                 } else {
                     responseJSON = "null"
                 }
             case "invokeService":
-                var serviceRequest1 : ServiceRequest? = ServiceRequest.Serializer.fromJSON(request.getParameters()![0])
-                var service1 : Service? = Service.Serializer.fromJSON(request.getParameters()![1])
-                var callback1 : IServiceResultCallback? =  ServiceResultCallbackImpl(id: request.getAsyncId()!)
-                self.invokeService(serviceRequest1!, service: service1!, callback: callback1!);
-            case "registerService":
-                var service2 : Service? = Service.Serializer.fromJSON(request.getParameters()![0])
-                self.registerService(service2!);
-            case "unregisterService":
-                var service3 : Service? = Service.Serializer.fromJSON(request.getParameters()![0])
-                self.unregisterService(service3!);
-            case "unregisterServices":
-                self.unregisterServices();
-            case "isRegistered_service":
-                var service5 : Service? = Service.Serializer.fromJSON(request.getParameters()![0])
-                var response5 : Bool? = self.isRegistered(service5!)
-                if let response5 = response5 {
-                    responseJSON = "\(response5)"
-                 } else {
-                    responseJSON = "false"
-                 }
-            case "isRegistered_serviceName":
-                var serviceName6 : String? = JSONUtil.unescapeString(request.getParameters()![0])
-                var response6 : Bool? = self.isRegistered(serviceName6!)
-                if let response6 = response6 {
-                    responseJSON = "\(response6)"
+                var serviceRequest3 : ServiceRequest? = ServiceRequest.Serializer.fromJSON(request.getParameters()![0])
+                var callback3 : IServiceResultCallback? =  ServiceResultCallbackImpl(id: request.getAsyncId()!)
+                self.invokeService(serviceRequest3!, callback: callback3!);
+            case "isServiceRegistered":
+                var serviceName4 : String? = JSONUtil.unescapeString(request.getParameters()![0])
+                var endpointName4 : String? = JSONUtil.unescapeString(request.getParameters()![1])
+                var functionName4 : String? = JSONUtil.unescapeString(request.getParameters()![2])
+                var method4 : IServiceMethod? = IServiceMethod.toEnum(JSONUtil.dictionifyJSON(request.getParameters()![3])["value"] as String!)
+                var response4 : Bool? = self.isServiceRegistered(serviceName4!, endpointName: endpointName4!, functionName: functionName4!, method: method4!)
+                if let response4 = response4 {
+                    responseJSON = "\(response4)"
                  } else {
                     responseJSON = "false"
                  }
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "ServiceBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.4."
+                responseMessage = "ServiceBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.6."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

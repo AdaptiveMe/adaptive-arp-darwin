@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -1189,7 +1189,7 @@ public class AppRegistryDelegate : NSObject, IAppRegistry {
        Method that returns the API version of the implementation.
     */
     public func getAPIVersion() -> String? {
-        return "v2.0.4"
+        return "v2.0.6"
     }
 
     /**
@@ -1201,7 +1201,7 @@ public class AppRegistryDelegate : NSObject, IAppRegistry {
        Returns a reference to the Platform Context
 
        @return Reference to the platform context
-       @since ARP1.0
+       @since v2.0
     */
     public func getPlatformContext() -> AppContextBridge {
          if(__appcontextBridge == nil) {
@@ -1219,7 +1219,7 @@ public class AppRegistryDelegate : NSObject, IAppRegistry {
        Returns a reference to the Webview platform context
 
        @return Reference to the Webview Context
-       @since ARP1.0
+       @since v2.0
     */
     public func getPlatformContextWeb() -> AppContextWebviewBridge {
          if(__appcontextwebviewBridge == nil) {

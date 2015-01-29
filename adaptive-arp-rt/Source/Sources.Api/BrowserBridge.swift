@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -75,7 +75,7 @@ public class BrowserBridge : BaseUIBridge, IBrowser, APIBridge {
 
        @param url Url to open
        @return The result of the operation
-       @since ARP1.0
+       @since v2.0
     */
     public func openExtenalBrowser(url : String ) -> Bool? {
         // Start logging elapsed time.
@@ -107,7 +107,7 @@ public class BrowserBridge : BaseUIBridge, IBrowser, APIBridge {
        @param title          Title of the Navigation bar
        @param backButtonText Title of the Back button bar
        @return The result of the operation
-       @since ARP1.0
+       @since v2.0
     */
     public func openInternalBrowser(url : String , title : String , backButtonText : String ) -> Bool? {
         // Start logging elapsed time.
@@ -139,7 +139,7 @@ public class BrowserBridge : BaseUIBridge, IBrowser, APIBridge {
        @param title          Title of the Navigation bar
        @param backButtonText Title of the Back button bar
        @return The result of the operation
-       @since ARP1.0
+       @since v2.0
     */
     public func openInternalBrowserModal(url : String , title : String , backButtonText : String ) -> Bool? {
         // Start logging elapsed time.
@@ -207,7 +207,7 @@ public class BrowserBridge : BaseUIBridge, IBrowser, APIBridge {
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "BrowserBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.4."
+                responseMessage = "BrowserBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.6."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

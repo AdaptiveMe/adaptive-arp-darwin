@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for Managing the File store operations callback
 
    @author Carlos Lozano Diez
-   @since ARP1.0
+   @since v2.0
    @version 1.0
 */
 public protocol IFileDataStoreResultCallback : IBaseCallback {
@@ -46,7 +46,7 @@ public protocol IFileDataStoreResultCallback : IBaseCallback {
        Error processing data retrieval/storage operation.
 
        @param error Error condition encountered.
-       @since ARP1.0
+       @since v2.0
     */
     func onError(error : IFileDataStoreResultCallbackError)
 
@@ -54,7 +54,7 @@ public protocol IFileDataStoreResultCallback : IBaseCallback {
        Result of data storage operation.
 
        @param file File reference to stored data.
-       @since ARP1.0
+       @since v2.0
     */
     func onResult(file : FileDescriptor)
 
@@ -63,7 +63,7 @@ public protocol IFileDataStoreResultCallback : IBaseCallback {
 
        @param file    File being loaded/stored.
        @param warning Warning condition encountered.
-       @since ARP1.0
+       @since v2.0
     */
     func onWarning(file : FileDescriptor, warning : IFileDataStoreResultCallbackWarning)
 

@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for Managing the File operations
 
    @author Carlos Lozano Diez
-   @since ARP1.0
+   @since v2.0
    @version 1.0
 */
 public protocol IFile : IBaseData {
@@ -47,7 +47,7 @@ public protocol IFile : IBaseData {
 
        @param descriptor File descriptor of file or folder used for operation.
        @return True if the folder/file is readable, false otherwise.
-       @since ARP1.0
+       @since v2.0
     */
     func canRead(descriptor : FileDescriptor) -> Bool?
 
@@ -56,7 +56,7 @@ public protocol IFile : IBaseData {
 
        @param descriptor File descriptor of file or folder used for operation.
        @return True if the folder/file is writable, false otherwise.
-       @since ARP1.0
+       @since v2.0
     */
     func canWrite(descriptor : FileDescriptor) -> Bool?
 
@@ -65,7 +65,7 @@ public protocol IFile : IBaseData {
 
        @param descriptor File descriptor of file or folder used for operation.
        @param callback   Result of the operation.
-       @since ARP1.0
+       @since v2.0
     */
     func create(descriptor : FileDescriptor, callback : IFileResultCallback)
 
@@ -76,7 +76,7 @@ deleted if the cascade parameter is set to true.
        @param descriptor File descriptor of file or folder used for operation.
        @param cascade    Whether to delete sub-files and sub-folders.
        @return True if files (and sub-files and folders) whether deleted.
-       @since ARP1.0
+       @since v2.0
     */
     func delete(descriptor : FileDescriptor, cascade : Bool) -> Bool?
 
@@ -85,7 +85,7 @@ deleted if the cascade parameter is set to true.
 
        @param descriptor File descriptor of file or folder used for operation.
        @return True if the file exists in the filesystem, false otherwise.
-       @since ARP1.0
+       @since v2.0
     */
     func exists(descriptor : FileDescriptor) -> Bool?
 
@@ -94,7 +94,7 @@ deleted if the cascade parameter is set to true.
 
        @param descriptor File descriptor of file or folder used for operation.
        @param callback   Result of the operation.
-       @since ARP1.0
+       @since v2.0
     */
     func getContent(descriptor : FileDescriptor, callback : IFileDataLoadResultCallback)
 
@@ -103,7 +103,7 @@ deleted if the cascade parameter is set to true.
 
        @param descriptor File descriptor of file or folder used for operation.
        @return Storage Type file
-       @since ARP1.0
+       @since v2.0
     */
     func getFileStorageType(descriptor : FileDescriptor) -> IFileSystemStorageType?
 
@@ -112,7 +112,7 @@ deleted if the cascade parameter is set to true.
 
        @param descriptor File descriptor of file or folder used for operation.
        @return Returns the file type of the file
-       @since ARP1.0
+       @since v2.0
     */
     func getFileType(descriptor : FileDescriptor) -> IFileSystemType?
 
@@ -121,7 +121,7 @@ deleted if the cascade parameter is set to true.
 
        @param descriptor File descriptor of file or folder used for operation.
        @return Security Level of the file
-       @since ARP1.0
+       @since v2.0
     */
     func getSecurityType(descriptor : FileDescriptor) -> IFileSystemSecurity?
 
@@ -130,7 +130,7 @@ deleted if the cascade parameter is set to true.
 
        @param descriptor File descriptor of file or folder used for operation.
        @return true if this is a path to a folder/directory, false if this is a path to a file.
-       @since ARP1.0
+       @since v2.0
     */
     func isDirectory(descriptor : FileDescriptor) -> Bool?
 
@@ -141,7 +141,7 @@ is a file, it will not yield any results.
        @param descriptor File descriptor of file or folder used for operation.
        @param regex      Filter (eg. *.jpg, *.png, Fil*) name string.
        @param callback   Result of operation.
-       @since ARP1.0
+       @since v2.0
     */
     func listFilesForRegex(descriptor : FileDescriptor, regex : String, callback : IFileListResultCallback)
 
@@ -151,7 +151,7 @@ any results.
 
        @param descriptor File descriptor of file or folder used for operation.
        @param callback   Result of operation.
-       @since ARP1.0
+       @since v2.0
     */
     func listFiles(descriptor : FileDescriptor, callback : IFileListResultCallback)
 
@@ -161,7 +161,7 @@ any results.
        @param descriptor File descriptor of file or folder used for operation.
        @param recursive  Whether to create all parent path elements.
        @return True if the path was created, false otherwise (or it exists already).
-       @since ARP1.0
+       @since v2.0
     */
     func mkDir(descriptor : FileDescriptor, recursive : Bool) -> Bool?
 
@@ -174,7 +174,7 @@ new destination file.
        @param createPath  True to create the path if it does not already exist.
        @param callback    Result of the operation.
        @param overwrite   True to create the path if it does not already exist.
-       @since ARP1.0
+       @since v2.0
     */
     func move(source : FileDescriptor, destination : FileDescriptor, createPath : Bool, overwrite : Bool, callback : IFileResultCallback)
 
@@ -184,7 +184,7 @@ new destination file.
        @param descriptor File descriptor of file or folder used for operation.
        @param content    Binary content to store in the file.
        @param callback   Result of the operation.
-       @since ARP1.0
+       @since v2.0
     */
     func setContent(descriptor : FileDescriptor, content : [Byte], callback : IFileDataStoreResultCallback)
 

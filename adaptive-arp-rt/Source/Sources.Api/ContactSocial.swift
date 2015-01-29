@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Structure representing the social data elements of a contact.
 
    @author Francisco Javier Martin Bueno
-   @since ARP1.0
+   @since v2.0
    @version 1.0
 */
 public class ContactSocial : APIBean {
@@ -55,7 +55,7 @@ public class ContactSocial : APIBean {
     /**
        Default constructor
 
-       @since ARP1.0
+       @since v2.0
     */
     public override init() {
         super.init()
@@ -66,7 +66,7 @@ public class ContactSocial : APIBean {
 
        @param socialNetwork of the profile
        @param profileUrl    of the user
-       @since ARP1.0
+       @since v2.0
     */
     public init(socialNetwork: ContactSocialNetwork, profileUrl: String) {
         super.init()
@@ -78,7 +78,7 @@ public class ContactSocial : APIBean {
        Returns the social network
 
        @return socialNetwork
-       @since ARP1.0
+       @since v2.0
     */
     public func getSocialNetwork() -> ContactSocialNetwork? {
         return self.socialNetwork
@@ -88,7 +88,7 @@ public class ContactSocial : APIBean {
        Set the social network
 
        @param socialNetwork of the profile
-       @since ARP1.0
+       @since v2.0
     */
     public func setSocialNetwork(socialNetwork: ContactSocialNetwork) {
         self.socialNetwork = socialNetwork
@@ -98,7 +98,7 @@ public class ContactSocial : APIBean {
        Returns the profile url of the user
 
        @return profileUrl
-       @since ARP1.0
+       @since v2.0
     */
     public func getProfileUrl() -> String? {
         return self.profileUrl
@@ -108,7 +108,7 @@ public class ContactSocial : APIBean {
        Set the profile url of the iser
 
        @param profileUrl of the user
-       @since ARP1.0
+       @since v2.0
     */
     public func setProfileUrl(profileUrl: String) {
         self.profileUrl = profileUrl

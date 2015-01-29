@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -79,7 +79,7 @@ public class BaseListenerImpl : NSObject, IBaseListener {
        Return the API version for the given interface.
     */
     public final func getAPIVersion() -> String? {
-        return "v2.0.4"
+        return "v2.0.6"
     }
 
 }

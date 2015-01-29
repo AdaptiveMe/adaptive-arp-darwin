@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for Managing the Contact operations
 
    @author Francisco Javier Martin Bueno
-   @since ARP1.0
+   @since v2.0
    @version 1.0
 */
 public protocol IContact : IBasePIM {
@@ -47,7 +47,7 @@ public protocol IContact : IBasePIM {
 
        @param contact  id to search for
        @param callback called for return
-       @since ARP1.0
+       @since v2.0
     */
     func getContactPhoto(contact : ContactUid, callback : IContactPhotoResultCallback)
 
@@ -56,7 +56,7 @@ public protocol IContact : IBasePIM {
 
        @param contact  id to search for
        @param callback called for return
-       @since ARP1.0
+       @since v2.0
     */
     func getContact(contact : ContactUid, callback : IContactResultCallback)
 
@@ -65,7 +65,7 @@ public protocol IContact : IBasePIM {
 
        @param callback called for return
        @param fields   to get for each Contact
-       @since ARP1.0
+       @since v2.0
     */
     func getContactsForFields(callback : IContactResultCallback, fields : [IContactFieldGroup])
 
@@ -75,7 +75,7 @@ public protocol IContact : IBasePIM {
        @param callback called for return
        @param fields   to get for each Contact
        @param filter   to search for
-       @since ARP1.0
+       @since v2.0
     */
     func getContactsWithFilter(callback : IContactResultCallback, fields : [IContactFieldGroup], filter : [IContactFilter])
 
@@ -83,7 +83,7 @@ public protocol IContact : IBasePIM {
        Get all contacts
 
        @param callback called for return
-       @since ARP1.0
+       @since v2.0
     */
     func getContacts(callback : IContactResultCallback)
 
@@ -93,7 +93,7 @@ public protocol IContact : IBasePIM {
        @param term     string to search
        @param callback called for return
        @param filter   to search for
-       @since ARP1.0
+       @since v2.0
     */
     func searchContactsWithFilter(term : String, callback : IContactResultCallback, filter : [IContactFilter])
 
@@ -102,7 +102,7 @@ public protocol IContact : IBasePIM {
 
        @param term     string to search
        @param callback called for return
-       @since ARP1.0
+       @since v2.0
     */
     func searchContacts(term : String, callback : IContactResultCallback)
 
@@ -112,7 +112,7 @@ public protocol IContact : IBasePIM {
        @param contact  id to assign the photo
        @param pngImage photo as byte array
        @return true if set is successful;false otherwise
-       @since ARP1.0
+       @since v2.0
     */
     func setContactPhoto(contact : ContactUid, pngImage : [Byte]) -> Bool?
 

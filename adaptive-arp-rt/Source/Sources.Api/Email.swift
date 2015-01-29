@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Structure representing the data elements of an email.
 
    @author Francisco Javier Martin Bueno
-   @since ARP1.0
+   @since v2.0
    @version 1.0
 */
 public class Email : APIBean {
@@ -75,7 +75,7 @@ public class Email : APIBean {
     /**
        Default constructor
 
-       @since ARP1.0
+       @since v2.0
     */
     public override init() {
         super.init()
@@ -91,7 +91,7 @@ public class Email : APIBean {
        @param messageBody         body of the email
        @param messageBodyMimeType mime type of the body
        @param subject             of the email
-       @since ARP1.0
+       @since v2.0
     */
     public init(toRecipients: [EmailAddress], ccRecipients: [EmailAddress], bccRecipients: [EmailAddress], emailAttachmentData: [EmailAttachmentData], messageBody: String, messageBodyMimeType: String, subject: String) {
         super.init()
@@ -110,7 +110,7 @@ public class Email : APIBean {
        @param toRecipients array of recipients
        @param subject      of the email
        @param messageBody  body of the email
-       @since ARP1.0
+       @since v2.0
     */
     public init(toRecipients: [EmailAddress], subject: String, messageBody: String) {
         super.init()
@@ -123,7 +123,7 @@ public class Email : APIBean {
        Returns the array of recipients
 
        @return bccRecipients array of bcc recipients
-       @since ARP1.0
+       @since v2.0
     */
     public func getBccRecipients() -> [EmailAddress]? {
         return self.bccRecipients
@@ -133,7 +133,7 @@ public class Email : APIBean {
        Set the array of recipients
 
        @param bccRecipients array of bcc recipients
-       @since ARP1.0
+       @since v2.0
     */
     public func setBccRecipients(bccRecipients: [EmailAddress]) {
         self.bccRecipients = bccRecipients
@@ -143,7 +143,7 @@ public class Email : APIBean {
        Returns the array of recipients
 
        @return ccRecipients array of cc recipients
-       @since ARP1.0
+       @since v2.0
     */
     public func getCcRecipients() -> [EmailAddress]? {
         return self.ccRecipients
@@ -153,7 +153,7 @@ public class Email : APIBean {
        Set the array of recipients
 
        @param ccRecipients array of cc recipients
-       @since ARP1.0
+       @since v2.0
     */
     public func setCcRecipients(ccRecipients: [EmailAddress]) {
         self.ccRecipients = ccRecipients
@@ -163,7 +163,7 @@ public class Email : APIBean {
        Returns an array of attachments
 
        @return emailAttachmentData array with the email attachments
-       @since ARP1.0
+       @since v2.0
     */
     public func getEmailAttachmentData() -> [EmailAttachmentData]? {
         return self.emailAttachmentData
@@ -173,7 +173,7 @@ public class Email : APIBean {
        Set the email attachment data array
 
        @param emailAttachmentData array of email attatchments
-       @since ARP1.0
+       @since v2.0
     */
     public func setEmailAttachmentData(emailAttachmentData: [EmailAttachmentData]) {
         self.emailAttachmentData = emailAttachmentData
@@ -183,7 +183,7 @@ public class Email : APIBean {
        Returns the message body of the email
 
        @return message Body string of the email
-       @since ARP1.0
+       @since v2.0
     */
     public func getMessageBody() -> String? {
         return self.messageBody
@@ -193,7 +193,7 @@ public class Email : APIBean {
        Set the message body of the email
 
        @param messageBody message body of the email
-       @since ARP1.0
+       @since v2.0
     */
     public func setMessageBody(messageBody: String) {
         self.messageBody = messageBody
@@ -203,7 +203,7 @@ public class Email : APIBean {
        Returns the myme type of the message body
 
        @return mime type string of the message boddy
-       @since ARP1.0
+       @since v2.0
     */
     public func getMessageBodyMimeType() -> String? {
         return self.messageBodyMimeType
@@ -213,7 +213,7 @@ public class Email : APIBean {
        Set the mime type for the message body
 
        @param messageBodyMimeType type of the body message
-       @since ARP1.0
+       @since v2.0
     */
     public func setMessageBodyMimeType(messageBodyMimeType: String) {
         self.messageBodyMimeType = messageBodyMimeType
@@ -223,7 +223,7 @@ public class Email : APIBean {
        Returns the subject of the email
 
        @return subject string of the email
-       @since ARP1.0
+       @since v2.0
     */
     public func getSubject() -> String? {
         return self.subject
@@ -233,7 +233,7 @@ public class Email : APIBean {
        Set the subject of the email
 
        @param subject of the email
-       @since ARP1.0
+       @since v2.0
     */
     public func setSubject(subject: String) {
         self.subject = subject
@@ -243,7 +243,7 @@ public class Email : APIBean {
        Returns the array of recipients
 
        @return toRecipients array of recipients
-       @since ARP1.0
+       @since v2.0
     */
     public func getToRecipients() -> [EmailAddress]? {
         return self.toRecipients
@@ -253,7 +253,7 @@ public class Email : APIBean {
        Set the array of recipients
 
        @param toRecipients array of recipients
-       @since ARP1.0
+       @since v2.0
     */
     public func setToRecipients(toRecipients: [EmailAddress]) {
         self.toRecipients = toRecipients

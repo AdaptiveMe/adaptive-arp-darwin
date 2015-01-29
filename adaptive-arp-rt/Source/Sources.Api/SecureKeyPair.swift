@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Represents a single secureKey-value pair.
 
    @author Aryslan
-   @since ARP1.0
+   @since v2.0
    @version 1.0
 */
 public class SecureKeyPair : APIBean {
@@ -55,7 +55,7 @@ public class SecureKeyPair : APIBean {
     /**
        Default constructor
 
-       @since ARP1.0
+       @since v2.0
     */
     public override init() {
         super.init()
@@ -66,7 +66,7 @@ public class SecureKeyPair : APIBean {
 
        @param secureKey  name of the keypair
        @param secureData value of the keypair
-       @since ARP1.0
+       @since v2.0
     */
     public init(secureKey: String, secureData: String) {
         super.init()
@@ -78,7 +78,7 @@ public class SecureKeyPair : APIBean {
        Returns the object value
 
        @return Value.
-       @since ARP 1.0
+       @since v2.0
     */
     public func getSecureData() -> String? {
         return self.secureData
@@ -88,7 +88,7 @@ public class SecureKeyPair : APIBean {
        Sets the value for this object
 
        @param secureData value to set.
-       @since ARP 1.0
+       @since v2.0
     */
     public func setSecureData(secureData: String) {
         self.secureData = secureData
@@ -98,7 +98,7 @@ public class SecureKeyPair : APIBean {
        Returns the object secureKey name.
 
        @return Key name.
-       @since ARP 1.0
+       @since v2.0
     */
     public func getSecureKey() -> String? {
         return self.secureKey
@@ -108,7 +108,7 @@ public class SecureKeyPair : APIBean {
        Sets the secureKey name for this object.
 
        @param secureKey Key name.
-       @since ARP 1.0
+       @since v2.0
     */
     public func setSecureKey(secureKey: String) {
         self.secureKey = secureKey

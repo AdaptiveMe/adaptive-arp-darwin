@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Structure representing a HTML5 request to the native API.
 
    @author Carlos Lozano Diez
-   @since ARP1.0
+   @since v2.0
    @version 1.0
 */
 public class APIRequest : NSObject {
@@ -63,7 +63,7 @@ public class APIRequest : NSObject {
     /**
        Default constructor
 
-       @since ARP1.0
+       @since v2.0
     */
     public override init() {
         super.init()
@@ -74,7 +74,7 @@ public class APIRequest : NSObject {
 
        @param bridgeType Name of the bridge to be invoked.
        @param methodName Name of the method
-       @since ARP1.0
+       @since v2.0
     */
     public init(bridgeType: String, methodName: String) {
         super.init()
@@ -89,7 +89,7 @@ public class APIRequest : NSObject {
        @param methodName Name of the method
        @param parameters Array of parameters as JSON formatted strings.
        @param asyncId    Id of callback or listener or zero if none for synchronous calls.
-       @since ARP1.0
+       @since v2.0
     */
     public init(bridgeType: String, methodName: String, parameters: [String], asyncId: Int) {
         super.init()
@@ -122,7 +122,7 @@ listener.
        Bridge Type Getter
 
        @return Bridge Type
-       @since ARP1.0
+       @since v2.0
     */
     public func getBridgeType() -> String? {
         return self.bridgeType
@@ -132,7 +132,7 @@ listener.
        Bridge Type Setter
 
        @param bridgeType Bridge Type
-       @since ARP1.0
+       @since v2.0
     */
     public func setBridgeType(bridgeType: String) {
         self.bridgeType = bridgeType
@@ -142,7 +142,7 @@ listener.
        Method name Getter
 
        @return Method name
-       @since ARP1.0
+       @since v2.0
     */
     public func getMethodName() -> String? {
         return self.methodName
@@ -152,7 +152,7 @@ listener.
        Method name Setter
 
        @param methodName Method name
-       @since ARP1.0
+       @since v2.0
     */
     public func setMethodName(methodName: String) {
         self.methodName = methodName
@@ -162,7 +162,7 @@ listener.
        Parameters Getter
 
        @return Parameters
-       @since ARP1.0
+       @since v2.0
     */
     public func getParameters() -> [String]? {
         return self.parameters
@@ -172,7 +172,7 @@ listener.
        Parameters Setter
 
        @param parameters Parameters, JSON formatted strings of objects.
-       @since ARP1.0
+       @since v2.0
     */
     public func setParameters(parameters: [String]) {
         self.parameters = parameters

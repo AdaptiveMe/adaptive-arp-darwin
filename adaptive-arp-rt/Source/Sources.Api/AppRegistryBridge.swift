@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -2067,7 +2067,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
        Method that returns the API version of the implementation.
 
        @return API Version string.
-       @since ARP1.0
+       @since v2.0
     */
     public func getAPIVersion() -> String? {
         // Start logging elapsed time.
@@ -2096,7 +2096,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
        Returns a reference to the Platform Context
 
        @return Reference to the platform context
-       @since ARP1.0
+       @since v2.0
     */
     public func getPlatformContext() -> AppContextBridge {
         // Start logging elapsed time.
@@ -2125,7 +2125,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
        Returns a reference to the Webview platform context
 
        @return Reference to the Webview Context
-       @since ARP1.0
+       @since v2.0
     */
     public func getPlatformContextWeb() -> AppContextWebviewBridge {
         // Start logging elapsed time.

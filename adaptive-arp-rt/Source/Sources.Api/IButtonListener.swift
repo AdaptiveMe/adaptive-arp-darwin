@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for Managing the button  operations
 
    @author Carlos Lozano Diez
-   @since ARP1.0
+   @since v2.0
    @version 1.0
 */
 public protocol IButtonListener : IBaseListener {
@@ -46,7 +46,7 @@ public protocol IButtonListener : IBaseListener {
        No data received
 
        @param error occurred
-       @since ARP1.0
+       @since v2.0
     */
     func onError(error : IButtonListenerError)
 
@@ -54,7 +54,7 @@ public protocol IButtonListener : IBaseListener {
        Called on button pressed
 
        @param button pressed
-       @since ARP1.0
+       @since v2.0
     */
     func onResult(button : Button)
 
@@ -63,7 +63,7 @@ public protocol IButtonListener : IBaseListener {
 
        @param button  pressed
        @param warning happened
-       @since ARP1.0
+       @since v2.0
     */
     func onWarning(button : Button, warning : IButtonListenerWarning)
 

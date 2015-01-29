@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for Managing the Cloud operations
 
    @author Ferran Vila Conesa
-   @since ARP1.0
+   @since v2.0
    @version 1.0
 */
 public protocol IDatabase : IBaseData {
@@ -47,7 +47,7 @@ public protocol IDatabase : IBaseData {
 
        @param callback Asynchronous callback
        @param database Database object to create
-       @since ARP1.0
+       @since v2.0
     */
     func createDatabase(database : Database, callback : IDatabaseResultCallback)
 
@@ -57,7 +57,7 @@ public protocol IDatabase : IBaseData {
        @param database      Database for databaseTable creating.
        @param databaseTable DatabaseTable object with the name of the databaseTable inside.
        @param callback      DatabaseTable callback with the response
-       @since ARP1.0
+       @since v2.0
     */
     func createTable(database : Database, databaseTable : DatabaseTable, callback : IDatabaseTableResultCallback)
 
@@ -66,7 +66,7 @@ public protocol IDatabase : IBaseData {
 
        @param database Database object to delete
        @param callback Asynchronous callback
-       @since ARP1.0
+       @since v2.0
     */
     func deleteDatabase(database : Database, callback : IDatabaseResultCallback)
 
@@ -76,7 +76,7 @@ public protocol IDatabase : IBaseData {
        @param database      Database for databaseTable removal.
        @param databaseTable DatabaseTable object with the name of the databaseTable inside.
        @param callback      DatabaseTable callback with the response
-       @since ARP1.0
+       @since v2.0
     */
     func deleteTable(database : Database, databaseTable : DatabaseTable, callback : IDatabaseTableResultCallback)
 
@@ -88,7 +88,7 @@ should be passed as a parameter
        @param statement    SQL statement.
        @param replacements List of SQL statement replacements.
        @param callback     DatabaseTable callback with the response.
-       @since ARP1.0
+       @since v2.0
     */
     func executeSqlStatement(database : Database, statement : String, replacements : [String], callback : IDatabaseTableResultCallback)
 
@@ -100,7 +100,7 @@ should be passed as a parameter
        @param rollbackFlag Indicates if rollback should be performed when any
                     statement execution fails.
        @param callback     DatabaseTable callback with the response.
-       @since ARP1.0
+       @since v2.0
     */
     func executeSqlTransactions(database : Database, statements : [String], rollbackFlag : Bool, callback : IDatabaseTableResultCallback)
 
@@ -109,7 +109,7 @@ should be passed as a parameter
 
        @param database Database Object to check if exists
        @return True if exists, false otherwise
-       @since ARP1.0
+       @since v2.0
     */
     func existsDatabase(database : Database) -> Bool?
 
@@ -119,7 +119,7 @@ should be passed as a parameter
        @param database      Database for databaseTable consulting.
        @param databaseTable DatabaseTable object with the name of the databaseTable inside.
        @return True if exists, false otherwise
-       @since ARP1.0
+       @since v2.0
     */
     func existsTable(database : Database, databaseTable : DatabaseTable) -> Bool?
 

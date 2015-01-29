@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -86,7 +86,7 @@ methods are bound to the webview so that they're callable from the HTML applicat
 not be added using this method.
 
        @param webView Platform specific webview reference (WebView, UIWebView, WKWebView,etc.)
-       @since ARP1.0
+       @since v2.0
     */
     public func addWebview(webView : AnyObject ) {
         // Start logging elapsed time.
@@ -171,7 +171,7 @@ with the removeWebview method. The object returned should be cast to the platfor
 WebView, WKWebView, etc.
 
        @return Object representing the specific and primary webview instance of the application.
-       @since ARP1.0
+       @since v2.0
     */
     public func getWebviewPrimary() -> AnyObject? {
         // Start logging elapsed time.
@@ -201,7 +201,7 @@ WebView, WKWebView, etc.
 This method will always return at least one element; the primary webview.
 
        @return Array with all the Webview instances being managed by ARP.
-       @since ARP1.0
+       @since v2.0
     */
     public func getWebviews() -> [AnyObject]? {
         // Start logging elapsed time.
@@ -231,7 +231,7 @@ This method will always return at least one element; the primary webview.
 ARP functions and release resources. The primary webview can not be removed.
 
        @param webView The instance of the webview to be removed from the binding.
-       @since ARP1.0
+       @since v2.0
     */
     public func removeWebview(webView : AnyObject ) {
         // Start logging elapsed time.

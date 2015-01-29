@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -74,7 +74,7 @@ public class LifecycleBridge : BaseApplicationBridge, ILifecycle, APIBridge {
        Add the listener for the lifecycle of the app
 
        @param listener Lifecycle listener
-       @since ARP1.0
+       @since v2.0
     */
     public func addLifecycleListener(listener : ILifecycleListener ) {
         // Start logging elapsed time.
@@ -102,7 +102,7 @@ public class LifecycleBridge : BaseApplicationBridge, ILifecycle, APIBridge {
        Whether the application is in background or not
 
        @return true if the application is in background;false otherwise
-       @since ARP1.0
+       @since v2.0
     */
     public func isBackground() -> Bool? {
         // Start logging elapsed time.
@@ -131,7 +131,7 @@ public class LifecycleBridge : BaseApplicationBridge, ILifecycle, APIBridge {
        Un-registers an existing listener from receiving lifecycle events.
 
        @param listener Lifecycle listener
-       @since ARP1.0
+       @since v2.0
     */
     public func removeLifecycleListener(listener : ILifecycleListener ) {
         // Start logging elapsed time.
@@ -158,7 +158,7 @@ public class LifecycleBridge : BaseApplicationBridge, ILifecycle, APIBridge {
     /**
        Removes all existing listeners from receiving lifecycle events.
 
-       @since ARP1.0
+       @since v2.0
     */
     public func removeLifecycleListeners() {
         // Start logging elapsed time.
@@ -212,7 +212,7 @@ public class LifecycleBridge : BaseApplicationBridge, ILifecycle, APIBridge {
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "LifecycleBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.4."
+                responseMessage = "LifecycleBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.6."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -53,7 +53,7 @@ public class FileDataStoreResultCallbackImpl : BaseCallbackImpl, IFileDataStoreR
        Error processing data retrieval/storage operation.
 
        @param error Error condition encountered.
-       @since ARP1.0
+       @since v2.0
     */
     public func onError(error : IFileDataStoreResultCallbackError) { 
         var param0 : String = "Adaptive.IFileDataStoreResultCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
@@ -64,7 +64,7 @@ public class FileDataStoreResultCallbackImpl : BaseCallbackImpl, IFileDataStoreR
        Result of data storage operation.
 
        @param file File reference to stored data.
-       @since ARP1.0
+       @since v2.0
     */
     public func onResult(file : FileDescriptor) { 
         var param0 : String = "Adaptive.FileDescriptor.toObject(JSON.parse(\"\(JSONUtil.escapeString(FileDescriptor.Serializer.toJSON(file)))\"))"
@@ -76,7 +76,7 @@ public class FileDataStoreResultCallbackImpl : BaseCallbackImpl, IFileDataStoreR
 
        @param file    File being loaded/stored.
        @param warning Warning condition encountered.
-       @since ARP1.0
+       @since v2.0
     */
     public func onWarning(file : FileDescriptor, warning : IFileDataStoreResultCallbackWarning) { 
         var param0 : String = "Adaptive.FileDescriptor.toObject(JSON.parse(\"\(JSONUtil.escapeString(FileDescriptor.Serializer.toJSON(file)))\"))"

@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -74,7 +74,7 @@ public class AccelerationBridge : BaseSensorBridge, IAcceleration, APIBridge {
        Register a new listener that will receive acceleration events.
 
        @param listener to be registered.
-       @since ARP1.0
+       @since v2.0
     */
     public func addAccelerationListener(listener : IAccelerationListener ) {
         // Start logging elapsed time.
@@ -102,7 +102,7 @@ public class AccelerationBridge : BaseSensorBridge, IAcceleration, APIBridge {
        De-registers an existing listener from receiving acceleration events.
 
        @param listener to be registered.
-       @since ARP1.0
+       @since v2.0
     */
     public func removeAccelerationListener(listener : IAccelerationListener ) {
         // Start logging elapsed time.
@@ -129,7 +129,7 @@ public class AccelerationBridge : BaseSensorBridge, IAcceleration, APIBridge {
     /**
        Removed all existing listeners from receiving acceleration events.
 
-       @since ARP1.0
+       @since v2.0
     */
     public func removeAccelerationListeners() {
         // Start logging elapsed time.
@@ -176,7 +176,7 @@ public class AccelerationBridge : BaseSensorBridge, IAcceleration, APIBridge {
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "AccelerationBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.4."
+                responseMessage = "AccelerationBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.6."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

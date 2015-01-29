@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,15 +38,11 @@ import Foundation
    Represents an instance of a service.
 
    @author Aryslan
-   @since ARP1.0
+   @since v2.0
    @version 1.0
 */
-public class Service : APIBean {
+public class Service : NSObject {
 
-    /**
-       The type of the service
-    */
-    var type : IServiceType?
     /**
        The service name
     */
@@ -59,7 +55,7 @@ public class Service : APIBean {
     /**
        Default constructor
 
-       @since ARP1.0
+       @since v2.0
     */
     public override init() {
         super.init()
@@ -70,41 +66,19 @@ public class Service : APIBean {
 
        @param serviceEndpoints Endpoints of the service
        @param name             Name of the service
-       @param type             Type of the service
-       @since ARP1.0
+       @since v2.0.6
     */
-    public init(serviceEndpoints: [ServiceEndpoint], name: String, type: IServiceType) {
+    public init(serviceEndpoints: [ServiceEndpoint], name: String) {
         super.init()
         self.serviceEndpoints = serviceEndpoints
         self.name = name
-        self.type = type
-    }
-
-    /**
-       Returns the type
-
-       @return type
-       @since ARP1.0
-    */
-    public func getType() -> IServiceType? {
-        return self.type
-    }
-
-    /**
-       Set the type
-
-       @param type Type of the service
-       @since ARP1.0
-    */
-    public func setType(type: IServiceType) {
-        self.type = type
     }
 
     /**
        Returns the name
 
        @return name
-       @since ARP1.0
+       @since v2.0
     */
     public func getName() -> String? {
         return self.name
@@ -114,7 +88,7 @@ public class Service : APIBean {
        Set the name
 
        @param name Name of the service
-       @since ARP1.0
+       @since v2.0
     */
     public func setName(name: String) {
         self.name = name
@@ -124,7 +98,7 @@ public class Service : APIBean {
        Returns the serviceEndpoints
 
        @return serviceEndpoints
-       @since ARP1.0
+       @since v2.0
     */
     public func getServiceEndpoints() -> [ServiceEndpoint]? {
         return self.serviceEndpoints
@@ -134,7 +108,7 @@ public class Service : APIBean {
        Set the serviceEndpoints
 
        @param serviceEndpoints Endpoint of the service
-       @since ARP1.0
+       @since v2.0
     */
     public func setServiceEndpoints(serviceEndpoints: [ServiceEndpoint]) {
         self.serviceEndpoints = serviceEndpoints
@@ -171,12 +145,6 @@ public class Service : APIBean {
                 }
             }
 
-            if let value : AnyObject = dict.objectForKey("type") {
-                if "\(value)" as NSString != "<null>" {
-                    resultObject.type = IServiceType.toEnum(((value as NSDictionary)["value"]) as NSString)
-                }
-            }
-
             return resultObject
         }
 
@@ -199,11 +167,10 @@ public class Service : APIBean {
                 }
 
                 // End array of objects.
-                jsonString.appendString("], ");
+                jsonString.appendString("]");
             } else {
-                jsonString.appendString("\"serviceEndpoints\": null, ")
+                jsonString.appendString("\"serviceEndpoints\": null")
             }
-            object.type != nil ? jsonString.appendString("\"type\": { \"value\": \"\(object.type!.toString())\"}") : jsonString.appendString("\"type\": null")
 
             // End Object to JSON
             jsonString.appendString(" }")

@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface defines the response methods of the acceleration operations
 
    @author Carlos Lozano Diez
-   @since ARP1.0
+   @since v2.0
    @version 1.0
 */
 public protocol IAccelerationListener : IBaseListener {
@@ -47,7 +47,7 @@ public protocol IAccelerationListener : IBaseListener {
 listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.
 
        @param error Error fired
-       @since ARP1.0
+       @since v2.0
     */
     func onError(error : IAccelerationListenerError)
 
@@ -55,7 +55,7 @@ listener and subsequently, the listener will be deactivated and removed from the
        Correct data received.
 
        @param acceleration Acceleration received
-       @since ARP1.0
+       @since v2.0
     */
     func onResult(acceleration : Acceleration)
 
@@ -64,7 +64,7 @@ listener and subsequently, the listener will be deactivated and removed from the
 
        @param acceleration Acceleration received
        @param warning      Warning fired
-       @since ARP1.0
+       @since v2.0
     */
     func onWarning(acceleration : Acceleration, warning : IAccelerationListenerWarning)
 

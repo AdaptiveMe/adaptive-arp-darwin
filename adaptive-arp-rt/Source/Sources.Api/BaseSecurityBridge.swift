@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -63,7 +63,7 @@ public class BaseSecurityBridge : NSObject, IBaseSecurity {
        Return the API version for the given interface.
     */
     public final func getAPIVersion() -> String? {
-        return "v2.0.4"
+        return "v2.0.6"
     }
 
     /**
@@ -81,7 +81,7 @@ public class BaseSecurityBridge : NSObject, IBaseSecurity {
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "BaseSecurityBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.4."
+                responseMessage = "BaseSecurityBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.0.6."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

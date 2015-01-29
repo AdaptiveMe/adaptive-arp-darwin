@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -39,16 +39,10 @@ import Foundation
 */
 public enum IServiceType {
 
-    case ServiceTypeAmfSerialization
-    case ServiceTypeGwtRpc
-    case ServiceTypeOctetBinary
-    case ServiceTypeRemotingSerialization
-    case ServiceTypeRestJson
-    case ServiceTypeRestXml
-    case ServiceTypeSoapJson
-    case ServiceTypeSoapXml
-    case ServiceTypeXmlRpcJson
-    case ServiceTypeXmlRpcXml
+    case OctetBinary
+    case RestJson
+    case RestXml
+    case SoapXml
     case Unknown
 
     /**
@@ -56,16 +50,10 @@ public enum IServiceType {
     */
     public func toString() -> String {
         switch self {
-            case .ServiceTypeAmfSerialization: return "ServiceTypeAmfSerialization"
-            case .ServiceTypeGwtRpc: return "ServiceTypeGwtRpc"
-            case .ServiceTypeOctetBinary: return "ServiceTypeOctetBinary"
-            case .ServiceTypeRemotingSerialization: return "ServiceTypeRemotingSerialization"
-            case .ServiceTypeRestJson: return "ServiceTypeRestJson"
-            case .ServiceTypeRestXml: return "ServiceTypeRestXml"
-            case .ServiceTypeSoapJson: return "ServiceTypeSoapJson"
-            case .ServiceTypeSoapXml: return "ServiceTypeSoapXml"
-            case .ServiceTypeXmlRpcJson: return "ServiceTypeXmlRpcJson"
-            case .ServiceTypeXmlRpcXml: return "ServiceTypeXmlRpcXml"
+            case .OctetBinary: return "OctetBinary"
+            case .RestJson: return "RestJson"
+            case .RestXml: return "RestXml"
+            case .SoapXml: return "SoapXml"
             case .Unknown: return "Unknown"
         }
     }
@@ -76,16 +64,10 @@ public enum IServiceType {
     public static func toEnum(string:String?) -> IServiceType {
         if let validString = string {
             switch validString {
-                case "ServiceTypeAmfSerialization": return .ServiceTypeAmfSerialization
-                case "ServiceTypeGwtRpc": return .ServiceTypeGwtRpc
-                case "ServiceTypeOctetBinary": return .ServiceTypeOctetBinary
-                case "ServiceTypeRemotingSerialization": return .ServiceTypeRemotingSerialization
-                case "ServiceTypeRestJson": return .ServiceTypeRestJson
-                case "ServiceTypeRestXml": return .ServiceTypeRestXml
-                case "ServiceTypeSoapJson": return .ServiceTypeSoapJson
-                case "ServiceTypeSoapXml": return .ServiceTypeSoapXml
-                case "ServiceTypeXmlRpcJson": return .ServiceTypeXmlRpcJson
-                case "ServiceTypeXmlRpcXml": return .ServiceTypeXmlRpcXml
+                case "OctetBinary": return .OctetBinary
+                case "RestJson": return .RestJson
+                case "RestXml": return .RestXml
+                case "SoapXml": return .SoapXml
                 case "Unknown": return .Unknown
             default: return .Unknown
             }

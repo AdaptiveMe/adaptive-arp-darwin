@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for Managing the Messaging operations
 
    @author Francisco Javier Martin Bueno
-   @since ARP1.0
+   @since v2.0
    @version 1.0
 */
 public protocol IMessaging : IBasePIM {
@@ -48,7 +48,7 @@ public protocol IMessaging : IBasePIM {
        @param number   to send
        @param text     to send
        @param callback with the result
-       @since ARP1.0
+       @since v2.0
     */
     func sendSMS(number : String, text : String, callback : IMessagingCallback)
 

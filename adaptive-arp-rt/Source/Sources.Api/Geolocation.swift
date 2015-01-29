@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Structure representing the data a single geolocation reading.
 
    @author Francisco Javier Martin Bueno
-   @since ARP1.0
+   @since v2.0
    @version 1.0
 */
 public class Geolocation : APIBean {
@@ -71,7 +71,7 @@ public class Geolocation : APIBean {
     /**
        Default constructor
 
-       @since ARP1.0
+       @since v2.0
     */
     public override init() {
         super.init()
@@ -86,7 +86,7 @@ public class Geolocation : APIBean {
        @param xDoP      Dilution of precision on the X measurement
        @param yDoP      Dilution of precision on the Y measurement
        @param timestamp Timestamp of the measurement
-       @since ARP1.0
+       @since v2.0
     */
     public init(latitude: Double, longitude: Double, altitude: Double, xDoP: Float, yDoP: Float, timestamp: Int) {
         super.init()
@@ -104,7 +104,7 @@ public class Geolocation : APIBean {
        @param latitude  Latitude of the measurement
        @param longitude Longitude of the measurement
        @param timestamp Timestamp of the measurement
-       @since ARP1.0
+       @since v2.0
     */
     public init(latitude: Double, longitude: Double, timestamp: Int) {
         super.init()
@@ -117,7 +117,7 @@ public class Geolocation : APIBean {
        Returns altitude in meters
 
        @return Altitude of the measurement
-       @since ARP1.0
+       @since v2.0
     */
     public func getAltitude() -> Double? {
         return self.altitude
@@ -127,7 +127,7 @@ public class Geolocation : APIBean {
        Set altitude in meters
 
        @param altitude Altitude of the measurement
-       @since ARP1.0
+       @since v2.0
     */
     public func setAltitude(altitude: Double) {
         self.altitude = altitude
@@ -137,7 +137,7 @@ public class Geolocation : APIBean {
        Returns the latitude in degrees
 
        @return Latitude of the measurement
-       @since ARP1.0
+       @since v2.0
     */
     public func getLatitude() -> Double? {
         return self.latitude
@@ -147,7 +147,7 @@ public class Geolocation : APIBean {
        Set the latitude in degrees
 
        @param latitude Latitude of the measurement
-       @since ARP1.0
+       @since v2.0
     */
     public func setLatitude(latitude: Double) {
         self.latitude = latitude
@@ -157,7 +157,7 @@ public class Geolocation : APIBean {
        Returns the longitude in degrees
 
        @return Longitude of the measurement
-       @since ARP1.0
+       @since v2.0
     */
     public func getLongitude() -> Double? {
         return self.longitude
@@ -167,7 +167,7 @@ public class Geolocation : APIBean {
        Returns the latitude in degrees
 
        @param longitude Longitude of the measurement
-       @since ARP1.0
+       @since v2.0
     */
     public func setLongitude(longitude: Double) {
         self.longitude = longitude
@@ -177,7 +177,7 @@ public class Geolocation : APIBean {
        Timestamp Getter
 
        @return Timestamp
-       @since ARP1.0
+       @since v2.0
     */
     public func getTimestamp() -> Int? {
         return self.timestamp
@@ -187,7 +187,7 @@ public class Geolocation : APIBean {
        Timestamp Setter
 
        @param timestamp Timestamp
-       @since ARP1.0
+       @since v2.0
     */
     public func setTimestamp(timestamp: Int) {
         self.timestamp = timestamp

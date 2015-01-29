@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.0.4
+    * @version v2.0.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -38,7 +38,7 @@ import Foundation
    Interface for Managing the File result operations
 
    @author Carlos Lozano Diez
-   @since ARP1.0
+   @since v2.0
    @version 1.0
 */
 public protocol IFileListResultCallback : IBaseCallback {
@@ -46,7 +46,7 @@ public protocol IFileListResultCallback : IBaseCallback {
        On error result of a file operation.
 
        @param error Error processing the request.
-       @since ARP1.0
+       @since v2.0
     */
     func onError(error : IFileListResultCallbackError)
 
@@ -54,7 +54,7 @@ public protocol IFileListResultCallback : IBaseCallback {
        On correct result of a file operation.
 
        @param files Array of resulting files/folders.
-       @since ARP1.0
+       @since v2.0
     */
     func onResult(files : [FileDescriptor])
 
@@ -63,7 +63,7 @@ public protocol IFileListResultCallback : IBaseCallback {
 
        @param files   Array of resulting files/folders.
        @param warning Warning condition encountered.
-       @since ARP1.0
+       @since v2.0
     */
     func onWarning(files : [FileDescriptor], warning : IFileListResultCallbackWarning)
 
