@@ -57,19 +57,29 @@ public class IOParser : NSObject, NSXMLParserDelegate {
     let IO_RESOURCE: String = "resource"
     
     let IO_ATTR_NAME: String = "name"
-    let IO_ATTR_URL: String = "url"
+    let IO_ATTR_HOST: String = "host"
+    let IO_ATTR_VALID: String = "validation"
     let IO_ATTR_PATH: String = "path"
+    let IO_ATTR_TYPE: String = "type"
     let IO_ATTR_METHOD: String = "method"
+    let IO_ATTR_URL: String = "url"
     
-    /// Locales supported (filled by the getLocaleSupportedDescriptors method)
-    var resourcesArray:[String]!
+    /// Resources supported by the application
+    var resources:[String]!
+    
+    /// Registered Services by the application
+    var services:[Service]!
+    var currentService:Service!
+    var currentEndpoint:ServiceEndpoint!
+    var currentPath:ServicePath!
     
     /**
     Class constructor
     */
     public override init(){
         super.init()
-        resourcesArray = [String]()
+        resources = [String]()
+        services = [Service]()
         
         // Read the io config file
         var resourceData : ResourceData? = AppResourceManager.sharedInstance.retrieveConfigResource(IO_CONFIG_FILE)
@@ -102,10 +112,59 @@ public class IOParser : NSObject, NSXMLParserDelegate {
     */
     func parser(parser: NSXMLParser!, didStartElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!, attributes attributeDict: NSDictionary!) {
         
-        // Store
         if elementName == IO_RESOURCE {
-            resourcesArray.append("\(attributeDict[IO_ATTR_URL]!)")
+            resources.append("\(attributeDict[IO_ATTR_URL]!)")
+            
         } else if elementName == IO_SERVICE {
+            
+            currentService = Service()
+            currentService.setName("\(attributeDict[IO_ATTR_NAME]!)")
+            
+        } else if elementName == IO_END_POINT {
+            
+            currentEndpoint = ServiceEndpoint()
+            currentEndpoint.setHostURI("\(attributeDict[IO_ATTR_HOST]!)")
+            currentEndpoint.setValidationType(IServiceCertificateValidation.toEnum("\(attributeDict[IO_ATTR_VALID]!)"))
+            
+        } else if elementName == IO_PATH {
+            
+            currentPath = ServicePath()
+            currentPath.setPath("\(attributeDict[IO_ATTR_PATH]!)")
+            currentPath.setType(IServiceType.toEnum("\(attributeDict[IO_ATTR_TYPE])"))
+            
+        } else if elementName == IO_METHOD {
+            
+            var methods:[IServiceMethod] = currentPath.getMethods()!
+            methods.append(IServiceMethod.toEnum("\(attributeDict[IO_ATTR_METHOD]!)"))
+            currentPath.setMethods(methods)
+        }
+    }
+    
+    /**
+    Method involved in the xml parse response
+    
+    :param: parser        XML parser
+    :param: elementName   name of the element
+    :param: namespaceURI  namespace uri of the element
+    :param: qName         qName of the element
+    */
+    public func parser(parser: NSXMLParser!, didEndElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!) {
+        
+        if elementName == IO_SERVICE {
+            
+            services.append(currentService)
+            
+        } else if elementName == IO_END_POINT {
+            
+            var serviceEndpoints:[ServiceEndpoint] = currentService.getServiceEndpoints()!
+            serviceEndpoints.append(currentEndpoint)
+            currentService.setServiceEndpoints(serviceEndpoints)
+            
+        } else if elementName == IO_PATH {
+            
+            var paths:[ServicePath] = currentEndpoint.getPaths()!
+            paths.append(currentPath)
+            currentEndpoint.setPaths(paths)
         }
     }
     
@@ -118,9 +177,48 @@ public class IOParser : NSObject, NSXMLParserDelegate {
     */
     public func validateResource(url:String) -> Bool {
         
-        for resource:String in resourcesArray {
+        for resource:String in resources {
             if Utils.validateRegexp(url, regexp: resource) {
                 return true
+            }
+        }
+        return false
+    }
+    
+    /**
+    Funtion that validates if a service is registered on the IO configuration file
+    
+    :param: token Token to make a request
+    
+    :returns: True if is registered, false otherwise
+    */
+    public func validateService(token:ServiceToken) -> Bool {
+        
+        // Iterate all over the services looking for one combination that
+        // fits all the requirements of the Service Token
+        for service:Service in services {
+            
+            // name
+            if service.getName() == token.getServiceName() {
+                for endpoint:ServiceEndpoint in service.getServiceEndpoints()! {
+                    
+                    // host
+                    if endpoint.getHostURI() == token.getEndpointName() {
+                        for function:ServicePath in endpoint.getPaths()! {
+                            
+                            // function
+                            if function.getPath() == token.getFunctionName() {
+                                for method:IServiceMethod in function.getMethods()! {
+                                    
+                                    // method
+                                    if method == token.getInvocationMethod() {
+                                        return true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
         return false
