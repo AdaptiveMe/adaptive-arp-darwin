@@ -398,14 +398,14 @@ device.
                 var response1 : [ICapabilitiesOrientation]? = self.getOrientationsSupported()
                 if let response1 = response1 {
                     var response1JSONArray : NSMutableString = NSMutableString()
-                    response1JSONArray.appendString("{[ ")
+                    response1JSONArray.appendString("[ ")
                     for (index, obj) in enumerate(response1) {
-                        response1JSONArray.appendString("\"value\": \"\(obj.toString())\"")
+                        response1JSONArray.appendString("{ \"value\": \"\(obj.toString())\" }")
                         if index < response1.count-1 {
                             response1JSONArray.appendString(", ")
                         }
                     }
-                    response1JSONArray.appendString(" ]}")
+                    response1JSONArray.appendString(" ]")
                     responseJSON = response1JSONArray as String
                 } else {
                     responseJSON = "{ \"value\": \"Unknown\" }"

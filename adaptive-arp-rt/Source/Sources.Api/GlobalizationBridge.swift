@@ -212,14 +212,14 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
                 var response1 : [Locale]? = self.getLocaleSupportedDescriptors()
                 if let response1 = response1 {
                     var response1JSONArray : NSMutableString = NSMutableString()
-                    response1JSONArray.appendString("{[ ")
+                    response1JSONArray.appendString("[ ")
                     for (index, obj) in enumerate(response1) {
                         response1JSONArray.appendString(Locale.Serializer.toJSON(obj))
                         if index < response1.count-1 {
                             response1JSONArray.appendString(", ")
                         }
                     }
-                    response1JSONArray.appendString(" ]}")
+                    response1JSONArray.appendString(" ]")
                     responseJSON = response1JSONArray as String
                 } else {
                     responseJSON = "null"
@@ -238,14 +238,14 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
                 var response3 : [KeyPair]? = self.getResourceLiterals(locale3!)
                 if let response3 = response3 {
                     var response3JSONArray : NSMutableString = NSMutableString()
-                    response3JSONArray.appendString("{[ ")
+                    response3JSONArray.appendString("[ ")
                     for (index, obj) in enumerate(response3) {
                         response3JSONArray.appendString(KeyPair.Serializer.toJSON(obj))
                         if index < response3.count-1 {
                             response3JSONArray.appendString(", ")
                         }
                     }
-                    response3JSONArray.appendString(" ]}")
+                    response3JSONArray.appendString(" ]")
                     responseJSON = response3JSONArray as String
                 } else {
                     responseJSON = "null"
