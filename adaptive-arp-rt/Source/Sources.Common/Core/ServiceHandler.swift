@@ -63,7 +63,7 @@ public class ServiceHandler:NSObject {
                 
                 if apiRequest.getAsyncId() != -1 {
                     
-                    let asyncId:Int? = apiRequest.getAsyncId()
+                    let asyncId:Int64? = apiRequest.getAsyncId()
                     
                     // async methods (executed in a background queue)
                     dispatch_async(GCD.backgroundQueue(), {

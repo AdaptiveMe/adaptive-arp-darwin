@@ -55,7 +55,7 @@ should be encoded in base64.
     /**
        The length in bytes for the Content field.
     */
-    var contentLength : Int?
+    var contentLength : Int32?
     /**
        The request/response content type (MIME TYPE).
     */
@@ -89,7 +89,7 @@ should be encoded in base64.
        @param serviceSession  Information about the session
        @since v2.0
     */
-    public init(content: String, contentType: String, contentEncoding: String, contentLength: Int, serviceHeaders: [ServiceHeader], serviceSession: ServiceSession) {
+    public init(content: String, contentType: String, contentEncoding: String, contentLength: Int32, serviceHeaders: [ServiceHeader], serviceSession: ServiceSession) {
         super.init()
         self.content = content
         self.contentType = contentType
@@ -145,7 +145,7 @@ should be encoded in base64.
        @return contentLength
        @since v2.0
     */
-    public func getContentLength() -> Int? {
+    public func getContentLength() -> Int32? {
         return self.contentLength
     }
 
@@ -155,7 +155,7 @@ should be encoded in base64.
        @param contentLength The length in bytes for the Content field.
        @since v2.0
     */
-    public func setContentLength(contentLength: Int) {
+    public func setContentLength(contentLength: Int32) {
         self.contentLength = contentLength
     }
 
@@ -248,7 +248,8 @@ should be encoded in base64.
 
             if let value : AnyObject = dict.objectForKey("contentLength") {
                 if "\(value)" as NSString != "<null>" {
-                    resultObject.contentLength = (value as Int)
+                    var numValue = value as Int
+                    resultObject.contentLength = Int32(numValue)
                 }
             }
 

@@ -46,7 +46,7 @@ public class DatabaseTable : APIBean {
     /**
        Number of databaseColumns.
     */
-    var columnCount : Int?
+    var columnCount : Int32?
     /**
        Definition of databaseColumns.
     */
@@ -62,7 +62,7 @@ public class DatabaseTable : APIBean {
     /**
        Number of databaseRows.
     */
-    var rowCount : Int?
+    var rowCount : Int32?
 
     /**
        Default constructor
@@ -94,7 +94,7 @@ public class DatabaseTable : APIBean {
        @param databaseRows    The databaseRows of the table
        @since v2.0
     */
-    public init(name: String, columnCount: Int, rowCount: Int, databaseColumns: [DatabaseColumn], databaseRows: [DatabaseRow]) {
+    public init(name: String, columnCount: Int32, rowCount: Int32, databaseColumns: [DatabaseColumn], databaseRows: [DatabaseRow]) {
         super.init()
         self.name = name
         self.columnCount = columnCount
@@ -109,7 +109,7 @@ public class DatabaseTable : APIBean {
        @return The number of databaseColumns
        @since v2.0
     */
-    public func getColumnCount() -> Int? {
+    public func getColumnCount() -> Int32? {
         return self.columnCount
     }
 
@@ -119,7 +119,7 @@ public class DatabaseTable : APIBean {
        @param columnCount The number of databaseColumns
        @since v2.0
     */
-    public func setColumnCount(columnCount: Int) {
+    public func setColumnCount(columnCount: Int32) {
         self.columnCount = columnCount
     }
 
@@ -189,7 +189,7 @@ public class DatabaseTable : APIBean {
        @return The number of databaseRows
        @since v2.0
     */
-    public func getRowCount() -> Int? {
+    public func getRowCount() -> Int32? {
         return self.rowCount
     }
 
@@ -199,7 +199,7 @@ public class DatabaseTable : APIBean {
        @param rowCount The number of databaseRows
        @since v2.0
     */
-    public func setRowCount(rowCount: Int) {
+    public func setRowCount(rowCount: Int32) {
         self.rowCount = rowCount
     }
 
@@ -220,7 +220,8 @@ public class DatabaseTable : APIBean {
 
             if let value : AnyObject = dict.objectForKey("columnCount") {
                 if "\(value)" as NSString != "<null>" {
-                    resultObject.columnCount = (value as Int)
+                    var numValue = value as Int
+                    resultObject.columnCount = Int32(numValue)
                 }
             }
 
@@ -252,7 +253,8 @@ public class DatabaseTable : APIBean {
 
             if let value : AnyObject = dict.objectForKey("rowCount") {
                 if "\(value)" as NSString != "<null>" {
-                    resultObject.rowCount = (value as Int)
+                    var numValue = value as Int
+                    resultObject.rowCount = Int32(numValue)
                 }
             }
 

@@ -50,7 +50,7 @@ public class APIResponse : NSObject {
     /**
        Status code of the response
     */
-    var statusCode : Int?
+    var statusCode : Int32?
     /**
        Status message of the response
     */
@@ -72,7 +72,7 @@ public class APIResponse : NSObject {
        @param statusCode Status code of the response (200 = OK, others are warning or error conditions).
        @since v2.0
     */
-    public init(response: String, statusCode: Int) {
+    public init(response: String, statusCode: Int32) {
         super.init()
         self.response = response
         self.statusCode = statusCode
@@ -85,7 +85,7 @@ public class APIResponse : NSObject {
        @param statusCode    Status code of the response (200 = OK, others are warning or error conditions).
        @param statusMessage Status message of the response.
     */
-    public init(response: String, statusCode: Int, statusMessage: String) {
+    public init(response: String, statusCode: Int32, statusMessage: String) {
         super.init()
         self.response = response
         self.statusCode = statusCode
@@ -116,7 +116,7 @@ public class APIResponse : NSObject {
 
        @return Status code of the response (200 = OK, others are warning or error conditions).
     */
-    public func getStatusCode() -> Int? {
+    public func getStatusCode() -> Int32? {
         return self.statusCode
     }
 
@@ -125,7 +125,7 @@ public class APIResponse : NSObject {
 
        @param statusCode Status code of the response  (200 = OK, others are warning or error conditions).
     */
-    public func setStatusCode(statusCode: Int) {
+    public func setStatusCode(statusCode: Int32) {
         self.statusCode = statusCode
     }
 
@@ -170,7 +170,8 @@ public class APIResponse : NSObject {
 
             if let value : AnyObject = dict.objectForKey("statusCode") {
                 if "\(value)" as NSString != "<null>" {
-                    resultObject.statusCode = (value as Int)
+                    var numValue = value as Int
+                    resultObject.statusCode = Int32(numValue)
                 }
             }
 

@@ -94,7 +94,7 @@ public class GeolocationDelegateHelper: NSObject, CLLocationManagerDelegate {
         var verticalAccuracy:Float = Float(locationObject.verticalAccuracy)
         
         var date = NSDate()
-        var timestamp:Int = Int(date.timeIntervalSince1970*1000)
+        var timestamp:Int64 = Int64(date.timeIntervalSince1970*1000)
         
         // Create a method Geolocation and send ot to the listener
         var geolocation: Geolocation = Geolocation(latitude: latitude, longitude: longitude, altitude: altitude, xDoP: horizontalAccuracy, yDoP: verticalAccuracy, timestamp: timestamp)

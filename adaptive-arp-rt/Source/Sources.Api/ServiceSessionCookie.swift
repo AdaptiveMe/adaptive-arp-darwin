@@ -54,7 +54,7 @@ public class ServiceSessionCookie : APIBean {
     /**
        ServiceCookie creation timestamp in milliseconds.
     */
-    var creation : Int?
+    var creation : Int64?
     /**
        Domain for which the cookie is valid.
     */
@@ -62,7 +62,7 @@ public class ServiceSessionCookie : APIBean {
     /**
        ServiceCookie expiry in milliseconds or -1 for session only.
     */
-    var expiry : Int?
+    var expiry : Int64?
     /**
        URI path for which the cookie is valid.
     */
@@ -111,7 +111,7 @@ public class ServiceSessionCookie : APIBean {
        @param creation    Creation date of the cookie
        @since v2.0
     */
-    public init(cookieName: String, cookieValue: String, domain: String, path: String, scheme: String, secure: Bool, expiry: Int, creation: Int) {
+    public init(cookieName: String, cookieValue: String, domain: String, path: String, scheme: String, secure: Bool, expiry: Int64, creation: Int64) {
         super.init()
         self.cookieName = cookieName
         self.cookieValue = cookieValue
@@ -169,7 +169,7 @@ public class ServiceSessionCookie : APIBean {
        @return Creation date of the cookie
        @since v2.0
     */
-    public func getCreation() -> Int? {
+    public func getCreation() -> Int64? {
         return self.creation
     }
 
@@ -179,7 +179,7 @@ public class ServiceSessionCookie : APIBean {
        @param creation Creation date of the cookie
        @since v2.0
     */
-    public func setCreation(creation: Int) {
+    public func setCreation(creation: Int64) {
         self.creation = creation
     }
 
@@ -209,7 +209,7 @@ public class ServiceSessionCookie : APIBean {
        @return expiry
        @since v2.0
     */
-    public func getExpiry() -> Int? {
+    public func getExpiry() -> Int64? {
         return self.expiry
     }
 
@@ -219,7 +219,7 @@ public class ServiceSessionCookie : APIBean {
        @param expiry Expiration date of the cookie
        @since v2.0
     */
-    public func setExpiry(expiry: Int) {
+    public func setExpiry(expiry: Int64) {
         self.expiry = expiry
     }
 
@@ -312,7 +312,8 @@ public class ServiceSessionCookie : APIBean {
 
             if let value : AnyObject = dict.objectForKey("creation") {
                 if "\(value)" as NSString != "<null>" {
-                    resultObject.creation = (value as Int)
+                    var numValue = value as? NSNumber
+                    resultObject.creation = numValue?.longLongValue
                 }
             }
 
@@ -324,7 +325,8 @@ public class ServiceSessionCookie : APIBean {
 
             if let value : AnyObject = dict.objectForKey("expiry") {
                 if "\(value)" as NSString != "<null>" {
-                    resultObject.expiry = (value as Int)
+                    var numValue = value as? NSNumber
+                    resultObject.expiry = numValue?.longLongValue
                 }
             }
 

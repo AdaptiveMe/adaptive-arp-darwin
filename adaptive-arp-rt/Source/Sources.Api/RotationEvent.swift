@@ -64,7 +64,7 @@ concluded.
     /**
        The timestamps in milliseconds when the event was fired.
     */
-    var timestamp : Int?
+    var timestamp : Int64?
 
     /**
        Default constructor.
@@ -84,7 +84,7 @@ concluded.
        @param timestamp   Timestamp in milliseconds when the event was fired.
        @since v2.0.5
     */
-    public init(origin: ICapabilitiesOrientation, destination: ICapabilitiesOrientation, state: RotationEventState, timestamp: Int) {
+    public init(origin: ICapabilitiesOrientation, destination: ICapabilitiesOrientation, state: RotationEventState, timestamp: Int64) {
         super.init()
         self.origin = origin
         self.destination = destination
@@ -158,7 +158,7 @@ concluded.
        @return Timestamp of the event.
        @since v2.0.5
     */
-    public func getTimestamp() -> Int? {
+    public func getTimestamp() -> Int64? {
         return self.timestamp
     }
 
@@ -168,7 +168,7 @@ concluded.
        @param timestamp Timestamp of the event.
        @since v2.0.5
     */
-    public func setTimestamp(timestamp: Int) {
+    public func setTimestamp(timestamp: Int64) {
         self.timestamp = timestamp
     }
 
@@ -207,7 +207,8 @@ concluded.
 
             if let value : AnyObject = dict.objectForKey("timestamp") {
                 if "\(value)" as NSString != "<null>" {
-                    resultObject.timestamp = (value as Int)
+                    var numValue = value as? NSNumber
+                    resultObject.timestamp = numValue?.longLongValue
                 }
             }
 

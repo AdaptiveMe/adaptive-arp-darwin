@@ -43,12 +43,12 @@ import Foundation
 */
 public class FileDescriptor : APIBean {
 
-    var dateCreated : Int?
-    var dateModified : Int?
+    var dateCreated : Int64?
+    var dateModified : Int64?
     var name : String?
     var path : String?
     var pathAbsolute : String?
-    var size : Int?
+    var size : Int64?
 
     /**
        Default constructor.
@@ -63,7 +63,7 @@ public class FileDescriptor : APIBean {
        @return Timestamp in milliseconds.
        @since v2.0
     */
-    public func getDateCreated() -> Int? {
+    public func getDateCreated() -> Int64? {
         return self.dateCreated
     }
 
@@ -72,7 +72,7 @@ public class FileDescriptor : APIBean {
 
        @param dateCreated Timestamp of file creation or -1 if the file or folder doesn't exist.
     */
-    public func setDateCreated(dateCreated: Int) {
+    public func setDateCreated(dateCreated: Int64) {
         self.dateCreated = dateCreated
     }
 
@@ -82,7 +82,7 @@ public class FileDescriptor : APIBean {
        @return Timestamp in milliseconds.
        @since v2.0
     */
-    public func getDateModified() -> Int? {
+    public func getDateModified() -> Int64? {
         return self.dateModified
     }
 
@@ -91,7 +91,7 @@ public class FileDescriptor : APIBean {
 
        @param dateModified Timestamp of file modification or -1 if the file or folder doesn't exist.
     */
-    public func setDateModified(dateModified: Int) {
+    public func setDateModified(dateModified: Int64) {
         self.dateModified = dateModified
     }
 
@@ -158,7 +158,7 @@ public class FileDescriptor : APIBean {
        @return Size in bytes of file.
        @since v2.0
     */
-    public func getSize() -> Int? {
+    public func getSize() -> Int64? {
         return self.size
     }
 
@@ -168,7 +168,7 @@ doesn't exist, this will be -1. Used internally.
 
        @param size The size in bytes of the file.
     */
-    public func setSize(size: Int) {
+    public func setSize(size: Int64) {
         self.size = size
     }
 
@@ -189,13 +189,15 @@ doesn't exist, this will be -1. Used internally.
 
             if let value : AnyObject = dict.objectForKey("dateCreated") {
                 if "\(value)" as NSString != "<null>" {
-                    resultObject.dateCreated = (value as Int)
+                    var numValue = value as? NSNumber
+                    resultObject.dateCreated = numValue?.longLongValue
                 }
             }
 
             if let value : AnyObject = dict.objectForKey("dateModified") {
                 if "\(value)" as NSString != "<null>" {
-                    resultObject.dateModified = (value as Int)
+                    var numValue = value as? NSNumber
+                    resultObject.dateModified = numValue?.longLongValue
                 }
             }
 
@@ -219,7 +221,8 @@ doesn't exist, this will be -1. Used internally.
 
             if let value : AnyObject = dict.objectForKey("size") {
                 if "\(value)" as NSString != "<null>" {
-                    resultObject.size = (value as Int)
+                    var numValue = value as? NSNumber
+                    resultObject.size = numValue?.longLongValue
                 }
             }
 

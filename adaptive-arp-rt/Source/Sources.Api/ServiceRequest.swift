@@ -63,7 +63,7 @@ populates this field with defaults for the service.
        The length in bytes of the content. This may be populated by the application, the platform
 calculates this length automatically if a specific contentLength is not specified.
     */
-    var contentLength : Int?
+    var contentLength : Int32?
     /**
        The request content type (MIME TYPE). This may be populated by the application, the platform
 populates this field with defaults for the service.
@@ -184,7 +184,7 @@ identifiers. This should not be manipulated by the application directly.
        @return contentLength
        @since v2.0
     */
-    public func getContentLength() -> Int? {
+    public func getContentLength() -> Int32? {
         return self.contentLength
     }
 
@@ -194,7 +194,7 @@ identifiers. This should not be manipulated by the application directly.
        @param contentLength The length in bytes for the Content field.
        @since v2.0
     */
-    public func setContentLength(contentLength: Int) {
+    public func setContentLength(contentLength: Int32) {
         self.contentLength = contentLength
     }
 
@@ -357,7 +357,8 @@ identifiers. This should not be manipulated by the application directly.
 
             if let value : AnyObject = dict.objectForKey("contentLength") {
                 if "\(value)" as NSString != "<null>" {
-                    resultObject.contentLength = (value as Int)
+                    var numValue = value as Int
+                    resultObject.contentLength = Int32(numValue)
                 }
             }
 

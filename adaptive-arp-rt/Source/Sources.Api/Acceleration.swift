@@ -46,7 +46,7 @@ public class Acceleration : APIBean {
     /**
        Timestamp of the acceleration reading.
     */
-    var timestamp : Int?
+    var timestamp : Int64?
     /**
        X-axis component of the acceleration.
     */
@@ -78,7 +78,7 @@ public class Acceleration : APIBean {
        @param timestamp Timestamp
        @since v2.0
     */
-    public init(x: Double, y: Double, z: Double, timestamp: Int) {
+    public init(x: Double, y: Double, z: Double, timestamp: Int64) {
         super.init()
         self.x = x
         self.y = y
@@ -92,7 +92,7 @@ public class Acceleration : APIBean {
        @return Timestamp
        @since v2.0
     */
-    public func getTimestamp() -> Int? {
+    public func getTimestamp() -> Int64? {
         return self.timestamp
     }
 
@@ -102,7 +102,7 @@ public class Acceleration : APIBean {
        @param timestamp Timestamp
        @since v2.0
     */
-    public func setTimestamp(timestamp: Int) {
+    public func setTimestamp(timestamp: Int64) {
         self.timestamp = timestamp
     }
 
@@ -183,7 +183,8 @@ public class Acceleration : APIBean {
 
             if let value : AnyObject = dict.objectForKey("timestamp") {
                 if "\(value)" as NSString != "<null>" {
-                    resultObject.timestamp = (value as Int)
+                    var numValue = value as? NSNumber
+                    resultObject.timestamp = numValue?.longLongValue
                 }
             }
 

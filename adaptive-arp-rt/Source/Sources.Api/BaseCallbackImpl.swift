@@ -43,7 +43,7 @@ public class BaseCallbackImpl : NSObject, IBaseCallback {
     /**
        Unique id of callback.
     */
-    private var id : Int
+    private var id : Int64
 
     /**
        Group of API.
@@ -55,7 +55,7 @@ public class BaseCallbackImpl : NSObject, IBaseCallback {
 
        @param id  The id of the callback.
     */
-    public init(id : Int) {
+    public init(id : Int64) {
         self.id = id
         self.apiGroup = IAdaptiveRPGroup.Application
     }
@@ -64,7 +64,7 @@ public class BaseCallbackImpl : NSObject, IBaseCallback {
        Get the callback id.
        @return long with the identifier of the callback.
     */
-    public final func getId() -> Int {
+    public final func getId() -> Int64 {
         return self.id
     }
 
