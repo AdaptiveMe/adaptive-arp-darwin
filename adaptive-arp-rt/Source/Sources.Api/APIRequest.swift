@@ -46,7 +46,7 @@ public class APIRequest : NSObject {
     /**
        Identifier of callback or listener for async operations.
     */
-    var asyncId : Int?
+    var asyncId : Int64?
     /**
        String representing the bridge type to obtain.
     */
@@ -91,7 +91,7 @@ public class APIRequest : NSObject {
        @param asyncId    Id of callback or listener or zero if none for synchronous calls.
        @since v2.0
     */
-    public init(bridgeType: String, methodName: String, parameters: [String], asyncId: Int) {
+    public init(bridgeType: String, methodName: String, parameters: [String], asyncId: Int64) {
         super.init()
         self.bridgeType = bridgeType
         self.methodName = methodName
@@ -105,7 +105,7 @@ listener.
 
        @return long with the unique id of the callback or listener, or zero if there is no associated async event.
     */
-    public func getAsyncId() -> Int? {
+    public func getAsyncId() -> Int64? {
         return self.asyncId
     }
 
@@ -114,7 +114,7 @@ listener.
 
        @param asyncId The unique id of the callback or listener.
     */
-    public func setAsyncId(asyncId: Int) {
+    public func setAsyncId(asyncId: Int64) {
         self.asyncId = asyncId
     }
 
@@ -195,7 +195,8 @@ listener.
 
             if let value : AnyObject = dict.objectForKey("asyncId") {
                 if "\(value)" as NSString != "<null>" {
-                    resultObject.asyncId = (value as Int)
+                    var numValue = value as? NSNumber
+                    resultObject.asyncId = numValue?.longLongValue
                 }
             }
 

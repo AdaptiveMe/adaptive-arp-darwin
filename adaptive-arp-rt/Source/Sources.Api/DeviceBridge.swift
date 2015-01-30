@@ -332,7 +332,7 @@ of the display. For display orientation, use the IDisplay APIs.
     */
     public override func invoke(request : APIRequest) -> APIResponse? {
         var response : APIResponse = APIResponse()
-        var responseCode : Int = 200
+        var responseCode : Int32 = 200
         var responseMessage : String = "OK"
         var responseJSON : String? = "null"
         switch request.getMethodName()! {

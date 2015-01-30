@@ -45,7 +45,7 @@ public class DatabaseTableResultCallbackImpl : BaseCallbackImpl, IDatabaseTableR
 
        @param id  The id of the callback.
     */
-    public override init(id : Int) {
+    public override init(id : Int64) {
         super.init(id: id)
     }
 

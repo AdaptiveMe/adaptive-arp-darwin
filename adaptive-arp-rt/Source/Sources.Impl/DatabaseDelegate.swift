@@ -488,14 +488,14 @@ should be passed as a parameter
         // TODO: set the column names to the result table
         
         var table:DatabaseTable = DatabaseTable()
-        var rowCount:Int = 0
-        var columnCount:Int = 0
+        var rowCount:Int32 = 0
+        var columnCount:Int32 = 0
         var rows:[DatabaseRow] = []
         
         for row in stmt {
             
             var vals = [String]()
-            columnCount = row.count
+            columnCount = Int32(row.count)
             
             for (index, value) in enumerate(row) {
                 vals.append("\(value!)")

@@ -58,7 +58,7 @@ public class Geolocation : APIBean {
     /**
        Timestamp of the geolocation reading.
     */
-    var timestamp : Int?
+    var timestamp : Int64?
     /**
        Dilution of precision on the X measurement. Measured in meters.
     */
@@ -88,7 +88,7 @@ public class Geolocation : APIBean {
        @param timestamp Timestamp of the measurement
        @since v2.0
     */
-    public init(latitude: Double, longitude: Double, altitude: Double, xDoP: Float, yDoP: Float, timestamp: Int) {
+    public init(latitude: Double, longitude: Double, altitude: Double, xDoP: Float, yDoP: Float, timestamp: Int64) {
         super.init()
         self.latitude = latitude
         self.longitude = longitude
@@ -106,7 +106,7 @@ public class Geolocation : APIBean {
        @param timestamp Timestamp of the measurement
        @since v2.0
     */
-    public init(latitude: Double, longitude: Double, timestamp: Int) {
+    public init(latitude: Double, longitude: Double, timestamp: Int64) {
         super.init()
         self.latitude = latitude
         self.longitude = longitude
@@ -179,7 +179,7 @@ public class Geolocation : APIBean {
        @return Timestamp
        @since v2.0
     */
-    public func getTimestamp() -> Int? {
+    public func getTimestamp() -> Int64? {
         return self.timestamp
     }
 
@@ -189,7 +189,7 @@ public class Geolocation : APIBean {
        @param timestamp Timestamp
        @since v2.0
     */
-    public func setTimestamp(timestamp: Int) {
+    public func setTimestamp(timestamp: Int64) {
         self.timestamp = timestamp
     }
 
@@ -264,7 +264,8 @@ public class Geolocation : APIBean {
 
             if let value : AnyObject = dict.objectForKey("timestamp") {
                 if "\(value)" as NSString != "<null>" {
-                    resultObject.timestamp = (value as Int)
+                    var numValue = value as? NSNumber
+                    resultObject.timestamp = numValue?.longLongValue
                 }
             }
 

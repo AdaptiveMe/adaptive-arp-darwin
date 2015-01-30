@@ -62,7 +62,7 @@ public class EmailAttachmentData : APIBean {
     /**
        The data size (in bytes) of the current file attachment
     */
-    var size : Int?
+    var size : Int64?
 
     /**
        Default Constructor
@@ -83,7 +83,7 @@ public class EmailAttachmentData : APIBean {
        @param referenceUrl relative url of the file attachment
        @since v2.0
     */
-    public init(data: [Byte], size: Int, fileName: String, mimeType: String, referenceUrl: String) {
+    public init(data: [Byte], size: Int64, fileName: String, mimeType: String, referenceUrl: String) {
         super.init()
         self.data = data
         self.size = size
@@ -178,7 +178,7 @@ public class EmailAttachmentData : APIBean {
        @return size Length in bytes of the octet-binary content.
        @since v2.0
     */
-    public func getSize() -> Int? {
+    public func getSize() -> Int64? {
         return self.size
     }
 
@@ -188,7 +188,7 @@ public class EmailAttachmentData : APIBean {
        @param size Length in bytes of the octet-binary content ( should be same as data array length.)
        @since v2.0
     */
-    public func setSize(size: Int) {
+    public func setSize(size: Int64) {
         self.size = size
     }
 
@@ -236,7 +236,8 @@ public class EmailAttachmentData : APIBean {
 
             if let value : AnyObject = dict.objectForKey("size") {
                 if "\(value)" as NSString != "<null>" {
-                    resultObject.size = (value as Int)
+                    var numValue = value as? NSNumber
+                    resultObject.size = numValue?.longLongValue
                 }
             }
 

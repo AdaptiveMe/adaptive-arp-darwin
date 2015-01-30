@@ -95,7 +95,7 @@ public class AccelerationDelegate : BaseSensorDelegate, IAcceleration {
                         // Create the accelerometer object and send it to the listener
                         
                         var date = NSDate()
-                        var timestamp:Int = Int(date.timeIntervalSince1970*1000)
+                        var timestamp:Int64 = Int64(date.timeIntervalSince1970*1000)
                         
                         var a:Acceleration = Acceleration(x: data.acceleration.x, y: data.acceleration.y, z: data.acceleration.z, timestamp: timestamp)
                         listener.onResult(a)

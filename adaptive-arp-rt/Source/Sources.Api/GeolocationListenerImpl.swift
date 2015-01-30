@@ -45,7 +45,7 @@ public class GeolocationListenerImpl : BaseListenerImpl, IGeolocationListener {
 
        @param id  The id of the listener.
     */
-    public override init(id : Int) {
+    public override init(id : Int64) {
         super.init(id: id);
     }
 
