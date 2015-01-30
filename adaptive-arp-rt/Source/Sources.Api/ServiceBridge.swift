@@ -264,14 +264,14 @@ XML service definition file.
                 var response2 : [ServiceToken]? = self.getServicesRegistered()
                 if let response2 = response2 {
                     var response2JSONArray : NSMutableString = NSMutableString()
-                    response2JSONArray.appendString("{[ ")
+                    response2JSONArray.appendString("[ ")
                     for (index, obj) in enumerate(response2) {
                         response2JSONArray.appendString(ServiceToken.Serializer.toJSON(obj))
                         if index < response2.count-1 {
                             response2JSONArray.appendString(", ")
                         }
                     }
-                    response2JSONArray.appendString(" ]}")
+                    response2JSONArray.appendString(" ]")
                     responseJSON = response2JSONArray as String
                 } else {
                     responseJSON = "null"
