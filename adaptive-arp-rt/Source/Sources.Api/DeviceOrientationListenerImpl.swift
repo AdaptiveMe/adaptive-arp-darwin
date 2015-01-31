@@ -64,11 +64,11 @@ platform impedes the rotation of the device.
     /**
        Event fired with the successful start and finish of a rotation.
 
-       @param event RotationEvent containing origin, destination and state of the event.
+       @param rotationEvent RotationEvent containing origin, destination and state of the event.
        @since v2.0.5
     */
-    public func onResult(event : RotationEvent) { 
-        var param0 : String = "Adaptive.RotationEvent.toObject(JSON.parse(\"\(JSONUtil.escapeString(RotationEvent.Serializer.toJSON(event)))\"))"
+    public func onResult(rotationEvent : RotationEvent) { 
+        var param0 : String = "Adaptive.RotationEvent.toObject(JSON.parse(\"\(JSONUtil.escapeString(RotationEvent.Serializer.toJSON(rotationEvent)))\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDeviceOrientationListenerResult( \"\(getId())\", \(param0))")
     }
 
@@ -76,12 +76,12 @@ platform impedes the rotation of the device.
        Event fired with a warning when the rotation is aborted. In specific, this
 event may be fired if the devices vetoes the rotation before rotation is completed.
 
-       @param event   RotationEvent containing origin, destination and state of the event.
+       @param rotationEvent   RotationEvent containing origin, destination and state of the event.
        @param warning Type of condition that aborted rotation execution.
        @since v2.0.5
     */
-    public func onWarning(event : RotationEvent, warning : IDeviceOrientationListenerWarning) { 
-        var param0 : String = "Adaptive.RotationEvent.toObject(JSON.parse(\"\(JSONUtil.escapeString(RotationEvent.Serializer.toJSON(event)))\"))"
+    public func onWarning(rotationEvent : RotationEvent, warning : IDeviceOrientationListenerWarning) { 
+        var param0 : String = "Adaptive.RotationEvent.toObject(JSON.parse(\"\(JSONUtil.escapeString(RotationEvent.Serializer.toJSON(rotationEvent)))\"))"
         var param1 : String = "Adaptive.IDeviceOrientationListenerWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\"}\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDeviceOrientationListenerWarning( \"\(getId())\", \(param0), \(param1))")
     }
