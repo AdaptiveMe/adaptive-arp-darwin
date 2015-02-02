@@ -75,8 +75,8 @@ public class AccelerationDelegate : BaseSensorDelegate, IAcceleration {
             if motionManager.accelerometerAvailable {
                 
                 // check if listener exists
-                for (index, l) in enumerate(listeners) {
-                    if listener.isEqual(l) {
+                for (index, l:IAccelerationListener) in enumerate(listeners) {
+                    if listener.getId() == l.getId() {
                         logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The listener is alredy on the pull. Replacing...")
                         self.removeAccelerationListener(listener)
                     }
@@ -123,9 +123,9 @@ public class AccelerationDelegate : BaseSensorDelegate, IAcceleration {
         
         #if os(iOS)
             
-            for (index, l) in enumerate(listeners) {
+            for (index, l:IAccelerationListener) in enumerate(listeners) {
                 
-                if(listener.isEqual(l)) {
+                if(listener.getId() == l.getId()) {
                     
                     listeners.removeAtIndex(index)
                     

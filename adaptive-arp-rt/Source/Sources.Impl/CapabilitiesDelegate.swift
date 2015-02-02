@@ -400,8 +400,75 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
     */
     public func hasOrientationSupport(orientation : ICapabilitiesOrientation) -> Bool? {
         
-        // TODO: MUST IMPLEMENT
-        return false
+        switch orientation {
+            
+        case ICapabilitiesOrientation.Portrait_Up:
+            
+            #if os(iOS)
+                switch UIDevice.currentDevice().userInterfaceIdiom {
+                case UIUserInterfaceIdiom.Pad:
+                    return true
+                case UIUserInterfaceIdiom.Phone:
+                    return true
+                case UIUserInterfaceIdiom.Unspecified:
+                    return false
+                }
+            #endif
+            #if os(OSX)
+                return true
+            #endif
+            
+        case ICapabilitiesOrientation.Portrait_Down:
+            
+            #if os(iOS)
+                switch UIDevice.currentDevice().userInterfaceIdiom {
+                case UIUserInterfaceIdiom.Pad:
+                    return true
+                case UIUserInterfaceIdiom.Phone:
+                    return false
+                case UIUserInterfaceIdiom.Unspecified:
+                    return false
+                }
+            #endif
+            #if os(OSX)
+                return false
+            #endif
+            
+        case ICapabilitiesOrientation.Landscape_Left:
+            
+            #if os(iOS)
+                switch UIDevice.currentDevice().userInterfaceIdiom {
+                case UIUserInterfaceIdiom.Pad:
+                    return true
+                case UIUserInterfaceIdiom.Phone:
+                    return true
+                case UIUserInterfaceIdiom.Unspecified:
+                    return false
+                }
+            #endif
+            #if os(OSX)
+                return false
+            #endif
+            
+        case ICapabilitiesOrientation.Landscape_Right:
+            
+            #if os(iOS)
+                switch UIDevice.currentDevice().userInterfaceIdiom {
+                case UIUserInterfaceIdiom.Pad:
+                    return true
+                case UIUserInterfaceIdiom.Phone:
+                    return true
+                case UIUserInterfaceIdiom.Unspecified:
+                    return false
+                }
+            #endif
+            #if os(OSX)
+                return false
+            #endif
+            
+        case ICapabilitiesOrientation.Unknown:
+            return false
+        }
     }
     
     /**
@@ -414,8 +481,31 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
     */
     public func getOrientationDefault() -> ICapabilitiesOrientation? {
         
-        // TODO: MUST IMPLEMENT
-        return nil
+        #if os(iOS)
+            
+            // There is no way to obtain the default orientation, returning the current orientation
+            switch UIDevice.currentDevice().orientation {
+                
+            case UIDeviceOrientation.Portrait:
+                return ICapabilitiesOrientation.Portrait_Up
+                
+            case UIDeviceOrientation.PortraitUpsideDown:
+                return ICapabilitiesOrientation.Portrait_Down
+                
+            case UIDeviceOrientation.LandscapeLeft:
+                return ICapabilitiesOrientation.Landscape_Left
+                
+            case UIDeviceOrientation.LandscapeRight:
+                return ICapabilitiesOrientation.Landscape_Right
+                
+            case UIDeviceOrientation.FaceUp, UIDeviceOrientation.FaceDown, UIDeviceOrientation.Unknown:
+                return ICapabilitiesOrientation.Unknown
+                
+            }
+        #endif
+        #if os(OSX)
+            return ICapabilitiesOrientation.Portrait_Up
+        #endif
     }
     
     /**
@@ -427,8 +517,31 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
     */
     public func getOrientationsSupported() -> [ICapabilitiesOrientation]? {
         
-        // TODO: MUST IMPLEMENT
-        return nil
+        var ret: [ICapabilitiesOrientation] = [ICapabilitiesOrientation]()
+        
+        #if os(iOS)
+            switch UIDevice.currentDevice().userInterfaceIdiom {
+                
+            case UIUserInterfaceIdiom.Pad:
+                ret.append(ICapabilitiesOrientation.Portrait_Up)
+                ret.append(ICapabilitiesOrientation.Portrait_Down)
+                ret.append(ICapabilitiesOrientation.Landscape_Left)
+                ret.append(ICapabilitiesOrientation.Landscape_Right)
+                
+            case UIUserInterfaceIdiom.Phone:
+                ret.append(ICapabilitiesOrientation.Portrait_Up)
+                ret.append(ICapabilitiesOrientation.Landscape_Left)
+                ret.append(ICapabilitiesOrientation.Landscape_Right)
+                
+            case UIUserInterfaceIdiom.Unspecified:
+                ret.append(ICapabilitiesOrientation.Unknown)
+            }
+        #endif
+        #if os(OSX)
+            ret.append(ICapabilitiesOrientation.Portrait_Up)
+        #endif
+        
+        return ret
     }
     
 }

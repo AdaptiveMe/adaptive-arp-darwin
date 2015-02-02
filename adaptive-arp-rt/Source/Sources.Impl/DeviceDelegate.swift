@@ -54,7 +54,8 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
     var deviceInfo:DeviceInfo?
     
     /// Array of Listeners
-    var listeners: [IButtonListener]?
+    var buttonListeners: [IButtonListener]!
+    var orientationListeners: [IDeviceOrientationListener]!
     
     /**
     Default Constructor.
@@ -64,7 +65,8 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
         
         #if os(iOS)
             
-            listeners = [IButtonListener]()
+            buttonListeners = [IButtonListener]()
+            orientationListeners = [IDeviceOrientationListener]()
             
             let device: UIDevice = UIDevice.currentDevice()
             deviceInfo = DeviceInfo(name: device.name, model: device.model, vendor: "Apple", uuid: NSUUID().UUIDString)
@@ -77,41 +79,6 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
             
         #endif
         
-    }
-    
-    /**
-    Register a new listener that will receive button events.
-    
-    @param listener to be registered.
-    @since ARP1.0
-    */
-    public func addButtonListener(listener : IButtonListener) {
-        
-        // TODO: fire the event of button clicked and iterate for every listener. Find where the fire event is located
-        
-        #if os(iOS)
-            
-            for list in listeners! {
-                if list.isEqual(listener) {
-                    
-                    // If the listener has alredy registered
-                    
-                    logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The listener \(listener) has alredy registered")
-                    return
-                }
-            }
-            
-            // Register the listener
-            listeners!.append(listener)
-            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Listener \(listener) registered")
-            
-        #endif
-        #if os(OSX)
-            
-            // in OSX there are no hardware buttons
-            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there aren't hardware buttons")
-            
-        #endif
     }
     
     /**
@@ -150,6 +117,41 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
     }
     
     /**
+    Register a new listener that will receive button events.
+    
+    @param listener to be registered.
+    @since ARP1.0
+    */
+    public func addButtonListener(listener : IButtonListener) {
+        
+        // TODO: fire the event of button clicked and iterate for every listener. Find where the fire event is located
+        
+        #if os(iOS)
+            
+            for list:IButtonListener in buttonListeners {
+                if list.getId() == listener.getId() {
+                    
+                    // If the listener has alredy registered
+                    
+                    logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The listener \(listener) has alredy registered")
+                    return
+                }
+            }
+            
+            // Register the listener
+            buttonListeners.append(listener)
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Listener \(listener) registered")
+            
+        #endif
+        #if os(OSX)
+            
+            // in OSX there are no hardware buttons
+            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there aren't hardware buttons")
+            
+        #endif
+    }
+    
+    /**
     De-registers an existing listener from receiving button events.
     
     @param listener to be removed.
@@ -159,18 +161,17 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
         
         #if os(iOS)
             
-            for (index, list) in enumerate(listeners!) {
-                if list.isEqual(listener) {
+            for (index, list:IButtonListener) in enumerate(buttonListeners) {
+                if list.getId() == listener.getId() {
                     
                     // Remove the listener
-                    listeners!.removeAtIndex(index)
+                    buttonListeners.removeAtIndex(index)
                     
                     logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "The listener \(listener) it has been removed")
                     return
                 }
             }
             
-            //
             logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Listener \(listener) is not registered in the system")
             
         #endif
@@ -192,12 +193,12 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
         
         #if os(iOS)
             
-            var listCount:Int = listeners!.count
+            var listCount:Int = buttonListeners.count
             
             // Remove all the listeners
-            listeners!.removeAll(keepCapacity: false)
+            buttonListeners.removeAll(keepCapacity: false)
             
-            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removed \(listCount) listeners from the system")
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removed \(listCount) buttonListeners from the system")
             
         #endif
         #if os(OSX)
@@ -217,8 +218,30 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
     */
     public func getOrientationCurrent() -> ICapabilitiesOrientation? {
         
-        // TODO: MUST IMPLEMENT
-        return nil
+        #if os(iOS)
+            
+            switch UIDevice.currentDevice().orientation {
+                
+            case UIDeviceOrientation.Portrait:
+                return ICapabilitiesOrientation.Portrait_Up
+                
+            case UIDeviceOrientation.PortraitUpsideDown:
+                return ICapabilitiesOrientation.Portrait_Down
+                
+            case UIDeviceOrientation.LandscapeLeft:
+                return ICapabilitiesOrientation.Landscape_Left
+                
+            case UIDeviceOrientation.LandscapeRight:
+                return ICapabilitiesOrientation.Landscape_Right
+                
+            case UIDeviceOrientation.FaceUp, UIDeviceOrientation.FaceDown, UIDeviceOrientation.Unknown:
+                return ICapabilitiesOrientation.Unknown
+                
+            }
+        #endif
+        #if os(OSX)
+            return ICapabilitiesOrientation.Portrait_Up
+        #endif
     }
     
     /**
@@ -229,7 +252,82 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
     */
     public func addDeviceOrientationListener(listener : IDeviceOrientationListener) {
         
-        // TODO: MUST IMPLEMENT
+        #if os(iOS)
+            
+            // Check if the device is able to generate Device Notifications
+            if !UIDevice.currentDevice().generatesDeviceOrientationNotifications {
+                logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "This device is not able to generate rotation events")
+                return
+            }
+            
+            for list:IDeviceOrientationListener in orientationListeners {
+                if list.getId() == listener.getId() {
+                    
+                    // If the listener has alredy registered
+                    
+                    logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The listener \(listener) has alredy registered")
+                    return
+                }
+            }
+            
+            // If there is no listener enabled, add an observer
+            if orientationListeners.count == 0 {
+                UIDevice.currentDevice().beginGeneratingDeviceOrientationNotifications()
+                NSNotificationCenter.defaultCenter().addObserver(self,
+                    selector: "orientationEvent",
+                    name:UIDeviceOrientationDidChangeNotification,
+                    object:nil)
+            }
+            
+            // Register the listener
+            orientationListeners.append(listener)
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Listener \(listener) registered")
+            
+        #endif
+        #if os(OSX)
+            
+            // in OSX there are no orientation events
+            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there is no way to rotate this hardware, Unless you are Hulk 💪")
+            
+        #endif
+    }
+    
+    /**
+    Function that handles an event of rotation on the device. Propagates every event to the listeners
+    */
+    func orientationEvent() {
+        
+        if orientationListeners.count == 0 {
+            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "There are Notifications of UIDeviceOrientationDidChangeNotification but there no listener registered on the platfform.")
+        } else {
+            
+            // MARK: There is no way to detect the rotation effect transition.
+            // There is only one event fired, when the device finishes the rotation
+            
+            var event:RotationEvent = RotationEvent()
+            event.setOrigin(ICapabilitiesOrientation.Unknown)
+            event.setState(RotationEventState.DidFinishRotation)
+            event.setTimestamp(Int64(NSDate().timeIntervalSince1970*1000))
+            
+            switch UIDevice.currentDevice().orientation {
+            case UIDeviceOrientation.Unknown, UIDeviceOrientation.FaceUp, UIDeviceOrientation.FaceDown:
+                event.setDestination(ICapabilitiesOrientation.Unknown)
+            case UIDeviceOrientation.Portrait:
+                event.setDestination(ICapabilitiesOrientation.Portrait_Up)
+            case UIDeviceOrientation.PortraitUpsideDown:
+                event.setDestination(ICapabilitiesOrientation.Portrait_Down)
+            case UIDeviceOrientation.LandscapeLeft:
+                event.setDestination(ICapabilitiesOrientation.Landscape_Left)
+            case UIDeviceOrientation.LandscapeRight:
+                event.setDestination(ICapabilitiesOrientation.Landscape_Right)
+            }
+            
+            // Iterate all over the registered listeners and send an event
+            for list in orientationListeners {
+                list.onResult(event)
+            }
+        }
+        
     }
     
     /**
@@ -240,7 +338,34 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
     */
     public func removeDeviceOrientationListener(listener : IDeviceOrientationListener) {
         
-        // TODO: MUST IMPLEMENT
+        #if os(iOS)
+            
+            for (index, list) in enumerate(orientationListeners) {
+                if list.getId() == listener.getId() {
+                    
+                    // Remove the listener
+                    orientationListeners.removeAtIndex(index)
+                    
+                    // If there is no listener enabled, remove the observer and the notifications
+                    if orientationListeners.count == 0 {
+                        NSNotificationCenter.defaultCenter().removeObserver(self)
+                        UIDevice.currentDevice().endGeneratingDeviceOrientationNotifications()
+                    }
+                    
+                    logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "The listener \(listener) it has been removed")
+                    return
+                }
+            }
+            
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Listener \(listener) is not registered in the system")
+            
+        #endif
+        #if os(OSX)
+            
+            // in OSX there are no orientation events
+            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there is no way to rotate this hardware, Unless you are Hulk 💪")
+            
+        #endif
     }
     
     /**
@@ -250,10 +375,27 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
     */
     public func removeDeviceOrientationListeners() {
         
-        // TODO: MUST IMPLEMENT
+        #if os(iOS)
+            
+            var listCount:Int = orientationListeners.count
+            
+            // Remove all the listeners
+            orientationListeners.removeAll(keepCapacity: false)
+                        
+            // Remove the observer and the notifications
+            NSNotificationCenter.defaultCenter().removeObserver(self)
+            UIDevice.currentDevice().endGeneratingDeviceOrientationNotifications()
+            
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removed \(listCount) orientationListeners from the system")
+            
+        #endif
+        #if os(OSX)
+            
+            // in OSX there are no orientation events
+            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there is no way to rotate this hardware, Unless you are Hulk 💪")
+            
+        #endif
     }
-    
-    
     
     /**
     Returns a variable stored in the memory stack

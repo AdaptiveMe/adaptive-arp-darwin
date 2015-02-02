@@ -96,8 +96,8 @@ public class LifecycleDelegate : BaseApplicationDelegate, ILifecycle {
     */
     public func removeLifecycleListener(listener : ILifecycleListener) {
         
-        for (index, l) in enumerate(listeners) {
-            if(l.isEqual(listener)) {
+        for (index, l:ILifecycleListener) in enumerate(listeners) {
+            if(l.getId() == listener.getId()) {
                 
                 listeners.removeAtIndex(index)
                 logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing \(listener) to the service pull")
