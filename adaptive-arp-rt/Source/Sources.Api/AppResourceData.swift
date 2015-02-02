@@ -41,7 +41,7 @@ import Foundation
    @since v2.1.3
    @version 1.0
 */
-public class ResourceData : NSObject {
+public class AppResourceData : NSObject {
 
     /**
        Marker to indicate whether the resource is cooked in some way (compressed, encrypted, etc.) If true, the
@@ -252,15 +252,15 @@ after uncompressing and unencrypting.
        JSON Serialization and deserialization support.
     */
     struct Serializer {
-        static func fromJSON(json : String) -> ResourceData {
+        static func fromJSON(json : String) -> AppResourceData {
             var data:NSData = json.dataUsingEncoding(NSUTF8StringEncoding)!
             var jsonError: NSError?
             let dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as NSDictionary
             return fromDictionary(dict)
         }
 
-        static func fromDictionary(dict : NSDictionary) -> ResourceData {
-            var resultObject : ResourceData = ResourceData()
+        static func fromDictionary(dict : NSDictionary) -> AppResourceData {
+            var resultObject : AppResourceData = AppResourceData()
 
             if let value : AnyObject = dict.objectForKey("cooked") {
                 if "\(value)" as NSString != "<null>" {
@@ -312,7 +312,7 @@ after uncompressing and unencrypting.
             return resultObject
         }
 
-        static func toJSON(object: ResourceData) -> String {
+        static func toJSON(object: AppResourceData) -> String {
             var jsonString : NSMutableString = NSMutableString()
             // Start Object to JSON
             jsonString.appendString("{ ")

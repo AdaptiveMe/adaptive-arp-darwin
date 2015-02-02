@@ -53,7 +53,7 @@ public protocol IAppResourceManager : NSObjectProtocol {
        @return ResourceData with the configuration resource payload.
        @since v2.1.3
     */
-    func retrieveConfigResource(id : String) -> ResourceData?
+    func retrieveConfigResource(id : String) -> AppResourceData?
 
     /**
        Retrieve a web resource from the secure application data container.
@@ -62,7 +62,7 @@ public protocol IAppResourceManager : NSObjectProtocol {
        @return ResourceData with the web resource payload.
        @since v2.1.3
     */
-    func retrieveWebResource(id : String) -> ResourceData?
+    func retrieveWebResource(id : String) -> AppResourceData?
 
 }
 
