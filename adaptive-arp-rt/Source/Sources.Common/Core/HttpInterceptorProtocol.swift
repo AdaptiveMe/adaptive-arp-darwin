@@ -63,9 +63,9 @@ public class HttpInterceptorProtocol : NSURLProtocol {
     }
     
     /// Custom header for versioning check
-    private class var adaptiveVersionHeader:NSString {
+    /*private class var adaptiveVersionHeader:NSString {
         return "X-AdaptiveVersion"
-    }
+    }*/
     
     /// Constructor
     override public init() {
@@ -134,19 +134,30 @@ public class HttpInterceptorProtocol : NSURLProtocol {
                     
                     if let bodyString:NSString = NSString(data: body, encoding: NSUTF8StringEncoding) {
                         
-                        // Check the version of the API inside the request headers
+                        
                         var requestHeaders = NSMutableDictionary(dictionary: newRequest.allHTTPHeaderFields!)
                         
+                        /*
+                        // fnva(20150202) Deprecated method -> Inside API Request
                         if let tsVersion: AnyObject = requestHeaders.objectForKey(HttpInterceptorProtocol.adaptiveVersionHeader) {
                             if !tsVersion.isEqual(AppRegistryBridge.sharedInstance.getAPIVersion()){
                                 logger.log(ILoggingLogLevel.WARN, category:loggerTag, message: "The API version of the Typescript API is not the same as the Platform API version")
                             }
                         } else {
                             logger.log(ILoggingLogLevel.ERROR, category:loggerTag, message: "There is no custom header (\(HttpInterceptorProtocol.adaptiveVersionHeader)) in the request indicating the TS version ")
-                        }
+                        }*/
                         
                         // Parse the http body request and converto into a APIRequest Object
                         var apiRequest:APIRequest = APIRequest.Serializer.fromJSON(bodyString)
+                        
+                        // Check the version of the API inside the request attributes
+                        if let tsVersion: String = apiRequest.getApiVersion() {
+                            if !tsVersion.isEqual(AppRegistryBridge.sharedInstance.getAPIVersion()){
+                                logger.log(ILoggingLogLevel.WARN, category:loggerTag, message: "The API version of the Typescript API is not the same as the Platform API version")
+                            }
+                        } else {
+                            logger.log(ILoggingLogLevel.ERROR, category:loggerTag, message: "There is no attribute inside APIRequest indicating the TS version ")
+                        }
                         
                         //logger.log(ILoggingLogLevel.INFO, category: loggerTag, message: "API REQUEST [\(apiRequest.getBridgeType()!).\(apiRequest.getMethodName()!)]: \(apiRequest)")
                         
