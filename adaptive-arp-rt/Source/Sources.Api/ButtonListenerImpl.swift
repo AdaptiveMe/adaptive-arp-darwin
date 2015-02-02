@@ -57,7 +57,11 @@ public class ButtonListenerImpl : BaseListenerImpl, IButtonListener {
     */
     public func onError(error : IButtonListenerError) { 
         var param0 : String = "Adaptive.IButtonListenerError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleButtonListenerError( \"\(getId())\", \(param0))")
+        var listenerId : Int64 = -1
+        if (getId() != nil) {
+            listenerId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleButtonListenerError( \"\(listenerId)\", \(param0))")
     }
 
     /**
@@ -68,7 +72,11 @@ public class ButtonListenerImpl : BaseListenerImpl, IButtonListener {
     */
     public func onResult(button : Button) { 
         var param0 : String = "Adaptive.Button.toObject(JSON.parse(\"\(JSONUtil.escapeString(Button.Serializer.toJSON(button)))\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleButtonListenerResult( \"\(getId())\", \(param0))")
+        var listenerId : Int64 = -1
+        if (getId() != nil) {
+            listenerId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleButtonListenerResult( \"\(listenerId)\", \(param0))")
     }
 
     /**
@@ -81,7 +89,11 @@ public class ButtonListenerImpl : BaseListenerImpl, IButtonListener {
     public func onWarning(button : Button, warning : IButtonListenerWarning) { 
         var param0 : String = "Adaptive.Button.toObject(JSON.parse(\"\(JSONUtil.escapeString(Button.Serializer.toJSON(button)))\"))"
         var param1 : String = "Adaptive.IButtonListenerWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\"}\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleButtonListenerWarning( \"\(getId())\", \(param0), \(param1))")
+        var listenerId : Int64 = -1
+        if (getId() != nil) {
+            listenerId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleButtonListenerWarning( \"\(listenerId)\", \(param0), \(param1))")
     }
 
 }

@@ -57,7 +57,11 @@ public class GeolocationListenerImpl : BaseListenerImpl, IGeolocationListener {
     */
     public func onError(error : IGeolocationListenerError) { 
         var param0 : String = "Adaptive.IGeolocationListenerError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleGeolocationListenerError( \"\(getId())\", \(param0))")
+        var listenerId : Int64 = -1
+        if (getId() != nil) {
+            listenerId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleGeolocationListenerError( \"\(listenerId)\", \(param0))")
     }
 
     /**
@@ -68,7 +72,11 @@ public class GeolocationListenerImpl : BaseListenerImpl, IGeolocationListener {
     */
     public func onResult(geolocation : Geolocation) { 
         var param0 : String = "Adaptive.Geolocation.toObject(JSON.parse(\"\(JSONUtil.escapeString(Geolocation.Serializer.toJSON(geolocation)))\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleGeolocationListenerResult( \"\(getId())\", \(param0))")
+        var listenerId : Int64 = -1
+        if (getId() != nil) {
+            listenerId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleGeolocationListenerResult( \"\(listenerId)\", \(param0))")
     }
 
     /**
@@ -81,7 +89,11 @@ public class GeolocationListenerImpl : BaseListenerImpl, IGeolocationListener {
     public func onWarning(geolocation : Geolocation, warning : IGeolocationListenerWarning) { 
         var param0 : String = "Adaptive.Geolocation.toObject(JSON.parse(\"\(JSONUtil.escapeString(Geolocation.Serializer.toJSON(geolocation)))\"))"
         var param1 : String = "Adaptive.IGeolocationListenerWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\"}\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleGeolocationListenerWarning( \"\(getId())\", \(param0), \(param1))")
+        var listenerId : Int64 = -1
+        if (getId() != nil) {
+            listenerId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleGeolocationListenerWarning( \"\(listenerId)\", \(param0), \(param1))")
     }
 
 }

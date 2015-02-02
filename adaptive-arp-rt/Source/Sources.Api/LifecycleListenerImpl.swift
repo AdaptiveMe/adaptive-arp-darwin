@@ -57,7 +57,11 @@ public class LifecycleListenerImpl : BaseListenerImpl, ILifecycleListener {
     */
     public func onError(error : ILifecycleListenerError) { 
         var param0 : String = "Adaptive.ILifecycleListenerError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleLifecycleListenerError( \"\(getId())\", \(param0))")
+        var listenerId : Int64 = -1
+        if (getId() != nil) {
+            listenerId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleLifecycleListenerError( \"\(listenerId)\", \(param0))")
     }
 
     /**
@@ -68,7 +72,11 @@ public class LifecycleListenerImpl : BaseListenerImpl, ILifecycleListener {
     */
     public func onResult(lifecycle : Lifecycle) { 
         var param0 : String = "Adaptive.Lifecycle.toObject(JSON.parse(\"\(JSONUtil.escapeString(Lifecycle.Serializer.toJSON(lifecycle)))\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleLifecycleListenerResult( \"\(getId())\", \(param0))")
+        var listenerId : Int64 = -1
+        if (getId() != nil) {
+            listenerId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleLifecycleListenerResult( \"\(listenerId)\", \(param0))")
     }
 
     /**
@@ -81,7 +89,11 @@ public class LifecycleListenerImpl : BaseListenerImpl, ILifecycleListener {
     public func onWarning(lifecycle : Lifecycle, warning : ILifecycleListenerWarning) { 
         var param0 : String = "Adaptive.Lifecycle.toObject(JSON.parse(\"\(JSONUtil.escapeString(Lifecycle.Serializer.toJSON(lifecycle)))\"))"
         var param1 : String = "Adaptive.ILifecycleListenerWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\"}\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleLifecycleListenerWarning( \"\(getId())\", \(param0), \(param1))")
+        var listenerId : Int64 = -1
+        if (getId() != nil) {
+            listenerId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleLifecycleListenerWarning( \"\(listenerId)\", \(param0), \(param1))")
     }
 
 }

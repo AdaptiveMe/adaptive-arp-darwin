@@ -57,7 +57,11 @@ public class NetworkStatusListenerImpl : BaseListenerImpl, INetworkStatusListene
     */
     public func onError(error : INetworkStatusListenerError) { 
         var param0 : String = "Adaptive.INetworkStatusListenerError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkStatusListenerError( \"\(getId())\", \(param0))")
+        var listenerId : Int64 = -1
+        if (getId() != nil) {
+            listenerId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkStatusListenerError( \"\(listenerId)\", \(param0))")
     }
 
     /**
@@ -68,7 +72,11 @@ public class NetworkStatusListenerImpl : BaseListenerImpl, INetworkStatusListene
     */
     public func onResult(network : ICapabilitiesNet) { 
         var param0 : String = "Adaptive.ICapabilitiesNet.toObject(JSON.parse(\"{ \"value\": \"\(network.toString())\"}\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkStatusListenerResult( \"\(getId())\", \(param0))")
+        var listenerId : Int64 = -1
+        if (getId() != nil) {
+            listenerId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkStatusListenerResult( \"\(listenerId)\", \(param0))")
     }
 
     /**
@@ -81,7 +89,11 @@ public class NetworkStatusListenerImpl : BaseListenerImpl, INetworkStatusListene
     public func onWarning(network : ICapabilitiesNet, warning : INetworkStatusListenerWarning) { 
         var param0 : String = "Adaptive.ICapabilitiesNet.toObject(JSON.parse(\"{ \"value\": \"\(network.toString())\"}\"))"
         var param1 : String = "Adaptive.INetworkStatusListenerWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\"}\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkStatusListenerWarning( \"\(getId())\", \(param0), \(param1))")
+        var listenerId : Int64 = -1
+        if (getId() != nil) {
+            listenerId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkStatusListenerWarning( \"\(listenerId)\", \(param0), \(param1))")
     }
 
 }

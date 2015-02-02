@@ -58,7 +58,11 @@ platform impedes the rotation of the display.
     */
     public func onError(error : IDisplayOrientationListenerError) { 
         var param0 : String = "Adaptive.IDisplayOrientationListenerError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDisplayOrientationListenerError( \"\(getId())\", \(param0))")
+        var listenerId : Int64 = -1
+        if (getId() != nil) {
+            listenerId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDisplayOrientationListenerError( \"\(listenerId)\", \(param0))")
     }
 
     /**
@@ -69,7 +73,11 @@ platform impedes the rotation of the display.
     */
     public func onResult(rotationEvent : RotationEvent) { 
         var param0 : String = "Adaptive.RotationEvent.toObject(JSON.parse(\"\(JSONUtil.escapeString(RotationEvent.Serializer.toJSON(rotationEvent)))\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDisplayOrientationListenerResult( \"\(getId())\", \(param0))")
+        var listenerId : Int64 = -1
+        if (getId() != nil) {
+            listenerId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDisplayOrientationListenerResult( \"\(listenerId)\", \(param0))")
     }
 
     /**
@@ -83,7 +91,11 @@ event may be fired if the application vetoes display rotation before rotation is
     public func onWarning(rotationEvent : RotationEvent, warning : IDisplayOrientationListenerWarning) { 
         var param0 : String = "Adaptive.RotationEvent.toObject(JSON.parse(\"\(JSONUtil.escapeString(RotationEvent.Serializer.toJSON(rotationEvent)))\"))"
         var param1 : String = "Adaptive.IDisplayOrientationListenerWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\"}\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDisplayOrientationListenerWarning( \"\(getId())\", \(param0), \(param1))")
+        var listenerId : Int64 = -1
+        if (getId() != nil) {
+            listenerId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDisplayOrientationListenerWarning( \"\(listenerId)\", \(param0), \(param1))")
     }
 
 }
