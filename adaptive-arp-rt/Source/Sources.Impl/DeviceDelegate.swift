@@ -128,8 +128,8 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
         
         #if os(iOS)
             
-            for list in buttonListeners {
-                if list.isEqual(listener) {
+            for list:IButtonListener in buttonListeners {
+                if list.getId() == listener.getId() {
                     
                     // If the listener has alredy registered
                     
@@ -161,8 +161,8 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
         
         #if os(iOS)
             
-            for (index, list) in enumerate(buttonListeners) {
-                if list.isEqual(listener) {
+            for (index, list:IButtonListener) in enumerate(buttonListeners) {
+                if list.getId() == listener.getId() {
                     
                     // Remove the listener
                     buttonListeners.removeAtIndex(index)
@@ -260,8 +260,8 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
                 return
             }
             
-            for list in orientationListeners {
-                if list.isEqual(listener) {
+            for list:IDeviceOrientationListener in orientationListeners {
+                if list.getId() == listener.getId() {
                     
                     // If the listener has alredy registered
                     
@@ -341,7 +341,7 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
         #if os(iOS)
             
             for (index, list) in enumerate(orientationListeners) {
-                if list.isEqual(listener) {
+                if list.getId() == listener.getId() {
                     
                     // Remove the listener
                     orientationListeners.removeAtIndex(index)

@@ -79,9 +79,9 @@ public class GeolocationDelegate : BaseSensorDelegate, IGeolocation {
     */
     public func removeGeolocationListener(listener : IGeolocationListener) {
         
-        for (index,delegate) in enumerate(delegates) {
+        for (index,delegate:GeolocationDelegateHelper) in enumerate(delegates) {
             
-            if delegate.isEqual(listener) {
+            if delegate.getListener().getId() == listener.getId() {
                 
                 logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing listener: \(delegate.getListener())")
                 
