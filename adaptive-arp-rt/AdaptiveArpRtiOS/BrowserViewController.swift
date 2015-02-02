@@ -114,4 +114,14 @@ public class BrowserViewController: BaseViewController, UIWebViewDelegate {
         super.viewDidDisappear(animated)
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().removeWebview(self.webView!)
     }
+    
+    override public func supportedInterfaceOrientations() -> Int {
+        
+        return super.supportedInterfaceOrientations()
+    }
+    
+    override public func shouldAutorotate() -> Bool {
+        
+        return super.shouldAutorotate()
+    }
 }

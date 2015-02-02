@@ -75,20 +75,22 @@ class ViewController: BaseViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
     }
-        
-    override func supportedInterfaceOrientations() -> Int {
-        /// TODO - delegate to HTML app
-        return Int(UIInterfaceOrientationMask.All.rawValue)
-    }
-    
-    override func shouldAutorotate() -> Bool {
-        /// TODO - delegate to HTML app
-        return true
-    }
     
     /// Sent to the view controller when the app receives a memory warning.
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    override func supportedInterfaceOrientations() -> Int {
+        
+        return super.supportedInterfaceOrientations()
+    }
+    
+    override func shouldAutorotate() -> Bool {
+        
+        return super.shouldAutorotate()
+    }
+    
+    
 }
 

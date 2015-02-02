@@ -832,6 +832,9 @@
 		C34E5F721A78E5C4009C8B0D /* VideoBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43B04E1A48211200E61B83 /* VideoBridge.swift */; };
 		C34E5F731A78E5C4009C8B0D /* WalletBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43B04F1A48211200E61B83 /* WalletBridge.swift */; };
 		C34E5F741A78E5C4009C8B0D /* XMLBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43B0501A48211200E61B83 /* XMLBridge.swift */; };
+		C39ACBD61A7F904900C470FF /* DisplayDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39ACBD51A7F904900C470FF /* DisplayDelegate.swift */; };
+		C39ACBD71A7F904900C470FF /* DisplayDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39ACBD51A7F904900C470FF /* DisplayDelegate.swift */; };
+		C39ACBE01A7F9F9D00C470FF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8FFC5B1A483D0800F0A8AE /* BaseViewController.swift */; };
 		C39ED7301A4AE37F0081C13F /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39ED72F1A4AE37F0081C13F /* Reachability.swift */; };
 		C39ED7311A4AE37F0081C13F /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39ED72F1A4AE37F0081C13F /* Reachability.swift */; };
 		C3A7467D1A77BB86001B21B9 /* IOParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7467C1A77BB86001B21B9 /* IOParser.swift */; };
@@ -1446,6 +1449,7 @@
 		C34D73A61A7A858600A8CD9F /* ServiceToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceToken.swift; sourceTree = "<group>"; };
 		C34E61E41A0A4A240039A104 /* ContactTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTest.swift; sourceTree = "<group>"; };
 		C38C36831A13A44600BC26CE /* GlobalizationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalizationTest.swift; sourceTree = "<group>"; };
+		C39ACBD51A7F904900C470FF /* DisplayDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayDelegate.swift; sourceTree = "<group>"; };
 		C39ED72F1A4AE37F0081C13F /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		C3A7467C1A77BB86001B21B9 /* IOParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IOParser.swift; sourceTree = "<group>"; };
 		C3ABF96C1A19F3530000BBA2 /* NetworkReachabilityTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityTest.swift; sourceTree = "<group>"; };
@@ -1882,6 +1886,7 @@
 				4E43B2E31A48212D00E61B83 /* ContactDelegate.swift */,
 				4E43B2E41A48212D00E61B83 /* DatabaseDelegate.swift */,
 				4E43B2E51A48212D00E61B83 /* DeviceDelegate.swift */,
+				C39ACBD51A7F904900C470FF /* DisplayDelegate.swift */,
 				4ECEE8211A5EB1EA0058E5ED /* FileDelegate.swift */,
 				4E43B2E61A48212D00E61B83 /* FileSystemDelegate.swift */,
 				4E43B2E71A48212D00E61B83 /* GeolocationDelegate.swift */,
@@ -2798,6 +2803,7 @@
 				4E43B2691A48211200E61B83 /* LoggingBridge.swift in Sources */,
 				4E43B20F1A48211200E61B83 /* INFC.swift in Sources */,
 				4E43B0AB1A48211200E61B83 /* ContactAddress.swift in Sources */,
+				C39ACBD61A7F904900C470FF /* DisplayDelegate.swift in Sources */,
 				4E43B1A51A48211200E61B83 /* IFacebook.swift in Sources */,
 				4E43B23D1A48211200E61B83 /* IServiceResultCallbackWarning.swift in Sources */,
 				4E43B2511A48211200E61B83 /* IUpdate.swift in Sources */,
@@ -2887,6 +2893,7 @@
 				C34E5E541A78E5C4009C8B0D /* BaseListenerImpl.swift in Sources */,
 				C34E5F641A78E5C4009C8B0D /* ServicePath.swift in Sources */,
 				C34E5EAC1A78E5C4009C8B0D /* IBaseCommunication.swift in Sources */,
+				C39ACBE01A7F9F9D00C470FF /* BaseViewController.swift in Sources */,
 				C34E5F631A78E5C4009C8B0D /* ServiceHeader.swift in Sources */,
 				4E43B3161A48212D00E61B83 /* BaseUtilDelegate.swift in Sources */,
 				4E43B31A1A48212D00E61B83 /* CapabilitiesDelegate.swift in Sources */,
@@ -2999,6 +3006,7 @@
 				4EDB4E7D1A028C9A008A2C4F /* ViewController.swift in Sources */,
 				C34E5EE51A78E5C4009C8B0D /* IFileDataStoreResultCallback.swift in Sources */,
 				C34E5E9E1A78E5C4009C8B0D /* IAdaptiveRPGroup.swift in Sources */,
+				C39ACBD71A7F904900C470FF /* DisplayDelegate.swift in Sources */,
 				C34E5F4C1A78E5C4009C8B0D /* NetworkReachabilityCallbackImpl.swift in Sources */,
 				C34E5EF41A78E5C4009C8B0D /* IGeolocationListenerError.swift in Sources */,
 				4EDB4E7F1A028C9A008A2C4F /* AdaptiveArpRtOSX.xcdatamodeld in Sources */,
