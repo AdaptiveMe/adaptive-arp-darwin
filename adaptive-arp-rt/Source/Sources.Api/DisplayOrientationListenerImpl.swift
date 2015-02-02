@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.1
+    * @version v2.1.2
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -64,11 +64,11 @@ platform impedes the rotation of the display.
     /**
        Event fired with the successful start and finish of a rotation.
 
-       @param event RotationEvent containing origin, destination and state of the event.
+       @param rotationEvent RotationEvent containing origin, destination and state of the event.
        @since v2.0.5
     */
-    public func onResult(event : RotationEvent) { 
-        var param0 : String = "Adaptive.RotationEvent.toObject(JSON.parse(\"\(JSONUtil.escapeString(RotationEvent.Serializer.toJSON(event)))\"))"
+    public func onResult(rotationEvent : RotationEvent) { 
+        var param0 : String = "Adaptive.RotationEvent.toObject(JSON.parse(\"\(JSONUtil.escapeString(RotationEvent.Serializer.toJSON(rotationEvent)))\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDisplayOrientationListenerResult( \"\(getId())\", \(param0))")
     }
 
@@ -76,12 +76,12 @@ platform impedes the rotation of the display.
        Event fired with a warning when the rotation is aborted. In specific, this
 event may be fired if the application vetoes display rotation before rotation is completed.
 
-       @param event   RotationEvent containing origin, destination and state of the event.
+       @param rotationEvent   RotationEvent containing origin, destination and state of the event.
        @param warning Type of condition that aborted rotation execution.
        @since v2.0.5
     */
-    public func onWarning(event : RotationEvent, warning : IDisplayOrientationListenerWarning) { 
-        var param0 : String = "Adaptive.RotationEvent.toObject(JSON.parse(\"\(JSONUtil.escapeString(RotationEvent.Serializer.toJSON(event)))\"))"
+    public func onWarning(rotationEvent : RotationEvent, warning : IDisplayOrientationListenerWarning) { 
+        var param0 : String = "Adaptive.RotationEvent.toObject(JSON.parse(\"\(JSONUtil.escapeString(RotationEvent.Serializer.toJSON(rotationEvent)))\"))"
         var param1 : String = "Adaptive.IDisplayOrientationListenerWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\"}\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDisplayOrientationListenerWarning( \"\(getId())\", \(param0), \(param1))")
     }

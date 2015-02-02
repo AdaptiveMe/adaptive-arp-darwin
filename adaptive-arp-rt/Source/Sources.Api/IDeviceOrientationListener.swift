@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.1
+    * @version v2.1.2
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -54,20 +54,20 @@ platform impedes the rotation of the device.
     /**
        Event fired with the successful start and finish of a rotation.
 
-       @param event RotationEvent containing origin, destination and state of the event.
+       @param rotationEvent RotationEvent containing origin, destination and state of the event.
        @since v2.0.5
     */
-    func onResult(event : RotationEvent)
+    func onResult(rotationEvent : RotationEvent)
 
     /**
        Event fired with a warning when the rotation is aborted. In specific, this
 event may be fired if the devices vetoes the rotation before rotation is completed.
 
-       @param event   RotationEvent containing origin, destination and state of the event.
+       @param rotationEvent   RotationEvent containing origin, destination and state of the event.
        @param warning Type of condition that aborted rotation execution.
        @since v2.0.5
     */
-    func onWarning(event : RotationEvent, warning : IDeviceOrientationListenerWarning)
+    func onWarning(rotationEvent : RotationEvent, warning : IDeviceOrientationListenerWarning)
 
 }
 

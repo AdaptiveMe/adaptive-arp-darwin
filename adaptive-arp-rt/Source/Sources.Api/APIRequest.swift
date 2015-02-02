@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.1
+    * @version v2.1.2
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -43,6 +43,10 @@ import Foundation
 */
 public class APIRequest : NSObject {
 
+    /**
+       Identifier of API version of this request.
+    */
+    var apiVersion : String?
     /**
        Identifier of callback or listener for async operations.
     */
@@ -97,6 +101,26 @@ public class APIRequest : NSObject {
         self.methodName = methodName
         self.parameters = parameters
         self.asyncId = asyncId
+    }
+
+    /**
+       Returns the request's API version. This should be the same or higher than the platform managing the
+request.
+
+       @return String with the API version of the request.
+    */
+    public func getApiVersion() -> String? {
+        return self.apiVersion
+    }
+
+    /**
+       Sets the request's API version. This should be the same or higher than the platform managing the
+request.
+
+       @param apiVersion String with the API version of the request.
+    */
+    public func setApiVersion(apiVersion: String) {
+        self.apiVersion = apiVersion
     }
 
     /**
@@ -193,6 +217,12 @@ listener.
         static func fromDictionary(dict : NSDictionary) -> APIRequest {
             var resultObject : APIRequest = APIRequest()
 
+            if let value : AnyObject = dict.objectForKey("apiVersion") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.apiVersion = (value as String)
+                }
+            }
+
             if let value : AnyObject = dict.objectForKey("asyncId") {
                 if "\(value)" as NSString != "<null>" {
                     var numValue = value as? NSNumber
@@ -231,6 +261,7 @@ listener.
             jsonString.appendString("{ ")
 
             // Fields.
+            object.apiVersion != nil ? jsonString.appendString("\"apiVersion\": \"\(JSONUtil.escapeString(object.apiVersion!))\", ") : jsonString.appendString("\"apiVersion\": null, ")
             object.asyncId != nil ? jsonString.appendString("\"asyncId\": \(object.asyncId!), ") : jsonString.appendString("\"asyncId\": null, ")
             object.bridgeType != nil ? jsonString.appendString("\"bridgeType\": \"\(JSONUtil.escapeString(object.bridgeType!))\", ") : jsonString.appendString("\"bridgeType\": null, ")
             object.methodName != nil ? jsonString.appendString("\"methodName\": \"\(JSONUtil.escapeString(object.methodName!))\", ") : jsonString.appendString("\"methodName\": null, ")

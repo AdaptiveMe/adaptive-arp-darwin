@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.1
+    * @version v2.1.2
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -63,7 +63,7 @@ public class BasePIMDelegate : NSObject, IBasePIM {
        Return the API version for the given interface.
     */
     public final func getAPIVersion() -> String? {
-        return "v2.1.1"
+        return "v2.1.2"
     }
 
 }
