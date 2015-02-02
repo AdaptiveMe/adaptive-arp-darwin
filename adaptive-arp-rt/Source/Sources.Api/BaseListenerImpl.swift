@@ -61,14 +61,6 @@ public class BaseListenerImpl : NSObject, IBaseListener {
     }
 
     /**
-       Get the listener id.
-       @return long with the identifier of the listener.
-    */
-    public final func getId() -> Int64 {
-        return self.id
-    }
-
-    /**
        Return the API group for the given interface.
     */
     public final func getAPIGroup() -> IAdaptiveRPGroup? {
@@ -88,8 +80,8 @@ in every platform. This id is populated by the Javascript platform
 
        @return Unique Listener identifier
     */
-    public func getId() -> Int64 {
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleBaseListenertId( \"\(getId())\", )")
+    public func getId() -> Int64? {
+          return self.id;
     }
 
 }
