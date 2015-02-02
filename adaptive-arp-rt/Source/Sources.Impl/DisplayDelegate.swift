@@ -33,18 +33,75 @@ Release:
 */
 
 import Foundation
+#if os(iOS)
+    import UIKit
+#endif
+#if os(OSX)
+    import Cocoa
+#endif
 
 /**
    Interface for Managing the Display operations
    Auto-generated implementation of IDisplay specification.
 */
 public class DisplayDelegate : BaseSystemDelegate, IDisplay {
+    
+    /// Logger variable
+    let logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+    let loggerTag : String = "DisplayDelegate"
+    
+    /// Array of Listeners
+    var orientationListeners: [IDisplayOrientationListener]!
 
     /**
        Default Constructor.
     */
     public override init() {
         super.init()
+        
+        #if os(iOS)
+            
+            orientationListeners = [IDisplayOrientationListener]()
+            
+        #endif
+        #if os(OSX)
+            
+        #endif
+    }
+    
+    /**
+    Returns the current orientation of the display. Please note that this may be different from the orientation
+    of the device. For device orientation, use the IDevice APIs.
+    
+    @return The current orientation of the display.
+    @since ARP 2.0.5
+    */
+    public func getOrientationCurrent() -> ICapabilitiesOrientation? {
+        
+        #if os(iOS)
+            
+            switch UIApplication.sharedApplication().statusBarOrientation {
+                
+            case UIInterfaceOrientation.Portrait:
+                return ICapabilitiesOrientation.Portrait_Up
+                
+            case UIInterfaceOrientation.PortraitUpsideDown:
+                return ICapabilitiesOrientation.Portrait_Down
+                
+            case UIInterfaceOrientation.LandscapeLeft:
+                return ICapabilitiesOrientation.Landscape_Left
+                
+            case UIInterfaceOrientation.LandscapeRight:
+                return ICapabilitiesOrientation.Landscape_Right
+                
+            case UIInterfaceOrientation.Unknown:
+                return ICapabilitiesOrientation.Unknown
+                
+            }
+        #endif
+        #if os(OSX)
+            return ICapabilitiesOrientation.Portrait_Up
+        #endif
     }
 
     /**
@@ -54,20 +111,48 @@ public class DisplayDelegate : BaseSystemDelegate, IDisplay {
        @since ARP 2.0.5
     */
     public func addDisplayOrientationListener(listener : IDisplayOrientationListener) {
-        // TODO: Not implemented.
+        
+        #if os(iOS)
+            
+            for list:IDisplayOrientationListener in orientationListeners {
+                if list.getId() == listener.getId() {
+                    
+                    // If the listener has alredy registered
+                    
+                    logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The listener \(listener) has alredy registered")
+                    return
+                }
+            }
+            
+            // Register the listener
+            orientationListeners.append(listener)
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Listener \(listener) registered")
+            
+        #endif
+        #if os(OSX)
+            
+            // in OSX there are no orientation events
+            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there is no way to rotate this hardware, Unless you are Hulk 💪")
+            
+        #endif
     }
-
+    
     /**
-       Returns the current orientation of the display. Please note that this may be different from the orientation
-of the device. For device orientation, use the IDevice APIs.
-
-       @return The current orientation of the display.
-       @since ARP 2.0.5
+    Function that handles an event of rotation on the display. Propagates every event to the listeners
     */
-    public func getOrientationCurrent() -> ICapabilitiesOrientation? {
-        var response : ICapabilitiesOrientation
-        // TODO: Not implemented.
-        return ICapabilitiesOrientation.Unknown
+    func orientationEvent(originOrientation:ICapabilitiesOrientation, destinationOrientation:ICapabilitiesOrientation, state:RotationEventState) {
+        
+        var event:RotationEvent = RotationEvent()
+        event.setOrigin(originOrientation)
+        event.setDestination(destinationOrientation)
+        event.setState(state)
+        event.setTimestamp(Int64(NSDate().timeIntervalSince1970*1000))
+        
+        // Iterate all over the registered listeners and send an event
+        for list in orientationListeners {
+            list.onResult(event)
+        }
+        
     }
 
     /**
@@ -77,7 +162,29 @@ of the device. For device orientation, use the IDevice APIs.
        @since ARP 2.0.5
     */
     public func removeDisplayOrientationListener(listener : IDisplayOrientationListener) {
-        // TODO: Not implemented.
+        
+        #if os(iOS)
+            
+            for (index, list) in enumerate(orientationListeners) {
+                if list.getId() == listener.getId() {
+                    
+                    // Remove the listener
+                    orientationListeners.removeAtIndex(index)
+                    
+                    logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "The listener \(listener) it has been removed")
+                    return
+                }
+            }
+            
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Listener \(listener) is not registered in the system")
+            
+        #endif
+        #if os(OSX)
+            
+            // in OSX there are no orientation events
+            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there is no way to rotate this hardware, Unless you are Hulk 💪")
+            
+        #endif
     }
 
     /**
@@ -86,7 +193,23 @@ of the device. For device orientation, use the IDevice APIs.
        @since ARP 2.0.5
     */
     public func removeDisplayOrientationListeners() {
-        // TODO: Not implemented.
+        
+        #if os(iOS)
+            
+            var listCount:Int = orientationListeners.count
+            
+            // Remove all the listeners
+            orientationListeners.removeAll(keepCapacity: false)
+            
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removed \(listCount) orientationListeners from the system")
+            
+        #endif
+        #if os(OSX)
+            
+            // in OSX there are no orientation events
+            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there is no way to rotate this hardware, Unless you are Hulk 💪")
+            
+        #endif
     }
 
 }

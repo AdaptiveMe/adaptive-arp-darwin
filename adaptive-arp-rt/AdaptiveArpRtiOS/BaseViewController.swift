@@ -83,6 +83,16 @@ public class BaseViewController : UIViewController {
         }
     }
     
+    override public func supportedInterfaceOrientations() -> Int {
+        /// TODO - delegate to HTML app
+        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
+    }
+    
+    override public func shouldAutorotate() -> Bool {
+        /// TODO - delegate to HTML app
+        return false
+    }
+    
     public func showInternalBrowser(titleLabel:String, backLabel:String, url : NSURL, showNavBar : Bool, showAnimated : Bool = true, modal : Bool = false) -> Bool {
         objc_sync_enter(self)
         

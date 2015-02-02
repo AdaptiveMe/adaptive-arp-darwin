@@ -47,13 +47,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppRegistryBridge.sharedInstance.getPlatformContext().setDelegate(AppContextDelegate())
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().setDelegate(AppContextWebviewDelegate())
         
-        // REgister all the delegates
+        // Register all the delegates
         AppRegistryBridge.sharedInstance.getAccelerationBridge().setDelegate(AccelerationDelegate())
         AppRegistryBridge.sharedInstance.getBrowserBridge().setDelegate(BrowserDelegate())
         AppRegistryBridge.sharedInstance.getCapabilitiesBridge().setDelegate(CapabilitiesDelegate())
         AppRegistryBridge.sharedInstance.getContactBridge().setDelegate(ContactDelegate())
         AppRegistryBridge.sharedInstance.getDatabaseBridge().setDelegate(DatabaseDelegate())
         AppRegistryBridge.sharedInstance.getDeviceBridge().setDelegate(DeviceDelegate())
+        AppRegistryBridge.sharedInstance.getDisplayBridge().setDelegate(DisplayDelegate())
         AppRegistryBridge.sharedInstance.getFileBridge().setDelegate(FileDelegate())
         AppRegistryBridge.sharedInstance.getFileSystemBridge().setDelegate(FileSystemDelegate())
         AppRegistryBridge.sharedInstance.getGeolocationBridge().setDelegate(GeolocationDelegate())
@@ -161,12 +162,64 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, willChangeStatusBarOrientation newStatusBarOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
         
         logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "willChangeStatusBarOrientation")
+        
+        var displayBridge:IDisplay = AppRegistryBridge.sharedInstance.getDisplayBridge()
+        
+        var origin:ICapabilitiesOrientation = displayBridge.getOrientationCurrent()!;
+        var destination:ICapabilitiesOrientation;
+        
+        switch newStatusBarOrientation {
+            
+        case UIInterfaceOrientation.Portrait:
+            destination = ICapabilitiesOrientation.Portrait_Up
+            
+        case UIInterfaceOrientation.PortraitUpsideDown:
+            destination = ICapabilitiesOrientation.Portrait_Down
+            
+        case UIInterfaceOrientation.LandscapeLeft:
+            destination = ICapabilitiesOrientation.Landscape_Left
+            
+        case UIInterfaceOrientation.LandscapeRight:
+            destination = ICapabilitiesOrientation.Landscape_Right
+            
+        case UIInterfaceOrientation.Unknown:
+            destination = ICapabilitiesOrientation.Unknown
+            
+        }
+        
+        ((displayBridge as DisplayBridge).getDelegate() as DisplayDelegate).orientationEvent(origin, destinationOrientation: destination, state: RotationEventState.WillStartRotation)
     }
     
     /// Tells the delegate when the interface orientation of the status bar has changed.
     func application(application: UIApplication, didChangeStatusBarOrientation oldStatusBarOrientation: UIInterfaceOrientation) {
         
         logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "didChangeStatusBarOrientation")
+        
+        var displayBridge:IDisplay = AppRegistryBridge.sharedInstance.getDisplayBridge()
+        
+        var origin:ICapabilitiesOrientation;
+        var destination:ICapabilitiesOrientation = displayBridge.getOrientationCurrent()!
+        
+        switch oldStatusBarOrientation {
+            
+        case UIInterfaceOrientation.Portrait:
+            origin = ICapabilitiesOrientation.Portrait_Up
+            
+        case UIInterfaceOrientation.PortraitUpsideDown:
+            origin = ICapabilitiesOrientation.Portrait_Down
+            
+        case UIInterfaceOrientation.LandscapeLeft:
+            origin = ICapabilitiesOrientation.Landscape_Left
+            
+        case UIInterfaceOrientation.LandscapeRight:
+            origin = ICapabilitiesOrientation.Landscape_Right
+            
+        case UIInterfaceOrientation.Unknown:
+            origin = ICapabilitiesOrientation.Unknown
+            
+        }
+        
+        ((displayBridge as DisplayBridge).getDelegate() as DisplayDelegate).orientationEvent(origin, destinationOrientation: destination, state: RotationEventState.DidFinishRotation)
     }
     
     /// Tells the delegate when the app receives a memory warning from the system.
