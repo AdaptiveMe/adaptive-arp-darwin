@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.1
+    * @version v2.1.2
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -79,7 +79,17 @@ public class BaseListenerImpl : NSObject, IBaseListener {
        Return the API version for the given interface.
     */
     public final func getAPIVersion() -> String? {
-        return "v2.1.1"
+        return "v2.1.2"
+    }
+
+    /**
+       Return the unique listener identifier. This is used to check if two listeners are the same
+in every platform. This id is populated by the Javascript platform
+
+       @return Unique Listener identifier
+    */
+    public func getId() -> Int64 {
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleBaseListenertId( \"\(getId())\", )")
     }
 
 }
