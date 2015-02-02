@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.2
+    * @version v2.1.3
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -63,7 +63,7 @@ public class BaseCommerceBridge : NSObject, IBaseCommerce {
        Return the API version for the given interface.
     */
     public final func getAPIVersion() -> String? {
-        return "v2.1.2"
+        return "v2.1.3"
     }
 
     /**
@@ -81,7 +81,7 @@ public class BaseCommerceBridge : NSObject, IBaseCommerce {
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "BaseCommerceBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.1.2."
+                responseMessage = "BaseCommerceBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.1.3."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

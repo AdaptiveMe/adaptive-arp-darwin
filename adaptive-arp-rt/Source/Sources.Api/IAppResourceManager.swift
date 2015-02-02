@@ -35,13 +35,35 @@ Release:
 import Foundation
 
 /**
-   Interface for Managing the Map operations
+   The IAppResourceManager is the interface that must be followed for the implementation of secure resource
+reading from the application data container. Implementations of this class should provide the logic
+to read data from the application container (that may be compressed and encrypted in different formats)
+and return the uncompressed data in each case. Implementation specifics may vary between platforms but
+the ResourceData and formats returned must be coherent between platforms.
 
    @author Carlos Lozano Diez
-   @since v2.0
+   @since v2.1.3
    @version 1.0
 */
-public protocol IMap : IBaseUI {
+public protocol IAppResourceManager : NSObjectProtocol {
+    /**
+       Retrieve a configuration resource from the secure application data container.
+
+       @param id The id or relative path of the configuration resource to be retrieved.
+       @return ResourceData with the configuration resource payload.
+       @since v2.1.3
+    */
+    func retrieveConfigResource(id : String) -> ResourceData?
+
+    /**
+       Retrieve a web resource from the secure application data container.
+
+       @param id The id or relative path of the web resource to be retrieved.
+       @return ResourceData with the web resource payload.
+       @since v2.1.3
+    */
+    func retrieveWebResource(id : String) -> ResourceData?
+
 }
 
 /**

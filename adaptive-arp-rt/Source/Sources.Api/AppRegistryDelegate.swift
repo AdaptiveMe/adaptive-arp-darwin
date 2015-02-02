@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.2
+    * @version v2.1.3
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -1189,7 +1189,7 @@ public class AppRegistryDelegate : NSObject, IAppRegistry {
        Method that returns the API version of the implementation.
     */
     public func getAPIVersion() -> String? {
-        return "v2.1.2"
+        return "v2.1.3"
     }
 
     /**
