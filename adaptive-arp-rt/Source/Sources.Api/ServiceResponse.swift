@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.3
+    * @version v2.1.4
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -68,6 +68,10 @@ should be encoded in base64.
        Information about the session.
     */
     var serviceSession : ServiceSession?
+    /**
+       HTTP Status code of the response. With this status code it is possible to perform some actions, redirects, authentication, etc.
+    */
+    var statusCode : Int32?
 
     /**
        Default constructor.
@@ -87,9 +91,10 @@ should be encoded in base64.
        @param contentLength   The length in bytes for the Content field.
        @param serviceHeaders  The serviceHeaders array (name,value pairs) to be included on the I/O service request.
        @param serviceSession  Information about the session
+       @param statusCode      HTTP Status code of the response.
        @since v2.0
     */
-    public init(content: String, contentType: String, contentEncoding: String, contentLength: Int32, serviceHeaders: [ServiceHeader], serviceSession: ServiceSession) {
+    public init(content: String, contentType: String, contentEncoding: String, contentLength: Int32, serviceHeaders: [ServiceHeader], serviceSession: ServiceSession, statusCode: Int32) {
         super.init()
         self.content = content
         self.contentType = contentType
@@ -97,6 +102,7 @@ should be encoded in base64.
         self.contentLength = contentLength
         self.serviceHeaders = serviceHeaders
         self.serviceSession = serviceSession
+        self.statusCode = statusCode
     }
 
     /**
@@ -150,7 +156,7 @@ should be encoded in base64.
     }
 
     /**
-       Set the content length
+       Set the content length.
 
        @param contentLength The length in bytes for the Content field.
        @since v2.0
@@ -219,6 +225,26 @@ should be encoded in base64.
         self.serviceSession = serviceSession
     }
 
+    /**
+       Returns the status code of the response.
+
+       @return HTTP status code
+       @since v2.1.4
+    */
+    public func getStatusCode() -> Int32? {
+        return self.statusCode
+    }
+
+    /**
+       Sets the status code of the response
+
+       @param statusCode HTTP status code
+       @since v2.1.4
+    */
+    public func setStatusCode(statusCode: Int32) {
+        self.statusCode = statusCode
+    }
+
 
     /**
        JSON Serialization and deserialization support.
@@ -275,6 +301,13 @@ should be encoded in base64.
                 }
             }
 
+            if let value : AnyObject = dict.objectForKey("statusCode") {
+                if "\(value)" as NSString != "<null>" {
+                    var numValue = value as Int
+                    resultObject.statusCode = Int32(numValue)
+                }
+            }
+
             return resultObject
         }
 
@@ -304,7 +337,8 @@ should be encoded in base64.
             } else {
                 jsonString.appendString("\"serviceHeaders\": null, ")
             }
-            object.serviceSession != nil ? jsonString.appendString("\"serviceSession\": \(ServiceSession.Serializer.toJSON(object.serviceSession!))") : jsonString.appendString("\"serviceSession\": null")
+            object.serviceSession != nil ? jsonString.appendString("\"serviceSession\": \(ServiceSession.Serializer.toJSON(object.serviceSession!)), ") : jsonString.appendString("\"serviceSession\": null, ")
+            object.statusCode != nil ? jsonString.appendString("\"statusCode\": \(object.statusCode!)") : jsonString.appendString("\"statusCode\": null")
 
             // End Object to JSON
             jsonString.appendString(" }")

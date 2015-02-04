@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.3
+    * @version v2.1.4
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -74,6 +74,10 @@ populates this field with defaults for the service.
 during GET/POST operations. No query parameters are appended if this array is null or length zero.
     */
     var queryParameters : [ServiceRequestParameter]?
+    /**
+       This host indicates the origin host of the request. This, could be useful in case of redirected requests.
+    */
+    var refererHost : String?
     /**
        The serviceHeaders array (name,value pairs) to be included in the request. This may be populated by the
 application, the platform populates this field with defaults for the service and the previous headers.
@@ -239,6 +243,26 @@ identifiers. This should not be manipulated by the application directly.
     }
 
     /**
+       Returns the referer host (origin) of the request.
+
+       @return Referer host of the request
+       @since v2.1.4
+    */
+    public func getRefererHost() -> String? {
+        return self.refererHost
+    }
+
+    /**
+       Sets the value for the referer host of the request.
+
+       @param refererHost Referer host of the request
+       @since v2.1.4
+    */
+    public func setRefererHost(refererHost: String) {
+        self.refererHost = refererHost
+    }
+
+    /**
        Returns the array of ServiceHeader
 
        @return serviceHeaders
@@ -378,6 +402,12 @@ identifiers. This should not be manipulated by the application directly.
                 }
             }
 
+            if let value : AnyObject = dict.objectForKey("refererHost") {
+                if "\(value)" as NSString != "<null>" {
+                    resultObject.refererHost = (value as String)
+                }
+            }
+
             if let value : AnyObject = dict.objectForKey("serviceHeaders") {
                 if "\(value)" as NSString != "<null>" {
                     var serviceHeaders : [ServiceHeader] = [ServiceHeader]()
@@ -451,6 +481,7 @@ identifiers. This should not be manipulated by the application directly.
             } else {
                 jsonString.appendString("\"queryParameters\": null, ")
             }
+            object.refererHost != nil ? jsonString.appendString("\"refererHost\": \"\(JSONUtil.escapeString(object.refererHost!))\", ") : jsonString.appendString("\"refererHost\": null, ")
             if (object.serviceHeaders != nil) {
                 // Start array of objects.
                 jsonString.appendString("\"serviceHeaders\": [")

@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.3
+    * @version v2.1.4
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -39,15 +39,8 @@ import Foundation
 */
 public enum IServiceResultCallbackError {
 
-    case Forbidden
-    case NotFound
-    case MethodNotAllowed
-    case NotAllowed
-    case NotAuthenticated
-    case PaymentRequired
     case TimeOut
     case NoResponse
-    case ServerError
     case Unreachable
     case MalformedUrl
     case NotRegisteredService
@@ -58,15 +51,8 @@ public enum IServiceResultCallbackError {
     */
     public func toString() -> String {
         switch self {
-            case .Forbidden: return "Forbidden"
-            case .NotFound: return "NotFound"
-            case .MethodNotAllowed: return "MethodNotAllowed"
-            case .NotAllowed: return "NotAllowed"
-            case .NotAuthenticated: return "NotAuthenticated"
-            case .PaymentRequired: return "PaymentRequired"
             case .TimeOut: return "TimeOut"
             case .NoResponse: return "NoResponse"
-            case .ServerError: return "ServerError"
             case .Unreachable: return "Unreachable"
             case .MalformedUrl: return "MalformedUrl"
             case .NotRegisteredService: return "NotRegisteredService"
@@ -80,15 +66,8 @@ public enum IServiceResultCallbackError {
     public static func toEnum(string:String?) -> IServiceResultCallbackError {
         if let validString = string {
             switch validString {
-                case "Forbidden": return .Forbidden
-                case "NotFound": return .NotFound
-                case "MethodNotAllowed": return .MethodNotAllowed
-                case "NotAllowed": return .NotAllowed
-                case "NotAuthenticated": return .NotAuthenticated
-                case "PaymentRequired": return .PaymentRequired
                 case "TimeOut": return .TimeOut
                 case "NoResponse": return .NoResponse
-                case "ServerError": return .ServerError
                 case "Unreachable": return .Unreachable
                 case "MalformedUrl": return .MalformedUrl
                 case "NotRegisteredService": return .NotRegisteredService

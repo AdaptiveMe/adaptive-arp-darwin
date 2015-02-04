@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.3
+    * @version v2.1.4
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -43,6 +43,13 @@ public enum IServiceResultCallbackWarning {
     case NotSecure
     case Redirected
     case Wrong_Params
+    case Forbidden
+    case NotFound
+    case MethodNotAllowed
+    case NotAllowed
+    case NotAuthenticated
+    case PaymentRequired
+    case ServerError
     case Unknown
 
     /**
@@ -54,6 +61,13 @@ public enum IServiceResultCallbackWarning {
             case .NotSecure: return "NotSecure"
             case .Redirected: return "Redirected"
             case .Wrong_Params: return "Wrong_Params"
+            case .Forbidden: return "Forbidden"
+            case .NotFound: return "NotFound"
+            case .MethodNotAllowed: return "MethodNotAllowed"
+            case .NotAllowed: return "NotAllowed"
+            case .NotAuthenticated: return "NotAuthenticated"
+            case .PaymentRequired: return "PaymentRequired"
+            case .ServerError: return "ServerError"
             case .Unknown: return "Unknown"
         }
     }
@@ -68,6 +82,13 @@ public enum IServiceResultCallbackWarning {
                 case "NotSecure": return .NotSecure
                 case "Redirected": return .Redirected
                 case "Wrong_Params": return .Wrong_Params
+                case "Forbidden": return .Forbidden
+                case "NotFound": return .NotFound
+                case "MethodNotAllowed": return .MethodNotAllowed
+                case "NotAllowed": return .NotAllowed
+                case "NotAuthenticated": return .NotAuthenticated
+                case "PaymentRequired": return .PaymentRequired
+                case "ServerError": return .ServerError
                 case "Unknown": return .Unknown
             default: return .Unknown
             }
