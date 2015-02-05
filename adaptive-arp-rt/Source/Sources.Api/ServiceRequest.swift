@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.4
+    * @version v2.1.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -44,6 +44,11 @@ import Foundation
 public class ServiceRequest : APIBean {
 
     /**
+       Encoding of the content - by default assumed to be UTF8. This may be populated by the application, the platform
+populates this field with defaults for the service.
+    */
+    var contentEncoding : IServiceContentEncoding?
+    /**
        Body parameters to be included in the body of the request to a service. These may be applied
 during GET/POST operations. No body parameters are included if this array is null or length zero.
     */
@@ -54,11 +59,6 @@ in some well-known web format - in specific, binaries submitted should be encode
 type should be set respectively by the application.
     */
     var content : String?
-    /**
-       Encoding of the content - by default assumed to be UTF8. This may be populated by the application, the platform
-populates this field with defaults for the service.
-    */
-    var contentEncoding : String?
     /**
        The length in bytes of the content. This may be populated by the application, the platform
 calculates this length automatically if a specific contentLength is not specified.
@@ -123,6 +123,26 @@ identifiers. This should not be manipulated by the application directly.
     }
 
     /**
+       Returns the content encoding
+
+       @return contentEncoding
+       @since v2.0
+    */
+    public func getContentEncoding() -> IServiceContentEncoding? {
+        return self.contentEncoding
+    }
+
+    /**
+       Set the content encoding
+
+       @param contentEncoding Encoding of the binary payload - by default assumed to be UTF8.
+       @since v2.0
+    */
+    public func setContentEncoding(contentEncoding: IServiceContentEncoding) {
+        self.contentEncoding = contentEncoding
+    }
+
+    /**
        Gets the body parameters of the request.
 
        @return ServiceRequestParameter array or null if none are specified.
@@ -160,26 +180,6 @@ identifiers. This should not be manipulated by the application directly.
     */
     public func setContent(content: String) {
         self.content = content
-    }
-
-    /**
-       Returns the content encoding
-
-       @return contentEncoding
-       @since v2.0
-    */
-    public func getContentEncoding() -> String? {
-        return self.contentEncoding
-    }
-
-    /**
-       Set the content encoding
-
-       @param contentEncoding Encoding of the binary payload - by default assumed to be UTF8.
-       @since v2.0
-    */
-    public func setContentEncoding(contentEncoding: String) {
-        self.contentEncoding = contentEncoding
     }
 
     /**
@@ -375,7 +375,7 @@ identifiers. This should not be manipulated by the application directly.
 
             if let value : AnyObject = dict.objectForKey("contentEncoding") {
                 if "\(value)" as NSString != "<null>" {
-                    resultObject.contentEncoding = (value as String)
+                    resultObject.contentEncoding = IServiceContentEncoding.toEnum(((value as NSDictionary)["value"]) as NSString)
                 }
             }
 
@@ -462,7 +462,7 @@ identifiers. This should not be manipulated by the application directly.
                 jsonString.appendString("\"bodyParameters\": null, ")
             }
             object.content != nil ? jsonString.appendString("\"content\": \"\(JSONUtil.escapeString(object.content!))\", ") : jsonString.appendString("\"content\": null, ")
-            object.contentEncoding != nil ? jsonString.appendString("\"contentEncoding\": \"\(JSONUtil.escapeString(object.contentEncoding!))\", ") : jsonString.appendString("\"contentEncoding\": null, ")
+            object.contentEncoding != nil ? jsonString.appendString("\"contentEncoding\": { \"value\": \"\(object.contentEncoding!.toString())\"}, ") : jsonString.appendString("\"contentEncoding\": null, ")
             object.contentLength != nil ? jsonString.appendString("\"contentLength\": \(object.contentLength!), ") : jsonString.appendString("\"contentLength\": null, ")
             object.contentType != nil ? jsonString.appendString("\"contentType\": \"\(JSONUtil.escapeString(object.contentType!))\", ") : jsonString.appendString("\"contentType\": null, ")
             if (object.queryParameters != nil) {

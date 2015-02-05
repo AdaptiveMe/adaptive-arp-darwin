@@ -35,12 +35,14 @@ Release:
 import Foundation
 
 /**
-   Enumeration IMessagingCallbackWarning
+   Enumeration IServiceContentEncoding
 */
-public enum IMessagingCallbackWarning {
+public enum IServiceContentEncoding {
 
-    case UnableToSentAll
-    case UnableToFetchAttachment
+    case ASCII
+    case UTF8
+    case ISOLatin1
+    case Unicode
     case Unknown
 
     /**
@@ -48,8 +50,10 @@ public enum IMessagingCallbackWarning {
     */
     public func toString() -> String {
         switch self {
-            case .UnableToSentAll: return "UnableToSentAll"
-            case .UnableToFetchAttachment: return "UnableToFetchAttachment"
+            case .ASCII: return "ASCII"
+            case .UTF8: return "UTF8"
+            case .ISOLatin1: return "ISOLatin1"
+            case .Unicode: return "Unicode"
             case .Unknown: return "Unknown"
         }
     }
@@ -57,11 +61,13 @@ public enum IMessagingCallbackWarning {
     /**
     Create enum from its string representation value.
     */
-    public static func toEnum(string:String?) -> IMessagingCallbackWarning {
+    public static func toEnum(string:String?) -> IServiceContentEncoding {
         if let validString = string {
             switch validString {
-                case "UnableToSentAll": return .UnableToSentAll
-                case "UnableToFetchAttachment": return .UnableToFetchAttachment
+                case "ASCII": return .ASCII
+                case "UTF8": return .UTF8
+                case "ISOLatin1": return .ISOLatin1
+                case "Unicode": return .Unicode
                 case "Unknown": return .Unknown
             default: return .Unknown
             }
