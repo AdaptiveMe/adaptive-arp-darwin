@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.4
+    * @version v2.1.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -44,14 +44,14 @@ import Foundation
 public class ServiceResponse : APIBean {
 
     /**
+       Encoding of the binary payload - by default assumed to be UTF8.
+    */
+    var contentEncoding : IServiceContentEncoding?
+    /**
        Response data content. The content should be in some well-known web format - in specific, binaries returned
 should be encoded in base64.
     */
     var content : String?
-    /**
-       Encoding of the binary payload - by default assumed to be UTF8.
-    */
-    var contentEncoding : String?
     /**
        The length in bytes for the Content field.
     */
@@ -94,7 +94,7 @@ should be encoded in base64.
        @param statusCode      HTTP Status code of the response.
        @since v2.0
     */
-    public init(content: String, contentType: String, contentEncoding: String, contentLength: Int32, serviceHeaders: [ServiceHeader], serviceSession: ServiceSession, statusCode: Int32) {
+    public init(content: String, contentType: String, contentEncoding: IServiceContentEncoding, contentLength: Int32, serviceHeaders: [ServiceHeader], serviceSession: ServiceSession, statusCode: Int32) {
         super.init()
         self.content = content
         self.contentType = contentType
@@ -103,6 +103,26 @@ should be encoded in base64.
         self.serviceHeaders = serviceHeaders
         self.serviceSession = serviceSession
         self.statusCode = statusCode
+    }
+
+    /**
+       Returns the content encoding
+
+       @return contentEncoding
+       @since v2.0
+    */
+    public func getContentEncoding() -> IServiceContentEncoding? {
+        return self.contentEncoding
+    }
+
+    /**
+       Set the content encoding
+
+       @param contentEncoding Encoding of the binary payload - by default assumed to be UTF8.
+       @since v2.0
+    */
+    public func setContentEncoding(contentEncoding: IServiceContentEncoding) {
+        self.contentEncoding = contentEncoding
     }
 
     /**
@@ -123,26 +143,6 @@ should be encoded in base64.
     */
     public func setContent(content: String) {
         self.content = content
-    }
-
-    /**
-       Returns the content encoding
-
-       @return contentEncoding
-       @since v2.0
-    */
-    public func getContentEncoding() -> String? {
-        return self.contentEncoding
-    }
-
-    /**
-       Set the content encoding
-
-       @param contentEncoding Encoding of the binary payload - by default assumed to be UTF8.
-       @since v2.0
-    */
-    public func setContentEncoding(contentEncoding: String) {
-        self.contentEncoding = contentEncoding
     }
 
     /**
@@ -268,7 +268,7 @@ should be encoded in base64.
 
             if let value : AnyObject = dict.objectForKey("contentEncoding") {
                 if "\(value)" as NSString != "<null>" {
-                    resultObject.contentEncoding = (value as String)
+                    resultObject.contentEncoding = IServiceContentEncoding.toEnum(((value as NSDictionary)["value"]) as NSString)
                 }
             }
 
@@ -318,7 +318,7 @@ should be encoded in base64.
 
             // Fields.
             object.content != nil ? jsonString.appendString("\"content\": \"\(JSONUtil.escapeString(object.content!))\", ") : jsonString.appendString("\"content\": null, ")
-            object.contentEncoding != nil ? jsonString.appendString("\"contentEncoding\": \"\(JSONUtil.escapeString(object.contentEncoding!))\", ") : jsonString.appendString("\"contentEncoding\": null, ")
+            object.contentEncoding != nil ? jsonString.appendString("\"contentEncoding\": { \"value\": \"\(object.contentEncoding!.toString())\"}, ") : jsonString.appendString("\"contentEncoding\": null, ")
             object.contentLength != nil ? jsonString.appendString("\"contentLength\": \(object.contentLength!), ") : jsonString.appendString("\"contentLength\": null, ")
             object.contentType != nil ? jsonString.appendString("\"contentType\": \"\(JSONUtil.escapeString(object.contentType!))\", ") : jsonString.appendString("\"contentType\": null, ")
             if (object.serviceHeaders != nil) {

@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.4
+    * @version v2.1.5
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -63,7 +63,7 @@ public class BaseSystemBridge : NSObject, IBaseSystem {
        Return the API version for the given interface.
     */
     public final func getAPIVersion() -> String? {
-        return "v2.1.4"
+        return "v2.1.5"
     }
 
     /**
@@ -81,7 +81,7 @@ public class BaseSystemBridge : NSObject, IBaseSystem {
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "BaseSystemBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.1.4."
+                responseMessage = "BaseSystemBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.1.5."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)
