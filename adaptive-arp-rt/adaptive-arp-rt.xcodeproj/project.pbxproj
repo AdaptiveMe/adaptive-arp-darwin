@@ -841,6 +841,10 @@
 		C3A7467E1A77C087001B21B9 /* IOParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7467C1A77BB86001B21B9 /* IOParser.swift */; };
 		C3D72D731A49BD0F00D10B30 /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D72D721A49BD0F00D10B30 /* GCD.swift */; };
 		C3D72D7C1A49BD1700D10B30 /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D72D721A49BD0F00D10B30 /* GCD.swift */; };
+		C3DBEC881A7FBB5500DB8D50 /* AppResourceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DBEC861A7FBB5500DB8D50 /* AppResourceData.swift */; };
+		C3DBEC891A7FBB5500DB8D50 /* IAppResourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DBEC871A7FBB5500DB8D50 /* IAppResourceManager.swift */; };
+		C3DBEC921A7FC02600DB8D50 /* AppResourceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DBEC861A7FBB5500DB8D50 /* AppResourceData.swift */; };
+		C3DBEC931A7FC02D00DB8D50 /* IAppResourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DBEC871A7FBB5500DB8D50 /* IAppResourceManager.swift */; };
 		C3DCC09F1A78DC2100053CE9 /* ServicePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DCC09E1A78DC2100053CE9 /* ServicePath.swift */; };
 /* End PBXBuildFile section */
 
@@ -1464,6 +1468,8 @@
 		C3BB4C131A126199005C177C /* BrowserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserTest.swift; sourceTree = "<group>"; };
 		C3BB4C201A126FAE005C177C /* TelephonyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TelephonyTest.swift; sourceTree = "<group>"; };
 		C3D72D721A49BD0F00D10B30 /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
+		C3DBEC861A7FBB5500DB8D50 /* AppResourceData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppResourceData.swift; sourceTree = "<group>"; };
+		C3DBEC871A7FBB5500DB8D50 /* IAppResourceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppResourceManager.swift; sourceTree = "<group>"; };
 		C3DCC09E1A78DC2100053CE9 /* ServicePath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicePath.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1544,6 +1550,7 @@
 				4E43AF1E1A48211100E61B83 /* AppContextWebviewBridge.swift */,
 				4E43AF1F1A48211100E61B83 /* AppRegistryBridge.swift */,
 				4E43AF201A48211100E61B83 /* AppRegistryDelegate.swift */,
+				C3DBEC861A7FBB5500DB8D50 /* AppResourceData.swift */,
 				4E43AF221A48211100E61B83 /* AudioBridge.swift */,
 				4E43AF231A48211100E61B83 /* BarcodeBridge.swift */,
 				4E43AF241A48211100E61B83 /* BarometerBridge.swift */,
@@ -1636,6 +1643,7 @@
 				4E43AF781A48211100E61B83 /* IAppContext.swift */,
 				4E43AF791A48211100E61B83 /* IAppContextWebview.swift */,
 				4E43AF7A1A48211100E61B83 /* IAppRegistry.swift */,
+				C3DBEC871A7FBB5500DB8D50 /* IAppResourceManager.swift */,
 				4E43AF831A48211100E61B83 /* IAudio.swift */,
 				4E43AF841A48211100E61B83 /* IBarcode.swift */,
 				4E43AF851A48211100E61B83 /* IBarometer.swift */,
@@ -2593,6 +2601,7 @@
 				4E43B2871A48211200E61B83 /* NotificationLocalBridge.swift in Sources */,
 				4E43B07D1A48211200E61B83 /* BaseDataBridge.swift in Sources */,
 				4E43B05B1A48211200E61B83 /* AmbientLightBridge.swift in Sources */,
+				C3DBEC891A7FBB5500DB8D50 /* IAppResourceManager.swift in Sources */,
 				4E43B2F71A48212D00E61B83 /* AppContextDelegate.swift in Sources */,
 				4E43B0671A48211200E61B83 /* AppContextWebviewBridge.swift in Sources */,
 				4E43B19D1A48211200E61B83 /* IDataStream.swift in Sources */,
@@ -2861,6 +2870,7 @@
 				4E43B27F1A48211200E61B83 /* NetworkStatusBridge.swift in Sources */,
 				C34D73A91A7A858600A8CD9F /* DisplayOrientationListenerImpl.swift in Sources */,
 				4E43B0791A48211200E61B83 /* BaseCommerceBridge.swift in Sources */,
+				C3DBEC881A7FBB5500DB8D50 /* AppResourceData.swift in Sources */,
 				4E43B29F1A48211200E61B83 /* SecurityBridge.swift in Sources */,
 				4E43B1191A48211200E61B83 /* IAnalytics.swift in Sources */,
 				4E43B2891A48211200E61B83 /* OAuthBridge.swift in Sources */,
@@ -2964,6 +2974,7 @@
 				C34E5F031A78E5C4009C8B0D /* IMagnetometer.swift in Sources */,
 				C34E5E401A78E5C4009C8B0D /* AdsBridge.swift in Sources */,
 				C34D73C21A7A858600A8CD9F /* ServiceRequestParameter.swift in Sources */,
+				C3DBEC931A7FC02D00DB8D50 /* IAppResourceManager.swift in Sources */,
 				C34E5E4B1A78E5C4009C8B0D /* AppRegistryDelegate.swift in Sources */,
 				C34E5E4F1A78E5C4009C8B0D /* BaseApplicationBridge.swift in Sources */,
 				C34E5F201A78E5C4009C8B0D /* IQRCode.swift in Sources */,
@@ -3093,6 +3104,7 @@
 				4E43B3891A48228700E61B83 /* SHA2.swift in Sources */,
 				C34E5E601A78E5C4009C8B0D /* BrowserBridge.swift in Sources */,
 				C34E5E851A78E5C4009C8B0D /* DeviceBridge.swift in Sources */,
+				C3DBEC921A7FC02600DB8D50 /* AppResourceData.swift in Sources */,
 				4E43B3871A48228700E61B83 /* SHA1.swift in Sources */,
 				C34E5F551A78E5C4009C8B0D /* OSBridge.swift in Sources */,
 				C34E5F3B1A78E5C4009C8B0D /* KeyPair.swift in Sources */,
