@@ -832,6 +832,8 @@
 		C34E5F721A78E5C4009C8B0D /* VideoBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43B04E1A48211200E61B83 /* VideoBridge.swift */; };
 		C34E5F731A78E5C4009C8B0D /* WalletBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43B04F1A48211200E61B83 /* WalletBridge.swift */; };
 		C34E5F741A78E5C4009C8B0D /* XMLBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43B0501A48211200E61B83 /* XMLBridge.swift */; };
+		C389F0AF1A84D168002E7D6E /* IServiceContentEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C389F0AE1A84D167002E7D6E /* IServiceContentEncoding.swift */; };
+		C389F0B01A84D168002E7D6E /* IServiceContentEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C389F0AE1A84D167002E7D6E /* IServiceContentEncoding.swift */; };
 		C39ACBD61A7F904900C470FF /* DisplayDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39ACBD51A7F904900C470FF /* DisplayDelegate.swift */; };
 		C39ACBD71A7F904900C470FF /* DisplayDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39ACBD51A7F904900C470FF /* DisplayDelegate.swift */; };
 		C39ACBE01A7F9F9D00C470FF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8FFC5B1A483D0800F0A8AE /* BaseViewController.swift */; };
@@ -1452,6 +1454,7 @@
 		C34D73A51A7A858600A8CD9F /* ServiceSessionCookie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceSessionCookie.swift; sourceTree = "<group>"; };
 		C34D73A61A7A858600A8CD9F /* ServiceToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceToken.swift; sourceTree = "<group>"; };
 		C34E61E41A0A4A240039A104 /* ContactTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTest.swift; sourceTree = "<group>"; };
+		C389F0AE1A84D167002E7D6E /* IServiceContentEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IServiceContentEncoding.swift; sourceTree = "<group>"; };
 		C38C36831A13A44600BC26CE /* GlobalizationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalizationTest.swift; sourceTree = "<group>"; };
 		C39ACBD51A7F904900C470FF /* DisplayDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayDelegate.swift; sourceTree = "<group>"; };
 		C39ED72F1A4AE37F0081C13F /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -1782,6 +1785,7 @@
 				4E43B0031A48211200E61B83 /* ISecurityResultCallbackWarning.swift */,
 				4E43B0041A48211200E61B83 /* IService.swift */,
 				C34D739F1A7A858600A8CD9F /* IServiceCertificateValidation.swift */,
+				C389F0AE1A84D167002E7D6E /* IServiceContentEncoding.swift */,
 				4E43B0051A48211200E61B83 /* IServiceMethod.swift */,
 				4E43B0071A48211200E61B83 /* IServiceResultCallback.swift */,
 				4E43B0081A48211200E61B83 /* IServiceResultCallbackError.swift */,
@@ -2615,6 +2619,7 @@
 				4E43B3271A48212D00E61B83 /* LifecycleDelegate.swift in Sources */,
 				4E43B24B1A48211200E61B83 /* ITimer.swift in Sources */,
 				4E43B0E91A48211200E61B83 /* EmailAddress.swift in Sources */,
+				C389F0AF1A84D168002E7D6E /* IServiceContentEncoding.swift in Sources */,
 				4E43B14B1A48211200E61B83 /* IBaseSecurity.swift in Sources */,
 				C34D73AF1A7A858600A8CD9F /* IDeviceOrientationListenerError.swift in Sources */,
 				4E43B1831A48211200E61B83 /* IContactPhotoResultCallbackError.swift in Sources */,
@@ -3150,6 +3155,7 @@
 				C34D73C01A7A858600A8CD9F /* RotationEventState.swift in Sources */,
 				4E43B37B1A48228700E61B83 /* Hash.swift in Sources */,
 				C34E5EC91A78E5C4009C8B0D /* ICompression.swift in Sources */,
+				C389F0B01A84D168002E7D6E /* IServiceContentEncoding.swift in Sources */,
 				C34E5F3D1A78E5C4009C8B0D /* LifecycleBridge.swift in Sources */,
 				C34E5EEA1A78E5C4009C8B0D /* IFileListResultCallbackWarning.swift in Sources */,
 				C34E5F281A78E5C4009C8B0D /* IServiceMethod.swift in Sources */,
