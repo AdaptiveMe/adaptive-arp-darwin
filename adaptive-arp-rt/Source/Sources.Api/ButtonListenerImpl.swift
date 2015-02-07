@@ -56,7 +56,7 @@ public class ButtonListenerImpl : BaseListenerImpl, IButtonListener {
        @since v2.0
     */
     public func onError(error : IButtonListenerError) { 
-        var param0 : String = "Adaptive.IButtonListenerError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
+        var param0 : String = "Adaptive.IButtonListenerError.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(error.toString())\\\"}\"))"
         var listenerId : Int64 = -1
         if (getId() != nil) {
             listenerId = getId()!
@@ -88,7 +88,7 @@ public class ButtonListenerImpl : BaseListenerImpl, IButtonListener {
     */
     public func onWarning(button : Button, warning : IButtonListenerWarning) { 
         var param0 : String = "Adaptive.Button.toObject(JSON.parse(\"\(JSONUtil.escapeString(Button.Serializer.toJSON(button)))\"))"
-        var param1 : String = "Adaptive.IButtonListenerWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\"}\"))"
+        var param1 : String = "Adaptive.IButtonListenerWarning.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(warning.toString())\\\"}\"))"
         var listenerId : Int64 = -1
         if (getId() != nil) {
             listenerId = getId()!

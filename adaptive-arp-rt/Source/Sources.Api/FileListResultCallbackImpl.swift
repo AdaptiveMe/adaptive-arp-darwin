@@ -56,7 +56,7 @@ public class FileListResultCallbackImpl : BaseCallbackImpl, IFileListResultCallb
        @since v2.0
     */
     public func onError(error : IFileListResultCallbackError) { 
-        var param0 : String = "Adaptive.IFileListResultCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
+        var param0 : String = "Adaptive.IFileListResultCallbackError.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(error.toString())\\\"}\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileListResultCallbackError( \"\(getId())\", \(param0))")
     }
 
@@ -98,7 +98,7 @@ public class FileListResultCallbackImpl : BaseCallbackImpl, IFileListResultCallb
         }
         param0Array.appendString("]")
         var param0 : String = param0Array as String
-        var param1 : String = "Adaptive.IFileListResultCallbackWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\"}\"))"
+        var param1 : String = "Adaptive.IFileListResultCallbackWarning.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(warning.toString())\\\"}\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileListResultCallbackWarning( \"\(getId())\", \(param0), \(param1))")
     }
 

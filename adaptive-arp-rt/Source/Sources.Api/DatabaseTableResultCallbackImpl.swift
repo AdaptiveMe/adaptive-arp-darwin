@@ -56,7 +56,7 @@ public class DatabaseTableResultCallbackImpl : BaseCallbackImpl, IDatabaseTableR
        @since v2.0
     */
     public func onError(error : IDatabaseTableResultCallbackError) { 
-        var param0 : String = "Adaptive.IDatabaseTableResultCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
+        var param0 : String = "Adaptive.IDatabaseTableResultCallbackError.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(error.toString())\\\"}\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseTableResultCallbackError( \"\(getId())\", \(param0))")
     }
 
@@ -80,7 +80,7 @@ public class DatabaseTableResultCallbackImpl : BaseCallbackImpl, IDatabaseTableR
     */
     public func onWarning(databaseTable : DatabaseTable, warning : IDatabaseTableResultCallbackWarning) { 
         var param0 : String = "Adaptive.DatabaseTable.toObject(JSON.parse(\"\(JSONUtil.escapeString(DatabaseTable.Serializer.toJSON(databaseTable)))\"))"
-        var param1 : String = "Adaptive.IDatabaseTableResultCallbackWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\"}\"))"
+        var param1 : String = "Adaptive.IDatabaseTableResultCallbackWarning.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(warning.toString())\\\"}\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseTableResultCallbackWarning( \"\(getId())\", \(param0), \(param1))")
     }
 

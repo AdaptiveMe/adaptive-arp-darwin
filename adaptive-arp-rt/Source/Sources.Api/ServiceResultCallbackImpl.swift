@@ -56,7 +56,7 @@ public class ServiceResultCallbackImpl : BaseCallbackImpl, IServiceResultCallbac
        @since v2.0
     */
     public func onError(error : IServiceResultCallbackError) { 
-        var param0 : String = "Adaptive.IServiceResultCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
+        var param0 : String = "Adaptive.IServiceResultCallbackError.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(error.toString())\\\"}\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleServiceResultCallbackError( \"\(getId())\", \(param0))")
     }
 
@@ -80,7 +80,7 @@ public class ServiceResultCallbackImpl : BaseCallbackImpl, IServiceResultCallbac
     */
     public func onWarning(response : ServiceResponse, warning : IServiceResultCallbackWarning) { 
         var param0 : String = "Adaptive.ServiceResponse.toObject(JSON.parse(\"\(JSONUtil.escapeString(ServiceResponse.Serializer.toJSON(response)))\"))"
-        var param1 : String = "Adaptive.IServiceResultCallbackWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\"}\"))"
+        var param1 : String = "Adaptive.IServiceResultCallbackWarning.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(warning.toString())\\\"}\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleServiceResultCallbackWarning( \"\(getId())\", \(param0), \(param1))")
     }
 

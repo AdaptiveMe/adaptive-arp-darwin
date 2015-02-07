@@ -56,7 +56,7 @@ public class GeolocationListenerImpl : BaseListenerImpl, IGeolocationListener {
        @since v2.0
     */
     public func onError(error : IGeolocationListenerError) { 
-        var param0 : String = "Adaptive.IGeolocationListenerError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
+        var param0 : String = "Adaptive.IGeolocationListenerError.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(error.toString())\\\"}\"))"
         var listenerId : Int64 = -1
         if (getId() != nil) {
             listenerId = getId()!
@@ -88,7 +88,7 @@ public class GeolocationListenerImpl : BaseListenerImpl, IGeolocationListener {
     */
     public func onWarning(geolocation : Geolocation, warning : IGeolocationListenerWarning) { 
         var param0 : String = "Adaptive.Geolocation.toObject(JSON.parse(\"\(JSONUtil.escapeString(Geolocation.Serializer.toJSON(geolocation)))\"))"
-        var param1 : String = "Adaptive.IGeolocationListenerWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\"}\"))"
+        var param1 : String = "Adaptive.IGeolocationListenerWarning.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(warning.toString())\\\"}\"))"
         var listenerId : Int64 = -1
         if (getId() != nil) {
             listenerId = getId()!
