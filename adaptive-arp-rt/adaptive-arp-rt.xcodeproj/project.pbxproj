@@ -486,6 +486,12 @@
 		4EDB4E7F1A028C9A008A2C4F /* AdaptiveArpRtOSX.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB4E7E1A028C9A008A2C4F /* AdaptiveArpRtOSX.xcdatamodeld */; };
 		4EDB4E811A028C9A008A2C4F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB4E801A028C9A008A2C4F /* Images.xcassets */; };
 		4EDB4E841A028C9A008A2C4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB4E821A028C9A008A2C4F /* Main.storyboard */; };
+		4EE84C871A866B11001713B4 /* AppResourceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE84C841A866B11001713B4 /* AppResourceData.swift */; };
+		4EE84C881A866B11001713B4 /* AppResourceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE84C841A866B11001713B4 /* AppResourceData.swift */; };
+		4EE84C891A866B11001713B4 /* IAppResourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE84C851A866B11001713B4 /* IAppResourceManager.swift */; };
+		4EE84C8A1A866B11001713B4 /* IAppResourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE84C851A866B11001713B4 /* IAppResourceManager.swift */; };
+		4EE84C8B1A866B11001713B4 /* IServiceContentEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE84C861A866B11001713B4 /* IServiceContentEncoding.swift */; };
+		4EE84C8C1A866B11001713B4 /* IServiceContentEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE84C861A866B11001713B4 /* IServiceContentEncoding.swift */; };
 		C307456E1A6664B300796509 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307456D1A6664B300796509 /* APIResponse.swift */; };
 		C3138D6B1A76371B0081DA12 /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3138D6A1A76371B0081DA12 /* MediaViewController.swift */; };
 		C34D73A71A7A858600A8CD9F /* DeviceOrientationListenerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34D73961A7A858600A8CD9F /* DeviceOrientationListenerImpl.swift */; };
@@ -1428,6 +1434,9 @@
 		4EDB4E831A028C9A008A2C4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4EDB4E891A028C9A008A2C4F /* AdaptiveArpRtOSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdaptiveArpRtOSXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EDB4E8E1A028C9A008A2C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4EE84C841A866B11001713B4 /* AppResourceData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppResourceData.swift; sourceTree = "<group>"; };
+		4EE84C851A866B11001713B4 /* IAppResourceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppResourceManager.swift; sourceTree = "<group>"; };
+		4EE84C861A866B11001713B4 /* IServiceContentEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IServiceContentEncoding.swift; sourceTree = "<group>"; };
 		C307456D1A6664B300796509 /* APIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		C3138D6A1A76371B0081DA12 /* MediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
 		C34D73961A7A858600A8CD9F /* DeviceOrientationListenerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceOrientationListenerImpl.swift; sourceTree = "<group>"; };
@@ -1544,6 +1553,7 @@
 				4E43AF1E1A48211100E61B83 /* AppContextWebviewBridge.swift */,
 				4E43AF1F1A48211100E61B83 /* AppRegistryBridge.swift */,
 				4E43AF201A48211100E61B83 /* AppRegistryDelegate.swift */,
+				4EE84C841A866B11001713B4 /* AppResourceData.swift */,
 				4E43AF221A48211100E61B83 /* AudioBridge.swift */,
 				4E43AF231A48211100E61B83 /* BarcodeBridge.swift */,
 				4E43AF241A48211100E61B83 /* BarometerBridge.swift */,
@@ -1636,6 +1646,7 @@
 				4E43AF781A48211100E61B83 /* IAppContext.swift */,
 				4E43AF791A48211100E61B83 /* IAppContextWebview.swift */,
 				4E43AF7A1A48211100E61B83 /* IAppRegistry.swift */,
+				4EE84C851A866B11001713B4 /* IAppResourceManager.swift */,
 				4E43AF831A48211100E61B83 /* IAudio.swift */,
 				4E43AF841A48211100E61B83 /* IBarcode.swift */,
 				4E43AF851A48211100E61B83 /* IBarometer.swift */,
@@ -1774,6 +1785,7 @@
 				4E43B0031A48211200E61B83 /* ISecurityResultCallbackWarning.swift */,
 				4E43B0041A48211200E61B83 /* IService.swift */,
 				C34D739F1A7A858600A8CD9F /* IServiceCertificateValidation.swift */,
+				4EE84C861A866B11001713B4 /* IServiceContentEncoding.swift */,
 				4E43B0051A48211200E61B83 /* IServiceMethod.swift */,
 				4E43B0071A48211200E61B83 /* IServiceResultCallback.swift */,
 				4E43B0081A48211200E61B83 /* IServiceResultCallbackError.swift */,
@@ -2593,6 +2605,7 @@
 				4E43B2871A48211200E61B83 /* NotificationLocalBridge.swift in Sources */,
 				4E43B07D1A48211200E61B83 /* BaseDataBridge.swift in Sources */,
 				4E43B05B1A48211200E61B83 /* AmbientLightBridge.swift in Sources */,
+				4EE84C891A866B11001713B4 /* IAppResourceManager.swift in Sources */,
 				4E43B2F71A48212D00E61B83 /* AppContextDelegate.swift in Sources */,
 				4E43B0671A48211200E61B83 /* AppContextWebviewBridge.swift in Sources */,
 				4E43B19D1A48211200E61B83 /* IDataStream.swift in Sources */,
@@ -2606,6 +2619,7 @@
 				4E43B3271A48212D00E61B83 /* LifecycleDelegate.swift in Sources */,
 				4E43B24B1A48211200E61B83 /* ITimer.swift in Sources */,
 				4E43B0E91A48211200E61B83 /* EmailAddress.swift in Sources */,
+				4EE84C8B1A866B11001713B4 /* IServiceContentEncoding.swift in Sources */,
 				4E43B14B1A48211200E61B83 /* IBaseSecurity.swift in Sources */,
 				C34D73AF1A7A858600A8CD9F /* IDeviceOrientationListenerError.swift in Sources */,
 				4E43B1831A48211200E61B83 /* IContactPhotoResultCallbackError.swift in Sources */,
@@ -2861,6 +2875,7 @@
 				4E43B27F1A48211200E61B83 /* NetworkStatusBridge.swift in Sources */,
 				C34D73A91A7A858600A8CD9F /* DisplayOrientationListenerImpl.swift in Sources */,
 				4E43B0791A48211200E61B83 /* BaseCommerceBridge.swift in Sources */,
+				4EE84C871A866B11001713B4 /* AppResourceData.swift in Sources */,
 				4E43B29F1A48211200E61B83 /* SecurityBridge.swift in Sources */,
 				4E43B1191A48211200E61B83 /* IAnalytics.swift in Sources */,
 				4E43B2891A48211200E61B83 /* OAuthBridge.swift in Sources */,
@@ -2964,6 +2979,7 @@
 				C34E5F031A78E5C4009C8B0D /* IMagnetometer.swift in Sources */,
 				C34E5E401A78E5C4009C8B0D /* AdsBridge.swift in Sources */,
 				C34D73C21A7A858600A8CD9F /* ServiceRequestParameter.swift in Sources */,
+				4EE84C8A1A866B11001713B4 /* IAppResourceManager.swift in Sources */,
 				C34E5E4B1A78E5C4009C8B0D /* AppRegistryDelegate.swift in Sources */,
 				C34E5E4F1A78E5C4009C8B0D /* BaseApplicationBridge.swift in Sources */,
 				C34E5F201A78E5C4009C8B0D /* IQRCode.swift in Sources */,
@@ -3093,6 +3109,7 @@
 				4E43B3891A48228700E61B83 /* SHA2.swift in Sources */,
 				C34E5E601A78E5C4009C8B0D /* BrowserBridge.swift in Sources */,
 				C34E5E851A78E5C4009C8B0D /* DeviceBridge.swift in Sources */,
+				4EE84C881A866B11001713B4 /* AppResourceData.swift in Sources */,
 				4E43B3871A48228700E61B83 /* SHA1.swift in Sources */,
 				C34E5F551A78E5C4009C8B0D /* OSBridge.swift in Sources */,
 				C34E5F3B1A78E5C4009C8B0D /* KeyPair.swift in Sources */,
@@ -3138,6 +3155,7 @@
 				C34D73C01A7A858600A8CD9F /* RotationEventState.swift in Sources */,
 				4E43B37B1A48228700E61B83 /* Hash.swift in Sources */,
 				C34E5EC91A78E5C4009C8B0D /* ICompression.swift in Sources */,
+				4EE84C8C1A866B11001713B4 /* IServiceContentEncoding.swift in Sources */,
 				C34E5F3D1A78E5C4009C8B0D /* LifecycleBridge.swift in Sources */,
 				C34E5EEA1A78E5C4009C8B0D /* IFileListResultCallbackWarning.swift in Sources */,
 				C34E5F281A78E5C4009C8B0D /* IServiceMethod.swift in Sources */,
