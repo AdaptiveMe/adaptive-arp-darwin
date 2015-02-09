@@ -33,6 +33,9 @@ Release:
 */
 
 import Foundation
+#if os(iOS)
+    import UIKit
+#endif
 
 /**
 Interface for Managing the Services operations
@@ -44,11 +47,28 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
     let logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
     let loggerTag : String = "ServiceDelegate"
     
-    /// Array of registered services
-    var services : [Service]!
+    /**
+    Internal class to encapsulate the session information of the requests/response to one endpoint.
+    This class mantains the cookies, Session attributes, Headers and user-agent between consecutive 
+    requests/responses for one endpoint
+    */
+    class Header {
+        
+        var headers : [ServiceHeader]!
+        var cookies : [ServiceSessionCookie]!
+        var attributes : [ServiceSessionAttribute]!
+        var userAgent : String!
+        
+        init(){
+            headers = [ServiceHeader]()
+            cookies = [ServiceSessionCookie]()
+            attributes = [ServiceSessionAttribute]()
+            userAgent = ""
+        }
+    }
     
-    /// Queue for the services calls
-    let q : dispatch_queue_t = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+    /// Dictionary for storing the session information. The key of the dictionary is the service-endpoint name
+    var headers:[String : Header]!
     
     /**
     Default Constructor.
@@ -56,214 +76,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
     public override init() {
         super.init()
         
-        services = [Service]()
-    }
-    
-    /**
-    Get a reference to a registered service by name.
-    
-    @param serviceName Name of service.
-    @return A service, if registered, or null of the service does not exist.
-    @since ARP1.0
-    */
-    /*public func getService(serviceName : String) -> Service? {
-    
-    for service in services {
-    
-    if(service.getName() == serviceName) {
-    
-    logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Returning \(service.getName()!) from the service pull")
-    return service
-    }
-    }
-    
-    logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "\(serviceName) is not founded on the pull")
-    
-    return nil
-    }*/
-    
-    /**
-    Request async a service for an Url
-    
-    @param serviceRequest Service Request to invoke
-    @param service        Service to call
-    @param callback       Callback to execute with the result
-    @since ARP1.0
-    */
-    /*public func invokeService(serviceRequest : ServiceRequest, service : Service, callback : IServiceResultCallback) {
-    
-    // TODO: handle http status WARNING codes for: NotRegisteredService, NotTrusted, IncorrectScheme
-    // TODO: Use the encoding of the request in order to convert the string (*1)
-    
-    // Create a que task for executing the service
-    
-    let t = async(q) { () -> String? in
-    
-    if(!self.isRegistered(service)!){
-    callback.onError(IServiceResultCallbackError.NotRegisteredService)
-    self.logger.log(ILoggingLogLevel.ERROR, category: "ServiceImpl", message: "\(service.getName()) is not registered on the pull")
-    return nil
-    }
-    
-    // Prepare the url with all the parameters of the endpoint
-    /*
-    
-    TODO: change service invoke
-    
-    let endpoint: ServiceEndpoint = service.getServiceEndpoint()!
-    var url: String = endpoint.getScheme()!
-    url = url + "://"
-    url = url + endpoint.getHost()! + ":\(endpoint.getPort())"
-    url = url + endpoint.getPath()!
-    
-    self.logger.log(ILoggingLogLevel.DEBUG, category: "ServiceImpl", message: "The url of the request is: \(url)")
-    
-    // Check the url for malforming
-    if(Utils.validateUrl(url)){
-    callback.onError(IServiceResultCallbackError.MalformedUrl)
-    self.logger.log(ILoggingLogLevel.ERROR, category: "ServiceImpl", message: "Malformed url: \(url)")
-    return nil
-    }
-    
-    let stringData:String = serviceRequest.getContent()!
-    let data: NSData = stringData.dataUsingEncoding(NSUTF8StringEncoding)!
-    // Call the function that composes the Request
-    self.post(url, method: service.getMethod()!, contentType: serviceRequest.getContentType()!, contentLenght: serviceRequest.getContentLength()!, content: NSInputStream(data: data)) { (succeeded: UInt, responseContent: NSString?, warning: IServiceResultCallbackWarning?, error: IServiceResultCallbackError?) -> () in
-    
-    if(succeeded == 0) {
-    
-    // Compose the response
-    
-    // TODO: set the values for ContentType, ContentBinary, ContentBinaryLenght, headers and sessions
-    
-    var response: ServiceResponse = ServiceResponse()
-    
-    response.setContent(responseContent!)
-    response.setContentLength(responseContent!.length)
-    
-    self.logger.log(ILoggingLogLevel.DEBUG, category: "ServiceImpl", message: "\(service.getName()) is called correctly")
-    callback.onResult(response)
-    }
-    else if (succeeded == 1){
-    
-    // TODO: Compose the Service Response
-    
-    var response: ServiceResponse = ServiceResponse()
-    self.logger.log(ILoggingLogLevel.WARN, category: "ServiceImpl", message: "There was an warning calling the service: \(service.getName()) \(error!)")
-    callback.onWarning(response, warning: warning!)
-    }
-    else {
-    
-    self.logger.log(ILoggingLogLevel.ERROR, category: "ServiceImpl", message: "There was an error calling the service: \(service.getName()) \(error!)")
-    callback.onError(error!)
-    }
-    }
-    */
-    
-    return nil
-    }
-    
-    // Execute the task
-    var v: String? = t.await()
-    }*/
-    
-    /**
-    Check whether a service by the given service is already registered.
-    
-    @param service Service to check
-    @return True if the service is registered, false otherwise.
-    @since ARP1.0
-    */
-    /*public func isRegistered(service : Service) -> Bool? {
-    
-    return self.getService(service.getName()!) != nil ? true : false
-    }*/
-    
-    /**
-    Check whether a service by the given name is registered.
-    
-    @param serviceName Name of service.
-    @return True if the service is registered, false otherwise.
-    @since ARP1.0
-    */
-    /*public func isRegistered(serviceName : String) -> Bool? {
-    
-    return self.getService(serviceName) != nil ? true : false
-    }*/
-    
-    /**
-    Register a new service
-    
-    @param service to register
-    @since ARP1.0
-    */
-    /*public func registerService(service : Service) {
-    
-    if service.getName() == "" || service.getName()!.isEmpty {
-    
-    logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The service has no name. Impossible to add to the pull")
-    } else {
-    
-    // Check if the service exists
-    if service.isEqual(self.getService(service.getName()!)){
-    logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The service \(service.getName()!) is alredy on the pull, replacing...")
-    self.unregisterService(service)
-    }
-    
-    services.append(service)
-    logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Adding \(service.getName()!) to the service pull")
-    }
-    }*/
-    
-    /**
-    Unregister a service
-    
-    @param service to unregister
-    @since ARP1.0
-    */
-    /*public func unregisterService(service : Service) {
-    
-    for (index, s) in enumerate(services) {
-    
-    if(service.isEqual(s)) {
-    
-    services.removeAtIndex(index)
-    
-    logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing \(service.getName()!) to the service pull")
-    
-    return
-    }
-    }
-    
-    logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "\(service.getName()!) is not founded in the pull for removing")
-    }*/
-    
-    /**
-    Unregister all services.
-    
-    @since ARP1.0
-    */
-    /*public func unregisterServices() {
-    
-    logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing all services from thee service pull")
-    
-    services.removeAll(keepCapacity: false)
-    }*/
-    
-    /**
-    Create a service request for the given ServiceToken. This method creates the request, populating
-    existing headers and cookies for the same service. The request is populated with all the defaults
-    for the service being invoked and requires only the request body to be set. Headers and cookies may be
-    manipulated as needed by the application before submitting the ServiceRequest via invokeService.
-    
-    @param serviceToken ServiceToken to be used for the creation of the request.
-    @return ServiceRequest with pre-populated headers, cookies and defaults for the service.
-    @since v2.0.6
-    */
-    public func getServiceRequest(serviceToken : ServiceToken) -> ServiceRequest? {
-        
-        // TODO: MUST IMPLEMENT
-        return nil
+        headers = [String : Header]()
     }
     
     /**
@@ -279,8 +92,93 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
     */
     public func getServiceToken(serviceName : String, endpointName : String, functionName : String, method : IServiceMethod) -> ServiceToken? {
         
-        // TODO: MUST IMPLEMENT
+        // Check if the service is registered
+        if !self.isServiceRegistered(serviceName, endpointName: endpointName, functionName: functionName, method: method)! {
+            
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The service you are trying to obtain a token is not registered in the io config platform file. Please register it")
+            return nil
+        }
+        
+        // Create a token and return it
+        return convertToServiceToken(serviceName, endpointName: endpointName, functionName: functionName, method: method)
+    }
+    
+    /**
+    Obtains a Service token by a concrete uri (http://domain.com/path). This method would be useful when
+    a service response is a redirect (3XX) and it is necessary to make a request to another host and we
+    don't know by advance the name of the service.
+    
+    @param uri Unique Resource Identifier for a Service-Endpoint-Path-Method
+    @return ServiceToken to create a service request or null if the given parameter is not
+    configured in the platform's XML service definition file.
+    @since v2.1.4
+    */
+    public func getServiceTokenByUri(uri : String) -> ServiceToken? {
+        
+        if let serviceToken:ServiceToken = IOParser.sharedInstance.getServiceTokenByURI(uri) {
+            if self.isServiceRegistered(serviceToken) {
+                return serviceToken                
+            }
+        }
+        
+        logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The service you are trying to obtain by URI is not registered in the io config platform file.")
         return nil
+    }
+    
+    /**
+    Create a service request for the given ServiceToken. This method creates the request, populating
+    existing headers and cookies for the same service. The request is populated with all the defaults
+    for the service being invoked and requires only the request body to be set. Headers and cookies may be
+    manipulated as needed by the application before submitting the ServiceRequest via invokeService.
+    
+    @param serviceToken ServiceToken to be used for the creation of the request.
+    @return ServiceRequest with pre-populated headers, cookies and defaults for the service.
+    @since v2.0.6
+    */
+    public func getServiceRequest(serviceToken : ServiceToken) -> ServiceRequest? {
+        
+        if !self.isServiceRegistered(serviceToken) {
+            
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The service you are trying to make a request is not registered in the io config platform file. Please register it")
+            return nil
+        }
+        
+        var request:ServiceRequest = ServiceRequest()
+        
+        // Content Encoding - by default UFT-8
+        request.setContentEncoding(IServiceContentEncoding.UTF8)
+        
+        // Set the service Token to the request
+        request.setServiceToken(serviceToken)
+        
+        // User agent - Interrogate Javascript
+        var useragent:String = ""
+        #if os(iOS)
+            var webview: AnyObject? = AppRegistryBridge.sharedInstance.getPlatformContextWeb().getWebviewPrimary()
+            dispatch_async(dispatch_get_main_queue(), {
+                useragent = (webview as UIWebView).stringByEvaluatingJavaScriptFromString("navigator.userAgent")!
+            })
+        #endif
+        #if os(OSX)
+            // TODO: implement this for OSX
+        #endif
+        request.setUserAgent(useragent)
+        
+        // TODO: referer host
+        
+        // Content Type - Extract from the service configuration
+        request.setContentType(IOParser.sharedInstance.getContentType(serviceToken))
+        
+        if let info:Header = headers[serviceToken.getEndpointName()!] {
+            
+            // There is previous information of this endpoint
+            request.setServiceHeaders(info.headers)
+            request.setServiceSession(ServiceSession(cookies: info.cookies, attributes: info.attributes))
+            
+        } else {
+            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "There is no previous information for this endpoint: \(serviceToken.getEndpointName()!)")
+        }
+        return request
     }
     
     /**
@@ -291,20 +189,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
     */
     public func getServicesRegistered() -> [ServiceToken]? {
         
-        // TODO: MUST IMPLEMENT
-        return nil
-    }
-    
-    /**
-    Executes the given ServiceRequest and provides responses to the given callback handler.
-    
-    @param serviceRequest ServiceRequest with the request body.
-    @param callback       IServiceResultCallback to handle the ServiceResponse.
-    @since v2.0.6
-    */
-    public func invokeService(serviceRequest : ServiceRequest, callback : IServiceResultCallback) {
-        
-        // TODO: MUST IMPLEMENT
+        return IOParser.sharedInstance.getServices()
     }
     
     /**
@@ -320,101 +205,354 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
     */
     public func isServiceRegistered(serviceName : String, endpointName : String, functionName : String, method : IServiceMethod) -> Bool? {
         
-        // TODO: MUST IMPLEMENT
-        return nil
+        if serviceName.isEmpty || serviceName == "" || endpointName.isEmpty || endpointName == "" || functionName.isEmpty || functionName == "" || method == IServiceMethod.Unknown {
+            
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "There are some parameteres in the ServiceToken that are empty or Unknown")
+            
+            return false
+        }
+        
+        return IOParser.sharedInstance.validateService(convertToServiceToken(serviceName, endpointName: endpointName, functionName: functionName, method: method))
     }
     
-    private func post(url : String, method: IServiceMethod, contentType: String, contentLenght: Int, content: NSInputStream, postCompleted : (succeeded: UInt, responseContent: NSString?, warning: IServiceResultCallbackWarning?, error: IServiceResultCallbackError?) -> ()) {
+    /**
+    Checks whether a specific token is configured in the platform's XML service definition file.
+    
+    :param: token Service Token
+    
+    :returns: Returns true if the service is configured, false otherwise.
+    */
+    private func isServiceRegistered(token:ServiceToken) -> Bool {
         
-        // TODO: The type of the service is not used (Service.ServiceType)
-        // TODO: The Proxy parameter of the Endpoint is not used
-        // TODO: The headers parameters is not used
-        // TODO: The method atribute of the ServiceRequest is not used
-        // TODO: The protocol version of the Service Request is not used
-        // TODO: The raw content of the Service Request is not used
-        // TODO: The session attribute of Service Request is not used
+        return self.isServiceRegistered(token.getServiceName()!, endpointName: token.getEndpointName()!, functionName: token.getFunctionName()!, method: token.getInvocationMethod()!)!
+    }
+    
+    /**
+    Internal method to convert an array of parameters into a service token
+    
+    :param: serviceName  Name of the service
+    :param: endpointName Url of the endpoint
+    :param: functionName Path of the function
+    :param: method       HTTP method for the call
+    
+    :returns: Token for making a call
+    */
+    private func convertToServiceToken(serviceName : String, endpointName : String, functionName : String, method : IServiceMethod) -> ServiceToken {
         
-        // Create and prepare the request and the sesion
-        var request = NSMutableURLRequest(URL: NSURL(string: url)!)
-        var session = NSURLSession.sharedSession()
+        // Create a token and return it
+        var token:ServiceToken = ServiceToken()
+        token.setServiceName(serviceName)
+        token.setEndpointName(endpointName)
+        token.setFunctionName(functionName)
+        token.setInvocationMethod(method)
         
-        // Prepare the Service Request
-        let contentType: String = contentType != "" ? contentType : "application/json"
+        return token
+    }
+    
+    /**
+    Executes the given ServiceRequest and provides responses to the given callback handler.
+    
+    @param serviceRequest ServiceRequest with the request body.
+    @param callback       IServiceResultCallback to handle the ServiceResponse.
+    @since v2.0.6
+    */
+    public func invokeService(serviceRequest : ServiceRequest, callback : IServiceResultCallback) {
         
-        var err: NSError?
-        request.HTTPBodyStream = content
-        request.addValue(contentType, forHTTPHeaderField: "Content-Type")
-        request.addValue(contentType, forHTTPHeaderField: "Accept")
-        request.addValue(String(contentLenght), forHTTPHeaderField: "Content-Length")
-        request.HTTPMethod = method == IServiceMethod.POST ? "POST" : "GET"
-        request.HTTPShouldUsePipelining = true
+        // TODO: Vaidation Type on ServiceEndpoint. Certificate validation, Fingerprints, etc...
+        // Warning CertificateUntrusted
         
-        
-        var task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+        if let token = serviceRequest.getServiceToken() {
             
-            // Cast the response and the errors
-            let httpResponse: NSHTTPURLResponse = response as NSHTTPURLResponse
-            
-            let nsError: NSError? = error as NSError
-            
-            // There was an error on the data task
-            if(nsError != nil) {
+            if self.isServiceRegistered(token) {
                 
-                self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "The call of the service is getting an error")
+                if let  service:Service = IOParser.sharedInstance.getServiceByToken(token) {
                 
-                postCompleted(succeeded: 2, responseContent: nil, warning: nil, error: IServiceResultCallbackError.Unreachable)
-            }
-            else {
-                
-                //Converting data to String
-                let responseText:NSString = NSString(data:data, encoding:NSUTF8StringEncoding)!
-                
-                // Check for Not secured url
-                if (url as NSString).containsString("https://") {
-                    self.logger.log(ILoggingLogLevel.DEBUG, category: self.loggerTag, message: "Secured URL (https): \(url)")
+                    // url composistion
+                    var serviceEndpoint:ServiceEndpoint = service.getServiceEndpoints()![0]
+                    var url : NSMutableString = NSMutableString()
+                    url.appendString(serviceEndpoint.getHostURI()!)
+                    url.appendString(serviceEndpoint.getPaths()![0].getPath()!)
+                    
+                    // queryParameters
+                    if let params:[ServiceRequestParameter] = serviceRequest.getQueryParameters() {
+                        
+                        url.appendString("?")
+                        
+                        for (index, param:ServiceRequestParameter) in enumerate(params) {
+                            url.appendString(param.getKeyName()! + "=" + param.getKeyData()!)
+                            if index < params.count-1 {
+                                url.appendString("&")
+                            }
+                        }
+                        
+                    } else {
+                        // There are no query parameters, nothing to do
+                        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "There are no query parameters, nothing to do")
+                    }
+                    
+                    self.logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "The url of the request is: \(url)")
+                    
+                    // Check the url for malforming
+                    if !Utils.validateUrl(url) {
+                        
+                        self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Malformed url: \(url)")
+                        callback.onError(IServiceResultCallbackError.MalformedUrl)
+                        return
+                        
+                    } else {
+                        
+                        // Prepare the request
+                        var request = NSMutableURLRequest()
+                        request.HTTPShouldUsePipelining = true
+                        request.HTTPShouldHandleCookies = true
+                        request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData
+                        
+                        
+                        switch serviceRequest.getServiceToken()!.getInvocationMethod()! {
+                            
+                        case IServiceMethod.POST:
+                            request.HTTPMethod = "POST"
+                        case IServiceMethod.GET:
+                            request.HTTPMethod = "GET"
+                        case IServiceMethod.HEAD:
+                            request.HTTPMethod = "HEAD"
+                        case IServiceMethod.Unknown:
+                            request.HTTPMethod = "GET"
+                        }
+                        
+                        request.URL = NSURL(string: url)!
+                        
+                        // Content or BodyParameteres + Content
+                        
+                        var content:NSMutableString = NSMutableString()
+                        if let params:[ServiceRequestParameter] = serviceRequest.getBodyParameters() {
+                            
+                            // If there are body parameters, append to the content
+                            
+                            for (index, param:ServiceRequestParameter) in enumerate(params) {
+                                content.appendString(param.getKeyName()! + "=" + param.getKeyData()! + "\n")
+                            }
+                        }
+                        
+                        if let c = serviceRequest.getContent() {
+                            content.appendString(c)
+                        }
+                        
+                        
+                        var data:NSData? = nil
+                        
+                        switch serviceRequest.getContentEncoding()! {
+                        case IServiceContentEncoding.ASCII:
+                            data = content.dataUsingEncoding(NSASCIIStringEncoding)
+                        case IServiceContentEncoding.ISOLatin1:
+                            data = content.dataUsingEncoding(NSISOLatin1StringEncoding)
+                        case IServiceContentEncoding.Unicode:
+                            data = content.dataUsingEncoding(NSUnicodeStringEncoding)
+                        case IServiceContentEncoding.UTF8:
+                            data = content.dataUsingEncoding(NSUTF8StringEncoding)
+                        case IServiceContentEncoding.Unknown:
+                            data = content.dataUsingEncoding(NSUTF8StringEncoding)
+                        }
+                        
+                        if let data = data {
+                            request.HTTPBody = data
+                            
+                            // Content Encoding
+                            request.addValue(serviceRequest.getContentEncoding()!.toString(), forHTTPHeaderField: "Content-Encoding")
+                            
+                            // Content Lenght
+                            request.addValue("\(data.length)", forHTTPHeaderField: "Content-Length")
+                            
+                            // Content Type
+                            request.addValue("\(serviceRequest.getContentType())", forHTTPHeaderField: "Content-Type")
+                            
+                            // Referer Host
+                            request.addValue("\(serviceRequest.getRefererHost())", forHTTPHeaderField: "Referer")
+                            
+                            // user-agent
+                            request.addValue("\(serviceRequest.getUserAgent())", forHTTPHeaderField: "User-Agent")
+                            
+                            // TODO HEADERS & SESSION
+                            if let h:Header =  headers[serviceRequest.getServiceToken()!.getEndpointName()!] {
+                                
+                                // There is a header, update the values
+                                h.userAgent = serviceRequest.getUserAgent()
+                                
+                                headers[serviceRequest.getServiceToken()!.getEndpointName()!] = h
+                                
+                            } else {
+                                
+                                // There is no header, create one and set it
+                                var h:Header = Header()
+                                h.userAgent = serviceRequest.getUserAgent()
+                                
+                                headers[serviceRequest.getServiceToken()!.getEndpointName()!] = h
+                            }
+                            
+                        } else {
+                            self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "There is an error encoding the data for the request")
+                            callback.onError(IServiceResultCallbackError.Unknown)
+                            return
+                        }
+                        
+                        var task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+                            
+                            // Cast the response and the errors
+                            let httpResponse: NSHTTPURLResponse = response as NSHTTPURLResponse
+                            
+                            if let error:NSError = error {
+                                
+                                self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "There's been an error on the response of the service invoke: \(error.debugDescription)")
+                                
+                                callback.onError(IServiceResultCallbackError.Unreachable)
+                                return
+                                
+                            } else {
+                                
+                                if let responseText:NSString = NSString(data:data, encoding:NSUTF8StringEncoding) {
+                                    
+                                    var sCode:Int32 = Int32(httpResponse.statusCode)
+                                    
+                                    self.logger.log(ILoggingLogLevel.DEBUG, category: self.loggerTag, message: "Status code: \(sCode)")
+                                    
+                                    switch sCode {
+                                        
+                                    case 200...406, 500...599:
+                                        
+                                        // VALID RESPONSES (CORRECT AND WARNINGS)
+                                        
+                                        var response: ServiceResponse = ServiceResponse()
+                                        response.setContent(responseText)
+                                        response.setContentEncoding(IServiceContentEncoding.UTF8)
+                                        response.setContentLength(Int32(responseText.length))
+                                        response.setContentType(IOParser.sharedInstance.getContentType(token))
+                                        response.setStatusCode(sCode)
+                                        
+                                        // TODO: HEADERS & SESSION
+                                        
+                                        // Check for Not secured url
+                                        if !url.containsString("https://") {
+                                            self.logger.log(ILoggingLogLevel.WARN, category: self.loggerTag, message: "Not Secured URL (https): \(url)")
+                                            callback.onWarning(response, warning: IServiceResultCallbackWarning.NotSecure)
+                                            return
+                                        }
+                                        
+                                        switch sCode {
+                                            
+                                        case 200...299:
+                                            
+                                            callback.onResult(response)
+                                            return
+                                            
+                                        case 300...399:
+                                            
+                                            self.logger.log(ILoggingLogLevel.WARN, category: self.loggerTag, message: "Redirected Response")
+                                            callback.onWarning(response, warning: IServiceResultCallbackWarning.Redirected)
+                                            return
+                                            
+                                        case 400:
+                                            
+                                            self.logger.log(ILoggingLogLevel.WARN, category: self.loggerTag, message: "Wrong params: \(url)")
+                                            callback.onWarning(response, warning: IServiceResultCallbackWarning.Wrong_Params)
+                                            return
+                                            
+                                        case 401:
+                                            
+                                            self.logger.log(ILoggingLogLevel.WARN, category: self.loggerTag, message: "Not authenticaded: \(url)")
+                                            callback.onWarning(response, warning: IServiceResultCallbackWarning.NotAuthenticated)
+                                            return
+                                            
+                                        case 402:
+                                            
+                                            self.logger.log(ILoggingLogLevel.WARN, category: self.loggerTag, message: "Payment Required: \(url)")
+                                            callback.onWarning(response, warning: IServiceResultCallbackWarning.PaymentRequired)
+                                            return
+                                            
+                                        case 403:
+                                            
+                                            self.logger.log(ILoggingLogLevel.WARN, category: self.loggerTag, message: "Forbidden: \(url)")
+                                            callback.onWarning(response, warning: IServiceResultCallbackWarning.Forbidden)
+                                            return
+                                            
+                                        case 404:
+                                            
+                                            self.logger.log(ILoggingLogLevel.WARN, category: self.loggerTag, message: "NotFound: \(url)")
+                                            callback.onWarning(response, warning: IServiceResultCallbackWarning.NotFound)
+                                            return
+                                            
+                                        case 405:
+                                            
+                                            self.logger.log(ILoggingLogLevel.WARN, category: self.loggerTag, message: "Method not allowed: \(url)")
+                                            callback.onWarning(response, warning: IServiceResultCallbackWarning.MethodNotAllowed)
+                                            return
+                                            
+                                        case 406:
+                                            
+                                            self.logger.log(ILoggingLogLevel.WARN, category: self.loggerTag, message: "Not allowed: \(url)")
+                                            callback.onWarning(response, warning: IServiceResultCallbackWarning.NotAllowed)
+                                            return
+                                            
+                                        case 500...599:
+                                            
+                                            self.logger.log(ILoggingLogLevel.WARN, category: self.loggerTag, message: "Server error: \(url)")
+                                            callback.onWarning(response, warning: IServiceResultCallbackWarning.ServerError)
+                                            return
+                                            
+                                        default:
+                                            
+                                            self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "The status code received: \(sCode) is not handled by the plattform")
+                                            callback.onError(IServiceResultCallbackError.Unreachable)
+                                            return
+                                        }
+                                        
+                                    // INVALID RESPONSES
+                                        
+                                    case 408:
+                                        self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "There is a timeout calling the service: \(sCode)")
+                                        callback.onError(IServiceResultCallbackError.TimeOut)
+                                        return
+                                    case 444:
+                                        self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "There is no response calling the service: \(sCode)")
+                                        callback.onError(IServiceResultCallbackError.NoResponse)
+                                        return
+                                        
+                                    default:
+                                        self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "The status code received: \(sCode) is not handled by the plattform")
+                                        callback.onError(IServiceResultCallbackError.Unknown)
+                                        return
+                                    }
+                                    
+                                } else {
+                                    
+                                    self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "There's been an error parsing the response on the response of the service invoke")
+                                    
+                                    callback.onError(IServiceResultCallbackError.Unreachable)
+                                    return
+                                }
+                            }
+                        })
+                        
+                        // Start the task
+                        task.resume()
+                    }
+                    
                 } else {
-                    self.logger.log(ILoggingLogLevel.WARN, category: self.loggerTag, message: "NOT Secured URL (https): \(url)")
-                    
-                    postCompleted(succeeded: 1, responseContent: responseText, warning: IServiceResultCallbackWarning.NotSecure, error: nil)
+                    self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The service \(token.getServiceName()) is not registered on the io services config file")
+                    callback.onError(IServiceResultCallbackError.NotRegisteredService)
+                    return
                 }
                 
-                self.logger.log(ILoggingLogLevel.DEBUG, category: self.loggerTag, message: "status code: \(httpResponse.statusCode)")
-                
-                switch (httpResponse.statusCode) {
-                case 200..<299:
-                    postCompleted(succeeded: 0, responseContent: responseText, warning: nil, error: nil)
-                case 300..<399:
-                    postCompleted(succeeded: 1, responseContent: responseText, warning: IServiceResultCallbackWarning.Redirected, error: nil)
-                case 400:
-                    postCompleted(succeeded: 1, responseContent: responseText, warning: IServiceResultCallbackWarning.Wrong_Params, error: nil)
-                case 401:
-                    postCompleted(succeeded: 2, responseContent: nil, warning: nil, error: IServiceResultCallbackError.NotAuthenticated)
-                case 403:
-                    postCompleted(succeeded: 2, responseContent: nil, warning: nil, error: IServiceResultCallbackError.Forbidden)
-                case 404:
-                    postCompleted(succeeded: 2, responseContent: nil, warning: nil, error: IServiceResultCallbackError.NotFound)
-                case 405:
-                    postCompleted(succeeded: 2, responseContent: nil, warning: nil, error: IServiceResultCallbackError.MethodNotAllowed)
-                case 406:
-                    postCompleted(succeeded: 2, responseContent: nil, warning: nil, error: IServiceResultCallbackError.NotAllowed)
-                case 408:
-                    postCompleted(succeeded: 2, responseContent: nil, warning: nil, error: IServiceResultCallbackError.TimeOut)
-                case 444:
-                    postCompleted(succeeded: 2, responseContent: nil, warning: nil, error: IServiceResultCallbackError.NoResponse)
-                case 400..<499:
-                    postCompleted(succeeded: 2, responseContent: nil, warning: nil, error: IServiceResultCallbackError.Unreachable)
-                case 500..<599:
-                    postCompleted(succeeded: 2, responseContent: nil, warning: nil, error: IServiceResultCallbackError.Unreachable)
-                default:
-                    postCompleted(succeeded: 2, responseContent: nil, warning: nil, error: IServiceResultCallbackError.Unreachable)
-                    
-                }
-                
+            } else {
+                self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The service \(token.getServiceName()) is not registered on the io services config file")
+                callback.onError(IServiceResultCallbackError.NotRegisteredService)
+                return
             }
-        })
-        
-        // Start the task
-        task.resume()
+            
+        } else {
+            self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "There isn't a serviceToken inside the serviceRequest")
+            callback.onError(IServiceResultCallbackError.Unreachable)
+            return
+        }
     }
     
 }
