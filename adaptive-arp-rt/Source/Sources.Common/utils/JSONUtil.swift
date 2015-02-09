@@ -36,13 +36,14 @@ public struct JSONUtil {
     public static func escapeString(string: String) -> String {
         var resultString : String = string
         // Replace " with \"
+        resultString = resultString.stringByReplacingOccurrencesOfString("\\", withString: "\\\\", options: NSStringCompareOptions.LiteralSearch, range: nil)
         resultString = resultString.stringByReplacingOccurrencesOfString("\"", withString: "\\\"", options: NSStringCompareOptions.LiteralSearch, range: nil)
         return resultString
     }
     
     public static func unescapeString(string: String) -> String {
         var resultString : String = string
-        // Replace " with \"
+        // Replace " with nothing
         resultString = resultString.stringByReplacingOccurrencesOfString("\"", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
         return resultString
     }

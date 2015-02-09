@@ -129,7 +129,6 @@ public class HttpInterceptorProtocol : NSURLProtocol {
                 
                 // ADAPTIVE NATIVE CALLS
                 
-                
                 if let body:NSData = newRequest.HTTPBody {
                     
                     if let bodyString:NSString = NSString(data: body, encoding: NSUTF8StringEncoding) {
@@ -159,13 +158,9 @@ public class HttpInterceptorProtocol : NSURLProtocol {
                             logger.log(ILoggingLogLevel.ERROR, category:loggerTag, message: "There is no attribute inside APIRequest indicating the TS version ")
                         }
                         
-                        //logger.log(ILoggingLogLevel.INFO, category: loggerTag, message: "API REQUEST [\(apiRequest.getBridgeType()!).\(apiRequest.getMethodName()!)]: \(apiRequest)")
-                        
                         // Call the service and return the data
                         var apiResponse:APIResponse = ServiceHandler.sharedInstance.handleServiceUrl(apiRequest)
                         var data:NSString = APIResponse.Serializer.toJSON(apiResponse)
-                        
-                        //logger.log(ILoggingLogLevel.INFO, category: loggerTag, message: "RESPONSE DATA: \(data)")
                         
                         // Create the response                        
                         var responseHeaders = NSMutableDictionary(dictionary: requestHeaders)
@@ -173,10 +168,7 @@ public class HttpInterceptorProtocol : NSURLProtocol {
                         responseHeaders.setValue("\(data.length)", forKey: "Content-Length")
                         var response : NSHTTPURLResponse! = NSHTTPURLResponse(URL: self.request.URL, statusCode: 200, HTTPVersion: "1.1", headerFields: responseHeaders)
                         
-                        if let nsData:NSData = data.dataUsingEncoding(NSUTF8StringEncoding) {
-                            
-                            //logger.log(ILoggingLogLevel.INFO, category: loggerTag, message: "RESPONSE NSDATA: \(nsData)")
-                            
+                        if let nsData:NSData = data.dataUsingEncoding(NSUTF8StringEncoding) {                            
                             self.client!.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: .NotAllowed)
                             self.client!.URLProtocol(self, didLoadData: nsData)
                             self.client!.URLProtocolDidFinishLoading(self)
@@ -196,53 +188,55 @@ public class HttpInterceptorProtocol : NSURLProtocol {
             } else if Utils.validateRegexp(url, regexp: "^data:(.*)\\/(.*);base64,(.*)") && method == "GET" {
                 
                 // JAVASCRIPT INLINE REQUESTS
-                
-                NSURLProtocol.setProperty("", forKey: HttpInterceptorProtocol.httpInterceptorKey, inRequest: newRequest)
-                NSURLConnection.sendAsynchronousRequest(newRequest, queue: HttpInterceptorProtocol.queue, completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-                    if (error == nil) {
-                        self.client!.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: .NotAllowed)
-                        self.client!.URLProtocol(self, didLoadData: data)
-                        self.client!.URLProtocolDidFinishLoading(self)
-                        NSURLProtocol.removePropertyForKey(HttpInterceptorProtocol.httpInterceptorKey, inRequest: newRequest)
-                    } else {
-                        self.client!.URLProtocol(self, didFailWithError: error)
-                        NSURLProtocol.removePropertyForKey(HttpInterceptorProtocol.httpInterceptorKey, inRequest: newRequest)
-                    }
-                })
+                self.forwardResponse(newRequest)
             
             } else {
                 
-                // EXTERNAL URL'S
-                
-                // TODO: Validate services, end-points, paths and methods...
-                
                 if IOParser.sharedInstance.validateResource(url) && method == "GET" {
                     
-                    // VALIDATE RESOURCES
+                    // VALIDATE EXTERNAL RESOURCES WHITELIST
+                    self.forwardResponse(newRequest)
                     
-                    NSURLProtocol.setProperty("", forKey: HttpInterceptorProtocol.httpInterceptorKey, inRequest: newRequest)
-                    NSURLConnection.sendAsynchronousRequest(newRequest, queue: HttpInterceptorProtocol.queue, completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-                        if (error == nil) {
-                            self.client!.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: .NotAllowed)
-                            self.client!.URLProtocol(self, didLoadData: data)
-                            self.client!.URLProtocolDidFinishLoading(self)
-                            NSURLProtocol.removePropertyForKey(HttpInterceptorProtocol.httpInterceptorKey, inRequest: newRequest)
-                        } else {
-                            self.client!.URLProtocol(self, didFailWithError: error)
-                            NSURLProtocol.removePropertyForKey(HttpInterceptorProtocol.httpInterceptorKey, inRequest: newRequest)
-                        }
-                    })
+                } else if let st = IOParser.sharedInstance.getServiceTokenByURI(url) {
+                    
+                    // VALIDATE EXTERNAL SERVICES WHITELIST
+                    if IOParser.sharedInstance.validateService(st) {
+                        self.forwardResponse(newRequest)
+                    } else {
+                        self.nonPermisionResponse(newRequest)
+                    }
+                    
                 } else {
-                    var response : NSHTTPURLResponse! = NSHTTPURLResponse(URL: self.request.URL, statusCode: 403, HTTPVersion: "1.1", headerFields: nil)
-                    self.client!.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: .NotAllowed)
-                    self.client!.URLProtocol(self, didLoadData: "".dataUsingEncoding(NSUTF8StringEncoding)!)
-                    self.client!.URLProtocolDidFinishLoading(self)
-                    NSURLProtocol.removePropertyForKey(HttpInterceptorProtocol.httpInterceptorKey, inRequest: newRequest)
+                    self.nonPermisionResponse(newRequest)
                 }
             }
         } else {
             logger.log(ILoggingLogLevel.ERROR, category:loggerTag, message: "The url received is null")
         }
+    }
+    
+    private func nonPermisionResponse(newRequest:NSMutableURLRequest) {
+        
+        var response : NSHTTPURLResponse! = NSHTTPURLResponse(URL: self.request.URL, statusCode: 403, HTTPVersion: "1.1", headerFields: nil)
+        self.client!.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: .NotAllowed)
+        self.client!.URLProtocol(self, didLoadData: "The service you're trying to call is not registered in the io-services config file.".dataUsingEncoding(NSUTF8StringEncoding)!)
+        self.client!.URLProtocolDidFinishLoading(self)
+        NSURLProtocol.removePropertyForKey(HttpInterceptorProtocol.httpInterceptorKey, inRequest: newRequest)
+    }
+    
+    private func forwardResponse(newRequest:NSMutableURLRequest) {
+        NSURLProtocol.setProperty("", forKey: HttpInterceptorProtocol.httpInterceptorKey, inRequest: newRequest)
+        NSURLConnection.sendAsynchronousRequest(newRequest, queue: HttpInterceptorProtocol.queue, completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+            if (error == nil) {
+                self.client!.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: .NotAllowed)
+                self.client!.URLProtocol(self, didLoadData: data)
+                self.client!.URLProtocolDidFinishLoading(self)
+                NSURLProtocol.removePropertyForKey(HttpInterceptorProtocol.httpInterceptorKey, inRequest: newRequest)
+            } else {
+                self.client!.URLProtocol(self, didFailWithError: error)
+                NSURLProtocol.removePropertyForKey(HttpInterceptorProtocol.httpInterceptorKey, inRequest: newRequest)
+            }
+        })
     }
     
     /// Stops protocol-specific loading of the request.

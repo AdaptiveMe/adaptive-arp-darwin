@@ -120,17 +120,23 @@ public class IOParser : NSObject, NSXMLParserDelegate {
             currentService = Service()
             currentService.setName("\(attributeDict[IO_ATTR_NAME]!)")
             
+            currentService.setServiceEndpoints([ServiceEndpoint]())
+            
         } else if elementName == IO_END_POINT {
             
             currentEndpoint = ServiceEndpoint()
             currentEndpoint.setHostURI("\(attributeDict[IO_ATTR_HOST]!)")
             currentEndpoint.setValidationType(IServiceCertificateValidation.toEnum("\(attributeDict[IO_ATTR_VALID]!)"))
             
+            currentEndpoint.setPaths([ServicePath]())
+            
         } else if elementName == IO_PATH {
             
             currentPath = ServicePath()
             currentPath.setPath("\(attributeDict[IO_ATTR_PATH]!)")
             currentPath.setType(IServiceType.toEnum("\(attributeDict[IO_ATTR_TYPE])"))
+            
+            currentPath.setMethods([IServiceMethod]())
             
         } else if elementName == IO_METHOD {
             
@@ -221,6 +227,185 @@ public class IOParser : NSObject, NSXMLParserDelegate {
                 }
             }
         }
+        
+        logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The serviceToken: \(token) is not registered in the io-config platform file")
+        
         return false
+    }
+    
+    /**
+    This method returns one Service with all the configured parameter from a Service Token.
+    Take care to iterate only in the first element of the inner arrays of the Bean (endpoints, paths, methods)
+    
+    :param: token Token with all the Service description
+    
+    :returns: Full service for one token
+    */
+    public func getServiceByToken(token:ServiceToken) -> Service? {
+        
+        
+        // Iterate all over the services looking for one combination that
+        // fits all the requirements of the Service Token
+        for service:Service in services {
+            if service.getName() == token.getServiceName() {
+                
+                var ret:Service = Service()
+                ret.setName(service.getName()!)
+                var retEndpoints:[ServiceEndpoint] = [ServiceEndpoint]()
+                
+                for endpoint:ServiceEndpoint in service.getServiceEndpoints()! {
+                    if endpoint.getHostURI() == token.getEndpointName() {
+                        
+                        var retEndpoint:ServiceEndpoint = ServiceEndpoint()
+                        retEndpoint.setHostURI(endpoint.getHostURI()!)
+                        var retPaths:[ServicePath] = [ServicePath]()
+                        
+                        for function:ServicePath in endpoint.getPaths()! {
+                            if function.getPath() == token.getFunctionName() {
+                                
+                                var retPath:ServicePath = ServicePath()
+                                retPath.setPath(function.getPath()!)
+                                retPath.setType(function.getType()!)
+                                var retMethods:[IServiceMethod] = [IServiceMethod]()
+                                
+                                for method:IServiceMethod in function.getMethods()! {
+                                    if method == token.getInvocationMethod() {
+                                        
+                                        var retMethod:IServiceMethod = method
+                                        retMethods.append(retMethod)
+                                    }
+                                }
+                                retPath.setMethods(retMethods)
+                                retPaths.append(retPath)
+                            }
+                        }
+                        retEndpoint.setPaths(retPaths)
+                        retEndpoints.append(retEndpoint)
+                    }
+                }
+                ret.setServiceEndpoints(retEndpoints)
+                return ret
+            }
+        }
+        
+        logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The serviceToken: \(token) is not registered in the io-config platform file")
+        return nil
+    }
+    
+    /**
+    This method returns a service token from a uri defined in the io services config file.
+    
+    :param: uri URI identifing one entry in the io services config file
+    
+    :returns: Service token populated, or nil if the uri is not defined
+    */
+    public func getServiceTokenByURI(uri:String) -> ServiceToken? {
+        
+        var uri:NSString = NSString(string: uri)
+        
+        if !Utils.validateUrl(uri) {
+            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The uri: \(uri) has not a valid format")
+            return nil
+        }
+        
+        // Parse the uri
+        var uriArray:[String] = uri.componentsSeparatedByString("/") as [String]
+        var host = uriArray[0]+"//"+uriArray[2]
+        
+        var path = ""
+        for var i = 3; i < uriArray.count; i++ {
+            path = path + "/" + uriArray[i]
+        }
+        
+        // If there are url parameters, remove it
+        var pathArray:[String] = path.componentsSeparatedByString("?") as [String]
+        path = pathArray[0]
+        
+        // Iterate all over the services looking for one combination that
+        // fits all the requirements of the uri
+        for service:Service in services {
+            
+            for endpoint:ServiceEndpoint in service.getServiceEndpoints()! {
+                
+                if Utils.validateRegexp(host, regexp: endpoint.getHostURI()!) {
+                    
+                    for function:ServicePath in endpoint.getPaths()! {
+                        
+                        if function.getPath() == path {
+                            
+                            var ret:ServiceToken = ServiceToken(serviceName: service.getName()!, endpointName: endpoint.getHostURI()!, functionName: function.getPath()!, invocationMethod: function.getMethods()![0])
+                            
+                            return ret
+                        }
+                    }
+                }
+            }
+        }
+        
+        logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The uri: \(uri) is not registered in the io-config platform file")
+        return nil
+    }
+    
+    /**
+    Method that converts the registered services on the io config file to an arrya of service tokens. Used by the implementation
+    
+    :returns: Array of Service Token registered in the platform
+    */
+    public func getServices() -> [ServiceToken] {
+        
+        var tokens:[ServiceToken] = [ServiceToken]()
+        
+        // Iterate all over the services and create an array of tokens
+        for service:Service in services {
+            for endpoint:ServiceEndpoint in service.getServiceEndpoints()! {
+                for function:ServicePath in endpoint.getPaths()! {
+                    for method:IServiceMethod in function.getMethods()! {
+                        
+                        var token:ServiceToken = ServiceToken(serviceName: service.getName()!, endpointName: endpoint.getHostURI()!, functionName: function.getPath()!, invocationMethod: method)
+                        
+                        tokens.append(token)
+                    }
+                }
+            }
+        }
+        
+        if tokens.count == 0 {
+            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "There are no services registered in the io platform config file.")
+        }
+        
+        return tokens
+    }
+    
+    /**
+    Function that returns a String for the content type to use in the requests from the service configuration in the io-services configuration file
+    
+    :param: token Token to find a service configuration
+    
+    :returns: Content Type
+    */
+    public func getContentType(token:ServiceToken) -> String {
+        
+        // Iterate all over the services to match a Service
+        for service:Service in services {
+            for endpoint:ServiceEndpoint in service.getServiceEndpoints()! {
+                for function:ServicePath in endpoint.getPaths()! {
+                    
+                    switch function.getType()! {
+                    case IServiceType.OctetBinary:
+                        return "application/octet-stream"
+                    case IServiceType.RestJson:
+                        return "application/json"
+                    case IServiceType.RestXml:
+                        return "application/xml"
+                    case IServiceType.SoapXml:
+                        return "application/soap+xml"
+                    case IServiceType.Unknown:
+                        return "text/plain"
+                    }
+                }
+            }
+        }
+        
+        return "text/plain"
     }
 }

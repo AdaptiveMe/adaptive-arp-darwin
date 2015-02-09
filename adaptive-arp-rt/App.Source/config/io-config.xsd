@@ -30,7 +30,7 @@
                                                         </xs:complexType>
                                                     </xs:element>
                                                 </xs:sequence>
-                                                <xs:attribute type="NonEmptyString" name="host" use="required"/>
+                                                <xs:attribute type="url" name="host" use="required"/>
                                                 <xs:attribute type="validation" name="validation" use="required"/>
                                             </xs:complexType>
                                         </xs:element>
@@ -75,7 +75,8 @@
     
     <xs:simpleType name="url">
         <xs:restriction base="xs:string">
-            <xs:pattern value="(https?://)?[-\w.]+(:\d{2,5})?(/([\w/_.]*)?)?" />
+            <xs:minLength value="1" />
+            <xs:pattern value="(http|https)://((\w)*|([0-9]*)|([-|_])*)+([\.|/]((\w)*|([0-9]*)|([-|_])*))+" />
         </xs:restriction>
     </xs:simpleType>
     
