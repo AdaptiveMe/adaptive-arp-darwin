@@ -3,6 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>hello-world</key>
-	<string>Hello World 💩</string>
+	<string>Hello &quot; World 💩</string>
 </dict>
 </plist>

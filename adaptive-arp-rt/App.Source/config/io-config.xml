@@ -5,6 +5,21 @@
     
     <!-- List of external services for the application. RegExp supported -->
     <services>
+        <service name="petstore">
+            <end-point host="http://petstore.swagger.wordnik.com" validation="None">
+                <path path="/api/pet/15" type="RestJson">
+                    <method method="GET"/>
+                    <method method="POST"/>
+                </path>
+            </end-point>
+        </service>
+        <service name="geonames">
+            <end-point host="http://api.geonames.org" validation="None">
+                <path path="/postalCodeLookupJSON" type="RestJson">
+                    <method method="GET"/>
+                </path>
+            </end-point>
+        </service>
     </services>
     
     <!-- List of external resources for the application. RegExp supported -->
