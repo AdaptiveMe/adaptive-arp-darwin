@@ -69,7 +69,7 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
             orientationListeners = [IDeviceOrientationListener]()
             
             let device: UIDevice = UIDevice.currentDevice()
-            deviceInfo = DeviceInfo(name: device.name, model: device.model, vendor: "Apple", uuid: NSUUID().UUIDString)
+            deviceInfo = DeviceInfo(name: device.name, model: device.model, vendor: "Apple", uuid: "\(device.identifierForVendor)")
             
         #endif
         #if os(OSX)
