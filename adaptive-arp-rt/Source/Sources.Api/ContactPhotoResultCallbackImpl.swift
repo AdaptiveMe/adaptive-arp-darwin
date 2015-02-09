@@ -57,7 +57,11 @@ public class ContactPhotoResultCallbackImpl : BaseCallbackImpl, IContactPhotoRes
     */
     public func onError(error : IContactPhotoResultCallbackError) { 
         var param0 : String = "Adaptive.IContactPhotoResultCallbackError.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(error.toString())\\\"}\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactPhotoResultCallbackError( \"\(getId())\", \(param0))")
+        var callbackId : Int64 = -1
+        if (getId() != nil) {
+            callbackId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactPhotoResultCallbackError( \(callbackId), \(param0))")
     }
 
     /**
@@ -77,7 +81,11 @@ public class ContactPhotoResultCallbackImpl : BaseCallbackImpl, IContactPhotoRes
         }
         param0Array.appendString("]")
         var param0 : String = param0Array as String
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactPhotoResultCallbackResult( \"\(getId())\", \(param0))")
+        var callbackId : Int64 = -1
+        if (getId() != nil) {
+            callbackId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactPhotoResultCallbackResult( \(callbackId), \(param0))")
     }
 
     /**
@@ -99,7 +107,11 @@ public class ContactPhotoResultCallbackImpl : BaseCallbackImpl, IContactPhotoRes
         param0Array.appendString("]")
         var param0 : String = param0Array as String
         var param1 : String = "Adaptive.IContactPhotoResultCallbackWarning.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(warning.toString())\\\"}\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactPhotoResultCallbackWarning( \"\(getId())\", \(param0), \(param1))")
+        var callbackId : Int64 = -1
+        if (getId() != nil) {
+            callbackId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactPhotoResultCallbackWarning( \(callbackId), \(param0), \(param1))")
     }
 
 }

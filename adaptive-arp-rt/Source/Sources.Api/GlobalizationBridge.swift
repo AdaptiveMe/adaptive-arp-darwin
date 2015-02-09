@@ -96,7 +96,7 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "GlobalizationBridge no delegate for 'getDefaultLocale'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**
@@ -125,7 +125,7 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "GlobalizationBridge no delegate for 'getLocaleSupportedDescriptors'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**
@@ -156,7 +156,7 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "GlobalizationBridge no delegate for 'getResourceLiteral'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**
@@ -186,7 +186,7 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "GlobalizationBridge no delegate for 'getResourceLiterals'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**

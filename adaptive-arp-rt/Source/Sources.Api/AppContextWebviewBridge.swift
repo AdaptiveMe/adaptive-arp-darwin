@@ -193,7 +193,7 @@ WebView, WKWebView, etc.
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppContextWebviewBridge no delegate for 'getWebviewPrimary'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**
@@ -223,7 +223,7 @@ This method will always return at least one element; the primary webview.
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppContextWebviewBridge no delegate for 'getWebviews'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**

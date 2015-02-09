@@ -62,7 +62,7 @@ platform impedes the rotation of the display.
         if (getId() != nil) {
             listenerId = getId()!
         }
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDisplayOrientationListenerError( \"\(listenerId)\", \(param0))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDisplayOrientationListenerError( \(listenerId), \(param0))")
     }
 
     /**
@@ -77,7 +77,7 @@ platform impedes the rotation of the display.
         if (getId() != nil) {
             listenerId = getId()!
         }
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDisplayOrientationListenerResult( \"\(listenerId)\", \(param0))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDisplayOrientationListenerResult( \(listenerId), \(param0))")
     }
 
     /**
@@ -95,7 +95,7 @@ event may be fired if the application vetoes display rotation before rotation is
         if (getId() != nil) {
             listenerId = getId()!
         }
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDisplayOrientationListenerWarning( \"\(listenerId)\", \(param0), \(param1))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDisplayOrientationListenerWarning( \(listenerId), \(param0), \(param1))")
     }
 
 }

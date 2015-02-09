@@ -57,7 +57,11 @@ public class SecurityResultCallbackImpl : BaseCallbackImpl, ISecurityResultCallb
     */
     public func onError(error : ISecurityResultCallbackError) { 
         var param0 : String = "Adaptive.ISecurityResultCallbackError.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(error.toString())\\\"}\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleSecurityResultCallbackError( \"\(getId())\", \(param0))")
+        var callbackId : Int64 = -1
+        if (getId() != nil) {
+            callbackId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleSecurityResultCallbackError( \(callbackId), \(param0))")
     }
 
     /**
@@ -77,7 +81,11 @@ public class SecurityResultCallbackImpl : BaseCallbackImpl, ISecurityResultCallb
         }
         param0Array.appendString("]")
         var param0 : String = param0Array as String
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleSecurityResultCallbackResult( \"\(getId())\", \(param0))")
+        var callbackId : Int64 = -1
+        if (getId() != nil) {
+            callbackId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleSecurityResultCallbackResult( \(callbackId), \(param0))")
     }
 
     /**
@@ -99,7 +107,11 @@ public class SecurityResultCallbackImpl : BaseCallbackImpl, ISecurityResultCallb
         param0Array.appendString("]")
         var param0 : String = param0Array as String
         var param1 : String = "Adaptive.ISecurityResultCallbackWarning.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(warning.toString())\\\"}\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleSecurityResultCallbackWarning( \"\(getId())\", \(param0), \(param1))")
+        var callbackId : Int64 = -1
+        if (getId() != nil) {
+            callbackId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleSecurityResultCallbackWarning( \(callbackId), \(param0), \(param1))")
     }
 
 }

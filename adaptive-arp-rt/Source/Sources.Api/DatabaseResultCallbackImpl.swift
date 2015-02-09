@@ -57,7 +57,11 @@ public class DatabaseResultCallbackImpl : BaseCallbackImpl, IDatabaseResultCallb
     */
     public func onError(error : IDatabaseResultCallbackError) { 
         var param0 : String = "Adaptive.IDatabaseResultCallbackError.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(error.toString())\\\"}\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseResultCallbackError( \"\(getId())\", \(param0))")
+        var callbackId : Int64 = -1
+        if (getId() != nil) {
+            callbackId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseResultCallbackError( \(callbackId), \(param0))")
     }
 
     /**
@@ -68,7 +72,11 @@ public class DatabaseResultCallbackImpl : BaseCallbackImpl, IDatabaseResultCallb
     */
     public func onResult(database : Database) { 
         var param0 : String = "Adaptive.Database.toObject(JSON.parse(\"\(JSONUtil.escapeString(Database.Serializer.toJSON(database)))\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseResultCallbackResult( \"\(getId())\", \(param0))")
+        var callbackId : Int64 = -1
+        if (getId() != nil) {
+            callbackId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseResultCallbackResult( \(callbackId), \(param0))")
     }
 
     /**
@@ -81,7 +89,11 @@ public class DatabaseResultCallbackImpl : BaseCallbackImpl, IDatabaseResultCallb
     public func onWarning(database : Database, warning : IDatabaseResultCallbackWarning) { 
         var param0 : String = "Adaptive.Database.toObject(JSON.parse(\"\(JSONUtil.escapeString(Database.Serializer.toJSON(database)))\"))"
         var param1 : String = "Adaptive.IDatabaseResultCallbackWarning.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(warning.toString())\\\"}\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseResultCallbackWarning( \"\(getId())\", \(param0), \(param1))")
+        var callbackId : Int64 = -1
+        if (getId() != nil) {
+            callbackId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseResultCallbackWarning( \(callbackId), \(param0), \(param1))")
     }
 
 }

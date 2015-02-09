@@ -152,7 +152,7 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "DeviceBridge no delegate for 'getDeviceInfo'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**
@@ -181,7 +181,7 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "DeviceBridge no delegate for 'getLocaleCurrent'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**
@@ -211,7 +211,7 @@ of the display. For display orientation, use the IDisplay APIs.
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "DeviceBridge no delegate for 'getOrientationCurrent'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**

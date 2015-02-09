@@ -81,7 +81,7 @@ in every platform. This id is populated by the Javascript platform
        @return Unique Listener identifier
     */
     public func getId() -> Int64? {
-          return self.id;
+          return self.id
     }
 
 }

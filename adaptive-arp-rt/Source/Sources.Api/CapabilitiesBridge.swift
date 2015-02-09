@@ -98,7 +98,7 @@ changes please use the IDevice and IDisplay functions and listeners API respecti
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge no delegate for 'getOrientationDefault'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**
@@ -128,7 +128,7 @@ support at least one orientation. This is usually PortaitUp.
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge no delegate for 'getOrientationsSupported'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**

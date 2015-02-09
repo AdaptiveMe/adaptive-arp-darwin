@@ -57,7 +57,11 @@ public class DatabaseTableResultCallbackImpl : BaseCallbackImpl, IDatabaseTableR
     */
     public func onError(error : IDatabaseTableResultCallbackError) { 
         var param0 : String = "Adaptive.IDatabaseTableResultCallbackError.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(error.toString())\\\"}\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseTableResultCallbackError( \"\(getId())\", \(param0))")
+        var callbackId : Int64 = -1
+        if (getId() != nil) {
+            callbackId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseTableResultCallbackError( \(callbackId), \(param0))")
     }
 
     /**
@@ -68,7 +72,11 @@ public class DatabaseTableResultCallbackImpl : BaseCallbackImpl, IDatabaseTableR
     */
     public func onResult(databaseTable : DatabaseTable) { 
         var param0 : String = "Adaptive.DatabaseTable.toObject(JSON.parse(\"\(JSONUtil.escapeString(DatabaseTable.Serializer.toJSON(databaseTable)))\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseTableResultCallbackResult( \"\(getId())\", \(param0))")
+        var callbackId : Int64 = -1
+        if (getId() != nil) {
+            callbackId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseTableResultCallbackResult( \(callbackId), \(param0))")
     }
 
     /**
@@ -81,7 +89,11 @@ public class DatabaseTableResultCallbackImpl : BaseCallbackImpl, IDatabaseTableR
     public func onWarning(databaseTable : DatabaseTable, warning : IDatabaseTableResultCallbackWarning) { 
         var param0 : String = "Adaptive.DatabaseTable.toObject(JSON.parse(\"\(JSONUtil.escapeString(DatabaseTable.Serializer.toJSON(databaseTable)))\"))"
         var param1 : String = "Adaptive.IDatabaseTableResultCallbackWarning.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(warning.toString())\\\"}\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseTableResultCallbackWarning( \"\(getId())\", \(param0), \(param1))")
+        var callbackId : Int64 = -1
+        if (getId() != nil) {
+            callbackId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleDatabaseTableResultCallbackWarning( \(callbackId), \(param0), \(param1))")
     }
 
 }

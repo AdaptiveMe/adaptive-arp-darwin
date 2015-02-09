@@ -2089,7 +2089,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getAPIVersion'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**
@@ -2118,7 +2118,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getPlatformContext'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**
@@ -2147,7 +2147,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppRegistryBridge no delegate for 'getPlatformContextWeb'.")
             }
         }
-        return result!        
+        return result        
     }
 
 }

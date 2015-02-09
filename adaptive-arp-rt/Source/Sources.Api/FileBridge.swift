@@ -277,7 +277,7 @@ deleted if the cascade parameter is set to true.
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'getFileStorageType'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**
@@ -307,7 +307,7 @@ deleted if the cascade parameter is set to true.
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'getFileType'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**
@@ -337,7 +337,7 @@ deleted if the cascade parameter is set to true.
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'getSecurityType'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**

@@ -99,7 +99,7 @@ This method does not create the actual file in the specified folder.
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileSystemBridge no delegate for 'createFileDescriptor'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**
@@ -130,7 +130,7 @@ This path is volatile and may be cleaned by the OS periodically.
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileSystemBridge no delegate for 'getApplicationCacheFolder'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**
@@ -160,7 +160,7 @@ This path must always be writable by the current application.
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileSystemBridge no delegate for 'getApplicationCloudFolder'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**
@@ -190,7 +190,7 @@ This path must always be writable by the current application.
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileSystemBridge no delegate for 'getApplicationDocumentsFolder'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**
@@ -220,7 +220,7 @@ This path may or may not be directly readable or writable - it usually contains 
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileSystemBridge no delegate for 'getApplicationFolder'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**
@@ -250,7 +250,7 @@ This path must always be writable by the current application.
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileSystemBridge no delegate for 'getApplicationProtectedFolder'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**
@@ -311,7 +311,7 @@ This path may or may not be writable by the current application.
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileSystemBridge no delegate for 'getSystemExternalFolder'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**

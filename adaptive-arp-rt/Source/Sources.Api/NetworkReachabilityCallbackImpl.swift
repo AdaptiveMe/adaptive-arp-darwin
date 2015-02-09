@@ -57,7 +57,11 @@ public class NetworkReachabilityCallbackImpl : BaseCallbackImpl, INetworkReachab
     */
     public func onError(error : INetworkReachabilityCallbackError) { 
         var param0 : String = "Adaptive.INetworkReachabilityCallbackError.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(error.toString())\\\"}\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkReachabilityCallbackError( \"\(getId())\", \(param0))")
+        var callbackId : Int64 = -1
+        if (getId() != nil) {
+            callbackId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkReachabilityCallbackError( \(callbackId), \(param0))")
     }
 
     /**
@@ -68,7 +72,11 @@ public class NetworkReachabilityCallbackImpl : BaseCallbackImpl, INetworkReachab
     */
     public func onResult(reachable : Bool) { 
         var param0 : String = "\(reachable)"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkReachabilityCallbackResult( \"\(getId())\", \(param0))")
+        var callbackId : Int64 = -1
+        if (getId() != nil) {
+            callbackId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkReachabilityCallbackResult( \(callbackId), \(param0))")
     }
 
     /**
@@ -81,7 +89,11 @@ public class NetworkReachabilityCallbackImpl : BaseCallbackImpl, INetworkReachab
     public func onWarning(reachable : Bool, warning : INetworkReachabilityCallbackWarning) { 
         var param0 : String = "\(reachable)"
         var param1 : String = "Adaptive.INetworkReachabilityCallbackWarning.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(warning.toString())\\\"}\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkReachabilityCallbackWarning( \"\(getId())\", \(param0), \(param1))")
+        var callbackId : Int64 = -1
+        if (getId() != nil) {
+            callbackId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkReachabilityCallbackWarning( \(callbackId), \(param0), \(param1))")
     }
 
 }

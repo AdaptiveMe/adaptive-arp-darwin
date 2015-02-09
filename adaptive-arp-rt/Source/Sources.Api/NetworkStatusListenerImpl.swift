@@ -61,7 +61,7 @@ public class NetworkStatusListenerImpl : BaseListenerImpl, INetworkStatusListene
         if (getId() != nil) {
             listenerId = getId()!
         }
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkStatusListenerError( \"\(listenerId)\", \(param0))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkStatusListenerError( \(listenerId), \(param0))")
     }
 
     /**
@@ -76,7 +76,7 @@ public class NetworkStatusListenerImpl : BaseListenerImpl, INetworkStatusListene
         if (getId() != nil) {
             listenerId = getId()!
         }
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkStatusListenerResult( \"\(listenerId)\", \(param0))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkStatusListenerResult( \(listenerId), \(param0))")
     }
 
     /**
@@ -93,7 +93,7 @@ public class NetworkStatusListenerImpl : BaseListenerImpl, INetworkStatusListene
         if (getId() != nil) {
             listenerId = getId()!
         }
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkStatusListenerWarning( \"\(listenerId)\", \(param0), \(param1))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleNetworkStatusListenerWarning( \(listenerId), \(param0), \(param1))")
     }
 
 }

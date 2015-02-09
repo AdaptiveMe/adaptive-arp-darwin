@@ -125,7 +125,7 @@ of the device. For device orientation, use the IDevice APIs.
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "DisplayBridge no delegate for 'getOrientationCurrent'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**

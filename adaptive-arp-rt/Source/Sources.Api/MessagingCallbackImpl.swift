@@ -57,7 +57,11 @@ public class MessagingCallbackImpl : BaseCallbackImpl, IMessagingCallback {
     */
     public func onError(error : IMessagingCallbackError) { 
         var param0 : String = "Adaptive.IMessagingCallbackError.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(error.toString())\\\"}\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleMessagingCallbackError( \"\(getId())\", \(param0))")
+        var callbackId : Int64 = -1
+        if (getId() != nil) {
+            callbackId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleMessagingCallbackError( \(callbackId), \(param0))")
     }
 
     /**
@@ -68,7 +72,11 @@ public class MessagingCallbackImpl : BaseCallbackImpl, IMessagingCallback {
     */
     public func onResult(success : Bool) { 
         var param0 : String = "\(success)"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleMessagingCallbackResult( \"\(getId())\", \(param0))")
+        var callbackId : Int64 = -1
+        if (getId() != nil) {
+            callbackId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleMessagingCallbackResult( \(callbackId), \(param0))")
     }
 
     /**
@@ -81,7 +89,11 @@ public class MessagingCallbackImpl : BaseCallbackImpl, IMessagingCallback {
     public func onWarning(success : Bool, warning : IMessagingCallbackWarning) { 
         var param0 : String = "\(success)"
         var param1 : String = "Adaptive.IMessagingCallbackWarning.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(warning.toString())\\\"}\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleMessagingCallbackWarning( \"\(getId())\", \(param0), \(param1))")
+        var callbackId : Int64 = -1
+        if (getId() != nil) {
+            callbackId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleMessagingCallbackWarning( \(callbackId), \(param0), \(param1))")
     }
 
 }

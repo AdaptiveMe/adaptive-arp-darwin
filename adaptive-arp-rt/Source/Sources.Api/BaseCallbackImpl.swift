@@ -64,7 +64,7 @@ public class BaseCallbackImpl : NSObject, IBaseCallback {
        Get the callback id.
        @return long with the identifier of the callback.
     */
-    public final func getId() -> Int64 {
+    public final func getId() -> Int64? {
         return self.id
     }
 

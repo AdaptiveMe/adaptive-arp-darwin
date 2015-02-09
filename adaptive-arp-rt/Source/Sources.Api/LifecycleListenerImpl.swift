@@ -61,7 +61,7 @@ public class LifecycleListenerImpl : BaseListenerImpl, ILifecycleListener {
         if (getId() != nil) {
             listenerId = getId()!
         }
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleLifecycleListenerError( \"\(listenerId)\", \(param0))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleLifecycleListenerError( \(listenerId), \(param0))")
     }
 
     /**
@@ -76,7 +76,7 @@ public class LifecycleListenerImpl : BaseListenerImpl, ILifecycleListener {
         if (getId() != nil) {
             listenerId = getId()!
         }
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleLifecycleListenerResult( \"\(listenerId)\", \(param0))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleLifecycleListenerResult( \(listenerId), \(param0))")
     }
 
     /**
@@ -93,7 +93,7 @@ public class LifecycleListenerImpl : BaseListenerImpl, ILifecycleListener {
         if (getId() != nil) {
             listenerId = getId()!
         }
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleLifecycleListenerWarning( \"\(listenerId)\", \(param0), \(param1))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleLifecycleListenerWarning( \(listenerId), \(param0), \(param1))")
     }
 
 }

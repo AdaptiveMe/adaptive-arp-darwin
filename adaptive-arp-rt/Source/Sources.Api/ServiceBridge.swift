@@ -100,7 +100,7 @@ manipulated as needed by the application before submitting the ServiceRequest vi
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "ServiceBridge no delegate for 'getServiceRequest'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**
@@ -134,7 +134,7 @@ configured in the platform's XML service definition file.
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "ServiceBridge no delegate for 'getServiceToken'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**
@@ -167,7 +167,7 @@ configured in the platform's XML service definition file.
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "ServiceBridge no delegate for 'getServiceTokenByUri'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**
@@ -196,7 +196,7 @@ configured in the platform's XML service definition file.
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "ServiceBridge no delegate for 'getServicesRegistered'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**

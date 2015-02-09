@@ -57,7 +57,11 @@ public class ContactResultCallbackImpl : BaseCallbackImpl, IContactResultCallbac
     */
     public func onError(error : IContactResultCallbackError) { 
         var param0 : String = "Adaptive.IContactResultCallbackError.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(error.toString())\\\"}\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactResultCallbackError( \"\(getId())\", \(param0))")
+        var callbackId : Int64 = -1
+        if (getId() != nil) {
+            callbackId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactResultCallbackError( \(callbackId), \(param0))")
     }
 
     /**
@@ -77,7 +81,11 @@ public class ContactResultCallbackImpl : BaseCallbackImpl, IContactResultCallbac
         }
         param0Array.appendString("]")
         var param0 : String = param0Array as String
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactResultCallbackResult( \"\(getId())\", \(param0))")
+        var callbackId : Int64 = -1
+        if (getId() != nil) {
+            callbackId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactResultCallbackResult( \(callbackId), \(param0))")
     }
 
     /**
@@ -99,7 +107,11 @@ public class ContactResultCallbackImpl : BaseCallbackImpl, IContactResultCallbac
         param0Array.appendString("]")
         var param0 : String = param0Array as String
         var param1 : String = "Adaptive.IContactResultCallbackWarning.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(warning.toString())\\\"}\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactResultCallbackWarning( \"\(getId())\", \(param0), \(param1))")
+        var callbackId : Int64 = -1
+        if (getId() != nil) {
+            callbackId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleContactResultCallbackWarning( \(callbackId), \(param0), \(param1))")
     }
 
 }

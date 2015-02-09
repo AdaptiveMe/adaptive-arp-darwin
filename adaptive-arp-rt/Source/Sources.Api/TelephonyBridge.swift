@@ -97,7 +97,7 @@ public class TelephonyBridge : BaseCommunicationBridge, ITelephony, APIBridge {
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "TelephonyBridge no delegate for 'call'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**

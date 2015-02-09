@@ -61,7 +61,7 @@ public class GeolocationListenerImpl : BaseListenerImpl, IGeolocationListener {
         if (getId() != nil) {
             listenerId = getId()!
         }
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleGeolocationListenerError( \"\(listenerId)\", \(param0))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleGeolocationListenerError( \(listenerId), \(param0))")
     }
 
     /**
@@ -76,7 +76,7 @@ public class GeolocationListenerImpl : BaseListenerImpl, IGeolocationListener {
         if (getId() != nil) {
             listenerId = getId()!
         }
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleGeolocationListenerResult( \"\(listenerId)\", \(param0))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleGeolocationListenerResult( \(listenerId), \(param0))")
     }
 
     /**
@@ -93,7 +93,7 @@ public class GeolocationListenerImpl : BaseListenerImpl, IGeolocationListener {
         if (getId() != nil) {
             listenerId = getId()!
         }
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleGeolocationListenerWarning( \"\(listenerId)\", \(param0), \(param1))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleGeolocationListenerWarning( \(listenerId), \(param0), \(param1))")
     }
 
 }

@@ -105,7 +105,7 @@ public class AppContextBridge : NSObject, IAppContext {
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppContextBridge no delegate for 'getContext'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**
@@ -134,7 +134,7 @@ public class AppContextBridge : NSObject, IAppContext {
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "AppContextBridge no delegate for 'getContextType'.")
             }
         }
-        return result!        
+        return result        
     }
 
 }

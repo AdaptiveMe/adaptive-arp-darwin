@@ -61,7 +61,7 @@ public class ButtonListenerImpl : BaseListenerImpl, IButtonListener {
         if (getId() != nil) {
             listenerId = getId()!
         }
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleButtonListenerError( \"\(listenerId)\", \(param0))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleButtonListenerError( \(listenerId), \(param0))")
     }
 
     /**
@@ -76,7 +76,7 @@ public class ButtonListenerImpl : BaseListenerImpl, IButtonListener {
         if (getId() != nil) {
             listenerId = getId()!
         }
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleButtonListenerResult( \"\(listenerId)\", \(param0))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleButtonListenerResult( \(listenerId), \(param0))")
     }
 
     /**
@@ -93,7 +93,7 @@ public class ButtonListenerImpl : BaseListenerImpl, IButtonListener {
         if (getId() != nil) {
             listenerId = getId()!
         }
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleButtonListenerWarning( \"\(listenerId)\", \(param0), \(param1))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleButtonListenerWarning( \(listenerId), \(param0), \(param1))")
     }
 
 }

@@ -62,7 +62,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         if (getId() != nil) {
             listenerId = getId()!
         }
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleAccelerationListenerError( \"\(listenerId)\", \(param0))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleAccelerationListenerError( \(listenerId), \(param0))")
     }
 
     /**
@@ -77,7 +77,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         if (getId() != nil) {
             listenerId = getId()!
         }
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleAccelerationListenerResult( \"\(listenerId)\", \(param0))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleAccelerationListenerResult( \(listenerId), \(param0))")
     }
 
     /**
@@ -94,7 +94,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         if (getId() != nil) {
             listenerId = getId()!
         }
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleAccelerationListenerWarning( \"\(listenerId)\", \(param0), \(param1))")
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleAccelerationListenerWarning( \(listenerId), \(param0), \(param1))")
     }
 
 }

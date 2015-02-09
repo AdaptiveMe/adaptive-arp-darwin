@@ -96,7 +96,7 @@ public class OSBridge : BaseSystemBridge, IOS, APIBridge {
                 logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "OSBridge no delegate for 'getOSInfo'.")
             }
         }
-        return result!        
+        return result        
     }
 
     /**

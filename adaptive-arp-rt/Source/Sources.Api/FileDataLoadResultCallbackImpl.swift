@@ -57,7 +57,11 @@ public class FileDataLoadResultCallbackImpl : BaseCallbackImpl, IFileDataLoadRes
     */
     public func onError(error : IFileDataLoadResultCallbackError) { 
         var param0 : String = "Adaptive.IFileDataLoadResultCallbackError.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(error.toString())\\\"}\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileDataLoadResultCallbackError( \"\(getId())\", \(param0))")
+        var callbackId : Int64 = -1
+        if (getId() != nil) {
+            callbackId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileDataLoadResultCallbackError( \(callbackId), \(param0))")
     }
 
     /**
@@ -77,7 +81,11 @@ public class FileDataLoadResultCallbackImpl : BaseCallbackImpl, IFileDataLoadRes
         }
         param0Array.appendString("]")
         var param0 : String = param0Array as String
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileDataLoadResultCallbackResult( \"\(getId())\", \(param0))")
+        var callbackId : Int64 = -1
+        if (getId() != nil) {
+            callbackId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileDataLoadResultCallbackResult( \(callbackId), \(param0))")
     }
 
     /**
@@ -99,7 +107,11 @@ public class FileDataLoadResultCallbackImpl : BaseCallbackImpl, IFileDataLoadRes
         param0Array.appendString("]")
         var param0 : String = param0Array as String
         var param1 : String = "Adaptive.IFileDataLoadResultCallbackWarning.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(warning.toString())\\\"}\"))"
-        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileDataLoadResultCallbackWarning( \"\(getId())\", \(param0), \(param1))")
+        var callbackId : Int64 = -1
+        if (getId() != nil) {
+            callbackId = getId()!
+        }
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleFileDataLoadResultCallbackWarning( \(callbackId), \(param0), \(param1))")
     }
 
 }
