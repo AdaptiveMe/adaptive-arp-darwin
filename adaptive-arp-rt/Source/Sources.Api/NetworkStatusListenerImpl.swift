@@ -56,7 +56,7 @@ public class NetworkStatusListenerImpl : BaseListenerImpl, INetworkStatusListene
        @since v2.0
     */
     public func onError(error : INetworkStatusListenerError) { 
-        var param0 : String = "Adaptive.INetworkStatusListenerError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
+        var param0 : String = "Adaptive.INetworkStatusListenerError.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(error.toString())\\\"}\"))"
         var listenerId : Int64 = -1
         if (getId() != nil) {
             listenerId = getId()!
@@ -71,7 +71,7 @@ public class NetworkStatusListenerImpl : BaseListenerImpl, INetworkStatusListene
        @since v2.0
     */
     public func onResult(network : ICapabilitiesNet) { 
-        var param0 : String = "Adaptive.ICapabilitiesNet.toObject(JSON.parse(\"{ \"value\": \"\(network.toString())\"}\"))"
+        var param0 : String = "Adaptive.ICapabilitiesNet.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(network.toString())\\\"}\"))"
         var listenerId : Int64 = -1
         if (getId() != nil) {
             listenerId = getId()!
@@ -87,8 +87,8 @@ public class NetworkStatusListenerImpl : BaseListenerImpl, INetworkStatusListene
        @since v2.0
     */
     public func onWarning(network : ICapabilitiesNet, warning : INetworkStatusListenerWarning) { 
-        var param0 : String = "Adaptive.ICapabilitiesNet.toObject(JSON.parse(\"{ \"value\": \"\(network.toString())\"}\"))"
-        var param1 : String = "Adaptive.INetworkStatusListenerWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\"}\"))"
+        var param0 : String = "Adaptive.ICapabilitiesNet.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(network.toString())\\\"}\"))"
+        var param1 : String = "Adaptive.INetworkStatusListenerWarning.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(warning.toString())\\\"}\"))"
         var listenerId : Int64 = -1
         if (getId() != nil) {
             listenerId = getId()!

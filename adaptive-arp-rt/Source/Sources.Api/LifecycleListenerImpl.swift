@@ -56,7 +56,7 @@ public class LifecycleListenerImpl : BaseListenerImpl, ILifecycleListener {
        @since v2.0
     */
     public func onError(error : ILifecycleListenerError) { 
-        var param0 : String = "Adaptive.ILifecycleListenerError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
+        var param0 : String = "Adaptive.ILifecycleListenerError.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(error.toString())\\\"}\"))"
         var listenerId : Int64 = -1
         if (getId() != nil) {
             listenerId = getId()!
@@ -88,7 +88,7 @@ public class LifecycleListenerImpl : BaseListenerImpl, ILifecycleListener {
     */
     public func onWarning(lifecycle : Lifecycle, warning : ILifecycleListenerWarning) { 
         var param0 : String = "Adaptive.Lifecycle.toObject(JSON.parse(\"\(JSONUtil.escapeString(Lifecycle.Serializer.toJSON(lifecycle)))\"))"
-        var param1 : String = "Adaptive.ILifecycleListenerWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\"}\"))"
+        var param1 : String = "Adaptive.ILifecycleListenerWarning.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(warning.toString())\\\"}\"))"
         var listenerId : Int64 = -1
         if (getId() != nil) {
             listenerId = getId()!

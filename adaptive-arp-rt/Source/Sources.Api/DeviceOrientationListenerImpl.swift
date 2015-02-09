@@ -57,7 +57,7 @@ platform impedes the rotation of the device.
        @since v2.0.5
     */
     public func onError(error : IDeviceOrientationListenerError) { 
-        var param0 : String = "Adaptive.IDeviceOrientationListenerError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
+        var param0 : String = "Adaptive.IDeviceOrientationListenerError.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(error.toString())\\\"}\"))"
         var listenerId : Int64 = -1
         if (getId() != nil) {
             listenerId = getId()!
@@ -90,7 +90,7 @@ event may be fired if the devices vetoes the rotation before rotation is complet
     */
     public func onWarning(rotationEvent : RotationEvent, warning : IDeviceOrientationListenerWarning) { 
         var param0 : String = "Adaptive.RotationEvent.toObject(JSON.parse(\"\(JSONUtil.escapeString(RotationEvent.Serializer.toJSON(rotationEvent)))\"))"
-        var param1 : String = "Adaptive.IDeviceOrientationListenerWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\"}\"))"
+        var param1 : String = "Adaptive.IDeviceOrientationListenerWarning.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(warning.toString())\\\"}\"))"
         var listenerId : Int64 = -1
         if (getId() != nil) {
             listenerId = getId()!

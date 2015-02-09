@@ -56,7 +56,7 @@ public class MessagingCallbackImpl : BaseCallbackImpl, IMessagingCallback {
        @since v2.0
     */
     public func onError(error : IMessagingCallbackError) { 
-        var param0 : String = "Adaptive.IMessagingCallbackError.toObject(JSON.parse(\"{ \"value\": \"\(error.toString())\"}\"))"
+        var param0 : String = "Adaptive.IMessagingCallbackError.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(error.toString())\\\"}\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleMessagingCallbackError( \"\(getId())\", \(param0))")
     }
 
@@ -80,7 +80,7 @@ public class MessagingCallbackImpl : BaseCallbackImpl, IMessagingCallback {
     */
     public func onWarning(success : Bool, warning : IMessagingCallbackWarning) { 
         var param0 : String = "\(success)"
-        var param1 : String = "Adaptive.IMessagingCallbackWarning.toObject(JSON.parse(\"{ \"value\": \"\(warning.toString())\"}\"))"
+        var param1 : String = "Adaptive.IMessagingCallbackWarning.toObject(JSON.parse(\"{ \\\"value\\\": \\\"\(warning.toString())\\\"}\"))"
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("Adaptive.handleMessagingCallbackWarning( \"\(getId())\", \(param0), \(param1))")
     }
 
