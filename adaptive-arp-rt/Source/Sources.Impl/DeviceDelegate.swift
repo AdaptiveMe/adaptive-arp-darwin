@@ -292,6 +292,7 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
         #endif
     }
     
+    #if os(iOS)
     /**
     Function that handles an event of rotation on the device. Propagates every event to the listeners
     */
@@ -329,6 +330,7 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
         }
         
     }
+    #endif
     
     /**
     Remove a listener to stop receiving device orientation change events.

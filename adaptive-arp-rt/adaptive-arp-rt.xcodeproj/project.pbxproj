@@ -836,11 +836,11 @@
 		C389F0B01A84D168002E7D6E /* IServiceContentEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C389F0AE1A84D167002E7D6E /* IServiceContentEncoding.swift */; };
 		C39ACBD61A7F904900C470FF /* DisplayDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39ACBD51A7F904900C470FF /* DisplayDelegate.swift */; };
 		C39ACBD71A7F904900C470FF /* DisplayDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39ACBD51A7F904900C470FF /* DisplayDelegate.swift */; };
-		C39ACBE01A7F9F9D00C470FF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8FFC5B1A483D0800F0A8AE /* BaseViewController.swift */; };
 		C39ED7301A4AE37F0081C13F /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39ED72F1A4AE37F0081C13F /* Reachability.swift */; };
 		C39ED7311A4AE37F0081C13F /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39ED72F1A4AE37F0081C13F /* Reachability.swift */; };
 		C3A7467D1A77BB86001B21B9 /* IOParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7467C1A77BB86001B21B9 /* IOParser.swift */; };
 		C3A7467E1A77C087001B21B9 /* IOParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7467C1A77BB86001B21B9 /* IOParser.swift */; };
+		C3CE2A341A8916100030D596 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CE2A331A8916100030D596 /* BaseViewController.swift */; };
 		C3D72D731A49BD0F00D10B30 /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D72D721A49BD0F00D10B30 /* GCD.swift */; };
 		C3D72D7C1A49BD1700D10B30 /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D72D721A49BD0F00D10B30 /* GCD.swift */; };
 		C3DBEC881A7FBB5500DB8D50 /* AppResourceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DBEC861A7FBB5500DB8D50 /* AppResourceData.swift */; };
@@ -848,6 +848,8 @@
 		C3DBEC921A7FC02600DB8D50 /* AppResourceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DBEC861A7FBB5500DB8D50 /* AppResourceData.swift */; };
 		C3DBEC931A7FC02D00DB8D50 /* IAppResourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DBEC871A7FBB5500DB8D50 /* IAppResourceManager.swift */; };
 		C3DCC09F1A78DC2100053CE9 /* ServicePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DCC09E1A78DC2100053CE9 /* ServicePath.swift */; };
+		C3FA6F0C1A8A0CC800CC352A /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E43B6CB1A48292D00E61B83 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C3FA6F0D1A8A0CDA00CC352A /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E43B6B01A48292200E61B83 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1012,6 +1014,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C3FA6F0D1A8A0CDA00CC352A /* Realm.framework in Embed Frameworks */,
+				C3FA6F0C1A8A0CC800CC352A /* SQLite.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1470,6 +1474,7 @@
 		C3BB4C111A126171005C177C /* MessagingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagingTest.swift; sourceTree = "<group>"; };
 		C3BB4C131A126199005C177C /* BrowserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserTest.swift; sourceTree = "<group>"; };
 		C3BB4C201A126FAE005C177C /* TelephonyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TelephonyTest.swift; sourceTree = "<group>"; };
+		C3CE2A331A8916100030D596 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C3D72D721A49BD0F00D10B30 /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
 		C3DBEC861A7FBB5500DB8D50 /* AppResourceData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppResourceData.swift; sourceTree = "<group>"; };
 		C3DBEC871A7FBB5500DB8D50 /* IAppResourceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppResourceManager.swift; sourceTree = "<group>"; };
@@ -2122,10 +2127,11 @@
 			isa = PBXGroup;
 			children = (
 				4EDB4E7A1A028C9A008A2C4F /* AppDelegate.swift */,
+				C3CE2A331A8916100030D596 /* BaseViewController.swift */,
 				4EDB4E7C1A028C9A008A2C4F /* ViewController.swift */,
 				4EDB4E801A028C9A008A2C4F /* Images.xcassets */,
-				4EDB4E821A028C9A008A2C4F /* Main.storyboard */,
 				4EDB4E7E1A028C9A008A2C4F /* AdaptiveArpRtOSX.xcdatamodeld */,
+				4EDB4E821A028C9A008A2C4F /* Main.storyboard */,
 				4EDB4E781A028C9A008A2C4F /* Supporting Files */,
 			);
 			path = AdaptiveArpRtOSX;
@@ -2908,7 +2914,6 @@
 				C34E5E541A78E5C4009C8B0D /* BaseListenerImpl.swift in Sources */,
 				C34E5F641A78E5C4009C8B0D /* ServicePath.swift in Sources */,
 				C34E5EAC1A78E5C4009C8B0D /* IBaseCommunication.swift in Sources */,
-				C39ACBE01A7F9F9D00C470FF /* BaseViewController.swift in Sources */,
 				C34E5F631A78E5C4009C8B0D /* ServiceHeader.swift in Sources */,
 				4E43B3161A48212D00E61B83 /* BaseUtilDelegate.swift in Sources */,
 				4E43B31A1A48212D00E61B83 /* CapabilitiesDelegate.swift in Sources */,
@@ -3149,6 +3154,7 @@
 				C34E5E821A78E5C4009C8B0D /* DatabaseTableResultCallbackImpl.swift in Sources */,
 				C34E5F621A78E5C4009C8B0D /* ServiceEndpoint.swift in Sources */,
 				C34E5E971A78E5C4009C8B0D /* GooglePlusBridge.swift in Sources */,
+				C3CE2A341A8916100030D596 /* BaseViewController.swift in Sources */,
 				C34E5E581A78E5C4009C8B0D /* BaseReaderBridge.swift in Sources */,
 				4E43B3791A48228700E61B83 /* Generics.swift in Sources */,
 				C34E5F671A78E5C4009C8B0D /* ServiceResultCallbackImpl.swift in Sources */,
@@ -3668,6 +3674,7 @@
 				);
 				INFOPLIST_FILE = AdaptiveArpRtOSX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = macosx;
@@ -3686,9 +3693,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/DerivedData/Build/Products/Release",
 				);
-				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				INFOPLIST_FILE = AdaptiveArpRtOSX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = macosx;
