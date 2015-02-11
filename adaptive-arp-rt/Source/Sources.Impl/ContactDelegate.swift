@@ -833,12 +833,7 @@ public class ContactDelegate : BasePIMDelegate, IContact {
                     if ((find(group,IContactFieldGroup.PERSONAL_INFO)) != nil) {
                         
                         var contactPersonalInfo:ContactPersonalInfo = ContactPersonalInfo()
-                        
-                        
-                        // TODO: READ SUFFICE
-                        
-                        // The title (Dr, Mr, Mrs, Ms) information is not provided by the iOS and OSX API
-                        
+                                                
                         var firstNameValue = ABRecordCopyValue(record, kABPersonFirstNameProperty).toOpaque()
                         var firstName: String = (firstNameValue != nil) ? Unmanaged.fromOpaque(firstNameValue).takeUnretainedValue() as NSObject as String : ""
                         
@@ -853,6 +848,22 @@ public class ContactDelegate : BasePIMDelegate, IContact {
                         var middleName: String = (middleNameValue != nil) ? Unmanaged.fromOpaque(middleNameValue).takeUnretainedValue() as NSObject as String : ""
                         
                         contactPersonalInfo.setMiddleName(middleName)
+                        
+                        var prefixValue = ABRecordCopyValue(record, kABPersonPrefixProperty).toOpaque()
+                        var prefix: String = (prefixValue != nil) ? Unmanaged.fromOpaque(prefixValue).takeUnretainedValue() as NSObject as String : ""
+                        
+                        switch(prefix){
+                        case "Dr":
+                            contactPersonalInfo.setTitle(ContactPersonalInfoTitle.Dr)
+                        case "Mr":
+                            contactPersonalInfo.setTitle(ContactPersonalInfoTitle.Mr)
+                        case "Mrs":
+                            contactPersonalInfo.setTitle(ContactPersonalInfoTitle.Mrs)
+                        case "Ms":
+                            contactPersonalInfo.setTitle(ContactPersonalInfoTitle.Ms)
+                        default:
+                            contactPersonalInfo.setTitle(ContactPersonalInfoTitle.Unknown)
+                        }
                         
                         contact.setPersonalInfo(contactPersonalInfo)
                     }
