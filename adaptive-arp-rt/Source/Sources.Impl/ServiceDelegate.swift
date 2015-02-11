@@ -36,6 +36,9 @@ import Foundation
 #if os(iOS)
     import UIKit
 #endif
+#if os(OSX)
+    import WebKit
+#endif
 
 /**
 Interface for Managing the Services operations
@@ -160,7 +163,10 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
             })
         #endif
         #if os(OSX)
-            // TODO: implement this for OSX
+            var webview: AnyObject? = AppRegistryBridge.sharedInstance.getPlatformContextWeb().getWebviewPrimary()
+            dispatch_async(dispatch_get_main_queue(), {
+                useragent = (webview as WebView).stringByEvaluatingJavaScriptFromString("navigator.userAgent")!
+            })
         #endif
         request.setUserAgent(useragent)
         
