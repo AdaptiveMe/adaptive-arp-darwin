@@ -30,7 +30,56 @@
 */
 
 import Cocoa
+import AVKit
 
 public class BaseViewController: NSViewController {
+    
+    required public init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    override init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    override init() {
+        super.init()
+    }
+    
+    /// Maintain a static reference to current and previous views
+    public struct ViewCurrent {
+        private static var instance : NSViewController?
+        public static func getView() -> NSViewController? {
+            return instance
+        }
+        static func setView(view : NSViewController) {
+            instance = view
+        }
+        
+    }
+    
+    public struct ViewPrevious {
+        private static var instance : NSViewController?
+        public static func getView() -> NSViewController? {
+            return instance
+        }
+        static func setView(view : NSViewController) {
+            instance = view
+        }
+        
+    }
+    
+    /**
+    Called after the view controller’s view has been loaded into memory is about to be added to the view hierarchy in the window.
+    */
+    override public func viewWillAppear() {
+        super.viewWillAppear()
+        if ViewPrevious.getView()==nil && ViewCurrent.getView()==nil {
+            ViewCurrent.setView(self)
+        } else if (ViewCurrent.getView() != nil) {
+            ViewPrevious.setView(ViewCurrent.getView()!)
+            ViewCurrent.setView(self)
+        }
+    }
     
 }

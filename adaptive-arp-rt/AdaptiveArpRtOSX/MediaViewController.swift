@@ -31,36 +31,8 @@
 
 import Cocoa
 import WebKit
+import AVKit
+import AVFoundation
 
-class ViewController: BaseViewController {
-    
-    var webView : WebView!
-    
-    /**
-    Instantiates a view from a nib file and sets the value of the view property.
-    */
-    override func loadView() {
-        super.loadView()
-        
-        self.webView = WebView(frame: self.view.bounds)
-        self.view = self.webView
-        
-        // Register the HttpInterceptorprotocol
-        NSURLProtocol.registerClass(HttpInterceptorProtocol)
-        
-    }
-    
-    /**
-    Called after the view controller’s view has been loaded into memory.
-    */
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        (AppRegistryBridge.sharedInstance.getPlatformContextWeb().getDelegate()! as AppContextWebviewDelegate).setWebviewPrimary(self.webView!)
-        
-        var req = NSURLRequest(URL: NSURL(string: "https://adaptiveapp/index.html")!)
-        self.webView.mainFrame.loadRequest(req)
-    }
-    
+public class MediaViewController: BaseViewController {
 }
-

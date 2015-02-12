@@ -840,6 +840,7 @@
 		C39ED7311A4AE37F0081C13F /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39ED72F1A4AE37F0081C13F /* Reachability.swift */; };
 		C3A7467D1A77BB86001B21B9 /* IOParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7467C1A77BB86001B21B9 /* IOParser.swift */; };
 		C3A7467E1A77C087001B21B9 /* IOParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7467C1A77BB86001B21B9 /* IOParser.swift */; };
+		C3CDC60F1A8BB49000D75533 /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CDC60E1A8BB49000D75533 /* MediaViewController.swift */; };
 		C3CE2A341A8916100030D596 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CE2A331A8916100030D596 /* BaseViewController.swift */; };
 		C3D72D731A49BD0F00D10B30 /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D72D721A49BD0F00D10B30 /* GCD.swift */; };
 		C3D72D7C1A49BD1700D10B30 /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D72D721A49BD0F00D10B30 /* GCD.swift */; };
@@ -1474,6 +1475,7 @@
 		C3BB4C111A126171005C177C /* MessagingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagingTest.swift; sourceTree = "<group>"; };
 		C3BB4C131A126199005C177C /* BrowserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserTest.swift; sourceTree = "<group>"; };
 		C3BB4C201A126FAE005C177C /* TelephonyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TelephonyTest.swift; sourceTree = "<group>"; };
+		C3CDC60E1A8BB49000D75533 /* MediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
 		C3CE2A331A8916100030D596 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C3D72D721A49BD0F00D10B30 /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
 		C3DBEC861A7FBB5500DB8D50 /* AppResourceData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppResourceData.swift; sourceTree = "<group>"; };
@@ -2128,6 +2130,7 @@
 			children = (
 				4EDB4E7A1A028C9A008A2C4F /* AppDelegate.swift */,
 				C3CE2A331A8916100030D596 /* BaseViewController.swift */,
+				C3CDC60E1A8BB49000D75533 /* MediaViewController.swift */,
 				4EDB4E7C1A028C9A008A2C4F /* ViewController.swift */,
 				4EDB4E801A028C9A008A2C4F /* Images.xcassets */,
 				4EDB4E7E1A028C9A008A2C4F /* AdaptiveArpRtOSX.xcdatamodeld */,
@@ -3175,6 +3178,7 @@
 				4E43B3991A48228700E61B83 /* GeolocationDelegateHelper.swift in Sources */,
 				C34E5E7B1A78E5C4009C8B0D /* CryptoBridge.swift in Sources */,
 				C34D73B61A7A858600A8CD9F /* IDisplayOrientationListenerError.swift in Sources */,
+				C3CDC60F1A8BB49000D75533 /* MediaViewController.swift in Sources */,
 				C34E5ECB1A78E5C4009C8B0D /* IContact.swift in Sources */,
 				C34E5F441A78E5C4009C8B0D /* MailBridge.swift in Sources */,
 				C34E5F5B1A78E5C4009C8B0D /* RuntimeBridge.swift in Sources */,
