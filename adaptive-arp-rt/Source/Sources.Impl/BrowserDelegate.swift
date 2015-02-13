@@ -36,6 +36,9 @@ import Foundation
 #if os(iOS)
     import UIKit
 #endif
+#if os(OSX)
+    import AppKit
+#endif
 
 /**
    Interface for Managing the browser operations
@@ -47,9 +50,12 @@ public class BrowserDelegate : BaseUIDelegate, IBrowser {
     let logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
     let loggerTag : String = "BrowserDelegate"
     
-    #if os(iOS)
     /// Application variable
-    var application:UIApplication? = nil
+    #if os(iOS)
+        var application:UIApplication? = nil
+    #endif
+    #if os(OSX)
+        var workspace:NSWorkspace? = nil
     #endif
 
     /**
@@ -59,6 +65,9 @@ public class BrowserDelegate : BaseUIDelegate, IBrowser {
         super.init()
         #if os(iOS)
             self.application = (AppRegistryBridge.sharedInstance.getPlatformContext().getContext() as UIApplication)
+        #endif
+        #if os(OSX)
+            self.workspace = NSWorkspace.sharedWorkspace()
         #endif
     }
 
@@ -71,28 +80,22 @@ public class BrowserDelegate : BaseUIDelegate, IBrowser {
     */
     public func openExtenalBrowser(url : String) -> Bool? {
         
-        #if os(iOS)
-            
-            if checkURl(url) {
+        if checkURl(url) {
+            #if os(iOS)
                 let result: Bool =  application!.openURL(NSURL(string: url)!)
-                if !result {
-                    logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "It is not posible to open the url")
-                    return false
-                } else {
-                    return true
-                }
-            } else {
+            #endif
+            #if os(OSX)
+                let result: Bool =  workspace!.openURL(NSURL(string: url)!)
+            #endif
+            if !result {
+                logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "It is not posible to open the url")
                 return false
+            } else {
+                return true
             }
-            
-        #endif
-        #if os(OSX)
-            
-            // TODO: implement this part when the OSX part has a Base View Controller
+        } else {
             return false
-            
-        #endif
-        
+        }
     }
 
     /**
@@ -189,7 +192,7 @@ public class BrowserDelegate : BaseUIDelegate, IBrowser {
             
         #endif
         #if os(OSX)
-            // TODO: check how in OSX we can check if it is possible to open an url
+            // There is no way to determine if an osx app can open a url
         #endif
         
         return true

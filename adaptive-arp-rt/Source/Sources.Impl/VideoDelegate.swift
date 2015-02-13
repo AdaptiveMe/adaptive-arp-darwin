@@ -71,21 +71,16 @@ public class VideoDelegate : BaseMediaDelegate, IVideo {
     */
     public func playStream(url : String) {
         
-        #if os(iOS)
-            
-            if checkURl(url) {
-                if (BaseViewController.ViewCurrent.getView() != nil) {
+        if checkURl(url) {
+            if (BaseViewController.ViewCurrent.getView() != nil) {
+                #if os(iOS)
                     (BaseViewController.ViewCurrent.getView()! as BaseViewController).showInternalMedia(NSURL(string: url)!, showAnimated: true)
-                } else {
-                    logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The current View Controller has no presented view")
-                }
+                #endif
+                
+            } else {
+                logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The current View Controller has no presented view")
             }
-        #endif
-        #if os(OSX)
-            
-            // TODO: implement this part when the OSX part has a Base View Controller
-            
-        #endif
+        }
     }
     
     /**
@@ -119,7 +114,7 @@ public class VideoDelegate : BaseMediaDelegate, IVideo {
         #endif
         
         #if os(OSX)
-            // TODO: check how in OSX we can check if it is possible to open an url
+            // There is no way to check the url validity for OSX
         #endif
         
         return true

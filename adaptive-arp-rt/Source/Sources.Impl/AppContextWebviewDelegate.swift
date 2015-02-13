@@ -36,6 +36,9 @@ import Foundation
 #if os(iOS)
     import UIKit
 #endif
+#if os(OSX)
+    import WebKit
+#endif
 
 /**
    Interface for webview context management purposes
@@ -114,7 +117,9 @@ not be added using this method.
         #if os(iOS)
             (webViewReference as UIWebView).stringByEvaluatingJavaScriptFromString(javaScriptText)
         #endif
-        // TODO: implement this for OSX
+        #if os(OSX)
+            (webViewReference as WebView).stringByEvaluatingJavaScriptFromString(javaScriptText)
+        #endif
     }
 
     /**
