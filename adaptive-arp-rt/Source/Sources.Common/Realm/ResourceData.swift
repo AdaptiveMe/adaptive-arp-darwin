@@ -1,45 +1,21 @@
-/*
-* =| ADAPTIVE RUNTIME PLATFORM |=======================================================================================
-*
-* (C) Copyright 2013-2014 Carlos Lozano Diez t/a Adaptive.me <http://adaptive.me>.
-*
-* Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
-* the License. You may obtain a copy of the License at
-*
-*     http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
-* an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
-* specific language governing permissions and limitations under the License.
-*
-* Original author:
-*
-*     * Carlos Lozano Diez
-*                 <http://github.com/carloslozano>
-*                 <http://twitter.com/adaptivecoder>
-*                 <mailto:carlos@adaptive.me>
-*
-* Contributors:
-*
-*     * Ferran Vila Conesa
-*                 <http://github.com/fnva>
-*                 <http://twitter.com/ferran_vila>
-*                 <mailto:ferran.vila.conesa@gmail.com>
-*
-* =====================================================================================================================
-*/
+//
+//  ApplicationResource.swift
+//  AppPack
+//
+//  Created by Carlos Lozano Diez on 05/11/14.
+//  Copyright (c) 2014 Carlos Lozano Diez. All rights reserved.
+//
 
 import Foundation
-import Realm
 
-public class ResourceData : RLMObject {
-
-    public dynamic var id : NSString = ""
-    public dynamic var data : NSData = NSData()
-    public dynamic var raw_type : NSString = ""
-    public dynamic var raw_length : Int = 0
-    dynamic var cooked : Bool = false
-    dynamic var cooked_type :NSString = ""
-    dynamic var cooked_length : Int = 0
+public class ResourceData : NSObject {
+    
+    var id_data : NSString = ""
+    var data : NSData = NSData()
+    var raw_type : NSString = ""
+    var raw_length : Int64 = 0
+    var cooked : Bool = false
+    var cooked_type :NSString = ""
+    var cooked_length : Int64 = 0
     
 }

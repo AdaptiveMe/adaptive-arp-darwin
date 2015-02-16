@@ -11,6 +11,12 @@
 		4E04DB0B1A03CF2100DC4908 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04DB0A1A03CF2100DC4908 /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4E04DB161A03D3E900DC4908 /* App in Resources */ = {isa = PBXBuildFile; fileRef = 4E04DB151A03D3E900DC4908 /* App */; };
 		4E04DB171A03D3E900DC4908 /* App in Resources */ = {isa = PBXBuildFile; fileRef = 4E04DB151A03D3E900DC4908 /* App */; };
+		4E11B5CD1A921FDC00C0D872 /* ResourceReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E11B5CC1A921FDC00C0D872 /* ResourceReader.swift */; };
+		4E11B5CE1A921FDC00C0D872 /* ResourceReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E11B5CC1A921FDC00C0D872 /* ResourceReader.swift */; };
+		4E11B5D71A921FEB00C0D872 /* BTBinaryStreamReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E11B5D21A921FEB00C0D872 /* BTBinaryStreamReader.m */; };
+		4E11B5D81A921FEB00C0D872 /* BTBinaryStreamReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E11B5D21A921FEB00C0D872 /* BTBinaryStreamReader.m */; };
+		4E11B5D91A921FEB00C0D872 /* BTBinaryStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E11B5D41A921FEB00C0D872 /* BTBinaryStreamWriter.m */; };
+		4E11B5DA1A921FEB00C0D872 /* BTBinaryStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E11B5D41A921FEB00C0D872 /* BTBinaryStreamWriter.m */; };
 		4E3535361A1D33C200A9ACC7 /* LaunchScreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E3535321A1D2B3100A9ACC7 /* LaunchScreen@2x.png */; };
 		4E43B0511A48211200E61B83 /* Acceleration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF131A48211100E61B83 /* Acceleration.swift */; };
 		4E43B0531A48211200E61B83 /* AccelerationBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43AF141A48211100E61B83 /* AccelerationBridge.swift */; };
@@ -441,8 +447,6 @@
 		4E43B3911A48228700E61B83 /* UInt64Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43B35B1A48228700E61B83 /* UInt64Extension.swift */; };
 		4E43B3921A48228700E61B83 /* ResourceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43B35D1A48228700E61B83 /* ResourceData.swift */; };
 		4E43B3931A48228700E61B83 /* ResourceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43B35D1A48228700E61B83 /* ResourceData.swift */; };
-		4E43B3941A48228700E61B83 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43B35E1A48228700E61B83 /* RLMSupport.swift */; };
-		4E43B3951A48228700E61B83 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43B35E1A48228700E61B83 /* RLMSupport.swift */; };
 		4E43B3961A48228700E61B83 /* Await.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43B3601A48228700E61B83 /* Await.swift */; };
 		4E43B3971A48228700E61B83 /* Await.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43B3601A48228700E61B83 /* Await.swift */; };
 		4E43B3981A48228700E61B83 /* GeolocationDelegateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43B3611A48228700E61B83 /* GeolocationDelegateHelper.swift */; };
@@ -456,9 +460,7 @@
 		4E43B3A51A4823A500E61B83 /* HttpInterceptorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43B3A41A4823A500E61B83 /* HttpInterceptorProtocol.swift */; };
 		4E43B3A61A4823A500E61B83 /* HttpInterceptorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43B3A41A4823A500E61B83 /* HttpInterceptorProtocol.swift */; };
 		4E43B6D11A48297500E61B83 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E43B6C71A48292D00E61B83 /* SQLite.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		4E43B6D41A48298F00E61B83 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E43B6B61A48292200E61B83 /* Realm.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4E43B6D71A4829AB00E61B83 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E43B6CB1A48292D00E61B83 /* SQLite.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		4E43B6DA1A4829B800E61B83 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E43B6B01A48292200E61B83 /* Realm.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4E463F481A498402002EBCCE /* JSONUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E463F471A498402002EBCCE /* JSONUtil.swift */; };
 		4E463F491A498402002EBCCE /* JSONUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E463F471A498402002EBCCE /* JSONUtil.swift */; };
 		4E8FFC5C1A483D0800F0A8AE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8FFC5B1A483D0800F0A8AE /* BaseViewController.swift */; };
@@ -1028,6 +1030,14 @@
 		4E04DB0A1A03CF2100DC4908 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
 		4E04DB141A03D3DA00DC4908 /* App.Source */ = {isa = PBXFileReference; lastKnownFileType = folder; path = App.Source; sourceTree = "<group>"; };
 		4E04DB151A03D3E900DC4908 /* App */ = {isa = PBXFileReference; lastKnownFileType = folder; path = App; sourceTree = "<group>"; };
+		4E11B5CC1A921FDC00C0D872 /* ResourceReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceReader.swift; sourceTree = "<group>"; };
+		4E11B5D01A921FEB00C0D872 /* BinaryTools-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BinaryTools-Prefix.pch"; sourceTree = "<group>"; };
+		4E11B5D11A921FEB00C0D872 /* BTBinaryStreamReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTBinaryStreamReader.h; sourceTree = "<group>"; };
+		4E11B5D21A921FEB00C0D872 /* BTBinaryStreamReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTBinaryStreamReader.m; sourceTree = "<group>"; };
+		4E11B5D31A921FEB00C0D872 /* BTBinaryStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTBinaryStreamWriter.h; sourceTree = "<group>"; };
+		4E11B5D41A921FEB00C0D872 /* BTBinaryStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTBinaryStreamWriter.m; sourceTree = "<group>"; };
+		4E11B5D51A921FEB00C0D872 /* BTBinaryTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTBinaryTools.h; sourceTree = "<group>"; };
+		4E11B5D61A921FEB00C0D872 /* BTBinaryToolsErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTBinaryToolsErrors.h; sourceTree = "<group>"; };
 		4E3535321A1D2B3100A9ACC7 /* LaunchScreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LaunchScreen@2x.png"; path = "Images.xcassets/LaunchImage.launchimage/LaunchScreen@2x.png"; sourceTree = "<group>"; };
 		4E43AF131A48211100E61B83 /* Acceleration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Acceleration.swift; sourceTree = "<group>"; };
 		4E43AF141A48211100E61B83 /* AccelerationBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccelerationBridge.swift; sourceTree = "<group>"; };
@@ -1399,7 +1409,6 @@
 		4E43B35A1A48228700E61B83 /* UInt32Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UInt32Extension.swift; sourceTree = "<group>"; };
 		4E43B35B1A48228700E61B83 /* UInt64Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UInt64Extension.swift; sourceTree = "<group>"; };
 		4E43B35D1A48228700E61B83 /* ResourceData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceData.swift; sourceTree = "<group>"; };
-		4E43B35E1A48228700E61B83 /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
 		4E43B3601A48228700E61B83 /* Await.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Await.swift; sourceTree = "<group>"; };
 		4E43B3611A48228700E61B83 /* GeolocationDelegateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeolocationDelegateHelper.swift; sourceTree = "<group>"; };
 		4E43B3621A48228700E61B83 /* I18NParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = I18NParser.swift; sourceTree = "<group>"; };
@@ -1491,7 +1500,6 @@
 				4E8FFC671A48472600F0A8AE /* libsqlite3.dylib in Frameworks */,
 				4E8FFC651A48471900F0A8AE /* libc++.dylib in Frameworks */,
 				4E8FFC631A48470F00F0A8AE /* libz.dylib in Frameworks */,
-				4E43B6D41A48298F00E61B83 /* Realm.framework in Frameworks */,
 				4E43B6D11A48297500E61B83 /* SQLite.framework in Frameworks */,
 				4E04DAFD1A03CE8E00DC4908 /* WebKit.framework in Frameworks */,
 			);
@@ -1511,7 +1519,6 @@
 				4E8FFC6D1A48473B00F0A8AE /* libsqlite3.dylib in Frameworks */,
 				4E8FFC6B1A48473500F0A8AE /* libc++.dylib in Frameworks */,
 				4E8FFC691A48472E00F0A8AE /* libz.dylib in Frameworks */,
-				4E43B6DA1A4829B800E61B83 /* Realm.framework in Frameworks */,
 				4E43B6D71A4829AB00E61B83 /* SQLite.framework in Frameworks */,
 				4E04DB0B1A03CF2100DC4908 /* WebKit.framework in Frameworks */,
 			);
@@ -1540,6 +1547,20 @@
 				4E04DAFA1A03CE5C00DC4908 /* WebKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4E11B5CF1A921FEB00C0D872 /* StreamUtils */ = {
+			isa = PBXGroup;
+			children = (
+				4E11B5D01A921FEB00C0D872 /* BinaryTools-Prefix.pch */,
+				4E11B5D11A921FEB00C0D872 /* BTBinaryStreamReader.h */,
+				4E11B5D21A921FEB00C0D872 /* BTBinaryStreamReader.m */,
+				4E11B5D31A921FEB00C0D872 /* BTBinaryStreamWriter.h */,
+				4E11B5D41A921FEB00C0D872 /* BTBinaryStreamWriter.m */,
+				4E11B5D51A921FEB00C0D872 /* BTBinaryTools.h */,
+				4E11B5D61A921FEB00C0D872 /* BTBinaryToolsErrors.h */,
+			);
+			path = StreamUtils;
 			sourceTree = "<group>";
 		};
 		4E43AF121A48211100E61B83 /* Sources.Api */ = {
@@ -1930,6 +1951,7 @@
 		4E43B33F1A48228700E61B83 /* Sources.Common */ = {
 			isa = PBXGroup;
 			children = (
+				4E11B5CF1A921FEB00C0D872 /* StreamUtils */,
 				4E8FFC611A48463F00F0A8AE /* Adaptive-Bridging-Header.h */,
 				4E43B3401A48228700E61B83 /* Compression */,
 				4E43B3431A48228700E61B83 /* Core */,
@@ -1991,9 +2013,9 @@
 		4E43B35C1A48228700E61B83 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
+				4E11B5CC1A921FDC00C0D872 /* ResourceReader.swift */,
 				4E43B3A11A48236300E61B83 /* AppResourceManager.swift */,
 				4E43B35D1A48228700E61B83 /* ResourceData.swift */,
-				4E43B35E1A48228700E61B83 /* RLMSupport.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -2490,6 +2512,7 @@
 				4E43B2171A48211200E61B83 /* IOAuth.swift in Sources */,
 				4E8FFC601A483D7F00F0A8AE /* BrowserViewController.swift in Sources */,
 				4E43B2531A48211200E61B83 /* IVibration.swift in Sources */,
+				4E11B5CD1A921FDC00C0D872 /* ResourceReader.swift in Sources */,
 				4E43B1411A48211200E61B83 /* IBaseListener.swift in Sources */,
 				4E43B1051A48211200E61B83 /* GyroscopeBridge.swift in Sources */,
 				4E43B1C51A48211200E61B83 /* IFileSystemStorageType.swift in Sources */,
@@ -2601,6 +2624,7 @@
 				4E43B0DB1A48211200E61B83 /* DatabaseTableResultCallbackImpl.swift in Sources */,
 				4E43B2251A48211200E61B83 /* IQRCode.swift in Sources */,
 				4E43B2471A48211200E61B83 /* ITelephony.swift in Sources */,
+				4E11B5D91A921FEB00C0D872 /* BTBinaryStreamWriter.m in Sources */,
 				4EDB4E571A028C89008A2C4F /* ViewController.swift in Sources */,
 				4E43B07B1A48211200E61B83 /* BaseCommunicationBridge.swift in Sources */,
 				4E43B1731A48211200E61B83 /* ICapabilitiesSensor.swift in Sources */,
@@ -2781,6 +2805,7 @@
 				4E43B11B1A48211200E61B83 /* IAppContext.swift in Sources */,
 				4E43B2FB1A48212D00E61B83 /* BaseApplicationDelegate.swift in Sources */,
 				4E43B2C31A48211200E61B83 /* UpdateBridge.swift in Sources */,
+				4E11B5D71A921FEB00C0D872 /* BTBinaryStreamReader.m in Sources */,
 				4ECEE8171A5EB1CF0058E5ED /* FileBridge.swift in Sources */,
 				4E43B2AD1A48211200E61B83 /* ServiceRequest.swift in Sources */,
 				4E43B23F1A48211200E61B83 /* IServiceType.swift in Sources */,
@@ -2874,7 +2899,6 @@
 				4E43B2191A48211200E61B83 /* IOCR.swift in Sources */,
 				4E43B1DB1A48211200E61B83 /* ILifecycle.swift in Sources */,
 				4E43B1AF1A48211200E61B83 /* IFileDataStoreResultCallback.swift in Sources */,
-				4E43B3941A48228700E61B83 /* RLMSupport.swift in Sources */,
 				4E43B1391A48211200E61B83 /* IBaseCallback.swift in Sources */,
 				4E43B0D31A48211200E61B83 /* DatabaseColumn.swift in Sources */,
 				4E43B2491A48211200E61B83 /* ITelephonyStatus.swift in Sources */,
@@ -3000,6 +3024,7 @@
 				C34E5F0D1A78E5C4009C8B0D /* INetworkReachability.swift in Sources */,
 				C34E5E871A78E5C4009C8B0D /* DisplayBridge.swift in Sources */,
 				C3A7467E1A77C087001B21B9 /* IOParser.swift in Sources */,
+				4E11B5DA1A921FEB00C0D872 /* BTBinaryStreamWriter.m in Sources */,
 				C34E5E561A78E5C4009C8B0D /* BaseNotificationBridge.swift in Sources */,
 				C34E5F5F1A78E5C4009C8B0D /* Service.swift in Sources */,
 				C34E5EEF1A78E5C4009C8B0D /* IFileSystemSecurity.swift in Sources */,
@@ -3025,6 +3050,7 @@
 				C34E5EC81A78E5C4009C8B0D /* ICloud.swift in Sources */,
 				C34E5E981A78E5C4009C8B0D /* GyroscopeBridge.swift in Sources */,
 				C34E5E3E1A78E5C4009C8B0D /* AccelerationBridge.swift in Sources */,
+				4E11B5D81A921FEB00C0D872 /* BTBinaryStreamReader.m in Sources */,
 				4E43B3971A48228700E61B83 /* Await.swift in Sources */,
 				4E43B38F1A48228700E61B83 /* UInt32Extension.swift in Sources */,
 				4EDB4E7D1A028C9A008A2C4F /* ViewController.swift in Sources */,
@@ -3198,6 +3224,7 @@
 				C34E5EC71A78E5C4009C8B0D /* ICapabilitiesSensor.swift in Sources */,
 				C34E5F021A78E5C4009C8B0D /* ImagingBridge.swift in Sources */,
 				C34E5ECE1A78E5C4009C8B0D /* IContactPhotoResultCallback.swift in Sources */,
+				4E11B5CE1A921FDC00C0D872 /* ResourceReader.swift in Sources */,
 				C34E5E911A78E5C4009C8B0D /* FileResultCallbackImpl.swift in Sources */,
 				C34E5EB71A78E5C4009C8B0D /* IBaseUI.swift in Sources */,
 				C34E5E4E1A78E5C4009C8B0D /* BarometerBridge.swift in Sources */,
@@ -3286,7 +3313,6 @@
 				C34E5F741A78E5C4009C8B0D /* XMLBridge.swift in Sources */,
 				4E43B32A1A48212D00E61B83 /* LoggingDelegate.swift in Sources */,
 				C34E5E9B1A78E5C4009C8B0D /* IAccelerationListenerError.swift in Sources */,
-				4E43B3951A48228700E61B83 /* RLMSupport.swift in Sources */,
 				C34E5EA21A78E5C4009C8B0D /* IAnalytics.swift in Sources */,
 				4E43B3831A48228700E61B83 /* Operators.swift in Sources */,
 				C34E5EC31A78E5C4009C8B0D /* ICapabilitiesData.swift in Sources */,

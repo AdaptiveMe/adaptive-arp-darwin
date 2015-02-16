@@ -3,3 +3,4 @@
 //
 
 #import "Compression/NSData+CocoaDevUsersAdditions.h"
+#import "StreamUtils/BTBinaryTools.h"

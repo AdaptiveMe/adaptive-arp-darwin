@@ -26,7 +26,7 @@
 #
 # =====================================================================================================================
 
-array=( realm-cocoa SQLite.swift )
+array=( SQLite.swift )
 for project in "${array[@]}"
 do
     echo Processing third-party module $project .
