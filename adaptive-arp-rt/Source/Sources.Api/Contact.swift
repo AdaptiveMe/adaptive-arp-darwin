@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.5
+    * @version v2.1.6
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -93,32 +93,6 @@ public class Contact : ContactUid {
     */
     public override init(contactId: String) {
         super.init(contactId: contactId)
-    }
-
-    /**
-       Constructor with all the fields
-
-       @param contactId        Identifier of the contact
-       @param personalInfo     Personal Information
-       @param professionalInfo Professional Information
-       @param contactAddresses Addresses of the contact
-       @param contactPhones    Phones of the contact
-       @param contactEmails    Emails of the contact
-       @param contactWebsites  Websites of the contact
-       @param contactSocials   Social Networks of the contact
-       @param contactTags      Tags of the contact
-       @since v2.0
-    */
-    public init(contactId: String, personalInfo: ContactPersonalInfo, professionalInfo: ContactProfessionalInfo, contactAddresses: [ContactAddress], contactPhones: [ContactPhone], contactEmails: [ContactEmail], contactWebsites: [ContactWebsite], contactSocials: [ContactSocial], contactTags: [ContactTag]) {
-        super.init(contactId: contactId)
-        self.personalInfo = personalInfo
-        self.professionalInfo = professionalInfo
-        self.contactAddresses = contactAddresses
-        self.contactPhones = contactPhones
-        self.contactEmails = contactEmails
-        self.contactWebsites = contactWebsites
-        self.contactSocials = contactSocials
-        self.contactTags = contactTags
     }
 
     /**
