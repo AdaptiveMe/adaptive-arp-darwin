@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.8
+    * @version v2.1.9
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -85,7 +85,7 @@ public class AdsBridge : BaseCommerceBridge, IAds, APIBridge {
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "AdsBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.1.8."
+                responseMessage = "AdsBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.1.9."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)
