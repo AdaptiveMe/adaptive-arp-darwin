@@ -25,5 +25,6 @@
     <!-- List of external resources for the application. RegExp supported -->
     <resources>
         <resource url="http\:\/\/html5demos\.com\/assets\/(.*)+\.mp4" />
+        <resource url="http://www.google.com" />
     </resources>
 </io-config>
