@@ -35,7 +35,7 @@ import XCTest
 
 class MessagingTest: XCTestCase {
     
-    var messagingImpl:MessagingImpl!
+    /*var messagingImpl:MessagingImpl!
     var iMessagingCallbackImpl:IMessagingCallbackImpl!
 
     override func setUp() {
@@ -59,10 +59,10 @@ class MessagingTest: XCTestCase {
         var email:Email = Email(toRecipients: [EmailAddress(address: "fnva@gft.com")], subject: "Test from Adaptive Messaging API", messageBody: "This text goes throw the Adaptive API of Messaging")
         
         messagingImpl.sendEmail(email, callback: iMessagingCallbackImpl)
-    }
+    }*/
 
 }
-
+/*
 /// Dummy implementation of the callback in order to run the tests
 class IMessagingCallbackImpl: NSObject, IMessagingCallback {
     
@@ -84,4 +84,4 @@ class IMessagingCallbackImpl: NSObject, IMessagingCallback {
         return ""
     }
     func getId() -> Int64 {return 0}
-}
+}*/

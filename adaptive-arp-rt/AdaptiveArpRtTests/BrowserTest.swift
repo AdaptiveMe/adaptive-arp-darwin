@@ -31,15 +31,26 @@
 
 import XCTest
 
+/**
+*  Browser delegate tests class
+*/
 class BrowserTest: XCTestCase {
     
+    /**
+    Constructor.
+    */
     override func setUp() {
         super.setUp()
+        
+        AppRegistryBridge.sharedInstance.getLoggingBridge().setDelegate(LoggingDelegate())
         AppRegistryBridge.sharedInstance.getPlatformContext().setDelegate(AppContextDelegate())
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().setDelegate(AppContextWebviewDelegate())
         AppRegistryBridge.sharedInstance.getBrowserBridge().setDelegate(BrowserDelegate())
     }
     
+    /**
+    Test for openning an external Browser
+    */
     func testOpenExtenalBrowser() {
         XCTAssertTrue(AppRegistryBridge.sharedInstance.getBrowserBridge().openExtenalBrowser("http://www.google.com")!)
         

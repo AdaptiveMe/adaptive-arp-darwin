@@ -29,208 +29,101 @@
 * =====================================================================================================================
 */
 
-import UIKit
 import XCTest
 
+/**
+*  Browser delegate tests class
+*/
 class ContactTest: XCTestCase {
     
-    var contactImpl:ContactImpl!
+    /// Callback for results
+    var callback:ContactResultCallbackTest!
     
-    // Create a callback
-    var iContactResultCallbackImpl:IContactResultCallbackImpl!
-    var iContactPhotoResultCallbackImpl:IContactPhotoResultCallbackImpl!
-    
+    /**
+    Constructor.
+    */
     override func setUp() {
         super.setUp()
         
-        contactImpl = ContactImpl()
-        iContactResultCallbackImpl = IContactResultCallbackImpl()
-        iContactPhotoResultCallbackImpl = IContactPhotoResultCallbackImpl()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-    
-    func testGetAllContacts() {
+        AppRegistryBridge.sharedInstance.getLoggingBridge().setDelegate(LoggingDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContext().setDelegate(AppContextDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().setDelegate(AppContextWebviewDelegate())
+        AppRegistryBridge.sharedInstance.getContactBridge().setDelegate(ContactDelegate())
         
-        self.contactImpl.getContacts(self.iContactResultCallbackImpl)
+        callback = ContactResultCallbackTest(id: 0)
     }
     
-    func testGetAllContactsPerformance() {
-        
-        self.measureBlock() {
-            self.contactImpl.getContacts(self.iContactResultCallbackImpl)
-        }
-    }
-    
+    /**
+    Test for getting one contact. This method obtains ALL THE INFORMATION for one contact
+    */
     func testGetContact() {
         
-        // MARK: maybe this identifier does not exist
-        var contactUid:ContactUid = ContactUid()
-        contactUid.setContactId("3")
+        // MARK:  Maybe this contact (3) does not exist
         
-        self.contactImpl.getContact(contactUid, callback: self.iContactResultCallbackImpl)
+        var cuuid:ContactUid = ContactUid(contactId: "3")
+        AppRegistryBridge.sharedInstance.getContactBridge().getContact(cuuid, callback: callback)
     }
     
-    func testGetContactPerformance() {
+    /**
+    Test for getting all the contacts. This method obtains ALL THE INFORMATION for the contacts
+    */
+    func testGetContacts() {
         
-        // MARK: maybe this identifier does not exist
-        var contactUid:ContactUid = ContactUid()
-        contactUid.setContactId("3")
-        
-        self.measureBlock() {
-            self.contactImpl.getContact(contactUid, callback: self.iContactResultCallbackImpl)
-        }
+        AppRegistryBridge.sharedInstance.getContactBridge().getContacts(callback)
     }
     
-    func testGetContactsFields() {
+    /**
+    Test for Getting anly some information about the contacts.
+    */
+    func testGetContactsForFields() {
         
         var fields:[IContactFieldGroup] = [IContactFieldGroup]()
         fields.append(IContactFieldGroup.PERSONAL_INFO)
+        fields.append(IContactFieldGroup.PROFESSIONAL_INFO)
         
-        self.contactImpl.getContactsForFields(self.iContactResultCallbackImpl, fields: fields)
+        AppRegistryBridge.sharedInstance.getContactBridge().getContactsForFields(callback, fields: fields)
     }
-    
-    func testGetContactsFieldsPerformance() {
+
+    /**
+    Test for getting all the contacts with some constrains
+    */
+    func testGetContactsWithFilter() {
         
         var fields:[IContactFieldGroup] = [IContactFieldGroup]()
         fields.append(IContactFieldGroup.PERSONAL_INFO)
-        
-        self.measureBlock() {
-            self.contactImpl.getContactsForFields(self.iContactResultCallbackImpl, fields: fields)
-        }
-    }
-    
-    func testGetContactsFieldsFilter() {
-        
-        var fields:[IContactFieldGroup] = [IContactFieldGroup]()
-        fields.append(IContactFieldGroup.PERSONAL_INFO)
+        fields.append(IContactFieldGroup.PROFESSIONAL_INFO)
         
         var filters:[IContactFilter] = [IContactFilter]()
         filters.append(IContactFilter.HAS_PHONE)
+        filters.append(IContactFilter.HAS_EMAIL)
+        filters.append(IContactFilter.HAS_ADDRESS)
         
-        self.contactImpl.getContactsWithFilter(self.iContactResultCallbackImpl, fields: fields, filter: filters)
+        AppRegistryBridge.sharedInstance.getContactBridge().getContactsWithFilter(callback, fields: fields, filter: filters)
     }
     
-    func testGetContactsFieldsFilterPerformance() {
-        
-        var fields:[IContactFieldGroup] = [IContactFieldGroup]()
-        fields.append(IContactFieldGroup.PERSONAL_INFO)
-        
-        var filters:[IContactFilter] = [IContactFilter]()
-        filters.append(IContactFilter.HAS_PHONE)
-        
-        self.measureBlock() {
-            self.contactImpl.getContactsWithFilter(self.iContactResultCallbackImpl, fields: fields, filter: filters)
-        }
-    }
-    
+    /**
+    Test for searching contacts
+    */
     func testSearchContacts() {
         
-        self.contactImpl.searchContacts("kate", callback: self.iContactResultCallbackImpl)
-    }
-    
-    func testSearchContactsPerformance() {
+        // MARK:  Maybe this contact (kate) does not exist
         
-        self.measureBlock() {
-            self.contactImpl.searchContacts("kate", callback: self.iContactResultCallbackImpl)
-        }
+        AppRegistryBridge.sharedInstance.getContactBridge().searchContacts("kate", callback: callback)
     }
     
+    /**
+    Test for searching contacts with restriction
+    */
     func testSearchContactsFilter() {
         
         var filters:[IContactFilter] = [IContactFilter]()
         filters.append(IContactFilter.HAS_PHONE)
+        filters.append(IContactFilter.HAS_EMAIL)
+        filters.append(IContactFilter.HAS_ADDRESS)
         
-        self.contactImpl.searchContactsWithFilter("kate", callback: self.iContactResultCallbackImpl, filter: filters)
-    }
-    
-    func testSearchContactsFilterPerformance() {
+        // MARK:  Maybe this contact (david) does not exist
         
-        var filters:[IContactFilter] = [IContactFilter]()
-        filters.append(IContactFilter.HAS_PHONE)
-        
-        self.measureBlock() {
-            self.contactImpl.searchContactsWithFilter("kate", callback: self.iContactResultCallbackImpl, filter: filters)
-        }
-    }
-    
-    func testGetContactPhoto() {
-        
-        // MARK: maybe this identifier does not exist
-        var contactUid:ContactUid = ContactUid()
-        contactUid.setContactId("3")
-        
-        self.contactImpl.getContactPhoto(contactUid, callback: self.iContactPhotoResultCallbackImpl)
-    }
-    
-    func testGetContactPhotoPerformance() {
-        
-        // MARK: maybe this identifier does not exist
-        var contactUid:ContactUid = ContactUid()
-        contactUid.setContactId("3")
-        
-        self.measureBlock() {
-            self.contactImpl.getContactPhoto(contactUid, callback: self.iContactPhotoResultCallbackImpl)
-        }
+        AppRegistryBridge.sharedInstance.getContactBridge().searchContactsWithFilter("david", callback: callback, filter: filters)
     }
 
-}
-
-/// Dummy implementation of the callback in order to run the tests
-class IContactResultCallbackImpl: NSObject, IContactResultCallback {
-    
-    func onError(error : IContactResultCallbackError) {
-        XCTAssert(false, "\(error)")
-    }
-    func onResult(contacts : [Contact]) {
-        
-        println("Number of contacts: \(contacts.count)")
-        
-        for contact:Contact in contacts {
-            println(contact.description)
-            XCTAssert(true, "contact: \(contact.description)")
-        }
-    }
-    func onWarning(contacts : [Contact], warning : IContactResultCallbackWarning) {
-        
-        println("Number of contacts: \(contacts.count)")
-        
-        for contact:Contact in contacts {
-            println(contact.description)
-            XCTAssert(true, "contact: \(contact.description), message: \(warning)")
-        }
-    }
-    func toString() -> String? {
-        return ""
-    }
-    func getId() -> Int64 {return 0}
-}
-
-/// Dummy implementation of the callback in order to run the tests
-class IContactPhotoResultCallbackImpl: NSObject, IContactPhotoResultCallback {
-    
-    var contactImpl:ContactImpl = ContactImpl()
-    
-    func onError(error : IContactPhotoResultCallbackError) {
-        XCTAssert(false, "\(error)")
-    }
-    func onResult(contactPhoto : [Byte]) {
-        
-        // MARK: maybe this identifier does not exist
-        var contactUid:ContactUid = ContactUid()
-        contactUid.setContactId("1")
-        
-        XCTAssert(self.contactImpl.setContactPhoto(contactUid, pngImage: contactPhoto), "Error setting the image")
-    }
-    func onWarning(contactPhoto : [Byte], warning : IContactPhotoResultCallbackWarning) {
-        
-        //println("bytes: \(contactPhoto)")
-        XCTAssert(true, "message: \(warning)")
-    }
-    func toString() -> String? {
-        return ""
-    }
-    func getId() -> Int64 {return 0}
 }

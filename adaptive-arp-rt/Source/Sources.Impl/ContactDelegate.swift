@@ -524,41 +524,24 @@ public class ContactDelegate : BasePIMDelegate, IContact {
                         
                         // Look for all the possible filters combinations and the number of ocurrences
                         // If the filter combination matches and the record has values for this combination, add to the iteration list
-                        if ((find(filters, IContactFilter.HAS_ADDRESS)) != nil) {
-                            if addrNum > 0 {
-                                filteredContacts.append(record)
-                            }
-                            
-                        } else if ((find(filters, IContactFilter.HAS_EMAIL)) != nil) {
-                            if mailNum > 0 {
-                                filteredContacts.append(record)
-                            }
-                            
-                        } else if ((find(filters, IContactFilter.HAS_PHONE)) != nil) {
-                            if phonNum > 0 {
-                                filteredContacts.append(record)
-                            }
-                            
-                        } else if ((find(filters, IContactFilter.HAS_ADDRESS)) != nil && (find(filters, IContactFilter.HAS_EMAIL)) != nil) {
-                            if addrNum > 0 && mailNum > 0 {
-                                filteredContacts.append(record)
-                            }
-                            
-                        } else if ((find(filters, IContactFilter.HAS_ADDRESS)) != nil && (find(filters, IContactFilter.HAS_PHONE)) != nil) {
-                            if addrNum > 0 && phonNum > 0 {
-                                filteredContacts.append(record)
-                            }
-                            
-                        } else if ((find(filters, IContactFilter.HAS_EMAIL)) != nil && (find(filters, IContactFilter.HAS_PHONE)) != nil) {
-                            if mailNum > 0 && phonNum > 0 {
-                                filteredContacts.append(record)
-                            }
-                            
-                        } else {
-                            if addrNum > 0 && mailNum > 0 && phonNum > 0 {
-                                filteredContacts.append(record)
-                            }
-                            
+                        var a = find(filters, IContactFilter.HAS_ADDRESS)
+                        var m = find(filters, IContactFilter.HAS_EMAIL)
+                        var p = find(filters, IContactFilter.HAS_PHONE)
+                        
+                        if a != nil && m != nil && p != nil {
+                            if addrNum > 0 && mailNum > 0 && phonNum > 0 { filteredContacts.append(record) }
+                        } else if a != nil && m != nil {
+                            if addrNum > 0 && mailNum > 0 { filteredContacts.append(record) }
+                        } else if a != nil && p != nil {
+                            if addrNum > 0 && phonNum > 0 { filteredContacts.append(record) }
+                        } else if m != nil && p != nil {
+                            if mailNum > 0 && phonNum > 0 { filteredContacts.append(record) }
+                        } else if a != nil {
+                            if addrNum > 0 { filteredContacts.append(record) }
+                        } else if m != nil {
+                            if mailNum > 0 { filteredContacts.append(record) }
+                        } else if p != nil {
+                            if phonNum > 0 { filteredContacts.append(record) }
                         }
                     }
                     

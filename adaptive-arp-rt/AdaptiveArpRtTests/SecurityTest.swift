@@ -34,7 +34,7 @@ import XCTest
 
 class SecurityTest: XCTestCase {
     
-    var securityImpl:SecurityImpl?
+    /*var securityImpl:SecurityImpl?
     var secureKeyPair1:SecureKeyPair = SecureKeyPair()
     var secureKeyPair2:SecureKeyPair = SecureKeyPair()
     
@@ -94,9 +94,9 @@ class SecurityTest: XCTestCase {
         
         // Delete a SecureKeyPair
         securityImpl!.deleteSecureKeyValuePairs([secureKeyPair1.getSecureKey()!, secureKeyPair2.getSecureKey()!], publicAccessName: "storage", callback: iSecureKVResultCallbackImpl)
-    }
+    }*/
 }
-
+/*
 /// Dummy implementation of the callback in order to run the tests
 class ISecureKVResultCallbackImpl: NSObject, ISecureKVResultCallback {
     
@@ -119,4 +119,4 @@ class ISecureKVResultCallbackImpl: NSObject, ISecureKVResultCallback {
         return ""
     }
     func getId() -> Int64 {return 0}
-}
+}*/

@@ -34,7 +34,7 @@ import XCTest
 
 class GlobalizationTest: XCTestCase {
     
-    var globalizationImpl:GlobalizationImpl!
+    /*var globalizationImpl:GlobalizationImpl!
     var locale:AdaptiveArpApi.Locale!
     
     let key:String = "hello-world"
@@ -66,5 +66,5 @@ class GlobalizationTest: XCTestCase {
         var localizedStrings = globalizationImpl.getResourceLiterals(locale)
         XCTAssert(localizedStrings?.count > 0, "There is a problem reading the localized file")
         
-    }
+    }*/
 }

@@ -34,7 +34,7 @@ import XCTest
 
 
 class TelephonyTest: XCTestCase {
-    
+    /*
     var telephonyImpl:ITelephony!
     
     override func setUp() {
@@ -60,6 +60,6 @@ class TelephonyTest: XCTestCase {
         case ITelephonyStatus.Unknown:
             XCTAssert(false, "")
         }
-    }
+    }*/
     
 }

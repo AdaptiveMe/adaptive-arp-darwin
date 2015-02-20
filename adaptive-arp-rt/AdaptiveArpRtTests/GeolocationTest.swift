@@ -34,7 +34,7 @@ import XCTest
 
 class GeolocationTest: XCTestCase {
     
-    var iGeolocation:IGeolocation!
+    /*var iGeolocation:IGeolocation!
     var listener:GeolocationListenerImpl!
     
     override func setUp() {
@@ -54,9 +54,9 @@ class GeolocationTest: XCTestCase {
         iGeolocation.addGeolocationListener(listener)
         iGeolocation.removeGeolocationListener(listener)
         iGeolocation.removeGeolocationListeners()
-    }
+    }*/
 }
-
+/*
 public class GeolocationListenerImpl:NSObject,IGeolocationListener {
     
     public func onError(error : IGeolocationListenerError) {
@@ -77,4 +77,4 @@ public class GeolocationListenerImpl:NSObject,IGeolocationListener {
     public func getId() -> Int64 {
         return 0
     }
-}
+}*/

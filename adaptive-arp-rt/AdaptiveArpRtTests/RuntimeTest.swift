@@ -31,28 +31,9 @@
 
 import XCTest
 
-class DeviceTest: XCTestCase {
-    
-    var deviceImpl:DeviceImpl?
-
-    override func setUp() {
-        super.setUp()
-        
-        deviceImpl = DeviceImpl()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-    
-    func testGetDeviceInfo() {
-        XCTAssert(self.deviceImpl?.getDeviceInfo()!.getModel() != nil, "")
-    }
-    
-    func testGeLocaleCurrent() {
-        XCTAssert(self.deviceImpl?.getLocaleCurrent()!.getLanguage() != nil, "")
-    }
-    
-    // TODO: validate button listeners
+/**
+*  Runtime delegate tests class
+*/
+class RuntimeTest: XCTestCase {
 
 }
