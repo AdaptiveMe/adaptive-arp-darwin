@@ -8,15 +8,15 @@
         <service name="petstore">
             <end-point host="http://petstore.swagger.wordnik.com" validation="None">
                 <path path="/api/pet/15" type="RestJson">
-                    <method method="GET"/>
-                    <method method="POST"/>
+                    <method method="Get"/>
+                    <method method="Post"/>
                 </path>
             </end-point>
         </service>
         <service name="geonames">
             <end-point host="http://api.geonames.org" validation="None">
                 <path path="/postalCodeLookupJSON" type="RestJson">
-                    <method method="GET"/>
+                    <method method="Get"/>
                 </path>
             </end-point>
         </service>
