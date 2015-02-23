@@ -5172,11 +5172,12 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = AdaptiveArpRtOSXTests/Info.plist;
+				INFOPLIST_FILE = AdaptiveArpRtTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "Source/Sources.Common/Adaptive-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AdaptiveArpRtOSX.app/Contents/MacOS/AdaptiveArpRtOSX";
 			};
 			name = Debug;
@@ -5192,11 +5193,12 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = AdaptiveArpRtOSXTests/Info.plist;
+				INFOPLIST_FILE = AdaptiveArpRtTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "Source/Sources.Common/Adaptive-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AdaptiveArpRtOSX.app/Contents/MacOS/AdaptiveArpRtOSX";
 			};
 			name = Release;
