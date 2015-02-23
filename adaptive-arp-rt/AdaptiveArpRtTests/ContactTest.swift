@@ -78,8 +78,8 @@ class ContactTest: XCTestCase {
     func testGetContactsForFields() {
         
         var fields:[IContactFieldGroup] = [IContactFieldGroup]()
-        fields.append(IContactFieldGroup.PERSONAL_INFO)
-        fields.append(IContactFieldGroup.PROFESSIONAL_INFO)
+        fields.append(IContactFieldGroup.PersonalInfo)
+        fields.append(IContactFieldGroup.ProfessionalInfo)
         
         AppRegistryBridge.sharedInstance.getContactBridge().getContactsForFields(callback, fields: fields)
     }
@@ -90,13 +90,13 @@ class ContactTest: XCTestCase {
     func testGetContactsWithFilter() {
         
         var fields:[IContactFieldGroup] = [IContactFieldGroup]()
-        fields.append(IContactFieldGroup.PERSONAL_INFO)
-        fields.append(IContactFieldGroup.PROFESSIONAL_INFO)
+        fields.append(IContactFieldGroup.PersonalInfo)
+        fields.append(IContactFieldGroup.ProfessionalInfo)
         
         var filters:[IContactFilter] = [IContactFilter]()
-        filters.append(IContactFilter.HAS_PHONE)
-        filters.append(IContactFilter.HAS_EMAIL)
-        filters.append(IContactFilter.HAS_ADDRESS)
+        filters.append(IContactFilter.HasPhone)
+        filters.append(IContactFilter.HasEmail)
+        filters.append(IContactFilter.HasAddress)
         
         AppRegistryBridge.sharedInstance.getContactBridge().getContactsWithFilter(callback, fields: fields, filter: filters)
     }
@@ -117,9 +117,9 @@ class ContactTest: XCTestCase {
     func testSearchContactsFilter() {
         
         var filters:[IContactFilter] = [IContactFilter]()
-        filters.append(IContactFilter.HAS_PHONE)
-        filters.append(IContactFilter.HAS_EMAIL)
-        filters.append(IContactFilter.HAS_ADDRESS)
+        filters.append(IContactFilter.HasPhone)
+        filters.append(IContactFilter.HasEmail)
+        filters.append(IContactFilter.HasAddress)
         
         // MARK:  Maybe this contact (david) does not exist
         
