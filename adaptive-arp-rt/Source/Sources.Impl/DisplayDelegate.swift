@@ -100,7 +100,7 @@ public class DisplayDelegate : BaseSystemDelegate, IDisplay {
             }
         #endif
         #if os(OSX)
-            return ICapabilitiesOrientation.Portrait_Up
+            return ICapabilitiesOrientation.PortraitUp
         #endif
     }
 

@@ -504,7 +504,7 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
             }
         #endif
         #if os(OSX)
-            return ICapabilitiesOrientation.Portrait_Up
+            return ICapabilitiesOrientation.PortraitUp
         #endif
     }
     
@@ -538,7 +538,7 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
             }
         #endif
         #if os(OSX)
-            ret.append(ICapabilitiesOrientation.Portrait_Up)
+            ret.append(ICapabilitiesOrientation.PortraitUp)
         #endif
         
         return ret
