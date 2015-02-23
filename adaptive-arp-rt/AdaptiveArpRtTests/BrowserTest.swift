@@ -31,34 +31,31 @@
 
 import XCTest
 
-
-class LoggingTest: XCTestCase {
+/**
+*  Browser delegate tests class
+*/
+class BrowserTest: XCTestCase {
     
-    /*var loggingImpl:LoggingImpl?
-    
+    /**
+    Constructor.
+    */
     override func setUp() {
         super.setUp()
         
-        loggingImpl = LoggingImpl()
+        AppRegistryBridge.sharedInstance.getLoggingBridge().setDelegate(LoggingDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContext().setDelegate(AppContextDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().setDelegate(AppContextWebviewDelegate())
+        AppRegistryBridge.sharedInstance.getBrowserBridge().setDelegate(BrowserDelegate())
     }
     
-    override func tearDown() {
-        super.tearDown()
-    }
-    
-    func testGetOSInfo() {
+    /**
+    Test for openning an external Browser
+    */
+    func testOpenExtenalBrowser() {
+        XCTAssertTrue(AppRegistryBridge.sharedInstance.getBrowserBridge().openExtenalBrowser("http://www.google.com")!)
         
-        XCTAssert(loggingImpl?.log(ILoggingLogLevel.DEBUG, message: "Logging test") != nil, "")
-        XCTAssert(loggingImpl?.log(ILoggingLogLevel.DEBUG, category: "Logging Category", message: "Logging test") != nil, "")
+        // MARK: Is not possible to test the open internal methods because
+        // in the tests there are no viewcontrollers so the methods fails
     }
-    
-    func testPerformanceGetOSInfo() {
-        
-        self.measureBlock() {
-            
-            self.loggingImpl?.log(ILoggingLogLevel.DEBUG, message: "Logging test")
-            self.loggingImpl?.log(ILoggingLogLevel.DEBUG, category: "Logging Category", message: "Logging test")
-        }
-    }*/
-    
+
 }

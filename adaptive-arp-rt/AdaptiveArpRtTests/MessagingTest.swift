@@ -29,36 +29,59 @@
 * =====================================================================================================================
 */
 
+import UIKit
 import XCTest
 
 
-class LoggingTest: XCTestCase {
+class MessagingTest: XCTestCase {
     
-    /*var loggingImpl:LoggingImpl?
-    
+    /*var messagingImpl:MessagingImpl!
+    var iMessagingCallbackImpl:IMessagingCallbackImpl!
+
     override func setUp() {
         super.setUp()
         
-        loggingImpl = LoggingImpl()
+        messagingImpl = MessagingImpl()
+        iMessagingCallbackImpl = IMessagingCallbackImpl()
     }
     
     override func tearDown() {
         super.tearDown()
     }
-    
-    func testGetOSInfo() {
+
+    /// Test for sending an sms
+    func testSendSMS() {
+        messagingImpl.sendSMS("123456789", text: "I want to send this text by SMS :)", callback: iMessagingCallbackImpl)
+    }
+
+    /// Test for sending an email
+    func testSendEmail() {
+        var email:Email = Email(toRecipients: [EmailAddress(address: "fnva@gft.com")], subject: "Test from Adaptive Messaging API", messageBody: "This text goes throw the Adaptive API of Messaging")
         
-        XCTAssert(loggingImpl?.log(ILoggingLogLevel.DEBUG, message: "Logging test") != nil, "")
-        XCTAssert(loggingImpl?.log(ILoggingLogLevel.DEBUG, category: "Logging Category", message: "Logging test") != nil, "")
+        messagingImpl.sendEmail(email, callback: iMessagingCallbackImpl)
+    }*/
+
+}
+/*
+/// Dummy implementation of the callback in order to run the tests
+class IMessagingCallbackImpl: NSObject, IMessagingCallback {
+    
+    func onError(error : IMessagingCallbackError) {
+        XCTAssert(false, "ERROR: \(error.toString())")
     }
     
-    func testPerformanceGetOSInfo() {
-        
-        self.measureBlock() {
-            
-            self.loggingImpl?.log(ILoggingLogLevel.DEBUG, message: "Logging test")
-            self.loggingImpl?.log(ILoggingLogLevel.DEBUG, category: "Logging Category", message: "Logging test")
-        }
-    }*/
+    func onResult(success : Bool) {
+        XCTAssert(success, "")
+    }
     
-}
+    func onWarning(success : Bool, warning : IMessagingCallbackWarning) {
+        
+        println("WARNING: \(warning.toString())")
+        XCTAssert(success, "")
+    }
+    
+    func toString() -> String? {
+        return ""
+    }
+    func getId() -> Int64 {return 0}
+}*/

@@ -33,7 +33,7 @@ import XCTest
 
 class DatabaseTest: XCTestCase {
     
-    var databaseImpl:DatabaseImpl!
+    /*var databaseImpl:DatabaseImpl!
     var iDatabaseResultCallbackImpl:IDatabaseResultCallbackImpl!
     var iTableResultCallbackImpl:ITableResultCallbackImpl!
     
@@ -122,10 +122,10 @@ class DatabaseTest: XCTestCase {
             
             XCTAssertFalse(databaseImpl.existsTable(db, table: table), "The table was not removed correctly")
         }
-    }
+    }*/
 
 }
-
+/*
 /// Dummy implementation of the callback in order to run the tests
 class IDatabaseResultCallbackImpl: NSObject, IDatabaseResultCallback {
     
@@ -172,4 +172,4 @@ class ITableResultCallbackImpl: NSObject, ITableResultCallback {
         return ""
     }
     func getId() -> Int64 {return 0}
-}
+}*/

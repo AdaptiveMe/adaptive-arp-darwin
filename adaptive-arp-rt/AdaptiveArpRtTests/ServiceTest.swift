@@ -34,7 +34,7 @@ import XCTest
 
 class ServiceTest: XCTestCase {
     
-    var iService:IService!
+    /*var iService:IService!
     var callback:IServiceResultCallback!
     
     override func setUp() {
@@ -90,9 +90,9 @@ class ServiceTest: XCTestCase {
         
         iService.registerService(service)
         iService.invokeService(request, service: service, callback: callback)
-    }
+    }*/
 }
-
+/*
 /// Dummy implementation of the callback in order to run the tests
 class IServiceResultCallbackImpl: NSObject, IServiceResultCallback {
     func onError(error: AdaptiveArpApi.IServiceResultCallbackError) {println("ERROR: \(error.toString())")}
@@ -100,4 +100,4 @@ class IServiceResultCallbackImpl: NSObject, IServiceResultCallback {
     func onWarning(response: AdaptiveArpApi.ServiceResponse, warning: AdaptiveArpApi.IServiceResultCallbackWarning) {println("WARNING: \(warning.toString()) \nRESPONSE: \(response.description)")}
     func toString() -> String? {return ""}
     func getId() -> Int64 {return 0}
-}
+}*/

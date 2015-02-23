@@ -33,55 +33,33 @@ import UIKit
 import XCTest
 
 
-class MessagingTest: XCTestCase {
+class TelephonyTest: XCTestCase {
+    /*
+    var telephonyImpl:ITelephony!
     
-    var messagingImpl:MessagingImpl!
-    var iMessagingCallbackImpl:IMessagingCallbackImpl!
-
     override func setUp() {
         super.setUp()
         
-        messagingImpl = MessagingImpl()
-        iMessagingCallbackImpl = IMessagingCallbackImpl()
+        telephonyImpl = TelephonyImpl()
     }
     
     override func tearDown() {
         super.tearDown()
     }
-
-    /// Test for sending an sms
-    func testSendSMS() {
-        messagingImpl.sendSMS("123456789", text: "I want to send this text by SMS :)", callback: iMessagingCallbackImpl)
-    }
-
-    /// Test for sending an email
-    func testSendEmail() {
-        var email:Email = Email(toRecipients: [EmailAddress(address: "fnva@gft.com")], subject: "Test from Adaptive Messaging API", messageBody: "This text goes throw the Adaptive API of Messaging")
+    
+    /// Test for making a call
+    func testCall() {
         
-        messagingImpl.sendEmail(email, callback: iMessagingCallbackImpl)
-    }
-
-}
-
-/// Dummy implementation of the callback in order to run the tests
-class IMessagingCallbackImpl: NSObject, IMessagingCallback {
-    
-    func onError(error : IMessagingCallbackError) {
-        XCTAssert(false, "ERROR: \(error.toString())")
-    }
-    
-    func onResult(success : Bool) {
-        XCTAssert(success, "")
-    }
-    
-    func onWarning(success : Bool, warning : IMessagingCallbackWarning) {
+        var status:ITelephonyStatus = telephonyImpl.call("123456789")
         
-        println("WARNING: \(warning.toString())")
-        XCTAssert(success, "")
-    }
+        switch status {
+        case ITelephonyStatus.Dialing:
+            XCTAssert(true, "")
+        case ITelephonyStatus.Failed:
+            XCTAssert(false, "")
+        case ITelephonyStatus.Unknown:
+            XCTAssert(false, "")
+        }
+    }*/
     
-    func toString() -> String? {
-        return ""
-    }
-    func getId() -> Int64 {return 0}
 }

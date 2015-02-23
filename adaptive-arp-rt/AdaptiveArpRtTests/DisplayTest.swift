@@ -31,34 +31,40 @@
 
 import XCTest
 
-
-class LoggingTest: XCTestCase {
+/**
+*  Display delegate tests class
+*/
+class DisplayTest: XCTestCase {
     
-    /*var loggingImpl:LoggingImpl?
-    
+    /**
+    Constructor.
+    */
     override func setUp() {
         super.setUp()
         
-        loggingImpl = LoggingImpl()
+        AppRegistryBridge.sharedInstance.getLoggingBridge().setDelegate(LoggingDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContext().setDelegate(AppContextDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().setDelegate(AppContextWebviewDelegate())
+        AppRegistryBridge.sharedInstance.getDisplayBridge().setDelegate(DisplayDelegate())
     }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-    
-    func testGetOSInfo() {
         
-        XCTAssert(loggingImpl?.log(ILoggingLogLevel.DEBUG, message: "Logging test") != nil, "")
-        XCTAssert(loggingImpl?.log(ILoggingLogLevel.DEBUG, category: "Logging Category", message: "Logging test") != nil, "")
+    /**
+    Test for obtaining the current display orientation
+    */
+    func testGetOrientationCurrent() {
+        XCTAssert(AppRegistryBridge.sharedInstance.getDisplayBridge().getOrientationCurrent() != nil, "Error getting the current display orientation. See log")
     }
     
-    func testPerformanceGetOSInfo() {
+    /**
+    Tests for managing display orientation listeners
+    */
+    func testDisplayOrientationListener() {
         
-        self.measureBlock() {
-            
-            self.loggingImpl?.log(ILoggingLogLevel.DEBUG, message: "Logging test")
-            self.loggingImpl?.log(ILoggingLogLevel.DEBUG, category: "Logging Category", message: "Logging test")
-        }
-    }*/
-    
+        // Create a void listener in order to test the method implementation
+        var listener = DisplayOrientationListenerImpl(id: 0)
+        
+        AppRegistryBridge.sharedInstance.getDisplayBridge().addDisplayOrientationListener(listener)
+        AppRegistryBridge.sharedInstance.getDisplayBridge().removeDisplayOrientationListener(listener)
+        AppRegistryBridge.sharedInstance.getDisplayBridge().removeDisplayOrientationListeners()
+    }
 }

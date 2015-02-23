@@ -29,37 +29,11 @@
 * =====================================================================================================================
 */
 
-import UIKit
 import XCTest
 
+/**
+*  FileSystem delegate tests class
+*/
+class FileSystemTest: XCTestCase {
 
-class TelephonyTest: XCTestCase {
-    
-    var telephonyImpl:ITelephony!
-    
-    override func setUp() {
-        super.setUp()
-        
-        telephonyImpl = TelephonyImpl()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-    
-    /// Test for making a call
-    func testCall() {
-        
-        var status:ITelephonyStatus = telephonyImpl.call("123456789")
-        
-        switch status {
-        case ITelephonyStatus.Dialing:
-            XCTAssert(true, "")
-        case ITelephonyStatus.Failed:
-            XCTAssert(false, "")
-        case ITelephonyStatus.Unknown:
-            XCTAssert(false, "")
-        }
-    }
-    
 }

@@ -31,28 +31,69 @@
 
 import XCTest
 
+/**
+*  Device delegate tests class
+*/
 class DeviceTest: XCTestCase {
     
-    var deviceImpl:DeviceImpl?
-
+    /**
+    Constructor.
+    */
     override func setUp() {
         super.setUp()
         
-        deviceImpl = DeviceImpl()
+        AppRegistryBridge.sharedInstance.getLoggingBridge().setDelegate(LoggingDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContext().setDelegate(AppContextDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().setDelegate(AppContextWebviewDelegate())
+        AppRegistryBridge.sharedInstance.getDeviceBridge().setDelegate(DeviceDelegate())
     }
     
-    override func tearDown() {
-        super.tearDown()
-    }
-    
+    /**
+    Test to try the method get device info
+    */
     func testGetDeviceInfo() {
-        XCTAssert(self.deviceImpl?.getDeviceInfo()!.getModel() != nil, "")
+        XCTAssert(AppRegistryBridge.sharedInstance.getDeviceBridge().getDeviceInfo() != nil, "Error getting the device information. See log")
     }
     
-    func testGeLocaleCurrent() {
-        XCTAssert(self.deviceImpl?.getLocaleCurrent()!.getLanguage() != nil, "")
+    /**
+    Test for obtaining the current locale
+    */
+    func testGetLocaleCurrent() {
+        XCTAssert(AppRegistryBridge.sharedInstance.getDeviceBridge().getLocaleCurrent() != nil, "Error getting the current locale. See log")
     }
     
-    // TODO: validate button listeners
+    /**
+    Test for obtaining the current orientation
+    */
+    func testGetOrientationCurrent() {
+        XCTAssert(AppRegistryBridge.sharedInstance.getDeviceBridge().getOrientationCurrent() != nil, "Error getting the current orientation. See log")
+    }
+    
+    /**
+    Tests for managing device orientation listeners
+    */
+    func testDeviceOrientationListener() {
+        
+        // Create a void listener in order to test the method implementation
+        var listener = DeviceOrientationListenerImpl(id: 0)
+        
+        AppRegistryBridge.sharedInstance.getDeviceBridge().addDeviceOrientationListener(listener)
+        AppRegistryBridge.sharedInstance.getDeviceBridge().removeDeviceOrientationListener(listener)
+        AppRegistryBridge.sharedInstance.getDeviceBridge().removeDeviceOrientationListeners()
+    }
+    
+    /**
+    Tests for managing device button listeners
+    */
+    func testButtonListener() {
+        
+        // Create a void listener in order to test the method implementation
+        var listener = ButtonListenerImpl(id: 0)
+        
+        AppRegistryBridge.sharedInstance.getDeviceBridge().addButtonListener(listener)
+        AppRegistryBridge.sharedInstance.getDeviceBridge().removeButtonListener(listener)
+        AppRegistryBridge.sharedInstance.getDeviceBridge().removeButtonListeners()
+        
+    }
 
 }

@@ -31,29 +31,9 @@
 
 import XCTest
 
-class BrowserTest: XCTestCase {
-    
-    var browserImpl:IBrowser = AppRegistryBridge.sharedInstance.getBrowserBridge()
-    let CORRECT_URL_1:String = "http://www.google.com"
-
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-    
-    func testOpenExternalBrowser() {
-        XCTAssertTrue(self.browserImpl.openExtenalBrowser(CORRECT_URL_1))
-    }
-    
-    func testOpenInternalBrowser() {
-        XCTAssertTrue(self.browserImpl.openInternalBrowser(CORRECT_URL_1, title: "Title", backButtonText: "Back"))
-    }
-    
-    func testOpenInternalBrowserModal() {
-        XCTAssertTrue(self.browserImpl.openInternalBrowserModal(CORRECT_URL_1, title: "Title", backButtonText: "Back"))
-    }
+/**
+*  Runtime delegate tests class
+*/
+class RuntimeTest: XCTestCase {
 
 }

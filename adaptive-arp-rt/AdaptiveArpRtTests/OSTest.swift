@@ -34,7 +34,7 @@ import XCTest
 
 class OSTest: XCTestCase {
     
-    var osImpl:OSImpl?
+    /*var osImpl:OSImpl?
 
     override func setUp() {
         super.setUp()
@@ -57,6 +57,6 @@ class OSTest: XCTestCase {
             
             var osInfo = self.osImpl?.getOSInfo()
         }
-    }
+    }*/
 
 }
