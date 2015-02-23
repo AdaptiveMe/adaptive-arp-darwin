@@ -94,7 +94,7 @@ not be added using this method.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "AppContextWebviewBridge executing addWebview('\(webView)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "AppContextWebviewBridge executing addWebview...")
         }
 
         if (self.delegate != nil) {
@@ -121,7 +121,7 @@ not be added using this method.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "AppContextWebviewBridge executing executeJavaScript('\(javaScriptText)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "AppContextWebviewBridge executing executeJavaScript...")
         }
 
         if (self.delegate != nil) {
@@ -149,7 +149,7 @@ not be added using this method.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "AppContextWebviewBridge executing executeJavaScript('\(javaScriptText)','\(webViewReference)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "AppContextWebviewBridge executing executeJavaScript...")
         }
 
         if (self.delegate != nil) {
@@ -179,7 +179,7 @@ WebView, WKWebView, etc.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "AppContextWebviewBridge executing getWebviewPrimary.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "AppContextWebviewBridge executing getWebviewPrimary...")
         }
 
         var result : AnyObject? = nil
@@ -209,7 +209,7 @@ This method will always return at least one element; the primary webview.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "AppContextWebviewBridge executing getWebviews.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "AppContextWebviewBridge executing getWebviews...")
         }
 
         var result : [AnyObject]? = nil
@@ -239,7 +239,7 @@ ARP functions and release resources. The primary webview can not be removed.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "AppContextWebviewBridge executing removeWebview('\(webView)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "AppContextWebviewBridge executing removeWebview...")
         }
 
         if (self.delegate != nil) {

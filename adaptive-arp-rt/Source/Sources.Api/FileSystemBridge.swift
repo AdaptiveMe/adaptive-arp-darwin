@@ -85,7 +85,7 @@ This method does not create the actual file in the specified folder.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileSystemBridge executing createFileDescriptor('\(parent)','\(name)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileSystemBridge executing createFileDescriptor...")
         }
 
         var result : FileDescriptor? = nil
@@ -116,7 +116,7 @@ This path is volatile and may be cleaned by the OS periodically.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileSystemBridge executing getApplicationCacheFolder.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileSystemBridge executing getApplicationCacheFolder...")
         }
 
         var result : FileDescriptor? = nil
@@ -146,7 +146,7 @@ This path must always be writable by the current application.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileSystemBridge executing getApplicationCloudFolder.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileSystemBridge executing getApplicationCloudFolder...")
         }
 
         var result : FileDescriptor? = nil
@@ -176,7 +176,7 @@ This path must always be writable by the current application.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileSystemBridge executing getApplicationDocumentsFolder.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileSystemBridge executing getApplicationDocumentsFolder...")
         }
 
         var result : FileDescriptor? = nil
@@ -206,7 +206,7 @@ This path may or may not be directly readable or writable - it usually contains 
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileSystemBridge executing getApplicationFolder.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileSystemBridge executing getApplicationFolder...")
         }
 
         var result : FileDescriptor? = nil
@@ -236,7 +236,7 @@ This path must always be writable by the current application.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileSystemBridge executing getApplicationProtectedFolder.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileSystemBridge executing getApplicationProtectedFolder...")
         }
 
         var result : FileDescriptor? = nil
@@ -265,7 +265,7 @@ This path must always be writable by the current application.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileSystemBridge executing getSeparator.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileSystemBridge executing getSeparator...")
         }
 
         var result : Character? = " "
@@ -297,7 +297,7 @@ This path may or may not be writable by the current application.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileSystemBridge executing getSystemExternalFolder.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileSystemBridge executing getSystemExternalFolder...")
         }
 
         var result : FileDescriptor? = nil

@@ -86,7 +86,7 @@ manipulated as needed by the application before submitting the ServiceRequest vi
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "ServiceBridge executing getServiceRequest('\(serviceToken)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "ServiceBridge executing getServiceRequest...")
         }
 
         var result : ServiceRequest? = nil
@@ -120,7 +120,7 @@ configured in the platform's XML service definition file.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "ServiceBridge executing getServiceToken('\(serviceName)','\(endpointName)','\(functionName)','\(method)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "ServiceBridge executing getServiceToken...")
         }
 
         var result : ServiceToken? = nil
@@ -153,7 +153,7 @@ configured in the platform's XML service definition file.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "ServiceBridge executing getServiceTokenByUri('\(uri)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "ServiceBridge executing getServiceTokenByUri...")
         }
 
         var result : ServiceToken? = nil
@@ -182,7 +182,7 @@ configured in the platform's XML service definition file.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "ServiceBridge executing getServicesRegistered.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "ServiceBridge executing getServicesRegistered...")
         }
 
         var result : [ServiceToken]? = nil
@@ -212,7 +212,7 @@ configured in the platform's XML service definition file.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "ServiceBridge executing invokeService('\(serviceRequest)','\(callback)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "ServiceBridge executing invokeService...")
         }
 
         if (self.delegate != nil) {
@@ -245,7 +245,7 @@ XML service definition file.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "ServiceBridge executing isServiceRegistered('\(serviceName)','\(endpointName)','\(functionName)','\(method)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "ServiceBridge executing isServiceRegistered...")
         }
 
         var result : Bool? = false

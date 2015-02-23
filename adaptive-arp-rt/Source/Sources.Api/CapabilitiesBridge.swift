@@ -84,7 +84,7 @@ changes please use the IDevice and IDisplay functions and listeners API respecti
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing getOrientationDefault.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing getOrientationDefault...")
         }
 
         var result : ICapabilitiesOrientation? = nil
@@ -114,7 +114,7 @@ support at least one orientation. This is usually PortaitUp.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing getOrientationsSupported.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing getOrientationsSupported...")
         }
 
         var result : [ICapabilitiesOrientation]? = nil
@@ -144,7 +144,7 @@ support at least one orientation. This is usually PortaitUp.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasButtonSupport('\(type)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasButtonSupport...")
         }
 
         var result : Bool? = false
@@ -175,7 +175,7 @@ the device.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasCommunicationSupport('\(type)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasCommunicationSupport...")
         }
 
         var result : Bool? = false
@@ -205,7 +205,7 @@ the device.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasDataSupport('\(type)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasDataSupport...")
         }
 
         var result : Bool? = false
@@ -236,7 +236,7 @@ device.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasMediaSupport('\(type)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasMediaSupport...")
         }
 
         var result : Bool? = false
@@ -266,7 +266,7 @@ device.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasNetSupport('\(type)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasNetSupport...")
         }
 
         var result : Bool? = false
@@ -297,7 +297,7 @@ device.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasNotificationSupport('\(type)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasNotificationSupport...")
         }
 
         var result : Bool? = false
@@ -327,7 +327,7 @@ device.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasOrientationSupport('\(orientation)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasOrientationSupport...")
         }
 
         var result : Bool? = false
@@ -358,7 +358,7 @@ device.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasSensorSupport('\(type)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasSensorSupport...")
         }
 
         var result : Bool? = false

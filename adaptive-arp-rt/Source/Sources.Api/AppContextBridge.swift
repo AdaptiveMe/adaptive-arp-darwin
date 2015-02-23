@@ -91,7 +91,7 @@ public class AppContextBridge : NSObject, IAppContext {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "AppContextBridge executing getContext.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "AppContextBridge executing getContext...")
         }
 
         var result : AnyObject? = nil
@@ -120,7 +120,7 @@ public class AppContextBridge : NSObject, IAppContext {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "AppContextBridge executing getContextType.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "AppContextBridge executing getContextType...")
         }
 
         var result : IOSType? = nil

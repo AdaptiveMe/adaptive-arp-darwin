@@ -82,7 +82,7 @@ public class GeolocationBridge : BaseSensorBridge, IGeolocation, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "GeolocationBridge executing addGeolocationListener('\(listener)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "GeolocationBridge executing addGeolocationListener...")
         }
 
         if (self.delegate != nil) {
@@ -110,7 +110,7 @@ public class GeolocationBridge : BaseSensorBridge, IGeolocation, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "GeolocationBridge executing removeGeolocationListener('\(listener)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "GeolocationBridge executing removeGeolocationListener...")
         }
 
         if (self.delegate != nil) {
@@ -137,7 +137,7 @@ public class GeolocationBridge : BaseSensorBridge, IGeolocation, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "GeolocationBridge executing removeGeolocationListeners.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "GeolocationBridge executing removeGeolocationListeners...")
         }
 
         if (self.delegate != nil) {

@@ -83,7 +83,7 @@ public class TelephonyBridge : BaseCommunicationBridge, ITelephony, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "TelephonyBridge executing call('\(number)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "TelephonyBridge executing call...")
         }
 
         var result : ITelephonyStatus? = nil

@@ -81,7 +81,7 @@ public class RuntimeBridge : BaseSystemBridge, IRuntime, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "RuntimeBridge executing dismissApplication.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "RuntimeBridge executing dismissApplication...")
         }
 
         if (self.delegate != nil) {
@@ -109,7 +109,7 @@ public class RuntimeBridge : BaseSystemBridge, IRuntime, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "RuntimeBridge executing dismissSplashScreen.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "RuntimeBridge executing dismissSplashScreen...")
         }
 
         var result : Bool? = false

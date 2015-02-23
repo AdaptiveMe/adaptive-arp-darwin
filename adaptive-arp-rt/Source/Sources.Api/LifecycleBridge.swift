@@ -82,7 +82,7 @@ public class LifecycleBridge : BaseApplicationBridge, ILifecycle, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "LifecycleBridge executing addLifecycleListener('\(listener)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "LifecycleBridge executing addLifecycleListener...")
         }
 
         if (self.delegate != nil) {
@@ -110,7 +110,7 @@ public class LifecycleBridge : BaseApplicationBridge, ILifecycle, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "LifecycleBridge executing isBackground.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "LifecycleBridge executing isBackground...")
         }
 
         var result : Bool? = false
@@ -139,7 +139,7 @@ public class LifecycleBridge : BaseApplicationBridge, ILifecycle, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "LifecycleBridge executing removeLifecycleListener('\(listener)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "LifecycleBridge executing removeLifecycleListener...")
         }
 
         if (self.delegate != nil) {
@@ -166,7 +166,7 @@ public class LifecycleBridge : BaseApplicationBridge, ILifecycle, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "LifecycleBridge executing removeLifecycleListeners.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "LifecycleBridge executing removeLifecycleListeners...")
         }
 
         if (self.delegate != nil) {

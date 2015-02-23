@@ -82,7 +82,7 @@ public class NetworkStatusBridge : BaseCommunicationBridge, INetworkStatus, APIB
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "NetworkStatusBridge executing addNetworkStatusListener('\(listener)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "NetworkStatusBridge executing addNetworkStatusListener...")
         }
 
         if (self.delegate != nil) {
@@ -110,7 +110,7 @@ public class NetworkStatusBridge : BaseCommunicationBridge, INetworkStatus, APIB
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "NetworkStatusBridge executing removeNetworkStatusListener('\(listener)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "NetworkStatusBridge executing removeNetworkStatusListener...")
         }
 
         if (self.delegate != nil) {
@@ -137,7 +137,7 @@ public class NetworkStatusBridge : BaseCommunicationBridge, INetworkStatus, APIB
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "NetworkStatusBridge executing removeNetworkStatusListeners.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "NetworkStatusBridge executing removeNetworkStatusListeners...")
         }
 
         if (self.delegate != nil) {

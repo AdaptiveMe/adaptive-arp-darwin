@@ -82,7 +82,7 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executing getDefaultLocale.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executing getDefaultLocale...")
         }
 
         var result : Locale? = nil
@@ -111,7 +111,7 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executing getLocaleSupportedDescriptors.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executing getLocaleSupportedDescriptors...")
         }
 
         var result : [Locale]? = nil
@@ -142,7 +142,7 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executing getResourceLiteral('\(key)','\(locale)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executing getResourceLiteral...")
         }
 
         var result : String? = nil
@@ -172,7 +172,7 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executing getResourceLiterals('\(locale)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executing getResourceLiterals...")
         }
 
         var result : [KeyPair]? = nil

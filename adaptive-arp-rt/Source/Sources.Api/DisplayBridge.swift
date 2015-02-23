@@ -82,7 +82,7 @@ public class DisplayBridge : BaseSystemBridge, IDisplay, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DisplayBridge executing addDisplayOrientationListener('\(listener)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DisplayBridge executing addDisplayOrientationListener...")
         }
 
         if (self.delegate != nil) {
@@ -111,7 +111,7 @@ of the device. For device orientation, use the IDevice APIs.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DisplayBridge executing getOrientationCurrent.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DisplayBridge executing getOrientationCurrent...")
         }
 
         var result : ICapabilitiesOrientation? = nil
@@ -140,7 +140,7 @@ of the device. For device orientation, use the IDevice APIs.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DisplayBridge executing removeDisplayOrientationListener('\(listener)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DisplayBridge executing removeDisplayOrientationListener...")
         }
 
         if (self.delegate != nil) {
@@ -167,7 +167,7 @@ of the device. For device orientation, use the IDevice APIs.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DisplayBridge executing removeDisplayOrientationListeners.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DisplayBridge executing removeDisplayOrientationListeners...")
         }
 
         if (self.delegate != nil) {

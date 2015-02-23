@@ -82,7 +82,7 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executing addButtonListener('\(listener)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executing addButtonListener...")
         }
 
         if (self.delegate != nil) {
@@ -110,7 +110,7 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executing addDeviceOrientationListener('\(listener)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executing addDeviceOrientationListener...")
         }
 
         if (self.delegate != nil) {
@@ -138,7 +138,7 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executing getDeviceInfo.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executing getDeviceInfo...")
         }
 
         var result : DeviceInfo? = nil
@@ -167,7 +167,7 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executing getLocaleCurrent.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executing getLocaleCurrent...")
         }
 
         var result : Locale? = nil
@@ -197,7 +197,7 @@ of the display. For display orientation, use the IDisplay APIs.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executing getOrientationCurrent.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executing getOrientationCurrent...")
         }
 
         var result : ICapabilitiesOrientation? = nil
@@ -226,7 +226,7 @@ of the display. For display orientation, use the IDisplay APIs.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executing removeButtonListener('\(listener)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executing removeButtonListener...")
         }
 
         if (self.delegate != nil) {
@@ -253,7 +253,7 @@ of the display. For display orientation, use the IDisplay APIs.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executing removeButtonListeners.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executing removeButtonListeners...")
         }
 
         if (self.delegate != nil) {
@@ -281,7 +281,7 @@ of the display. For display orientation, use the IDisplay APIs.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executing removeDeviceOrientationListener('\(listener)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executing removeDeviceOrientationListener...")
         }
 
         if (self.delegate != nil) {
@@ -308,7 +308,7 @@ of the display. For display orientation, use the IDisplay APIs.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executing removeDeviceOrientationListeners.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executing removeDeviceOrientationListeners...")
         }
 
         if (self.delegate != nil) {

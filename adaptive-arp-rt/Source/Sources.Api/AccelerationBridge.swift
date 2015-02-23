@@ -82,7 +82,7 @@ public class AccelerationBridge : BaseSensorBridge, IAcceleration, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "AccelerationBridge executing addAccelerationListener('\(listener)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "AccelerationBridge executing addAccelerationListener...")
         }
 
         if (self.delegate != nil) {
@@ -110,7 +110,7 @@ public class AccelerationBridge : BaseSensorBridge, IAcceleration, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "AccelerationBridge executing removeAccelerationListener('\(listener)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "AccelerationBridge executing removeAccelerationListener...")
         }
 
         if (self.delegate != nil) {
@@ -137,7 +137,7 @@ public class AccelerationBridge : BaseSensorBridge, IAcceleration, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "AccelerationBridge executing removeAccelerationListeners.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "AccelerationBridge executing removeAccelerationListeners...")
         }
 
         if (self.delegate != nil) {

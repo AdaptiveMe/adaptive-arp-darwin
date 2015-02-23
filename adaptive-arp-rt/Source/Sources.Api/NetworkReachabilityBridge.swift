@@ -83,7 +83,7 @@ public class NetworkReachabilityBridge : BaseCommunicationBridge, INetworkReacha
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "NetworkReachabilityBridge executing isNetworkReachable('\(host)','\(callback)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "NetworkReachabilityBridge executing isNetworkReachable...")
         }
 
         if (self.delegate != nil) {
@@ -112,7 +112,7 @@ public class NetworkReachabilityBridge : BaseCommunicationBridge, INetworkReacha
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "NetworkReachabilityBridge executing isNetworkServiceReachable('\(url)','\(callback)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "NetworkReachabilityBridge executing isNetworkServiceReachable...")
         }
 
         if (self.delegate != nil) {

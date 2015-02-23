@@ -82,7 +82,7 @@ public class OSBridge : BaseSystemBridge, IOS, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "OSBridge executing getOSInfo.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "OSBridge executing getOSInfo...")
         }
 
         var result : OSInfo? = nil

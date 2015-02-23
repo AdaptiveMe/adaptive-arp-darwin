@@ -2075,7 +2075,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getAPIVersion.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getAPIVersion...")
         }
 
         var result : String? = nil
@@ -2104,7 +2104,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getPlatformContext.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getPlatformContext...")
         }
 
         var result : AppContextBridge? = nil
@@ -2133,7 +2133,7 @@ public class AppRegistryBridge : NSObject, IAppRegistry {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getPlatformContextWeb.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "AppRegistryBridge executing getPlatformContextWeb...")
         }
 
         var result : AppContextWebviewBridge? = nil
