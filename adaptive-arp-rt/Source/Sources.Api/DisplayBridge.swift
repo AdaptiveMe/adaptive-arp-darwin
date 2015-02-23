@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.9
+    * @version v2.2.0
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -82,17 +82,17 @@ public class DisplayBridge : BaseSystemBridge, IDisplay, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DisplayBridge executing addDisplayOrientationListener('\(listener)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DisplayBridge executing addDisplayOrientationListener('\(listener)').")
         }
 
         if (self.delegate != nil) {
             self.delegate!.addDisplayOrientationListener(listener)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DisplayBridge executed 'addDisplayOrientationListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DisplayBridge executed 'addDisplayOrientationListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "DisplayBridge no delegate for 'addDisplayOrientationListener'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "DisplayBridge no delegate for 'addDisplayOrientationListener'.")
             }
         }
         
@@ -111,18 +111,18 @@ of the device. For device orientation, use the IDevice APIs.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DisplayBridge executing getOrientationCurrent.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DisplayBridge executing getOrientationCurrent.")
         }
 
         var result : ICapabilitiesOrientation? = nil
         if (self.delegate != nil) {
             result = self.delegate!.getOrientationCurrent()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DisplayBridge executed 'getOrientationCurrent' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DisplayBridge executed 'getOrientationCurrent' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "DisplayBridge no delegate for 'getOrientationCurrent'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "DisplayBridge no delegate for 'getOrientationCurrent'.")
             }
         }
         return result        
@@ -140,17 +140,17 @@ of the device. For device orientation, use the IDevice APIs.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DisplayBridge executing removeDisplayOrientationListener('\(listener)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DisplayBridge executing removeDisplayOrientationListener('\(listener)').")
         }
 
         if (self.delegate != nil) {
             self.delegate!.removeDisplayOrientationListener(listener)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DisplayBridge executed 'removeDisplayOrientationListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DisplayBridge executed 'removeDisplayOrientationListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "DisplayBridge no delegate for 'removeDisplayOrientationListener'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "DisplayBridge no delegate for 'removeDisplayOrientationListener'.")
             }
         }
         
@@ -167,17 +167,17 @@ of the device. For device orientation, use the IDevice APIs.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DisplayBridge executing removeDisplayOrientationListeners.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DisplayBridge executing removeDisplayOrientationListeners.")
         }
 
         if (self.delegate != nil) {
             self.delegate!.removeDisplayOrientationListeners()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DisplayBridge executed 'removeDisplayOrientationListeners' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DisplayBridge executed 'removeDisplayOrientationListeners' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "DisplayBridge no delegate for 'removeDisplayOrientationListeners'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "DisplayBridge no delegate for 'removeDisplayOrientationListeners'.")
             }
         }
         
@@ -213,7 +213,7 @@ of the device. For device orientation, use the IDevice APIs.
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "DisplayBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.1.9."
+                responseMessage = "DisplayBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.2.0."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

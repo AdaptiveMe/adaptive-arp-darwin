@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.9
+    * @version v2.2.0
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -42,7 +42,7 @@ public enum IServiceResultCallbackWarning {
     case CertificateUntrusted
     case NotSecure
     case Redirected
-    case Wrong_Params
+    case WrongParams
     case Forbidden
     case NotFound
     case MethodNotAllowed
@@ -60,7 +60,7 @@ public enum IServiceResultCallbackWarning {
             case .CertificateUntrusted: return "CertificateUntrusted"
             case .NotSecure: return "NotSecure"
             case .Redirected: return "Redirected"
-            case .Wrong_Params: return "Wrong_Params"
+            case .WrongParams: return "WrongParams"
             case .Forbidden: return "Forbidden"
             case .NotFound: return "NotFound"
             case .MethodNotAllowed: return "MethodNotAllowed"
@@ -81,7 +81,7 @@ public enum IServiceResultCallbackWarning {
                 case "CertificateUntrusted": return .CertificateUntrusted
                 case "NotSecure": return .NotSecure
                 case "Redirected": return .Redirected
-                case "Wrong_Params": return .Wrong_Params
+                case "WrongParams": return .WrongParams
                 case "Forbidden": return .Forbidden
                 case "NotFound": return .NotFound
                 case "MethodNotAllowed": return .MethodNotAllowed

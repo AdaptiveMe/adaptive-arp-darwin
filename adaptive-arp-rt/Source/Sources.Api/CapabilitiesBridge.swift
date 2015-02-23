@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.9
+    * @version v2.2.0
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -84,18 +84,18 @@ changes please use the IDevice and IDisplay functions and listeners API respecti
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing getOrientationDefault.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing getOrientationDefault.")
         }
 
         var result : ICapabilitiesOrientation? = nil
         if (self.delegate != nil) {
             result = self.delegate!.getOrientationDefault()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executed 'getOrientationDefault' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executed 'getOrientationDefault' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge no delegate for 'getOrientationDefault'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge no delegate for 'getOrientationDefault'.")
             }
         }
         return result        
@@ -114,18 +114,18 @@ support at least one orientation. This is usually PortaitUp.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing getOrientationsSupported.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing getOrientationsSupported.")
         }
 
         var result : [ICapabilitiesOrientation]? = nil
         if (self.delegate != nil) {
             result = self.delegate!.getOrientationsSupported()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executed 'getOrientationsSupported' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executed 'getOrientationsSupported' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge no delegate for 'getOrientationsSupported'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge no delegate for 'getOrientationsSupported'.")
             }
         }
         return result        
@@ -144,18 +144,18 @@ support at least one orientation. This is usually PortaitUp.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasButtonSupport('\(type)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasButtonSupport('\(type)').")
         }
 
         var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.hasButtonSupport(type)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executed 'hasButtonSupport' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executed 'hasButtonSupport' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge no delegate for 'hasButtonSupport'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge no delegate for 'hasButtonSupport'.")
             }
         }
         return result        
@@ -175,18 +175,18 @@ the device.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasCommunicationSupport('\(type)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasCommunicationSupport('\(type)').")
         }
 
         var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.hasCommunicationSupport(type)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executed 'hasCommunicationSupport' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executed 'hasCommunicationSupport' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge no delegate for 'hasCommunicationSupport'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge no delegate for 'hasCommunicationSupport'.")
             }
         }
         return result        
@@ -205,18 +205,18 @@ the device.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasDataSupport('\(type)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasDataSupport('\(type)').")
         }
 
         var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.hasDataSupport(type)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executed 'hasDataSupport' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executed 'hasDataSupport' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge no delegate for 'hasDataSupport'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge no delegate for 'hasDataSupport'.")
             }
         }
         return result        
@@ -236,18 +236,18 @@ device.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasMediaSupport('\(type)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasMediaSupport('\(type)').")
         }
 
         var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.hasMediaSupport(type)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executed 'hasMediaSupport' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executed 'hasMediaSupport' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge no delegate for 'hasMediaSupport'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge no delegate for 'hasMediaSupport'.")
             }
         }
         return result        
@@ -266,18 +266,18 @@ device.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasNetSupport('\(type)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasNetSupport('\(type)').")
         }
 
         var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.hasNetSupport(type)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executed 'hasNetSupport' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executed 'hasNetSupport' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge no delegate for 'hasNetSupport'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge no delegate for 'hasNetSupport'.")
             }
         }
         return result        
@@ -297,18 +297,18 @@ device.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasNotificationSupport('\(type)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasNotificationSupport('\(type)').")
         }
 
         var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.hasNotificationSupport(type)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executed 'hasNotificationSupport' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executed 'hasNotificationSupport' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge no delegate for 'hasNotificationSupport'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge no delegate for 'hasNotificationSupport'.")
             }
         }
         return result        
@@ -327,18 +327,18 @@ device.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasOrientationSupport('\(orientation)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasOrientationSupport('\(orientation)').")
         }
 
         var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.hasOrientationSupport(orientation)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executed 'hasOrientationSupport' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executed 'hasOrientationSupport' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge no delegate for 'hasOrientationSupport'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge no delegate for 'hasOrientationSupport'.")
             }
         }
         return result        
@@ -358,18 +358,18 @@ device.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasSensorSupport('\(type)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executing hasSensorSupport('\(type)').")
         }
 
         var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.hasSensorSupport(type)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executed 'hasSensorSupport' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge executed 'hasSensorSupport' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge no delegate for 'hasSensorSupport'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "CapabilitiesBridge no delegate for 'hasSensorSupport'.")
             }
         }
         return result        
@@ -477,7 +477,7 @@ device.
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "CapabilitiesBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.1.9."
+                responseMessage = "CapabilitiesBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.2.0."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

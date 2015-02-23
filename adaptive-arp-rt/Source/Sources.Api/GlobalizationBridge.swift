@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.9
+    * @version v2.2.0
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -82,18 +82,18 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executing getDefaultLocale.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executing getDefaultLocale.")
         }
 
         var result : Locale? = nil
         if (self.delegate != nil) {
             result = self.delegate!.getDefaultLocale()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executed 'getDefaultLocale' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executed 'getDefaultLocale' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "GlobalizationBridge no delegate for 'getDefaultLocale'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "GlobalizationBridge no delegate for 'getDefaultLocale'.")
             }
         }
         return result        
@@ -111,18 +111,18 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executing getLocaleSupportedDescriptors.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executing getLocaleSupportedDescriptors.")
         }
 
         var result : [Locale]? = nil
         if (self.delegate != nil) {
             result = self.delegate!.getLocaleSupportedDescriptors()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executed 'getLocaleSupportedDescriptors' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executed 'getLocaleSupportedDescriptors' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "GlobalizationBridge no delegate for 'getLocaleSupportedDescriptors'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "GlobalizationBridge no delegate for 'getLocaleSupportedDescriptors'.")
             }
         }
         return result        
@@ -142,18 +142,18 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executing getResourceLiteral('\(key)','\(locale)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executing getResourceLiteral('\(key)','\(locale)').")
         }
 
         var result : String? = nil
         if (self.delegate != nil) {
             result = self.delegate!.getResourceLiteral(key, locale: locale)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executed 'getResourceLiteral' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executed 'getResourceLiteral' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "GlobalizationBridge no delegate for 'getResourceLiteral'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "GlobalizationBridge no delegate for 'getResourceLiteral'.")
             }
         }
         return result        
@@ -172,18 +172,18 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executing getResourceLiterals('\(locale)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executing getResourceLiterals('\(locale)').")
         }
 
         var result : [KeyPair]? = nil
         if (self.delegate != nil) {
             result = self.delegate!.getResourceLiterals(locale)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executed 'getResourceLiterals' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "GlobalizationBridge executed 'getResourceLiterals' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "GlobalizationBridge no delegate for 'getResourceLiterals'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "GlobalizationBridge no delegate for 'getResourceLiterals'.")
             }
         }
         return result        
@@ -253,7 +253,7 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "GlobalizationBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.1.9."
+                responseMessage = "GlobalizationBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.2.0."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

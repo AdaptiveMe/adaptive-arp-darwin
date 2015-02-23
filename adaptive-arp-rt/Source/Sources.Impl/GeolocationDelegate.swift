@@ -68,7 +68,7 @@ public class GeolocationDelegate : BaseSensorDelegate, IGeolocation {
         self.delegates.append(geo)
         geo.initLocationManager()
         
-        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Adding listener: \(geo.getListener())")
+        logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Adding listener: \(geo.getListener())")
     }
 
     /**
@@ -83,7 +83,7 @@ public class GeolocationDelegate : BaseSensorDelegate, IGeolocation {
             
             if delegate.getListener().getId() == listener.getId() {
                 
-                logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing listener: \(delegate.getListener())")
+                logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Removing listener: \(delegate.getListener())")
                 
                 // stop the geolocations updates
                 delegate.stopUpdatingLocation()
@@ -100,11 +100,11 @@ public class GeolocationDelegate : BaseSensorDelegate, IGeolocation {
     */
     public func removeGeolocationListeners() {
         
-        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing all the geolocation listeners")
+        logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Removing all the geolocation listeners")
         
         for (index,delegate) in enumerate(delegates) {
             
-            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing listener: \(delegate.getListener())")
+            logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Removing listener: \(delegate.getListener())")
             
             // stop the geolocations updates
             delegate.stopUpdatingLocation()

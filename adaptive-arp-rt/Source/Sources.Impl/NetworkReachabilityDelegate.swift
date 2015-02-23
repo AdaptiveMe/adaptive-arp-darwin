@@ -63,16 +63,16 @@ public class NetworkReachabilityDelegate : BaseCommunicationDelegate, INetworkRe
         var reachability:Reachability = Reachability(hostname: host)
         
         var isReachableViaWiFi = reachability.isReachableViaWiFi()
-        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "isReachableViaWiFi: \(isReachableViaWiFi)")
+        logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "isReachableViaWiFi: \(isReachableViaWiFi)")
         
         var isReachableViaWWAN = reachability.isReachableViaWWAN()
-        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "isReachableViaWWAN: \(isReachableViaWWAN)")
+        logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "isReachableViaWWAN: \(isReachableViaWWAN)")
         
         if isReachableViaWiFi || isReachableViaWWAN {
-            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "isReachable!")
+            logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "isReachable!")
             callback.onResult(true)
         } else {
-            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "isUnreachable!")
+            logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "isUnreachable!")
             callback.onError(INetworkReachabilityCallbackError.Unreachable)
         }
     }
@@ -91,7 +91,7 @@ public class NetworkReachabilityDelegate : BaseCommunicationDelegate, INetworkRe
         // Check the url for malforming
         if(Utils.validateUrl(url)){
             callback.onError(INetworkReachabilityCallbackError.MalformedUrl)
-            self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Url malformed: \(url)")
+            self.logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Url malformed: \(url)")
             return
         }
         
@@ -109,7 +109,7 @@ public class NetworkReachabilityDelegate : BaseCommunicationDelegate, INetworkRe
                 
                 callback.onError(INetworkReachabilityCallbackError.Unreachable)
                 
-                self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "\(error.description)")
+                self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "\(error.description)")
                 
             } else {
                 
@@ -120,14 +120,14 @@ public class NetworkReachabilityDelegate : BaseCommunicationDelegate, INetworkRe
                 
                 // Check for Not secured url
                 if (url as NSString).containsString("https://") {
-                    self.logger.log(ILoggingLogLevel.DEBUG, category: self.loggerTag, message: "Secured URL (https): \(url)")
+                    self.logger.log(ILoggingLogLevel.Debug, category: self.loggerTag, message: "Secured URL (https): \(url)")
                 } else {
-                    self.logger.log(ILoggingLogLevel.WARN, category: self.loggerTag, message: "NOT Secured URL (https): \(url)")
+                    self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "NOT Secured URL (https): \(url)")
                     
                     callback.onWarning(true, warning: INetworkReachabilityCallbackWarning.NotSecure)
                 }
                 
-                self.logger.log(ILoggingLogLevel.DEBUG, category: self.loggerTag, message: "status code: \(httpResponse.statusCode)")
+                self.logger.log(ILoggingLogLevel.Debug, category: self.loggerTag, message: "status code: \(httpResponse.statusCode)")
                 
                 switch (httpResponse.statusCode) {
                 case 200..<299:
@@ -135,7 +135,7 @@ public class NetworkReachabilityDelegate : BaseCommunicationDelegate, INetworkRe
                 case 300..<399:
                     callback.onWarning(true, warning: INetworkReachabilityCallbackWarning.Redirected)
                 case 400:
-                    callback.onError(INetworkReachabilityCallbackError.Wrong_Params)
+                    callback.onError(INetworkReachabilityCallbackError.WrongParams)
                 case 401:
                     callback.onError(INetworkReachabilityCallbackError.NotAuthenticated)
                 case 403:

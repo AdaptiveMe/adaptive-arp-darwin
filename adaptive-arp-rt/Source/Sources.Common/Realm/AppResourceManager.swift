@@ -44,12 +44,12 @@ public class AppResourceManager {
     }
     
     init() {
-        logger.log(ILoggingLogLevel.DEBUG, category: logCategory, message: "init start.")
+        logger.log(ILoggingLogLevel.Debug, category: logCategory, message: "init start.")
         var realmPath = NSBundle.mainBundle().pathForResource("App/apppack.realm", ofType: nil)
         realm = ResourceReader()
         protectRealmFile(realmPath!)
         realm.setPath(realmPath!)
-        logger.log(ILoggingLogLevel.DEBUG, category: logCategory, message: "init success.")
+        logger.log(ILoggingLogLevel.Debug, category: logCategory, message: "init success.")
     }
     
     internal func retrieveResource(id : String, rootPath : String, secure : Bool) -> ResourceData? {
@@ -65,48 +65,48 @@ public class AppResourceManager {
     }
     
     public func retrieveWebResource(id : String) -> ResourceData? {
-        //logger.log(ILoggingLogLevel.DEBUG, category: logCategory, message: "retrieveWebResource('\(id)')")
+        //logger.log(ILoggingLogLevel.Debug, category: logCategory, message: "retrieveWebResource('\(id)')")
         var resourceData : ResourceData? = retrieveResource(id, rootPath: "www", secure: true)
         if resourceData == nil {
             resourceData = retrieveResource(id, rootPath: "www", secure: false)
         }
         if resourceData == nil {
-            logger.log(ILoggingLogLevel.DEBUG, category: logCategory, message: "retrieveWebResource('\(id)') not found.")
+            logger.log(ILoggingLogLevel.Debug, category: logCategory, message: "retrieveWebResource('\(id)') not found.")
         } else {
-            logger.log(ILoggingLogLevel.DEBUG, category: logCategory, message: "retrieveWebResource('\(id)') -> type: '\(resourceData!.raw_type)' length: \(resourceData!.raw_length) bytes.")
+            logger.log(ILoggingLogLevel.Debug, category: logCategory, message: "retrieveWebResource('\(id)') -> type: '\(resourceData!.raw_type)' length: \(resourceData!.raw_length) bytes.")
         }
         return resourceData
     }
     
     public func retrieveConfigResource(id : String) -> ResourceData? {
-        logger.log(ILoggingLogLevel.DEBUG, category: logCategory, message: "retrieveConfigResource('\(id)')")
+        logger.log(ILoggingLogLevel.Debug, category: logCategory, message: "retrieveConfigResource('\(id)')")
         var resourceData : ResourceData? = retrieveResource(id, rootPath: "config/", secure: true)
         if resourceData == nil {
             resourceData = retrieveResource(id, rootPath: "config/", secure: false)
         }
         if resourceData == nil {
-            logger.log(ILoggingLogLevel.DEBUG, category: logCategory, message: "retrieveConfigResource('\(id)') not found.")
+            logger.log(ILoggingLogLevel.Debug, category: logCategory, message: "retrieveConfigResource('\(id)') not found.")
         } else {
-            logger.log(ILoggingLogLevel.DEBUG, category: logCategory, message: "retrieveConfigResource('\(id)') -> type: '\(resourceData!.raw_type)' length: \(resourceData!.raw_length) bytes.")
+            logger.log(ILoggingLogLevel.Debug, category: logCategory, message: "retrieveConfigResource('\(id)') -> type: '\(resourceData!.raw_type)' length: \(resourceData!.raw_length) bytes.")
         }
         return resourceData
     }
     
     internal func protectRealmFile(path : String) -> Bool {
         #if os(iOS)
-            logger.log(ILoggingLogLevel.DEBUG, category: logCategory, message: "protectRealmFile start.")
+            logger.log(ILoggingLogLevel.Debug, category: logCategory, message: "protectRealmFile start.")
             var error: NSError?
             let success = NSFileManager.defaultManager().setAttributes([NSFileProtectionKey: NSFileProtectionComplete],
             ofItemAtPath: path, error: &error)
             if !success {
-            logger.log(ILoggingLogLevel.DEBUG, category: logCategory, message: "protectRealmFile failed. Error: '\(error?.localizedDescription)'")
+            logger.log(ILoggingLogLevel.Debug, category: logCategory, message: "protectRealmFile failed. Error: '\(error?.localizedDescription)'")
             } else {
-            logger.log(ILoggingLogLevel.DEBUG, category: logCategory, message: "protectRealmFile success.")
+            logger.log(ILoggingLogLevel.Debug, category: logCategory, message: "protectRealmFile success.")
             }
             return success
         #endif
         #if os(OSX)
-            logger.log(ILoggingLogLevel.DEBUG, category: logCategory, message: "protectRealmFile not supported on this platform.")
+            logger.log(ILoggingLogLevel.Debug, category: logCategory, message: "protectRealmFile not supported on this platform.")
             return false
         #endif
     }

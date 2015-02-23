@@ -87,7 +87,7 @@ public class MailDelegate : UIViewController, /*BasePIMDelegate,*/ IMail, MFMail
         // Check if the device can send Mails
         if !MFMailComposeViewController.canSendMail() {
             
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The device cannot send a mail. Check the device")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The device cannot send a mail. Check the device")
             
             callback.onError(IMessagingCallbackError.NotSupported)
             return
@@ -141,11 +141,11 @@ public class MailDelegate : UIViewController, /*BasePIMDelegate,*/ IMail, MFMail
             }
             
             self.presentViewController(mail, animated: true, completion: {
-                self.logger.log(ILoggingLogLevel.DEBUG, category: self.loggerTag, message: "MFMailComposeViewController presented")
+                self.logger.log(ILoggingLogLevel.Debug, category: self.loggerTag, message: "MFMailComposeViewController presented")
             })
             
         } else {
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "There is no a current view controller on the stack")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "There is no a current view controller on the stack")
             callback.onError(IMessagingCallbackError.NotSent)
         }
         

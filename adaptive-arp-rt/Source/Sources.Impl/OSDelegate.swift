@@ -89,7 +89,7 @@ public class OSDelegate : BaseSystemDelegate, IOS {
     */
     public func getOSInfo() -> OSInfo? {
         
-        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "name: \(self.osInfo.getName()!.toString()), version: \(self.osInfo.getVersion()!), vendor: \(self.osInfo.getVendor()!)")
+        logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "name: \(self.osInfo.getName()!.toString()), version: \(self.osInfo.getVersion()!), vendor: \(self.osInfo.getVendor()!)")
         
         return self.osInfo
     }

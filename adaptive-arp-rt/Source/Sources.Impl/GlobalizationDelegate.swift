@@ -66,13 +66,13 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
         // Read the i18n config file
         var resourceData : ResourceData? = AppResourceManager.sharedInstance.retrieveConfigResource(I18N_CONFIG_FILE)
         if resourceData == nil {
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error reading i18n config file: \(I18N_CONFIG_FILE)")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error reading i18n config file: \(I18N_CONFIG_FILE)")
             return nil
         }
         
         let data: Foundation.NSData? = resourceData!.data
         if data == nil {
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error reading i18n config file: \(I18N_CONFIG_FILE)")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error reading i18n config file: \(I18N_CONFIG_FILE)")
             return nil
         }
         
@@ -83,10 +83,10 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
         xmlParser.delegate = parserDelegate
         
         if xmlParser.parse() {
-            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Returning locales \(parserDelegate.getLocales())")
+            logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Returning locales \(parserDelegate.getLocales())")
             return parserDelegate.getDefaultLocale()
         } else {
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error parsing i18n config file: \(I18N_CONFIG_FILE)")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error parsing i18n config file: \(I18N_CONFIG_FILE)")
             return nil
         }
     }
@@ -102,13 +102,13 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
         // Read the i18n config file
         var resourceData : ResourceData? = AppResourceManager.sharedInstance.retrieveConfigResource(I18N_CONFIG_FILE)
         if resourceData == nil {
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error reading i18n config file: \(I18N_CONFIG_FILE)")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error reading i18n config file: \(I18N_CONFIG_FILE)")
             return nil
         }
         
         let data: Foundation.NSData? = resourceData!.data
         if data == nil {
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error reading i18n config file: \(I18N_CONFIG_FILE)")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error reading i18n config file: \(I18N_CONFIG_FILE)")
             return nil
         }
         
@@ -119,10 +119,10 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
         xmlParser.delegate = parserDelegate
         
         if xmlParser.parse() {
-            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Returning locales \(parserDelegate.getLocales())")
+            logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Returning locales \(parserDelegate.getLocales())")
             return parserDelegate.getLocales()
         } else {
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error parsing i18n config file: \(I18N_CONFIG_FILE)")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error parsing i18n config file: \(I18N_CONFIG_FILE)")
             return nil
         }
     }
@@ -140,7 +140,7 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
         var filePath:String = getLanguageFilePath(locale)
         var resourceData : ResourceData? = AppResourceManager.sharedInstance.retrieveConfigResource(filePath)
         if resourceData == nil {
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error reading i18n LANGUAGE file: \(filePath)")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error reading i18n LANGUAGE file: \(filePath)")
             return nil
         }
         
@@ -148,7 +148,7 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
         let data: NSData? = resourceData!.data
         
         if data == nil {
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error reading i18n LANGUAGE file: \(filePath)")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error reading i18n LANGUAGE file: \(filePath)")
             return nil
         }
         
@@ -164,16 +164,16 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
                     
                     if key == stringKey {
                         
-                        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Returning value: \(ocDictionary[stringKey]) for key: \(stringKey)")
+                        logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Returning value: \(ocDictionary[stringKey]) for key: \(stringKey)")
                         return (ocDictionary[stringKey] as String)
                     }
                 }
             } else {
-                logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Sorry, couldn't read the file \(filePath.lastPathComponent)")
+                logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Sorry, couldn't read the file \(filePath.lastPathComponent)")
                 return nil
             }
         } else if let theError = anError {
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Sorry, couldn't read the file \(filePath.lastPathComponent):\n\t"+theError.localizedDescription)
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Sorry, couldn't read the file \(filePath.lastPathComponent):\n\t"+theError.localizedDescription)
         }
         
         return nil
@@ -193,7 +193,7 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
         var filePath:String = getLanguageFilePath(locale)
         var resourceData : ResourceData? = AppResourceManager.sharedInstance.retrieveConfigResource(filePath)
         if resourceData == nil {
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error reading i18n LANGUAGE file: \(filePath)")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error reading i18n LANGUAGE file: \(filePath)")
             return nil
         }
         
@@ -201,7 +201,7 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
         let data: NSData? = resourceData!.data
         
         if data == nil {
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error reading i18n LANGUAGE file: \(filePath)")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error reading i18n LANGUAGE file: \(filePath)")
             return nil
         }
         
@@ -217,11 +217,11 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
                     swiftDict.append(KeyPair(keyName: stringKey, keyValue: ocDictionary[stringKey] as String))
                 }
             } else {
-                logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Sorry, couldn't read the file \(filePath.lastPathComponent)")
+                logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Sorry, couldn't read the file \(filePath.lastPathComponent)")
                 return nil
             }
         } else if let theError = anError {
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Sorry, couldn't read the file \(filePath.lastPathComponent):\n\t"+theError.localizedDescription)
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Sorry, couldn't read the file \(filePath.lastPathComponent):\n\t"+theError.localizedDescription)
         }
         
         return swiftDict

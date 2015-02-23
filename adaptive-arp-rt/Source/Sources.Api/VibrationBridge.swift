@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.9
+    * @version v2.2.0
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -85,7 +85,7 @@ public class VibrationBridge : BaseNotificationBridge, IVibration, APIBridge {
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "VibrationBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.1.9."
+                responseMessage = "VibrationBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.2.0."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.9
+    * @version v2.2.0
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -40,7 +40,7 @@ import Foundation
 public enum IContactResultCallbackWarning {
 
     case LimitExceeded
-    case No_Matches
+    case NoMatches
     case Unknown
 
     /**
@@ -49,7 +49,7 @@ public enum IContactResultCallbackWarning {
     public func toString() -> String {
         switch self {
             case .LimitExceeded: return "LimitExceeded"
-            case .No_Matches: return "No_Matches"
+            case .NoMatches: return "NoMatches"
             case .Unknown: return "Unknown"
         }
     }
@@ -61,7 +61,7 @@ public enum IContactResultCallbackWarning {
         if let validString = string {
             switch validString {
                 case "LimitExceeded": return .LimitExceeded
-                case "No_Matches": return .No_Matches
+                case "NoMatches": return .NoMatches
                 case "Unknown": return .Unknown
             default: return .Unknown
             }

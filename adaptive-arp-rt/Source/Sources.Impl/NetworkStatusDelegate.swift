@@ -69,14 +69,14 @@ public class NetworkStatusDelegate : BaseCommunicationDelegate, INetworkStatus {
         // check if listener exists
         for (index, l:INetworkStatusListener) in enumerate(listeners) {
             if listener.getId() == l.getId() {
-                logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The listener is alredy on the pull. Replacing...")
+                logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "The listener is alredy on the pull. Replacing...")
                 self.removeNetworkStatusListener(listener)
             }
         }
         
         // add the listener
         listeners.append(listener)
-        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Adding \(listener) to the listeners pull")
+        logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Adding \(listener) to the listeners pull")
         
         if reachability == nil {
             
@@ -88,10 +88,10 @@ public class NetworkStatusDelegate : BaseCommunicationDelegate, INetworkStatus {
                 // Iterate all over the listeners and notify
                 for (index, l) in enumerate(self.listeners) {
                     if reachability.isReachableViaWiFi() {
-                        self.logger.log(ILoggingLogLevel.DEBUG, category: self.loggerTag, message: "Listener \(listener) reachable via WIFI")
+                        self.logger.log(ILoggingLogLevel.Debug, category: self.loggerTag, message: "Listener \(listener) reachable via WIFI")
                         l.onResult(ICapabilitiesNet.WIFI)
                     } else {
-                        self.logger.log(ILoggingLogLevel.DEBUG, category: self.loggerTag, message: "Listener \(listener) reachable via WAN")
+                        self.logger.log(ILoggingLogLevel.Debug, category: self.loggerTag, message: "Listener \(listener) reachable via WAN")
                         // MARK: it is not possible to determine the G version of the connection: GSM, GPRS, HSPA, etc...
                         l.onResult(ICapabilitiesNet.GSM)
                     }
@@ -103,7 +103,7 @@ public class NetworkStatusDelegate : BaseCommunicationDelegate, INetworkStatus {
                 // Iterate all over the listeners and notify
                 for (index, l) in enumerate(self.listeners) {
                     
-                    self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "Listener \(listener) unreachable")
+                    self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "Listener \(listener) unreachable")
                     l.onError(INetworkStatusListenerError.Unreachable)
                 }
             }
@@ -124,13 +124,13 @@ public class NetworkStatusDelegate : BaseCommunicationDelegate, INetworkStatus {
                 
                 listeners.removeAtIndex(index)
                 
-                logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing \(listener) from the listeners pull")
+                logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Removing \(listener) from the listeners pull")
                 
                 return
             }
         }
         
-        logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "\(listener) is not founded in the pull for removing")
+        logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "\(listener) is not founded in the pull for removing")
     }
 
     /**
@@ -140,7 +140,7 @@ public class NetworkStatusDelegate : BaseCommunicationDelegate, INetworkStatus {
     */
     public func removeNetworkStatusListeners() {
         
-        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing all the listeners...")
+        logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Removing all the listeners...")
         listeners.removeAll(keepCapacity: false)
     }
 

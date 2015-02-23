@@ -74,7 +74,7 @@ public class TelephonyDelegate : BaseCommunicationDelegate, ITelephony {
         // Check the correct format of the number
         if !Utils.isPhoneNumberCorrect(number) {
             
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The number: \(number) has an incorrect format")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The number: \(number) has an incorrect format")
             return ITelephonyStatus.Failed
         }
         
@@ -84,7 +84,7 @@ public class TelephonyDelegate : BaseCommunicationDelegate, ITelephony {
             // Check if it is possible to open the url
             if !application!.canOpenURL(url) {
                 
-                logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The url: \(url) is not possible to open by the application")
+                logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The url: \(url) is not possible to open by the application")
                 return ITelephonyStatus.Failed
             }
         #endif
@@ -101,7 +101,7 @@ public class TelephonyDelegate : BaseCommunicationDelegate, ITelephony {
             result =  application!.openURL(url)
             
             if !result {
-                logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "It is not posible to make the call")
+                logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "It is not posible to make the call")
                 return ITelephonyStatus.Failed
             } else {
                 

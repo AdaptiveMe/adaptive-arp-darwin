@@ -71,18 +71,18 @@ public class LoggingDelegate : BaseUtilDelegate, ILogging {
         
         switch level {
             
-        case ILoggingLogLevel.DEBUG:
+        case ILoggingLogLevel.Debug:
             #if DEBUG
                 NSLog("[DEBUG - \(category)] \(message)")
             #endif
             
-        case ILoggingLogLevel.INFO:
+        case ILoggingLogLevel.Info:
             NSLog("[INFO - \(category)] \(message)")
             
-        case ILoggingLogLevel.WARN:
+        case ILoggingLogLevel.Warn:
             NSLog("🚸[WARN - \(category)] \(message)")
             
-        case ILoggingLogLevel.ERROR:
+        case ILoggingLogLevel.Error:
             NSLog("⛔️[ERROR - \(category)] \(message)")
             
         case ILoggingLogLevel.Unknown:

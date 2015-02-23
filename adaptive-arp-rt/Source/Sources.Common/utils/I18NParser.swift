@@ -69,14 +69,14 @@ public class I18NParser : NSObject, NSXMLParserDelegate {
         
         // Store
         if elementName == I18N_SUPLANG_ELEM {
-            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Reading language: \(attributeDict[I18N_SUPLANG_ATTR_LANG])")
+            logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Reading language: \(attributeDict[I18N_SUPLANG_ATTR_LANG])")
             
             var locale:Locale = Locale()
             locale.setLanguage("\(attributeDict[I18N_SUPLANG_ATTR_LANG]!)")
             locale.setCountry("\(attributeDict[I18N_SUPLANG_ATTR_CNTR]!)")
             localesArray.append(locale)
         } else if elementName == I18N_SUPLANG_DEFAULT {
-            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Reading default language: \(attributeDict[I18N_SUPLANG_ATTR_LANG])")
+            logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Reading default language: \(attributeDict[I18N_SUPLANG_ATTR_LANG])")
             
             defaultLocale.setLanguage("\(attributeDict[I18N_SUPLANG_ATTR_LANG]!)")
             defaultLocale.setCountry("\(attributeDict[I18N_SUPLANG_ATTR_CNTR]!)")

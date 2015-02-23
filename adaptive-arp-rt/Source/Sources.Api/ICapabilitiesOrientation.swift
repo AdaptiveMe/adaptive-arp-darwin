@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.9
+    * @version v2.2.0
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -39,10 +39,10 @@ import Foundation
 */
 public enum ICapabilitiesOrientation {
 
-    case Portrait_Up
-    case Portrait_Down
-    case Landscape_Left
-    case Landscape_Right
+    case PortraitUp
+    case PortraitDown
+    case LandscapeLeft
+    case LandscapeRight
     case Unknown
 
     /**
@@ -50,10 +50,10 @@ public enum ICapabilitiesOrientation {
     */
     public func toString() -> String {
         switch self {
-            case .Portrait_Up: return "Portrait_Up"
-            case .Portrait_Down: return "Portrait_Down"
-            case .Landscape_Left: return "Landscape_Left"
-            case .Landscape_Right: return "Landscape_Right"
+            case .PortraitUp: return "PortraitUp"
+            case .PortraitDown: return "PortraitDown"
+            case .LandscapeLeft: return "LandscapeLeft"
+            case .LandscapeRight: return "LandscapeRight"
             case .Unknown: return "Unknown"
         }
     }
@@ -64,10 +64,10 @@ public enum ICapabilitiesOrientation {
     public static func toEnum(string:String?) -> ICapabilitiesOrientation {
         if let validString = string {
             switch validString {
-                case "Portrait_Up": return .Portrait_Up
-                case "Portrait_Down": return .Portrait_Down
-                case "Landscape_Left": return .Landscape_Left
-                case "Landscape_Right": return .Landscape_Right
+                case "PortraitUp": return .PortraitUp
+                case "PortraitDown": return .PortraitDown
+                case "LandscapeLeft": return .LandscapeLeft
+                case "LandscapeRight": return .LandscapeRight
                 case "Unknown": return .Unknown
             default: return .Unknown
             }

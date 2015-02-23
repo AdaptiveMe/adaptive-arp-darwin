@@ -46,7 +46,7 @@ class ContactResultCallbackTest: BaseCallbackImpl, IContactResultCallback {
     :param: error Error produced
     */
     func onError(error : IContactResultCallbackError) {
-        logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error obtaining contacts: \(error)")
+        logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error obtaining contacts: \(error)")
         XCTAssert(false, "Error obtaining contacts: \(error)")
     }
     
@@ -57,10 +57,10 @@ class ContactResultCallbackTest: BaseCallbackImpl, IContactResultCallback {
     */
     func onResult(contacts : [Contact]) {
         
-        logger.log(ILoggingLogLevel.INFO, category: loggerTag, message: "Number of contacts: \(contacts.count)")
+        logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "Number of contacts: \(contacts.count)")
         
         for contact:Contact in contacts {
-            logger.log(ILoggingLogLevel.INFO, category: loggerTag, message: " -> Contact Information: \(contact.getContactId()!) - \(contact.getPersonalInfo()!.getName()!) \(contact.getPersonalInfo()!.getLastName()!) [\(contact.getProfessionalInfo()?.getCompany())]")
+            logger.log(ILoggingLogLevel.Info, category: loggerTag, message: " -> Contact Information: \(contact.getContactId()!) - \(contact.getPersonalInfo()!.getName()!) \(contact.getPersonalInfo()!.getLastName()!) [\(contact.getProfessionalInfo()?.getCompany())]")
         }
         XCTAssert(true, "")
     }
@@ -73,10 +73,10 @@ class ContactResultCallbackTest: BaseCallbackImpl, IContactResultCallback {
     */
     func onWarning(contacts : [Contact], warning : IContactResultCallbackWarning) {
         
-        logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "Warning: \(warning.toString())")
-        logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "Number of contacts: \(contacts.count)")
+        logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "Warning: \(warning.toString())")
+        logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "Number of contacts: \(contacts.count)")
         for contact:Contact in contacts {
-            logger.log(ILoggingLogLevel.INFO, category: loggerTag, message: " -> Contact Information: \(contact.getContactId()!) - \(contact.getPersonalInfo()!.getName()!) \(contact.getPersonalInfo()!.getLastName()!) [\(contact.getProfessionalInfo()?.getCompany())]")
+            logger.log(ILoggingLogLevel.Info, category: loggerTag, message: " -> Contact Information: \(contact.getContactId()!) - \(contact.getPersonalInfo()!.getName()!) \(contact.getPersonalInfo()!.getLastName()!) [\(contact.getProfessionalInfo()?.getCompany())]")
         }
         XCTAssert(true, "")
     }

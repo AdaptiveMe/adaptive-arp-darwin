@@ -78,7 +78,7 @@ public class VideoDelegate : BaseMediaDelegate, IVideo {
                 #endif
                 
             } else {
-                logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The current View Controller has no presented view")
+                logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The current View Controller has no presented view")
             }
         }
     }
@@ -98,7 +98,7 @@ public class VideoDelegate : BaseMediaDelegate, IVideo {
         // Check the correct format of the number
         if !Utils.validateUrl(url) {
             
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The url: \(url) has an incorrect format")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The url: \(url) has an incorrect format")
             return false
         }
         let url: NSURL = NSURL(string: url)!
@@ -108,7 +108,7 @@ public class VideoDelegate : BaseMediaDelegate, IVideo {
             // Check if it is possible to open the url
             if !application!.canOpenURL(url) {
             
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The application cannot open this type of url: \(url)")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The application cannot open this type of url: \(url)")
             return false
             }
         #endif

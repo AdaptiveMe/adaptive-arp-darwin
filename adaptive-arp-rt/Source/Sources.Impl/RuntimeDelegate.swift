@@ -60,7 +60,7 @@ public class RuntimeDelegate : BaseSystemDelegate, IRuntime {
         
         // In iOS there is no API provided for quitting the applications
         // :see: https://developer.apple.com/library/ios/qa/qa1561/_index.html
-        logger.log(ILoggingLogLevel.ERROR, category:loggerTag, message: "There is no API provided for gracefully terminating an iOS application.")
+        logger.log(ILoggingLogLevel.Error, category:loggerTag, message: "There is no API provided for gracefully terminating an iOS application.")
     }
 
     /**
@@ -71,7 +71,7 @@ public class RuntimeDelegate : BaseSystemDelegate, IRuntime {
     */
     public func dismissSplashScreen() -> Bool? {
         
-        logger.log(ILoggingLogLevel.ERROR, category:loggerTag, message: "There is no API provided for dismissing the splash screen inside an iOS application")
+        logger.log(ILoggingLogLevel.Error, category:loggerTag, message: "There is no API provided for dismissing the splash screen inside an iOS application")
         
         return false
     }

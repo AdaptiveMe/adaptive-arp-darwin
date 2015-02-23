@@ -215,10 +215,10 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
         
         switch type {
             
-        case ICapabilitiesMedia.Audio_Playback:
+        case ICapabilitiesMedia.AudioPlayback:
             // TODO: Not implemented.
             return false
-        case ICapabilitiesMedia.Audio_Recording:
+        case ICapabilitiesMedia.AudioRecording:
             // TODO: Not implemented.
             return false
         case ICapabilitiesMedia.Camera:
@@ -231,10 +231,10 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
                 return false
             #endif
             
-        case ICapabilitiesMedia.Video_Playback:
+        case ICapabilitiesMedia.VideoPlayback:
             // TODO: Not implemented.
             return false
-        case ICapabilitiesMedia.Video_Recording:
+        case ICapabilitiesMedia.VideoRecording:
             // TODO: Not implemented.
             return false
             
@@ -402,7 +402,7 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
         
         switch orientation {
             
-        case ICapabilitiesOrientation.Portrait_Up:
+        case ICapabilitiesOrientation.PortraitUp:
             
             #if os(iOS)
                 switch UIDevice.currentDevice().userInterfaceIdiom {
@@ -418,7 +418,7 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
                 return true
             #endif
             
-        case ICapabilitiesOrientation.Portrait_Down:
+        case ICapabilitiesOrientation.PortraitDown:
             
             #if os(iOS)
                 switch UIDevice.currentDevice().userInterfaceIdiom {
@@ -434,7 +434,7 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
                 return false
             #endif
             
-        case ICapabilitiesOrientation.Landscape_Left:
+        case ICapabilitiesOrientation.LandscapeLeft:
             
             #if os(iOS)
                 switch UIDevice.currentDevice().userInterfaceIdiom {
@@ -450,7 +450,7 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
                 return false
             #endif
             
-        case ICapabilitiesOrientation.Landscape_Right:
+        case ICapabilitiesOrientation.LandscapeRight:
             
             #if os(iOS)
                 switch UIDevice.currentDevice().userInterfaceIdiom {
@@ -487,16 +487,16 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
             switch UIDevice.currentDevice().orientation {
                 
             case UIDeviceOrientation.Portrait:
-                return ICapabilitiesOrientation.Portrait_Up
+                return ICapabilitiesOrientation.PortraitUp
                 
             case UIDeviceOrientation.PortraitUpsideDown:
-                return ICapabilitiesOrientation.Portrait_Down
+                return ICapabilitiesOrientation.PortraitDown
                 
             case UIDeviceOrientation.LandscapeLeft:
-                return ICapabilitiesOrientation.Landscape_Left
+                return ICapabilitiesOrientation.LandscapeLeft
                 
             case UIDeviceOrientation.LandscapeRight:
-                return ICapabilitiesOrientation.Landscape_Right
+                return ICapabilitiesOrientation.LandscapeRight
                 
             case UIDeviceOrientation.FaceUp, UIDeviceOrientation.FaceDown, UIDeviceOrientation.Unknown:
                 return ICapabilitiesOrientation.Unknown
@@ -523,15 +523,15 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
             switch UIDevice.currentDevice().userInterfaceIdiom {
                 
             case UIUserInterfaceIdiom.Pad:
-                ret.append(ICapabilitiesOrientation.Portrait_Up)
-                ret.append(ICapabilitiesOrientation.Portrait_Down)
-                ret.append(ICapabilitiesOrientation.Landscape_Left)
-                ret.append(ICapabilitiesOrientation.Landscape_Right)
+                ret.append(ICapabilitiesOrientation.PortraitUp)
+                ret.append(ICapabilitiesOrientation.PortraitDown)
+                ret.append(ICapabilitiesOrientation.LandscapeLeft)
+                ret.append(ICapabilitiesOrientation.LandscapeRight)
                 
             case UIUserInterfaceIdiom.Phone:
-                ret.append(ICapabilitiesOrientation.Portrait_Up)
-                ret.append(ICapabilitiesOrientation.Landscape_Left)
-                ret.append(ICapabilitiesOrientation.Landscape_Right)
+                ret.append(ICapabilitiesOrientation.PortraitUp)
+                ret.append(ICapabilitiesOrientation.LandscapeLeft)
+                ret.append(ICapabilitiesOrientation.LandscapeRight)
                 
             case UIUserInterfaceIdiom.Unspecified:
                 ret.append(ICapabilitiesOrientation.Unknown)

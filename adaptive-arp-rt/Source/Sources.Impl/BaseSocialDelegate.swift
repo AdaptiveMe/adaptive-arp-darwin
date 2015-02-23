@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.9
+    * @version v2.2.0
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -63,7 +63,7 @@ public class BaseSocialDelegate : NSObject, IBaseSocial {
        Return the API version for the given interface.
     */
     public final func getAPIVersion() -> String? {
-        return "v2.1.9"
+        return "v2.2.0"
     }
 
 }

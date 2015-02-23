@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.9
+    * @version v2.2.0
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -82,18 +82,18 @@ public class OSBridge : BaseSystemBridge, IOS, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "OSBridge executing getOSInfo.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "OSBridge executing getOSInfo.")
         }
 
         var result : OSInfo? = nil
         if (self.delegate != nil) {
             result = self.delegate!.getOSInfo()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "OSBridge executed 'getOSInfo' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "OSBridge executed 'getOSInfo' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "OSBridge no delegate for 'getOSInfo'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "OSBridge no delegate for 'getOSInfo'.")
             }
         }
         return result        
@@ -121,7 +121,7 @@ public class OSBridge : BaseSystemBridge, IOS, APIBridge {
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "OSBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.1.9."
+                responseMessage = "OSBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.2.0."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

@@ -48,16 +48,16 @@ class LoggingTest: XCTestCase {
     
     func testGetOSInfo() {
         
-        XCTAssert(loggingImpl?.log(ILoggingLogLevel.DEBUG, message: "Logging test") != nil, "")
-        XCTAssert(loggingImpl?.log(ILoggingLogLevel.DEBUG, category: "Logging Category", message: "Logging test") != nil, "")
+        XCTAssert(loggingImpl?.log(ILoggingLogLevel.Debug, message: "Logging test") != nil, "")
+        XCTAssert(loggingImpl?.log(ILoggingLogLevel.Debug, category: "Logging Category", message: "Logging test") != nil, "")
     }
     
     func testPerformanceGetOSInfo() {
         
         self.measureBlock() {
             
-            self.loggingImpl?.log(ILoggingLogLevel.DEBUG, message: "Logging test")
-            self.loggingImpl?.log(ILoggingLogLevel.DEBUG, category: "Logging Category", message: "Logging test")
+            self.loggingImpl?.log(ILoggingLogLevel.Debug, message: "Logging test")
+            self.loggingImpl?.log(ILoggingLogLevel.Debug, category: "Logging Category", message: "Logging test")
         }
     }*/
     

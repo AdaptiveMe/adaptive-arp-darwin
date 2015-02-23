@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.9
+    * @version v2.2.0
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -39,11 +39,11 @@ import Foundation
 */
 public enum ICapabilitiesMedia {
 
-    case Audio_Playback
-    case Audio_Recording
+    case AudioPlayback
+    case AudioRecording
     case Camera
-    case Video_Playback
-    case Video_Recording
+    case VideoPlayback
+    case VideoRecording
     case Unknown
 
     /**
@@ -51,11 +51,11 @@ public enum ICapabilitiesMedia {
     */
     public func toString() -> String {
         switch self {
-            case .Audio_Playback: return "Audio_Playback"
-            case .Audio_Recording: return "Audio_Recording"
+            case .AudioPlayback: return "AudioPlayback"
+            case .AudioRecording: return "AudioRecording"
             case .Camera: return "Camera"
-            case .Video_Playback: return "Video_Playback"
-            case .Video_Recording: return "Video_Recording"
+            case .VideoPlayback: return "VideoPlayback"
+            case .VideoRecording: return "VideoRecording"
             case .Unknown: return "Unknown"
         }
     }
@@ -66,11 +66,11 @@ public enum ICapabilitiesMedia {
     public static func toEnum(string:String?) -> ICapabilitiesMedia {
         if let validString = string {
             switch validString {
-                case "Audio_Playback": return .Audio_Playback
-                case "Audio_Recording": return .Audio_Recording
+                case "AudioPlayback": return .AudioPlayback
+                case "AudioRecording": return .AudioRecording
                 case "Camera": return .Camera
-                case "Video_Playback": return .Video_Playback
-                case "Video_Recording": return .Video_Recording
+                case "VideoPlayback": return .VideoPlayback
+                case "VideoRecording": return .VideoRecording
                 case "Unknown": return .Unknown
             default: return .Unknown
             }

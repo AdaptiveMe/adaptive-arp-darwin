@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.9
+    * @version v2.2.0
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -83,17 +83,17 @@ public class NetworkReachabilityBridge : BaseCommunicationBridge, INetworkReacha
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "NetworkReachabilityBridge executing isNetworkReachable('\(host)','\(callback)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "NetworkReachabilityBridge executing isNetworkReachable('\(host)','\(callback)').")
         }
 
         if (self.delegate != nil) {
             self.delegate!.isNetworkReachable(host, callback: callback)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "NetworkReachabilityBridge executed 'isNetworkReachable' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "NetworkReachabilityBridge executed 'isNetworkReachable' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "NetworkReachabilityBridge no delegate for 'isNetworkReachable'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "NetworkReachabilityBridge no delegate for 'isNetworkReachable'.")
             }
         }
         
@@ -112,17 +112,17 @@ public class NetworkReachabilityBridge : BaseCommunicationBridge, INetworkReacha
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "NetworkReachabilityBridge executing isNetworkServiceReachable('\(url)','\(callback)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "NetworkReachabilityBridge executing isNetworkServiceReachable('\(url)','\(callback)').")
         }
 
         if (self.delegate != nil) {
             self.delegate!.isNetworkServiceReachable(url, callback: callback)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "NetworkReachabilityBridge executed 'isNetworkServiceReachable' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "NetworkReachabilityBridge executed 'isNetworkServiceReachable' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "NetworkReachabilityBridge no delegate for 'isNetworkServiceReachable'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "NetworkReachabilityBridge no delegate for 'isNetworkServiceReachable'.")
             }
         }
         
@@ -151,7 +151,7 @@ public class NetworkReachabilityBridge : BaseCommunicationBridge, INetworkReacha
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "NetworkReachabilityBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.1.9."
+                responseMessage = "NetworkReachabilityBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.2.0."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

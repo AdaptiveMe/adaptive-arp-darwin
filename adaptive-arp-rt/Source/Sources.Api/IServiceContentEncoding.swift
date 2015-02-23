@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.9
+    * @version v2.2.0
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -39,9 +39,9 @@ import Foundation
 */
 public enum IServiceContentEncoding {
 
-    case ASCII
-    case UTF8
-    case ISOLatin1
+    case Ascii
+    case Utf8
+    case IsoLatin1
     case Unicode
     case Unknown
 
@@ -50,9 +50,9 @@ public enum IServiceContentEncoding {
     */
     public func toString() -> String {
         switch self {
-            case .ASCII: return "ASCII"
-            case .UTF8: return "UTF8"
-            case .ISOLatin1: return "ISOLatin1"
+            case .Ascii: return "Ascii"
+            case .Utf8: return "Utf8"
+            case .IsoLatin1: return "IsoLatin1"
             case .Unicode: return "Unicode"
             case .Unknown: return "Unknown"
         }
@@ -64,9 +64,9 @@ public enum IServiceContentEncoding {
     public static func toEnum(string:String?) -> IServiceContentEncoding {
         if let validString = string {
             switch validString {
-                case "ASCII": return .ASCII
-                case "UTF8": return .UTF8
-                case "ISOLatin1": return .ISOLatin1
+                case "Ascii": return .Ascii
+                case "Utf8": return .Utf8
+                case "IsoLatin1": return .IsoLatin1
                 case "Unicode": return .Unicode
                 case "Unknown": return .Unknown
             default: return .Unknown

@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.9
+    * @version v2.2.0
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -39,7 +39,7 @@ import Foundation
 */
 public enum IDisplayOrientationListenerWarning {
 
-    case Application_Vetoed
+    case ApplicationVetoed
     case Unknown
 
     /**
@@ -47,7 +47,7 @@ public enum IDisplayOrientationListenerWarning {
     */
     public func toString() -> String {
         switch self {
-            case .Application_Vetoed: return "Application_Vetoed"
+            case .ApplicationVetoed: return "ApplicationVetoed"
             case .Unknown: return "Unknown"
         }
     }
@@ -58,7 +58,7 @@ public enum IDisplayOrientationListenerWarning {
     public static func toEnum(string:String?) -> IDisplayOrientationListenerWarning {
         if let validString = string {
             switch validString {
-                case "Application_Vetoed": return .Application_Vetoed
+                case "ApplicationVetoed": return .ApplicationVetoed
                 case "Unknown": return .Unknown
             default: return .Unknown
             }

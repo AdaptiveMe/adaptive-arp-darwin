@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.9
+    * @version v2.2.0
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -82,17 +82,17 @@ public class LifecycleBridge : BaseApplicationBridge, ILifecycle, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "LifecycleBridge executing addLifecycleListener('\(listener)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "LifecycleBridge executing addLifecycleListener('\(listener)').")
         }
 
         if (self.delegate != nil) {
             self.delegate!.addLifecycleListener(listener)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "LifecycleBridge executed 'addLifecycleListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "LifecycleBridge executed 'addLifecycleListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "LifecycleBridge no delegate for 'addLifecycleListener'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "LifecycleBridge no delegate for 'addLifecycleListener'.")
             }
         }
         
@@ -110,18 +110,18 @@ public class LifecycleBridge : BaseApplicationBridge, ILifecycle, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "LifecycleBridge executing isBackground.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "LifecycleBridge executing isBackground.")
         }
 
         var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.isBackground()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "LifecycleBridge executed 'isBackground' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "LifecycleBridge executed 'isBackground' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "LifecycleBridge no delegate for 'isBackground'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "LifecycleBridge no delegate for 'isBackground'.")
             }
         }
         return result        
@@ -139,17 +139,17 @@ public class LifecycleBridge : BaseApplicationBridge, ILifecycle, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "LifecycleBridge executing removeLifecycleListener('\(listener)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "LifecycleBridge executing removeLifecycleListener('\(listener)').")
         }
 
         if (self.delegate != nil) {
             self.delegate!.removeLifecycleListener(listener)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "LifecycleBridge executed 'removeLifecycleListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "LifecycleBridge executed 'removeLifecycleListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "LifecycleBridge no delegate for 'removeLifecycleListener'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "LifecycleBridge no delegate for 'removeLifecycleListener'.")
             }
         }
         
@@ -166,17 +166,17 @@ public class LifecycleBridge : BaseApplicationBridge, ILifecycle, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "LifecycleBridge executing removeLifecycleListeners.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "LifecycleBridge executing removeLifecycleListeners.")
         }
 
         if (self.delegate != nil) {
             self.delegate!.removeLifecycleListeners()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "LifecycleBridge executed 'removeLifecycleListeners' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "LifecycleBridge executed 'removeLifecycleListeners' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "LifecycleBridge no delegate for 'removeLifecycleListeners'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "LifecycleBridge no delegate for 'removeLifecycleListeners'.")
             }
         }
         
@@ -212,7 +212,7 @@ public class LifecycleBridge : BaseApplicationBridge, ILifecycle, APIBridge {
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "LifecycleBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.1.9."
+                responseMessage = "LifecycleBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.2.0."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

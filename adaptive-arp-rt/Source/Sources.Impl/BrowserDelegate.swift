@@ -88,7 +88,7 @@ public class BrowserDelegate : BaseUIDelegate, IBrowser {
                 let result: Bool =  workspace!.openURL(NSURL(string: url)!)
             #endif
             if !result {
-                logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "It is not posible to open the url")
+                logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "It is not posible to open the url")
                 return false
             } else {
                 return true
@@ -176,7 +176,7 @@ public class BrowserDelegate : BaseUIDelegate, IBrowser {
         // Check the correct format of the number
         if !Utils.validateUrl(url) {
             
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The url: \(url) has an incorrect format")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The url: \(url) has an incorrect format")
             return false
         }
         let url: NSURL = NSURL(string: url)!
@@ -186,7 +186,7 @@ public class BrowserDelegate : BaseUIDelegate, IBrowser {
             // Check if it is possible to open the url
             if !application!.canOpenURL(url) {
                 
-                logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The application cannot open this type of url: \(url)")
+                logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The application cannot open this type of url: \(url)")
                 return false
             }
             

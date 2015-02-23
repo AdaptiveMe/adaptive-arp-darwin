@@ -73,7 +73,7 @@ public class LifecycleDelegate : BaseApplicationDelegate, ILifecycle {
     */
     public func addLifecycleListener(listener : ILifecycleListener) {
         
-        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Adding one listener to the pull")
+        logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Adding one listener to the pull")
         listeners.append(listener)
     }
 
@@ -100,11 +100,11 @@ public class LifecycleDelegate : BaseApplicationDelegate, ILifecycle {
             if(l.getId() == listener.getId()) {
                 
                 listeners.removeAtIndex(index)
-                logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing \(listener) to the service pull")
+                logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Removing \(listener) to the service pull")
                 return
             }
         }
-        logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "\(listener) is not founded in the pull for removing")
+        logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "\(listener) is not founded in the pull for removing")
     }
 
     /**
@@ -114,7 +114,7 @@ public class LifecycleDelegate : BaseApplicationDelegate, ILifecycle {
     */
     public func removeLifecycleListeners() {
         
-        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing all the listeners from thee service pull")
+        logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Removing all the listeners from thee service pull")
         listeners.removeAll(keepCapacity: false)
     }
     

@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.9
+    * @version v2.2.0
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -81,17 +81,17 @@ public class RuntimeBridge : BaseSystemBridge, IRuntime, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "RuntimeBridge executing dismissApplication.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "RuntimeBridge executing dismissApplication.")
         }
 
         if (self.delegate != nil) {
             self.delegate!.dismissApplication()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "RuntimeBridge executed 'dismissApplication' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "RuntimeBridge executed 'dismissApplication' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "RuntimeBridge no delegate for 'dismissApplication'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "RuntimeBridge no delegate for 'dismissApplication'.")
             }
         }
         
@@ -109,18 +109,18 @@ public class RuntimeBridge : BaseSystemBridge, IRuntime, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "RuntimeBridge executing dismissSplashScreen.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "RuntimeBridge executing dismissSplashScreen.")
         }
 
         var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.dismissSplashScreen()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "RuntimeBridge executed 'dismissSplashScreen' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "RuntimeBridge executed 'dismissSplashScreen' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "RuntimeBridge no delegate for 'dismissSplashScreen'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "RuntimeBridge no delegate for 'dismissSplashScreen'.")
             }
         }
         return result        
@@ -150,7 +150,7 @@ public class RuntimeBridge : BaseSystemBridge, IRuntime, APIBridge {
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "RuntimeBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.1.9."
+                responseMessage = "RuntimeBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.2.0."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

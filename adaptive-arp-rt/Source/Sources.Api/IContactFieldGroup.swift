@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.9
+    * @version v2.2.0
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -39,14 +39,14 @@ import Foundation
 */
 public enum IContactFieldGroup {
 
-    case PERSONAL_INFO
-    case PROFESSIONAL_INFO
-    case ADDRESSES
-    case PHONES
-    case EMAILS
-    case WEBSITES
-    case SOCIALS
-    case TAGS
+    case PersonalInfo
+    case ProfessionalInfo
+    case Addresses
+    case Phones
+    case Emails
+    case Websites
+    case Socials
+    case Tags
     case Unknown
 
     /**
@@ -54,14 +54,14 @@ public enum IContactFieldGroup {
     */
     public func toString() -> String {
         switch self {
-            case .PERSONAL_INFO: return "PERSONAL_INFO"
-            case .PROFESSIONAL_INFO: return "PROFESSIONAL_INFO"
-            case .ADDRESSES: return "ADDRESSES"
-            case .PHONES: return "PHONES"
-            case .EMAILS: return "EMAILS"
-            case .WEBSITES: return "WEBSITES"
-            case .SOCIALS: return "SOCIALS"
-            case .TAGS: return "TAGS"
+            case .PersonalInfo: return "PersonalInfo"
+            case .ProfessionalInfo: return "ProfessionalInfo"
+            case .Addresses: return "Addresses"
+            case .Phones: return "Phones"
+            case .Emails: return "Emails"
+            case .Websites: return "Websites"
+            case .Socials: return "Socials"
+            case .Tags: return "Tags"
             case .Unknown: return "Unknown"
         }
     }
@@ -72,14 +72,14 @@ public enum IContactFieldGroup {
     public static func toEnum(string:String?) -> IContactFieldGroup {
         if let validString = string {
             switch validString {
-                case "PERSONAL_INFO": return .PERSONAL_INFO
-                case "PROFESSIONAL_INFO": return .PROFESSIONAL_INFO
-                case "ADDRESSES": return .ADDRESSES
-                case "PHONES": return .PHONES
-                case "EMAILS": return .EMAILS
-                case "WEBSITES": return .WEBSITES
-                case "SOCIALS": return .SOCIALS
-                case "TAGS": return .TAGS
+                case "PersonalInfo": return .PersonalInfo
+                case "ProfessionalInfo": return .ProfessionalInfo
+                case "Addresses": return .Addresses
+                case "Phones": return .Phones
+                case "Emails": return .Emails
+                case "Websites": return .Websites
+                case "Socials": return .Socials
+                case "Tags": return .Tags
                 case "Unknown": return .Unknown
             default: return .Unknown
             }

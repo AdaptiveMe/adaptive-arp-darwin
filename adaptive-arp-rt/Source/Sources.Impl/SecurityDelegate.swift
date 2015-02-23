@@ -206,7 +206,7 @@ public class SecurityDelegate : BaseSecurityDelegate, ISecurity {
             
             let data: NSData? = NSData(contentsOfFile: file)
             if data != nil {
-                logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The device is rooted. Has the file: \(file)")
+                logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The device is rooted. Has the file: \(file)")
                 return true
             }
         }
@@ -214,11 +214,11 @@ public class SecurityDelegate : BaseSecurityDelegate, ISecurity {
         // If the Foundation path is not on the expected path, the device is jailbraked
         /*let data: NSData? = NSData(contentsOfFile: foundationPath)
         if data == nil {
-        logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The device is rooted. Because the Foundation Library path is not the expected")
+        logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The device is rooted. Because the Foundation Library path is not the expected")
         return true
         }*/
         
-        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "The device is not rooted.")
+        logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "The device is not rooted.")
         
         return false
     }
@@ -284,56 +284,56 @@ public class SecurityDelegate : BaseSecurityDelegate, ISecurity {
         
         switch(response){
         case securityResponsesErrorCodes[errSecSuccess]!:
-            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "The key: \(pair.getSecureKey()) with value: \(pair.getSecureData()) was saved.")
+            logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "The key: \(pair.getSecureKey()) with value: \(pair.getSecureData()) was saved.")
             savedPair.setSecureKey(pair.getSecureKey()!)
             return (savedPair, 0)
             
         case securityResponsesErrorCodes[errSecUnimplemented]!:
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Function or operation not implemented.")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Function or operation not implemented.")
             callback.onError(ISecurityResultCallbackError.NoPermission)
             return (savedPair, -1)
             
         case securityResponsesErrorCodes[errSecParam]!:
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "One or more parameters passed to the function were not valid.")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "One or more parameters passed to the function were not valid.")
             callback.onError(ISecurityResultCallbackError.NoPermission)
             return (savedPair, -1)
             
         case securityResponsesErrorCodes[errSecAllocate]!:
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Failed to allocate memory.")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Failed to allocate memory.")
             callback.onError(ISecurityResultCallbackError.NoPermission)
             return (savedPair, -1)
             
         case securityResponsesErrorCodes[errSecNotAvailable]!:
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "No trust results are available.")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "No trust results are available.")
             callback.onError(ISecurityResultCallbackError.NoPermission)
             return (savedPair, -1)
             
         case securityResponsesErrorCodes[errSecAuthFailed]!:
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Authorization/Authentication failed.")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Authorization/Authentication failed.")
             callback.onError(ISecurityResultCallbackError.NoPermission)
             return (savedPair, -1)
             
         case securityResponsesErrorCodes[errSecDuplicateItem]!:
-            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The item already exists.")
+            logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "The item already exists.")
             savedPair.setSecureKey(pair.getSecureKey()!)
             return (savedPair, 1)
             
         case securityResponsesErrorCodes[errSecItemNotFound]!:
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The item cannot be found.")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The item cannot be found.")
             callback.onError(ISecurityResultCallbackError.NoMatchesFound)
             return (savedPair, -1)
             
         case securityResponsesErrorCodes[errSecInteractionNotAllowed]!:
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Interaction with the Security Server is not allowed.")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Interaction with the Security Server is not allowed.")
             callback.onError(ISecurityResultCallbackError.NoPermission)
             return (savedPair, -1)
             
         case securityResponsesErrorCodes[errSecDecode]!:
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Unable to decode the provided data.")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Unable to decode the provided data.")
             callback.onError(ISecurityResultCallbackError.NoPermission)
             return (savedPair, -1)
         default:
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Not supported return value: \(response)")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Not supported return value: \(response)")
             callback.onError(ISecurityResultCallbackError.NoPermission)
             return (savedPair, -1)
         }

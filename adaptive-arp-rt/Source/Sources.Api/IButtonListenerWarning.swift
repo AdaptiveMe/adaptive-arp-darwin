@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.9
+    * @version v2.2.0
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -39,7 +39,7 @@ import Foundation
 */
 public enum IButtonListenerWarning {
 
-    case Not_Implemented
+    case NotImplemented
     case Unknown
 
     /**
@@ -47,7 +47,7 @@ public enum IButtonListenerWarning {
     */
     public func toString() -> String {
         switch self {
-            case .Not_Implemented: return "Not_Implemented"
+            case .NotImplemented: return "NotImplemented"
             case .Unknown: return "Unknown"
         }
     }
@@ -58,7 +58,7 @@ public enum IButtonListenerWarning {
     public static func toEnum(string:String?) -> IButtonListenerWarning {
         if let validString = string {
             switch validString {
-                case "Not_Implemented": return .Not_Implemented
+                case "NotImplemented": return .NotImplemented
                 case "Unknown": return .Unknown
             default: return .Unknown
             }

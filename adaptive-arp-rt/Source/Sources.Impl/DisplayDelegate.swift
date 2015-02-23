@@ -83,16 +83,16 @@ public class DisplayDelegate : BaseSystemDelegate, IDisplay {
             switch UIApplication.sharedApplication().statusBarOrientation {
                 
             case UIInterfaceOrientation.Portrait:
-                return ICapabilitiesOrientation.Portrait_Up
+                return ICapabilitiesOrientation.PortraitUp
                 
             case UIInterfaceOrientation.PortraitUpsideDown:
-                return ICapabilitiesOrientation.Portrait_Down
+                return ICapabilitiesOrientation.PortraitDown
                 
             case UIInterfaceOrientation.LandscapeLeft:
-                return ICapabilitiesOrientation.Landscape_Left
+                return ICapabilitiesOrientation.LandscapeLeft
                 
             case UIInterfaceOrientation.LandscapeRight:
-                return ICapabilitiesOrientation.Landscape_Right
+                return ICapabilitiesOrientation.LandscapeRight
                 
             case UIInterfaceOrientation.Unknown:
                 return ICapabilitiesOrientation.Unknown
@@ -119,20 +119,20 @@ public class DisplayDelegate : BaseSystemDelegate, IDisplay {
                     
                     // If the listener has alredy registered
                     
-                    logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The listener \(listener) has alredy registered")
+                    logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "The listener \(listener) has alredy registered")
                     return
                 }
             }
             
             // Register the listener
             orientationListeners.append(listener)
-            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Listener \(listener) registered")
+            logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Listener \(listener) registered")
             
         #endif
         #if os(OSX)
             
             // in OSX there are no orientation events
-            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there is no way to rotate this hardware, Unless you are Hulk 💪")
+            logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there is no way to rotate this hardware, Unless you are Hulk 💪")
             
         #endif
     }
@@ -171,18 +171,18 @@ public class DisplayDelegate : BaseSystemDelegate, IDisplay {
                     // Remove the listener
                     orientationListeners.removeAtIndex(index)
                     
-                    logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "The listener \(listener) it has been removed")
+                    logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "The listener \(listener) it has been removed")
                     return
                 }
             }
             
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Listener \(listener) is not registered in the system")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Listener \(listener) is not registered in the system")
             
         #endif
         #if os(OSX)
             
             // in OSX there are no orientation events
-            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there is no way to rotate this hardware, Unless you are Hulk 💪")
+            logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there is no way to rotate this hardware, Unless you are Hulk 💪")
             
         #endif
     }
@@ -201,13 +201,13 @@ public class DisplayDelegate : BaseSystemDelegate, IDisplay {
             // Remove all the listeners
             orientationListeners.removeAll(keepCapacity: false)
             
-            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removed \(listCount) orientationListeners from the system")
+            logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Removed \(listCount) orientationListeners from the system")
             
         #endif
         #if os(OSX)
             
             // in OSX there are no orientation events
-            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there is no way to rotate this hardware, Unless you are Hulk 💪")
+            logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there is no way to rotate this hardware, Unless you are Hulk 💪")
             
         #endif
     }

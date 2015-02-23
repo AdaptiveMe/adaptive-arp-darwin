@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.9
+    * @version v2.2.0
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -83,17 +83,17 @@ public class DatabaseBridge : BaseDataBridge, IDatabase, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing createDatabase('\(database)','\(callback)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing createDatabase('\(database)','\(callback)').")
         }
 
         if (self.delegate != nil) {
             self.delegate!.createDatabase(database, callback: callback)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executed 'createDatabase' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DatabaseBridge executed 'createDatabase' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "DatabaseBridge no delegate for 'createDatabase'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "DatabaseBridge no delegate for 'createDatabase'.")
             }
         }
         
@@ -113,17 +113,17 @@ public class DatabaseBridge : BaseDataBridge, IDatabase, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing createTable('\(database)','\(databaseTable)','\(callback)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing createTable('\(database)','\(databaseTable)','\(callback)').")
         }
 
         if (self.delegate != nil) {
             self.delegate!.createTable(database, databaseTable: databaseTable, callback: callback)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executed 'createTable' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DatabaseBridge executed 'createTable' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "DatabaseBridge no delegate for 'createTable'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "DatabaseBridge no delegate for 'createTable'.")
             }
         }
         
@@ -142,17 +142,17 @@ public class DatabaseBridge : BaseDataBridge, IDatabase, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing deleteDatabase('\(database)','\(callback)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing deleteDatabase('\(database)','\(callback)').")
         }
 
         if (self.delegate != nil) {
             self.delegate!.deleteDatabase(database, callback: callback)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executed 'deleteDatabase' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DatabaseBridge executed 'deleteDatabase' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "DatabaseBridge no delegate for 'deleteDatabase'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "DatabaseBridge no delegate for 'deleteDatabase'.")
             }
         }
         
@@ -172,17 +172,17 @@ public class DatabaseBridge : BaseDataBridge, IDatabase, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing deleteTable('\(database)','\(databaseTable)','\(callback)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing deleteTable('\(database)','\(databaseTable)','\(callback)').")
         }
 
         if (self.delegate != nil) {
             self.delegate!.deleteTable(database, databaseTable: databaseTable, callback: callback)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executed 'deleteTable' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DatabaseBridge executed 'deleteTable' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "DatabaseBridge no delegate for 'deleteTable'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "DatabaseBridge no delegate for 'deleteTable'.")
             }
         }
         
@@ -204,17 +204,17 @@ should be passed as a parameter
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing executeSqlStatement('\(database)','\(statement)','\(replacements)','\(callback)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing executeSqlStatement('\(database)','\(statement)','\(replacements)','\(callback)').")
         }
 
         if (self.delegate != nil) {
             self.delegate!.executeSqlStatement(database, statement: statement, replacements: replacements, callback: callback)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executed 'executeSqlStatement' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DatabaseBridge executed 'executeSqlStatement' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "DatabaseBridge no delegate for 'executeSqlStatement'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "DatabaseBridge no delegate for 'executeSqlStatement'.")
             }
         }
         
@@ -236,17 +236,17 @@ should be passed as a parameter
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing executeSqlTransactions('\(database)','\(statements)','\(rollbackFlag)','\(callback)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing executeSqlTransactions('\(database)','\(statements)','\(rollbackFlag)','\(callback)').")
         }
 
         if (self.delegate != nil) {
             self.delegate!.executeSqlTransactions(database, statements: statements, rollbackFlag: rollbackFlag, callback: callback)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executed 'executeSqlTransactions' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DatabaseBridge executed 'executeSqlTransactions' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "DatabaseBridge no delegate for 'executeSqlTransactions'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "DatabaseBridge no delegate for 'executeSqlTransactions'.")
             }
         }
         
@@ -265,18 +265,18 @@ should be passed as a parameter
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing existsDatabase('\(database)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing existsDatabase('\(database)').")
         }
 
         var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.existsDatabase(database)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executed 'existsDatabase' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DatabaseBridge executed 'existsDatabase' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "DatabaseBridge no delegate for 'existsDatabase'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "DatabaseBridge no delegate for 'existsDatabase'.")
             }
         }
         return result        
@@ -296,18 +296,18 @@ should be passed as a parameter
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing existsTable('\(database)','\(databaseTable)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DatabaseBridge executing existsTable('\(database)','\(databaseTable)').")
         }
 
         var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.existsTable(database, databaseTable: databaseTable)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DatabaseBridge executed 'existsTable' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DatabaseBridge executed 'existsTable' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "DatabaseBridge no delegate for 'existsTable'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "DatabaseBridge no delegate for 'existsTable'.")
             }
         }
         return result        
@@ -383,7 +383,7 @@ should be passed as a parameter
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "DatabaseBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.1.9."
+                responseMessage = "DatabaseBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.2.0."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

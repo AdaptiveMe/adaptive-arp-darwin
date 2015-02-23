@@ -140,10 +140,10 @@ public class HttpInterceptorProtocol : NSURLProtocol {
                         // fnva(20150202) Deprecated method -> Inside API Request
                         if let tsVersion: AnyObject = requestHeaders.objectForKey(HttpInterceptorProtocol.adaptiveVersionHeader) {
                             if !tsVersion.isEqual(AppRegistryBridge.sharedInstance.getAPIVersion()){
-                                logger.log(ILoggingLogLevel.WARN, category:loggerTag, message: "The API version of the Typescript API is not the same as the Platform API version")
+                                logger.log(ILoggingLogLevel.Warn, category:loggerTag, message: "The API version of the Typescript API is not the same as the Platform API version")
                             }
                         } else {
-                            logger.log(ILoggingLogLevel.ERROR, category:loggerTag, message: "There is no custom header (\(HttpInterceptorProtocol.adaptiveVersionHeader)) in the request indicating the TS version ")
+                            logger.log(ILoggingLogLevel.Error, category:loggerTag, message: "There is no custom header (\(HttpInterceptorProtocol.adaptiveVersionHeader)) in the request indicating the TS version ")
                         }*/
                         
                         // Parse the http body request and converto into a APIRequest Object
@@ -152,10 +152,10 @@ public class HttpInterceptorProtocol : NSURLProtocol {
                         // Check the version of the API inside the request attributes
                         if let tsVersion: String = apiRequest.getApiVersion() {
                             if !tsVersion.isEqual(AppRegistryBridge.sharedInstance.getAPIVersion()){
-                                logger.log(ILoggingLogLevel.WARN, category:loggerTag, message: "The API version of the Typescript API is not the same as the Platform API version")
+                                logger.log(ILoggingLogLevel.Warn, category:loggerTag, message: "The API version of the Typescript API is not the same as the Platform API version")
                             }
                         } else {
-                            logger.log(ILoggingLogLevel.ERROR, category:loggerTag, message: "There is no attribute inside APIRequest indicating the TS version ")
+                            logger.log(ILoggingLogLevel.Error, category:loggerTag, message: "There is no attribute inside APIRequest indicating the TS version ")
                         }
                         
                         // Call the service and return the data
@@ -174,15 +174,15 @@ public class HttpInterceptorProtocol : NSURLProtocol {
                             self.client!.URLProtocolDidFinishLoading(self)
                             
                         } else {
-                            logger.log(ILoggingLogLevel.ERROR, category:loggerTag, message: "There is a a problem converting the response to nsdata")
+                            logger.log(ILoggingLogLevel.Error, category:loggerTag, message: "There is a a problem converting the response to nsdata")
                         }
                         
                     } else {
-                        logger.log(ILoggingLogLevel.ERROR, category:loggerTag, message: "There is a a problem converting the body to string")
+                        logger.log(ILoggingLogLevel.Error, category:loggerTag, message: "There is a a problem converting the body to string")
                     }
                     
                 } else {
-                    logger.log(ILoggingLogLevel.ERROR, category:loggerTag, message: "There is a a problem obtaining the body of the request")
+                    logger.log(ILoggingLogLevel.Error, category:loggerTag, message: "There is a a problem obtaining the body of the request")
                 }
                 
             } else if Utils.validateRegexp(url, regexp: "^data:(.*)\\/(.*);base64,(.*)") && method == "GET" {
@@ -211,7 +211,7 @@ public class HttpInterceptorProtocol : NSURLProtocol {
                 }
             }
         } else {
-            logger.log(ILoggingLogLevel.ERROR, category:loggerTag, message: "The url received is null")
+            logger.log(ILoggingLogLevel.Error, category:loggerTag, message: "The url received is null")
         }
     }
     

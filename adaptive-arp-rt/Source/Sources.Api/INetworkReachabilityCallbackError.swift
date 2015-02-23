@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.9
+    * @version v2.2.0
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -47,7 +47,7 @@ public enum INetworkReachabilityCallbackError {
     case TimeOut
     case NoResponse
     case Unreachable
-    case Wrong_Params
+    case WrongParams
     case MalformedUrl
     case DomainUnresolvable
     case Unknown
@@ -65,7 +65,7 @@ public enum INetworkReachabilityCallbackError {
             case .TimeOut: return "TimeOut"
             case .NoResponse: return "NoResponse"
             case .Unreachable: return "Unreachable"
-            case .Wrong_Params: return "Wrong_Params"
+            case .WrongParams: return "WrongParams"
             case .MalformedUrl: return "MalformedUrl"
             case .DomainUnresolvable: return "DomainUnresolvable"
             case .Unknown: return "Unknown"
@@ -86,7 +86,7 @@ public enum INetworkReachabilityCallbackError {
                 case "TimeOut": return .TimeOut
                 case "NoResponse": return .NoResponse
                 case "Unreachable": return .Unreachable
-                case "Wrong_Params": return .Wrong_Params
+                case "WrongParams": return .WrongParams
                 case "MalformedUrl": return .MalformedUrl
                 case "DomainUnresolvable": return .DomainUnresolvable
                 case "Unknown": return .Unknown

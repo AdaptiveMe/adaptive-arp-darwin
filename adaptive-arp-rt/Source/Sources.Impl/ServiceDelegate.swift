@@ -98,7 +98,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
         // Check if the service is registered
         if !self.isServiceRegistered(serviceName, endpointName: endpointName, functionName: functionName, method: method)! {
             
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The service you are trying to obtain a token is not registered in the io config platform file. Please register it")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The service you are trying to obtain a token is not registered in the io config platform file. Please register it")
             return nil
         }
         
@@ -124,7 +124,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
             }
         }
         
-        logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The service you are trying to obtain by URI is not registered in the io config platform file.")
+        logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The service you are trying to obtain by URI is not registered in the io config platform file.")
         return nil
     }
     
@@ -142,14 +142,14 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
         
         if !self.isServiceRegistered(serviceToken) {
             
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The service you are trying to make a request is not registered in the io config platform file. Please register it")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The service you are trying to make a request is not registered in the io config platform file. Please register it")
             return nil
         }
         
         var request:ServiceRequest = ServiceRequest()
         
         // Content Encoding - by default UFT-8
-        request.setContentEncoding(IServiceContentEncoding.UTF8)
+        request.setContentEncoding(IServiceContentEncoding.Utf8)
         
         // Set the service Token to the request
         request.setServiceToken(serviceToken)
@@ -182,7 +182,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
             request.setServiceSession(ServiceSession(cookies: info.cookies, attributes: info.attributes))
             
         } else {
-            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "There is no previous information for this endpoint: \(serviceToken.getEndpointName()!)")
+            logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "There is no previous information for this endpoint: \(serviceToken.getEndpointName()!)")
         }
         return request
     }
@@ -213,7 +213,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
         
         if serviceName.isEmpty || serviceName == "" || endpointName.isEmpty || endpointName == "" || functionName.isEmpty || functionName == "" || method == IServiceMethod.Unknown {
             
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "There are some parameteres in the ServiceToken that are empty or Unknown")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "There are some parameteres in the ServiceToken that are empty or Unknown")
             
             return false
         }
@@ -293,15 +293,15 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                         
                     } else {
                         // There are no query parameters, nothing to do
-                        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "There are no query parameters, nothing to do")
+                        logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "There are no query parameters, nothing to do")
                     }
                     
-                    self.logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "The url of the request is: \(url)")
+                    self.logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "The url of the request is: \(url)")
                     
                     // Check the url for malforming
                     if !Utils.validateUrl(url) {
                         
-                        self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Malformed url: \(url)")
+                        self.logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Malformed url: \(url)")
                         callback.onError(IServiceResultCallbackError.MalformedUrl)
                         return
                         
@@ -316,11 +316,11 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                         
                         switch serviceRequest.getServiceToken()!.getInvocationMethod()! {
                             
-                        case IServiceMethod.POST:
+                        case IServiceMethod.Post:
                             request.HTTPMethod = "POST"
-                        case IServiceMethod.GET:
+                        case IServiceMethod.Get:
                             request.HTTPMethod = "GET"
-                        case IServiceMethod.HEAD:
+                        case IServiceMethod.Head:
                             request.HTTPMethod = "HEAD"
                         case IServiceMethod.Unknown:
                             request.HTTPMethod = "GET"
@@ -348,13 +348,13 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                         var data:NSData? = nil
                         
                         switch serviceRequest.getContentEncoding()! {
-                        case IServiceContentEncoding.ASCII:
+                        case IServiceContentEncoding.Ascii:
                             data = content.dataUsingEncoding(NSASCIIStringEncoding)
-                        case IServiceContentEncoding.ISOLatin1:
+                        case IServiceContentEncoding.IsoLatin1:
                             data = content.dataUsingEncoding(NSISOLatin1StringEncoding)
                         case IServiceContentEncoding.Unicode:
                             data = content.dataUsingEncoding(NSUnicodeStringEncoding)
-                        case IServiceContentEncoding.UTF8:
+                        case IServiceContentEncoding.Utf8:
                             data = content.dataUsingEncoding(NSUTF8StringEncoding)
                         case IServiceContentEncoding.Unknown:
                             data = content.dataUsingEncoding(NSUTF8StringEncoding)
@@ -396,7 +396,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                             }
                             
                         } else {
-                            self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "There is an error encoding the data for the request")
+                            self.logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "There is an error encoding the data for the request")
                             callback.onError(IServiceResultCallbackError.Unknown)
                             return
                         }
@@ -408,7 +408,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                             
                             if let error:NSError = error {
                                 
-                                self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "There's been an error on the response of the service invoke: \(error.debugDescription)")
+                                self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "There's been an error on the response of the service invoke: \(error.debugDescription)")
                                 
                                 callback.onError(IServiceResultCallbackError.Unreachable)
                                 return
@@ -419,7 +419,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                                     
                                     var sCode:Int32 = Int32(httpResponse.statusCode)
                                     
-                                    self.logger.log(ILoggingLogLevel.DEBUG, category: self.loggerTag, message: "Status code: \(sCode)")
+                                    self.logger.log(ILoggingLogLevel.Debug, category: self.loggerTag, message: "Status code: \(sCode)")
                                     
                                     switch sCode {
                                         
@@ -429,7 +429,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                                         
                                         var response: ServiceResponse = ServiceResponse()
                                         response.setContent(responseText)
-                                        response.setContentEncoding(IServiceContentEncoding.UTF8)
+                                        response.setContentEncoding(IServiceContentEncoding.Utf8)
                                         response.setContentLength(Int32(responseText.length))
                                         response.setContentType(IOParser.sharedInstance.getContentType(token))
                                         response.setStatusCode(sCode)
@@ -438,7 +438,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                                         
                                         // Check for Not secured url
                                         if !url.containsString("https://") {
-                                            self.logger.log(ILoggingLogLevel.WARN, category: self.loggerTag, message: "Not Secured URL (https): \(url)")
+                                            self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "Not Secured URL (https): \(url)")
                                             callback.onWarning(response, warning: IServiceResultCallbackWarning.NotSecure)
                                             return
                                         }
@@ -452,61 +452,61 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                                             
                                         case 300...399:
                                             
-                                            self.logger.log(ILoggingLogLevel.WARN, category: self.loggerTag, message: "Redirected Response")
+                                            self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "Redirected Response")
                                             callback.onWarning(response, warning: IServiceResultCallbackWarning.Redirected)
                                             return
                                             
                                         case 400:
                                             
-                                            self.logger.log(ILoggingLogLevel.WARN, category: self.loggerTag, message: "Wrong params: \(url)")
-                                            callback.onWarning(response, warning: IServiceResultCallbackWarning.Wrong_Params)
+                                            self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "Wrong params: \(url)")
+                                            callback.onWarning(response, warning: IServiceResultCallbackWarning.WrongParams)
                                             return
                                             
                                         case 401:
                                             
-                                            self.logger.log(ILoggingLogLevel.WARN, category: self.loggerTag, message: "Not authenticaded: \(url)")
+                                            self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "Not authenticaded: \(url)")
                                             callback.onWarning(response, warning: IServiceResultCallbackWarning.NotAuthenticated)
                                             return
                                             
                                         case 402:
                                             
-                                            self.logger.log(ILoggingLogLevel.WARN, category: self.loggerTag, message: "Payment Required: \(url)")
+                                            self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "Payment Required: \(url)")
                                             callback.onWarning(response, warning: IServiceResultCallbackWarning.PaymentRequired)
                                             return
                                             
                                         case 403:
                                             
-                                            self.logger.log(ILoggingLogLevel.WARN, category: self.loggerTag, message: "Forbidden: \(url)")
+                                            self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "Forbidden: \(url)")
                                             callback.onWarning(response, warning: IServiceResultCallbackWarning.Forbidden)
                                             return
                                             
                                         case 404:
                                             
-                                            self.logger.log(ILoggingLogLevel.WARN, category: self.loggerTag, message: "NotFound: \(url)")
+                                            self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "NotFound: \(url)")
                                             callback.onWarning(response, warning: IServiceResultCallbackWarning.NotFound)
                                             return
                                             
                                         case 405:
                                             
-                                            self.logger.log(ILoggingLogLevel.WARN, category: self.loggerTag, message: "Method not allowed: \(url)")
+                                            self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "Method not allowed: \(url)")
                                             callback.onWarning(response, warning: IServiceResultCallbackWarning.MethodNotAllowed)
                                             return
                                             
                                         case 406:
                                             
-                                            self.logger.log(ILoggingLogLevel.WARN, category: self.loggerTag, message: "Not allowed: \(url)")
+                                            self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "Not allowed: \(url)")
                                             callback.onWarning(response, warning: IServiceResultCallbackWarning.NotAllowed)
                                             return
                                             
                                         case 500...599:
                                             
-                                            self.logger.log(ILoggingLogLevel.WARN, category: self.loggerTag, message: "Server error: \(url)")
+                                            self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "Server error: \(url)")
                                             callback.onWarning(response, warning: IServiceResultCallbackWarning.ServerError)
                                             return
                                             
                                         default:
                                             
-                                            self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "The status code received: \(sCode) is not handled by the plattform")
+                                            self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "The status code received: \(sCode) is not handled by the plattform")
                                             callback.onError(IServiceResultCallbackError.Unreachable)
                                             return
                                         }
@@ -514,23 +514,23 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                                     // INVALID RESPONSES
                                         
                                     case 408:
-                                        self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "There is a timeout calling the service: \(sCode)")
+                                        self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "There is a timeout calling the service: \(sCode)")
                                         callback.onError(IServiceResultCallbackError.TimeOut)
                                         return
                                     case 444:
-                                        self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "There is no response calling the service: \(sCode)")
+                                        self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "There is no response calling the service: \(sCode)")
                                         callback.onError(IServiceResultCallbackError.NoResponse)
                                         return
                                         
                                     default:
-                                        self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "The status code received: \(sCode) is not handled by the plattform")
+                                        self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "The status code received: \(sCode) is not handled by the plattform")
                                         callback.onError(IServiceResultCallbackError.Unknown)
                                         return
                                     }
                                     
                                 } else {
                                     
-                                    self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "There's been an error parsing the response on the response of the service invoke")
+                                    self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "There's been an error parsing the response on the response of the service invoke")
                                     
                                     callback.onError(IServiceResultCallbackError.Unreachable)
                                     return
@@ -543,19 +543,19 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                     }
                     
                 } else {
-                    self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The service \(token.getServiceName()) is not registered on the io services config file")
+                    self.logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The service \(token.getServiceName()) is not registered on the io services config file")
                     callback.onError(IServiceResultCallbackError.NotRegisteredService)
                     return
                 }
                 
             } else {
-                self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The service \(token.getServiceName()) is not registered on the io services config file")
+                self.logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The service \(token.getServiceName()) is not registered on the io services config file")
                 callback.onError(IServiceResultCallbackError.NotRegisteredService)
                 return
             }
             
         } else {
-            self.logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "There isn't a serviceToken inside the serviceRequest")
+            self.logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "There isn't a serviceToken inside the serviceRequest")
             callback.onError(IServiceResultCallbackError.Unreachable)
             return
         }

@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.9
+    * @version v2.2.0
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -82,17 +82,17 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DeviceBridge executing addButtonListener('\(listener)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executing addButtonListener('\(listener)').")
         }
 
         if (self.delegate != nil) {
             self.delegate!.addButtonListener(listener)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DeviceBridge executed 'addButtonListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executed 'addButtonListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "DeviceBridge no delegate for 'addButtonListener'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "DeviceBridge no delegate for 'addButtonListener'.")
             }
         }
         
@@ -110,17 +110,17 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DeviceBridge executing addDeviceOrientationListener('\(listener)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executing addDeviceOrientationListener('\(listener)').")
         }
 
         if (self.delegate != nil) {
             self.delegate!.addDeviceOrientationListener(listener)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DeviceBridge executed 'addDeviceOrientationListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executed 'addDeviceOrientationListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "DeviceBridge no delegate for 'addDeviceOrientationListener'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "DeviceBridge no delegate for 'addDeviceOrientationListener'.")
             }
         }
         
@@ -138,18 +138,18 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DeviceBridge executing getDeviceInfo.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executing getDeviceInfo.")
         }
 
         var result : DeviceInfo? = nil
         if (self.delegate != nil) {
             result = self.delegate!.getDeviceInfo()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DeviceBridge executed 'getDeviceInfo' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executed 'getDeviceInfo' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "DeviceBridge no delegate for 'getDeviceInfo'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "DeviceBridge no delegate for 'getDeviceInfo'.")
             }
         }
         return result        
@@ -167,18 +167,18 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DeviceBridge executing getLocaleCurrent.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executing getLocaleCurrent.")
         }
 
         var result : Locale? = nil
         if (self.delegate != nil) {
             result = self.delegate!.getLocaleCurrent()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DeviceBridge executed 'getLocaleCurrent' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executed 'getLocaleCurrent' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "DeviceBridge no delegate for 'getLocaleCurrent'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "DeviceBridge no delegate for 'getLocaleCurrent'.")
             }
         }
         return result        
@@ -197,18 +197,18 @@ of the display. For display orientation, use the IDisplay APIs.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DeviceBridge executing getOrientationCurrent.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executing getOrientationCurrent.")
         }
 
         var result : ICapabilitiesOrientation? = nil
         if (self.delegate != nil) {
             result = self.delegate!.getOrientationCurrent()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DeviceBridge executed 'getOrientationCurrent' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executed 'getOrientationCurrent' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "DeviceBridge no delegate for 'getOrientationCurrent'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "DeviceBridge no delegate for 'getOrientationCurrent'.")
             }
         }
         return result        
@@ -226,17 +226,17 @@ of the display. For display orientation, use the IDisplay APIs.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DeviceBridge executing removeButtonListener('\(listener)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executing removeButtonListener('\(listener)').")
         }
 
         if (self.delegate != nil) {
             self.delegate!.removeButtonListener(listener)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DeviceBridge executed 'removeButtonListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executed 'removeButtonListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "DeviceBridge no delegate for 'removeButtonListener'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "DeviceBridge no delegate for 'removeButtonListener'.")
             }
         }
         
@@ -253,17 +253,17 @@ of the display. For display orientation, use the IDisplay APIs.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DeviceBridge executing removeButtonListeners.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executing removeButtonListeners.")
         }
 
         if (self.delegate != nil) {
             self.delegate!.removeButtonListeners()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DeviceBridge executed 'removeButtonListeners' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executed 'removeButtonListeners' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "DeviceBridge no delegate for 'removeButtonListeners'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "DeviceBridge no delegate for 'removeButtonListeners'.")
             }
         }
         
@@ -281,17 +281,17 @@ of the display. For display orientation, use the IDisplay APIs.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DeviceBridge executing removeDeviceOrientationListener('\(listener)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executing removeDeviceOrientationListener('\(listener)').")
         }
 
         if (self.delegate != nil) {
             self.delegate!.removeDeviceOrientationListener(listener)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DeviceBridge executed 'removeDeviceOrientationListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executed 'removeDeviceOrientationListener' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "DeviceBridge no delegate for 'removeDeviceOrientationListener'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "DeviceBridge no delegate for 'removeDeviceOrientationListener'.")
             }
         }
         
@@ -308,17 +308,17 @@ of the display. For display orientation, use the IDisplay APIs.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DeviceBridge executing removeDeviceOrientationListeners.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executing removeDeviceOrientationListeners.")
         }
 
         if (self.delegate != nil) {
             self.delegate!.removeDeviceOrientationListeners()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "DeviceBridge executed 'removeDeviceOrientationListeners' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "DeviceBridge executed 'removeDeviceOrientationListeners' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "DeviceBridge no delegate for 'removeDeviceOrientationListeners'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "DeviceBridge no delegate for 'removeDeviceOrientationListeners'.")
             }
         }
         
@@ -376,7 +376,7 @@ of the display. For display orientation, use the IDisplay APIs.
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "DeviceBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.1.9."
+                responseMessage = "DeviceBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.2.0."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

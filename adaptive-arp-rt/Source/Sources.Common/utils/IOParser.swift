@@ -84,12 +84,12 @@ public class IOParser : NSObject, NSXMLParserDelegate {
         // Read the io config file
         var resourceData : ResourceData? = AppResourceManager.sharedInstance.retrieveConfigResource(IO_CONFIG_FILE)
         if resourceData == nil {
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error reading IO config file: \(IO_CONFIG_FILE)")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error reading IO config file: \(IO_CONFIG_FILE)")
         }
         
         let data: Foundation.NSData? = resourceData!.data
         if data == nil {
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error reading IO config file: \(IO_CONFIG_FILE)")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error reading IO config file: \(IO_CONFIG_FILE)")
         }
         
         // Create the parser and parse the xml
@@ -97,7 +97,7 @@ public class IOParser : NSObject, NSXMLParserDelegate {
         xmlParser.delegate = self
         
         if !xmlParser.parse() {
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Error parsing IO config file: \(IO_CONFIG_FILE)")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error parsing IO config file: \(IO_CONFIG_FILE)")
         }
     }
     
@@ -228,7 +228,7 @@ public class IOParser : NSObject, NSXMLParserDelegate {
             }
         }
         
-        logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The serviceToken: \(token) is not registered in the io-config platform file")
+        logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The serviceToken: \(token) is not registered in the io-config platform file")
         
         return false
     }
@@ -288,7 +288,7 @@ public class IOParser : NSObject, NSXMLParserDelegate {
             }
         }
         
-        logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The serviceToken: \(token) is not registered in the io-config platform file")
+        logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The serviceToken: \(token) is not registered in the io-config platform file")
         return nil
     }
     
@@ -304,7 +304,7 @@ public class IOParser : NSObject, NSXMLParserDelegate {
         var uri:NSString = NSString(string: uri)
         
         if !Utils.validateUrl(uri) {
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The uri: \(uri) has not a valid format")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The uri: \(uri) has not a valid format")
             return nil
         }
         
@@ -342,7 +342,7 @@ public class IOParser : NSObject, NSXMLParserDelegate {
             }
         }
         
-        logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The uri: \(uri) is not registered in the io-config platform file")
+        logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The uri: \(uri) is not registered in the io-config platform file")
         return nil
     }
     
@@ -370,7 +370,7 @@ public class IOParser : NSObject, NSXMLParserDelegate {
         }
         
         if tokens.count == 0 {
-            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "There are no services registered in the io platform config file.")
+            logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "There are no services registered in the io platform config file.")
         }
         
         return tokens

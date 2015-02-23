@@ -82,9 +82,9 @@
     
     <xs:simpleType name="method">
         <xs:restriction base="xs:string">
-            <xs:enumeration value="GET" />
-            <xs:enumeration value="POST" />
-            <xs:enumeration value="HEAD" />
+            <xs:enumeration value="Get" />
+            <xs:enumeration value="Post" />
+            <xs:enumeration value="Head" />
         </xs:restriction>
     </xs:simpleType>
     

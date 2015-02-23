@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.9
+    * @version v2.2.0
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -39,9 +39,9 @@ import Foundation
 */
 public enum IContactFilter {
 
-    case HAS_PHONE
-    case HAS_EMAIL
-    case HAS_ADDRESS
+    case HasPhone
+    case HasEmail
+    case HasAddress
     case Unknown
 
     /**
@@ -49,9 +49,9 @@ public enum IContactFilter {
     */
     public func toString() -> String {
         switch self {
-            case .HAS_PHONE: return "HAS_PHONE"
-            case .HAS_EMAIL: return "HAS_EMAIL"
-            case .HAS_ADDRESS: return "HAS_ADDRESS"
+            case .HasPhone: return "HasPhone"
+            case .HasEmail: return "HasEmail"
+            case .HasAddress: return "HasAddress"
             case .Unknown: return "Unknown"
         }
     }
@@ -62,9 +62,9 @@ public enum IContactFilter {
     public static func toEnum(string:String?) -> IContactFilter {
         if let validString = string {
             switch validString {
-                case "HAS_PHONE": return .HAS_PHONE
-                case "HAS_EMAIL": return .HAS_EMAIL
-                case "HAS_ADDRESS": return .HAS_ADDRESS
+                case "HasPhone": return .HasPhone
+                case "HasEmail": return .HasEmail
+                case "HasAddress": return .HasAddress
                 case "Unknown": return .Unknown
             default: return .Unknown
             }

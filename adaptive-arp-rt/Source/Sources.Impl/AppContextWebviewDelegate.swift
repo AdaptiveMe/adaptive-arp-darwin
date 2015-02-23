@@ -97,7 +97,7 @@ not be added using this method.
     */
     public func executeJavaScript(javaScriptText : String) {
         
-        //logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "JSON to TS: \(javaScriptText)")
+        //logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "JSON to TS: \(javaScriptText)")
         
         dispatch_async(dispatch_get_main_queue()) {
             var result = self.getWebviewPrimary()?.stringByEvaluatingJavaScriptFromString(javaScriptText)
@@ -112,7 +112,7 @@ not be added using this method.
     */
     public func executeJavaScript(javaScriptText : String, webViewReference : AnyObject) {
         
-        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "JSON to TS: \(javaScriptText)")
+        logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "JSON to TS: \(javaScriptText)")
         
         #if os(iOS)
             (webViewReference as UIWebView).stringByEvaluatingJavaScriptFromString(javaScriptText)

@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.9
+    * @version v2.2.0
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -39,10 +39,10 @@ import Foundation
 */
 public enum ILoggingLogLevel {
 
-    case DEBUG
-    case WARN
-    case ERROR
-    case INFO
+    case Debug
+    case Warn
+    case Error
+    case Info
     case Unknown
 
     /**
@@ -50,10 +50,10 @@ public enum ILoggingLogLevel {
     */
     public func toString() -> String {
         switch self {
-            case .DEBUG: return "DEBUG"
-            case .WARN: return "WARN"
-            case .ERROR: return "ERROR"
-            case .INFO: return "INFO"
+            case .Debug: return "Debug"
+            case .Warn: return "Warn"
+            case .Error: return "Error"
+            case .Info: return "Info"
             case .Unknown: return "Unknown"
         }
     }
@@ -64,10 +64,10 @@ public enum ILoggingLogLevel {
     public static func toEnum(string:String?) -> ILoggingLogLevel {
         if let validString = string {
             switch validString {
-                case "DEBUG": return .DEBUG
-                case "WARN": return .WARN
-                case "ERROR": return .ERROR
-                case "INFO": return .INFO
+                case "Debug": return .Debug
+                case "Warn": return .Warn
+                case "Error": return .Error
+                case "Info": return .Info
                 case "Unknown": return .Unknown
             default: return .Unknown
             }

@@ -77,14 +77,14 @@ public class AccelerationDelegate : BaseSensorDelegate, IAcceleration {
                 // check if listener exists
                 for (index, l:IAccelerationListener) in enumerate(listeners) {
                     if listener.getId() == l.getId() {
-                        logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The listener is alredy on the pull. Replacing...")
+                        logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "The listener is alredy on the pull. Replacing...")
                         self.removeAccelerationListener(listener)
                     }
                 }
                 
                 // add the listener
                 listeners.append(listener)
-                logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Adding \(listener) to the acceleration listeners pull")
+                logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Adding \(listener) to the acceleration listeners pull")
                 
                 let queue = NSOperationQueue()
                 
@@ -102,13 +102,13 @@ public class AccelerationDelegate : BaseSensorDelegate, IAcceleration {
                     }
                 )
             } else {
-                logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The Accelerometer is not available")
+                logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The Accelerometer is not available")
                 listener.onError(IAccelerationListenerError.Unavailable)
             }
         #endif
         #if os(OSX)
             
-            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The Accelerometer is not supported by the current Operating System")
+            logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "The Accelerometer is not supported by the current Operating System")
             
         #endif
     }
@@ -129,18 +129,18 @@ public class AccelerationDelegate : BaseSensorDelegate, IAcceleration {
                     
                     listeners.removeAtIndex(index)
                     
-                    logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing \(listener) from the listeners pull")
+                    logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Removing \(listener) from the listeners pull")
                     
                     return
                 }
             }
             
-            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "\(listener) is not founded in the pull for removing")
+            logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "\(listener) is not founded in the pull for removing")
             
         #endif
         #if os(OSX)
             
-            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The Accelerometer is not supported by the current Operating System")
+            logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "The Accelerometer is not supported by the current Operating System")
             
         #endif
         
@@ -155,13 +155,13 @@ public class AccelerationDelegate : BaseSensorDelegate, IAcceleration {
         
         #if os(iOS)
             
-            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removing all the acceleration listeners...")
+            logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Removing all the acceleration listeners...")
             listeners.removeAll(keepCapacity: false)
             
         #endif
         #if os(OSX)
             
-            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The Accelerometer is not supported by the current Operating System")
+            logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "The Accelerometer is not supported by the current Operating System")
             
         #endif
     }

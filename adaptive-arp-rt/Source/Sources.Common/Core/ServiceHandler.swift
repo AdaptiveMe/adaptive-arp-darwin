@@ -59,7 +59,7 @@ public class ServiceHandler:NSObject {
             // Get the bridge
             if let bridge:APIBridge = AppRegistryBridge.sharedInstance.getBridge(bridgeType) {
                 
-                //logger.log(ILoggingLogLevel.INFO, category: loggerTag, message: "ASYNC ID: \(apiRequest.getAsyncId())")
+                //logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "ASYNC ID: \(apiRequest.getAsyncId())")
                 
                 if apiRequest.getAsyncId() != -1 {
                     
@@ -70,7 +70,7 @@ public class ServiceHandler:NSObject {
                         
                         if let result:APIResponse = bridge.invoke(apiRequest) {
                         } else {
-                            self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "There is an error executing the asyncronous method: \(apiRequest.getMethodName())")
+                            self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "There is an error executing the asyncronous method: \(apiRequest.getMethodName())")
                         }
                     })
                     
@@ -78,19 +78,19 @@ public class ServiceHandler:NSObject {
                     
                     // sync methods (executed in the main queue)
                     if let result:APIResponse = bridge.invoke(apiRequest) {
-                        //logger.log(ILoggingLogLevel.INFO, category: loggerTag, message: "SYNC SERVICE RESULT: \(result)")
+                        //logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "SYNC SERVICE RESULT: \(result)")
                         return result
                     } else {
-                        self.logger.log(ILoggingLogLevel.ERROR, category: self.loggerTag, message: "There is an error executing the syncronous method: \(apiRequest.getMethodName())")
+                        self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "There is an error executing the syncronous method: \(apiRequest.getMethodName())")
                     }
                 }
                 
             } else {
-                logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "There is no bridge with the identifier: \(bridgeType)")
+                logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "There is no bridge with the identifier: \(bridgeType)")
             }
             
         } else {
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "There is no bridge type inside the API Request object")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "There is no bridge type inside the API Request object")
         }
         
         // Asynchronous responses

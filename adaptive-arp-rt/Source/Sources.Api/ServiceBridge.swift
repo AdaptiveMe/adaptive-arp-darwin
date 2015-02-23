@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.9
+    * @version v2.2.0
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -86,18 +86,18 @@ manipulated as needed by the application before submitting the ServiceRequest vi
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executing getServiceRequest('\(serviceToken)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "ServiceBridge executing getServiceRequest('\(serviceToken)').")
         }
 
         var result : ServiceRequest? = nil
         if (self.delegate != nil) {
             result = self.delegate!.getServiceRequest(serviceToken)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executed 'getServiceRequest' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "ServiceBridge executed 'getServiceRequest' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "ServiceBridge no delegate for 'getServiceRequest'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "ServiceBridge no delegate for 'getServiceRequest'.")
             }
         }
         return result        
@@ -120,18 +120,18 @@ configured in the platform's XML service definition file.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executing getServiceToken('\(serviceName)','\(endpointName)','\(functionName)','\(method)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "ServiceBridge executing getServiceToken('\(serviceName)','\(endpointName)','\(functionName)','\(method)').")
         }
 
         var result : ServiceToken? = nil
         if (self.delegate != nil) {
             result = self.delegate!.getServiceToken(serviceName, endpointName: endpointName, functionName: functionName, method: method)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executed 'getServiceToken' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "ServiceBridge executed 'getServiceToken' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "ServiceBridge no delegate for 'getServiceToken'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "ServiceBridge no delegate for 'getServiceToken'.")
             }
         }
         return result        
@@ -153,18 +153,18 @@ configured in the platform's XML service definition file.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executing getServiceTokenByUri('\(uri)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "ServiceBridge executing getServiceTokenByUri('\(uri)').")
         }
 
         var result : ServiceToken? = nil
         if (self.delegate != nil) {
             result = self.delegate!.getServiceTokenByUri(uri)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executed 'getServiceTokenByUri' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "ServiceBridge executed 'getServiceTokenByUri' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "ServiceBridge no delegate for 'getServiceTokenByUri'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "ServiceBridge no delegate for 'getServiceTokenByUri'.")
             }
         }
         return result        
@@ -182,18 +182,18 @@ configured in the platform's XML service definition file.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executing getServicesRegistered.")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "ServiceBridge executing getServicesRegistered.")
         }
 
         var result : [ServiceToken]? = nil
         if (self.delegate != nil) {
             result = self.delegate!.getServicesRegistered()
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executed 'getServicesRegistered' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "ServiceBridge executed 'getServicesRegistered' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "ServiceBridge no delegate for 'getServicesRegistered'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "ServiceBridge no delegate for 'getServicesRegistered'.")
             }
         }
         return result        
@@ -212,17 +212,17 @@ configured in the platform's XML service definition file.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executing invokeService('\(serviceRequest)','\(callback)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "ServiceBridge executing invokeService('\(serviceRequest)','\(callback)').")
         }
 
         if (self.delegate != nil) {
             self.delegate!.invokeService(serviceRequest, callback: callback)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executed 'invokeService' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "ServiceBridge executed 'invokeService' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "ServiceBridge no delegate for 'invokeService'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "ServiceBridge no delegate for 'invokeService'.")
             }
         }
         
@@ -245,18 +245,18 @@ XML service definition file.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executing isServiceRegistered('\(serviceName)','\(endpointName)','\(functionName)','\(method)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "ServiceBridge executing isServiceRegistered('\(serviceName)','\(endpointName)','\(functionName)','\(method)').")
         }
 
         var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.isServiceRegistered(serviceName, endpointName: endpointName, functionName: functionName, method: method)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "ServiceBridge executed 'isServiceRegistered' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "ServiceBridge executed 'isServiceRegistered' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "ServiceBridge no delegate for 'isServiceRegistered'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "ServiceBridge no delegate for 'isServiceRegistered'.")
             }
         }
         return result        
@@ -335,7 +335,7 @@ XML service definition file.
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "ServiceBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.1.9."
+                responseMessage = "ServiceBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.2.0."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

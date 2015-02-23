@@ -82,7 +82,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     */
     func applicationWillFinishLaunching(notification: NSNotification) {
         
-        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "applicationWillFinishLaunching")
+        logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "applicationWillFinishLaunching")
         
         // Register the HttpInterceptorprotocol
         // fnva: in OSX the ViewController Method is launched before this method at application starts
@@ -100,7 +100,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     */
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         
-        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "applicationDidFinishLaunching")
+        logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "applicationDidFinishLaunching")
         
         var lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Started)
         (AppRegistryBridge.sharedInstance.getLifecycleBridge().getDelegate()! as LifecycleDelegate).changeListenersStatus(lifecycle)
@@ -117,7 +117,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     */
     func application(application: NSApplication, willPresentError error: NSError) -> NSError {
         
-        logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "error: \(error.debugDescription)")
+        logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "error: \(error.debugDescription)")
         return error
     }
     
@@ -130,7 +130,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     */
     func applicationShouldTerminate(sender: NSApplication) -> NSApplicationTerminateReply {
         
-        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "applicationShouldTerminate")
+        logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "applicationShouldTerminate")
         return NSApplicationTerminateReply.TerminateNow
     }
     
@@ -143,7 +143,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     */
     func applicationShouldTerminateAfterLastWindowClosed(sender: NSApplication) -> Bool {
         
-        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "applicationShouldTerminateAfterLastWindowClosed")
+        logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "applicationShouldTerminateAfterLastWindowClosed")
         return true
     }
     
@@ -154,7 +154,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     */
     func applicationWillTerminate(aNotification: NSNotification) {
         
-        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "applicationWillTerminate")
+        logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "applicationWillTerminate")
         
         var lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Stopping)
         (AppRegistryBridge.sharedInstance.getLifecycleBridge().getDelegate()! as LifecycleDelegate).changeListenersStatus(lifecycle)

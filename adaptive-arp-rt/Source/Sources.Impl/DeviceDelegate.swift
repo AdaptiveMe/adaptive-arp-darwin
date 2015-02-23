@@ -89,7 +89,7 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
     */
     public func getDeviceInfo() -> DeviceInfo? {
         
-        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "name: \(self.deviceInfo!.getName()), model: \(self.deviceInfo!.getModel()), vendor: \(self.deviceInfo!.getVendor()), uuid: \(self.deviceInfo!.getUuid())")
+        logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "name: \(self.deviceInfo!.getName()), model: \(self.deviceInfo!.getModel()), vendor: \(self.deviceInfo!.getVendor()), uuid: \(self.deviceInfo!.getUuid())")
         
         return self.deviceInfo!
     }
@@ -110,8 +110,8 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
         let country: String = localeComponents[NSLocaleCountryCode] as String
         let language: String = localeComponents[NSLocaleLanguageCode] as String
         
-        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Country=\(country)")
-        logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Language=\(language)")
+        logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Country=\(country)")
+        logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Language=\(language)")
         
         return Locale(language: language, country: country)
     }
@@ -133,20 +133,20 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
                     
                     // If the listener has alredy registered
                     
-                    logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The listener \(listener) has alredy registered")
+                    logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "The listener \(listener) has alredy registered")
                     return
                 }
             }
             
             // Register the listener
             buttonListeners.append(listener)
-            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Listener \(listener) registered")
+            logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Listener \(listener) registered")
             
         #endif
         #if os(OSX)
             
             // in OSX there are no hardware buttons
-            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there aren't hardware buttons")
+            logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there aren't hardware buttons")
             
         #endif
     }
@@ -167,18 +167,18 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
                     // Remove the listener
                     buttonListeners.removeAtIndex(index)
                     
-                    logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "The listener \(listener) it has been removed")
+                    logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "The listener \(listener) it has been removed")
                     return
                 }
             }
             
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Listener \(listener) is not registered in the system")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Listener \(listener) is not registered in the system")
             
         #endif
         #if os(OSX)
             
             // in OSX there are no hardware buttons
-            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there aren't hardware buttons")
+            logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there aren't hardware buttons")
             
         #endif
         
@@ -198,13 +198,13 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
             // Remove all the listeners
             buttonListeners.removeAll(keepCapacity: false)
             
-            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removed \(listCount) buttonListeners from the system")
+            logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Removed \(listCount) buttonListeners from the system")
             
         #endif
         #if os(OSX)
             
             // in OSX there are no hardware buttons
-            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there aren't hardware buttons")
+            logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there aren't hardware buttons")
             
         #endif
     }
@@ -223,16 +223,16 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
             switch UIDevice.currentDevice().orientation {
                 
             case UIDeviceOrientation.Portrait:
-                return ICapabilitiesOrientation.Portrait_Up
+                return ICapabilitiesOrientation.PortraitUp
                 
             case UIDeviceOrientation.PortraitUpsideDown:
-                return ICapabilitiesOrientation.Portrait_Down
+                return ICapabilitiesOrientation.PortraitDown
                 
             case UIDeviceOrientation.LandscapeLeft:
-                return ICapabilitiesOrientation.Landscape_Left
+                return ICapabilitiesOrientation.LandscapeLeft
                 
             case UIDeviceOrientation.LandscapeRight:
-                return ICapabilitiesOrientation.Landscape_Right
+                return ICapabilitiesOrientation.LandscapeRight
                 
             case UIDeviceOrientation.FaceUp, UIDeviceOrientation.FaceDown, UIDeviceOrientation.Unknown:
                 return ICapabilitiesOrientation.Unknown
@@ -256,7 +256,7 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
             
             // Check if the device is able to generate Device Notifications
             if !UIDevice.currentDevice().generatesDeviceOrientationNotifications {
-                logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "This device is not able to generate rotation events")
+                logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "This device is not able to generate rotation events")
                 return
             }
             
@@ -265,7 +265,7 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
                     
                     // If the listener has alredy registered
                     
-                    logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "The listener \(listener) has alredy registered")
+                    logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "The listener \(listener) has alredy registered")
                     return
                 }
             }
@@ -281,13 +281,13 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
             
             // Register the listener
             orientationListeners.append(listener)
-            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Listener \(listener) registered")
+            logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Listener \(listener) registered")
             
         #endif
         #if os(OSX)
             
             // in OSX there are no orientation events
-            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there is no way to rotate this hardware, Unless you are Hulk 💪")
+            logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there is no way to rotate this hardware, Unless you are Hulk 💪")
             
         #endif
     }
@@ -299,7 +299,7 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
     func orientationEvent() {
         
         if orientationListeners.count == 0 {
-            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "There are Notifications of UIDeviceOrientationDidChangeNotification but there no listener registered on the platfform.")
+            logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "There are Notifications of UIDeviceOrientationDidChangeNotification but there no listener registered on the platfform.")
         } else {
             
             // MARK: There is no way to detect the rotation effect transition.
@@ -314,13 +314,13 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
             case UIDeviceOrientation.Unknown, UIDeviceOrientation.FaceUp, UIDeviceOrientation.FaceDown:
                 event.setDestination(ICapabilitiesOrientation.Unknown)
             case UIDeviceOrientation.Portrait:
-                event.setDestination(ICapabilitiesOrientation.Portrait_Up)
+                event.setDestination(ICapabilitiesOrientation.PortraitUp)
             case UIDeviceOrientation.PortraitUpsideDown:
-                event.setDestination(ICapabilitiesOrientation.Portrait_Down)
+                event.setDestination(ICapabilitiesOrientation.PortraitDown)
             case UIDeviceOrientation.LandscapeLeft:
-                event.setDestination(ICapabilitiesOrientation.Landscape_Left)
+                event.setDestination(ICapabilitiesOrientation.LandscapeLeft)
             case UIDeviceOrientation.LandscapeRight:
-                event.setDestination(ICapabilitiesOrientation.Landscape_Right)
+                event.setDestination(ICapabilitiesOrientation.LandscapeRight)
             }
             
             // Iterate all over the registered listeners and send an event
@@ -354,18 +354,18 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
                         UIDevice.currentDevice().endGeneratingDeviceOrientationNotifications()
                     }
                     
-                    logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "The listener \(listener) it has been removed")
+                    logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "The listener \(listener) it has been removed")
                     return
                 }
             }
             
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Listener \(listener) is not registered in the system")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Listener \(listener) is not registered in the system")
             
         #endif
         #if os(OSX)
             
             // in OSX there are no orientation events
-            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there is no way to rotate this hardware, Unless you are Hulk 💪")
+            logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there is no way to rotate this hardware, Unless you are Hulk 💪")
             
         #endif
     }
@@ -388,13 +388,13 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
             NSNotificationCenter.defaultCenter().removeObserver(self)
             UIDevice.currentDevice().endGeneratingDeviceOrientationNotifications()
             
-            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Removed \(listCount) orientationListeners from the system")
+            logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Removed \(listCount) orientationListeners from the system")
             
         #endif
         #if os(OSX)
             
             // in OSX there are no orientation events
-            logger.log(ILoggingLogLevel.WARN, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there is no way to rotate this hardware, Unless you are Hulk 💪")
+            logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "This device doesn't have support for this kind of listeners because there is no way to rotate this hardware, Unless you are Hulk 💪")
             
         #endif
     }

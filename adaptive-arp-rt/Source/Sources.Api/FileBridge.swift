@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.9
+    * @version v2.2.0
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -83,18 +83,18 @@ public class FileBridge : BaseDataBridge, IFile, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing canRead('\(descriptor)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileBridge executing canRead('\(descriptor)').")
         }
 
         var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.canRead(descriptor)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executed 'canRead' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileBridge executed 'canRead' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'canRead'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'canRead'.")
             }
         }
         return result        
@@ -113,18 +113,18 @@ public class FileBridge : BaseDataBridge, IFile, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing canWrite('\(descriptor)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileBridge executing canWrite('\(descriptor)').")
         }
 
         var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.canWrite(descriptor)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executed 'canWrite' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileBridge executed 'canWrite' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'canWrite'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'canWrite'.")
             }
         }
         return result        
@@ -143,17 +143,17 @@ public class FileBridge : BaseDataBridge, IFile, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing create('\(descriptor)','\(callback)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileBridge executing create('\(descriptor)','\(callback)').")
         }
 
         if (self.delegate != nil) {
             self.delegate!.create(descriptor, callback: callback)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executed 'create' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileBridge executed 'create' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'create'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'create'.")
             }
         }
         
@@ -174,18 +174,18 @@ deleted if the cascade parameter is set to true.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing delete('\(descriptor)','\(cascade)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileBridge executing delete('\(descriptor)','\(cascade)').")
         }
 
         var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.delete(descriptor, cascade: cascade)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executed 'delete' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileBridge executed 'delete' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'delete'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'delete'.")
             }
         }
         return result        
@@ -204,18 +204,18 @@ deleted if the cascade parameter is set to true.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing exists('\(descriptor)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileBridge executing exists('\(descriptor)').")
         }
 
         var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.exists(descriptor)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executed 'exists' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileBridge executed 'exists' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'exists'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'exists'.")
             }
         }
         return result        
@@ -234,17 +234,17 @@ deleted if the cascade parameter is set to true.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing getContent('\(descriptor)','\(callback)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileBridge executing getContent('\(descriptor)','\(callback)').")
         }
 
         if (self.delegate != nil) {
             self.delegate!.getContent(descriptor, callback: callback)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executed 'getContent' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileBridge executed 'getContent' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'getContent'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'getContent'.")
             }
         }
         
@@ -263,18 +263,18 @@ deleted if the cascade parameter is set to true.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing getFileStorageType('\(descriptor)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileBridge executing getFileStorageType('\(descriptor)').")
         }
 
         var result : IFileSystemStorageType? = nil
         if (self.delegate != nil) {
             result = self.delegate!.getFileStorageType(descriptor)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executed 'getFileStorageType' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileBridge executed 'getFileStorageType' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'getFileStorageType'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'getFileStorageType'.")
             }
         }
         return result        
@@ -293,18 +293,18 @@ deleted if the cascade parameter is set to true.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing getFileType('\(descriptor)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileBridge executing getFileType('\(descriptor)').")
         }
 
         var result : IFileSystemType? = nil
         if (self.delegate != nil) {
             result = self.delegate!.getFileType(descriptor)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executed 'getFileType' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileBridge executed 'getFileType' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'getFileType'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'getFileType'.")
             }
         }
         return result        
@@ -323,18 +323,18 @@ deleted if the cascade parameter is set to true.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing getSecurityType('\(descriptor)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileBridge executing getSecurityType('\(descriptor)').")
         }
 
         var result : IFileSystemSecurity? = nil
         if (self.delegate != nil) {
             result = self.delegate!.getSecurityType(descriptor)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executed 'getSecurityType' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileBridge executed 'getSecurityType' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'getSecurityType'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'getSecurityType'.")
             }
         }
         return result        
@@ -353,18 +353,18 @@ deleted if the cascade parameter is set to true.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing isDirectory('\(descriptor)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileBridge executing isDirectory('\(descriptor)').")
         }
 
         var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.isDirectory(descriptor)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executed 'isDirectory' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileBridge executed 'isDirectory' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'isDirectory'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'isDirectory'.")
             }
         }
         return result        
@@ -384,17 +384,17 @@ any results.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing listFiles('\(descriptor)','\(callback)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileBridge executing listFiles('\(descriptor)','\(callback)').")
         }
 
         if (self.delegate != nil) {
             self.delegate!.listFiles(descriptor, callback: callback)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executed 'listFiles' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileBridge executed 'listFiles' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'listFiles'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'listFiles'.")
             }
         }
         
@@ -415,17 +415,17 @@ is a file, it will not yield any results.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing listFilesForRegex('\(descriptor)','\(regex)','\(callback)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileBridge executing listFilesForRegex('\(descriptor)','\(regex)','\(callback)').")
         }
 
         if (self.delegate != nil) {
             self.delegate!.listFilesForRegex(descriptor, regex: regex, callback: callback)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executed 'listFilesForRegex' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileBridge executed 'listFilesForRegex' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'listFilesForRegex'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'listFilesForRegex'.")
             }
         }
         
@@ -445,18 +445,18 @@ is a file, it will not yield any results.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing mkDir('\(descriptor)','\(recursive)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileBridge executing mkDir('\(descriptor)','\(recursive)').")
         }
 
         var result : Bool? = false
         if (self.delegate != nil) {
             result = self.delegate!.mkDir(descriptor, recursive: recursive)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executed 'mkDir' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileBridge executed 'mkDir' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'mkDir'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'mkDir'.")
             }
         }
         return result        
@@ -479,17 +479,17 @@ new destination file.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing move('\(source)','\(destination)','\(createPath)','\(overwrite)','\(callback)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileBridge executing move('\(source)','\(destination)','\(createPath)','\(overwrite)','\(callback)').")
         }
 
         if (self.delegate != nil) {
             self.delegate!.move(source, destination: destination, createPath: createPath, overwrite: overwrite, callback: callback)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executed 'move' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileBridge executed 'move' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'move'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'move'.")
             }
         }
         
@@ -509,17 +509,17 @@ new destination file.
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executing setContent('\(descriptor)','\(content)','\(callback)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileBridge executing setContent('\(descriptor)','\(content)','\(callback)').")
         }
 
         if (self.delegate != nil) {
             self.delegate!.setContent(descriptor, content: content, callback: callback)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "FileBridge executed 'setContent' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "FileBridge executed 'setContent' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'setContent'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "FileBridge no delegate for 'setContent'.")
             }
         }
         
@@ -647,7 +647,7 @@ new destination file.
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "FileBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.1.9."
+                responseMessage = "FileBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.2.0."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

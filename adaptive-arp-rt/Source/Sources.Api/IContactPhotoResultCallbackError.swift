@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.9
+    * @version v2.2.0
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -40,8 +40,8 @@ import Foundation
 public enum IContactPhotoResultCallbackError {
 
     case NoPermission
-    case Wrong_Params
-    case No_Photo
+    case WrongParams
+    case NoPhoto
     case Unknown
 
     /**
@@ -50,8 +50,8 @@ public enum IContactPhotoResultCallbackError {
     public func toString() -> String {
         switch self {
             case .NoPermission: return "NoPermission"
-            case .Wrong_Params: return "Wrong_Params"
-            case .No_Photo: return "No_Photo"
+            case .WrongParams: return "WrongParams"
+            case .NoPhoto: return "NoPhoto"
             case .Unknown: return "Unknown"
         }
     }
@@ -63,8 +63,8 @@ public enum IContactPhotoResultCallbackError {
         if let validString = string {
             switch validString {
                 case "NoPermission": return .NoPermission
-                case "Wrong_Params": return .Wrong_Params
-                case "No_Photo": return .No_Photo
+                case "WrongParams": return .WrongParams
+                case "NoPhoto": return .NoPhoto
                 case "Unknown": return .Unknown
             default: return .Unknown
             }

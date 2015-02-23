@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.9
+    * @version v2.2.0
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -39,7 +39,7 @@ import Foundation
 */
 public enum IButtonListenerError {
 
-    case Not_Present
+    case NotPresent
     case Unknown
 
     /**
@@ -47,7 +47,7 @@ public enum IButtonListenerError {
     */
     public func toString() -> String {
         switch self {
-            case .Not_Present: return "Not_Present"
+            case .NotPresent: return "NotPresent"
             case .Unknown: return "Unknown"
         }
     }
@@ -58,7 +58,7 @@ public enum IButtonListenerError {
     public static func toEnum(string:String?) -> IButtonListenerError {
         if let validString = string {
             switch validString {
-                case "Not_Present": return .Not_Present
+                case "NotPresent": return .NotPresent
                 case "Unknown": return .Unknown
             default: return .Unknown
             }

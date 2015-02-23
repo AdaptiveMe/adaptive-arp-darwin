@@ -89,7 +89,7 @@ public class MessagingDelegate : UIViewController, /*BasePIMDelegate,*/ IMessagi
         // Check if the device can send SMS
         if !(MFMessageComposeViewController.canSendText()) {
             
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The device cannot send SMS. Check the device")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The device cannot send SMS. Check the device")
             
             callback.onError(IMessagingCallbackError.NotSupported)
             return
@@ -110,11 +110,11 @@ public class MessagingDelegate : UIViewController, /*BasePIMDelegate,*/ IMessagi
             sms.recipients = [number]
             
             self.presentViewController(sms, animated: true, completion: {
-                self.logger.log(ILoggingLogLevel.DEBUG, category: self.loggerTag, message: "MFMessageComposeViewController presented")
+                self.logger.log(ILoggingLogLevel.Debug, category: self.loggerTag, message: "MFMessageComposeViewController presented")
             })
             
         } else {
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "There is no a current view controller on the stack")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "There is no a current view controller on the stack")
             callback.onError(IMessagingCallbackError.NotSent)
         }
     }
@@ -130,16 +130,16 @@ public class MessagingDelegate : UIViewController, /*BasePIMDelegate,*/ IMessagi
         switch result.value {
             
         case MessageComposeResultSent.value :
-            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Message sent")
+            logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Message sent")
             smsCallback.onResult(true)
         case MessageComposeResultCancelled.value :
-            logger.log(ILoggingLogLevel.DEBUG, category: loggerTag, message: "Message cancelled by the user")
+            logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Message cancelled by the user")
             smsCallback.onResult(false)
         case MessageComposeResultFailed.value :
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "Message not send due to an error")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Message not send due to an error")
             smsCallback.onError(IMessagingCallbackError.NotSent)
         default:
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "The message delegeate received an unsuported result")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The message delegeate received an unsuported result")
         }
         
         // Remove the view
@@ -150,7 +150,7 @@ public class MessagingDelegate : UIViewController, /*BasePIMDelegate,*/ IMessagi
             self.view.removeFromSuperview()
             self.removeFromParentViewController()
         } else {
-            logger.log(ILoggingLogLevel.ERROR, category: loggerTag, message: "There is no a current view controller on the stack")
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "There is no a current view controller on the stack")
             smsCallback.onError(IMessagingCallbackError.Unknown)
         }
     }

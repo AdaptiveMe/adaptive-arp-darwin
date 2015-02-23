@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.9
+    * @version v2.2.0
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -84,17 +84,17 @@ public class MessagingBridge : BasePIMBridge, IMessaging, APIBridge {
         var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
         if (logger != nil) {
-            logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "MessagingBridge executing sendSMS('\(number)','\(text)','\(callback)').")
+            logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "MessagingBridge executing sendSMS('\(number)','\(text)','\(callback)').")
         }
 
         if (self.delegate != nil) {
             self.delegate!.sendSMS(number, text: text, callback: callback)
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup()!.toString(), message: "MessagingBridge executed 'sendSMS' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                logger!.log(ILoggingLogLevel.Debug, category: getAPIGroup()!.toString(), message: "MessagingBridge executed 'sendSMS' in \(UInt(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
              }
         } else {
             if (logger != nil) {
-                logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup()!.toString(), message: "MessagingBridge no delegate for 'sendSMS'.")
+                logger!.log(ILoggingLogLevel.Error, category: getAPIGroup()!.toString(), message: "MessagingBridge no delegate for 'sendSMS'.")
             }
         }
         
@@ -120,7 +120,7 @@ public class MessagingBridge : BasePIMBridge, IMessaging, APIBridge {
             default:
                 // 404 - response null.
                 responseCode = 404
-                responseMessage = "MessagingBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.1.9."
+                responseMessage = "MessagingBridge does not provide the function '\(request.getMethodName()!)' Please check your client-side API version; should be API version >= v2.2.0."
         }
         response.setResponse(responseJSON!)
         response.setStatusCode(responseCode)

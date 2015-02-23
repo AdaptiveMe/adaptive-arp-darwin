@@ -27,7 +27,7 @@ Contributors:
 
 Release:
 
-    * @version v2.1.9
+    * @version v2.2.0
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
@@ -40,7 +40,7 @@ import Foundation
 public enum IContactResultCallbackError {
 
     case NoPermission
-    case Wrong_Params
+    case WrongParams
     case Unknown
 
     /**
@@ -49,7 +49,7 @@ public enum IContactResultCallbackError {
     public func toString() -> String {
         switch self {
             case .NoPermission: return "NoPermission"
-            case .Wrong_Params: return "Wrong_Params"
+            case .WrongParams: return "WrongParams"
             case .Unknown: return "Unknown"
         }
     }
@@ -61,7 +61,7 @@ public enum IContactResultCallbackError {
         if let validString = string {
             switch validString {
                 case "NoPermission": return .NoPermission
-                case "Wrong_Params": return .Wrong_Params
+                case "WrongParams": return .WrongParams
                 case "Unknown": return .Unknown
             default: return .Unknown
             }
