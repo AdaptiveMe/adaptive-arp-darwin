@@ -47,7 +47,7 @@ class ContactResultCallbackTest: BaseCallbackImpl, IContactResultCallback {
     */
     func onError(error : IContactResultCallbackError) {
         logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error obtaining contacts: \(error)")
-        XCTAssert(false, "Error obtaining contacts: \(error)")
+        XCTAssert(false, "Error obtaining contacts: \(error.toString())")
     }
     
     /**
@@ -95,7 +95,7 @@ class DatabaseResultCallbackTest: BaseCallbackImpl, IDatabaseResultCallback {
     func onError(error : IDatabaseResultCallbackError) {
         
         logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error: \(error)")
-        XCTAssert(false, "Error: \(error)")
+        XCTAssert(false, "Error: \(error.toString())")
     }
     
     /**
@@ -134,7 +134,7 @@ class DatabaseTableResultCallbackTest: BaseCallbackImpl, IDatabaseTableResultCal
     func onError(error : IDatabaseTableResultCallbackError) {
         
         logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error: \(error)")
-        XCTAssert(false, "Error: \(error)")
+        XCTAssert(false, "Error: \(error.toString())")
     }
     
     /**
@@ -170,6 +170,45 @@ class DatabaseTableResultCallbackTest: BaseCallbackImpl, IDatabaseTableResultCal
                 logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "Row: \(row.getValues())")
             }
         }
+        XCTAssert(true, "")
+    }
+}
+
+/**
+*  Geolocation listener for testing purposes
+*/
+class GeolocationListenerTest: BaseListenerImpl, IGeolocationListener {
+    
+    /**
+    Geolocation listener error function
+    
+    :param: error Error description
+    */
+    func onError(error : IGeolocationListenerError) {
+        logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error: \(error)")
+        XCTAssert(false, "Error: \(error)")
+    }
+    
+    /**
+    Geolocation listener for correct results
+    
+    :param: geolocation Geolocation object with all the information
+    */
+    func onResult(geolocation : Geolocation) {
+        logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "latitude: \(geolocation.getLatitude()), longitude: \(geolocation.getLongitude()), altitude: \(geolocation.getAltitude()), precisionx: \(geolocation.getXDoP()), precisiony: \(geolocation.getYDoP())")
+        XCTAssert(true, "")
+    }
+    
+    /**
+    Geolocation method for warning results
+    
+    :param: geolocation Geolocation object with all the information
+    :param: warning     Warning description of the event
+    */
+    func onWarning(geolocation : Geolocation, warning : IGeolocationListenerWarning) {
+        
+        logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "Warning: \(warning.toString())")
+        logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "latitude: \(geolocation.getLatitude()), longitude: \(geolocation.getLongitude()), altitude: \(geolocation.getAltitude()), precisionx: \(geolocation.getXDoP()), precisiony: \(geolocation.getYDoP())")
         XCTAssert(true, "")
     }
 }

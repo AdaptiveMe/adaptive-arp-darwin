@@ -31,50 +31,35 @@
 
 import XCTest
 
-
+/**
+*  Geolocation delegate tests class
+*/
 class GeolocationTest: XCTestCase {
     
-    /*var iGeolocation:IGeolocation!
-    var listener:GeolocationListenerImpl!
+    /// Listener for results
+    var listener:GeolocationListenerTest!
     
+    /**
+    Constructor.
+    */
     override func setUp() {
         super.setUp()
         
-        iGeolocation = GeolocationImpl()
-        listener = GeolocationListenerImpl()
+        AppRegistryBridge.sharedInstance.getLoggingBridge().setDelegate(LoggingDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContext().setDelegate(AppContextDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().setDelegate(AppContextWebviewDelegate())
+        AppRegistryBridge.sharedInstance.getGeolocationBridge().setDelegate(GeolocationDelegate())
+        
+        listener = GeolocationListenerTest(id: 0)
     }
     
-    override func tearDown() {
-        super.tearDown()
-    }
-    
-    /// Test Geolocation
+    /**
+    Method for testing the geolocation operations
+    */
     func testGeolocation() {
         
-        iGeolocation.addGeolocationListener(listener)
-        iGeolocation.removeGeolocationListener(listener)
-        iGeolocation.removeGeolocationListeners()
-    }*/
+        AppRegistryBridge.sharedInstance.getGeolocationBridge().addGeolocationListener(listener)
+        AppRegistryBridge.sharedInstance.getGeolocationBridge().removeGeolocationListener(listener)
+        AppRegistryBridge.sharedInstance.getGeolocationBridge().removeGeolocationListeners()
+    }
 }
-/*
-public class GeolocationListenerImpl:NSObject,IGeolocationListener {
-    
-    public func onError(error : IGeolocationListenerError) {
-        XCTAssert(false, "ERROR: \(error.toString())")
-    }
-    public func onResult(geolocation : Geolocation) {
-        NSLog("RESULT: latitude: \(geolocation.getLatitude()), longitude: \(geolocation.getLongitude()), altitude: \(geolocation.getAltitude()), precisionx: \(geolocation.getXDoP()), precisiony: \(geolocation.getYDoP())")
-        XCTAssert(true, "")
-    }
-    public func onWarning(geolocation : Geolocation, warning : IGeolocationListenerWarning) {
-        NSLog("WARNING: \(warning.toString())")
-        NSLog("RESULT: latitude: \(geolocation.getLatitude()), longitude: \(geolocation.getLongitude()), altitude: \(geolocation.getAltitude()), precisionx: \(geolocation.getXDoP()), precisiony: \(geolocation.getYDoP())")
-        XCTAssert(true, "")
-    }
-    public func toString() -> String? {
-        return "listener"
-    }
-    public func getId() -> Int64 {
-        return 0
-    }
-}*/
