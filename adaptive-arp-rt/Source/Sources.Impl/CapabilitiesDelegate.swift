@@ -43,6 +43,8 @@ import Foundation
 #if os(OSX)
     import AppKit
     import CoreLocation
+    import CoreServices
+    import AddressBook
 #endif
 
 /**
@@ -60,7 +62,6 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
     var device:UIDevice = UIDevice.currentDevice()
     #endif
     #if os(OSX)
-    // TODO: define a "device for OSX"
     #endif
     
     /**
@@ -127,17 +128,47 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
         switch type {
             
         case ICapabilitiesCommunication.Calendar:
-            // TODO: Not implemented.
-            return false
+            
+            #if os(iOS)
+                if let eventsAccess: AnyObject = NSUserDefaults.standardUserDefaults().valueForKey("eventkit_events_access_granted") {
+                    return true
+                } else {
+                    return false
+                }
+            #endif
+            #if os(OSX)
+                if let eventsAccess: AnyObject = NSUserDefaults.standardUserDefaults().valueForKey("eventkit_events_access_granted") {
+                    return true
+                } else {
+                    return false
+                }
+            #endif
+            
         case ICapabilitiesCommunication.Contact:
             
             #if os(iOS)
-                // TODO: Not implemented.
-                return false
+                
+                switch (ABAddressBookGetAuthorizationStatus()){
+                    
+                case ABAuthorizationStatus.NotDetermined:
+                    return false
+                case ABAuthorizationStatus.Denied:
+                    return false
+                case ABAuthorizationStatus.Restricted:
+                    return false
+                case ABAuthorizationStatus.Authorized:
+                    return true
+                }
+                
             #endif
             #if os(OSX)
-                // TODO: Not implemented.
-                return false
+                
+                if let book = ABAddressBook.sharedAddressBook() {
+                    return true
+                } else {
+                    return false
+                }
+                
             #endif
             
         case ICapabilitiesCommunication.Mail:
@@ -146,7 +177,6 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
                 return MFMailComposeViewController.canSendMail()
             #endif
             #if os(OSX)
-                // TODO: Not implemented.
                 return false
             #endif
             
@@ -156,7 +186,6 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
                 return MFMessageComposeViewController.canSendText()
             #endif
             #if os(OSX)
-                // TODO: Not implemented.
                 return false
             #endif
             
@@ -164,11 +193,9 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
             
             #if os(iOS)
                 var application = AppRegistryBridge.sharedInstance.getPlatformContext().getContext() as UIApplication
-                
                 return application.canOpenURL(NSURL(string: "tel://")!)
             #endif
             #if os(OSX)
-                // TODO: Not implemented.
                 return false
             #endif
             
@@ -190,14 +217,26 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
         switch type {
             
         case ICapabilitiesData.Database:
-            // TODO: Not implemented.
-            return false
+            #if os(iOS)
+                return true
+            #endif
+            #if os(OSX)
+                return true
+            #endif
         case ICapabilitiesData.File:
-            // TODO: Not implemented.
-            return false
+            #if os(iOS)
+                return true
+            #endif
+            #if os(OSX)
+                return true
+            #endif
         case ICapabilitiesData.Cloud:
-            // TODO: Not implemented.
-            return false
+            #if os(iOS)
+                return true
+            #endif
+            #if os(OSX)
+                return true
+            #endif
         case ICapabilitiesData.Unknown:
             return false
         }
@@ -216,28 +255,42 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
         switch type {
             
         case ICapabilitiesMedia.AudioPlayback:
-            // TODO: Not implemented.
-            return false
+            #if os(iOS)
+                return true
+            #endif
+            #if os(OSX)
+                return true
+            #endif
         case ICapabilitiesMedia.AudioRecording:
-            // TODO: Not implemented.
-            return false
+            #if os(iOS)
+                return true
+            #endif
+            #if os(OSX)
+                return true
+            #endif
         case ICapabilitiesMedia.Camera:
             
             #if os(iOS)
                 return UIImagePickerController.isCameraDeviceAvailable(UIImagePickerControllerCameraDevice.Rear) || UIImagePickerController.isCameraDeviceAvailable(UIImagePickerControllerCameraDevice.Front)
             #endif
             #if os(OSX)
-                // TODO: Not implemented.
-                return false
+                return true
             #endif
             
         case ICapabilitiesMedia.VideoPlayback:
-            // TODO: Not implemented.
-            return false
+            #if os(iOS)
+                return true
+            #endif
+            #if os(OSX)
+                return true
+            #endif
         case ICapabilitiesMedia.VideoRecording:
-            // TODO: Not implemented.
-            return false
-            
+            #if os(iOS)
+                return true
+            #endif
+            #if os(OSX)
+                return true
+            #endif
         case ICapabilitiesMedia.Unknown:
             return false
         }
@@ -255,26 +308,54 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
         switch type {
             
         case ICapabilitiesNet.GSM:
-            // TODO: Not implemented.
-            return false
+            #if os(iOS)
+                return true
+            #endif
+            #if os(OSX)
+                return false
+            #endif
         case ICapabilitiesNet.GPRS:
-            // TODO: Not implemented.
-            return false
+            #if os(iOS)
+                return true
+            #endif
+            #if os(OSX)
+                return false
+            #endif
         case ICapabilitiesNet.HSDPA:
-            // TODO: Not implemented.
-            return false
+            #if os(iOS)
+                return true
+            #endif
+            #if os(OSX)
+                return false
+            #endif
         case ICapabilitiesNet.LTE:
-            // TODO: Not implemented.
-            return false
+            #if os(iOS)
+                return true
+            #endif
+            #if os(OSX)
+                return false
+            #endif
         case ICapabilitiesNet.WIFI:
-            // TODO: Not implemented.
-            return false
+            #if os(iOS)
+                return true
+            #endif
+            #if os(OSX)
+                return true
+            #endif
         case ICapabilitiesNet.Ethernet:
-            // TODO: Not implemented.
-            return false
+            #if os(iOS)
+                return false
+            #endif
+            #if os(OSX)
+                return true
+            #endif
         case ICapabilitiesNet.Unavailable:
-            // TODO: Not implemented.
-            return false
+            #if os(iOS)
+                return false
+            #endif
+            #if os(OSX)
+                return false
+            #endif
         case ICapabilitiesNet.Unknown:
             return false
         }
@@ -293,17 +374,33 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
         switch type {
             
         case ICapabilitiesNotification.Alarm:
-            // TODO: Not implemented.
-            return false
+            #if os(iOS)
+                return true
+            #endif
+            #if os(OSX)
+                return true
+            #endif
         case ICapabilitiesNotification.LocalNotification:
-            // TODO: Not implemented.
-            return false
+            #if os(iOS)
+                return true
+            #endif
+            #if os(OSX)
+                return true
+            #endif
         case ICapabilitiesNotification.RemoteNotification:
-            // TODO: Not implemented.
-            return false
+            #if os(iOS)
+                return true
+            #endif
+            #if os(OSX)
+                return true
+            #endif
         case ICapabilitiesNotification.Vibration:
-            // TODO: Not implemented.
-            return false
+            #if os(iOS)
+                return true
+            #endif
+            #if os(OSX)
+                return false
+            #endif
         case ICapabilitiesNotification.Unknown:
             return false
         }
