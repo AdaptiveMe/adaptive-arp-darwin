@@ -35,5 +35,33 @@ import XCTest
 *  Capabilities delegate tests class
 */
 class CapabilitiesTest: XCTestCase {
-
+    
+    /**
+    Constructor.
+    */
+    override func setUp() {
+        super.setUp()
+        
+        AppRegistryBridge.sharedInstance.getLoggingBridge().setDelegate(LoggingDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContext().setDelegate(AppContextDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().setDelegate(AppContextWebviewDelegate())
+        AppRegistryBridge.sharedInstance.getCapabilitiesBridge().setDelegate(CapabilitiesDelegate())
+    }
+    
+    /**
+    Method for testing the playstream method
+    */
+    func testCapabilitiesSupport(){
+        
+        XCTAssertTrue(AppRegistryBridge.sharedInstance.getCapabilitiesBridge().hasButtonSupport(ICapabilitiesButton.BackButton) != nil, "There is a problem abtaining the capabilities")
+        XCTAssertTrue(AppRegistryBridge.sharedInstance.getCapabilitiesBridge().hasCommunicationSupport(ICapabilitiesCommunication.Calendar) != nil, "There is a problem abtaining the capabilities")
+        XCTAssertTrue(AppRegistryBridge.sharedInstance.getCapabilitiesBridge().hasDataSupport(ICapabilitiesData.Database) != nil, "There is a problem abtaining the capabilities")
+        XCTAssertTrue(AppRegistryBridge.sharedInstance.getCapabilitiesBridge().hasMediaSupport(ICapabilitiesMedia.AudioPlayback) != nil, "There is a problem abtaining the capabilities")
+        XCTAssertTrue(AppRegistryBridge.sharedInstance.getCapabilitiesBridge().hasNetSupport(ICapabilitiesNet.GSM) != nil, "There is a problem abtaining the capabilities")
+        XCTAssertTrue(AppRegistryBridge.sharedInstance.getCapabilitiesBridge().hasNotificationSupport(ICapabilitiesNotification.Alarm) != nil, "There is a problem abtaining the capabilities")
+        XCTAssertTrue(AppRegistryBridge.sharedInstance.getCapabilitiesBridge().hasSensorSupport(ICapabilitiesSensor.Accelerometer) != nil, "There is a problem abtaining the capabilities")
+        XCTAssertTrue(AppRegistryBridge.sharedInstance.getCapabilitiesBridge().hasOrientationSupport(ICapabilitiesOrientation.PortraitUp) != nil, "There is a problem abtaining the capabilities")
+        XCTAssertTrue(AppRegistryBridge.sharedInstance.getCapabilitiesBridge().getOrientationDefault() != nil, "There is a problem abtaining the capabilities")
+        XCTAssertTrue(AppRegistryBridge.sharedInstance.getCapabilitiesBridge().getOrientationsSupported()?.count > 0, "There is a problem abtaining the capabilities")
+    }
 }
