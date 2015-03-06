@@ -32,34 +32,46 @@
 import UIKit
 import XCTest
 
-
+/**
+*  Telephony delegate tests class
+*/
 class TelephonyTest: XCTestCase {
-    /*
-    var telephonyImpl:ITelephony!
     
+    /**
+    Constructor.
+    */
     override func setUp() {
         super.setUp()
         
-        telephonyImpl = TelephonyImpl()
+        AppRegistryBridge.sharedInstance.getLoggingBridge().setDelegate(LoggingDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContext().setDelegate(AppContextDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().setDelegate(AppContextWebviewDelegate())
+        AppRegistryBridge.sharedInstance.getTelephonyBridge().setDelegate(TelephonyDelegate())
     }
     
-    override func tearDown() {
-        super.tearDown()
-    }
-    
-    /// Test for making a call
+    /**
+    Method for testing the telephony purposes of the API
+    */
     func testCall() {
-        
-        var status:ITelephonyStatus = telephonyImpl.call("123456789")
-        
-        switch status {
-        case ITelephonyStatus.Dialing:
+
+        if UIDevice.currentDevice().model == "iPhone Simulator" {
+            
             XCTAssert(true, "")
-        case ITelephonyStatus.Failed:
-            XCTAssert(false, "")
-        case ITelephonyStatus.Unknown:
-            XCTAssert(false, "")
+            
+        } else {
+            
+            // MARK: it is possible the device hasn't a SIM and it's no possible to make a call
+            
+            var status:ITelephonyStatus = AppRegistryBridge.sharedInstance.getTelephonyBridge().call("123456789")!
+            
+            switch status {
+            case ITelephonyStatus.Dialing:
+                XCTAssert(true, "")
+            case ITelephonyStatus.Failed:
+                XCTAssert(false, "There is an FAILED error calling the number")
+            case ITelephonyStatus.Unknown:
+                XCTAssert(false, "There is an Unknown error calling the number")
+            }
         }
-    }*/
-    
+    }
 }

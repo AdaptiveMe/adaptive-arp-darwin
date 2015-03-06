@@ -49,7 +49,7 @@ public class TelephonyDelegate : BaseCommunicationDelegate, ITelephony {
     
     #if os(iOS)
     /// Application variable
-    var application:UIApplication? = nil
+    var application:UIApplication!
     #endif
 
     /**
@@ -82,7 +82,7 @@ public class TelephonyDelegate : BaseCommunicationDelegate, ITelephony {
         
         #if os(iOS)
             // Check if it is possible to open the url
-            if !application!.canOpenURL(url) {
+            if !application.canOpenURL(url) {
                 
                 logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The url: \(url) is not possible to open by the application")
                 return ITelephonyStatus.Failed
@@ -98,7 +98,7 @@ public class TelephonyDelegate : BaseCommunicationDelegate, ITelephony {
         
         #if os(iOS)
             // Make the call
-            result =  application!.openURL(url)
+            result =  application.openURL(url)
             
             if !result {
                 logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "It is not posible to make the call")
