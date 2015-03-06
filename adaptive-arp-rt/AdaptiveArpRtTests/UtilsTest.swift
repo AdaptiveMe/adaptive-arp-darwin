@@ -81,3 +81,95 @@ class ContactResultCallbackTest: BaseCallbackImpl, IContactResultCallback {
         XCTAssert(true, "")
     }
 }
+
+/**
+*  Database callback test implementation. For testing purposes only
+*/
+class DatabaseResultCallbackTest: BaseCallbackImpl, IDatabaseResultCallback {
+    
+    /**
+    Database callback error function
+    
+    :param: error Error description
+    */
+    func onError(error : IDatabaseResultCallbackError) {
+        
+        logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error: \(error)")
+        XCTAssert(false, "Error: \(error)")
+    }
+    
+    /**
+    Database callback result function
+    
+    :param: database Populated database with results
+    */
+    func onResult(database : Database) {
+        
+        logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "Database: \(database.getName())")
+    }
+    
+    /**
+    Database callback warning event
+    
+    :param: database Populated database with results
+    :param: warning  Warning description
+    */
+    func onWarning(database : Database, warning : IDatabaseResultCallbackWarning) {
+        
+        logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "Warning: \(warning.toString())")
+        logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "Database: \(database.getName())")
+    }
+}
+
+/**
+*  Table callback test implementation. For testing purposes only
+*/
+class DatabaseTableResultCallbackTest: BaseCallbackImpl, IDatabaseTableResultCallback {
+    
+    /**
+    Table callback error function
+    
+    :param: error Error description
+    */
+    func onError(error : IDatabaseTableResultCallbackError) {
+        
+        logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error: \(error)")
+        XCTAssert(false, "Error: \(error)")
+    }
+    
+    /**
+    Table callback result function
+    
+    :param: table Populated Table
+    */
+    func onResult(table : DatabaseTable) {
+        
+        logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "Number of columns: \(table.getColumnCount()), number of rows: \(table.getRowCount())")
+        
+        if let rows:[DatabaseRow] = table.getDatabaseRows(){
+            for row:DatabaseRow in rows {
+                logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "Row: \(row.getValues())")
+            }
+        }
+        XCTAssert(true, "")
+    }
+    
+    /**
+    Table callback warning
+    
+    :param: table   Populated table
+    :param: warning Warning description
+    */
+    func onWarning(table : DatabaseTable, warning : IDatabaseTableResultCallbackWarning) {
+        
+        logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "Warning: \(warning.toString())")
+        logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "Number of columns: \(table.getColumnCount()), number of rows: \(table.getRowCount())")
+        
+        if let rows:[DatabaseRow] = table.getDatabaseRows(){
+            for row:DatabaseRow in rows {
+                logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "Row: \(row.getValues())")
+            }
+        }
+        XCTAssert(true, "")
+    }
+}

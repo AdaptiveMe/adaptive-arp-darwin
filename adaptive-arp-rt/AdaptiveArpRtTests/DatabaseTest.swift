@@ -31,145 +31,107 @@
 
 import XCTest
 
+/**
+*  Database delegate tests class
+*/
 class DatabaseTest: XCTestCase {
     
-    /*var databaseImpl:DatabaseImpl!
-    var iDatabaseResultCallbackImpl:IDatabaseResultCallbackImpl!
-    var iTableResultCallbackImpl:ITableResultCallbackImpl!
+    /// Callback for results
+    var callbackDatabase:DatabaseResultCallbackTest!
+    var callbackTable:DatabaseTableResultCallbackTest!
     
-    let dbName:String = "test"
-    let tableName:String = "test"
-    let columnName1:String = "_id"
-    let columnName2:String = "column"
-
+    /// Constants
+    let DBNAME:String = "DBTEST"
+    let TBLNAME:String = "TBLTEST"
+    let COLNAME1:String = "COL1"
+    let COLNAME2:String = "COL2"
+    
+    /**
+    Constructor.
+    */
     override func setUp() {
         super.setUp()
         
-        databaseImpl = DatabaseImpl()
-        iDatabaseResultCallbackImpl = IDatabaseResultCallbackImpl()
-        iTableResultCallbackImpl = ITableResultCallbackImpl()
+        AppRegistryBridge.sharedInstance.getLoggingBridge().setDelegate(LoggingDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContext().setDelegate(AppContextDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().setDelegate(AppContextWebviewDelegate())
+        AppRegistryBridge.sharedInstance.getDatabaseBridge().setDelegate(DatabaseDelegate())
+        
+        callbackDatabase = DatabaseResultCallbackTest(id: 0)
+        callbackTable = DatabaseTableResultCallbackTest(id: 0)
     }
     
-    override func tearDown() {
-        super.tearDown()
-    }
-
-    /// Operations to check the database manipulation
+    /**
+    Test case for testing the database operations
+    */
     func testDatabase() {
         
-        var db:Database = Database(name: dbName)
+        var db:Database = Database(name: DBNAME)
         
         // EXISTS
-        if databaseImpl.existsDatabase(db) {
+        if AppRegistryBridge.sharedInstance.getDatabaseBridge().existsDatabase(db)! {
             
             // DELETE
-            databaseImpl.deleteDatabase(db, callback: iDatabaseResultCallbackImpl)
-            XCTAssertFalse(databaseImpl.existsDatabase(db), "The database was not removed correctly")
+            AppRegistryBridge.sharedInstance.getDatabaseBridge().deleteDatabase(db, callback: callbackDatabase)
+            XCTAssertFalse(AppRegistryBridge.sharedInstance.getDatabaseBridge().existsDatabase(db)!, "The database was not removed correctly")
         }
         
         // CREATE
-        databaseImpl.createDatabase(db, callback: iDatabaseResultCallbackImpl)
-        XCTAssertTrue(databaseImpl.existsDatabase(db), "The database was not created correctly")
+        AppRegistryBridge.sharedInstance.getDatabaseBridge().createDatabase(db, callback: callbackDatabase)
+        XCTAssertTrue(AppRegistryBridge.sharedInstance.getDatabaseBridge().existsDatabase(db)!, "The database was not created correctly")
     }
     
-    /// Operations to check the table manipulation
+    /**
+    Test case for testing table operations
+    */
     func testTable(){
         
-        var db:Database = Database(name: dbName)
-        var table:Table = Table(name: tableName)
+        var db:Database = Database(name: DBNAME)
+        var table:DatabaseTable = DatabaseTable(name: TBLNAME)
         
         // Table columns
-        table.setColumns([Column(name: columnName1), Column(name: columnName2)])
+        table.setDatabaseColumns([DatabaseColumn(name: COLNAME1), DatabaseColumn(name: COLNAME2)])
         
         // NOT EXISTS DATABASE
-        if !databaseImpl.existsDatabase(db) {
+        if !AppRegistryBridge.sharedInstance.getDatabaseBridge().existsDatabase(db)! {
             
             // CREATE DATABASE
-            databaseImpl.createDatabase(db, callback: iDatabaseResultCallbackImpl)
-            XCTAssertTrue(databaseImpl.existsDatabase(db), "The database was not created correctly")
+            AppRegistryBridge.sharedInstance.getDatabaseBridge().createDatabase(db, callback: callbackDatabase)
+            XCTAssertTrue(AppRegistryBridge.sharedInstance.getDatabaseBridge().existsDatabase(db)!, "The database was not created correctly")
         }
         
         // CREATE TABLE
-        databaseImpl.createTable(db, table: table, callback: iTableResultCallbackImpl)
+        AppRegistryBridge.sharedInstance.getDatabaseBridge().createTable(db, databaseTable: table, callback: callbackTable)
         
         // EXISTS TABLE
-        XCTAssertTrue(databaseImpl.existsTable(db, table: table), "The table was not created correctly")
+        XCTAssertTrue(AppRegistryBridge.sharedInstance.getDatabaseBridge().existsTable(db, databaseTable: table)!, "The table was not created correctly")
         
         // INSERT DATA (SQL)
-        databaseImpl.executeSqlStatement(db, statement: "INSERT INTO `\(table.getName()!)` (\(columnName1), \(columnName2)) VALUES (?, ?)", replacements: ["1", "value"], callback: iTableResultCallbackImpl)
+        AppRegistryBridge.sharedInstance.getDatabaseBridge().executeSqlStatement(db, statement: "INSERT INTO `\(table.getName()!)` (\(COLNAME1), \(COLNAME2)) VALUES (?, ?)", replacements: ["1", "value"], callback: callbackTable)
         
         // QUERY DATA (SQL)
-        databaseImpl.executeSqlStatement(db, statement: "SELECT * FROM \(table.getName()!)", replacements: [], callback: iTableResultCallbackImpl)
-        databaseImpl.executeSqlStatement(db, statement: "SELECT * FROM \(table.getName()!) WHERE \(columnName1) = ?", replacements: ["1"], callback: iTableResultCallbackImpl)
-        databaseImpl.executeSqlStatement(db, statement: "SELECT * FROM \(table.getName()!) WHERE \(columnName1) = ?", replacements: ["0"], callback: iTableResultCallbackImpl)
+        AppRegistryBridge.sharedInstance.getDatabaseBridge().executeSqlStatement(db, statement: "SELECT * FROM \(table.getName()!)", replacements: [], callback: callbackTable)
+        AppRegistryBridge.sharedInstance.getDatabaseBridge().executeSqlStatement(db, statement: "SELECT * FROM \(table.getName()!) WHERE \(COLNAME1) = ?", replacements: ["1"], callback: callbackTable)
+        AppRegistryBridge.sharedInstance.getDatabaseBridge().executeSqlStatement(db, statement: "SELECT * FROM \(table.getName()!) WHERE \(COLNAME1) = ?", replacements: ["0"], callback: callbackTable)
         
         // DELETE DATA (SQL)
-        databaseImpl.executeSqlStatement(db, statement: "DELETE FROM \(table.getName()!) WHERE \(columnName1) = ?", replacements: ["1"], callback: iTableResultCallbackImpl)
-        databaseImpl.executeSqlStatement(db, statement: "DELETE FROM \(table.getName()!) WHERE \(columnName1) = ?", replacements: ["0"], callback: iTableResultCallbackImpl)
+        AppRegistryBridge.sharedInstance.getDatabaseBridge().executeSqlStatement(db, statement: "DELETE FROM \(table.getName()!) WHERE \(COLNAME1) = ?", replacements: ["1"], callback: callbackTable)
+        AppRegistryBridge.sharedInstance.getDatabaseBridge().executeSqlStatement(db, statement: "DELETE FROM \(table.getName()!) WHERE \(COLNAME1) = ?", replacements: ["0"], callback: callbackTable)
         
         // TRANSACTION (INSERT, DELETE)
         var statements = [
-            "INSERT INTO \(table.getName()!) (\(columnName1), \(columnName2)) VALUES (1, 'value')",
-            "DELETE FROM \(table.getName()!) WHERE \(columnName1) = 1"
+            "INSERT INTO \(table.getName()!) (\(COLNAME1), \(COLNAME2)) VALUES (1, 'value')",
+            "DELETE FROM \(table.getName()!) WHERE \(COLNAME1) = 1"
         ]
-        databaseImpl.executeSqlTransactions(db, statements: statements, rollbackFlag: true, callback: iTableResultCallbackImpl)
+        AppRegistryBridge.sharedInstance.getDatabaseBridge().executeSqlTransactions(db, statements: statements, rollbackFlag: true, callback: callbackTable)
         
         
-        if databaseImpl.existsTable(db, table: table) {
+        if AppRegistryBridge.sharedInstance.getDatabaseBridge().existsTable(db, databaseTable: table)! {
             
             // DELETE TABLE
-            databaseImpl.deleteTable(db, table: table, callback: iTableResultCallbackImpl)
+            AppRegistryBridge.sharedInstance.getDatabaseBridge().deleteTable(db, databaseTable: table, callback: callbackTable)
             
-            XCTAssertFalse(databaseImpl.existsTable(db, table: table), "The table was not removed correctly")
+            XCTAssertFalse(AppRegistryBridge.sharedInstance.getDatabaseBridge().existsTable(db, databaseTable: table)!, "The table was not removed correctly")
         }
-    }*/
-
+    }
 }
-/*
-/// Dummy implementation of the callback in order to run the tests
-class IDatabaseResultCallbackImpl: NSObject, IDatabaseResultCallback {
-    
-    func onError(error : IDatabaseResultCallbackError) {
-        XCTAssert(false, "\(error)")
-    }
-    
-    func onResult(database : Database) {
-        
-        XCTAssert(true, "")
-    }
-    
-    func onWarning(database : Database, warning : IDatabaseResultCallbackWarning) {
-        
-        XCTAssert(true, "")
-    }
-    
-    func toString() -> String? {
-        return ""
-    }
-    func getId() -> Int64 {return 0}
-}
-
-/// Dummy implementation of the callback in order to run the tests
-class ITableResultCallbackImpl: NSObject, ITableResultCallback {
-    
-    func onError(error : ITableResultCallbackError) {
-        XCTAssert(false, "\(error)")
-    }
-    
-    func onResult(table : Table) {
-        
-        println("RESULT: name:\(table.getName()!), columns[\(table.getColumnCount())]: \(table.getColumns()!), rows[\(table.getRowCount())]: \(table.getRows()!)")
-        XCTAssert(true, "")
-    }
-    
-    func onWarning(table : Table, warning : ITableResultCallbackWarning) {
-        
-        println("RESULT: name:\(table.getName()!), columns[\(table.getColumnCount())]: \(table.getColumns()!), rows[\(table.getRowCount())]: \(table.getRows()!)")
-        XCTAssert(true, "")
-    }
-    
-    func toString() -> String? {
-        return ""
-    }
-    func getId() -> Int64 {return 0}
-}*/
