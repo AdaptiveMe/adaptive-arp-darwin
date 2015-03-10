@@ -147,6 +147,13 @@ public class GeolocationDelegateHelper: NSObject, CLLocationManagerDelegate {
             logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Status not determined")
             listener.onError(IGeolocationListenerError.StatusNotDetermined)
             
+        default:
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "This status: \(status) is not handled by the manager")
+        }
+        
+        #if os(OSX)
+        // Special switch for iOS permissions
+        switch status {
         case CLAuthorizationStatus.Authorized:
             
             NSNotificationCenter.defaultCenter().postNotificationName("LabelHasbeenUpdated", object: nil)
@@ -159,6 +166,7 @@ public class GeolocationDelegateHelper: NSObject, CLLocationManagerDelegate {
         default:
             logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "This status: \(status) is not handled by the manager")
         }
+        #endif
         
         #if os(iOS)
         // Special switch for iOS permissions
@@ -171,6 +179,15 @@ public class GeolocationDelegateHelper: NSObject, CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
             
             logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Status AuthorizedWhenInUse")
+            
+        case CLAuthorizationStatus.AuthorizedAlways:
+            
+            NSNotificationCenter.defaultCenter().postNotificationName("LabelHasbeenUpdated", object: nil)
+            
+            // start the geolocation updates
+            locationManager.startUpdatingLocation()
+            
+            logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Status AuthorizedAlways")
             
         default:
             logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "This status: \(status) is not handled by the manager")
