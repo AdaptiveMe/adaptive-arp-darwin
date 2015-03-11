@@ -55,7 +55,7 @@ class AccelerationTest: XCTestCase {
     }
     
     /**
-    Method for testing the geolocation operations
+    Method for testing the acceleration operations
     */
     func testAcceleration() {
         

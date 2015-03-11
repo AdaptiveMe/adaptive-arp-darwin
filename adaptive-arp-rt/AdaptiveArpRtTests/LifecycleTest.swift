@@ -54,7 +54,7 @@ class LilecycleTest: XCTestCase {
     }
     
     /**
-    Method for testing the geolocation operations
+    Method for testing the lifecycle operations
     */
     func testLifecycle() {
         

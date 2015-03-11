@@ -175,6 +175,57 @@ class DatabaseTableResultCallbackTest: BaseCallbackImpl, IDatabaseTableResultCal
 }
 
 /**
+*  Security callback test implementation. For testing purposes only
+*/
+class SecurityResultCallbackTest: BaseCallbackImpl, ISecurityResultCallback {
+    
+    /**
+    Security callback error function
+    
+    :param: error Error description
+    */
+    func onError(error : ISecurityResultCallbackError) {
+        
+        logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error: \(error)")
+        XCTAssert(false, "Error: \(error.toString())")
+    }
+    
+    /**
+    Security callback result function
+    
+    :param: keyValues Array of keyvalues
+    */
+    func onResult(keyValues : [SecureKeyPair]) {
+        
+        logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "Number of keypairs: \(keyValues.count)")
+        
+        for pair:SecureKeyPair in keyValues {
+            logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "key: \(pair.getSecureKey()), value: \(pair.getSecureData())")
+        }
+        XCTAssert(true, "")
+    }
+    
+    /**
+    Security callback warning
+    
+    :param: keyValues Array of keyvalues
+    :param: warning Warning description
+    */
+    func onWarning(keyValues : [SecureKeyPair], warning : ISecurityResultCallbackWarning) {
+        
+        logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "Warning: \(warning.toString())")
+        
+        
+        logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "Number of keypairs: \(keyValues.count)")
+        
+        for pair:SecureKeyPair in keyValues {
+            logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "key: \(pair.getSecureKey()), value: \(pair.getSecureData())")
+        }
+        XCTAssert(true, "")
+    }
+}
+
+/**
 *  Geolocation listener for testing purposes
 */
 class GeolocationListenerTest: BaseListenerImpl, IGeolocationListener {
