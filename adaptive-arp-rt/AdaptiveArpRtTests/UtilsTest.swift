@@ -82,6 +82,41 @@ class ContactResultCallbackTest: BaseCallbackImpl, IContactResultCallback {
     }
 }
 
+class MessagingResultCallbackTest: BaseCallbackImpl, IMessagingCallback {
+    
+    /**
+    This method is called on Error
+    
+    :param: error returned by the platform
+    */
+    func onError(error : IMessagingCallbackError) {
+        logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error: \(error)")
+        XCTAssert(false, "Error: \(error.toString())")
+    }
+    
+    /**
+    This method is called on Result
+    
+    :param: success true if sent;false otherwise
+    */
+    func onResult(success : Bool) {
+        
+        XCTAssert(true, "")
+    }
+    
+    /**
+    This method is called on Warning
+    
+    :param: success true if sent;false otherwise
+    :param: warning returned by the platform
+    */
+    func onWarning(success : Bool, warning : IMessagingCallbackWarning) {
+        
+        logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "Warning: \(warning.toString())")
+        XCTAssert(true, "")
+    }
+}
+
 /**
 *  Database callback test implementation. For testing purposes only
 */
@@ -106,6 +141,7 @@ class DatabaseResultCallbackTest: BaseCallbackImpl, IDatabaseResultCallback {
     func onResult(database : Database) {
         
         logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "Database: \(database.getName())")
+        XCTAssert(true, "")
     }
     
     /**
@@ -118,6 +154,7 @@ class DatabaseResultCallbackTest: BaseCallbackImpl, IDatabaseResultCallback {
         
         logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "Warning: \(warning.toString())")
         logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "Database: \(database.getName())")
+        XCTAssert(true, "")
     }
 }
 
