@@ -54,6 +54,8 @@ class TelephonyTest: XCTestCase {
     */
     func testCall() {
 
+        // MARK: you can't simulate calls in the Iphone Simulator for Xcode, skipping the test ...
+        
         if UIDevice.currentDevice().model == "iPhone Simulator" {
             
             XCTAssert(true, "")

@@ -56,7 +56,7 @@ class NetworkStatusTest: XCTestCase {
     /**
     Method for testing the geolocation operations
     */
-    func testGeolocation() {
+    func testNetworkStatus() {
         
         AppRegistryBridge.sharedInstance.getNetworkStatusBridge().addNetworkStatusListener(listener)
         AppRegistryBridge.sharedInstance.getNetworkStatusBridge().removeNetworkStatusListener(listener)
