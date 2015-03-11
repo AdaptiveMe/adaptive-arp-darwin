@@ -29,11 +29,50 @@
 * =====================================================================================================================
 */
 
+import UIKit
 import XCTest
 
 /**
 *  Acceleration delegate tests class
 */
 class AccelerationTest: XCTestCase {
+    
+    /// Listener for results
+    var listener:AccelerationListenerTest!
+    
+    /**
+    Constructor.
+    */
+    override func setUp() {
+        super.setUp()
+        
+        AppRegistryBridge.sharedInstance.getLoggingBridge().setDelegate(LoggingDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContext().setDelegate(AppContextDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().setDelegate(AppContextWebviewDelegate())
+        AppRegistryBridge.sharedInstance.getAccelerationBridge().setDelegate(AccelerationDelegate())
+        
+        listener = AccelerationListenerTest(id: 0)
+    }
+    
+    /**
+    Method for testing the geolocation operations
+    */
+    func testAcceleration() {
+        
+        // MARK: you can't simulate acceleration events in the Iphone Simulator for Xcode, skipping the test...
+        
+        if UIDevice.currentDevice().model == "iPhone Simulator" {
+            
+            XCTAssert(true, "")
+            
+        } else {
+        
+            AppRegistryBridge.sharedInstance.getAccelerationBridge().addAccelerationListener(listener)
+            AppRegistryBridge.sharedInstance.getAccelerationBridge().removeAccelerationListener(listener)
+            AppRegistryBridge.sharedInstance.getAccelerationBridge().removeAccelerationListeners()
+            
+        }
+            
+    }
 
 }

@@ -270,7 +270,7 @@ class NetworkStatusListenerTest: BaseListenerImpl, INetworkStatusListener {
     /**
     NetworkStatus listener for correct results
     
-    :param: lifecycle Lifecycle object with all the information
+    :param: network NetworkStatus object with all the information
     */
     func onResult(network : ICapabilitiesNet) {
         logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "Network type: \(network.toString())")
@@ -287,6 +287,45 @@ class NetworkStatusListenerTest: BaseListenerImpl, INetworkStatusListener {
         
         logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "Warning: \(warning.toString())")
         logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "Network type: \(network.toString())")
+        XCTAssert(true, "")
+    }
+}
+
+/**
+*  Acceleration listener for testing purposes
+*/
+class AccelerationListenerTest: BaseListenerImpl, IAccelerationListener {
+    
+    /**
+    Acceleration listener error function
+    
+    :param: error Error description
+    */
+    func onError(error : IAccelerationListenerError) {
+        logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error: \(error)")
+        XCTAssert(false, "Error: \(error)")
+    }
+    
+    /**
+    Acceleration listener for correct results
+    
+    :param: acceleration Acceleration object with all the information
+    */
+    func onResult(acceleration : Acceleration) {
+        logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "Acceleration event: \(acceleration.getTimestamp()), x: \(acceleration.getX()), y: \(acceleration.getY()), z: \(acceleration.getZ())")
+        XCTAssert(true, "")
+    }
+    
+    /**
+    Acceleration method for warning results
+    
+    :param: geolocation Geolocation object with all the information
+    :param: warning     Warning description of the event
+    */
+    func onWarning(acceleration : Acceleration, warning : IAccelerationListenerWarning) {
+        
+        logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "Warning: \(warning.toString())")
+        logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "Acceleration event: \(acceleration.getTimestamp()), x: \(acceleration.getX()), y: \(acceleration.getY()), z: \(acceleration.getZ())")
         XCTAssert(true, "")
     }
 }
