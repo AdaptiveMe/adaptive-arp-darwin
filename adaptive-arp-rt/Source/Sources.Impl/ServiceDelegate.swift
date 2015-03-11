@@ -157,10 +157,13 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
         // User agent - Interrogate Javascript
         var useragent:String = ""
         #if os(iOS)
-            var webview: AnyObject? = AppRegistryBridge.sharedInstance.getPlatformContextWeb().getWebviewPrimary()
-            dispatch_async(dispatch_get_main_queue(), {
-                useragent = (webview as UIWebView).stringByEvaluatingJavaScriptFromString("navigator.userAgent")!
-            })
+            
+            if UIDevice.currentDevice().model != "iPhone Simulator" {
+                var webview: AnyObject? = AppRegistryBridge.sharedInstance.getPlatformContextWeb().getWebviewPrimary()
+                dispatch_async(dispatch_get_main_queue(), {
+                    useragent = (webview as UIWebView).stringByEvaluatingJavaScriptFromString("navigator.userAgent")!
+                })
+            }
         #endif
         #if os(OSX)
             var webview: AnyObject? = AppRegistryBridge.sharedInstance.getPlatformContextWeb().getWebviewPrimary()

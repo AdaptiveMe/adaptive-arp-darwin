@@ -226,6 +226,48 @@ class SecurityResultCallbackTest: BaseCallbackImpl, ISecurityResultCallback {
 }
 
 /**
+*  Service callback test implementation. For testing purposes only
+*/
+class ServiceResultCallbackTest: BaseCallbackImpl, IServiceResultCallback {
+    
+    /**
+    Service callback error function
+    
+    :param: error Error description
+    */
+    func onError(error : IServiceResultCallbackError) {
+        
+        logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error: \(error)")
+        XCTAssert(false, "Error: \(error.toString())")
+    }
+    
+    /**
+    Service callback result function
+    
+    :param: response Populated service response
+    */
+    func onResult(response : ServiceResponse) {
+        
+        logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "(\(response.getStatusCode())) response: \(response.getContent())")
+        XCTAssert(true, "")
+    }
+    
+    /**
+    Service callback warning
+    
+    :param: response Populated service response
+    :param: warning Warning description
+    */
+    func onWarning(response : ServiceResponse, warning : IServiceResultCallbackWarning) {
+        
+        logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "Warning: \(warning.toString())")
+        logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "(\(response.getStatusCode())) response: \(response.getContent())")
+        XCTAssert(true, "")
+
+    }
+}
+
+/**
 *  Geolocation listener for testing purposes
 */
 class GeolocationListenerTest: BaseListenerImpl, IGeolocationListener {

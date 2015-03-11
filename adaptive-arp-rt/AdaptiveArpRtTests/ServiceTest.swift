@@ -31,8 +31,54 @@
 
 import XCTest
 
-
+/**
+*  Service delegate tests class
+*/
 class ServiceTest: XCTestCase {
+    
+    /// Callback for results
+    var callback:ServiceResultCallbackTest!
+    
+    /**
+    Constructor.
+    */
+    override func setUp() {
+        super.setUp()
+        
+        AppRegistryBridge.sharedInstance.getLoggingBridge().setDelegate(LoggingDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContext().setDelegate(AppContextDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().setDelegate(AppContextWebviewDelegate())
+        AppRegistryBridge.sharedInstance.getServiceBridge().setDelegate(ServiceDelegate())
+        
+        callback = ServiceResultCallbackTest(id: 0)
+    }
+    
+    /**
+    This method tests all the methods for the service delegate implementation
+    */
+    func testService() {
+        
+        // MARK: it is necessary to define a service endpoint in the io-services config file
+        
+        var token:ServiceToken? = AppRegistryBridge.sharedInstance.getServiceBridge().getServiceTokenByUri("http://api.geonames.org/postalCodeLookupJSON")
+        XCTAssertNotNil(token, "It is necessary to define a service endpoint in the io-services config file")
+        
+        var token2:ServiceToken? = AppRegistryBridge.sharedInstance.getServiceBridge().getServiceToken("petstore", endpointName: "http://petstore.swagger.wordnik.com", functionName: "/api/pet/15", method: IServiceMethod.Post)
+        XCTAssertNotNil(token2, "It is necessary to define a service endpoint in the io-services config file")
+                
+        var request:ServiceRequest? = AppRegistryBridge.sharedInstance.getServiceBridge().getServiceRequest(token!)
+        XCTAssertNotNil(request, "There is a problem obtaining the request for this request token")
+        
+        var params:[ServiceRequestParameter] = [ServiceRequestParameter]()
+        params.append(ServiceRequestParameter(keyName: "postalcode", keyData: "6600"));
+        params.append(ServiceRequestParameter(keyName: "country", keyData: "AT"));
+        params.append(ServiceRequestParameter(keyName: "username", keyData: "demo"));
+        request!.setQueryParameters(params);
+        
+        AppRegistryBridge.sharedInstance.getServiceBridge().invokeService(request!, callback: callback)
+    }
+    
+    // TODO
     
     /*var iService:IService!
     var callback:IServiceResultCallback!
