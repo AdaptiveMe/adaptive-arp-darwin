@@ -36,6 +36,8 @@ import XCTest
 */
 class BrowserTest: XCTestCase {
     
+    // TODO
+    
     /**
     Constructor.
     */
@@ -54,8 +56,10 @@ class BrowserTest: XCTestCase {
     func testOpenExtenalBrowser() {
         XCTAssertTrue(AppRegistryBridge.sharedInstance.getBrowserBridge().openExtenalBrowser("http://www.google.com")!)
         
-        // MARK: Is not possible to test the open internal methods because
+        // MARK: Is not possible to test the open internal methods with an assert because
         // in the tests there are no viewcontrollers so the methods fails
+        AppRegistryBridge.sharedInstance.getBrowserBridge().openInternalBrowser("http://www.google.com", title: "Title", backButtonText: "Back")
+        AppRegistryBridge.sharedInstance.getBrowserBridge().openInternalBrowserModal("http://www.google.com", title: "Title", backButtonText: "Back")
     }
 
 }

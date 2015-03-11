@@ -31,32 +31,28 @@
 
 import XCTest
 
-
+/**
+*  Operating System delegate tests class
+*/
 class OSTest: XCTestCase {
     
-    /*var osImpl:OSImpl?
-
+    /**
+    Constructor.
+    */
     override func setUp() {
         super.setUp()
         
-        osImpl = OSImpl()
+        AppRegistryBridge.sharedInstance.getLoggingBridge().setDelegate(LoggingDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContext().setDelegate(AppContextDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().setDelegate(AppContextWebviewDelegate())
+        AppRegistryBridge.sharedInstance.getOSBridge().setDelegate(OSDelegate())
     }
     
-    override func tearDown() {
-        super.tearDown()
-    }
-
+    /**
+    Method for testing the operating system
+    */
     func testGetOSInfo() {
         
-        XCTAssertTrue(osImpl?.getOSInfo()!.getVendor() == "Apple", "The vendor of the device should be Apple")
+        XCTAssertTrue(AppRegistryBridge.sharedInstance.getOSBridge().getOSInfo()!.getVendor() == "Apple", "The vendor of the device should be Apple")
     }
-
-    func testPerformanceGetOSInfo() {
-        
-        self.measureBlock() {
-            
-            var osInfo = self.osImpl?.getOSInfo()
-        }
-    }*/
-
 }

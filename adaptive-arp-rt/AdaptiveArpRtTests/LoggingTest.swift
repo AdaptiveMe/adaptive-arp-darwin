@@ -31,34 +31,27 @@
 
 import XCTest
 
-
+/**
+*  Logging delegate tests class
+*/
 class LoggingTest: XCTestCase {
     
-    /*var loggingImpl:LoggingImpl?
-    
+    /**
+    Constructor.
+    */
     override func setUp() {
         super.setUp()
         
-        loggingImpl = LoggingImpl()
+        AppRegistryBridge.sharedInstance.getLoggingBridge().setDelegate(LoggingDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContext().setDelegate(AppContextDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().setDelegate(AppContextWebviewDelegate())
     }
     
-    override func tearDown() {
-        super.tearDown()
-    }
-    
-    func testGetOSInfo() {
+    /**
+    Method for testing the logging methods
+    */
+    func testLogging() {
         
-        XCTAssert(loggingImpl?.log(ILoggingLogLevel.Debug, message: "Logging test") != nil, "")
-        XCTAssert(loggingImpl?.log(ILoggingLogLevel.Debug, category: "Logging Category", message: "Logging test") != nil, "")
+        XCTAssert(AppRegistryBridge.sharedInstance.getLoggingBridge().getDelegate() != nil, "There is an error obtaining the delegate for the logger")
     }
-    
-    func testPerformanceGetOSInfo() {
-        
-        self.measureBlock() {
-            
-            self.loggingImpl?.log(ILoggingLogLevel.Debug, message: "Logging test")
-            self.loggingImpl?.log(ILoggingLogLevel.Debug, category: "Logging Category", message: "Logging test")
-        }
-    }*/
-    
 }

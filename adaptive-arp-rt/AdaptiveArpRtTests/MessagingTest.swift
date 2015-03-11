@@ -32,56 +32,45 @@
 import UIKit
 import XCTest
 
-
+/**
+*  Browser delegate tests class
+*/
 class MessagingTest: XCTestCase {
     
-    /*var messagingImpl:MessagingImpl!
-    var iMessagingCallbackImpl:IMessagingCallbackImpl!
-
+    /// Callback for results
+    var callback:MessagingResultCallbackTest!
+    
+    /**
+    Constructor.
+    */
     override func setUp() {
         super.setUp()
         
-        messagingImpl = MessagingImpl()
-        iMessagingCallbackImpl = IMessagingCallbackImpl()
+        AppRegistryBridge.sharedInstance.getLoggingBridge().setDelegate(LoggingDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContext().setDelegate(AppContextDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().setDelegate(AppContextWebviewDelegate())
+        AppRegistryBridge.sharedInstance.getMessagingBridge().setDelegate(MessagingDelegate())
+        
+        callback = MessagingResultCallbackTest(id: 0)
     }
     
-    override func tearDown() {
-        super.tearDown()
-    }
-
-    /// Test for sending an sms
-    func testSendSMS() {
-        messagingImpl.sendSMS("123456789", text: "I want to send this text by SMS :)", callback: iMessagingCallbackImpl)
-    }
-
-    /// Test for sending an email
-    func testSendEmail() {
-        var email:Email = Email(toRecipients: [EmailAddress(address: "fnva@gft.com")], subject: "Test from Adaptive Messaging API", messageBody: "This text goes throw the Adaptive API of Messaging")
+    /**
+    Method to test the send SMS functionality
+    */
+    func testSendSMS(){
         
-        messagingImpl.sendEmail(email, callback: iMessagingCallbackImpl)
-    }*/
-
+        // MARK: you can't simulate messaging events in the Iphone Simulator for Xcode, skipping the test...
+        
+        if UIDevice.currentDevice().model == "iPhone Simulator" {
+            
+            XCTAssert(true, "")
+            
+        } else {
+            
+            AppRegistryBridge.sharedInstance.getMessagingBridge().sendSMS("123456789", text: "I want to send this text by SMS :)", callback: callback)
+            
+        }
+        
+        
+    }
 }
-/*
-/// Dummy implementation of the callback in order to run the tests
-class IMessagingCallbackImpl: NSObject, IMessagingCallback {
-    
-    func onError(error : IMessagingCallbackError) {
-        XCTAssert(false, "ERROR: \(error.toString())")
-    }
-    
-    func onResult(success : Bool) {
-        XCTAssert(success, "")
-    }
-    
-    func onWarning(success : Bool, warning : IMessagingCallbackWarning) {
-        
-        println("WARNING: \(warning.toString())")
-        XCTAssert(success, "")
-    }
-    
-    func toString() -> String? {
-        return ""
-    }
-    func getId() -> Int64 {return 0}
-}*/

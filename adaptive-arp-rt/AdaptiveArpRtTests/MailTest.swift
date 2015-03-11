@@ -29,15 +29,16 @@
 * =====================================================================================================================
 */
 
+import UIKit
 import XCTest
 
 /**
-*  Geolocation delegate tests class
+*  Browser delegate tests class
 */
-class GeolocationTest: XCTestCase {
+class MailTest: XCTestCase {
     
-    /// Listener for results
-    var listener:GeolocationListenerTest!
+    /// Callback for results
+    var callback:MessagingResultCallbackTest!
     
     /**
     Constructor.
@@ -48,18 +49,30 @@ class GeolocationTest: XCTestCase {
         AppRegistryBridge.sharedInstance.getLoggingBridge().setDelegate(LoggingDelegate())
         AppRegistryBridge.sharedInstance.getPlatformContext().setDelegate(AppContextDelegate())
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().setDelegate(AppContextWebviewDelegate())
-        AppRegistryBridge.sharedInstance.getGeolocationBridge().setDelegate(GeolocationDelegate())
+        AppRegistryBridge.sharedInstance.getMailBridge().setDelegate(MailDelegate())
         
-        listener = GeolocationListenerTest(id: 0)
+        callback = MessagingResultCallbackTest(id: 0)
     }
     
     /**
-    Method for testing the geolocation operations
+    Method to test the send email functionality
     */
-    func testGeolocation() {
+    func testSendEmail(){
         
-        AppRegistryBridge.sharedInstance.getGeolocationBridge().addGeolocationListener(listener)
-        AppRegistryBridge.sharedInstance.getGeolocationBridge().removeGeolocationListener(listener)
-        AppRegistryBridge.sharedInstance.getGeolocationBridge().removeGeolocationListeners()
+        // MARK: you can't simulate messaging events in the Iphone Simulator for Xcode, skipping the test...
+        
+        if UIDevice.currentDevice().model == "iPhone Simulator" {
+            
+            XCTAssert(true, "")
+            
+        } else {
+            
+            var email:Email = Email(toRecipients: [EmailAddress(address: "fnva@gft.com")], subject: "Test from Adaptive Messaging API", messageBody: "This text goes throw the Adaptive API of Messaging")
+            
+            AppRegistryBridge.sharedInstance.getMailBridge().sendEmail(email, callback: callback)
+            
+        }
+        
     }
 }
+

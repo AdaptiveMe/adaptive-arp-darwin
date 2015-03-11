@@ -36,4 +36,31 @@ import XCTest
 */
 class NetworkStatusTest: XCTestCase {
 
+    /// Listener for results
+    var listener:NetworkStatusListenerTest!
+    
+    /**
+    Constructor.
+    */
+    override func setUp() {
+        super.setUp()
+        
+        AppRegistryBridge.sharedInstance.getLoggingBridge().setDelegate(LoggingDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContext().setDelegate(AppContextDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().setDelegate(AppContextWebviewDelegate())
+        AppRegistryBridge.sharedInstance.getNetworkStatusBridge().setDelegate(NetworkStatusDelegate())
+        
+        listener = NetworkStatusListenerTest(id: 0)
+    }
+    
+    /**
+    Method for testing the geolocation operations
+    */
+    func testNetworkStatus() {
+        
+        AppRegistryBridge.sharedInstance.getNetworkStatusBridge().addNetworkStatusListener(listener)
+        AppRegistryBridge.sharedInstance.getNetworkStatusBridge().removeNetworkStatusListener(listener)
+        AppRegistryBridge.sharedInstance.getNetworkStatusBridge().removeNetworkStatusListeners()
+    }
+
 }

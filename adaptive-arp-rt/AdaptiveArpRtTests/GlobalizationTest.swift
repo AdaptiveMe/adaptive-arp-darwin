@@ -31,40 +31,59 @@
 
 import XCTest
 
-
+/**
+*  Globalization delegate tests class
+*  MARK: Maybe this test should be removed when the App.Source folder will be removed.
+*/
 class GlobalizationTest: XCTestCase {
     
-    /*var globalizationImpl:GlobalizationImpl!
-    var locale:AdaptiveArpApi.Locale!
-    
-    let key:String = "hello-world"
-    
+    /**
+    Constructor.
+    */
     override func setUp() {
         super.setUp()
         
-        globalizationImpl = GlobalizationImpl()
-        locale = AdaptiveArpApi.Locale(language: "en", country: "EN")
+        AppRegistryBridge.sharedInstance.getLoggingBridge().setDelegate(LoggingDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContext().setDelegate(AppContextDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().setDelegate(AppContextWebviewDelegate())
+        AppRegistryBridge.sharedInstance.getGlobalizationBridge().setDelegate(GlobalizationDelegate())
     }
     
-    override func tearDown() {
-        super.tearDown()
+    /**
+    Test to try the method get default locale. This should return the locale defined in the i18n config file
+    */
+    func testGetDefaultLocale() {
+        XCTAssert(AppRegistryBridge.sharedInstance.getGlobalizationBridge().getDefaultLocale() != nil, "Error obtaining the default locale. See log for more details")
     }
     
-    /// Operations to get the locales for the application
+    /**
+    Test to try the method to obtain the configured locales
+    */
     func testGetLocaleSupportedDescriptors() {
-        
-        var descriptors:[AdaptiveArpApi.Locale] = globalizationImpl.getLocaleSupportedDescriptors()!
-        XCTAssert(descriptors.count > 0, "There is a problem reading the i18n config path")
+        XCTAssert(AppRegistryBridge.sharedInstance.getGlobalizationBridge().getLocaleSupportedDescriptors()?.count > 0, "Error obtaining the configured locales. See log for more details")
     }
     
+    /**
+    Test to try the method to obtain a literal resource for the default language
+    */
     func testGetResourceLiteral() {
-        var localizedString = globalizationImpl.getResourceLiteral(key, locale: locale)
-        XCTAssert(localizedString != "", "There is a problem reading the key: \(key)")
+        
+        var defaultLocale = AppRegistryBridge.sharedInstance.getGlobalizationBridge().getDefaultLocale()!
+        
+        // MARK: Maybe the literal for hello-world is not defined
+        
+        XCTAssert(AppRegistryBridge.sharedInstance.getGlobalizationBridge().getResourceLiteral("hello-world", locale: defaultLocale) != nil, "Error obtaining the literal hello-world for the default locale. See log for more details")
     }
     
-    func testGetResourceLiterals(){
-        var localizedStrings = globalizationImpl.getResourceLiterals(locale)
-        XCTAssert(localizedStrings?.count > 0, "There is a problem reading the localized file")
+    /**
+    Test to try the method to obtain all the literals for the default language
+    */
+    func testGetResourceLiterals() {
         
-    }*/
+        var defaultLocale = AppRegistryBridge.sharedInstance.getGlobalizationBridge().getDefaultLocale()!
+        
+        // MARK: Maybe the literal for hello-world is not defined
+        
+        XCTAssert(AppRegistryBridge.sharedInstance.getGlobalizationBridge().getResourceLiterals(defaultLocale)?.count > 0, "Error obtaining all the literals for the default locale. See log for more details")
+    }
 }

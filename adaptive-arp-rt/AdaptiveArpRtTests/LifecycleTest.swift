@@ -35,5 +35,32 @@ import XCTest
 *  Lilecycle delegate tests class
 */
 class LilecycleTest: XCTestCase {
+    
+    /// Listener for results
+    var listener:LilecycleListenerTest!
+    
+    /**
+    Constructor.
+    */
+    override func setUp() {
+        super.setUp()
+        
+        AppRegistryBridge.sharedInstance.getLoggingBridge().setDelegate(LoggingDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContext().setDelegate(AppContextDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().setDelegate(AppContextWebviewDelegate())
+        AppRegistryBridge.sharedInstance.getLifecycleBridge().setDelegate(LifecycleDelegate())
+        
+        listener = LilecycleListenerTest(id: 0)
+    }
+    
+    /**
+    Method for testing the lifecycle operations
+    */
+    func testLifecycle() {
+        
+        AppRegistryBridge.sharedInstance.getLifecycleBridge().addLifecycleListener(listener)
+        AppRegistryBridge.sharedInstance.getLifecycleBridge().removeLifecycleListener(listener)
+        AppRegistryBridge.sharedInstance.getLifecycleBridge().removeLifecycleListeners()
+    }
 
 }

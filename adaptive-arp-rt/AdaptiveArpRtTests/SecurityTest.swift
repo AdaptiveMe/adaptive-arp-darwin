@@ -29,94 +29,69 @@
 * =====================================================================================================================
 */
 
+import UIKit
 import XCTest
 
-
+/**
+*  Security delegate tests class
+*/
 class SecurityTest: XCTestCase {
     
-    /*var securityImpl:SecurityImpl?
+    /// Callback for results
+    var callback:SecurityResultCallbackTest!
+    
+    // Secure key pairs for testing purposes
     var secureKeyPair1:SecureKeyPair = SecureKeyPair()
     var secureKeyPair2:SecureKeyPair = SecureKeyPair()
     
-    // Create a callback
-    var iSecureKVResultCallbackImpl:ISecureKVResultCallbackImpl = ISecureKVResultCallbackImpl()
-
+    /**
+    Constructor.
+    */
     override func setUp() {
         super.setUp()
         
-        securityImpl = SecurityImpl()
+        AppRegistryBridge.sharedInstance.getLoggingBridge().setDelegate(LoggingDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContext().setDelegate(AppContextDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().setDelegate(AppContextWebviewDelegate())
+        AppRegistryBridge.sharedInstance.getSecurityBridge().setDelegate(SecurityDelegate())
         
-        // Create a secure key pair
+        callback = SecurityResultCallbackTest(id: 0)
+        
         secureKeyPair1.setSecureKey("name1")
         secureKeyPair1.setSecureData("value1")
-        
-        // Create a secure key pair
         secureKeyPair2.setSecureKey("name2")
         secureKeyPair2.setSecureData("value2")
     }
     
-    override func tearDown() {
-        super.tearDown()
-    }
-
+    /**
+    Test for testing the device modified method
+    */
     func testDeviceModified() {
         
-        // MARK: this test supose that the device is not jailbroken
+        // MARK: you can't test the device modified method in the simulator, skipping the tests...
         
-        #if (arch(i386) || arch(x86_64)) && os(iOS)
-            // Simulator
-        #else
-            // Device
-            XCTAssertFalse(securityImpl!.isDeviceModified(), "This test supose that the device or emulator is not jailbroken")
-        #endif
-    }
-
-    func testPerformanceDeviceModified() {
-        
-        #if (arch(i386) || arch(x86_64)) && os(iOS)
-            // Simulator
-        #else
-            // Device
-            self.measureBlock() {
-                var result = self.securityImpl!.isDeviceModified()
-            }
-        #endif
-        
+        if UIDevice.currentDevice().model == "iPhone Simulator" {
+            
+            XCTAssert(true, "")
+            
+        } else {
+            
+            XCTAssertFalse(AppRegistryBridge.sharedInstance.getSecurityBridge().isDeviceModified()!, "There is a problem with the test or the device is jailbroken.")
+        }
     }
     
+    /**
+    Test for testing the operations againts the Secure Keychain environment
+    */
     func testSecureKeyValuePairs () {
         
         // Store a SecureKeyPair
-        securityImpl!.setSecureKeyValuePairs([secureKeyPair1, secureKeyPair2], publicAccessName: "storage", callback: iSecureKVResultCallbackImpl)
+        AppRegistryBridge.sharedInstance.getSecurityBridge().setSecureKeyValuePairs([secureKeyPair1, secureKeyPair2], publicAccessName: "storage", callback: callback)
         
         // Get the value of SecureKeyPair
-        securityImpl!.getSecureKeyValuePairs([secureKeyPair1.getSecureKey()!, secureKeyPair2.getSecureKey()!], publicAccessName: "storage", callback: iSecureKVResultCallbackImpl)
+        AppRegistryBridge.sharedInstance.getSecurityBridge().getSecureKeyValuePairs([secureKeyPair1.getSecureKey()!, secureKeyPair2.getSecureKey()!], publicAccessName: "storage", callback: callback)
         
         // Delete a SecureKeyPair
-        securityImpl!.deleteSecureKeyValuePairs([secureKeyPair1.getSecureKey()!, secureKeyPair2.getSecureKey()!], publicAccessName: "storage", callback: iSecureKVResultCallbackImpl)
-    }*/
+        AppRegistryBridge.sharedInstance.getSecurityBridge().deleteSecureKeyValuePairs([secureKeyPair1.getSecureKey()!, secureKeyPair2.getSecureKey()!], publicAccessName: "storage", callback: callback)
+    }
 }
-/*
-/// Dummy implementation of the callback in order to run the tests
-class ISecureKVResultCallbackImpl: NSObject, ISecureKVResultCallback {
-    
-    func onError(error : ISecureKVResultCallbackError) {
-        XCTAssert(false, "\(error)")
-    }
-    func onResult(keyValues : [SecureKeyPair]) {
-        
-        for pair:SecureKeyPair in keyValues {
-            XCTAssert(true, "key: \(pair.getSecureKey()), value: \(pair.getSecureData())")
-        }
-    }
-    func onWarning(keyValues : [SecureKeyPair], warning : ISecureKVResultCallbackWarning) {
-        
-        for pair:SecureKeyPair in keyValues {
-            XCTAssert(true, "key: \(pair.getSecureKey()), value: \(pair.getSecureData()), message: \(warning)")
-        }
-    }
-    func toString() -> String? {
-        return ""
-    }
-    func getId() -> Int64 {return 0}
-}*/

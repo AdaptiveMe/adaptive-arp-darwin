@@ -35,5 +35,15 @@ import XCTest
 *  Runtime delegate tests class
 */
 class RuntimeTest: XCTestCase {
+    
+    /**
+    Constructor.
+    */
+    override func setUp() {
+        super.setUp()
+    }
+    
+    // MARK: in iOS the Runtime API has no effects because the platform does not 
+    // provide the tools. Skipping this test.
 
 }

@@ -36,4 +36,27 @@ import XCTest
 */
 class VideoTest: XCTestCase {
 
+    /**
+    Constructor.
+    */
+    override func setUp() {
+        super.setUp()
+        
+        AppRegistryBridge.sharedInstance.getLoggingBridge().setDelegate(LoggingDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContext().setDelegate(AppContextDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().setDelegate(AppContextWebviewDelegate())
+        AppRegistryBridge.sharedInstance.getVideoBridge().setDelegate(VideoDelegate())
+    }
+    
+    /**
+    Method for testing the playstream method
+    */
+    func testPlayStream(){
+        
+        // MARK: maybe this URL is no longer supported
+        AppRegistryBridge.sharedInstance.getVideoBridge().playStream("http://html5demos.com/assets/dizzy.mp4")
+        
+        // MARK: it is no possible to test with an assert because there are no current View Controllers
+    }
+
 }
