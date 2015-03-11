@@ -31,54 +31,36 @@
 
 import XCTest
 
-/*
-
-/// MARK: The tests of Network Reachability are disabled because the asyncronous methods doesn't work fine with the XCTAssert method of the test cases
+/**
+*  NetworkReachability delegate tests class
+*/
 
 class NetworkReachabilityTest: XCTestCase {
     
-    var networkReachabilityImpl:NetworkReachabilityImpl!
-    var iNetworkReachabilityCallbackImpl:INetworkReachabilityCallbackImpl!
+    /// Callback for results
+    var callback:NetworkReachabilityResultCallbackTest!
     
+    /**
+    Constructor.
+    */
     override func setUp() {
         super.setUp()
         
-        networkReachabilityImpl = NetworkReachabilityImpl()
-        iNetworkReachabilityCallbackImpl = INetworkReachabilityCallbackImpl()
+        AppRegistryBridge.sharedInstance.getLoggingBridge().setDelegate(LoggingDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContext().setDelegate(AppContextDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().setDelegate(AppContextWebviewDelegate())
+        AppRegistryBridge.sharedInstance.getNetworkReachabilityBridge().setDelegate(NetworkReachabilityDelegate())
+        
+        callback = NetworkReachabilityResultCallbackTest(id: 0)
     }
     
-    override func tearDown() {
-        super.tearDown()
+    /**
+    Test the network reachability functions
+    */
+    func testNetworkReachability() {
+        
+        //AppRegistryBridge.sharedInstance.getNetworkReachabilityBridge().isNetworkReachable("http://www.google.com/", callback: callback)
+        AppRegistryBridge.sharedInstance.getNetworkReachabilityBridge().isNetworkServiceReachable("http://www.google.com/", callback: callback)
     }
     
-    /// Test if the connection to network is reachable
-    func testIsNetworkServiceReachable() {
-        networkReachabilityImpl.isNetworkServiceReachable("https://www.fintonic.com/app/#advice/recommendations", callback: iNetworkReachabilityCallbackImpl)
-    }
-    
-    /// Test if the connection to host is reachable
-    func testIsNetworkReachable() {
-        networkReachabilityImpl.isNetworkReachable("http://www.google.es/", callback: iNetworkReachabilityCallbackImpl)
-    }
 }
-
-/// Dummy implementation of the callback in order to run the tests
-class INetworkReachabilityCallbackImpl: NSObject, INetworkReachabilityCallback {
-    
-    func onError(error : INetworkReachabilityCallbackError) {
-        XCTAssert(false, "ERROR: \(error.toString())")
-    }
-    
-    func onResult(result : String) {
-        XCTAssert(true, "")
-    }
-    
-    func onWarning(result : String, warning : INetworkReachabilityCallbackWarning) {
-        println("WARNING: \(warning.toString())")
-        XCTAssert(true, "")
-    }
-    
-    func toString() -> String? {
-        return ""
-    }
-}*/

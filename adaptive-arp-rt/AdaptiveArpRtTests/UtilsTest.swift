@@ -212,6 +212,45 @@ class DatabaseTableResultCallbackTest: BaseCallbackImpl, IDatabaseTableResultCal
 }
 
 /**
+*  NetworkReachability callback test implementation. For testing purposes only
+*/
+class NetworkReachabilityResultCallbackTest: BaseCallbackImpl, INetworkReachabilityCallback {
+
+    /**
+    No data received - error condition, not authorized .
+    
+    :param: error Error value
+    */
+    func onError(error : INetworkReachabilityCallbackError) {
+        
+        logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error: \(error)")
+        XCTAssert(false, "Error: \(error)")
+    }
+    
+    /**
+    Correct data received.
+    
+    :param: reachable Indicates if the host is reachable
+    */
+    func onResult(reachable : Bool) {
+        
+        XCTAssert(true, "")
+    }
+    
+    /**
+    Data received with warning - ie Found entries with existing key and values have been overriden
+    
+    :param: reachable Indicates if the host is reachable
+    :param: warning   Warning value
+    */
+    func onWarning(reachable : Bool, warning : INetworkReachabilityCallbackWarning) {
+        
+        logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "Warning: \(warning.toString())")
+        XCTAssert(true, "")
+    }
+}
+
+/**
 *  Security callback test implementation. For testing purposes only
 */
 class SecurityResultCallbackTest: BaseCallbackImpl, ISecurityResultCallback {

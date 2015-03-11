@@ -44,7 +44,7 @@ public struct Utils {
     */
     public static func validateUrl (stringURL : NSString) -> Bool {
         
-        return validateRegexp(stringURL, regexp: "(http|https)://((\\w)*|([0-9]*)|([-|_])*)+([\\.|/]((\\w)*|([0-9]*)|([-|_])*))+")
+        return validateRegexp(stringURL, regexp: "/^(https?://)?([da-z.-]+).([a-z.]{2,6})([/w .-]*)*/?$/")
     }
     
     /**
