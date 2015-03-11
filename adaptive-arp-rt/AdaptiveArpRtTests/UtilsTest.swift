@@ -212,3 +212,42 @@ class GeolocationListenerTest: BaseListenerImpl, IGeolocationListener {
         XCTAssert(true, "")
     }
 }
+
+/**
+*  Lifecycle listener for testing purposes
+*/
+class LilecycleListenerTest: BaseListenerImpl, ILifecycleListener {
+    
+    /**
+    Lifecycle listener error function
+    
+    :param: error Error description
+    */
+    func onError(error : ILifecycleListenerError) {
+        logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error: \(error)")
+        XCTAssert(false, "Error: \(error)")
+    }
+    
+    /**
+    Lifecycle listener for correct results
+    
+    :param: lifecycle Lifecycle object with all the information
+    */
+    func onResult(lifecycle : Lifecycle) {
+        logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "Lifecycle state: \(lifecycle.getState())")
+        XCTAssert(true, "")
+    }
+    
+    /**
+    Lifecycle method for warning results
+    
+    :param: geolocation Geolocation object with all the information
+    :param: warning     Warning description of the event
+    */
+    func onWarning(lifecycle : Lifecycle, warning : ILifecycleListenerWarning) {
+        
+        logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "Warning: \(warning.toString())")
+        logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "Lifecycle state: \(lifecycle.getState())")
+        XCTAssert(true, "")
+    }
+}
