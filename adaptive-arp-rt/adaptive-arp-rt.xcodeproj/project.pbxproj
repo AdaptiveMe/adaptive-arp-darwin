@@ -489,6 +489,7 @@
 		4EDB4E841A028C9A008A2C4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB4E821A028C9A008A2C4F /* Main.storyboard */; };
 		C307456E1A6664B300796509 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307456D1A6664B300796509 /* APIResponse.swift */; };
 		C3138D6B1A76371B0081DA12 /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3138D6A1A76371B0081DA12 /* MediaViewController.swift */; };
+		C32C58451AB0A22F00BCB1EB /* MailTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32C58441AB0A22F00BCB1EB /* MailTest.swift */; };
 		C34D73A71A7A858600A8CD9F /* DeviceOrientationListenerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34D73961A7A858600A8CD9F /* DeviceOrientationListenerImpl.swift */; };
 		C34D73A81A7A858600A8CD9F /* DeviceOrientationListenerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34D73961A7A858600A8CD9F /* DeviceOrientationListenerImpl.swift */; };
 		C34D73A91A7A858600A8CD9F /* DisplayOrientationListenerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34D73971A7A858600A8CD9F /* DisplayOrientationListenerImpl.swift */; };
@@ -2170,6 +2171,7 @@
 		4EDB4E891A028C9A008A2C4F /* AdaptiveArpRtOSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdaptiveArpRtOSXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C307456D1A6664B300796509 /* APIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		C3138D6A1A76371B0081DA12 /* MediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
+		C32C58441AB0A22F00BCB1EB /* MailTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailTest.swift; sourceTree = "<group>"; };
 		C34D73961A7A858600A8CD9F /* DeviceOrientationListenerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceOrientationListenerImpl.swift; sourceTree = "<group>"; };
 		C34D73971A7A858600A8CD9F /* DisplayOrientationListenerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayOrientationListenerImpl.swift; sourceTree = "<group>"; };
 		C34D73981A7A858600A8CD9F /* ICapabilitiesOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICapabilitiesOrientation.swift; sourceTree = "<group>"; };
@@ -2886,6 +2888,7 @@
 				C38C36831A13A44600BC26CE /* GlobalizationTest.swift */,
 				C39C95361A974A7F00476FC2 /* LifecycleTest.swift */,
 				C3BB4BEE1A122B41005C177C /* LoggingTest.swift */,
+				C32C58441AB0A22F00BCB1EB /* MailTest.swift */,
 				C37F36BB1A964D4D00F6C7D5 /* MessagingTest.swift */,
 				C3ABF96C1A19F3530000BBA2 /* NetworkReachabilityTest.swift */,
 				C39C95371A974A7F00476FC2 /* NetworkStatusTest.swift */,
@@ -3958,6 +3961,7 @@
 				C37F370E1A96509100F6C7D5 /* Poly1305.swift in Sources */,
 				C37F34691A964CE600F6C7D5 /* DatabaseTableResultCallbackImpl.swift in Sources */,
 				C37F34F61A964CE600F6C7D5 /* IManagement.swift in Sources */,
+				C32C58451AB0A22F00BCB1EB /* MailTest.swift in Sources */,
 				C37F35591A964CE600F6C7D5 /* ServiceRequest.swift in Sources */,
 				C37F342C1A964CE600F6C7D5 /* APIRequest.swift in Sources */,
 				C37F34B71A964CE600F6C7D5 /* IContactFieldGroup.swift in Sources */,
