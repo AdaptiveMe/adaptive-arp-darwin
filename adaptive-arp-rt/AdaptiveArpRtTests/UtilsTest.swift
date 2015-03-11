@@ -251,3 +251,42 @@ class LilecycleListenerTest: BaseListenerImpl, ILifecycleListener {
         XCTAssert(true, "")
     }
 }
+
+/**
+*  NetworkStatus listener for testing purposes
+*/
+class NetworkStatusListenerTest: BaseListenerImpl, INetworkStatusListener {
+    
+    /**
+    NetworkStatus listener error function
+    
+    :param: error Error description
+    */
+    func onError(error : INetworkStatusListenerError) {
+        logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error: \(error)")
+        XCTAssert(false, "Error: \(error)")
+    }
+    
+    /**
+    NetworkStatus listener for correct results
+    
+    :param: lifecycle Lifecycle object with all the information
+    */
+    func onResult(network : ICapabilitiesNet) {
+        logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "Network type: \(network.toString())")
+        XCTAssert(true, "")
+    }
+    
+    /**
+    NetworkStatus method for warning results
+    
+    :param: geolocation Geolocation object with all the information
+    :param: warning     Warning description of the event
+    */
+    func onWarning(network : ICapabilitiesNet, warning : INetworkStatusListenerWarning) {
+        
+        logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "Warning: \(warning.toString())")
+        logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "Network type: \(network.toString())")
+        XCTAssert(true, "")
+    }
+}
