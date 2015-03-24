@@ -44,23 +44,7 @@ public struct Utils {
     */
     public static func validateUrl (stringURL : NSString) -> Bool {
         
-        return validateRegexp(stringURL, regexp: "/^(https?://)?([da-z.-]+).([a-z.]{2,6})([/w .-]*)*/?$/")
-    }
-    
-    /**
-    Method that validates a regular expression
-    
-    :param: string String to evaluate
-    :param: regexp Regular Expression
-    
-    :returns: Value of the evaluation
-    */
-    public static func validateRegexp (string:String, regexp:String) -> Bool {
-        if Regex(regexp).test(string){
-            return true
-        } else {
-            return false
-        }
+        return validateRegexp(stringURL, regexp: "^https?://.*")
     }
     
     /**
@@ -78,6 +62,22 @@ public struct Utils {
     public static func normalizeString(m: String) -> String {
         
         return m.lowercaseString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+    }
+    
+    /**
+    Method that validates a regular expression
+    
+    :param: string String to evaluate
+    :param: regexp Regular Expression
+    
+    :returns: Value of the evaluation
+    */
+    public static func validateRegexp (string:String, regexp:String) -> Bool {
+        if Regex(regexp).test(string){
+            return true
+        } else {
+            return false
+        }
     }
 }
 
@@ -137,16 +137,6 @@ func rotateRight(x:UInt32, n:UInt32) -> UInt32 {
 
 func rotateRight(x:UInt64, n:UInt64) -> UInt64 {
     return ((x >> n) | (x << (64 - n)))
-}
-
-func reverseBytes(value: UInt32) -> UInt32 {
-    // rdar://18060945 - not working since Xcode6-Beta6, need to split in two variables
-    // return = ((value & 0x000000FF) << 24) | ((value & 0x0000FF00) << 8) | ((value & 0x00FF0000) >> 8)  | ((value & 0xFF000000) >> 24);
-    
-    // workaround
-    var tmp1 = ((value & 0x000000FF) << 24) | ((value & 0x0000FF00) << 8)
-    var tmp2 = ((value & 0x00FF0000) >> 8)  | ((value & 0xFF000000) >> 24)
-    return tmp1 | tmp2
 }
 ///-- Used by Encryption functions --------------------------------------------------------------- End
 

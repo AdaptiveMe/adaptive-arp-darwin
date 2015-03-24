@@ -5,14 +5,6 @@
     
     <!-- List of external services for the application. RegExp supported -->
     <services>
-        <service name="petstore">
-            <end-point host="http://petstore.swagger.wordnik.com" validation="None">
-                <path path="/api/pet/15" type="RestJson">
-                    <method method="Get"/>
-                    <method method="Post"/>
-                </path>
-            </end-point>
-        </service>
         <service name="geonames">
             <end-point host="http://api.geonames.org" validation="None">
                 <path path="/postalCodeLookupJSON" type="RestJson">
@@ -24,7 +16,7 @@
     
     <!-- List of external resources for the application. RegExp supported -->
     <resources>
-        <resource url="http\:\/\/html5demos\.com\/assets\/(.*)+\.mp4" />
-        <resource url="http://www.google.com" />
+        <resource url="^https?\:\/\/html5demos\.com\/assets\/(.*)+\.mp4" />
+        <resource url="^https?\:\/\/(.*)+.google.(.*)" />
     </resources>
 </io-config>
