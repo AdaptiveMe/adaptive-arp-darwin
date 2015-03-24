@@ -1,8 +1,7 @@
+sudo: false
 language: objective-c
 osx_image: xcode611
 
 script: 
+- xctool -project adaptive-arp-rt/adaptive-arp-rt.xcodeproj -scheme AdaptiveArpRtOSX -sdk macosx ONLY_ACTIVE_ARCH=NO build
 - xctool -project adaptive-arp-rt/adaptive-arp-rt.xcodeproj -scheme AdaptiveArpRtiOS -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO build test
-# - xctool -project adaptive-arp-rt/adaptive-arp-rt.xcodeproj -scheme AdaptiveArpRtOSX -sdk macosx ONLY_ACTIVE_ARCH=NO build
-# fnva (150224) The test action for macosx was removed because the travis server can't open the Main.storyboard because is not running on a macosx 10.10 (Yosemite)
-#   error: The document "Main.storyboard" could not be opened. OS X 10.10 or higher is required.
