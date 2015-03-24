@@ -1,6 +1,5 @@
 sudo: false
 language: objective-c
-osx_image: xcode62
 
 script: 
 - xctool -project adaptive-arp-rt/adaptive-arp-rt.xcodeproj -scheme AdaptiveArpRtiOS -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO build test
