@@ -1,6 +1,5 @@
 sudo: false
 language: objective-c
-osx_image: xcode611
 
 script: 
 - xctool -project adaptive-arp-rt/adaptive-arp-rt.xcodeproj -scheme AdaptiveArpRtOSX -sdk macosx ONLY_ACTIVE_ARCH=NO build
