@@ -52,7 +52,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
     
     /**
     Internal class to encapsulate the session information of the requests/response to one endpoint.
-    This class mantains the cookies, Session attributes, Headers and user-agent between consecutive 
+    This class mantains the cookies, Session attributes, Headers and user-agent between consecutive
     requests/responses for one endpoint
     */
     class Header {
@@ -120,7 +120,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
         
         if let serviceToken:ServiceToken = IOParser.sharedInstance.getServiceTokenByURI(uri) {
             if self.isServiceRegistered(serviceToken) {
-                return serviceToken                
+                return serviceToken
             }
         }
         
@@ -168,7 +168,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
         #if os(OSX)
             var webview: AnyObject? = AppRegistryBridge.sharedInstance.getPlatformContextWeb().getWebviewPrimary()
             dispatch_async(dispatch_get_main_queue(), {
-                useragent = (webview as WebView).stringByEvaluatingJavaScriptFromString("navigator.userAgent")!
+            useragent = (webview as WebView).stringByEvaluatingJavaScriptFromString("navigator.userAgent")!
             })
         #endif
         request.setUserAgent(useragent)
@@ -275,7 +275,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
             if self.isServiceRegistered(token) {
                 
                 if let  service:Service = IOParser.sharedInstance.getServiceByToken(token) {
-                
+                    
                     // url composistion
                     var serviceEndpoint:ServiceEndpoint = service.getServiceEndpoints()![0]
                     var url : NSMutableString = NSMutableString()
@@ -285,12 +285,15 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                     // queryParameters
                     if let params:[ServiceRequestParameter] = serviceRequest.getQueryParameters() {
                         
-                        url.appendString("?")
-                        
-                        for (index, param:ServiceRequestParameter) in enumerate(params) {
-                            url.appendString(param.getKeyName()! + "=" + param.getKeyData()!)
-                            if index < params.count-1 {
-                                url.appendString("&")
+                        if params.count > 0 {
+                            
+                            url.appendString("?")
+                            
+                            for (index, param:ServiceRequestParameter) in enumerate(params) {
+                                url.appendString(param.getKeyName()! + "=" + param.getKeyData()!)
+                                if index < params.count-1 {
+                                    url.appendString("&")
+                                }
                             }
                         }
                         
@@ -407,137 +410,144 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                         var task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
                             
                             // Cast the response and the errors
-                            let httpResponse: NSHTTPURLResponse = response as NSHTTPURLResponse
-                            
-                            if let error:NSError = error {
+                            if let httpResponse: NSHTTPURLResponse = response as? NSHTTPURLResponse {
                                 
-                                self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "There's been an error on the response of the service invoke: \(error.debugDescription)")
-                                
-                                callback.onError(IServiceResultCallbackError.Unreachable)
-                                return
-                                
-                            } else {
-                                
-                                if let responseText:NSString = NSString(data:data, encoding:NSUTF8StringEncoding) {
+                                if let error:NSError = error {
                                     
-                                    var sCode:Int32 = Int32(httpResponse.statusCode)
-                                    
-                                    self.logger.log(ILoggingLogLevel.Debug, category: self.loggerTag, message: "Status code: \(sCode)")
-                                    
-                                    switch sCode {
-                                        
-                                    case 200...406, 500...599:
-                                        
-                                        // VALID RESPONSES (CORRECT AND WARNINGS)
-                                        
-                                        var response: ServiceResponse = ServiceResponse()
-                                        response.setContent(responseText)
-                                        response.setContentEncoding(IServiceContentEncoding.Utf8)
-                                        response.setContentLength(Int32(responseText.length))
-                                        response.setContentType(IOParser.sharedInstance.getContentType(token))
-                                        response.setStatusCode(sCode)
-                                        
-                                        // TODO: HEADERS & SESSION
-                                        
-                                        // Check for Not secured url
-                                        if !url.containsString("https://") {
-                                            self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "Not Secured URL (https): \(url)")
-                                            callback.onWarning(response, warning: IServiceResultCallbackWarning.NotSecure)
-                                            return
-                                        }
-                                        
-                                        switch sCode {
-                                            
-                                        case 200...299:
-                                            
-                                            callback.onResult(response)
-                                            return
-                                            
-                                        case 300...399:
-                                            
-                                            self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "Redirected Response")
-                                            callback.onWarning(response, warning: IServiceResultCallbackWarning.Redirected)
-                                            return
-                                            
-                                        case 400:
-                                            
-                                            self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "Wrong params: \(url)")
-                                            callback.onWarning(response, warning: IServiceResultCallbackWarning.WrongParams)
-                                            return
-                                            
-                                        case 401:
-                                            
-                                            self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "Not authenticaded: \(url)")
-                                            callback.onWarning(response, warning: IServiceResultCallbackWarning.NotAuthenticated)
-                                            return
-                                            
-                                        case 402:
-                                            
-                                            self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "Payment Required: \(url)")
-                                            callback.onWarning(response, warning: IServiceResultCallbackWarning.PaymentRequired)
-                                            return
-                                            
-                                        case 403:
-                                            
-                                            self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "Forbidden: \(url)")
-                                            callback.onWarning(response, warning: IServiceResultCallbackWarning.Forbidden)
-                                            return
-                                            
-                                        case 404:
-                                            
-                                            self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "NotFound: \(url)")
-                                            callback.onWarning(response, warning: IServiceResultCallbackWarning.NotFound)
-                                            return
-                                            
-                                        case 405:
-                                            
-                                            self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "Method not allowed: \(url)")
-                                            callback.onWarning(response, warning: IServiceResultCallbackWarning.MethodNotAllowed)
-                                            return
-                                            
-                                        case 406:
-                                            
-                                            self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "Not allowed: \(url)")
-                                            callback.onWarning(response, warning: IServiceResultCallbackWarning.NotAllowed)
-                                            return
-                                            
-                                        case 500...599:
-                                            
-                                            self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "Server error: \(url)")
-                                            callback.onWarning(response, warning: IServiceResultCallbackWarning.ServerError)
-                                            return
-                                            
-                                        default:
-                                            
-                                            self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "The status code received: \(sCode) is not handled by the plattform")
-                                            callback.onError(IServiceResultCallbackError.Unreachable)
-                                            return
-                                        }
-                                        
-                                    // INVALID RESPONSES
-                                        
-                                    case 408:
-                                        self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "There is a timeout calling the service: \(sCode)")
-                                        callback.onError(IServiceResultCallbackError.TimeOut)
-                                        return
-                                    case 444:
-                                        self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "There is no response calling the service: \(sCode)")
-                                        callback.onError(IServiceResultCallbackError.NoResponse)
-                                        return
-                                        
-                                    default:
-                                        self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "The status code received: \(sCode) is not handled by the plattform")
-                                        callback.onError(IServiceResultCallbackError.Unknown)
-                                        return
-                                    }
-                                    
-                                } else {
-                                    
-                                    self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "There's been an error parsing the response on the response of the service invoke")
+                                    self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "There's been an error on the response of the service invoke: \(error.debugDescription)")
                                     
                                     callback.onError(IServiceResultCallbackError.Unreachable)
                                     return
+                                    
+                                } else {
+                                    
+                                    if let responseText:NSString = NSString(data:data, encoding:NSUTF8StringEncoding) {
+                                        
+                                        var sCode:Int32 = Int32(httpResponse.statusCode)
+                                        
+                                        self.logger.log(ILoggingLogLevel.Debug, category: self.loggerTag, message: "Status code: \(sCode)")
+                                        
+                                        switch sCode {
+                                            
+                                        case 200...406, 500...599:
+                                            
+                                            // VALID RESPONSES (CORRECT AND WARNINGS)
+                                            
+                                            var response: ServiceResponse = ServiceResponse()
+                                            response.setContent(responseText)
+                                            response.setContentEncoding(IServiceContentEncoding.Utf8)
+                                            response.setContentLength(Int32(responseText.length))
+                                            response.setContentType(IOParser.sharedInstance.getContentType(token))
+                                            response.setStatusCode(sCode)
+                                            
+                                            // TODO: HEADERS & SESSION
+                                            
+                                            // Check for Not secured url
+                                            /*if !url.containsString("https://") {
+                                                self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "Not Secured URL (https): \(url)")
+                                                callback.onWarning(response, warning: IServiceResultCallbackWarning.NotSecure)
+                                            }*/
+                                            
+                                            switch sCode {
+                                                
+                                            case 200...299:
+                                                
+                                                callback.onResult(response)
+                                                return
+                                                
+                                            case 300...399:
+                                                
+                                                self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "Redirected Response")
+                                                callback.onWarning(response, warning: IServiceResultCallbackWarning.Redirected)
+                                                return
+                                                
+                                            case 400:
+                                                
+                                                self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "Wrong params: \(url)")
+                                                callback.onWarning(response, warning: IServiceResultCallbackWarning.WrongParams)
+                                                return
+                                                
+                                            case 401:
+                                                
+                                                self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "Not authenticaded: \(url)")
+                                                callback.onWarning(response, warning: IServiceResultCallbackWarning.NotAuthenticated)
+                                                return
+                                                
+                                            case 402:
+                                                
+                                                self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "Payment Required: \(url)")
+                                                callback.onWarning(response, warning: IServiceResultCallbackWarning.PaymentRequired)
+                                                return
+                                                
+                                            case 403:
+                                                
+                                                self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "Forbidden: \(url)")
+                                                callback.onWarning(response, warning: IServiceResultCallbackWarning.Forbidden)
+                                                return
+                                                
+                                            case 404:
+                                                
+                                                self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "NotFound: \(url)")
+                                                callback.onWarning(response, warning: IServiceResultCallbackWarning.NotFound)
+                                                return
+                                                
+                                            case 405:
+                                                
+                                                self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "Method not allowed: \(url)")
+                                                callback.onWarning(response, warning: IServiceResultCallbackWarning.MethodNotAllowed)
+                                                return
+                                                
+                                            case 406:
+                                                
+                                                self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "Not allowed: \(url)")
+                                                callback.onWarning(response, warning: IServiceResultCallbackWarning.NotAllowed)
+                                                return
+                                                
+                                            case 500...599:
+                                                
+                                                self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "Server error: \(url)")
+                                                callback.onWarning(response, warning: IServiceResultCallbackWarning.ServerError)
+                                                return
+                                                
+                                            default:
+                                                
+                                                self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "The status code received: \(sCode) is not handled by the plattform")
+                                                callback.onError(IServiceResultCallbackError.Unreachable)
+                                                return
+                                            }
+                                            
+                                            // INVALID RESPONSES
+                                            
+                                        case 408:
+                                            self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "There is a timeout calling the service: \(sCode)")
+                                            callback.onError(IServiceResultCallbackError.TimeOut)
+                                            return
+                                        case 444:
+                                            self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "There is no response calling the service: \(sCode)")
+                                            callback.onError(IServiceResultCallbackError.NoResponse)
+                                            return
+                                            
+                                        default:
+                                            self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "The status code received: \(sCode) is not handled by the plattform")
+                                            callback.onError(IServiceResultCallbackError.Unknown)
+                                            return
+                                        }
+                                        
+                                    } else {
+                                        
+                                        self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "There's been an error parsing the response on the response of the service invoke")
+                                        
+                                        callback.onError(IServiceResultCallbackError.Unreachable)
+                                        return
+                                    }
                                 }
+                                
+                            } else {
+                                
+                                self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "The response of the servoce is null: \(error.debugDescription)")
+                                
+                                callback.onError(IServiceResultCallbackError.Unreachable)
+                                return
                             }
                         })
                         

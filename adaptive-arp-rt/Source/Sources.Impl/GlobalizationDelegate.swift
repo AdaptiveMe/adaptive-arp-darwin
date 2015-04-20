@@ -44,10 +44,6 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
     let logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
     let loggerTag : String = "GlobalizationDelegate"
     
-    /// i18n config file
-    let I18N_CONFIG_FILE: String = "i18n-config.xml";
-    let I18N_LANG_FILE: String = ".plist";
-    
     /**
        Default Constructor.
     */
@@ -63,32 +59,7 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
     */
     public func getDefaultLocale() -> Locale? {
         
-        // Read the i18n config file
-        var resourceData : ResourceData? = AppResourceManager.sharedInstance.retrieveConfigResource(I18N_CONFIG_FILE)
-        if resourceData == nil {
-            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error reading i18n config file: \(I18N_CONFIG_FILE)")
-            return nil
-        }
-        
-        let data: Foundation.NSData? = resourceData!.data
-        if data == nil {
-            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error reading i18n config file: \(I18N_CONFIG_FILE)")
-            return nil
-        }
-        
-        var parserDelegate:I18NParser = I18NParser()
-        
-        // Create the parser and parse the xml
-        var xmlParser = NSXMLParser(data: data)
-        xmlParser.delegate = parserDelegate
-        
-        if xmlParser.parse() {
-            logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Returning locales \(parserDelegate.getLocales())")
-            return parserDelegate.getDefaultLocale()
-        } else {
-            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error parsing i18n config file: \(I18N_CONFIG_FILE)")
-            return nil
-        }
+        return I18NParser.sharedInstance.getDefaultLocale()
     }
 
     /**
@@ -99,32 +70,7 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
     */
     public func getLocaleSupportedDescriptors() -> [Locale]? {
         
-        // Read the i18n config file
-        var resourceData : ResourceData? = AppResourceManager.sharedInstance.retrieveConfigResource(I18N_CONFIG_FILE)
-        if resourceData == nil {
-            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error reading i18n config file: \(I18N_CONFIG_FILE)")
-            return nil
-        }
-        
-        let data: Foundation.NSData? = resourceData!.data
-        if data == nil {
-            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error reading i18n config file: \(I18N_CONFIG_FILE)")
-            return nil
-        }
-        
-        var parserDelegate:I18NParser = I18NParser()
-        
-        // Create the parser and parse the xml
-        var xmlParser = NSXMLParser(data: data)
-        xmlParser.delegate = parserDelegate
-        
-        if xmlParser.parse() {
-            logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Returning locales \(parserDelegate.getLocales())")
-            return parserDelegate.getLocales()
-        } else {
-            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error parsing i18n config file: \(I18N_CONFIG_FILE)")
-            return nil
-        }
+        return I18NParser.sharedInstance.getLocales()
     }
 
     /**
@@ -237,7 +183,7 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
     :since: ARP1.0
     */
     private func getLanguageFilePath(locale: Locale) -> String {
-        return "\(locale.getLanguage()!)-\(locale.getCountry()!)\(I18N_LANG_FILE)"
+        return "\(locale.getLanguage()!)-\(locale.getCountry()!)\(I18NParser.I18N_LANG_FILE)"
     }
 
 }
