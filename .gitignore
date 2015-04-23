@@ -1,33 +1,12 @@
-*.xccheckout
-*.xcbkptlist
-*.swift.new
-
-
-adaptive-arp-rt/.idea/
-adaptive-arp-rt/App/*.realm
-
-adaptive-arp-rt/build/
-adaptive-arp-rt/DerivedData/
+# userdata
 adaptive-arp-rt/adaptive-arp-rt.xcodeproj/project.xcworkspace/xcuserdata/
 adaptive-arp-rt/adaptive-arp-rt.xcodeproj/xcuserdata/
 
-update_repo.sh
+# pods
+Pods/
+Podfile.lock
+adaptive-arp-rt/adaptive-arp-rt.xcworkspace
 
-########################
-# Application Ignores
-########################
-adaptive-arp-rt/App.Source/node_modules/
-adaptive-arp-rt/App.Source/src/
-adaptive-arp-rt/App.Source/config/.csslintrc
-adaptive-arp-rt/App.Source/config/.jshintrc
-adaptive-arp-rt/App.Source/www/.idea/
-adaptive-arp-rt/App.Source/.idea/
-adaptive-arp-rt/App.Source/Gruntfile.js
-adaptive-arp-rt/App.Source/package.json
-adaptive-arp-rt/App.Source/README.md
-
-adaptive-arp-rt/App.Source/www/js/Adaptive.js
-
-tools/osx/apppack/apppack.realm.lock
-
-tools/osx/apppack/apppack.realm
+#application
+adaptive-arp-rt/App/
+adaptive-arp-rt/App.Source/

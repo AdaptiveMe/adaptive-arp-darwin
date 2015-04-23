@@ -44,7 +44,7 @@ public struct Utils {
     */
     public static func validateUrl (stringURL : NSString) -> Bool {
         
-        return validateRegexp(stringURL, regexp: "^https?://.*")
+        return validateRegexp(stringURL as String, regexp: "^https?://.*")
     }
     
     /**
@@ -56,7 +56,7 @@ public struct Utils {
     */
     public static func isPhoneNumberCorrect(phoneNumber: NSString) -> Bool {
         
-        return validateRegexp(phoneNumber, regexp: "((\\+[1-9]{3,4}|0[1-9]{4}|00[1-9]{3})\\-?)?\\d{8,20}")
+        return validateRegexp(phoneNumber as String, regexp: "((\\+[1-9]{3,4}|0[1-9]{4}|00[1-9]{3})\\-?)?\\d{8,20}")
     }
     
     public static func normalizeString(m: String) -> String {
@@ -92,7 +92,7 @@ class Regex {
     }
     
     func test(input: String) -> Bool {
-        let matches = self.internalExpression.matchesInString(input, options: nil, range:NSMakeRange(0, countElements(input)))
+        let matches = self.internalExpression.matchesInString(input, options: nil, range:NSMakeRange(0, count(input)))
         return matches.count > 0
     }
 }
@@ -111,10 +111,10 @@ extension String {
         }
         // set starting point for search based on the finding of the first character
         i = distance(self.startIndex, startInd)
-        while i<=countElements(self)-countElements(findStr) {
-            if self[advance(self.startIndex, i)..<advance(self.startIndex, i+countElements(findStr))] == findStr {
-                arr.append(Range(start:advance(self.startIndex, i),end:advance(self.startIndex, i+countElements(findStr))))
-                i = i+countElements(findStr)
+        while i<=count(self)-count(findStr) {
+            if self[advance(self.startIndex, i)..<advance(self.startIndex, i+count(findStr))] == findStr {
+                arr.append(Range(start:advance(self.startIndex, i),end:advance(self.startIndex, i+count(findStr))))
+                i = i+count(findStr)
             }
             i++
         }

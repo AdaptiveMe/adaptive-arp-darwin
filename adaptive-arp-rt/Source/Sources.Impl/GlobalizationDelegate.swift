@@ -33,6 +33,7 @@ Release:
 */
 
 import Foundation
+import AdaptiveArpApi
 
 /**
    Interface for Managing the Globalization results
@@ -106,12 +107,12 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
                 //var swiftDict : Dictionary<String,String> = Dictionary<String,String>()
                 
                 for k : AnyObject in ocDictionary.allKeys{
-                    let stringKey : String = k as String
+                    let stringKey : String = k as! String
                     
                     if key == stringKey {
                         
                         logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Returning value: \(ocDictionary[stringKey]) for key: \(stringKey)")
-                        return (ocDictionary[stringKey] as String)
+                        return (ocDictionary[stringKey] as! String)
                     }
                 }
             } else {
@@ -158,9 +159,9 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
                 
                 for k : AnyObject in ocDictionary.allKeys{
                     
-                    let stringKey : String = k as String
+                    let stringKey : String = k as! String
                     
-                    swiftDict.append(KeyPair(keyName: stringKey, keyValue: ocDictionary[stringKey] as String))
+                    swiftDict.append(KeyPair(keyName: stringKey, keyValue: ocDictionary[stringKey] as! String))
                 }
             } else {
                 logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Sorry, couldn't read the file \(filePath.lastPathComponent)")

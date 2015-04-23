@@ -33,6 +33,7 @@ Release:
 */
 
 import Foundation
+import AdaptiveArpApi
 
 /**
    Interface for Managing the Network reachability operations
@@ -113,7 +114,7 @@ public class NetworkReachabilityDelegate : BaseCommunicationDelegate, INetworkRe
                 
             } else {
                 
-                let httpResponse: NSHTTPURLResponse = response as NSHTTPURLResponse
+                let httpResponse: NSHTTPURLResponse = response as! NSHTTPURLResponse
                 
                 //Converting data to String
                 let responseText:NSString = NSString(data:responseData, encoding:NSUTF8StringEncoding)!

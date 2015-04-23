@@ -1,1 +1,0 @@
-# Final application payload will be generated in this folder.

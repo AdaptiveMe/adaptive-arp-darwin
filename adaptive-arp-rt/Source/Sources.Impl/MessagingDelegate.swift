@@ -33,6 +33,7 @@ Release:
 */
 
 import Foundation
+import AdaptiveArpApi
 #if os(iOS)
 import MessageUI
 
@@ -71,9 +72,13 @@ public class MessagingDelegate : UIViewController, /*BasePIMDelegate,*/ IMessagi
     /**
        Default Constructor.
     */
-    public override init() {
-        super.init()
+    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName:nibNameOrNil, bundle:nibBundleOrNil)
         self.apiGroup = IAdaptiveRPGroup.PIM
+    }
+    
+    required public init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
 
     /**
@@ -153,14 +158,6 @@ public class MessagingDelegate : UIViewController, /*BasePIMDelegate,*/ IMessagi
             logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "There is no a current view controller on the stack")
             smsCallback.onError(IMessagingCallbackError.Unknown)
         }
-    }
-    
-    required public init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
     public override func viewWillAppear(animated: Bool) {

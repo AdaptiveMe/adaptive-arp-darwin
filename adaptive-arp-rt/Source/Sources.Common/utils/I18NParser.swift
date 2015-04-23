@@ -29,6 +29,7 @@
 * =====================================================================================================================
 */
 import Foundation
+import AdaptiveArpApi
 
 public class I18NParser : NSObject, NSXMLParserDelegate {
     
@@ -98,7 +99,7 @@ public class I18NParser : NSObject, NSXMLParserDelegate {
     :param: qName         qName of the element
     :param: attributeDict dictionary of attributes
     */
-    func parser(parser: NSXMLParser!, didStartElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!, attributes attributeDict: NSDictionary!) {
+    public func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName: String?, attributes attributeDict: [NSObject : AnyObject]) {
         
         // Store
         if elementName == I18N_SUPLANG_ELEM {

@@ -30,6 +30,7 @@
 */
 
 import UIKit
+import AdaptiveArpApi
 
 class ViewController: BaseViewController {
     
@@ -49,7 +50,7 @@ class ViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        (AppRegistryBridge.sharedInstance.getPlatformContextWeb().getDelegate()! as AppContextWebviewDelegate).setWebviewPrimary(self.webView!)
+        (AppRegistryBridge.sharedInstance.getPlatformContextWeb().getDelegate()! as! AppContextWebviewDelegate).setWebviewPrimary(self.webView!)
         
         var req = NSURLRequest(URL: NSURL(string: "https://adaptiveapp/index.html")!)
         (self.webView! as UIWebView).loadRequest(req)

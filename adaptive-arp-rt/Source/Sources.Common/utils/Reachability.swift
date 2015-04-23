@@ -92,20 +92,20 @@ class Reachability: NSObject, Printable {
         return Reachability(reachabilityRef: ref)
     }
     
-    class func reachabilityForLocalWiFi() -> Reachability {
+    /*class func reachabilityForLocalWiFi() -> Reachability {
         
         var localWifiAddress: sockaddr_in = sockaddr_in(sin_len: __uint8_t(0), sin_family: sa_family_t(0), sin_port: in_port_t(0), sin_addr: in_addr(s_addr: 0), sin_zero: (0, 0, 0, 0, 0, 0, 0, 0))
         localWifiAddress.sin_len = UInt8(sizeofValue(localWifiAddress))
         localWifiAddress.sin_family = sa_family_t(AF_INET)
         
         // IN_LINKLOCALNETNUM is defined in <netinet/in.h> as 169.254.0.0
-        localWifiAddress.sin_addr.s_addr = in_addr_t(Int64(0xA9FE0000).bigEndian)
+        localWifiAddress.sin_addr.s_addr = in_addr_t(UInt32(0xA9FE0000).bigEndian)
         
         let ref = withUnsafePointer(&localWifiAddress) {
             SCNetworkReachabilityCreateWithAddress(kCFAllocatorDefault, UnsafePointer($0)).takeRetainedValue()
         }
         return Reachability(reachabilityRef: ref)
-    }
+    }*/
     
     // MARK: - *** Notifier methods ***
     func startNotifier() -> Bool {

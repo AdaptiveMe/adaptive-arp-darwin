@@ -33,6 +33,7 @@ Release:
 */
 
 import Foundation
+import AdaptiveArpApi
 #if os(iOS)
     import UIKit
     import CoreMotion
@@ -192,7 +193,7 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
         case ICapabilitiesCommunication.Telephony:
             
             #if os(iOS)
-                var application = AppRegistryBridge.sharedInstance.getPlatformContext().getContext() as UIApplication
+                var application = AppRegistryBridge.sharedInstance.getPlatformContext().getContext() as! UIApplication
                 return application.canOpenURL(NSURL(string: "tel://")!)
             #endif
             #if os(OSX)

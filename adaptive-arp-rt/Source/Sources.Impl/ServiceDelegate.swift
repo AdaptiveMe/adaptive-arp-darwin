@@ -33,6 +33,7 @@ Release:
 */
 
 import Foundation
+import AdaptiveArpApi
 #if os(iOS)
     import UIKit
 #endif
@@ -161,7 +162,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
             if UIDevice.currentDevice().model != "iPhone Simulator" {
                 var webview: AnyObject? = AppRegistryBridge.sharedInstance.getPlatformContextWeb().getWebviewPrimary()
                 dispatch_async(dispatch_get_main_queue(), {
-                    useragent = (webview as UIWebView).stringByEvaluatingJavaScriptFromString("navigator.userAgent")!
+                    useragent = (webview as! UIWebView).stringByEvaluatingJavaScriptFromString("navigator.userAgent")!
                 })
             }
         #endif
@@ -332,7 +333,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                             request.HTTPMethod = "GET"
                         }
                         
-                        request.URL = NSURL(string: url)!
+                        request.URL = NSURL(string: url as String)!
                         
                         // Content or BodyParameteres + Content
                         
@@ -421,6 +422,8 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                                     
                                 } else {
                                     
+                                    self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "\(data)")
+                                    
                                     if let responseText:NSString = NSString(data:data, encoding:NSUTF8StringEncoding) {
                                         
                                         var sCode:Int32 = Int32(httpResponse.statusCode)
@@ -434,7 +437,10 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                                             // VALID RESPONSES (CORRECT AND WARNINGS)
                                             
                                             var response: ServiceResponse = ServiceResponse()
-                                            response.setContent(responseText)
+                                            response.setContent(responseText as String)
+                                            
+                                            self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "\(response.getContent()!)")
+                                            
                                             response.setContentEncoding(IServiceContentEncoding.Utf8)
                                             response.setContentLength(Int32(responseText.length))
                                             response.setContentType(IOParser.sharedInstance.getContentType(token))
@@ -451,6 +457,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                                             switch sCode {
                                                 
                                             case 200...299:
+                                                self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "\(response.getContent()!)")
                                                 
                                                 callback.onResult(response)
                                                 return
