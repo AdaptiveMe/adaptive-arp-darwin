@@ -8,7 +8,7 @@
     <!-- List of supported languages. 
     Must exists [a-z][a-z]-[A-Z][A-Z].plist file  -->
     <supportedLanguages>
-        <supportedLanguage language="en" country="EN" />
+        <supportedLanguage language="en" country="EN" />            
     </supportedLanguages>
     
 </i18n-config>

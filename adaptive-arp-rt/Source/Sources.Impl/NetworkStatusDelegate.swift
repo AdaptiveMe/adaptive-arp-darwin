@@ -33,6 +33,7 @@ Release:
 */
 
 import Foundation
+import AdaptiveArpApi
 
 /**
    Interface for Managing the Network status
@@ -89,11 +90,20 @@ public class NetworkStatusDelegate : BaseCommunicationDelegate, INetworkStatus {
                 for (index, l) in enumerate(self.listeners) {
                     if reachability.isReachableViaWiFi() {
                         self.logger.log(ILoggingLogLevel.Debug, category: self.loggerTag, message: "Listener \(listener) reachable via WIFI")
-                        l.onResult(ICapabilitiesNet.WIFI)
+                        
+                        var date = NSDate()
+                        var timestamp:Int64 = Int64(date.timeIntervalSince1970*1000)
+                        var event:NetworkEvent = NetworkEvent(network: ICapabilitiesNet.WIFI, timestamp: timestamp)
+                        l.onResult(event)
+                        
                     } else {
                         self.logger.log(ILoggingLogLevel.Debug, category: self.loggerTag, message: "Listener \(listener) reachable via WAN")
                         // MARK: it is not possible to determine the G version of the connection: GSM, GPRS, HSPA, etc...
-                        l.onResult(ICapabilitiesNet.GSM)
+                        
+                        var date = NSDate()
+                        var timestamp:Int64 = Int64(date.timeIntervalSince1970*1000)
+                        var event:NetworkEvent = NetworkEvent(network: ICapabilitiesNet.GSM, timestamp: timestamp)
+                        l.onResult(event)
                     }
                 }
             }

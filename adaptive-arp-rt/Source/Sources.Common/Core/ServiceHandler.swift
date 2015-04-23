@@ -30,6 +30,7 @@
 */
 
 import Foundation
+import AdaptiveArpApi
 
 public class ServiceHandler:NSObject {
     

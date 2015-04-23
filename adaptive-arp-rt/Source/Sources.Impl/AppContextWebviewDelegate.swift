@@ -33,6 +33,7 @@ Release:
 */
 
 import Foundation
+import AdaptiveArpApi
 #if os(iOS)
     import UIKit
 #endif
@@ -77,7 +78,7 @@ not be added using this method.
         // Check if the webview is alredy in the array
         if let instance:AnyObject = webView as AnyObject? {
             for w in webViewList {
-                if (w as NSObject == instance as NSObject) {
+                if (w as! NSObject == instance as! NSObject) {
                     exists = true
                     break
                 }
@@ -115,7 +116,7 @@ not be added using this method.
         logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "JSON to TS: \(javaScriptText)")
         
         #if os(iOS)
-            (webViewReference as UIWebView).stringByEvaluatingJavaScriptFromString(javaScriptText)
+            (webViewReference as! UIWebView).stringByEvaluatingJavaScriptFromString(javaScriptText)
         #endif
         #if os(OSX)
             (webViewReference as WebView).stringByEvaluatingJavaScriptFromString(javaScriptText)
@@ -174,7 +175,7 @@ ARP functions and release resources. The primary webview can not be removed.
     public func removeWebview(webView : AnyObject) {
         
         for (index, webView) in enumerate(self.webViewList) {
-            if (webView as NSObject == webView as NSObject) {
+            if (webView as! NSObject == webView as! NSObject) {
                 self.webViewList.removeAtIndex(index)
                 return
             }

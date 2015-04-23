@@ -33,6 +33,7 @@ Release:
 */
 
 import Foundation
+import AdaptiveArpApi
 #if os(iOS)
     import UIKit
 #endif
@@ -64,7 +65,7 @@ public class BrowserDelegate : BaseUIDelegate, IBrowser {
     public override init() {
         super.init()
         #if os(iOS)
-            self.application = (AppRegistryBridge.sharedInstance.getPlatformContext().getContext() as UIApplication)
+            self.application = (AppRegistryBridge.sharedInstance.getPlatformContext().getContext() as! UIApplication)
         #endif
         #if os(OSX)
             self.workspace = NSWorkspace.sharedWorkspace()
@@ -113,7 +114,7 @@ public class BrowserDelegate : BaseUIDelegate, IBrowser {
             
             if checkURl(url) {
                 if (BaseViewController.ViewCurrent.getView() != nil) {
-                    return (BaseViewController.ViewCurrent.getView()! as BaseViewController).showInternalBrowser(title, backLabel: backButtonText, url: NSURL(string: url)!, showNavBar: true, showAnimated: true, modal: false)
+                    return (BaseViewController.ViewCurrent.getView()! as! BaseViewController).showInternalBrowser(title, backLabel: backButtonText, url: NSURL(string: url)!, showNavBar: true, showAnimated: true, modal: false)
                 } else {
                     return false
                 }
@@ -145,7 +146,7 @@ public class BrowserDelegate : BaseUIDelegate, IBrowser {
             
             if checkURl(url) {
                 if (BaseViewController.ViewCurrent.getView() != nil) {
-                    return (BaseViewController.ViewCurrent.getView()! as BaseViewController).showInternalBrowser(title, backLabel: backButtonText, url: NSURL(string: url)!, showNavBar: true, showAnimated: true, modal: true)
+                    return (BaseViewController.ViewCurrent.getView()! as! BaseViewController).showInternalBrowser(title, backLabel: backButtonText, url: NSURL(string: url)!, showNavBar: true, showAnimated: true, modal: true)
                 } else {
                     return false
                 }

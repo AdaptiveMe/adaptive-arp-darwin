@@ -33,6 +33,7 @@ Release:
 */
 
 import Foundation
+import AdaptiveArpApi
 #if os(iOS)
     import UIKit
 #endif
@@ -59,7 +60,7 @@ public class VideoDelegate : BaseMediaDelegate, IVideo {
     public override init() {
         super.init()
         #if os(iOS)
-            self.application = (AppRegistryBridge.sharedInstance.getPlatformContext().getContext() as UIApplication)
+            self.application = (AppRegistryBridge.sharedInstance.getPlatformContext().getContext() as! UIApplication)
         #endif
     }
 
@@ -74,7 +75,7 @@ public class VideoDelegate : BaseMediaDelegate, IVideo {
         if checkURl(url) {
             if (BaseViewController.ViewCurrent.getView() != nil) {
                 #if os(iOS)
-                    (BaseViewController.ViewCurrent.getView()! as BaseViewController).showInternalMedia(NSURL(string: url)!, showAnimated: true)
+                    (BaseViewController.ViewCurrent.getView()! as! BaseViewController).showInternalMedia(NSURL(string: url)!, showAnimated: true)
                 #endif
                 
             } else {

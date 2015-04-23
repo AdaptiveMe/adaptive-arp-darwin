@@ -31,6 +31,7 @@
 
 import UIKit
 import AVKit
+import AdaptiveArpApi
 
 public class BaseViewController : UIViewController {
     
@@ -55,18 +56,6 @@ public class BaseViewController : UIViewController {
             instance = view
         }
         
-    }
-    
-    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-    
-    public required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    override init() {
-        super.init()
     }
     
     public override func viewDidLoad() {
@@ -99,7 +88,14 @@ public class BaseViewController : UIViewController {
         var properties = NavigationProperties(navigationBarHidden: showNavBar, navigationBarTitle: titleLabel, navigationBarBackLabel: backLabel, navigationUrl: url)
         
         dispatch_async(dispatch_get_main_queue()) {
-            var browserView : BrowserViewController = BrowserViewController(navigationBarHidden: !properties.navigationBarHidden, navigationBarTitle: properties.navigationBarTitle, navigationBarBackLabel: properties.navigationBarBackLabel, navigationUrl: properties.navigationUrl!)
+            //var browserView : BrowserViewController = BrowserViewController(navigationBarHidden: !properties.navigationBarHidden, navigationBarTitle: properties.navigationBarTitle, navigationBarBackLabel: properties.navigationBarBackLabel, navigationUrl: properties.navigationUrl!,  nibName: self.nibName, bundle: self.nibBundle)
+            
+            var browserView : BrowserViewController = BrowserViewController()
+            browserView.navigationBarHidden = !properties.navigationBarHidden
+            browserView.navigationBarTitle = properties.navigationBarTitle
+            browserView.navigationBarBackLabel = properties.navigationBarBackLabel
+            browserView.navigationUrl = properties.navigationUrl
+            browserView.configureNavigation()
             
             if modal {
                 // TODO: present the top bar when presenting modal view controllers
@@ -122,7 +118,9 @@ public class BaseViewController : UIViewController {
         
         dispatch_async(dispatch_get_main_queue()) {
             
-            var mediaView : MediaViewController = MediaViewController(url: url)
+            //var mediaView : MediaViewController = MediaViewController(url: url, nibName: self.nibName, bundle: self.nibBundle)
+            var mediaView : MediaViewController = MediaViewController()
+            mediaView.setAVPlayer(url)
             self.navigationController!.presentViewController(mediaView, animated: showAnimated, completion: nil)
         }
         if showAnimated {
@@ -137,17 +135,18 @@ public class BaseViewController : UIViewController {
         
         if (segue.identifier == "showBrowser" && segue.destinationViewController is BrowserViewController) {
             
-            var browserView : BrowserViewController = segue.destinationViewController as BrowserViewController
-            ViewCurrent.setView(browserView)
-            var properties : NavigationProperties = sender as NavigationProperties
+            var browserView : BrowserViewController = segue.destinationViewController as! BrowserViewController
+            var properties : NavigationProperties = sender as! NavigationProperties
             browserView.navigationBarBackLabel = properties.navigationBarBackLabel
             browserView.navigationBarHidden = !properties.navigationBarHidden
             browserView.navigationBarTitle = properties.navigationBarTitle
             browserView.navigationUrl = properties.navigationUrl
+            //browserView.configureNavigation()
+            ViewCurrent.setView(browserView)
             
         } else if (segue.identifier == "showMedia" && segue.destinationViewController is MediaViewController) {
             
-            var mediaView : MediaViewController = segue.destinationViewController as MediaViewController
+            var mediaView : MediaViewController = segue.destinationViewController as! MediaViewController
             ViewCurrent.setView(mediaView)
         }
     }

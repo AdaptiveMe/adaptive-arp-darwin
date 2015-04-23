@@ -30,6 +30,7 @@
 */
 
 import Foundation
+import AdaptiveArpApi
 
 #if os(iOS)
     import UIKit
@@ -67,15 +68,10 @@ public class HttpInterceptorProtocol : NSURLProtocol {
         return "X-AdaptiveVersion"
     }*/
     
-    /// Constructor
-    override public init() {
-        super.init()
-    }
-    
     /// Initializes an NSURLProtocol object.
     override public init(request: NSURLRequest, cachedResponse: NSCachedURLResponse?, client: NSURLProtocolClient?) {
         
-        var newRequest:NSMutableURLRequest = request.mutableCopy() as NSMutableURLRequest
+        var newRequest:NSMutableURLRequest = request.mutableCopy() as! NSMutableURLRequest
         newRequest.setValue("true", forHTTPHeaderField: HttpInterceptorProtocol.httpInterceptorKey)
         super.init(request: newRequest, cachedResponse: cachedResponse, client: client)
     }
@@ -85,7 +81,7 @@ public class HttpInterceptorProtocol : NSURLProtocol {
     override public class func canInitWithRequest(request: NSURLRequest) -> Bool {
         
         var method = request.HTTPMethod
-        var url = request.URL.absoluteString
+        var url = request.URL!.absoluteString
         
         if request.valueForHTTPHeaderField(httpInterceptorKey) == nil {
             return true
@@ -100,32 +96,32 @@ public class HttpInterceptorProtocol : NSURLProtocol {
     /// Starts protocol-specific loading of the request. When this method is called, the subclass implementation should start loading the request, providing feedback to the URL loading system via the NSURLProtocolClient protocol.
     override public func startLoading() {
         
-        var newRequest:NSMutableURLRequest = self.request.mutableCopy() as NSMutableURLRequest
+        var newRequest:NSMutableURLRequest = self.request.mutableCopy() as! NSMutableURLRequest
         
         var method = newRequest.HTTPMethod
         var url = newRequest.URL!.absoluteString
         
         if let url = url {
             
-            if url.hasPrefix(HttpInterceptorProtocol.adaptiveBasePath) && method == "GET" {
+            if url.hasPrefix(HttpInterceptorProtocol.adaptiveBasePath as String) && method == "GET" {
                 
                 // FILE MANAGEMENT (via REALM)
                 
                 var resourceData = AppResourceManager.sharedInstance.retrieveWebResource(newRequest.URL!.path!)
                 
                 if resourceData != nil {
-                    var response = NSURLResponse(URL: self.request.URL, MIMEType: resourceData!.raw_type, expectedContentLength: resourceData!.data.length, textEncodingName: "utf-8")
+                    var response = NSURLResponse(URL: self.request.URL!, MIMEType: resourceData!.raw_type as String, expectedContentLength: resourceData!.data.length, textEncodingName: "utf-8")
                     self.client!.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: .NotAllowed)
                     self.client!.URLProtocol(self, didLoadData: resourceData!.data)
                     self.client!.URLProtocolDidFinishLoading(self)
                 } else {
-                    var response : NSHTTPURLResponse! = NSHTTPURLResponse(URL: self.request.URL, statusCode: 404, HTTPVersion: "1.1", headerFields: nil)
+                    var response : NSHTTPURLResponse! = NSHTTPURLResponse(URL: self.request.URL!, statusCode: 404, HTTPVersion: "1.1", headerFields: nil)
                     self.client!.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: .NotAllowed)
                     self.client!.URLProtocol(self, didLoadData: "<html><body><h1>404</h1></body></html>".dataUsingEncoding(NSUTF8StringEncoding)!)
                     self.client!.URLProtocolDidFinishLoading(self)
                 }
                 
-            } else if url.hasPrefix(HttpInterceptorProtocol.adaptiveBasePath) && method == "POST" {
+            } else if url.hasPrefix(HttpInterceptorProtocol.adaptiveBasePath as String) && method == "POST" {
                 
                 // ADAPTIVE NATIVE CALLS
                 
@@ -147,7 +143,7 @@ public class HttpInterceptorProtocol : NSURLProtocol {
                         }*/
                         
                         // Parse the http body request and converto into a APIRequest Object
-                        var apiRequest:APIRequest = APIRequest.Serializer.fromJSON(bodyString)
+                        var apiRequest:APIRequest = APIRequest.Serializer.fromJSON(bodyString as String)
                         
                         // Check the version of the API inside the request attributes
                         if let tsVersion: String = apiRequest.getApiVersion() {
@@ -166,7 +162,7 @@ public class HttpInterceptorProtocol : NSURLProtocol {
                         var responseHeaders = NSMutableDictionary(dictionary: requestHeaders)
                         responseHeaders.setValue("application/javascript; charset=utf-8", forKey: "Content-Type")
                         responseHeaders.setValue("\(data.length)", forKey: "Content-Length")
-                        var response : NSHTTPURLResponse! = NSHTTPURLResponse(URL: self.request.URL, statusCode: 200, HTTPVersion: "1.1", headerFields: responseHeaders)
+                        var response : NSHTTPURLResponse! = NSHTTPURLResponse(URL: self.request.URL!, statusCode: 200, HTTPVersion: "1.1", headerFields: responseHeaders as [NSObject : AnyObject])
                         
                         if let nsData:NSData = data.dataUsingEncoding(NSUTF8StringEncoding) {                            
                             self.client!.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: .NotAllowed)
@@ -217,7 +213,7 @@ public class HttpInterceptorProtocol : NSURLProtocol {
     
     private func nonPermisionResponse(newRequest:NSMutableURLRequest) {
         
-        var response : NSHTTPURLResponse! = NSHTTPURLResponse(URL: self.request.URL, statusCode: 403, HTTPVersion: "1.1", headerFields: nil)
+        var response : NSHTTPURLResponse! = NSHTTPURLResponse(URL: self.request.URL!, statusCode: 403, HTTPVersion: "1.1", headerFields: nil)
         self.client!.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: .NotAllowed)
         self.client!.URLProtocol(self, didLoadData: "The service you're trying to call is not registered in the io-services config file.".dataUsingEncoding(NSUTF8StringEncoding)!)
         self.client!.URLProtocolDidFinishLoading(self)

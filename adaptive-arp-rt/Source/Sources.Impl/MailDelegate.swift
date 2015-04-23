@@ -33,6 +33,7 @@ Release:
 */
 
 import Foundation
+import AdaptiveArpApi
 #if os(iOS)
 import MessageUI
 /**
@@ -70,10 +71,10 @@ public class MailDelegate : UIViewController, /*BasePIMDelegate,*/ IMail, MFMail
     /**
        Default Constructor.
     */
-    public override init() {
-        super.init()
+    /*override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+        super.init(nibName:nibNameOrNil, bundle:nibBundleOrNil)
         self.apiGroup = IAdaptiveRPGroup.PIM
-    }
+    }*/
 
     /**
        Send an Email
@@ -134,7 +135,7 @@ public class MailDelegate : UIViewController, /*BasePIMDelegate,*/ IMail, MFMail
             
             for attachment: EmailAttachmentData in data.getEmailAttachmentData()! {
                 
-                var nsData:NSData = NSData(bytes: attachment.getData()! as [Byte], length: Int(attachment.getSize()!))
+                var nsData:NSData = NSData(bytes: attachment.getData()! as [UInt8], length: Int(attachment.getSize()!))
                 
                 mail.addAttachmentData(nsData, mimeType: attachment.getMimeType(), fileName: attachment.getFileName())
                 

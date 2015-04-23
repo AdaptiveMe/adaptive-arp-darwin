@@ -30,6 +30,7 @@
 */
 
 import UIKit
+import AdaptiveArpApi
 
 public class BrowserViewController: BaseViewController, UIWebViewDelegate {
     
@@ -42,8 +43,8 @@ public class BrowserViewController: BaseViewController, UIWebViewDelegate {
     public var navigationUrl : NSURL?
     private var navigationInitialized = false
     
-    init(navigationBarHidden: Bool, navigationBarTitle: String, navigationBarBackLabel: String, navigationUrl: NSURL) {
-        super.init()
+    /*init(navigationBarHidden: Bool, navigationBarTitle: String, navigationBarBackLabel: String, navigationUrl: NSURL, nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName:nibNameOrNil, bundle:nibBundleOrNil)
         self.navigationBarHidden = navigationBarHidden
         self.navigationBarTitle = navigationBarTitle
         self.navigationBarBackLabel = navigationBarBackLabel
@@ -57,7 +58,7 @@ public class BrowserViewController: BaseViewController, UIWebViewDelegate {
     
     override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
+    }*/
     
     override public func loadView() {
         super.loadView()
@@ -83,7 +84,7 @@ public class BrowserViewController: BaseViewController, UIWebViewDelegate {
         }
     }
     
-    private func configureNavigation() {
+    public func configureNavigation() {
         self.navigationController?.navigationBarHidden = navigationBarHidden
         self.navigationItem.title = navigationBarTitle
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: navigationBarBackLabel, style: UIBarButtonItemStyle.Plain, target: nil, action: nil)

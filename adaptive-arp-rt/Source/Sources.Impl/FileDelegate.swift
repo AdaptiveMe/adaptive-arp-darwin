@@ -33,6 +33,7 @@ Release:
 */
 
 import Foundation
+import AdaptiveArpApi
 
 /**
    Interface for Managing the File operations
@@ -237,7 +238,7 @@ new destination file.
        @param callback Result of the operation.
        @since ARP1.0
     */
-    public func setContent(descriptor : FileDescriptor, content : [Byte], callback : IFileDataStoreResultCallback) {
+    public func setContent(descriptor : FileDescriptor, content : [UInt8], callback : IFileDataStoreResultCallback) {
         // TODO: Not implemented.
     }
 

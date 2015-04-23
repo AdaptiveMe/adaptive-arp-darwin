@@ -29,6 +29,7 @@
 * =====================================================================================================================
 */
 import Foundation
+import AdaptiveArpApi
 
 public class IOParser : NSObject, NSXMLParserDelegate {
     
@@ -93,7 +94,7 @@ public class IOParser : NSObject, NSXMLParserDelegate {
         }
         
         // Create the parser and parse the xml
-        var xmlParser = NSXMLParser(data: data)
+        var xmlParser = NSXMLParser(data: data!)
         xmlParser.delegate = self
         
         if !xmlParser.parse() {
@@ -110,7 +111,7 @@ public class IOParser : NSObject, NSXMLParserDelegate {
     :param: qName         qName of the element
     :param: attributeDict dictionary of attributes
     */
-    func parser(parser: NSXMLParser!, didStartElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!, attributes attributeDict: NSDictionary!) {
+    public func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName: String?, attributes attributeDict: [NSObject : AnyObject]) {
         
         if elementName == IO_RESOURCE {
             resources.append("\(attributeDict[IO_ATTR_URL]!)")
@@ -154,7 +155,7 @@ public class IOParser : NSObject, NSXMLParserDelegate {
     :param: namespaceURI  namespace uri of the element
     :param: qName         qName of the element
     */
-    public func parser(parser: NSXMLParser!, didEndElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!) {
+    public func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         
         if elementName == IO_SERVICE {
             
@@ -309,7 +310,7 @@ public class IOParser : NSObject, NSXMLParserDelegate {
         }
         
         // Parse the uri
-        var uriArray:[String] = uri.componentsSeparatedByString("/") as [String]
+        var uriArray:[String] = uri.componentsSeparatedByString("/") as! [String]
         var host = uriArray[0]+"//"+uriArray[2]
         
         var path = ""

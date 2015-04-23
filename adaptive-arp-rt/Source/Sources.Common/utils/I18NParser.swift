@@ -29,18 +29,36 @@
 * =====================================================================================================================
 */
 import Foundation
+import AdaptiveArpApi
 
 public class I18NParser : NSObject, NSXMLParserDelegate {
+    
+    
+    /// Singleton instance
+    public class var sharedInstance : I18NParser {
+        struct Static {
+            static let instance : I18NParser = I18NParser()
+        }
+        return Static.instance
+    }
     
     /// Logging variable
     let logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
     let loggerTag : String = "I18NParser"
     
     /// Locales supported (filled by the getLocaleSupportedDescriptors method)
-    var localesArray:[Locale]
+    var localesArray:[Locale]? = nil
     
     /// Default Locale
-    var defaultLocale:Locale
+    var defaultLocale:Locale?
+    
+    /// i18n config file
+    public class var I18N_CONFIG_FILE: String {
+        return "i18n-config.xml";
+    }
+    public class var I18N_LANG_FILE: String {
+        return ".plist";
+    }
     
     let I18N_SUPLANG_ELEM: String = "supportedLanguage"
     let I18N_SUPLANG_DEFAULT: String = "default"
@@ -51,9 +69,25 @@ public class I18NParser : NSObject, NSXMLParserDelegate {
     Class constructor
     */
     public override init(){
-        localesArray = []
-        defaultLocale = Locale()
+        
         super.init()
+        
+        // Read the i18n config file
+        if let resourceData:ResourceData = AppResourceManager.sharedInstance.retrieveConfigResource(I18NParser.I18N_CONFIG_FILE) {
+            
+            var xmlParser = NSXMLParser(data: resourceData.data)
+            xmlParser.delegate = self
+            
+            localesArray = []
+            defaultLocale = Locale()
+            
+            if !xmlParser.parse() {
+                logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error parsing i18n config file: \(I18NParser.I18N_CONFIG_FILE)")
+            }
+            
+        } else {
+            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error reading i18n config file: \(I18NParser.I18N_CONFIG_FILE)")
+        }
     }
     
     /**
@@ -65,21 +99,24 @@ public class I18NParser : NSObject, NSXMLParserDelegate {
     :param: qName         qName of the element
     :param: attributeDict dictionary of attributes
     */
-    func parser(parser: NSXMLParser!, didStartElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!, attributes attributeDict: NSDictionary!) {
+    public func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName: String?, attributes attributeDict: [NSObject : AnyObject]) {
         
         // Store
         if elementName == I18N_SUPLANG_ELEM {
+            
             logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Reading language: \(attributeDict[I18N_SUPLANG_ATTR_LANG])")
             
             var locale:Locale = Locale()
             locale.setLanguage("\(attributeDict[I18N_SUPLANG_ATTR_LANG]!)")
             locale.setCountry("\(attributeDict[I18N_SUPLANG_ATTR_CNTR]!)")
-            localesArray.append(locale)
+            localesArray!.append(locale)
+            
         } else if elementName == I18N_SUPLANG_DEFAULT {
+            
             logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Reading default language: \(attributeDict[I18N_SUPLANG_ATTR_LANG])")
             
-            defaultLocale.setLanguage("\(attributeDict[I18N_SUPLANG_ATTR_LANG]!)")
-            defaultLocale.setCountry("\(attributeDict[I18N_SUPLANG_ATTR_CNTR]!)")
+            defaultLocale!.setLanguage("\(attributeDict[I18N_SUPLANG_ATTR_LANG]!)")
+            defaultLocale!.setCountry("\(attributeDict[I18N_SUPLANG_ATTR_CNTR]!)")
         }
     }
     
@@ -88,7 +125,7 @@ public class I18NParser : NSObject, NSXMLParserDelegate {
     
     :returns: List of locales
     */
-    public func getLocales() -> [Locale] {
+    public func getLocales() -> [Locale]? {
         return localesArray
     }
     
@@ -97,7 +134,7 @@ public class I18NParser : NSObject, NSXMLParserDelegate {
     
     :returns: Default Locale
     */
-    public func getDefaultLocale() -> Locale {
+    public func getDefaultLocale() -> Locale? {
         return defaultLocale
     }
 }

@@ -32,20 +32,12 @@
 import UIKit
 import AVKit
 import AVFoundation
+import AdaptiveArpApi
 
-public class MediaViewController: AVPlayerViewController {
+public class MediaViewController: AVPlayerViewController {    
     
-    init(url: NSURL) {
-        super.init()
+    public func setAVPlayer(url:NSURL){
         self.player = AVPlayer(URL: url)
-    }
-    
-    required public init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
 }

@@ -33,6 +33,7 @@ Release:
 */
 
 import Foundation
+import AdaptiveArpApi
 
 /**
    Interface for Managing the Security operations
@@ -170,7 +171,7 @@ public class SecurityDelegate : BaseSecurityDelegate, ISecurity {
             
             var pair: SecureKeyPair = SecureKeyPair()
             pair.setSecureKey(key)
-            pair.setSecureData(response.data!)
+            pair.setSecureData(response.data! as String)
             
             var tuple: (pair: SecureKeyPair, success: Int) = self.handleSecurityResponse(response.status, pair: pair, callback: callback)
             
@@ -410,7 +411,7 @@ public class SecurityDelegate : BaseSecurityDelegate, ISecurity {
         
         var contentsOfKeychain: NSString?
         
-        if let op = opaque? {
+        if let op = opaque {
             let retrievedData = Unmanaged<NSData>.fromOpaque(op).takeUnretainedValue()
             
             // Convert the data retrieved from the keychain into a string

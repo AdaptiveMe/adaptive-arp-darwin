@@ -33,6 +33,7 @@ Release:
 */
 
 import Foundation
+import AdaptiveArpApi
 
 /**
    Interface for Managing the Runtime operations

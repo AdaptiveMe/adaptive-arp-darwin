@@ -30,6 +30,7 @@
 */
 
 import UIKit
+import AdaptiveArpApi
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -52,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppRegistryBridge.sharedInstance.getBrowserBridge().setDelegate(BrowserDelegate())
         AppRegistryBridge.sharedInstance.getCapabilitiesBridge().setDelegate(CapabilitiesDelegate())
         AppRegistryBridge.sharedInstance.getContactBridge().setDelegate(ContactDelegate())
-        AppRegistryBridge.sharedInstance.getDatabaseBridge().setDelegate(DatabaseDelegate())
+        //AppRegistryBridge.sharedInstance.getDatabaseBridge().setDelegate(DatabaseDelegate())
         AppRegistryBridge.sharedInstance.getDeviceBridge().setDelegate(DeviceDelegate())
         AppRegistryBridge.sharedInstance.getDisplayBridge().setDelegate(DisplayDelegate())
         AppRegistryBridge.sharedInstance.getFileBridge().setDelegate(FileDelegate())
@@ -84,8 +85,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Register the HttpInterceptorprotocol
         NSURLProtocol.registerClass(HttpInterceptorProtocol)
         
-        var lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Starting)
-        (AppRegistryBridge.sharedInstance.getLifecycleBridge().getDelegate()! as LifecycleDelegate).changeListenersStatus(lifecycle)
+        var lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Starting, timestamp: Int64(NSDate().timeIntervalSince1970*1000))
+        (AppRegistryBridge.sharedInstance.getLifecycleBridge().getDelegate()! as! LifecycleDelegate).changeListenersStatus(lifecycle)
         LifecycleDelegate.isBackgroundClassVariable = false
         
         return true
@@ -96,8 +97,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "didFinishLaunchingWithOptions")
         
-        var lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Started)
-        (AppRegistryBridge.sharedInstance.getLifecycleBridge().getDelegate()! as LifecycleDelegate).changeListenersStatus(lifecycle)
+        var lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Started, timestamp: Int64(NSDate().timeIntervalSince1970*1000))
+        (AppRegistryBridge.sharedInstance.getLifecycleBridge().getDelegate()! as! LifecycleDelegate).changeListenersStatus(lifecycle)
         LifecycleDelegate.isBackgroundClassVariable = false
         
         return true
@@ -108,8 +109,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "applicationDidBecomeActive")
         
-        var lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Running)
-        (AppRegistryBridge.sharedInstance.getLifecycleBridge().getDelegate()! as LifecycleDelegate).changeListenersStatus(lifecycle)
+        var lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Running, timestamp: Int64(NSDate().timeIntervalSince1970*1000))
+        (AppRegistryBridge.sharedInstance.getLifecycleBridge().getDelegate()! as! LifecycleDelegate).changeListenersStatus(lifecycle)
         LifecycleDelegate.isBackgroundClassVariable = false
     }
 
@@ -118,8 +119,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "applicationWillResignActive")
         
-        var lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Pausing)
-        (AppRegistryBridge.sharedInstance.getLifecycleBridge().getDelegate()! as LifecycleDelegate).changeListenersStatus(lifecycle)
+        var lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Pausing, timestamp: Int64(NSDate().timeIntervalSince1970*1000))
+        (AppRegistryBridge.sharedInstance.getLifecycleBridge().getDelegate()! as! LifecycleDelegate).changeListenersStatus(lifecycle)
         LifecycleDelegate.isBackgroundClassVariable = true
     }
 
@@ -128,8 +129,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "applicationDidEnterBackground")
         
-        var lifecycle:Lifecycle = Lifecycle(state: LifecycleState.PausedIdle)
-        (AppRegistryBridge.sharedInstance.getLifecycleBridge().getDelegate()! as LifecycleDelegate).changeListenersStatus(lifecycle)
+        var lifecycle:Lifecycle = Lifecycle(state: LifecycleState.PausedIdle, timestamp: Int64(NSDate().timeIntervalSince1970*1000))
+        (AppRegistryBridge.sharedInstance.getLifecycleBridge().getDelegate()! as! LifecycleDelegate).changeListenersStatus(lifecycle)
         LifecycleDelegate.isBackgroundClassVariable = true
         
         // TODO: check if there is some listener of gps, network acces, etc... to check if the lifecycle
@@ -141,8 +142,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "applicationWillEnterForeground")
         
-        var lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Resuming)
-        (AppRegistryBridge.sharedInstance.getLifecycleBridge().getDelegate()! as LifecycleDelegate).changeListenersStatus(lifecycle)
+        var lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Resuming, timestamp: Int64(NSDate().timeIntervalSince1970*1000))
+        (AppRegistryBridge.sharedInstance.getLifecycleBridge().getDelegate()! as! LifecycleDelegate).changeListenersStatus(lifecycle)
         LifecycleDelegate.isBackgroundClassVariable = false
     }
 
@@ -151,8 +152,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "applicationWillTerminate")
         
-        var lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Stopping)
-        (AppRegistryBridge.sharedInstance.getLifecycleBridge().getDelegate()! as LifecycleDelegate).changeListenersStatus(lifecycle)
+        var lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Stopping, timestamp: Int64(NSDate().timeIntervalSince1970*1000))
+        (AppRegistryBridge.sharedInstance.getLifecycleBridge().getDelegate()! as! LifecycleDelegate).changeListenersStatus(lifecycle)
         LifecycleDelegate.isBackgroundClassVariable = true
         
         NSURLProtocol.unregisterClass(HttpInterceptorProtocol)
@@ -187,7 +188,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         
-        ((displayBridge as DisplayBridge).getDelegate() as DisplayDelegate).orientationEvent(origin, destinationOrientation: destination, state: RotationEventState.WillStartRotation)
+        ((displayBridge as! DisplayBridge).getDelegate() as! DisplayDelegate).orientationEvent(origin, destinationOrientation: destination, state: RotationEventState.WillStartRotation)
     }
     
     /// Tells the delegate when the interface orientation of the status bar has changed.
@@ -219,7 +220,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         
-        ((displayBridge as DisplayBridge).getDelegate() as DisplayDelegate).orientationEvent(origin, destinationOrientation: destination, state: RotationEventState.DidFinishRotation)
+        ((displayBridge as! DisplayBridge).getDelegate() as! DisplayDelegate).orientationEvent(origin, destinationOrientation: destination, state: RotationEventState.DidFinishRotation)
     }
     
     /// Tells the delegate when the app receives a memory warning from the system.
@@ -227,9 +228,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "applicationDidReceiveMemoryWarning")
         
-        var lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Stopping)
-        (AppRegistryBridge.sharedInstance.getLifecycleBridge().getDelegate()! as LifecycleDelegate).changeListenerWarningStatus(lifecycle, warning: ILifecycleListenerWarning.MemoryLow)
+        var lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Stopping, timestamp: Int64(NSDate().timeIntervalSince1970*1000))
+        (AppRegistryBridge.sharedInstance.getLifecycleBridge().getDelegate()! as! LifecycleDelegate).changeListenerWarningStatus(lifecycle, warning: ILifecycleListenerWarning.MemoryLow)
     }
     
 }
-

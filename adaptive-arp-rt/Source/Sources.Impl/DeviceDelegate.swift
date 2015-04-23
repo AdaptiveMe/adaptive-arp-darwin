@@ -33,6 +33,7 @@ Release:
 */
 
 import Foundation
+import AdaptiveArpApi
 #if os(iOS)
     import UIKit
 #endif
@@ -74,8 +75,10 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
         #endif
         #if os(OSX)
             
+            // TODO: Hardware Model
+            
             let host: NSHost = NSHost.currentHost()
-            deviceInfo = DeviceInfo(name: host.name!, model: getSysValue("hw.model"), vendor: "Apple", uuid: NSUUID().UUIDString)
+            deviceInfo = DeviceInfo(name: host.name!, model: ""/*getSysValue("hw.model")*/, vendor: "Apple", uuid: NSUUID().UUIDString)
             
         #endif
         
@@ -107,8 +110,8 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
         
         let localeComponents: [NSObject : AnyObject] = NSLocale.componentsFromLocaleIdentifier(currentLocale.localeIdentifier)
         
-        let country: String = localeComponents[NSLocaleCountryCode] as String
-        let language: String = localeComponents[NSLocaleLanguageCode] as String
+        let country: String = localeComponents[NSLocaleCountryCode] as! String
+        let language: String = localeComponents[NSLocaleLanguageCode] as! String
         
         logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Country=\(country)")
         logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Language=\(language)")
@@ -296,7 +299,8 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
     /**
     Function that handles an event of rotation on the device. Propagates every event to the listeners
     */
-    func orientationEvent() {
+    // fnva (23/04/2015) Swift 1.2 Annotation @objc to solve error Object X of class Y does not implement methodSignatureForSelector
+    @objc func orientationEvent() {
         
         if orientationListeners.count == 0 {
             logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "There are Notifications of UIDeviceOrientationDidChangeNotification but there no listener registered on the platfform.")
@@ -407,13 +411,13 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    private func getSysValue(attr: String) -> String {
+    /*private func getSysValue(attr: String) -> String {
         var size : UInt = 0
         sysctlbyname(attr, nil, &size, nil, 0)
         var machine = [CChar](count: Int(size), repeatedValue: 0)
         sysctlbyname(attr, &machine, &size, nil, 0)
         return String.fromCString(machine)!
-    }
+    }*/
     
 }
 /**

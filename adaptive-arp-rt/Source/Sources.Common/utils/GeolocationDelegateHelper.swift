@@ -31,6 +31,7 @@
 
 import Foundation
 import CoreLocation
+import AdaptiveArpApi
 
 
 public class GeolocationDelegateHelper: NSObject, CLLocationManagerDelegate {
@@ -84,7 +85,7 @@ public class GeolocationDelegateHelper: NSObject, CLLocationManagerDelegate {
     public func locationManager(manager: CLLocationManager, didUpdateLocations locations: [AnyObject]) {
         
         var locationArray = locations as NSArray
-        var locationObject = locationArray.lastObject as CLLocation
+        var locationObject = locationArray.lastObject as! CLLocation
         var coordinates = locationObject.coordinate
         
         var latitude:Double = coordinates.latitude
@@ -203,7 +204,7 @@ public class GeolocationDelegateHelper: NSObject, CLLocationManagerDelegate {
     */
     public func stopUpdatingLocation() {
         
-        logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Stopping the geolocation updates of \(self.getListener().description)")
+        logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Stopping the geolocation updates of \(self.getListener())")
         
         locationManager.stopUpdatingLocation()
     }

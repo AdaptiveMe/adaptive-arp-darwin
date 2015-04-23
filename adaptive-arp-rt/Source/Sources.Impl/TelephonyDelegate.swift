@@ -33,6 +33,7 @@ Release:
 */
 
 import Foundation
+import AdaptiveArpApi
 #if os(iOS)
     import UIKit
 #endif
@@ -58,7 +59,7 @@ public class TelephonyDelegate : BaseCommunicationDelegate, ITelephony {
     public override init() {
         super.init()
         #if os(iOS)
-            self.application = (AppRegistryBridge.sharedInstance.getPlatformContext().getContext() as UIApplication)
+            self.application = (AppRegistryBridge.sharedInstance.getPlatformContext().getContext() as! UIApplication)
         #endif
     }
 
