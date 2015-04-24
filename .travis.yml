@@ -3,6 +3,9 @@ sudo: false
 language: objective-c
 podfile: adaptive-arp-rt/Podfile
 
-script: 
+before_install:
 - gem install cocoapods --pre
-- xctool -workspace adaptive-arp-rt/adaptive-arp-rt.xcworkspace -scheme AdaptiveArpRtiOS -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO build test
+
+script: 
+# fnva (24/04/2015) beta-xcode6.3 pending
+# - xctool -workspace adaptive-arp-rt/adaptive-arp-rt.xcworkspace -scheme AdaptiveArpRtiOS -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO build test
