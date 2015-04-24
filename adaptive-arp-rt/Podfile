@@ -1,5 +1,5 @@
 xcodeproj 'adaptive-arp-rt.xcodeproj'
 platform :ios, '8.0'
 use_frameworks!
-pod 'AdaptiveArpApi', '2.2.11'
+pod 'AdaptiveArpApi', '2.2.12'
 pod 'CryptoSwift', '0.0.10'

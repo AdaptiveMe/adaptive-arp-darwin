@@ -90,7 +90,7 @@ public class NetworkReachabilityDelegate : BaseCommunicationDelegate, INetworkRe
         // TODO: handle http status WARNING codes for: NotRegisteredService, NotTrusted, IncorrectScheme
         
         // Check the url for malforming
-        if(Utils.validateUrl(url)){
+        if(!Utils.validateUrl(url)){
             callback.onError(INetworkReachabilityCallbackError.MalformedUrl)
             self.logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Url malformed: \(url)")
             return
