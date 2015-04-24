@@ -1,3 +1,0 @@
-[submodule "adaptive-arp-rt/ThirdParty/SQLite.swift"]
-	path = adaptive-arp-rt/ThirdParty/SQLite.swift
-	url = https://github.com/AdaptiveMe/SQLite.swift.git
