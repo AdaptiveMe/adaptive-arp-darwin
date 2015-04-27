@@ -30,9 +30,9 @@ array=( SQLite.swift )
 for project in "${array[@]}"
 do
     echo Processing third-party module $project .
-    cd ThirdParty/$project
+    cd $project
     git pull origin master
-    cd ..
+    #cd ..
     git status
     git add $project
     git commit -m "$project sub-module updated."

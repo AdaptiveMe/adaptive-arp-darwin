@@ -33,6 +33,7 @@ Release:
 */
 
 import Foundation
+import AdaptiveArpApi
 import SQLite
 
 /**
@@ -41,12 +42,13 @@ import SQLite
 */
 public class DatabaseDelegate : BaseDataDelegate, IDatabase {
     
+    
     /// Logger variable
     let logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
     let loggerTag : String = "DatabaseDelegate"
     
     /// Documents directory
-    let docDir:AnyObject?
+    var docDir:AnyObject?
     
     /// Queue for executing sync tasks
     var queue:dispatch_queue_t?
@@ -82,7 +84,7 @@ public class DatabaseDelegate : BaseDataDelegate, IDatabase {
        @param database Database object to create
        @since ARP1.0
     */
-    public func createDatabase(database : Database, callback : IDatabaseResultCallback) {
+    public func createDatabase(database : AdaptiveArpApi.Database, callback : IDatabaseResultCallback) {
         
         // TODO: handle NoSpace result callback error
         // TODO: The attribute compress database is not used, because in this framework (SQLite) is not supported
@@ -131,7 +133,7 @@ public class DatabaseDelegate : BaseDataDelegate, IDatabase {
        @param callback      DatabaseTable callback with the response
        @since ARP1.0
     */
-    public func createTable(database : Database, databaseTable : DatabaseTable, callback : IDatabaseTableResultCallback) {
+    public func createTable(database : AdaptiveArpApi.Database, databaseTable : DatabaseTable, callback : IDatabaseTableResultCallback) {
         
         if !self.openDatabase(database) {
             self.logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The database is not found in the file system")
@@ -184,7 +186,7 @@ public class DatabaseDelegate : BaseDataDelegate, IDatabase {
        @param callback Asynchronous callback
        @since ARP1.0
     */
-    public func deleteDatabase(database : Database, callback : IDatabaseResultCallback) {
+    public func deleteDatabase(database : AdaptiveArpApi.Database, callback : IDatabaseResultCallback) {
         
         if !self.checkDatabaseName(database) {
             callback.onError(IDatabaseResultCallbackError.SqlException)
@@ -222,7 +224,7 @@ public class DatabaseDelegate : BaseDataDelegate, IDatabase {
        @param callback      DatabaseTable callback with the response
        @since ARP1.0
     */
-    public func deleteTable(database : Database, databaseTable : DatabaseTable, callback : IDatabaseTableResultCallback) {
+    public func deleteTable(database : AdaptiveArpApi.Database, databaseTable : DatabaseTable, callback : IDatabaseTableResultCallback) {
         
         if !self.openDatabase(database) {
             self.logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The database is not found in the file system")
@@ -265,7 +267,7 @@ should be passed as a parameter
        @param callback     DatabaseTable callback with the response.
        @since ARP1.0
     */
-    public func executeSqlStatement(database : Database, statement : String, replacements : [String], callback : IDatabaseTableResultCallback) {
+    public func executeSqlStatement(database : AdaptiveArpApi.Database, statement : String, replacements : [String], callback : IDatabaseTableResultCallback) {
         
         if !self.openDatabase(database) {
             self.logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The database is not found in the file system")
@@ -321,7 +323,7 @@ should be passed as a parameter
        @param callback     DatabaseTable callback with the response.
        @since ARP1.0
     */
-    public func executeSqlTransactions(database : Database, statements : [String], rollbackFlag : Bool, callback : IDatabaseTableResultCallback) {
+    public func executeSqlTransactions(database : AdaptiveArpApi.Database, statements : [String], rollbackFlag : Bool, callback : IDatabaseTableResultCallback) {
         
         // TODO: use rollbackFlag. Now, when error ocurs, all the transaction is rolled back
         
@@ -359,7 +361,7 @@ should be passed as a parameter
        @return True if exists, false otherwise
        @since ARP1.0
     */
-    public func existsDatabase(database : Database) -> Bool? {
+    public func existsDatabase(database : AdaptiveArpApi.Database) -> Bool? {
         
         if !self.checkDatabaseName(database) {
             return false
@@ -390,7 +392,7 @@ should be passed as a parameter
        @return True if exists, false otherwise
        @since ARP1.0
     */
-    public func existsTable(database : Database, databaseTable : DatabaseTable) -> Bool? {
+    public func existsTable(database : AdaptiveArpApi.Database, databaseTable : DatabaseTable) -> Bool? {
         
         if !self.openDatabase(database) {
             self.logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The database is not found in the file system")
@@ -418,7 +420,7 @@ should be passed as a parameter
     
        @param database      Database for databaseTable consulting.
     */
-    private func checkDatabaseName(database: Database) -> Bool {
+    private func checkDatabaseName(database: AdaptiveArpApi.Database) -> Bool {
         
         if(database.getName()!.isEmpty || database.getName() == ""){
             
@@ -433,7 +435,7 @@ should be passed as a parameter
     
        @param database      Database for databaseTable consulting.
     */
-    private func openDatabase(database: Database) -> Bool {
+    private func openDatabase(database: AdaptiveArpApi.Database) -> Bool {
         
         if !self.checkDatabaseName(database) {
             return false
