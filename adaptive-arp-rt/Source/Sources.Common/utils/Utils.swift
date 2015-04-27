@@ -33,6 +33,15 @@ import Foundation
 
 public struct Utils {
     
+    public static func escapeString(string: String) -> String {
+        var resultString : String = string
+        resultString = resultString.stringByReplacingOccurrencesOfString("\'", withString: "\\\'", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        resultString = resultString.stringByReplacingOccurrencesOfString("\"", withString: "\\\"", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        resultString = resultString.stringByReplacingOccurrencesOfString("\n", withString: "\\n", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        resultString = resultString.stringByReplacingOccurrencesOfString("\r", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        return resultString
+    }
+    
     /**
     Function that checks if an url has the correct sintaxis
     

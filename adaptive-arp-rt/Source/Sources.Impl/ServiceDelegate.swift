@@ -422,7 +422,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                                     
                                 } else {
                                     
-                                    self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "\(data)")
+                                    //self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "\(data)")
                                     
                                     if let responseText:NSString = NSString(data:data, encoding:NSUTF8StringEncoding) {
                                         
@@ -437,9 +437,9 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                                             // VALID RESPONSES (CORRECT AND WARNINGS)
                                             
                                             var response: ServiceResponse = ServiceResponse()
-                                            response.setContent(responseText as String)
+                                            response.setContent(Utils.escapeString(responseText as String))
                                             
-                                            self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "\(response.getContent()!)")
+                                            //self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "\(response.getContent()!)")
                                             
                                             response.setContentEncoding(IServiceContentEncoding.Utf8)
                                             response.setContentLength(Int32(responseText.length))
@@ -457,7 +457,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                                             switch sCode {
                                                 
                                             case 200...299:
-                                                self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "\(response.getContent()!)")
+                                                //self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "\(response.getContent()!)")
                                                 
                                                 callback.onResult(response)
                                                 return
