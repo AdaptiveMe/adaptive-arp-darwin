@@ -34,12 +34,13 @@ import AdaptiveArpApi
 public class IOParser : NSObject, NSXMLParserDelegate {
     
     /// Singleton instance
-    public class var sharedInstance : IOParser {
+    /*public class var sharedInstance : IOParser {
         struct Static {
             static let instance : IOParser = IOParser()
         }
         return Static.instance
-    }
+    }*/
+    public static let sharedInstance = IOParser()
     
     /// Logging variable
     let logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -210,11 +211,11 @@ public class IOParser : NSObject, NSXMLParserDelegate {
                 for endpoint:ServiceEndpoint in service.getServiceEndpoints()! {
                     
                     // host
-                    if endpoint.getHostURI() == token.getEndpointName() {
+                    if Utils.validateRegexp(token.getEndpointName()!, regexp: endpoint.getHostURI()!) {
                         for function:ServicePath in endpoint.getPaths()! {
                             
                             // function
-                            if function.getPath() == token.getFunctionName() {
+                            if Utils.validateRegexp(token.getFunctionName()!, regexp: function.getPath()!) {
                                 for method:IServiceMethod in function.getMethods()! {
                                     
                                     // method
@@ -255,17 +256,17 @@ public class IOParser : NSObject, NSXMLParserDelegate {
                 var retEndpoints:[ServiceEndpoint] = [ServiceEndpoint]()
                 
                 for endpoint:ServiceEndpoint in service.getServiceEndpoints()! {
-                    if endpoint.getHostURI() == token.getEndpointName() {
+                    if Utils.validateRegexp(token.getEndpointName()!, regexp: endpoint.getHostURI()!) {
                         
                         var retEndpoint:ServiceEndpoint = ServiceEndpoint()
-                        retEndpoint.setHostURI(endpoint.getHostURI()!)
+                        retEndpoint.setHostURI(token.getEndpointName()!)
                         var retPaths:[ServicePath] = [ServicePath]()
                         
                         for function:ServicePath in endpoint.getPaths()! {
-                            if function.getPath() == token.getFunctionName() {
+                            if Utils.validateRegexp(token.getFunctionName()!, regexp: function.getPath()!) {
                                 
                                 var retPath:ServicePath = ServicePath()
-                                retPath.setPath(function.getPath()!)
+                                retPath.setPath(token.getFunctionName()!)
                                 retPath.setType(function.getType()!)
                                 var retMethods:[IServiceMethod] = [IServiceMethod]()
                                 
@@ -332,9 +333,9 @@ public class IOParser : NSObject, NSXMLParserDelegate {
                     
                     for function:ServicePath in endpoint.getPaths()! {
                         
-                        if function.getPath() == path {
+                        if Utils.validateRegexp(path, regexp: function.getPath()!) {
                             
-                            var ret:ServiceToken = ServiceToken(serviceName: service.getName()!, endpointName: endpoint.getHostURI()!, functionName: function.getPath()!, invocationMethod: function.getMethods()![0])
+                            var ret:ServiceToken = ServiceToken(serviceName: service.getName()!, endpointName: host, functionName: path, invocationMethod: function.getMethods()![0])
                             
                             return ret
                         }

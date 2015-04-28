@@ -313,7 +313,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                         return
                         
                     } else {
-                        
+
                         // Prepare the request
                         var request = NSMutableURLRequest()
                         request.HTTPShouldUsePipelining = true
@@ -415,7 +415,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                                 
                                 if let error:NSError = error {
                                     
-                                    self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "There's been an error on the response of the service invoke: \(error.debugDescription)")
+                                    self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "ERROR \(error.code): \(error.localizedDescription) \(error.debugDescription)")
                                     
                                     callback.onError(IServiceResultCallbackError.Unreachable)
                                     return
@@ -551,7 +551,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                                 
                             } else {
                                 
-                                self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "The response of the servoce is null: \(error.debugDescription)")
+                                self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "ERROR \(error.code): \(error.localizedDescription). \(error.debugDescription)")
                                 
                                 callback.onError(IServiceResultCallbackError.Unreachable)
                                 return

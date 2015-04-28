@@ -63,11 +63,6 @@ public class HttpInterceptorProtocol : NSURLProtocol {
         return "https://adaptiveapp/"
     }
     
-    /// Custom header for versioning check
-    /*private class var adaptiveVersionHeader:NSString {
-        return "X-AdaptiveVersion"
-    }*/
-    
     /// Initializes an NSURLProtocol object.
     override public init(request: NSURLRequest, cachedResponse: NSCachedURLResponse?, client: NSURLProtocolClient?) {
         
@@ -129,18 +124,7 @@ public class HttpInterceptorProtocol : NSURLProtocol {
                     
                     if let bodyString:NSString = NSString(data: body, encoding: NSUTF8StringEncoding) {
                         
-                        
                         var requestHeaders = NSMutableDictionary(dictionary: newRequest.allHTTPHeaderFields!)
-                        
-                        /*
-                        // fnva(20150202) Deprecated method -> Inside API Request
-                        if let tsVersion: AnyObject = requestHeaders.objectForKey(HttpInterceptorProtocol.adaptiveVersionHeader) {
-                            if !tsVersion.isEqual(AppRegistryBridge.sharedInstance.getAPIVersion()){
-                                logger.log(ILoggingLogLevel.Warn, category:loggerTag, message: "The API version of the Typescript API is not the same as the Platform API version")
-                            }
-                        } else {
-                            logger.log(ILoggingLogLevel.Error, category:loggerTag, message: "There is no custom header (\(HttpInterceptorProtocol.adaptiveVersionHeader)) in the request indicating the TS version ")
-                        }*/
                         
                         // Parse the http body request and converto into a APIRequest Object
                         var apiRequest:APIRequest = APIRequest.Serializer.fromJSON(bodyString as String)
@@ -188,22 +172,21 @@ public class HttpInterceptorProtocol : NSURLProtocol {
             
             } else {
                 
-                if IOParser.sharedInstance.validateResource(url) && method == "GET" {
-                    
-                    // VALIDATE EXTERNAL RESOURCES WHITELIST
+                // VALIDATE RESOURCE
+                if IOParser.sharedInstance.validateResource(url) {
                     self.forwardResponse(newRequest)
-                    
-                } else if let st = IOParser.sharedInstance.getServiceTokenByURI(url) {
-                    
-                    // VALIDATE EXTERNAL SERVICES WHITELIST
-                    if IOParser.sharedInstance.validateService(st) {
-                        self.forwardResponse(newRequest)
+                } else {
+                    self.forwardResponse(newRequest)
+                    // VALIDATE SERVICE
+                    if let st = IOParser.sharedInstance.getServiceTokenByURI(url) {
+                        if IOParser.sharedInstance.validateService(st) {
+                            self.forwardResponse(newRequest)
+                        } else {
+                            self.nonPermisionResponse(newRequest)
+                        }
                     } else {
                         self.nonPermisionResponse(newRequest)
                     }
-                    
-                } else {
-                    self.nonPermisionResponse(newRequest)
                 }
             }
         } else {
