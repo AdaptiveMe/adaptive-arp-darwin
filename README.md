@@ -10,7 +10,7 @@
 
 ### About This Project
 
-Todo :smile:
+The Adaptive Runtime Platform for Darwin is the Native Layer for deploying Adaptive HTML5 project on Apple devices (iOS & OSX). This layers provides to HTML5 apps all the interfaces and methods for using all the native functionalities for Darwin devices.
 
 ### About Adaptive Runtime Platform
 
@@ -19,6 +19,22 @@ Hybrid apps are applications that are built using HTML5/CSS3/JavaScript web tech
 The Adaptive Runtime Platform (ARP) provides these native "containers" to package apps for the main mobile, wearable and desktop platforms... and other platforms as they emerge. Adaptive Runtime Platform (ARP) and sub-projects are open-source under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html). The Adaptive Runtime Platform (ARP) project was created by [Carlos Lozano Diez](https://github.com/carloslozano) as part of the [adaptive.me](http://adaptive.me) set of products.
 
 Please refer to the [project site](http://adaptiveme.github.io) for more information.
+
+## Set-Up Environment
+
+### Prerequisites
+
+- xcode
+- xctools
+- cocoapods
+
+### Importing the project
+
+1. _Clone_ or _Fork_ this project into your machine
+    _<br>(*) If you want to download the zip of the project you should download the project [SQLite.swift](https://github.com/AdaptiveMe/SQLite.swift) into the folder_ **adaptive-arp-rt/SQLite.swift**
+2. Open a terminal in the the **adaptive-arp-rt** folder where the **Podfile** is located and run:
+``` pod install``` _(This command downloads all the dependencies for this project)_
+3. Open the **adaptive-arp-rt.xcworkspace** file and Run the **AdaptiveArpiOs -> iOS Device** target into the simulator or a plugged device.
 
 ## Work Backlog
 
