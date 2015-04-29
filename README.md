@@ -12,6 +12,10 @@
 
 The Adaptive Runtime Platform for Darwin is the Native Layer for deploying Adaptive HTML5 project on Apple devices (iOS & OSX). This layers provides to HTML5 apps all the interfaces and methods for using all the native functionalities for Darwin devices.
 
+#### Project Specifications
+
+ARP for Darwin is configued for **iOS Devices** (>=8.0) and **OSX Machines** (>=10.10)
+
 ### About Adaptive Runtime Platform
 
 Hybrid apps are applications that are built using HTML5/CSS3/JavaScript web technologies and use a native "containers" to package the app to enable access to the native functionalities of a device. In essence, you can write a rich mobile/wearable/tv application using HTML and JavaScript and package that application as a native app for multiple mobile/wearable/tv platforms and distribute them on the different app stores and markets.
@@ -20,13 +24,39 @@ The Adaptive Runtime Platform (ARP) provides these native "containers" to packag
 
 Please refer to the [project site](http://adaptiveme.github.io) for more information.
 
+### Project Structure
+
+The Darwin Runtime Platform is composed by a set of files and libraries
+
+```
+adaptive-arp-rt (Project & Build Settings)
+│   SQLite.xcodeproj (SQLite database support)
+├── App 
+│   │   apppack.realm (Encrypted/Compressed file with app resources)
+├── App.Source
+│   ├── assets (Graphical Assets)
+│   ├── config (App Configuration files)
+│   ├── www (HTML5 application)
+├── AdaptiveArpRtiOS (AppDelegates & ViewControllers)
+├── AdaptiveArpRtiOSTests (Unit Tests)
+├── Frameworks (Result Frameworks)
+├── Pods (Cocoapods configuration)
+├── Products (Result products)
+├── Sources.Common
+│   ├── Compression (Compression utility classes)
+│   ├── Core (Core Platform classes)
+│   ├── Resources (Resource utility readers)
+│   ├── StreamUtils (Stream extensions)
+│   ├── Utils (Utility classes)
+├── Sources.Impl (Implementation of ARP Bridges)
+Pods (Cocoapods project)
+```
 ## Set-Up Environment
 
 ### Prerequisites
 
-- xcode
-- xctools
-- cocoapods
+- **[XCode](https://developer.apple.com/xcode/)** >= 6.3.1 (6D1002) with **[Swift](https://developer.apple.com/swift/)** 1.2 for compiling the project and building the application
+- **[Cocoapods](https://cocoapods.org/)** Dependency manager for Swift. For installing cocoapods just follow the instructions provided [here](https://cocoapods.org/#install)
 
 ### Importing the project
 
@@ -34,7 +64,7 @@ Please refer to the [project site](http://adaptiveme.github.io) for more informa
     _<br>(*) If you want to download the zip of the project you should download the project [SQLite.swift](https://github.com/AdaptiveMe/SQLite.swift) into the folder_ **adaptive-arp-rt/SQLite.swift**
 2. Open a terminal in the the **adaptive-arp-rt** folder where the **Podfile** is located and run:
 ``` pod install``` _(This command downloads all the dependencies for this project)_
-3. Open the **adaptive-arp-rt.xcworkspace** file and Run the **AdaptiveArpiOs -> iOS Device** target into the simulator or a plugged device.
+3. Open the **adaptive-arp-rt.xcworkspace** file with Xcode and Run the **AdaptiveArpiOs -> iOS Device** target into the simulator or a plugged device.
 
 ## Work Backlog
 
