@@ -174,12 +174,14 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
         #endif
         request.setUserAgent(useragent)
         
-        // TODO: referer host
+        // Referer host
+        request.setRefererHost(serviceToken.getEndpointName()!)
         
         // Content Type - Extract from the service configuration
         request.setContentType(IOParser.sharedInstance.getContentType(serviceToken))
         
-        if let info:Header = headers[serviceToken.getEndpointName()!] {
+        // Headers
+        /*if let info:Header = headers[serviceToken.getEndpointName()!] {
             
             // There is previous information of this endpoint
             request.setServiceHeaders(info.headers)
@@ -187,7 +189,8 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
             
         } else {
             logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "There is no previous information for this endpoint: \(serviceToken.getEndpointName()!)")
-        }
+            headers[serviceToken.getEndpointName()!] = Header()
+        }*/
         return request
     }
     
@@ -385,21 +388,19 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                             // user-agent
                             request.addValue("\(serviceRequest.getUserAgent())", forHTTPHeaderField: "User-Agent")
                             
-                            // TODO HEADERS & SESSION
-                            if let h:Header =  headers[serviceRequest.getServiceToken()!.getEndpointName()!] {
+                            // HEADERS & SESSION
+                            
+                            var endpoint = serviceRequest.getServiceToken()!.getEndpointName()!
+                            
+                            if let h:Header =  headers[endpoint] {
                                 
-                                // There is a header, update the values
-                                h.userAgent = serviceRequest.getUserAgent()
+                                self.logger.log(ILoggingLogLevel.Debug, category: self.loggerTag, message: "Loading previous headers information stored")
                                 
-                                headers[serviceRequest.getServiceToken()!.getEndpointName()!] = h
+                                for c:ServiceSessionCookie in h.cookies {
+                                    self.logger.log(ILoggingLogLevel.Debug, category: self.loggerTag, message: "Setting cookie: \(c.getCookieName())=\(c.getCookieValue())")
+                                    request.addValue(c.getCookieValue(), forHTTPHeaderField: c.getCookieName()!)
+                                }
                                 
-                            } else {
-                                
-                                // There is no header, create one and set it
-                                var h:Header = Header()
-                                h.userAgent = serviceRequest.getUserAgent()
-                                
-                                headers[serviceRequest.getServiceToken()!.getEndpointName()!] = h
                             }
                             
                         } else {
@@ -446,20 +447,36 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                                             response.setContentType(IOParser.sharedInstance.getContentType(token))
                                             response.setStatusCode(sCode)
                                             
-                                            // TODO: HEADERS & SESSION
+                                            // HEADERS & SESSION
                                             
-                                            // Check for Not secured url
-                                            /*if !url.containsString("https://") {
-                                                self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "Not Secured URL (https): \(url)")
-                                                callback.onWarning(response, warning: IServiceResultCallbackWarning.NotSecure)
-                                            }*/
+                                            var endpoint = serviceRequest.getServiceToken()!.getEndpointName()!
+                                            
+                                            if let h:Header = self.headers[endpoint] {
+                                                
+                                                h.cookies = self.extractCookies(httpResponse)
+                                                self.headers[endpoint] = h
+                                                
+                                            } else {
+                                                
+                                                self.logger.log(ILoggingLogLevel.Debug, category: self.loggerTag, message: "There is no previous information on the dictionary of headers and session")
+                                                
+                                                var h:Header = Header()
+                                                h.cookies = self.extractCookies(httpResponse)
+                                                self.headers[endpoint] = h
+                                            }
                                             
                                             switch sCode {
                                                 
                                             case 200...299:
-                                                //self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "\(response.getContent()!)")
                                                 
-                                                callback.onResult(response)
+                                                // Check for Not secured url
+                                                if !url.containsString("https://") {
+                                                    self.logger.log(ILoggingLogLevel.Warn, category: self.loggerTag, message: "Not Secured URL (https): \(url)")
+                                                    callback.onWarning(response, warning: IServiceResultCallbackWarning.NotSecure)
+                                                } else {
+                                                    callback.onResult(response)
+                                                }
+                                                
                                                 return
                                                 
                                             case 300...399:
@@ -579,6 +596,34 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
             callback.onError(IServiceResultCallbackError.Unreachable)
             return
         }
+    }
+    
+    /**
+    Method that extract the cookies from a service response
+    
+    :param: httpResponse NSHTTPURLResponse with all the cookies
+    
+    :returns: Array of cookies formated in Adaptive style
+    */
+    private func extractCookies(httpResponse:NSHTTPURLResponse) -> [ServiceSessionCookie] {
+        
+        var responseCookies:[NSHTTPCookie] = NSHTTPCookie.cookiesWithResponseHeaderFields(httpResponse.allHeaderFields, forURL: httpResponse.URL!) as! [NSHTTPCookie]
+        self.logger.log(ILoggingLogLevel.Debug, category: self.loggerTag, message: "Number of cookies received: \(responseCookies.count)")
+        
+        var cookies:[ServiceSessionCookie] = [ServiceSessionCookie]()
+        for c:NSHTTPCookie in responseCookies {
+            self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "cookie [name:\(c.name), value: \(c.value)]")
+            var cookie:ServiceSessionCookie = ServiceSessionCookie(cookieName: c.name, cookieValue: c.value!)
+            //cookie.setCreation()
+            cookie.setDomain(c.domain)
+            cookie.setExpiry(Int64(c.expiresDate.timeIntervalSince1970 * 1000))
+            cookie.setPath(c.path!)
+            //cookie.setScheme()
+            cookie.setSecure(c.secure)
+            cookies.append(cookie)
+        }
+        
+        return cookies
     }
     
 }
