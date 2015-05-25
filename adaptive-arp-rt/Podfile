@@ -3,3 +3,4 @@ platform :ios, '8.0'
 use_frameworks!
 pod 'AdaptiveArpApi', '2.2.13'
 pod 'CryptoSwift', '0.0.10'
+pod 'SQLite.swift', git: 'https://github.com/stephencelis/SQLite.swift.git'
