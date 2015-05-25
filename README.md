@@ -30,7 +30,6 @@ The Darwin Runtime Platform is composed by a set of files and libraries
 
 ```
 adaptive-arp-rt (Project & Build Settings)
-│   SQLite.xcodeproj (SQLite database support)
 ├── App 
 │   │   apppack.realm (Encrypted/Compressed file with app resources)
 ├── App.Source
@@ -56,12 +55,11 @@ Pods (Cocoapods project)
 ### Prerequisites
 
 - **[XCode](https://developer.apple.com/xcode/)** >= 6.3.1 (6D1002) with **[Swift](https://developer.apple.com/swift/)** 1.2 for compiling the project and building the application
-- **[Cocoapods](https://cocoapods.org/)** Dependency manager for Swift. For installing cocoapods just follow the instructions provided [here](https://cocoapods.org/#install)
+- **[Cocoapods](https://cocoapods.org/)** >= 0.37 Dependency manager for Swift. For installing cocoapods just follow the instructions provided [here](https://cocoapods.org/#install)
 
 ### Importing the project
 
 1. _Clone_ or _Fork_ this project into your machine
-    _<br>(*) If you want to download the zip of the project you should download the project [SQLite.swift](https://github.com/AdaptiveMe/SQLite.swift) into the folder_ **adaptive-arp-rt/SQLite.swift**
 2. Open a terminal in the the **adaptive-arp-rt** folder where the **Podfile** is located and run:
 ``` pod install``` _(This command downloads all the dependencies for this project)_
 3. Open the **adaptive-arp-rt.xcworkspace** file with Xcode and Run the **AdaptiveArpiOs -> iOS Device** target into the simulator or a plugged device.
