@@ -36,5 +36,31 @@ import AdaptiveArpApi
 *  FileSystem delegate tests class
 */
 class FileSystemTest: XCTestCase {
+    
+    /**
+    Constructor.
+    */
+    override func setUp() {
+        super.setUp()
+        
+        AppRegistryBridge.sharedInstance.getLoggingBridge().setDelegate(LoggingDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContext().setDelegate(AppContextDelegate())
+        AppRegistryBridge.sharedInstance.getPlatformContextWeb().setDelegate(AppContextWebviewDelegate())
+        AppRegistryBridge.sharedInstance.getFileSystemBridge().setDelegate(FileSystemDelegate())
+    }
+    
+    /**
+    Test for obtaining the current display orientation
+    */
+    func testFileSystem() {
+        XCTAssert(AppRegistryBridge.sharedInstance.getFileSystemBridge().getApplicationCacheFolder() != nil, "Error getting the cache folder. See log")
+        XCTAssert(AppRegistryBridge.sharedInstance.getFileSystemBridge().getApplicationCloudFolder() != nil, "Error getting the cloud folder. See log")
+        XCTAssert(AppRegistryBridge.sharedInstance.getFileSystemBridge().getApplicationDocumentsFolder() != nil, "Error getting the documents folder. See log")
+        XCTAssert(AppRegistryBridge.sharedInstance.getFileSystemBridge().getApplicationFolder() != nil, "Error getting the application folder. See log")
+        XCTAssert(AppRegistryBridge.sharedInstance.getFileSystemBridge().getApplicationProtectedFolder() != nil, "Error getting the protected folder. See log")
+        XCTAssert(AppRegistryBridge.sharedInstance.getFileSystemBridge().getSystemExternalFolder() != nil, "Error getting the external folder. See log")
+        
+        XCTAssert(AppRegistryBridge.sharedInstance.getFileSystemBridge().getSeparator() == "/", "Error getting the separator. See log")
+    }
 
 }
