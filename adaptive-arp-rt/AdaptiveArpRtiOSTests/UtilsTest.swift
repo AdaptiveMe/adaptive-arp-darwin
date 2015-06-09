@@ -499,3 +499,175 @@ class AccelerationListenerTest: BaseListenerImpl, IAccelerationListener {
         XCTAssert(true, "")
     }
 }
+
+/**
+*  File result callback for testing purposes
+*/
+class FileResultCallbackTest: BaseCallbackImpl, IFileResultCallback {
+    
+    /**
+    FileResult callback error function
+    
+    :param: error Error description
+    */
+    func onError(error : IFileResultCallbackError) {
+        
+        logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error: \(error.toString())")
+        XCTAssert(false, "Error: \(error.toString())")
+    }
+    
+    /**
+    FileResult callback result function
+    
+    :param: storageFile Populated FileResult response
+    */
+    func onResult(storageFile : FileDescriptor) {
+        
+        logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "\(storageFile.getPathAbsolute()!)")
+        XCTAssert(true, "")
+    }
+    
+    /**
+    FileResult callback warning
+    
+    :param: storageFile Populated FileResult response
+    :param: warning Warning description
+    */
+    func onWarning(file : FileDescriptor, warning : IFileResultCallbackWarning) {
+        
+        logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "Warning: \(warning.toString())")
+        logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "\(file.getPathAbsolute()!)")
+        XCTAssert(true, "")
+        
+    }
+}
+
+/**
+*  Callback for loading file contents
+*/
+class FileDataLoadResultCallbackTest: BaseCallbackImpl, IFileDataLoadResultCallback {
+    
+    /**
+    FileDataStore callback error function
+    
+    :param: error Error description
+    */
+    func onError(error : IFileDataLoadResultCallbackError) {
+        
+        logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error: \(error.toString())")
+        XCTAssert(false, "Error: \(error.toString())")
+    }
+    
+    /**
+    FileDataStore callback result function
+    
+    :param: storageFile Populated FileDataStore response
+    */
+    func onResult(data : [UInt8]) {
+        
+        logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "\(data)")
+        XCTAssert(true, "")
+    }
+    
+    /**
+    FileDataStore callback warning
+    
+    :param: storageFile Populated FileDataStore response
+    :param: warning Warning description
+    */
+    func onWarning(data : [UInt8], warning : IFileDataLoadResultCallbackWarning) {
+        
+        logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "Warning: \(warning.toString())")
+        logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "\(data)")
+        XCTAssert(true, "")
+        
+    }
+    
+}
+
+/**
+*  Callback for storing fiel contents
+*/
+class FileDataStoreResultCallbackTest: BaseCallbackImpl, IFileDataStoreResultCallback {
+    
+    /**
+    FileDataStore callback error function
+    
+    :param: error Error description
+    */
+    func onError(error : IFileDataStoreResultCallbackError) {
+        
+        logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error: \(error.toString())")
+        XCTAssert(false, "Error: \(error.toString())")
+    }
+    
+    /**
+    FileDataStore callback result function
+    
+    :param: storageFile Populated FileDataStore response
+    */
+    func onResult(file : FileDescriptor) {
+        
+        logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "\(file.getPathAbsolute()!)")
+        XCTAssert(true, "")
+    }
+    
+    /**
+    FileDataStore callback warning
+    
+    :param: storageFile Populated FileDataStore response
+    :param: warning Warning description
+    */
+    func onWarning(file : FileDescriptor, warning : IFileDataStoreResultCallbackWarning) {
+        
+        logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "Warning: \(warning.toString())")
+        logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "\(file.getPathAbsolute()!)")
+        XCTAssert(true, "")
+        
+    }
+    
+}
+
+/**
+*  Callback for listing diectory contents
+*/
+class FileListResultCallbackTest: BaseCallbackImpl, IFileListResultCallback {
+    
+    /**
+    FileDataStore callback error function
+    
+    :param: error Error description
+    */
+    func onError(error : IFileListResultCallbackError) {
+        
+        logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error: \(error.toString())")
+        XCTAssert(false, "Error: \(error.toString())")
+    }
+    
+    /**
+    FileDataStore callback result function
+    
+    :param: storageFile Populated FileDataStore response
+    */
+    func onResult(files : [FileDescriptor]) {
+        
+        logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "\(files)")
+        XCTAssert(true, "")
+    }
+    
+    /**
+    FileDataStore callback warning
+    
+    :param: storageFile Populated FileDataStore response
+    :param: warning Warning description
+    */
+    func onWarning(files : [FileDescriptor], warning : IFileListResultCallbackWarning) {
+        
+        logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "Warning: \(warning.toString())")
+        logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "\(files)")
+        XCTAssert(true, "")
+        
+    }
+    
+}
+

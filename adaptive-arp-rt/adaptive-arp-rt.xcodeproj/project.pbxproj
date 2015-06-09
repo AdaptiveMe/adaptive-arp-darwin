@@ -560,6 +560,7 @@
 		C35FE47C1AE6A407002B6C54 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				TargetAttributes = {
 					C35FE4851AE6A4C7002B6C54 = {
@@ -994,6 +995,7 @@
 		};
 		C35FE4A61AE6A4C7002B6C54 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CA7C8BCD1A85C7728D03174 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
