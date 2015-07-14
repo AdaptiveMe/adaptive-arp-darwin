@@ -1137,7 +1137,7 @@
 				C35FE4811AE6A407002B6C54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		C35FE4A71AE6A4C7002B6C54 /* Build configuration list for PBXNativeTarget "AdaptiveArpRtiOS" */ = {
 			isa = XCConfigurationList;
@@ -1146,7 +1146,7 @@
 				C35FE4A41AE6A4C7002B6C54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		C35FE4A81AE6A4C7002B6C54 /* Build configuration list for PBXNativeTarget "AdaptiveArpRtiOSTests" */ = {
 			isa = XCConfigurationList;
@@ -1155,7 +1155,7 @@
 				C35FE4A61AE6A4C7002B6C54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		C37106B91AE9008800B40562 /* Build configuration list for PBXLegacyTarget "AppPackiOS" */ = {
 			isa = XCConfigurationList;
@@ -1164,7 +1164,7 @@
 				C37106BB1AE9008800B40562 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
