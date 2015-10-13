@@ -398,7 +398,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                                 
                                 for c:ServiceSessionCookie in h.cookies {
                                     self.logger.log(ILoggingLogLevel.Debug, category: self.loggerTag, message: "Setting cookie: \(c.getCookieName())=\(c.getCookieValue())")
-                                    request.addValue(c.getCookieValue(), forHTTPHeaderField: c.getCookieName()!)
+                                    request.addValue(c.getCookieValue()!, forHTTPHeaderField: c.getCookieName()!)
                                 }
                                 
                             }
@@ -425,7 +425,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                                     
                                     //self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "\(data)")
                                     
-                                    if let responseText:NSString = NSString(data:data, encoding:NSUTF8StringEncoding) {
+                                    if let responseText:NSString = NSString(data:data!, encoding:NSUTF8StringEncoding) {
                                         
                                         var sCode:Int32 = Int32(httpResponse.statusCode)
                                         

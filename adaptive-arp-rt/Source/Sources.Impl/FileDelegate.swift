@@ -343,19 +343,12 @@ public class FileDelegate : BaseDataDelegate, IFile {
         
         if !self.exists(descriptor)! {
         
-            var error:NSError?
-            var ok:Bool = NSFileManager.defaultManager().createDirectoryAtPath(descriptor.getPathAbsolute()! + "/" + descriptor.getName()!, withIntermediateDirectories: recursive, attributes: nil, error: &error)
-            
-            if let error = error {
-                logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "There is an error creating the the directory: \(error)")
+            do {
+                try NSFileManager.defaultManager().createDirectoryAtPath(descriptor.getPathAbsolute()! + "/" + descriptor.getName()!, withIntermediateDirectories: recursive, attributes: nil)
+                return true
+            } catch {
+                logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "There is an error creating the the directory.")
                 return false
-            } else {
-                if ok {
-                    return true
-                } else {
-                    logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "There is an error creating the the directory.")
-                    return false
-                }
             }
             
         } else {
@@ -414,23 +407,15 @@ public class FileDelegate : BaseDataDelegate, IFile {
             }
             
             // Copy the file            
-            
-            var error:NSError?
-            var ok:Bool = NSFileManager.defaultManager().moveItemAtPath(source.getPathAbsolute()!, toPath: destination.getPathAbsolute()!, error: &error)
-            
-            if let error = error {
-                logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "There is an error moving the item \(source.getPathAbsolute()!) at the specified path: \(destination.getPathAbsolute()!): \(error)")
+            do {
+                try NSFileManager.defaultManager().moveItemAtPath(source.getPathAbsolute()!, toPath: destination.getPathAbsolute()!)
+                logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "Item \(source.getPathAbsolute()!) moved to: \(destination.getPathAbsolute()!) successfully! ")
+                callback.onResult(destination)
+
+            } catch {
+                logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "There is an error moving the item \(source.getPathAbsolute()!) at the specified path: \(destination.getPathAbsolute()!)")
                 callback.onError(IFileResultCallbackError.Unknown)
-            } else {
-                if ok {
-                    logger.log(ILoggingLogLevel.Info, category: loggerTag, message: "Item \(source.getPathAbsolute()!) moved to: \(destination.getPathAbsolute()!) successfully! ")
-                    callback.onResult(destination)
-                } else {
-                    logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "There is an error moving the item \(source.getPathAbsolute()!) at the specified path: \(destination.getPathAbsolute()!)")
-                    callback.onError(IFileResultCallbackError.Unknown)
-                }
             }
-            
             
         } else {
             

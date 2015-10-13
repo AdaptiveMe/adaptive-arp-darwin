@@ -78,7 +78,7 @@ public class MessagingDelegate : UIViewController, /*BasePIMDelegate,*/ IMessagi
     }
     
     required public init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
     }
 
     /**
@@ -132,15 +132,15 @@ public class MessagingDelegate : UIViewController, /*BasePIMDelegate,*/ IMessagi
     */
     public func messageComposeViewController(controller: MFMessageComposeViewController!, didFinishWithResult result: MessageComposeResult) {
         
-        switch result.value {
+        switch result.rawValue {
             
-        case MessageComposeResultSent.value :
+        case MessageComposeResultSent.rawValue :
             logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Message sent")
             smsCallback.onResult(true)
-        case MessageComposeResultCancelled.value :
+        case MessageComposeResultCancelled.rawValue :
             logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Message cancelled by the user")
             smsCallback.onResult(false)
-        case MessageComposeResultFailed.value :
+        case MessageComposeResultFailed.rawValue :
             logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Message not send due to an error")
             smsCallback.onError(IMessagingCallbackError.NotSent)
         default:

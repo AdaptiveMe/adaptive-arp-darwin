@@ -64,7 +64,7 @@ public class ResourceReader  {
                         response?.cooked_type = cooked_type
                         // Skip length of payload
                         iReader.readInt32()
-                        response?.raw_type = NSString(data: NSData(base64EncodedString: readString(iReader), options: NSDataBase64DecodingOptions.allZeros)!.decrypt(Cipher.ChaCha20(setup))!, encoding: NSUTF8StringEncoding)!
+                        response?.raw_type = NSString(data: NSData(base64EncodedString: readString(iReader))!.decrypt(Cipher.ChaCha20(setup))!, encoding: NSUTF8StringEncoding)!
                         response?.raw_length = readInt(iReader)
                         response?.cooked_length = readInt(iReader)
                         response?.data = readData(iReader).decrypt(Cipher.ChaCha20(setup))!

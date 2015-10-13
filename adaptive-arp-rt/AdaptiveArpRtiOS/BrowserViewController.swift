@@ -116,7 +116,7 @@ public class BrowserViewController: BaseViewController, UIWebViewDelegate {
         AppRegistryBridge.sharedInstance.getPlatformContextWeb().removeWebview(self.webView!)
     }
     
-    override public func supportedInterfaceOrientations() -> Int {
+    override public func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         
         return super.supportedInterfaceOrientations()
     }
