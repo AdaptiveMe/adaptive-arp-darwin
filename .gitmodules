@@ -1,0 +1,4 @@
+[submodule "adaptive-arp-rt/SQLite.swift"]
+	path = adaptive-arp-rt/SQLite.swift
+	url = https://github.com/stephencelis/SQLite.swift
+	branch = swift-2

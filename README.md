@@ -60,9 +60,11 @@ Pods (Cocoapods project)
 ### Importing the project
 
 1. _Clone_ or _Fork_ this project into your machine
-2. Open a terminal in the the **adaptive-arp-rt** folder where the **Podfile** is located and run:
-``` pod install``` _(This command downloads all the dependencies for this project)_
-3. Open the **adaptive-arp-rt.xcworkspace** file with Xcode and Run the **AdaptiveArpiOs -> iOS Device** target into the simulator or a plugged device.
+2. Open a terminal and run:
+  ```git submodule update --init --recursive```
+3. Open a terminal in the the **adaptive-arp-rt** folder where the **Podfile** is located and run:
+  ``` pod install```
+4. Open the **adaptive-arp-rt.xcworkspace** file with Xcode and Run the **AdaptiveArpiOs -> iOS Device** target into the simulator or a plugged device.
 
 ## Work Backlog
 
