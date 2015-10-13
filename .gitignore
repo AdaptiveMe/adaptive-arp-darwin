@@ -12,3 +12,5 @@ adaptive-arp-rt/App/
 adaptive-arp-rt/App.Source/
 
 adaptive-arp-rt/DerivedData
+
+*.swift.new
