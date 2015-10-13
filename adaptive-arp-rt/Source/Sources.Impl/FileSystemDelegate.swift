@@ -63,10 +63,10 @@ public class FileSystemDelegate : BaseDataDelegate, IFileSystem {
     */
     public func createFileDescriptor(parent : FileDescriptor, name : String) -> FileDescriptor? {
         
-        var date = NSDate()
-        var timestamp:Int64 = Int64(date.timeIntervalSince1970*1000)
+        let date = NSDate()
+        let timestamp:Int64 = Int64(date.timeIntervalSince1970*1000)
         
-        var fd:FileDescriptor = FileDescriptor()
+        let fd:FileDescriptor = FileDescriptor()
         fd.setDateCreated(timestamp)
         fd.setDateModified(timestamp)
         fd.setName("\(name)")
@@ -87,8 +87,8 @@ public class FileSystemDelegate : BaseDataDelegate, IFileSystem {
     */
     public func getApplicationCacheFolder() -> FileDescriptor? {
         
-        var fd:FileDescriptor = FileDescriptor()
-        fd.setPathAbsolute(NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as! String)
+        let fd:FileDescriptor = FileDescriptor()
+        fd.setPathAbsolute(NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] )
         
         logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "cache: \(fd.getPathAbsolute())")
         
@@ -104,7 +104,7 @@ public class FileSystemDelegate : BaseDataDelegate, IFileSystem {
     */
     public func getApplicationCloudFolder() -> FileDescriptor? {
         
-        var fd:FileDescriptor = FileDescriptor()
+        let fd:FileDescriptor = FileDescriptor()
         
         // TODO: Not implemented
         
@@ -120,8 +120,8 @@ public class FileSystemDelegate : BaseDataDelegate, IFileSystem {
     */
     public func getApplicationDocumentsFolder() -> FileDescriptor? {
         
-        var fd:FileDescriptor = FileDescriptor()
-        fd.setPathAbsolute(NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as! String)
+        let fd:FileDescriptor = FileDescriptor()
+        fd.setPathAbsolute(NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] )
         
         logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "documents: \(fd.getPathAbsolute())")
         
@@ -137,8 +137,8 @@ public class FileSystemDelegate : BaseDataDelegate, IFileSystem {
     */
     public func getApplicationFolder() -> FileDescriptor? {
         
-        var fd:FileDescriptor = FileDescriptor()
-        fd.setPathAbsolute(NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.ApplicationDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as! String)
+        let fd:FileDescriptor = FileDescriptor()
+        fd.setPathAbsolute(NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.ApplicationDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] )
         
         logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "application: \(fd.getPathAbsolute())")
         
@@ -154,8 +154,8 @@ public class FileSystemDelegate : BaseDataDelegate, IFileSystem {
     */
     public func getApplicationProtectedFolder() -> FileDescriptor? {
         
-        var fd:FileDescriptor = FileDescriptor()
-        fd.setPathAbsolute(NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.ApplicationDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as! String)
+        let fd:FileDescriptor = FileDescriptor()
+        fd.setPathAbsolute(NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.ApplicationDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] )
         
         logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "protected: \(fd.getPathAbsolute())")
         
@@ -184,8 +184,8 @@ public class FileSystemDelegate : BaseDataDelegate, IFileSystem {
     */
     public func getSystemExternalFolder() -> FileDescriptor? {
         
-        var fd:FileDescriptor = FileDescriptor()
-        fd.setPathAbsolute(NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as! String)
+        let fd:FileDescriptor = FileDescriptor()
+        fd.setPathAbsolute(NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] )
         
         logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "external: \(fd.getPathAbsolute())")
         

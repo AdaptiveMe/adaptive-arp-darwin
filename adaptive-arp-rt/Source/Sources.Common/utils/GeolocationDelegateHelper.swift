@@ -84,21 +84,21 @@ public class GeolocationDelegateHelper: NSObject, CLLocationManagerDelegate {
     */
     public func locationManager(manager: CLLocationManager, didUpdateLocations locations: [AnyObject]) {
         
-        var locationArray = locations as NSArray
-        var locationObject = locationArray.lastObject as! CLLocation
-        var coordinates = locationObject.coordinate
+        let locationArray = locations as NSArray
+        let locationObject = locationArray.lastObject as! CLLocation
+        let coordinates = locationObject.coordinate
         
-        var latitude:Double = coordinates.latitude
-        var longitude:Double = coordinates.longitude
-        var altitude:Double = locationObject.altitude
-        var horizontalAccuracy:Float = Float(locationObject.horizontalAccuracy)
-        var verticalAccuracy:Float = Float(locationObject.verticalAccuracy)
+        let latitude:Double = coordinates.latitude
+        let longitude:Double = coordinates.longitude
+        let altitude:Double = locationObject.altitude
+        let horizontalAccuracy:Float = Float(locationObject.horizontalAccuracy)
+        let verticalAccuracy:Float = Float(locationObject.verticalAccuracy)
         
-        var date = NSDate()
-        var timestamp:Int64 = Int64(date.timeIntervalSince1970*1000)
+        let date = NSDate()
+        let timestamp:Int64 = Int64(date.timeIntervalSince1970*1000)
         
         // Create a method Geolocation and send ot to the listener
-        var geolocation: Geolocation = Geolocation(latitude: latitude, longitude: longitude, altitude: altitude, xDoP: horizontalAccuracy, yDoP: verticalAccuracy, timestamp: timestamp)
+        let geolocation: Geolocation = Geolocation(latitude: latitude, longitude: longitude, altitude: altitude, xDoP: horizontalAccuracy, yDoP: verticalAccuracy, timestamp: timestamp)
         
         logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Updating the geolocation delegate at \(locationObject.timestamp)")
         

@@ -147,7 +147,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
             return nil
         }
         
-        var request:ServiceRequest = ServiceRequest()
+        let request:ServiceRequest = ServiceRequest()
         
         // Content Encoding - by default UFT-8
         request.setContentEncoding(IServiceContentEncoding.Utf8)
@@ -160,7 +160,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
         #if os(iOS)
             
             if UIDevice.currentDevice().model != "iPhone Simulator" {
-                var webview: AnyObject? = AppRegistryBridge.sharedInstance.getPlatformContextWeb().getWebviewPrimary()
+                let webview: AnyObject? = AppRegistryBridge.sharedInstance.getPlatformContextWeb().getWebviewPrimary()
                 dispatch_async(dispatch_get_main_queue(), {
                     useragent = (webview as! UIWebView).stringByEvaluatingJavaScriptFromString("navigator.userAgent")!
                 })
@@ -253,7 +253,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
     private func convertToServiceToken(serviceName : String, endpointName : String, functionName : String, method : IServiceMethod) -> ServiceToken {
         
         // Create a token and return it
-        var token:ServiceToken = ServiceToken()
+        let token:ServiceToken = ServiceToken()
         token.setServiceName(serviceName)
         token.setEndpointName(endpointName)
         token.setFunctionName(functionName)

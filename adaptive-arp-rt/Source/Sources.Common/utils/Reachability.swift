@@ -204,7 +204,7 @@ class Reachability: NSObject {
     func timerFired(timer: NSTimer) {
         
         let currentReachabilityFlags = reachabilityFlags
-        if let _previousReachabilityFlags = previousReachabilityFlags {
+        if let _ = previousReachabilityFlags {
             if currentReachabilityFlags != previousReachabilityFlags {
                 reachabilityChanged(currentReachabilityFlags)
                 previousReachabilityFlags = currentReachabilityFlags

@@ -64,15 +64,17 @@ public class ServiceHandler:NSObject {
                 
                 if apiRequest.getAsyncId() != -1 {
                     
-                    let asyncId:Int64? = apiRequest.getAsyncId()
+                    // let asyncId:Int64? = apiRequest.getAsyncId()
                     
                     // async methods (executed in a background queue)
                     dispatch_async(GCD.backgroundQueue(), {
                         
-                        if let result:APIResponse = bridge.invoke(apiRequest) {
+                        bridge.invoke(apiRequest)
+                        
+                        /*if let result:APIResponse = bridge.invoke(apiRequest) {
                         } else {
                             self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "There is an error executing the asyncronous method: \(apiRequest.getMethodName())")
-                        }
+                        }*/
                     })
                     
                 } else {

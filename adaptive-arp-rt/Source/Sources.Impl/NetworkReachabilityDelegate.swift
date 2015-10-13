@@ -61,12 +61,12 @@ public class NetworkReachabilityDelegate : BaseCommunicationDelegate, INetworkRe
     */
     public func isNetworkReachable(host : String, callback : INetworkReachabilityCallback) {
         
-        var reachability:Reachability = Reachability(hostname: host)
+        let reachability:Reachability = Reachability(hostname: host)
         
-        var isReachableViaWiFi = reachability.isReachableViaWiFi()
+        let isReachableViaWiFi = reachability.isReachableViaWiFi()
         logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "isReachableViaWiFi: \(isReachableViaWiFi)")
         
-        var isReachableViaWWAN = reachability.isReachableViaWWAN()
+        let isReachableViaWWAN = reachability.isReachableViaWWAN()
         logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "isReachableViaWWAN: \(isReachableViaWWAN)")
         
         if isReachableViaWiFi || isReachableViaWWAN {
