@@ -58,7 +58,7 @@ public class GCD {
 extension qos_class_t {
     
     public var id:Int {
-        return Int(self.value)
+        return Int(self.rawValue)
     }
 }
 

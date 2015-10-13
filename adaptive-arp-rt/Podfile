@@ -5,6 +5,6 @@ platform :ios, '8.0'
 use_frameworks!
 inhibit_all_warnings!
 
-pod 'AdaptiveArpApi', '2.2.14'
+pod 'AdaptiveArpApi', '2.2.15’
 pod 'CryptoSwift', '0.0.15'
 pod 'SQLite.swift', path: 'SQLite.swift'

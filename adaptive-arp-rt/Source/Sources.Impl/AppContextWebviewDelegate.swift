@@ -174,7 +174,7 @@ ARP functions and release resources. The primary webview can not be removed.
     */
     public func removeWebview(webView : AnyObject) {
         
-        for (index, webView) in enumerate(self.webViewList) {
+        for (index, webView) in self.webViewList.enumerate() {
             if (webView as! NSObject == webView as! NSObject) {
                 self.webViewList.removeAtIndex(index)
                 return

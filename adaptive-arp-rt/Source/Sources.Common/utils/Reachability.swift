@@ -30,12 +30,12 @@ import Foundation
 
 let ReachabilityChangedNotification = "ReachabilityChangedNotification"
 
-class Reachability: NSObject, Printable {
+class Reachability: NSObject {
     
     typealias NetworkReachable = (Reachability) -> ()
     typealias NetworkUneachable = (Reachability) -> ()
     
-    enum NetworkStatus: Printable {
+    enum NetworkStatus: CustomStringConvertible {
         
         case NotReachable, ReachableViaWiFi, ReachableViaWWAN
         
@@ -111,7 +111,7 @@ class Reachability: NSObject, Printable {
     func startNotifier() -> Bool {
         
         reachabilityObject = self
-        let reachability = self.reachabilityRef!
+        //let reachability = self.reachabilityRef!
         
         previousReachabilityFlags = reachabilityFlags;
         timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "timerFired:", userInfo: nil, repeats: true)

@@ -103,6 +103,7 @@ public class IOParser : NSObject, NSXMLParserDelegate {
         }
     }
     
+    
     /**
     Method involved in the xml parse response
     
@@ -112,7 +113,7 @@ public class IOParser : NSObject, NSXMLParserDelegate {
     :param: qName         qName of the element
     :param: attributeDict dictionary of attributes
     */
-    public func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName: String?, attributes attributeDict: [NSObject : AnyObject]) {
+    public func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName: String?, attributes attributeDict: [String : String]) {
         
         if elementName == IO_RESOURCE {
             resources.append("\(attributeDict[IO_ATTR_URL]!)")

@@ -84,14 +84,14 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
     */
     public func getResourceLiteral(key : String, locale : Locale) -> String? {
         
-        var filePath:String = getLanguageFilePath(locale)
-        var resourceData : ResourceData? = AppResourceManager.sharedInstance.retrieveConfigResource(filePath)
+        let filePath:String = getLanguageFilePath(locale)
+        let resourceData : ResourceData? = AppResourceManager.sharedInstance.retrieveConfigResource(filePath)
         if resourceData == nil {
             logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error reading i18n LANGUAGE file: \(filePath)")
             return nil
         }
         
-        var anError : NSError?
+
         let data: NSData? = resourceData!.data
         
         if data == nil {
@@ -99,7 +99,7 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
             return nil
         }
         
-        let dict : AnyObject! = NSPropertyListSerialization.propertyListWithData(data!, options: 0,format: nil, error: &anError)
+        let dict : AnyObject! = try? NSPropertyListSerialization.propertyListWithData(data!, options: NSPropertyListReadOptions.MutableContainersAndLeaves,format: nil)
         
         if dict != nil {
             if let ocDictionary = dict as? NSDictionary {
@@ -116,11 +116,9 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
                     }
                 }
             } else {
-                logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Sorry, couldn't read the file \(filePath.lastPathComponent)")
+                logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Sorry, couldn't read the file \(filePath)")
                 return nil
             }
-        } else if let theError = anError {
-            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Sorry, couldn't read the file \(filePath.lastPathComponent):\n\t"+theError.localizedDescription)
         }
         
         return nil
@@ -137,14 +135,13 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
         
         var swiftDict : [KeyPair] = [KeyPair]()
         
-        var filePath:String = getLanguageFilePath(locale)
-        var resourceData : ResourceData? = AppResourceManager.sharedInstance.retrieveConfigResource(filePath)
+        let filePath:String = getLanguageFilePath(locale)
+        let resourceData : ResourceData? = AppResourceManager.sharedInstance.retrieveConfigResource(filePath)
         if resourceData == nil {
             logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error reading i18n LANGUAGE file: \(filePath)")
             return nil
         }
         
-        var anError : NSError?
         let data: NSData? = resourceData!.data
         
         if data == nil {
@@ -152,7 +149,7 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
             return nil
         }
         
-        let dict : AnyObject! = NSPropertyListSerialization.propertyListWithData(data!, options: 0,format: nil, error: &anError)
+        let dict : AnyObject! = try? NSPropertyListSerialization.propertyListWithData(data!, options: NSPropertyListReadOptions.MutableContainersAndLeaves,format: nil)
         
         if dict != nil {
             if let ocDictionary = dict as? NSDictionary {
@@ -164,11 +161,9 @@ public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
                     swiftDict.append(KeyPair(keyName: stringKey, keyValue: ocDictionary[stringKey] as! String))
                 }
             } else {
-                logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Sorry, couldn't read the file \(filePath.lastPathComponent)")
+                logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Sorry, couldn't read the file \(filePath)")
                 return nil
             }
-        } else if let theError = anError {
-            logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Sorry, couldn't read the file \(filePath.lastPathComponent):\n\t"+theError.localizedDescription)
         }
         
         return swiftDict

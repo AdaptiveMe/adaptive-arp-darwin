@@ -76,7 +76,7 @@ public class AccelerationDelegate : BaseSensorDelegate, IAcceleration {
             if motionManager.accelerometerAvailable {
                 
                 // check if listener exists
-                for (index, l:IAccelerationListener) in enumerate(listeners) {
+                for (l) in listeners {
                     if listener.getId() == l.getId() {
                         logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "The listener is alredy on the pull. Replacing...")
                         self.removeAccelerationListener(listener)
@@ -91,14 +91,14 @@ public class AccelerationDelegate : BaseSensorDelegate, IAcceleration {
                 
                 motionManager.startAccelerometerUpdatesToQueue(
                     queue,
-                    withHandler:{(data: CMAccelerometerData!, error: NSError!) in
+                    withHandler:{(data: CMAccelerometerData?, error: NSError?) in
                         
                         // Create the accelerometer object and send it to the listener
                         
-                        var date = NSDate()
-                        var timestamp:Int64 = Int64(date.timeIntervalSince1970*1000)
+                        let date = NSDate()
+                        let timestamp:Int64 = Int64(date.timeIntervalSince1970*1000)
                         
-                        var a:Acceleration = Acceleration(x: data.acceleration.x, y: data.acceleration.y, z: data.acceleration.z, timestamp: timestamp)
+                        let a:Acceleration = Acceleration(x: data!.acceleration.x, y: data!.acceleration.y, z: data!.acceleration.z, timestamp: timestamp)
                         listener.onResult(a)
                     }
                 )
@@ -124,7 +124,7 @@ public class AccelerationDelegate : BaseSensorDelegate, IAcceleration {
         
         #if os(iOS)
             
-            for (index, l:IAccelerationListener) in enumerate(listeners) {
+            for (index, l) in listeners.enumerate() {
                 
                 if(listener.getId() == l.getId()) {
                     

@@ -116,21 +116,12 @@ public class FileDelegate : BaseDataDelegate, IFile {
             
             logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "It's a file.")
             
-            var error:NSError?
-            let ok:Bool = NSFileManager.defaultManager().removeItemAtPath(descriptor.getPathAbsolute()!, error: &error)
-            
-            if let error = error {
+            do {
+                try NSFileManager.defaultManager().removeItemAtPath(descriptor.getPathAbsolute()!)
+                return true
+            } catch {
                 logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "There is an error deleting the file: \(error)")
                 return false
-                
-            } else {
-                
-                if ok {
-                    return true
-                } else {
-                    logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "There is an error deleting the file.")
-                    return false
-                }
             }
             
         } else {
@@ -298,29 +289,39 @@ public class FileDelegate : BaseDataDelegate, IFile {
         
         if self.isDirectory(descriptor)! {
             
-            if let directoryContents =  NSFileManager.defaultManager().contentsOfDirectoryAtPath(descriptor.getPathAbsolute()!, error: nil) {
-                logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Directory contents: \(directoryContents)")
+            do {
+                let directoryContents:[String] =  try NSFileManager.defaultManager().contentsOfDirectoryAtPath(descriptor.getPathAbsolute()!)
                 
-                var result:[FileDescriptor] = [FileDescriptor]()
-                for value in directoryContents {
+                if directoryContents.count > 0 {
+                    logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Directory contents: \(directoryContents)")
                     
-                    logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "File: \(value)")
-                    
-                    // Regex
-                    if regex == "*" || Utils.validateRegexp(value as! String, regexp: regex) {
-                    
-                        var file:FileDescriptor = FileDescriptor()
-                        file.setPath(value as! String)
-                    
-                        result.append(file)
+                    var result:[FileDescriptor] = [FileDescriptor]()
+                    for value in directoryContents {
+                        
+                        logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "File: \(value)")
+                        
+                        // Regex
+                        if regex == "*" || Utils.validateRegexp(value, regexp: regex) {
+                            
+                            var file:FileDescriptor = FileDescriptor()
+                            file.setPath(value as! String)
+                            
+                            result.append(file)
+                        }
                     }
+                    
+                    callback.onResult(result)
+                    
+                } else {
+                    logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "There is a problem obtaining the contents of the directory: \(descriptor.getPathAbsolute()!)")
+                    callback.onError(IFileListResultCallbackError.InexistentFile)
                 }
                 
-                callback.onResult(result)
                 
-            } else {
+            } catch {
                 logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "There is a problem obtaining the contents of the directory: \(descriptor.getPathAbsolute()!)")
                 callback.onError(IFileListResultCallbackError.InexistentFile)
+                
             }
             
             

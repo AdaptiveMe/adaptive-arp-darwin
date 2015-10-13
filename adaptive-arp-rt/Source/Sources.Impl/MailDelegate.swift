@@ -128,16 +128,16 @@ public class MailDelegate : UIViewController, /*BasePIMDelegate,*/ IMail, MFMail
             }
             mail.setBccRecipients(recipientsBcc)
             
-            mail.setSubject(data.getSubject())
-            mail.setMessageBody(data.getMessageBody(), isHTML: true)
+            mail.setSubject(data.getSubject()!)
+            mail.setMessageBody(data.getMessageBody()!, isHTML: true)
             
             // atachments
             
             for attachment: EmailAttachmentData in data.getEmailAttachmentData()! {
                 
-                var nsData:NSData = NSData(bytes: attachment.getData()! as [UInt8], length: Int(attachment.getSize()!))
+                let nsData:NSData = NSData(bytes: attachment.getData()! as [UInt8], length: Int(attachment.getSize()!))
                 
-                mail.addAttachmentData(nsData, mimeType: attachment.getMimeType(), fileName: attachment.getFileName())
+                mail.addAttachmentData(nsData, mimeType: attachment.getMimeType()!, fileName: attachment.getFileName()!)
                 
             }
             
@@ -153,7 +153,7 @@ public class MailDelegate : UIViewController, /*BasePIMDelegate,*/ IMail, MFMail
     }
     
     required public init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {

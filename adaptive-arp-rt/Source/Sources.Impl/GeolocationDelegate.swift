@@ -65,7 +65,7 @@ public class GeolocationDelegate : BaseSensorDelegate, IGeolocation {
     public func addGeolocationListener(listener : IGeolocationListener) {
         
         // Create a new location manager, add to the list and then initialize the geolocation updates
-        var geo:GeolocationDelegateHelper = GeolocationDelegateHelper(listener: listener)
+        let geo:GeolocationDelegateHelper = GeolocationDelegateHelper(listener: listener)
         self.delegates.append(geo)
         geo.initLocationManager()
         
@@ -80,7 +80,7 @@ public class GeolocationDelegate : BaseSensorDelegate, IGeolocation {
     */
     public func removeGeolocationListener(listener : IGeolocationListener) {
         
-        for (index,delegate:GeolocationDelegateHelper) in enumerate(delegates) {
+        for (index,delegate) in delegates.enumerate() {
             
             if delegate.getListener().getId() == listener.getId() {
                 
@@ -103,7 +103,7 @@ public class GeolocationDelegate : BaseSensorDelegate, IGeolocation {
         
         logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Removing all the geolocation listeners")
         
-        for (index,delegate) in enumerate(delegates) {
+        for (index,delegate) in delegates.enumerate() {
             
             logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Removing listener: \(delegate.getListener())")
             

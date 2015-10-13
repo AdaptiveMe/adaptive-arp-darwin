@@ -72,9 +72,9 @@ public class BaseViewController : UIViewController {
         }
     }
     
-    override public func supportedInterfaceOrientations() -> Int {
+    public override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         /// TODO - delegate to HTML app
-        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
+        return UIInterfaceOrientationMask.Portrait
     }
     
     override public func shouldAutorotate() -> Bool {
@@ -85,12 +85,12 @@ public class BaseViewController : UIViewController {
     public func showInternalBrowser(titleLabel:String, backLabel:String, url : NSURL, showNavBar : Bool, showAnimated : Bool = true, modal : Bool = false) -> Bool {
         objc_sync_enter(self)
         
-        var properties = NavigationProperties(navigationBarHidden: showNavBar, navigationBarTitle: titleLabel, navigationBarBackLabel: backLabel, navigationUrl: url)
+        let properties = NavigationProperties(navigationBarHidden: showNavBar, navigationBarTitle: titleLabel, navigationBarBackLabel: backLabel, navigationUrl: url)
         
         dispatch_async(dispatch_get_main_queue()) {
             //var browserView : BrowserViewController = BrowserViewController(navigationBarHidden: !properties.navigationBarHidden, navigationBarTitle: properties.navigationBarTitle, navigationBarBackLabel: properties.navigationBarBackLabel, navigationUrl: properties.navigationUrl!,  nibName: self.nibName, bundle: self.nibBundle)
             
-            var browserView : BrowserViewController = BrowserViewController()
+            let browserView : BrowserViewController = BrowserViewController()
             browserView.navigationBarHidden = !properties.navigationBarHidden
             browserView.navigationBarTitle = properties.navigationBarTitle
             browserView.navigationBarBackLabel = properties.navigationBarBackLabel
@@ -119,7 +119,7 @@ public class BaseViewController : UIViewController {
         dispatch_async(dispatch_get_main_queue()) {
             
             //var mediaView : MediaViewController = MediaViewController(url: url, nibName: self.nibName, bundle: self.nibBundle)
-            var mediaView : MediaViewController = MediaViewController()
+            let mediaView : MediaViewController = MediaViewController()
             mediaView.setAVPlayer(url)
             self.navigationController!.presentViewController(mediaView, animated: showAnimated, completion: nil)
         }
@@ -135,8 +135,8 @@ public class BaseViewController : UIViewController {
         
         if (segue.identifier == "showBrowser" && segue.destinationViewController is BrowserViewController) {
             
-            var browserView : BrowserViewController = segue.destinationViewController as! BrowserViewController
-            var properties : NavigationProperties = sender as! NavigationProperties
+            let browserView : BrowserViewController = segue.destinationViewController as! BrowserViewController
+            let properties : NavigationProperties = sender as! NavigationProperties
             browserView.navigationBarBackLabel = properties.navigationBarBackLabel
             browserView.navigationBarHidden = !properties.navigationBarHidden
             browserView.navigationBarTitle = properties.navigationBarTitle
@@ -146,7 +146,7 @@ public class BaseViewController : UIViewController {
             
         } else if (segue.identifier == "showMedia" && segue.destinationViewController is MediaViewController) {
             
-            var mediaView : MediaViewController = segue.destinationViewController as! MediaViewController
+            let mediaView : MediaViewController = segue.destinationViewController as! MediaViewController
             ViewCurrent.setView(mediaView)
         }
     }

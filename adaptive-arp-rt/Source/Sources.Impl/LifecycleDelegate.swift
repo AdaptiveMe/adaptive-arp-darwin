@@ -97,7 +97,7 @@ public class LifecycleDelegate : BaseApplicationDelegate, ILifecycle {
     */
     public func removeLifecycleListener(listener : ILifecycleListener) {
         
-        for (index, l:ILifecycleListener) in enumerate(listeners) {
+        for (index, l) in listeners.enumerate() {
             if(l.getId() == listener.getId()) {
                 
                 listeners.removeAtIndex(index)
@@ -127,7 +127,7 @@ public class LifecycleDelegate : BaseApplicationDelegate, ILifecycle {
     public func changeListenersStatus(lifecycle:Lifecycle) {
         
         // Iterate all over the listeners and fire the event
-        for (index, l) in enumerate(listeners) {
+        for (l) in listeners {
             l.onResult(lifecycle)
         }
     }
@@ -141,7 +141,7 @@ public class LifecycleDelegate : BaseApplicationDelegate, ILifecycle {
     public func changeListenerWarningStatus(lifecycle:Lifecycle, warning: ILifecycleListenerWarning) {
         
         // Iterate all over the listeners and fire the event
-        for (index, l) in enumerate(listeners) {
+        for (l) in listeners {
             l.onWarning(lifecycle, warning: warning)
         }
     }
@@ -154,7 +154,7 @@ public class LifecycleDelegate : BaseApplicationDelegate, ILifecycle {
     public func changeListenerErrorStatus(error: ILifecycleListenerError) {
         
         // Iterate all over the listeners and fire the event
-        for (index, l) in enumerate(listeners) {
+        for (l) in listeners {
             l.onError(error)
         }
     }

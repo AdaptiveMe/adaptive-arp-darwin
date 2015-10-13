@@ -98,15 +98,23 @@ public class AppResourceManager {
     internal func protectRealmFile(path : String) -> Bool {
         #if os(iOS)
             logger.log(ILoggingLogLevel.Debug, category: logCategory, message: "protectRealmFile start.")
-            var error: NSError?
-            let success = NSFileManager.defaultManager().setAttributes([NSFileProtectionKey: NSFileProtectionComplete],
-            ofItemAtPath: path, error: &error)
-            if !success {
+            
+            do {
+                try NSFileManager.defaultManager().setAttributes([NSFileProtectionKey: NSFileProtectionComplete], ofItemAtPath: path)
+                logger.log(ILoggingLogLevel.Debug, category: logCategory, message: "protectRealmFile success.")
+                return true
+            } catch {
+                logger.log(ILoggingLogLevel.Debug, category: logCategory, message: "protectRealmFile failed.")
+                return false
+            }
+            
+            /*var success:Bool = try? NSFileManager.defaultManager().setAttributes([NSFileProtectionKey: NSFileProtectionComplete], ofItemAtPath: path)
+            if !(success != nil) {
             logger.log(ILoggingLogLevel.Debug, category: logCategory, message: "protectRealmFile failed. Error: '\(error?.localizedDescription)'")
             } else {
             logger.log(ILoggingLogLevel.Debug, category: logCategory, message: "protectRealmFile success.")
             }
-            return success
+            return success*/
         #endif
         #if os(OSX)
             logger.log(ILoggingLogLevel.Debug, category: logCategory, message: "protectRealmFile not supported on this platform.")

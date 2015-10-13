@@ -468,7 +468,7 @@ should be passed as a parameter
         
         if replacements.count > 0 {
             
-            do {
+            repeat {
                 var range = sql.rangesOfString("?")
                 count = range.count
                 
@@ -489,7 +489,7 @@ should be passed as a parameter
         // TODO: extract table name from statement
         // TODO: set the column names to the result table
         
-        var table:DatabaseTable = DatabaseTable()
+        let table:DatabaseTable = DatabaseTable()
         var rowCount:Int32 = 0
         var columnCount:Int32 = 0
         var rows:[DatabaseRow] = []
@@ -499,7 +499,7 @@ should be passed as a parameter
             var vals = [String]()
             columnCount = Int32(row.count)
             
-            for (index, value) in enumerate(row) {
+            for (value) in row {
                 vals.append("\(value!)")
             }
             

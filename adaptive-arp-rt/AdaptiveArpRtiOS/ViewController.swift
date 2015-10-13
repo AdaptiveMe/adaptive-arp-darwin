@@ -43,7 +43,7 @@ class ViewController: BaseViewController {
     }
     
     internal required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
     }
     
     /// This method is called after the view controller has loaded its view hierarchy into memory. This method is called regardless of whether the view hierarchy was loaded from a nib file or created programmatically in the loadView method.
@@ -52,7 +52,7 @@ class ViewController: BaseViewController {
 
         (AppRegistryBridge.sharedInstance.getPlatformContextWeb().getDelegate()! as! AppContextWebviewDelegate).setWebviewPrimary(self.webView!)
         
-        var req = NSURLRequest(URL: NSURL(string: "https://adaptiveapp/index.html")!)
+        let req = NSURLRequest(URL: NSURL(string: "https://adaptiveapp/index.html")!)
         (self.webView! as UIWebView).loadRequest(req)
 
         // MARK: Waiting on Bug fix to support NSProtocol
@@ -81,8 +81,8 @@ class ViewController: BaseViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    override func supportedInterfaceOrientations() -> Int {
+        
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         
         return super.supportedInterfaceOrientations()
     }
