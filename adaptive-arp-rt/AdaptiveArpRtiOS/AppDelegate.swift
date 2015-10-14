@@ -85,7 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Register the HttpInterceptorprotocol
         NSURLProtocol.registerClass(HttpInterceptorProtocol)
         
-        var lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Starting, timestamp: Int64(NSDate().timeIntervalSince1970*1000))
+        let lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Starting, timestamp: Int64(NSDate().timeIntervalSince1970*1000))
         (AppRegistryBridge.sharedInstance.getLifecycleBridge().getDelegate()! as! LifecycleDelegate).changeListenersStatus(lifecycle)
         LifecycleDelegate.isBackgroundClassVariable = false
         
@@ -97,7 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "didFinishLaunchingWithOptions")
         
-        var lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Started, timestamp: Int64(NSDate().timeIntervalSince1970*1000))
+        let lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Started, timestamp: Int64(NSDate().timeIntervalSince1970*1000))
         (AppRegistryBridge.sharedInstance.getLifecycleBridge().getDelegate()! as! LifecycleDelegate).changeListenersStatus(lifecycle)
         LifecycleDelegate.isBackgroundClassVariable = false
         
@@ -109,7 +109,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "applicationDidBecomeActive")
         
-        var lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Running, timestamp: Int64(NSDate().timeIntervalSince1970*1000))
+        let lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Running, timestamp: Int64(NSDate().timeIntervalSince1970*1000))
         (AppRegistryBridge.sharedInstance.getLifecycleBridge().getDelegate()! as! LifecycleDelegate).changeListenersStatus(lifecycle)
         LifecycleDelegate.isBackgroundClassVariable = false
     }
@@ -119,7 +119,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "applicationWillResignActive")
         
-        var lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Pausing, timestamp: Int64(NSDate().timeIntervalSince1970*1000))
+        let lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Pausing, timestamp: Int64(NSDate().timeIntervalSince1970*1000))
         (AppRegistryBridge.sharedInstance.getLifecycleBridge().getDelegate()! as! LifecycleDelegate).changeListenersStatus(lifecycle)
         LifecycleDelegate.isBackgroundClassVariable = true
     }
@@ -129,7 +129,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "applicationDidEnterBackground")
         
-        var lifecycle:Lifecycle = Lifecycle(state: LifecycleState.PausedIdle, timestamp: Int64(NSDate().timeIntervalSince1970*1000))
+        let lifecycle:Lifecycle = Lifecycle(state: LifecycleState.PausedIdle, timestamp: Int64(NSDate().timeIntervalSince1970*1000))
         (AppRegistryBridge.sharedInstance.getLifecycleBridge().getDelegate()! as! LifecycleDelegate).changeListenersStatus(lifecycle)
         LifecycleDelegate.isBackgroundClassVariable = true
         
@@ -142,7 +142,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "applicationWillEnterForeground")
         
-        var lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Resuming, timestamp: Int64(NSDate().timeIntervalSince1970*1000))
+        let lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Resuming, timestamp: Int64(NSDate().timeIntervalSince1970*1000))
         (AppRegistryBridge.sharedInstance.getLifecycleBridge().getDelegate()! as! LifecycleDelegate).changeListenersStatus(lifecycle)
         LifecycleDelegate.isBackgroundClassVariable = false
     }
@@ -152,7 +152,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "applicationWillTerminate")
         
-        var lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Stopping, timestamp: Int64(NSDate().timeIntervalSince1970*1000))
+        let lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Stopping, timestamp: Int64(NSDate().timeIntervalSince1970*1000))
         (AppRegistryBridge.sharedInstance.getLifecycleBridge().getDelegate()! as! LifecycleDelegate).changeListenersStatus(lifecycle)
         LifecycleDelegate.isBackgroundClassVariable = true
         
@@ -164,9 +164,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "willChangeStatusBarOrientation")
         
-        var displayBridge:IDisplay = AppRegistryBridge.sharedInstance.getDisplayBridge()
+        let displayBridge:IDisplay = AppRegistryBridge.sharedInstance.getDisplayBridge()
         
-        var origin:ICapabilitiesOrientation = displayBridge.getOrientationCurrent()!;
+        let origin:ICapabilitiesOrientation = displayBridge.getOrientationCurrent()!;
         var destination:ICapabilitiesOrientation;
         
         switch newStatusBarOrientation {
@@ -196,10 +196,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "didChangeStatusBarOrientation")
         
-        var displayBridge:IDisplay = AppRegistryBridge.sharedInstance.getDisplayBridge()
+        let displayBridge:IDisplay = AppRegistryBridge.sharedInstance.getDisplayBridge()
         
         var origin:ICapabilitiesOrientation;
-        var destination:ICapabilitiesOrientation = displayBridge.getOrientationCurrent()!
+        let destination:ICapabilitiesOrientation = displayBridge.getOrientationCurrent()!
         
         switch oldStatusBarOrientation {
             
@@ -228,7 +228,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "applicationDidReceiveMemoryWarning")
         
-        var lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Stopping, timestamp: Int64(NSDate().timeIntervalSince1970*1000))
+        let lifecycle:Lifecycle = Lifecycle(state: LifecycleState.Stopping, timestamp: Int64(NSDate().timeIntervalSince1970*1000))
         (AppRegistryBridge.sharedInstance.getLifecycleBridge().getDelegate()! as! LifecycleDelegate).changeListenerWarningStatus(lifecycle, warning: ILifecycleListenerWarning.MemoryLow)
     }
     

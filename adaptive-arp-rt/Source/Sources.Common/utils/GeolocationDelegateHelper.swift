@@ -82,7 +82,7 @@ public class GeolocationDelegateHelper: NSObject, CLLocationManagerDelegate {
     :author: Ferran Vila Conesa
     :since: ARP1.0
     */
-    public func locationManager(manager: CLLocationManager, didUpdateLocations locations: [AnyObject]) {
+    public func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         let locationArray = locations as NSArray
         let locationObject = locationArray.lastObject as! CLLocation

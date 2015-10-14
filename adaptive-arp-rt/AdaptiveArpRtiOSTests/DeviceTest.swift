@@ -76,7 +76,7 @@ class DeviceTest: XCTestCase {
     func testDeviceOrientationListener() {
         
         // Create a void listener in order to test the method implementation
-        var listener = DeviceOrientationListenerImpl(id: 0)
+        let listener = DeviceOrientationListenerImpl(id: 0)
         
         AppRegistryBridge.sharedInstance.getDeviceBridge().addDeviceOrientationListener(listener)
         AppRegistryBridge.sharedInstance.getDeviceBridge().removeDeviceOrientationListener(listener)
@@ -89,7 +89,7 @@ class DeviceTest: XCTestCase {
     func testButtonListener() {
         
         // Create a void listener in order to test the method implementation
-        var listener = ButtonListenerImpl(id: 0)
+        let listener = ButtonListenerImpl(id: 0)
         
         AppRegistryBridge.sharedInstance.getDeviceBridge().addButtonListener(listener)
         AppRegistryBridge.sharedInstance.getDeviceBridge().removeButtonListener(listener)

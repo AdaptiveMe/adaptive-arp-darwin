@@ -281,8 +281,8 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                 if let  service:Service = IOParser.sharedInstance.getServiceByToken(token) {
                     
                     // url composistion
-                    var serviceEndpoint:ServiceEndpoint = service.getServiceEndpoints()![0]
-                    var url : NSMutableString = NSMutableString()
+                    let serviceEndpoint:ServiceEndpoint = service.getServiceEndpoints()![0]
+                    let url : NSMutableString = NSMutableString()
                     url.appendString(serviceEndpoint.getHostURI()!)
                     url.appendString(serviceEndpoint.getPaths()![0].getPath()!)
                     
@@ -293,7 +293,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                             
                             url.appendString("?")
                             
-                            for (index, param:ServiceRequestParameter) in enumerate(params) {
+                            for (index, param) in params.enumerate() {
                                 url.appendString(param.getKeyName()! + "=" + param.getKeyData()!)
                                 if index < params.count-1 {
                                     url.appendString("&")
@@ -318,7 +318,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                     } else {
 
                         // Prepare the request
-                        var request = NSMutableURLRequest()
+                        let request = NSMutableURLRequest()
                         request.HTTPShouldUsePipelining = true
                         request.HTTPShouldHandleCookies = true
                         request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData
@@ -340,12 +340,12 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                         
                         // Content or BodyParameteres + Content
                         
-                        var content:NSMutableString = NSMutableString()
+                        let content:NSMutableString = NSMutableString()
                         if let params:[ServiceRequestParameter] = serviceRequest.getBodyParameters() {
                             
                             // If there are body parameters, append to the content
                             
-                            for (index, param:ServiceRequestParameter) in enumerate(params) {
+                            for param in params {
                                 content.appendString(param.getKeyName()! + "=" + param.getKeyData()! + "\n")
                             }
                         }
@@ -390,7 +390,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                             
                             // HEADERS & SESSION
                             
-                            var endpoint = serviceRequest.getServiceToken()!.getEndpointName()!
+                            let endpoint = serviceRequest.getServiceToken()!.getEndpointName()!
                             
                             if let h:Header =  headers[endpoint] {
                                 
@@ -409,7 +409,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                             return
                         }
                         
-                        var task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+                        let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
                             
                             // Cast the response and the errors
                             if let httpResponse: NSHTTPURLResponse = response as? NSHTTPURLResponse {
@@ -427,7 +427,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                                     
                                     if let responseText:NSString = NSString(data:data!, encoding:NSUTF8StringEncoding) {
                                         
-                                        var sCode:Int32 = Int32(httpResponse.statusCode)
+                                        let sCode:Int32 = Int32(httpResponse.statusCode)
                                         
                                         self.logger.log(ILoggingLogLevel.Debug, category: self.loggerTag, message: "Status code: \(sCode)")
                                         
@@ -437,7 +437,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                                             
                                             // VALID RESPONSES (CORRECT AND WARNINGS)
                                             
-                                            var response: ServiceResponse = ServiceResponse()
+                                            let response: ServiceResponse = ServiceResponse()
                                             response.setContent(Utils.escapeString(responseText as String))
                                             
                                             //self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "\(response.getContent()!)")
@@ -449,7 +449,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                                             
                                             // HEADERS & SESSION
                                             
-                                            var endpoint = serviceRequest.getServiceToken()!.getEndpointName()!
+                                            let endpoint = serviceRequest.getServiceToken()!.getEndpointName()!
                                             
                                             if let h:Header = self.headers[endpoint] {
                                                 
@@ -460,7 +460,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                                                 
                                                 self.logger.log(ILoggingLogLevel.Debug, category: self.loggerTag, message: "There is no previous information on the dictionary of headers and session")
                                                 
-                                                var h:Header = Header()
+                                                let h:Header = Header()
                                                 h.cookies = self.extractCookies(httpResponse)
                                                 self.headers[endpoint] = h
                                             }
@@ -568,7 +568,7 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
                                 
                             } else {
                                 
-                                self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "ERROR \(error.code): \(error.localizedDescription). \(error.debugDescription)")
+                                self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "ERROR \(error!.code): \(error?.localizedDescription). \(error.debugDescription)")
                                 
                                 callback.onError(IServiceResultCallbackError.Unreachable)
                                 return
@@ -607,17 +607,23 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
     */
     private func extractCookies(httpResponse:NSHTTPURLResponse) -> [ServiceSessionCookie] {
         
-        var responseCookies:[NSHTTPCookie] = NSHTTPCookie.cookiesWithResponseHeaderFields(httpResponse.allHeaderFields, forURL: httpResponse.URL!) as! [NSHTTPCookie]
+        var responseHeaders:[String : String] = [String : String]()
+        
+        for header in httpResponse.allHeaderFields {
+            responseHeaders[header.0 as! String] = header.1 as? String
+        }
+        
+        let responseCookies:[NSHTTPCookie] = NSHTTPCookie.cookiesWithResponseHeaderFields(responseHeaders, forURL: httpResponse.URL!)
         self.logger.log(ILoggingLogLevel.Debug, category: self.loggerTag, message: "Number of cookies received: \(responseCookies.count)")
         
         var cookies:[ServiceSessionCookie] = [ServiceSessionCookie]()
         for c:NSHTTPCookie in responseCookies {
             self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "cookie [name:\(c.name), value: \(c.value)]")
-            var cookie:ServiceSessionCookie = ServiceSessionCookie(cookieName: c.name, cookieValue: c.value!)
+            let cookie:ServiceSessionCookie = ServiceSessionCookie(cookieName: c.name, cookieValue: c.value)
             //cookie.setCreation()
             cookie.setDomain(c.domain)
-            cookie.setExpiry(Int64(c.expiresDate.timeIntervalSince1970 * 1000))
-            cookie.setPath(c.path!)
+            cookie.setExpiry(Int64(c.expiresDate!.timeIntervalSince1970 * 1000))
+            cookie.setPath(c.path)
             //cookie.setScheme()
             cookie.setSecure(c.secure)
             cookies.append(cookie)

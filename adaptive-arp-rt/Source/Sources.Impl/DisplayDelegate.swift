@@ -143,7 +143,7 @@ public class DisplayDelegate : BaseSystemDelegate, IDisplay {
     */
     func orientationEvent(originOrientation:ICapabilitiesOrientation, destinationOrientation:ICapabilitiesOrientation, state:RotationEventState) {
         
-        var event:RotationEvent = RotationEvent()
+        let event:RotationEvent = RotationEvent()
         event.setOrigin(originOrientation)
         event.setDestination(destinationOrientation)
         event.setState(state)
@@ -166,7 +166,7 @@ public class DisplayDelegate : BaseSystemDelegate, IDisplay {
         
         #if os(iOS)
             
-            for (index, list) in enumerate(orientationListeners) {
+            for (index, list) in orientationListeners.enumerate() {
                 if list.getId() == listener.getId() {
                     
                     // Remove the listener
@@ -197,7 +197,7 @@ public class DisplayDelegate : BaseSystemDelegate, IDisplay {
         
         #if os(iOS)
             
-            var listCount:Int = orientationListeners.count
+            let listCount:Int = orientationListeners.count
             
             // Remove all the listeners
             orientationListeners.removeAll(keepCapacity: false)

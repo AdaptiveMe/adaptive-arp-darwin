@@ -130,7 +130,7 @@ public class MessagingDelegate : UIViewController, /*BasePIMDelegate,*/ IMessagi
        @param controller MFMessageComposeViewController used to fire this event
        @param result  Send SMS result
     */
-    public func messageComposeViewController(controller: MFMessageComposeViewController!, didFinishWithResult result: MessageComposeResult) {
+    public func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
         
         switch result.rawValue {
             
@@ -148,7 +148,7 @@ public class MessagingDelegate : UIViewController, /*BasePIMDelegate,*/ IMessagi
         }
         
         // Remove the view
-        if let view = BaseViewController.ViewCurrent.getView() {
+        if (BaseViewController.ViewCurrent.getView() != nil) {
             
             // Remove the Message, Remove the view and remove the parent view controller
             self.dismissViewControllerAnimated(true, completion: nil)

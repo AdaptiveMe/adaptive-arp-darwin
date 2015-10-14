@@ -84,7 +84,7 @@ public class IOParser : NSObject, NSXMLParserDelegate {
         services = [Service]()
         
         // Read the io config file
-        var resourceData : ResourceData? = AppResourceManager.sharedInstance.retrieveConfigResource(IO_CONFIG_FILE)
+        let resourceData : ResourceData? = AppResourceManager.sharedInstance.retrieveConfigResource(IO_CONFIG_FILE)
         if resourceData == nil {
             logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error reading IO config file: \(IO_CONFIG_FILE)")
         }
@@ -95,7 +95,7 @@ public class IOParser : NSObject, NSXMLParserDelegate {
         }
         
         // Create the parser and parse the xml
-        var xmlParser = NSXMLParser(data: data!)
+        let xmlParser = NSXMLParser(data: data!)
         xmlParser.delegate = self
         
         if !xmlParser.parse() {
@@ -252,21 +252,21 @@ public class IOParser : NSObject, NSXMLParserDelegate {
         for service:Service in services {
             if service.getName() == token.getServiceName() {
                 
-                var ret:Service = Service()
+                let ret:Service = Service()
                 ret.setName(service.getName()!)
                 var retEndpoints:[ServiceEndpoint] = [ServiceEndpoint]()
                 
                 for endpoint:ServiceEndpoint in service.getServiceEndpoints()! {
                     if Utils.validateRegexp(token.getEndpointName()!, regexp: endpoint.getHostURI()!) {
                         
-                        var retEndpoint:ServiceEndpoint = ServiceEndpoint()
+                        let retEndpoint:ServiceEndpoint = ServiceEndpoint()
                         retEndpoint.setHostURI(token.getEndpointName()!)
                         var retPaths:[ServicePath] = [ServicePath]()
                         
                         for function:ServicePath in endpoint.getPaths()! {
                             if Utils.validateRegexp(token.getFunctionName()!, regexp: function.getPath()!) {
                                 
-                                var retPath:ServicePath = ServicePath()
+                                let retPath:ServicePath = ServicePath()
                                 retPath.setPath(token.getFunctionName()!)
                                 retPath.setType(function.getType()!)
                                 var retMethods:[IServiceMethod] = [IServiceMethod]()
@@ -274,7 +274,7 @@ public class IOParser : NSObject, NSXMLParserDelegate {
                                 for method:IServiceMethod in function.getMethods()! {
                                     if method == token.getInvocationMethod() {
                                         
-                                        var retMethod:IServiceMethod = method
+                                        let retMethod:IServiceMethod = method
                                         retMethods.append(retMethod)
                                     }
                                 }
@@ -304,7 +304,7 @@ public class IOParser : NSObject, NSXMLParserDelegate {
     */
     public func getServiceTokenByURI(uri:String) -> ServiceToken? {
         
-        var uri:NSString = NSString(string: uri)
+        let uri:NSString = NSString(string: uri)
         
         if !Utils.validateUrl(uri) {
             logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The uri: \(uri) has not a valid format")
@@ -312,8 +312,8 @@ public class IOParser : NSObject, NSXMLParserDelegate {
         }
         
         // Parse the uri
-        var uriArray:[String] = uri.componentsSeparatedByString("/") as! [String]
-        var host = uriArray[0]+"//"+uriArray[2]
+        var uriArray:[String] = uri.componentsSeparatedByString("/") 
+        let host = uriArray[0]+"//"+uriArray[2]
         
         var path = ""
         for var i = 3; i < uriArray.count; i++ {
@@ -336,7 +336,7 @@ public class IOParser : NSObject, NSXMLParserDelegate {
                         
                         if Utils.validateRegexp(path, regexp: function.getPath()!) {
                             
-                            var ret:ServiceToken = ServiceToken(serviceName: service.getName()!, endpointName: host, functionName: path, invocationMethod: function.getMethods()![0])
+                            let ret:ServiceToken = ServiceToken(serviceName: service.getName()!, endpointName: host, functionName: path, invocationMethod: function.getMethods()![0])
                             
                             return ret
                         }
@@ -364,7 +364,7 @@ public class IOParser : NSObject, NSXMLParserDelegate {
                 for function:ServicePath in endpoint.getPaths()! {
                     for method:IServiceMethod in function.getMethods()! {
                         
-                        var token:ServiceToken = ServiceToken(serviceName: service.getName()!, endpointName: endpoint.getHostURI()!, functionName: function.getPath()!, invocationMethod: method)
+                        let token:ServiceToken = ServiceToken(serviceName: service.getName()!, endpointName: endpoint.getHostURI()!, functionName: function.getPath()!, invocationMethod: method)
                         
                         tokens.append(token)
                     }

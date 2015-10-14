@@ -164,7 +164,7 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
         
         #if os(iOS)
             
-            for (index, list:IButtonListener) in enumerate(buttonListeners) {
+            for (index, list) in buttonListeners.enumerate() {
                 if list.getId() == listener.getId() {
                     
                     // Remove the listener
@@ -196,7 +196,7 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
         
         #if os(iOS)
             
-            var listCount:Int = buttonListeners.count
+            let listCount:Int = buttonListeners.count
             
             // Remove all the listeners
             buttonListeners.removeAll(keepCapacity: false)
@@ -309,7 +309,7 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
             // MARK: There is no way to detect the rotation effect transition.
             // There is only one event fired, when the device finishes the rotation
             
-            var event:RotationEvent = RotationEvent()
+            let event:RotationEvent = RotationEvent()
             event.setOrigin(ICapabilitiesOrientation.Unknown)
             event.setState(RotationEventState.DidFinishRotation)
             event.setTimestamp(Int64(NSDate().timeIntervalSince1970*1000))
@@ -346,7 +346,7 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
         
         #if os(iOS)
             
-            for (index, list) in enumerate(orientationListeners) {
+            for (index, list) in orientationListeners.enumerate() {
                 if list.getId() == listener.getId() {
                     
                     // Remove the listener
@@ -383,7 +383,7 @@ public class DeviceDelegate : BaseSystemDelegate, IDevice {
         
         #if os(iOS)
             
-            var listCount:Int = orientationListeners.count
+            let listCount:Int = orientationListeners.count
             
             // Remove all the listeners
             orientationListeners.removeAll(keepCapacity: false)

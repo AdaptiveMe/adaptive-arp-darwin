@@ -69,7 +69,7 @@ class GlobalizationTest: XCTestCase {
     */
     func testGetResourceLiteral() {
         
-        var defaultLocale = AppRegistryBridge.sharedInstance.getGlobalizationBridge().getDefaultLocale()!
+        let defaultLocale = AppRegistryBridge.sharedInstance.getGlobalizationBridge().getDefaultLocale()!
         
         // MARK: Maybe the literal for hello-world is not defined
         
@@ -81,7 +81,7 @@ class GlobalizationTest: XCTestCase {
     */
     func testGetResourceLiterals() {
         
-        var defaultLocale = AppRegistryBridge.sharedInstance.getGlobalizationBridge().getDefaultLocale()!
+        let defaultLocale = AppRegistryBridge.sharedInstance.getGlobalizationBridge().getDefaultLocale()!
         
         // MARK: Maybe the literal for hello-world is not defined
         

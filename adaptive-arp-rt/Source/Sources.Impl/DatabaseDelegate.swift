@@ -54,7 +54,7 @@ public class DatabaseDelegate : BaseDataDelegate, IDatabase {
     var queue:dispatch_queue_t?
     
     /// SQLite database instance
-    var db:SQLite.Database?
+    var db:Connection?
     
     /// Label for the queue
     let QUEUE_LABEL = "SQLiteDB"
@@ -74,7 +74,7 @@ public class DatabaseDelegate : BaseDataDelegate, IDatabase {
         // Create a queue for executing syncronized methods
         queue = dispatch_queue_create(QUEUE_LABEL, nil)
         
-        db = SQLite.Database("")
+        db = try! Connection("")
     }
 
     /**
@@ -108,7 +108,7 @@ public class DatabaseDelegate : BaseDataDelegate, IDatabase {
             self.logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Creating database file (\(dbName)) and setting a new database connection...")
             
             // Creating database
-            self.db = SQLite.Database(path)
+            self.db = try! Connection(path)
             
             callback.onResult(database)
             
@@ -152,7 +152,7 @@ public class DatabaseDelegate : BaseDataDelegate, IDatabase {
         
         var columns:String = ""
         
-        for (index, column:DatabaseColumn) in enumerate(databaseTable.getDatabaseColumns()!) {
+        for (index, column) in databaseTable.getDatabaseColumns()!.enumerate() {
             if index != 0 {
                 columns += ","
             }
@@ -160,22 +160,20 @@ public class DatabaseDelegate : BaseDataDelegate, IDatabase {
         }
         
         // Prepared statement
-        var query:String = "CREATE TABLE IF NOT EXISTS `\(databaseTable.getName()!)` (\(columns));"
+        let query:String = "CREATE TABLE IF NOT EXISTS `\(databaseTable.getName()!)` (\(columns));"
         self.logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Query: \(query)")
         
         let stmt = self.db!.prepare(query)
         
         // Run the prepared statement
-        stmt.run()
-        
-        // Handle errors
-        if stmt.failed {
-            self.logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error during the creation of the table. Reason: \(stmt.reason)")
-            callback.onError(IDatabaseTableResultCallbackError.SqlException)
-        } else {
+        do {
+            try stmt.run()
             self.logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Table created correctly")
             self.logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Total changes: \(self.db!.totalChanges)")
             callback.onResult(databaseTable)
+        } catch {
+            self.logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error during the creation of the table. Reason: \(error)")
+            callback.onError(IDatabaseTableResultCallbackError.SqlException)
         }
     }
 
@@ -200,19 +198,20 @@ public class DatabaseDelegate : BaseDataDelegate, IDatabase {
         
         // Create a file manager
         let fm:NSFileManager = NSFileManager.defaultManager()
-        var error:NSError?
+        //var error:NSError?
         
-        if fm.removeItemAtPath(path, error: &error) {
+        do {
+            try fm.removeItemAtPath(path)
             
             // Database removed succesfully
             self.logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "The database \(dbName) was removed succesfully from the path: \(path)")
             callback.onResult(database)
             
-        } else {
-            
+        } catch {
             // The database wasn't removed
-            self.logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The database \(dbName) wasn't removed succesfully from the path: \(path) due to reason: \(error?.description)")
+            self.logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The database \(dbName) wasn't removed succesfully from the path: \(path) due to reason: \(error)")
             callback.onError(IDatabaseResultCallbackError.NotDeleted)
+            
         }
     }
 
@@ -234,21 +233,19 @@ public class DatabaseDelegate : BaseDataDelegate, IDatabase {
         
         
         if self.existsTable(database, databaseTable: databaseTable)! {
-            var query:String = "DROP TABLE `\(databaseTable.getName()!)`"
+            let query:String = "DROP TABLE `\(databaseTable.getName()!)`"
             let stmt = self.db!.prepare(query)
             self.logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Query: \(query)")
             
             // Run the prepared statement
-            stmt.run()
-            
-            // Handle errors
-            if stmt.failed {
-                self.logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error droping the table. Reason: \(stmt.reason)")
-                callback.onError(IDatabaseTableResultCallbackError.SqlException)
-            } else {
+            do {
+                try stmt.run()
                 self.logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Table dropped correctly")
                 self.logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Total changes: \(self.db!.totalChanges)")
                 callback.onResult(databaseTable)
+            } catch {
+                self.logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error droping the table. Reason: \(error)")
+                callback.onError(IDatabaseTableResultCallbackError.SqlException)
             }
             
         } else {
@@ -276,9 +273,9 @@ should be passed as a parameter
         }
         
         // Check if the replacements are the same than the ?
-        if statement.rangesOfString("?").count != replacements.count {
+        if statement.rangeOfString("?")!.count != replacements.count {
             
-            var c = statement.rangesOfString("?").count
+            let c = statement.rangeOfString("?")!.count
             
             self.logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "The number of replacements (\(replacements.count)) is different from the number of '?' (\(c))")
             callback.onError(IDatabaseTableResultCallbackError.SqlException)
@@ -286,7 +283,7 @@ should be passed as a parameter
         }
         
         // Prepare the statement
-        var sql = self.replaceReplacements(statement, replacements: replacements)
+        let sql = self.replaceReplacements(statement, replacements: replacements)
         
         self.logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Query: \(sql)")
         
@@ -294,13 +291,13 @@ should be passed as a parameter
         let stmt = self.db!.prepare(sql)
         
         // Prepare the table for the result
-        var table:DatabaseTable = self.prepareTable(stmt)
+        let table:DatabaseTable = self.prepareTable(stmt)
         
         // Handle errors
-        if stmt.failed {
+        /*if stmt.failed {
             self.logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error executing the statement. Reason: \(stmt.reason)")
             callback.onError(IDatabaseTableResultCallbackError.SqlException)
-        } else {
+        } else {*/
             
             if table.getRowCount() == 0 {
                 self.logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "There are no results")
@@ -310,7 +307,7 @@ should be passed as a parameter
                 self.logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Total changes: \(self.db!.totalChanges)")
                 callback.onResult(table)
             }
-        }
+        /*}*/
     }
 
     /**
@@ -334,21 +331,21 @@ should be passed as a parameter
         }
         
         // Start transaction
-        var txn = self.db!.prepare("BEGIN TRANSACTION")
-        for query in statements {
-            txn = txn && self.db!.prepare(query)
-        }
+            do {
+                try db!.run("BEGIN TRANSACTION")
+                for query in statements {
+                    try db!.run(query)
+                }
+            } catch {
+                try! self.db!.run("ROLLBACK TRANSACTION")
+                self.logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error executing the statement")
+                callback.onError(IDatabaseTableResultCallbackError.SqlException)
+                return
+            }
         
-        if txn.failed {
-            self.db!.run("ROLLBACK TRANSACTION")
-            self.logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "Error executing the statement. Reason: \(txn.reason)")
-            callback.onError(IDatabaseTableResultCallbackError.SqlException)
-            return
-        } else {
-            self.db!.run("COMMIT TRANSACTION")
-            self.logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Transaction commited correctlly")
-            self.logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Total changes: \(self.db!.totalChanges)")
-        }
+        try! self.db!.run("COMMIT TRANSACTION")
+        self.logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Transaction commited correctlly")
+        self.logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Total changes: \(self.db!.totalChanges)")
         
         // TODO: the table is empty
         callback.onResult(DatabaseTable())
@@ -400,15 +397,13 @@ should be passed as a parameter
         }
         
         // Prepare query
-        let sqlite_master:Query = self.db!["sqlite_master"]
+        let sqlite_master:Table = Table("sqlite_master")
         
         let tbl_name = Expression<String>("tbl_name")
         
-        let tables:Query = sqlite_master.filter(tbl_name == databaseTable.getName()!).order("tbl_name").limit(1)
+        let tables:Table = sqlite_master.filter(tbl_name == databaseTable.getName()!).order("tbl_name").limit(1)
         
-        //self.logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Query: \(tables.description)")
-        
-        for row in tables {
+        if db!.scalar(tables.count) > 0 {
             self.logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Founded one table with name: \(databaseTable.getName())")
             return true
         }
@@ -450,7 +445,7 @@ should be passed as a parameter
         let path:String = self.docDir!.stringByAppendingPathComponent(dbName + self.DB_EXT_FILE)
         
         // Opening database
-        self.db = SQLite.Database(path)
+        self.db = try! SQLite.Connection(path)
         
         return true
     }
@@ -469,10 +464,8 @@ should be passed as a parameter
         if replacements.count > 0 {
             
             repeat {
-                var range = sql.rangesOfString("?")
-                count = range.count
-                
-                sql = sql.stringByReplacingCharactersInRange(range[0], withString: "'\(replacements[iteration])'")
+                count = sql.rangeOfString("?")!.count
+                sql = sql.stringByReplacingCharactersInRange(sql.rangeOfString("?")!, withString: replacements[iteration])
                 iteration++
             } while count > 1
             

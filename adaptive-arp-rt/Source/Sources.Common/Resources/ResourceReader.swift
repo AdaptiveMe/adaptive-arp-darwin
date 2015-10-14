@@ -31,15 +31,15 @@ public class ResourceReader  {
     public func getResource(resourceId : String) -> ResourceData? {
         var response : ResourceData?
         
-        var iStream = NSInputStream(fileAtPath: self.path!)
+        let iStream = NSInputStream(fileAtPath: self.path!)
         iStream?.open()
-        var iReader = BTBinaryStreamReader(stream: iStream, andSourceByteOrder: CFByteOrderGetCurrent())
-        var count = Int(readInt(iReader))
+        let iReader = BTBinaryStreamReader(stream: iStream, andSourceByteOrder: CFByteOrderGetCurrent())
+        let count = Int(readInt(iReader))
         for (var i = 0;i < count; i++) {
             
-            var id = readString(iReader)
-            var cooked = readBool(iReader)
-            var cooked_type = readString(iReader)
+            let id = readString(iReader)
+            let cooked = readBool(iReader)
+            let cooked_type = readString(iReader)
             
             if (cooked) {
                 if (cooked_type == "MSCZ" || cooked_type == "MSC") {
@@ -64,10 +64,16 @@ public class ResourceReader  {
                         response?.cooked_type = cooked_type
                         // Skip length of payload
                         iReader.readInt32()
-                        response?.raw_type = NSString(data: NSData(base64EncodedString: readString(iReader))!.decrypt(Cipher.ChaCha20(setup))!, encoding: NSUTF8StringEncoding)!
+                        //response?.raw_type = try! NSString(data: NSData(base64EncodedString: readString(iReader))!.decrypt(Cipher.ChaCha20(setup))!, encoding: NSUTF8StringEncoding)!
+                        
+                        let data = NSData(base64EncodedString: readString(iReader), options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
+                        let dataDecrypted = try! data!.decrypt(Cipher.ChaCha20(setup))
+                        let dataString = NSString(data: dataDecrypted!, encoding: NSUTF8StringEncoding)                        
+                        response?.raw_type = dataString!
+                        
                         response?.raw_length = readInt(iReader)
                         response?.cooked_length = readInt(iReader)
-                        response?.data = readData(iReader).decrypt(Cipher.ChaCha20(setup))!
+                        response?.data = try! readData(iReader).decrypt(Cipher.ChaCha20(setup))!
                         
                         if (cooked_type == "MSCZ") {
                             response?.data = response!.data.gzipInflate()
@@ -131,7 +137,7 @@ public class ResourceReader  {
     }
     
     private func readString(reader : BTBinaryStreamReader) -> String {
-        var length = UInt(reader.readInt32())
+        let length = UInt(reader.readInt32())
         if (length > 0) {
             return reader.readStringWithEncoding(NSUTF8StringEncoding, andLength: length)
         } else {
@@ -140,7 +146,7 @@ public class ResourceReader  {
     }
     
     private func readBool(reader : BTBinaryStreamReader) -> Bool {
-        var val = reader.readInt8()
+        let val = reader.readInt8()
         if (val == 0) {
             return false
         } else {
@@ -153,14 +159,14 @@ public class ResourceReader  {
     }
     
     private func readData(reader : BTBinaryStreamReader) -> NSData {
-        var length = UInt(reader.readInt32())
+        let length = UInt(reader.readInt32())
         return reader.readDataOfLength(length)
     }
     
     private func skipData(reader: BTBinaryStreamReader, stream : NSInputStream) {
-        var length = Int(reader.readInt32())
-        var offset = stream.propertyForKey(NSStreamFileCurrentOffsetKey) as! Int
-        var newoffset : Int = offset + length
+        let length = Int(reader.readInt32())
+        let offset = stream.propertyForKey(NSStreamFileCurrentOffsetKey) as! Int
+        let newoffset : Int = offset + length
         stream.setProperty(newoffset, forKey: NSStreamFileCurrentOffsetKey)
     }
 }

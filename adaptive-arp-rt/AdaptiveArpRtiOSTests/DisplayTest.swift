@@ -62,7 +62,7 @@ class DisplayTest: XCTestCase {
     func testDisplayOrientationListener() {
         
         // Create a void listener in order to test the method implementation
-        var listener = DisplayOrientationListenerImpl(id: 0)
+        let listener = DisplayOrientationListenerImpl(id: 0)
         
         AppRegistryBridge.sharedInstance.getDisplayBridge().addDisplayOrientationListener(listener)
         AppRegistryBridge.sharedInstance.getDisplayBridge().removeDisplayOrientationListener(listener)

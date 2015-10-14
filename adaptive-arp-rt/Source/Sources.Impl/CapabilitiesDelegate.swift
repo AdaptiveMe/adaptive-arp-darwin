@@ -131,7 +131,7 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
         case ICapabilitiesCommunication.Calendar:
             
             #if os(iOS)
-                if let eventsAccess: AnyObject = NSUserDefaults.standardUserDefaults().valueForKey("eventkit_events_access_granted") {
+                if let _: AnyObject = NSUserDefaults.standardUserDefaults().valueForKey("eventkit_events_access_granted") {
                     return true
                 } else {
                     return false
@@ -193,7 +193,7 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
         case ICapabilitiesCommunication.Telephony:
             
             #if os(iOS)
-                var application = AppRegistryBridge.sharedInstance.getPlatformContext().getContext() as! UIApplication
+                let application = AppRegistryBridge.sharedInstance.getPlatformContext().getContext() as! UIApplication
                 return application.canOpenURL(NSURL(string: "tel://")!)
             #endif
             #if os(OSX)
@@ -418,7 +418,7 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
     public func hasSensorSupport(type : ICapabilitiesSensor) -> Bool? {
         
         #if os(iOS)
-            var motionManager: CMMotionManager = CMMotionManager()
+            let motionManager: CMMotionManager = CMMotionManager()
         #endif
         #if os(OSX)
         #endif

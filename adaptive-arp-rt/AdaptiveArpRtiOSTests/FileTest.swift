@@ -65,11 +65,11 @@ class FileTest: XCTestCase {
     */
     func testFileSystem() {
         
-        var date = NSDate()
-        var timestamp:Int64 = Int64(date.timeIntervalSince1970*1000)
+        let date = NSDate()
+        let timestamp:Int64 = Int64(date.timeIntervalSince1970*1000)
         
         // Folder properties
-        var folder:FileDescriptor = FileDescriptor()
+        let folder:FileDescriptor = FileDescriptor()
         folder.setName("test")
         folder.setPath(AppRegistryBridge.sharedInstance.getFileSystemBridge().getApplicationDocumentsFolder()!.getPathAbsolute()!)
         folder.setPathAbsolute(folder.getPath()! + "/" + folder.getName()!)
@@ -78,7 +78,7 @@ class FileTest: XCTestCase {
         folder.setDateModified(timestamp)
         
         // File properties
-        var file:FileDescriptor = FileDescriptor()
+        let file:FileDescriptor = FileDescriptor()
         file.setPath(folder.getPathAbsolute()!)
         file.setName("test.txt")
         file.setPathAbsolute(file.getPath()! + "/" + file.getName()!)
@@ -95,7 +95,7 @@ class FileTest: XCTestCase {
         XCTAssertTrue(AppRegistryBridge.sharedInstance.getFileBridge().exists(file)!, "There file is not successfully created. See log")
         
         // Rename FILE
-        var file2:FileDescriptor = AppRegistryBridge.sharedInstance.getFileSystemBridge().createFileDescriptor(file, name: "test3.txt")!
+        let file2:FileDescriptor = AppRegistryBridge.sharedInstance.getFileSystemBridge().createFileDescriptor(file, name: "test3.txt")!
         AppRegistryBridge.sharedInstance.getFileBridge().move(file, destination: file2, createPath: false, overwrite: true, callback: fileResultCallback)
         XCTAssertTrue(AppRegistryBridge.sharedInstance.getFileBridge().exists(file2)!, "There file is not successfully moved. See log")
         

@@ -121,7 +121,7 @@ public class ContactDelegate : BasePIMDelegate, IContact {
     public func getContact(contact : ContactUid, callback : IContactResultCallback) {
         
         // fill all tthe group fields to query all the information
-        var fields: [IContactFieldGroup] = [IContactFieldGroup.PersonalInfo, IContactFieldGroup.ProfessionalInfo, IContactFieldGroup.Addresses, IContactFieldGroup.Phones, IContactFieldGroup.Emails, IContactFieldGroup.Websites, IContactFieldGroup.Socials, IContactFieldGroup.Tags]
+        let fields: [IContactFieldGroup] = [IContactFieldGroup.PersonalInfo, IContactFieldGroup.ProfessionalInfo, IContactFieldGroup.Addresses, IContactFieldGroup.Phones, IContactFieldGroup.Emails, IContactFieldGroup.Websites, IContactFieldGroup.Socials, IContactFieldGroup.Tags]
         
         self.checkContactPermissions(callback, contact: contact, fields: fields, filter: nil, term: "")
         //self.getContactsGeneric(callback, contact: contact, fields: fields, filter: nil, term: "")
@@ -139,10 +139,10 @@ public class ContactDelegate : BasePIMDelegate, IContact {
         #if os(iOS)
             
             // Get the address book and the contact list
-            var addressBook: ABAddressBookRef? = extractABAddressBookRef(ABAddressBookCreateWithOptions(nil, nil))
+            let addressBook: ABAddressBookRef? = extractABAddressBookRef(ABAddressBookCreateWithOptions(nil, nil))
             
             // Get the ID for the contact
-            var id:Int32 = Int32(contact.getContactId()!.toInt()!)
+            let id:Int32 = Int32(contact.getContactId()!)!
             
             if(ABAddressBookGetPersonWithRecordID(addressBook, id) == nil) {
                 logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "The contact with id: \(id) is not founded in the address book for getting the picture")
@@ -150,7 +150,7 @@ public class ContactDelegate : BasePIMDelegate, IContact {
                 return
             }
             
-            var person:ABRecordRef = ABAddressBookGetPersonWithRecordID(addressBook, id).takeUnretainedValue()
+            let person:ABRecordRef = ABAddressBookGetPersonWithRecordID(addressBook, id).takeUnretainedValue()
             logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Quering for one person id: \(id)")
             
             // If the person has no photo
@@ -160,7 +160,7 @@ public class ContactDelegate : BasePIMDelegate, IContact {
                 return
             }
             
-            var image:NSData = ABPersonCopyImageData(person).takeUnretainedValue()
+            let image:NSData = ABPersonCopyImageData(person).takeUnretainedValue()
             
             // Create an array and get the bytes for the image
             let count = image.length
@@ -187,7 +187,7 @@ public class ContactDelegate : BasePIMDelegate, IContact {
     public func getContacts(callback : IContactResultCallback) {
         
         // fill all tthe group fields to query all the information
-        var fields: [IContactFieldGroup] = [IContactFieldGroup.PersonalInfo, IContactFieldGroup.ProfessionalInfo, IContactFieldGroup.Addresses, IContactFieldGroup.Phones, IContactFieldGroup.Emails, IContactFieldGroup.Websites, IContactFieldGroup.Socials, IContactFieldGroup.Tags]
+        let fields: [IContactFieldGroup] = [IContactFieldGroup.PersonalInfo, IContactFieldGroup.ProfessionalInfo, IContactFieldGroup.Addresses, IContactFieldGroup.Phones, IContactFieldGroup.Emails, IContactFieldGroup.Websites, IContactFieldGroup.Socials, IContactFieldGroup.Tags]
         
         //self.getContactsGeneric(callback, contact: nil, fields: fields, filter: nil, term: "")
         self.checkContactPermissions(callback, contact: nil, fields: fields, filter: nil, term: "")
@@ -230,7 +230,7 @@ public class ContactDelegate : BasePIMDelegate, IContact {
     public func searchContacts(term : String, callback : IContactResultCallback) {
         
         // fill all tthe group fields to query all the information
-        var fields: [IContactFieldGroup] = [IContactFieldGroup.PersonalInfo, IContactFieldGroup.ProfessionalInfo, IContactFieldGroup.Addresses, IContactFieldGroup.Phones, IContactFieldGroup.Emails, IContactFieldGroup.Websites, IContactFieldGroup.Socials, IContactFieldGroup.Tags]
+        let fields: [IContactFieldGroup] = [IContactFieldGroup.PersonalInfo, IContactFieldGroup.ProfessionalInfo, IContactFieldGroup.Addresses, IContactFieldGroup.Phones, IContactFieldGroup.Emails, IContactFieldGroup.Websites, IContactFieldGroup.Socials, IContactFieldGroup.Tags]
         
         //self.getContactsGeneric(callback, contact: nil, fields: fields, filter: nil, term: term)
         self.checkContactPermissions(callback, contact: nil, fields: fields, filter: nil, term: term)
@@ -247,7 +247,7 @@ public class ContactDelegate : BasePIMDelegate, IContact {
     public func searchContactsWithFilter(term : String, callback : IContactResultCallback, filter : [IContactFilter]) {
         
         // fill all tthe group fields to query all the information
-        var fields: [IContactFieldGroup] = [IContactFieldGroup.PersonalInfo, IContactFieldGroup.ProfessionalInfo, IContactFieldGroup.Addresses, IContactFieldGroup.Phones, IContactFieldGroup.Emails, IContactFieldGroup.Websites, IContactFieldGroup.Socials, IContactFieldGroup.Tags]
+        let fields: [IContactFieldGroup] = [IContactFieldGroup.PersonalInfo, IContactFieldGroup.ProfessionalInfo, IContactFieldGroup.Addresses, IContactFieldGroup.Phones, IContactFieldGroup.Emails, IContactFieldGroup.Websites, IContactFieldGroup.Socials, IContactFieldGroup.Tags]
         
         //self.getContactsGeneric(callback, contact: nil, fields: fields, filter: filter, term: term)
         self.checkContactPermissions(callback, contact: nil, fields: fields, filter: filter, term: term)
@@ -266,20 +266,20 @@ public class ContactDelegate : BasePIMDelegate, IContact {
         #if os(iOS)
             
             // Get the address book and the contact list
-            var addressBook: ABAddressBookRef? = extractABAddressBookRef(ABAddressBookCreateWithOptions(nil, nil))
+            let addressBook: ABAddressBookRef? = extractABAddressBookRef(ABAddressBookCreateWithOptions(nil, nil))
             
             // Get the ID for the contact
-            var id:Int32 = Int32(contact.getContactId()!.toInt()!)
+            let id:Int32 = Int32(contact.getContactId()!)!
             
             if(ABAddressBookGetPersonWithRecordID(addressBook, id) == nil) {
                 logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "The contact with id: \(id) is not founded in the address book for setting the picture")
                 return false
             }
             
-            var person:ABRecordRef = ABAddressBookGetPersonWithRecordID(addressBook, id).takeUnretainedValue()
+            let person:ABRecordRef = ABAddressBookGetPersonWithRecordID(addressBook, id).takeUnretainedValue()
             logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Quering for one person id: \(id)")
             
-            var data: NSData = NSData(bytes: pngImage, length: pngImage.count)
+            let data: NSData = NSData(bytes: pngImage, length: pngImage.count)
             
             
             if ABPersonSetImageData(person, data, nil) {
@@ -321,7 +321,7 @@ public class ContactDelegate : BasePIMDelegate, IContact {
     */
     private func getLabel(nonFormatedLabel: String?) -> String {
         
-        if let label = nonFormatedLabel {
+        if (nonFormatedLabel != nil) {
             for (key, value) in PIM_LABELS {
                 if key == nonFormatedLabel {
                     return value
@@ -418,7 +418,7 @@ public class ContactDelegate : BasePIMDelegate, IContact {
                 
                 var errorRef: Unmanaged<CFError>? = nil
                 
-                var addressBook: ABAddressBookRef? = extractABAddressBookRef(ABAddressBookCreateWithOptions(nil, &errorRef))
+                let addressBook: ABAddressBookRef? = extractABAddressBookRef(ABAddressBookCreateWithOptions(nil, &errorRef))
                 
                 ABAddressBookRequestAccessWithCompletion(addressBook, { (success, error) -> Void in
                     if success {
@@ -476,21 +476,21 @@ public class ContactDelegate : BasePIMDelegate, IContact {
         #if os(iOS)
             
             // Get the address book and the contact list
-            var addressBook: ABAddressBookRef? = extractABAddressBookRef(ABAddressBookCreateWithOptions(nil, nil))
+            let addressBook: ABAddressBookRef? = extractABAddressBookRef(ABAddressBookCreateWithOptions(nil, nil))
             
             // Array for storing the contacts
             var contactList: [ABRecordRef] = [ABRecordRef]()
             
             var contacts: [Contact] = [Contact]()
             
-            if var contact:ContactUid = contact {
+            if let contact:ContactUid = contact {
                 
                 /*
                 * ONE CONTACT
                 */
                 
                 // Query only for one contact
-                var id:Int32 = Int32(contact.getContactId()!.toInt()!)
+                let id:Int32 = Int32(contact.getContactId()!)!
                 
                 if(ABAddressBookGetPersonWithRecordID(addressBook, id) == nil) {
                     logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "The contact with id: \(id) is not founded in the address book")
@@ -498,7 +498,7 @@ public class ContactDelegate : BasePIMDelegate, IContact {
                     return
                 }
                 
-                var person:ABRecordRef = ABAddressBookGetPersonWithRecordID(addressBook, id).takeUnretainedValue()
+                let person:ABRecordRef = ABAddressBookGetPersonWithRecordID(addressBook, id).takeUnretainedValue()
                 logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Quering for one person id: \(id)")
                 
                 // Apend only one person into the array
@@ -506,28 +506,28 @@ public class ContactDelegate : BasePIMDelegate, IContact {
                 
             } else {
                 
-                if var filters:[IContactFilter] = filter {
+                if let filters:[IContactFilter] = filter {
                     
                     /*
                     * PREDEFINED FILTERS
                     */
                     
                     // Query for all the contacts
-                    var allContacts:[ABRecordRef] = ABAddressBookCopyArrayOfAllPeople(addressBook).takeRetainedValue() as [ABRecordRef]
+                    let allContacts:[ABRecordRef] = ABAddressBookCopyArrayOfAllPeople(addressBook).takeRetainedValue() as [ABRecordRef]
                     var filteredContacts: [ABRecordRef] = [ABRecordRef]()
                     
                     for record:ABRecordRef in allContacts {
                         
-                        var addrNum: Int = ABMultiValueGetCount(ABRecordCopyValue(record, kABPersonAddressProperty).takeUnretainedValue() as ABMultiValueRef)
-                        var mailNum: Int = ABMultiValueGetCount(ABRecordCopyValue(record, kABPersonEmailProperty).takeUnretainedValue() as ABMultiValueRef)
-                        var phonNum: Int = ABMultiValueGetCount(ABRecordCopyValue(record, kABPersonPhoneProperty).takeUnretainedValue() as ABMultiValueRef)
+                        let addrNum: Int = ABMultiValueGetCount(ABRecordCopyValue(record, kABPersonAddressProperty).takeUnretainedValue() as ABMultiValueRef)
+                        let mailNum: Int = ABMultiValueGetCount(ABRecordCopyValue(record, kABPersonEmailProperty).takeUnretainedValue() as ABMultiValueRef)
+                        let phonNum: Int = ABMultiValueGetCount(ABRecordCopyValue(record, kABPersonPhoneProperty).takeUnretainedValue() as ABMultiValueRef)
                         
                         
                         // Look for all the possible filters combinations and the number of ocurrences
                         // If the filter combination matches and the record has values for this combination, add to the iteration list
-                        var a = find(filters, IContactFilter.HasAddress)
-                        var m = find(filters, IContactFilter.HasEmail)
-                        var p = find(filters, IContactFilter.HasPhone)
+                        let a = filters.indexOf(IContactFilter.HasAddress)
+                        let m = filters.indexOf(IContactFilter.HasEmail)
+                        let p = filters.indexOf(IContactFilter.HasPhone)
                         
                         if a != nil && m != nil && p != nil {
                             if addrNum > 0 && mailNum > 0 && phonNum > 0 { filteredContacts.append(record) }
@@ -555,7 +555,7 @@ public class ContactDelegate : BasePIMDelegate, IContact {
                         for record:ABRecordRef in filteredContacts {
                             
                             // Iterate all the contacts and check if the term exists in the display Name
-                            var displayName: String = ABRecordCopyCompositeName(record).takeRetainedValue() as String
+                            let displayName: String = ABRecordCopyCompositeName(record).takeRetainedValue() as String
                             
                             if Utils.normalizeString(displayName).rangeOfString(Utils.normalizeString(term)) != nil{
                                 contactList.append(record)
@@ -576,12 +576,12 @@ public class ContactDelegate : BasePIMDelegate, IContact {
                         */
                         
                         // Query for all the contacts
-                        var allContacts:[ABRecordRef] = ABAddressBookCopyArrayOfAllPeople(addressBook).takeRetainedValue() as [ABRecordRef]
+                        let allContacts:[ABRecordRef] = ABAddressBookCopyArrayOfAllPeople(addressBook).takeRetainedValue() as [ABRecordRef]
                         
                         for record:ABRecordRef in allContacts {
                             
                             // Iterate all the contacts and check if the term exists in the display Name
-                            var displayName: String = ABRecordCopyCompositeName(record).takeRetainedValue() as String
+                            let displayName: String = ABRecordCopyCompositeName(record).takeRetainedValue() as String
                             
                             if Utils.normalizeString(displayName).rangeOfString(Utils.normalizeString(term)) != nil{
                                 contactList.append(record)
@@ -615,21 +615,21 @@ public class ContactDelegate : BasePIMDelegate, IContact {
                 
                 //logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Getting information from: \(ABRecordCopyCompositeName(record).takeRetainedValue())")
                 
-                var contact: Contact = Contact()
+                let contact: Contact = Contact()
                 
                 /*
                 * UID
                 */
                 
-                var uid: Int32 = ABRecordGetRecordID(record)
+                let uid: Int32 = ABRecordGetRecordID(record)
                 contact.setContactId(String(uid))
                 
                 /*
                 * Addresses
                 */
                 
-                if var group = fields {
-                    if ((find(group,IContactFieldGroup.Addresses)) != nil) {
+                if let group = fields {
+                    if group.indexOf(IContactFieldGroup.Addresses) != nil {
                         
                         var contactAddressList: [ContactAddress] = [ContactAddress]()
                         
@@ -637,7 +637,7 @@ public class ContactDelegate : BasePIMDelegate, IContact {
                             
                             for (var i:Int=0; i < ABMultiValueGetCount(addresses.takeUnretainedValue()); i++) {
                                 
-                                var contactAddress: ContactAddress = ContactAddress()
+                                let contactAddress: ContactAddress = ContactAddress()
                                 
                                 if let address = ABMultiValueCopyValueAtIndex(addresses.takeUnretainedValue(), i) {
                                     
@@ -678,8 +678,8 @@ public class ContactDelegate : BasePIMDelegate, IContact {
                 * Emails
                 */
                 
-                if var group = fields {
-                    if ((find(group,IContactFieldGroup.Emails)) != nil) {
+                if let group = fields {
+                    if group.indexOf(IContactFieldGroup.Emails) != nil {
                         
                         var contactEmailsList: [ContactEmail] = [ContactEmail]()
                         
@@ -687,7 +687,7 @@ public class ContactDelegate : BasePIMDelegate, IContact {
                             
                             for (var i:Int=0; i < ABMultiValueGetCount(emails.takeUnretainedValue()); i++) {
                                 
-                                var contactEmail: ContactEmail = ContactEmail()
+                                let contactEmail: ContactEmail = ContactEmail()
                                 
                                 if let email = ABMultiValueCopyValueAtIndex(emails.takeUnretainedValue(), i) {
                                     contactEmail.setEmail(email.takeUnretainedValue() as! String)
@@ -708,8 +708,8 @@ public class ContactDelegate : BasePIMDelegate, IContact {
                 * Phones
                 */
                 
-                if var group = fields {
-                    if ((find(group,IContactFieldGroup.Phones)) != nil) {
+                if let group = fields {
+                    if group.indexOf(IContactFieldGroup.Phones) != nil {
                         
                         var contactPhoneList: [ContactPhone] = [ContactPhone]()
                         
@@ -717,7 +717,7 @@ public class ContactDelegate : BasePIMDelegate, IContact {
                             
                             for (var i:Int=0; i < ABMultiValueGetCount(phones.takeUnretainedValue()); i++) {
                                 
-                                var contactPhone: ContactPhone = ContactPhone()
+                                let contactPhone: ContactPhone = ContactPhone()
                                 
                                 if let phone = ABMultiValueCopyValueAtIndex(phones.takeUnretainedValue(), i) {
                                     contactPhone.setPhone(phone.takeUnretainedValue() as! String)
@@ -740,8 +740,8 @@ public class ContactDelegate : BasePIMDelegate, IContact {
                 * Socials
                 */
                 
-                if var group = fields {
-                    if ((find(group,IContactFieldGroup.Socials)) != nil) {
+                if let group = fields {
+                    if group.indexOf(IContactFieldGroup.Socials) != nil {
                         
                         var contactSocialList: [ContactSocial] = [ContactSocial]()
                         
@@ -749,10 +749,10 @@ public class ContactDelegate : BasePIMDelegate, IContact {
                             
                             for (var i:Int=0; i < ABMultiValueGetCount(socials.takeUnretainedValue()); i++) {
                                 
-                                var contactSocial:ContactSocial = ContactSocial()
+                                let contactSocial:ContactSocial = ContactSocial()
                                 
                                 if let social = ABMultiValueCopyValueAtIndex(socials.takeUnretainedValue(), i) {
-                                    var socialNetwork:String = social.takeUnretainedValue()["service"] as! String
+                                    let socialNetwork:String = social.takeUnretainedValue()["service"] as! String
                                     switch(socialNetwork){
                                     case "facebook":
                                         contactSocial.setSocialNetwork(ContactSocialNetwork.Facebook)
@@ -768,7 +768,7 @@ public class ContactDelegate : BasePIMDelegate, IContact {
                                         logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "The social network: \(socialNetwork) is not supported by the system")
                                     }
                                     
-                                    var socialURl:String = social.takeUnretainedValue()["url"] as! String
+                                    let socialURl:String = social.takeUnretainedValue()["url"] as! String
                                     contactSocial.setProfileUrl(socialURl)
                                 }
                                 
@@ -784,8 +784,8 @@ public class ContactDelegate : BasePIMDelegate, IContact {
                 * WEBSITES
                 */
                 
-                if var group = fields {
-                    if ((find(group,IContactFieldGroup.Websites)) != nil) {
+                if let group = fields {
+                    if group.indexOf(IContactFieldGroup.Websites) != nil {
                         
                         var contactWebsiteList: [ContactWebsite] = [ContactWebsite]()
                         
@@ -793,7 +793,7 @@ public class ContactDelegate : BasePIMDelegate, IContact {
                             
                             for (var i:Int=0; i < ABMultiValueGetCount(websites.takeUnretainedValue()); i++) {
                                 
-                                var contactWebsite: ContactWebsite = ContactWebsite()
+                                let contactWebsite: ContactWebsite = ContactWebsite()
                                 
                                 if let url = ABMultiValueCopyValueAtIndex(websites.takeUnretainedValue(), i) {
                                     contactWebsite.setUrl(url.takeUnretainedValue() as! String)
@@ -812,10 +812,10 @@ public class ContactDelegate : BasePIMDelegate, IContact {
                 * PERSONAL INFO
                 */
                 
-                if var group = fields {
-                    if ((find(group,IContactFieldGroup.PersonalInfo)) != nil) {
+                if let group = fields {
+                    if group.indexOf(IContactFieldGroup.PersonalInfo) != nil {
                         
-                        var contactPersonalInfo:ContactPersonalInfo = ContactPersonalInfo()
+                        let contactPersonalInfo:ContactPersonalInfo = ContactPersonalInfo()
                         
                         if let firstName = ABRecordCopyValue(record, kABPersonFirstNameProperty) {
                             contactPersonalInfo.setName(firstName.takeUnretainedValue() as! String)
@@ -849,10 +849,10 @@ public class ContactDelegate : BasePIMDelegate, IContact {
                 * PROFESSIONAL INFO
                 */
                 
-                if var group = fields {
-                    if ((find(group,IContactFieldGroup.ProfessionalInfo)) != nil) {
+                if let group = fields {
+                    if group.indexOf(IContactFieldGroup.ProfessionalInfo) != nil {
                         
-                        var contactProfessionalInfo:ContactProfessionalInfo = ContactProfessionalInfo()
+                        let contactProfessionalInfo:ContactProfessionalInfo = ContactProfessionalInfo()
                         
                         if let company = ABRecordCopyValue(record, kABPersonOrganizationProperty) {
                             contactProfessionalInfo.setCompany(company.takeUnretainedValue() as! String)

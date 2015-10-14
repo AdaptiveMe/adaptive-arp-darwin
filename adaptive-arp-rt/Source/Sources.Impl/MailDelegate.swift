@@ -104,7 +104,7 @@ public class MailDelegate : UIViewController, /*BasePIMDelegate,*/ IMail, MFMail
             view.view.addSubview(self.view)
             
             // Create the email with the fields
-            var mail: MFMailComposeViewController = MFMailComposeViewController()
+            let mail: MFMailComposeViewController = MFMailComposeViewController()
             mail.mailComposeDelegate = self
             
             // addresses (to)

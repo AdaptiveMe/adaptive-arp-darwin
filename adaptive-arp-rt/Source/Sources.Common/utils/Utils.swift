@@ -96,39 +96,13 @@ class Regex {
     
     init(_ pattern: String) {
         self.pattern = pattern
-        var error: NSError?
-        self.internalExpression = NSRegularExpression(pattern: pattern, options: .CaseInsensitive, error: &error)!
+        self.internalExpression = try! NSRegularExpression(pattern: self.pattern, options: NSRegularExpressionOptions.CaseInsensitive)
     }
     
     func test(input: String) -> Bool {
-        let matches = self.internalExpression.matchesInString(input, options: nil, range:NSMakeRange(0, count(input)))
+        let matches = self.internalExpression.matchesInString(input, options: NSMatchingOptions.ReportCompletion, range:NSMakeRange(0, (input as NSString).length))
         return matches.count > 0
     }
-}
-
-extension String {
-    func rangesOfString(findStr:String) -> [Range<String.Index>] {
-        var arr = [Range<String.Index>]()
-        var startInd = self.startIndex
-        var i = 0
-        // test first of all whether the string is likely to appear at all
-        if contains(self, first(findStr)!) {
-            startInd = find(self,first(findStr)!)!
-        }
-        else {
-            return arr
-        }
-        // set starting point for search based on the finding of the first character
-        i = distance(self.startIndex, startInd)
-        while i<=count(self)-count(findStr) {
-            if self[advance(self.startIndex, i)..<advance(self.startIndex, i+count(findStr))] == findStr {
-                arr.append(Range(start:advance(self.startIndex, i),end:advance(self.startIndex, i+count(findStr))))
-                i = i+count(findStr)
-            }
-            i++
-        }
-        return arr
-    } // try further optimization by repeating the initial act of finding first character after each found string
 }
 
 ///-- Used by Encryption functions --------------------------------------------------------------- Start

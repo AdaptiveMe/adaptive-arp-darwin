@@ -66,7 +66,7 @@ public class OSDelegate : BaseSystemDelegate, IOS {
             
             // FIX: operatingSystemVersion not available in iOS 7.1
             //var processInfoOs : NSOperatingSystemVersion = NSProcessInfo.processInfo().operatingSystemVersion
-            var osVersion = UIDevice.currentDevice().systemVersion
+            let osVersion = UIDevice.currentDevice().systemVersion
             
         #endif
         #if os(OSX)

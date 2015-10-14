@@ -65,7 +65,7 @@ class TelephonyTest: XCTestCase {
             
             // MARK: it is possible the device hasn't a SIM and it's no possible to make a call
             
-            var status:ITelephonyStatus = AppRegistryBridge.sharedInstance.getTelephonyBridge().call("123456789")!
+            let status:ITelephonyStatus = AppRegistryBridge.sharedInstance.getTelephonyBridge().call("123456789")!
             
             switch status {
             case ITelephonyStatus.Dialing:

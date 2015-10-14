@@ -40,7 +40,6 @@
 		C37106741AE8D9C400B40562 /* TelephonyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C371065B1AE8D9C400B40562 /* TelephonyDelegate.swift */; };
 		C37106751AE8D9C400B40562 /* VideoDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C371065C1AE8D9C400B40562 /* VideoDelegate.swift */; };
 		C37106801AE8DAA900B40562 /* GeolocationDelegateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C371067D1AE8DAA900B40562 /* GeolocationDelegateHelper.swift */; };
-		C37106811AE8DAA900B40562 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C371067E1AE8DAA900B40562 /* Reachability.swift */; };
 		C37106821AE8DAA900B40562 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C371067F1AE8DAA900B40562 /* Utils.swift */; };
 		C37106851AE8DD1800B40562 /* GlobalizationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37106841AE8DD1800B40562 /* GlobalizationDelegate.swift */; };
 		C37106871AE8DD3900B40562 /* I18NParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37106861AE8DD3900B40562 /* I18NParser.swift */; };
@@ -112,7 +111,6 @@
 		C3E91FCC1AEA561B006E3EB3 /* GeolocationDelegateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C371067D1AE8DAA900B40562 /* GeolocationDelegateHelper.swift */; };
 		C3E91FCD1AEA561B006E3EB3 /* I18NParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37106861AE8DD3900B40562 /* I18NParser.swift */; };
 		C3E91FCE1AEA561B006E3EB3 /* IOParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37106AF1AE8F3CF00B40562 /* IOParser.swift */; };
-		C3E91FCF1AEA561B006E3EB3 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C371067E1AE8DAA900B40562 /* Reachability.swift */; };
 		C3E91FD01AEA561B006E3EB3 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C371067F1AE8DAA900B40562 /* Utils.swift */; };
 		C3E91FD11AEA5632006E3EB3 /* BTBinaryStreamReader.m in Sources */ = {isa = PBXBuildFile; fileRef = C37106921AE8E00000B40562 /* BTBinaryStreamReader.m */; };
 		C3E91FD21AEA5632006E3EB3 /* BTBinaryStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = C37106941AE8E00000B40562 /* BTBinaryStreamWriter.m */; };
@@ -201,7 +199,6 @@
 		C371065B1AE8D9C400B40562 /* TelephonyDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TelephonyDelegate.swift; sourceTree = "<group>"; };
 		C371065C1AE8D9C400B40562 /* VideoDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoDelegate.swift; sourceTree = "<group>"; };
 		C371067D1AE8DAA900B40562 /* GeolocationDelegateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeolocationDelegateHelper.swift; sourceTree = "<group>"; };
-		C371067E1AE8DAA900B40562 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		C371067F1AE8DAA900B40562 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		C37106841AE8DD1800B40562 /* GlobalizationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalizationDelegate.swift; sourceTree = "<group>"; };
 		C37106861AE8DD3900B40562 /* I18NParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = I18NParser.swift; sourceTree = "<group>"; };
@@ -444,7 +441,6 @@
 				C371067D1AE8DAA900B40562 /* GeolocationDelegateHelper.swift */,
 				C37106861AE8DD3900B40562 /* I18NParser.swift */,
 				C37106AF1AE8F3CF00B40562 /* IOParser.swift */,
-				C371067E1AE8DAA900B40562 /* Reachability.swift */,
 				C371067F1AE8DAA900B40562 /* Utils.swift */,
 			);
 			name = Utils;
@@ -682,7 +678,6 @@
 				C37106331AE8D6F900B40562 /* MediaViewController.swift in Sources */,
 				C3B351161AEE530600B3759E /* DatabaseDelegate.swift in Sources */,
 				C371068C1AE8DE5000B40562 /* AppResourceManager.swift in Sources */,
-				C37106811AE8DAA900B40562 /* Reachability.swift in Sources */,
 				C371066C1AE8D9C400B40562 /* MailDelegate.swift in Sources */,
 				C37106B01AE8F3CF00B40562 /* IOParser.swift in Sources */,
 				C371065D1AE8D9C400B40562 /* AccelerationDelegate.swift in Sources */,
@@ -725,7 +720,6 @@
 				C3E91FB91AEA5601006E3EB3 /* DeviceDelegate.swift in Sources */,
 				C3E91FC51AEA5601006E3EB3 /* OSDelegate.swift in Sources */,
 				C3E91FBA1AEA5601006E3EB3 /* DisplayDelegate.swift in Sources */,
-				C3E91FCF1AEA561B006E3EB3 /* Reachability.swift in Sources */,
 				C3E91F931AEA528C006E3EB3 /* ContactTest.swift in Sources */,
 				C3E91FA71AEA528C006E3EB3 /* VideoTest.swift in Sources */,
 				C3E91FBE1AEA5601006E3EB3 /* GlobalizationDelegate.swift in Sources */,
@@ -961,7 +955,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

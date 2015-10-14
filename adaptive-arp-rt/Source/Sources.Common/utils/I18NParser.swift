@@ -75,7 +75,7 @@ public class I18NParser : NSObject, NSXMLParserDelegate {
         // Read the i18n config file
         if let resourceData:ResourceData = AppResourceManager.sharedInstance.retrieveConfigResource(I18NParser.I18N_CONFIG_FILE) {
             
-            var xmlParser = NSXMLParser(data: resourceData.data)
+            let xmlParser = NSXMLParser(data: resourceData.data)
             xmlParser.delegate = self
             
             localesArray = []
@@ -98,15 +98,15 @@ public class I18NParser : NSObject, NSXMLParserDelegate {
     :param: namespaceURI  namespace uri of the element
     :param: qName         qName of the element
     :param: attributeDict dictionary of attributes
-    */
-    public func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName: String?, attributes attributeDict: [NSObject : AnyObject]) {
+    */   
+    public func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         
         // Store
         if elementName == I18N_SUPLANG_ELEM {
             
             logger.log(ILoggingLogLevel.Debug, category: loggerTag, message: "Reading language: \(attributeDict[I18N_SUPLANG_ATTR_LANG])")
             
-            var locale:Locale = Locale()
+            let locale:Locale = Locale()
             locale.setLanguage("\(attributeDict[I18N_SUPLANG_ATTR_LANG]!)")
             locale.setCountry("\(attributeDict[I18N_SUPLANG_ATTR_CNTR]!)")
             localesArray!.append(locale)

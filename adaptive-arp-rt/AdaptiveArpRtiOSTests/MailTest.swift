@@ -68,7 +68,7 @@ class MailTest: XCTestCase {
             
         } else {
             
-            var email:Email = Email(toRecipients: [EmailAddress(address: "fnva@gft.com")], subject: "Test from Adaptive Messaging API", messageBody: "This text goes throw the Adaptive API of Messaging")
+            let email:Email = Email(toRecipients: [EmailAddress(address: "fnva@gft.com")], subject: "Test from Adaptive Messaging API", messageBody: "This text goes throw the Adaptive API of Messaging")
             
             AppRegistryBridge.sharedInstance.getMailBridge().sendEmail(email, callback: callback)
             

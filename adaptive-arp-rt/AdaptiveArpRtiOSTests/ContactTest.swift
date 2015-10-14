@@ -61,7 +61,7 @@ class ContactTest: XCTestCase {
         
         // MARK:  Maybe this contact (3) does not exist
         
-        var cuuid:ContactUid = ContactUid(contactId: "3")
+        let cuuid:ContactUid = ContactUid(contactId: "3")
         AppRegistryBridge.sharedInstance.getContactBridge().getContact(cuuid, callback: callback)
     }
     

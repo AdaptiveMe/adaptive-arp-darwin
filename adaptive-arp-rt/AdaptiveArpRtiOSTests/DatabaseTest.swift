@@ -67,7 +67,7 @@ class DatabaseTest: XCTestCase {
     */
     func testDatabase() {
         
-        var db:Database = Database(name: DBNAME)
+        let db:Database = Database(name: DBNAME)
         
         // EXISTS
         if AppRegistryBridge.sharedInstance.getDatabaseBridge().existsDatabase(db)! {
@@ -87,8 +87,8 @@ class DatabaseTest: XCTestCase {
     */
     func testTable(){
         
-        var db:Database = Database(name: DBNAME)
-        var table:DatabaseTable = DatabaseTable(name: TBLNAME)
+        let db:Database = Database(name: DBNAME)
+        let table:DatabaseTable = DatabaseTable(name: TBLNAME)
         
         // Table columns
         table.setDatabaseColumns([DatabaseColumn(name: COLNAME1), DatabaseColumn(name: COLNAME2)])
@@ -120,7 +120,7 @@ class DatabaseTest: XCTestCase {
         AppRegistryBridge.sharedInstance.getDatabaseBridge().executeSqlStatement(db, statement: "DELETE FROM \(table.getName()!) WHERE \(COLNAME1) = ?", replacements: ["0"], callback: callbackTable)
         
         // TRANSACTION (INSERT, DELETE)
-        var statements = [
+        let statements = [
             "INSERT INTO \(table.getName()!) (\(COLNAME1), \(COLNAME2)) VALUES (1, 'value')",
             "DELETE FROM \(table.getName()!) WHERE \(COLNAME1) = 1"
         ]

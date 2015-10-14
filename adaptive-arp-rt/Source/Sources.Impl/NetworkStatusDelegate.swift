@@ -34,6 +34,7 @@ Release:
 
 import Foundation
 import AdaptiveArpApi
+import ReachabilitySwift
 
 /**
    Interface for Managing the Network status
@@ -49,7 +50,7 @@ public class NetworkStatusDelegate : BaseCommunicationDelegate, INetworkStatus {
     var listeners:[INetworkStatusListener]!
     
     /// Reachability Utils
-    var reachability:Reachability? = nil
+    var reachability:Reachability?
 
     /**
        Default Constructor.
@@ -68,7 +69,7 @@ public class NetworkStatusDelegate : BaseCommunicationDelegate, INetworkStatus {
     public func addNetworkStatusListener(listener : INetworkStatusListener) {
         
         // check if listener exists
-        for (index, l:INetworkStatusListener) in enumerate(listeners) {
+        for l:INetworkStatusListener in self.listeners {
             if listener.getId() == l.getId() {
                 logger.log(ILoggingLogLevel.Warn, category: loggerTag, message: "The listener is alredy on the pull. Replacing...")
                 self.removeNetworkStatusListener(listener)
@@ -87,22 +88,16 @@ public class NetworkStatusDelegate : BaseCommunicationDelegate, INetworkStatus {
             reachability!.whenReachable = { reachability in
                 
                 // Iterate all over the listeners and notify
-                for (index, l) in enumerate(self.listeners) {
+                for l:INetworkStatusListener in self.listeners {
                     if reachability.isReachableViaWiFi() {
                         self.logger.log(ILoggingLogLevel.Debug, category: self.loggerTag, message: "Listener \(listener) reachable via WIFI")
-                        
-                        var date = NSDate()
-                        var timestamp:Int64 = Int64(date.timeIntervalSince1970*1000)
-                        var event:NetworkEvent = NetworkEvent(network: ICapabilitiesNet.WIFI, timestamp: timestamp)
+                        let event:NetworkEvent = NetworkEvent(network: ICapabilitiesNet.WIFI, timestamp: Int64(NSDate().timeIntervalSince1970*1000))
                         l.onResult(event)
                         
                     } else {
                         self.logger.log(ILoggingLogLevel.Debug, category: self.loggerTag, message: "Listener \(listener) reachable via WAN")
                         // MARK: it is not possible to determine the G version of the connection: GSM, GPRS, HSPA, etc...
-                        
-                        var date = NSDate()
-                        var timestamp:Int64 = Int64(date.timeIntervalSince1970*1000)
-                        var event:NetworkEvent = NetworkEvent(network: ICapabilitiesNet.GSM, timestamp: timestamp)
+                        let event:NetworkEvent = NetworkEvent(network: ICapabilitiesNet.GSM, timestamp: Int64(NSDate().timeIntervalSince1970*1000))
                         l.onResult(event)
                     }
                 }
@@ -111,7 +106,7 @@ public class NetworkStatusDelegate : BaseCommunicationDelegate, INetworkStatus {
             // Clousure for unreachable
             reachability!.whenUnreachable = { reachability in
                 // Iterate all over the listeners and notify
-                for (index, l) in enumerate(self.listeners) {
+                for l:INetworkStatusListener in self.listeners {
                     
                     self.logger.log(ILoggingLogLevel.Error, category: self.loggerTag, message: "Listener \(listener) unreachable")
                     l.onError(INetworkStatusListenerError.Unreachable)
@@ -128,7 +123,7 @@ public class NetworkStatusDelegate : BaseCommunicationDelegate, INetworkStatus {
     */
     public func removeNetworkStatusListener(listener : INetworkStatusListener) {
         
-        for (index, l:INetworkStatusListener) in enumerate(listeners) {
+        for (index, l) in listeners.enumerate() {
             
             if listener.getId() == l.getId() {
                 

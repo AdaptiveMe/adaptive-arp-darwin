@@ -181,19 +181,19 @@ public class FileDelegate : BaseDataDelegate, IFile {
     */
     public func getFileStorageType(descriptor : FileDescriptor) -> IFileSystemStorageType? {
         
-        var delegate:IFileSystem = AppRegistryBridge.sharedInstance.getFileSystemBridge().getDelegate()!
+        let delegate:IFileSystem = AppRegistryBridge.sharedInstance.getFileSystemBridge().getDelegate()!
         
-        if descriptor.getPathAbsolute()!.rangesOfString(delegate.getApplicationFolder()!.getPathAbsolute()!).startIndex > -1 {
+        if descriptor.getPathAbsolute()!.rangeOfString(delegate.getApplicationFolder()!.getPathAbsolute()!) != nil {
             return IFileSystemStorageType.Application
-        } else if descriptor.getPathAbsolute()!.rangesOfString(delegate.getApplicationCacheFolder()!.getPathAbsolute()!).startIndex > -1  {
+        } else if descriptor.getPathAbsolute()!.rangeOfString(delegate.getApplicationCacheFolder()!.getPathAbsolute()!) != nil {
             return IFileSystemStorageType.Cache
-        } else if descriptor.getPathAbsolute()!.rangesOfString(delegate.getApplicationCloudFolder()!.getPathAbsolute()!).startIndex > -1  {
+        } else if descriptor.getPathAbsolute()!.rangeOfString(delegate.getApplicationCloudFolder()!.getPathAbsolute()!) != nil {
             return IFileSystemStorageType.Cloud
-        } else if descriptor.getPathAbsolute()!.rangesOfString(delegate.getApplicationDocumentsFolder()!.getPathAbsolute()!).startIndex > -1  {
+        } else if descriptor.getPathAbsolute()!.rangeOfString(delegate.getApplicationDocumentsFolder()!.getPathAbsolute()!) != nil {
             return IFileSystemStorageType.Document
-        } else if descriptor.getPathAbsolute()!.rangesOfString(delegate.getSystemExternalFolder()!.getPathAbsolute()!).startIndex > -1  {
+        } else if descriptor.getPathAbsolute()!.rangeOfString(delegate.getSystemExternalFolder()!.getPathAbsolute()!) != nil {
             return IFileSystemStorageType.External
-        } else if descriptor.getPathAbsolute()!.rangesOfString(delegate.getApplicationProtectedFolder()!.getPathAbsolute()!).startIndex > -1  {
+        } else if descriptor.getPathAbsolute()!.rangeOfString(delegate.getApplicationProtectedFolder()!.getPathAbsolute()!) != nil {
             return IFileSystemStorageType.Protected
         } else {
             return IFileSystemStorageType.Unknown
@@ -232,9 +232,9 @@ public class FileDelegate : BaseDataDelegate, IFile {
     */
     public func getSecurityType(descriptor : FileDescriptor) -> IFileSystemSecurity? {
         
-        var delegate:IFileSystem = AppRegistryBridge.sharedInstance.getFileSystemBridge().getDelegate()!
+        let delegate:IFileSystem = AppRegistryBridge.sharedInstance.getFileSystemBridge().getDelegate()!
         
-        if descriptor.getPathAbsolute()!.rangesOfString(delegate.getApplicationProtectedFolder()!.getPathAbsolute()!).startIndex > -1  {
+        if descriptor.getPathAbsolute()!.rangeOfString(delegate.getApplicationProtectedFolder()!.getPathAbsolute()!) != nil  {
             return IFileSystemSecurity.Protected
         } else {
             return IFileSystemSecurity.Default
@@ -303,8 +303,8 @@ public class FileDelegate : BaseDataDelegate, IFile {
                         // Regex
                         if regex == "*" || Utils.validateRegexp(value, regexp: regex) {
                             
-                            var file:FileDescriptor = FileDescriptor()
-                            file.setPath(value as! String)
+                            let file:FileDescriptor = FileDescriptor()
+                            file.setPath(value )
                             
                             result.append(file)
                         }
@@ -375,7 +375,7 @@ public class FileDelegate : BaseDataDelegate, IFile {
             
             // source exists
             
-            var destinationPath:FileDescriptor = AppRegistryBridge.sharedInstance.getFileSystemBridge().createFileDescriptor(destination, name: "")!
+            let destinationPath:FileDescriptor = AppRegistryBridge.sharedInstance.getFileSystemBridge().createFileDescriptor(destination, name: "")!
             
             if !self.exists(destinationPath)! && createPath {
                 
@@ -440,7 +440,7 @@ public class FileDelegate : BaseDataDelegate, IFile {
         
         if self.exists(descriptor)! {
             
-            var data:NSData = NSData(bytes: content, length: content.count)
+            let data:NSData = NSData(bytes: content, length: content.count)
             
             if NSFileManager.defaultManager().createFileAtPath(descriptor.getPathAbsolute()!, contents: data, attributes: nil) {
                 callback.onResult(descriptor)
