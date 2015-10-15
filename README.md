@@ -54,8 +54,8 @@ Pods (Cocoapods project)
 
 ### Prerequisites
 
-- **[XCode](https://developer.apple.com/xcode/)** >= 6.3.1 (6D1002) with **[Swift](https://developer.apple.com/swift/)** 1.2 for compiling the project and building the application
-- **[Cocoapods](https://cocoapods.org/)** >= 0.37 Dependency manager for Swift. For installing cocoapods just follow the instructions provided [here](https://cocoapods.org/#install)
+- **[XCode](https://developer.apple.com/xcode/)** >= 7.0.1 (7A1001) with **[Swift](https://developer.apple.com/swift/)** 2.1 for compiling the project and building the application
+- **[Cocoapods](https://cocoapods.org/)** >= 0.39 Dependency manager for Swift. For installing cocoapods just follow the instructions provided [here](https://cocoapods.org/#install)
 
 ### Importing the project
 
