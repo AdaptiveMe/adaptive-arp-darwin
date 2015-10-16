@@ -156,22 +156,25 @@ public class ServiceDelegate : BaseCommunicationDelegate, IService {
         request.setServiceToken(serviceToken)
         
         // User agent - Interrogate Javascript
-        var useragent:String = ""
-        #if os(iOS)
+        let useragent:String = ""
+        /*#if os(iOS)
             
-            if UIDevice.currentDevice().model != "iPhone Simulator" {
+            #if (arch(i386) || arch(x86_64)) && os(iOS)
+                
                 let webview: AnyObject? = AppRegistryBridge.sharedInstance.getPlatformContextWeb().getWebviewPrimary()
                 dispatch_async(dispatch_get_main_queue(), {
                     useragent = (webview as! UIWebView).stringByEvaluatingJavaScriptFromString("navigator.userAgent")!
                 })
-            }
+                
+            #endif
+            
         #endif
         #if os(OSX)
             var webview: AnyObject? = AppRegistryBridge.sharedInstance.getPlatformContextWeb().getWebviewPrimary()
             dispatch_async(dispatch_get_main_queue(), {
             useragent = (webview as WebView).stringByEvaluatingJavaScriptFromString("navigator.userAgent")!
             })
-        #endif
+        #endif*/
         request.setUserAgent(useragent)
         
         // Referer host

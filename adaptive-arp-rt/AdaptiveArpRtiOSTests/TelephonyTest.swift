@@ -57,11 +57,12 @@ class TelephonyTest: XCTestCase {
 
         // MARK: you can't simulate calls in the Iphone Simulator for Xcode, skipping the test ...
         
-        if UIDevice.currentDevice().model == "iPhone Simulator" {
+        #if (arch(i386) || arch(x86_64)) && os(iOS)
             
+            // Simulator
             XCTAssert(true, "")
             
-        } else {
+            #else
             
             // MARK: it is possible the device hasn't a SIM and it's no possible to make a call
             
@@ -75,6 +76,7 @@ class TelephonyTest: XCTestCase {
             case ITelephonyStatus.Unknown:
                 XCTAssert(false, "There is an Unknown error calling the number")
             }
-        }
+            
+        #endif
     }
 }

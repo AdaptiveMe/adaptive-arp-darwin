@@ -61,13 +61,13 @@ class ServiceTest: XCTestCase {
         
         // MARK: it is necessary to define a service endpoint in the io-services config file
         
-        /*var token:ServiceToken? = AppRegistryBridge.sharedInstance.getServiceBridge().getServiceTokenByUri("http://api.geonames.org/postalCodeLookupJSON")
+        let token:ServiceToken? = AppRegistryBridge.sharedInstance.getServiceBridge().getServiceTokenByUri("http://api.geonames.org/postalCodeLookupJSON")
         XCTAssertNotNil(token, "It is necessary to define a service endpoint in the io-services config file")
         
-        var token2:ServiceToken? = AppRegistryBridge.sharedInstance.getServiceBridge().getServiceToken("petstore", endpointName: "http://petstore.swagger.wordnik.com", functionName: "/api/pet/15", method: IServiceMethod.Post)
+        let token2:ServiceToken? = AppRegistryBridge.sharedInstance.getServiceBridge().getServiceToken("petstore", endpointName: "http://petstore.swagger.wordnik.com", functionName: "/api/pet/15", method: IServiceMethod.Post)
         XCTAssertNotNil(token2, "It is necessary to define a service endpoint in the io-services config file")
                 
-        var request:ServiceRequest? = AppRegistryBridge.sharedInstance.getServiceBridge().getServiceRequest(token!)
+        let request:ServiceRequest? = AppRegistryBridge.sharedInstance.getServiceBridge().getServiceRequest(token!)
         XCTAssertNotNil(request, "There is a problem obtaining the request for this request token")
         
         var params:[ServiceRequestParameter] = [ServiceRequestParameter]()
@@ -76,6 +76,6 @@ class ServiceTest: XCTestCase {
         params.append(ServiceRequestParameter(keyName: "username", keyData: "demo"));
         request!.setQueryParameters(params);
         
-        AppRegistryBridge.sharedInstance.getServiceBridge().invokeService(request!, callback: callback)*/
+        AppRegistryBridge.sharedInstance.getServiceBridge().invokeService(request!, callback: callback)
     }
 }

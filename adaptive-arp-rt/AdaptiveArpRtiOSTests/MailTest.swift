@@ -62,17 +62,17 @@ class MailTest: XCTestCase {
         
         // MARK: you can't simulate messaging events in the Iphone Simulator for Xcode, skipping the test...
         
-        if UIDevice.currentDevice().model == "iPhone Simulator" {
+        #if (arch(i386) || arch(x86_64)) && os(iOS)
             
+            // Simulator
             XCTAssert(true, "")
             
-        } else {
+            #else
             
             let email:Email = Email(toRecipients: [EmailAddress(address: "fnva@gft.com")], subject: "Test from Adaptive Messaging API", messageBody: "This text goes throw the Adaptive API of Messaging")
-            
             AppRegistryBridge.sharedInstance.getMailBridge().sendEmail(email, callback: callback)
             
-        }
+        #endif
         
     }
 }

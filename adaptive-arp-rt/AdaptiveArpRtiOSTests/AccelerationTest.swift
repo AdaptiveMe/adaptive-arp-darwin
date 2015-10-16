@@ -62,18 +62,18 @@ class AccelerationTest: XCTestCase {
         
         // MARK: you can't simulate acceleration events in the Iphone Simulator for Xcode, skipping the test...
         
-        if UIDevice.currentDevice().model == "iPhone Simulator" {
+        #if (arch(i386) || arch(x86_64)) && os(iOS)
             
+            // Simulator
             XCTAssert(true, "")
             
-        } else {
-        
+            #else
+            
             AppRegistryBridge.sharedInstance.getAccelerationBridge().addAccelerationListener(listener)
             AppRegistryBridge.sharedInstance.getAccelerationBridge().removeAccelerationListener(listener)
             AppRegistryBridge.sharedInstance.getAccelerationBridge().removeAccelerationListeners()
             
-        }
-            
+        #endif            
     }
 
 }

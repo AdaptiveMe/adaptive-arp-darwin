@@ -71,14 +71,16 @@ class SecurityTest: XCTestCase {
         
         // MARK: you can't test the device modified method in the simulator, skipping the tests...
         
-        if UIDevice.currentDevice().model == "iPhone Simulator" {
+        #if (arch(i386) || arch(x86_64)) && os(iOS)
             
+            // Simulator
             XCTAssert(true, "")
             
-        } else {
+            #else
             
             XCTAssertFalse(AppRegistryBridge.sharedInstance.getSecurityBridge().isDeviceModified()!, "There is a problem with the test or the device is jailbroken.")
-        }
+            
+        #endif
     }
     
     /**

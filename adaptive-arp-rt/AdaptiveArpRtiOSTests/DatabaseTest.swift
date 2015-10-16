@@ -92,6 +92,8 @@ class DatabaseTest: XCTestCase {
         
         // Table columns
         table.setDatabaseColumns([DatabaseColumn(name: COLNAME1), DatabaseColumn(name: COLNAME2)])
+        table.setColumnCount(2)
+        table.setRowCount(0)
         
         // NOT EXISTS DATABASE
         if !AppRegistryBridge.sharedInstance.getDatabaseBridge().existsDatabase(db)! {

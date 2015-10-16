@@ -272,8 +272,19 @@ should be passed as a parameter
             return
         }
         
+        let stm = statement as NSString
+        var count = 0
+        do {
+            let regex:NSRegularExpression = try NSRegularExpression(pattern: "\\?", options: NSRegularExpressionOptions.CaseInsensitive)
+            count = regex.numberOfMatchesInString(statement, options: NSMatchingOptions.ReportCompletion, range: NSMakeRange(0, stm.length))
+        } catch {
+            self.logger.log(ILoggingLogLevel.Error, category: loggerTag, message: "There's been an error creating the Regular Expression: \(error)")
+            callback.onError(IDatabaseTableResultCallbackError.Unknown)
+            return
+        }
+
         // Check if the replacements are the same than the ?
-        if statement.rangeOfString("?")!.count != replacements.count {
+        if count != replacements.count {
             
             let c = statement.rangeOfString("?")!.count
             
@@ -487,13 +498,20 @@ should be passed as a parameter
         var columnCount:Int32 = 0
         var rows:[DatabaseRow] = []
         
+        print("stmt: \(stmt)")
+        
         for row in stmt {
+            
+            print("row: \(row)")
             
             var vals = [String]()
             columnCount = Int32(row.count)
             
-            for (value) in row {
-                vals.append("\(value!)")
+            print("columnCount: \(columnCount)")
+            
+            for value in row {
+                print("value: \(value)")
+                vals.append("\(value)")
             }
             
             rows.append(DatabaseRow(values: vals as [String]))

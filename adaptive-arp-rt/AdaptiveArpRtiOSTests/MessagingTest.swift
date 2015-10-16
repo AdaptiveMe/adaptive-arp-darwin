@@ -62,15 +62,16 @@ class MessagingTest: XCTestCase {
         
         // MARK: you can't simulate messaging events in the Iphone Simulator for Xcode, skipping the test...
         
-        if UIDevice.currentDevice().model == "iPhone Simulator" {
+        #if (arch(i386) || arch(x86_64)) && os(iOS)
             
+            // Simulator
             XCTAssert(true, "")
             
-        } else {
+            #else
             
             AppRegistryBridge.sharedInstance.getMessagingBridge().sendSMS("123456789", text: "I want to send this text by SMS :)", callback: callback)
             
-        }
+        #endif
         
         
     }

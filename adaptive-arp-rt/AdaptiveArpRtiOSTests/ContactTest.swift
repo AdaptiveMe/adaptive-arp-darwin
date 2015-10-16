@@ -124,7 +124,7 @@ class ContactTest: XCTestCase {
         
         // MARK:  Maybe this contact (david) does not exist
         
-        AppRegistryBridge.sharedInstance.getContactBridge().searchContactsWithFilter("david", callback: callback, filter: filters)
+        AppRegistryBridge.sharedInstance.getContactBridge().searchContactsWithFilter("kate", callback: callback, filter: filters)
     }
 
 }

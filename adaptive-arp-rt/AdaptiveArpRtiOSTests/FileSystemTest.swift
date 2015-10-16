@@ -58,8 +58,7 @@ class FileSystemTest: XCTestCase {
         XCTAssert(AppRegistryBridge.sharedInstance.getFileSystemBridge().getApplicationDocumentsFolder() != nil, "Error getting the documents folder. See log")
         XCTAssert(AppRegistryBridge.sharedInstance.getFileSystemBridge().getApplicationFolder() != nil, "Error getting the application folder. See log")
         XCTAssert(AppRegistryBridge.sharedInstance.getFileSystemBridge().getApplicationProtectedFolder() != nil, "Error getting the protected folder. See log")
-        XCTAssert(AppRegistryBridge.sharedInstance.getFileSystemBridge().getSystemExternalFolder() != nil, "Error getting the external folder. See log")
-        
+        XCTAssert(AppRegistryBridge.sharedInstance.getFileSystemBridge().getSystemExternalFolder() != nil, "Error getting the external folder. See log")        
         XCTAssert(AppRegistryBridge.sharedInstance.getFileSystemBridge().getSeparator() == "/", "Error getting the separator. See log")
     }
 
