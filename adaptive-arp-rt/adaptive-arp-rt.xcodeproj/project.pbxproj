@@ -166,7 +166,7 @@
 		4E8D9F681BCE73470053C35F /* wordmark-adaptive-spectrum-4694x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wordmark-adaptive-spectrum-4694x1024.png"; sourceTree = "<group>"; };
 		9CA7C8BCD1A85C7728D03174 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B2F52AA2B01B46A72511DA18 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		C35FE4861AE6A4C7002B6C54 /* AdaptiveArpRtiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdaptiveArpRtiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C35FE4861AE6A4C7002B6C54 /* APP-NAME.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "APP-NAME.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C35FE48A1AE6A4C7002B6C54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C35FE48B1AE6A4C7002B6C54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C35FE48D1AE6A4C7002B6C54 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -321,7 +321,7 @@
 		C35FE4871AE6A4C7002B6C54 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C35FE4861AE6A4C7002B6C54 /* AdaptiveArpRtiOS.app */,
+				C35FE4861AE6A4C7002B6C54 /* APP-NAME.app */,
 				C35FE49B1AE6A4C7002B6C54 /* AdaptiveArpRtiOSTests.xctest */,
 			);
 			name = Products;
@@ -535,7 +535,7 @@
 			);
 			name = AdaptiveArpRtiOS;
 			productName = AdaptiveArpRtiOS;
-			productReference = C35FE4861AE6A4C7002B6C54 /* AdaptiveArpRtiOS.app */;
+			productReference = C35FE4861AE6A4C7002B6C54 /* APP-NAME.app */;
 			productType = "com.apple.product-type.application";
 		};
 		C35FE49A1AE6A4C7002B6C54 /* AdaptiveArpRtiOSTests */ = {
@@ -886,8 +886,8 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-D\" \"DEBUG\"";
-				PRODUCT_BUNDLE_IDENTIFIER = "me.adaptive.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.adaptive.replace.APP-NAME";
+				PRODUCT_NAME = "APP-NAME";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Source/Sources.Common/Adaptive-Bridging-Header.h";
@@ -934,8 +934,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "me.adaptive.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.adaptive.replace.APP-NAME";
+				PRODUCT_NAME = "APP-NAME";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Source/Sources.Common/Adaptive-Bridging-Header.h";
