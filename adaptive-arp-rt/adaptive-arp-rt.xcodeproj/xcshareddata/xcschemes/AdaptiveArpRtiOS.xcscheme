@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C35FE4851AE6A4C7002B6C54"
-               BuildableName = "APP-NAME.app"
+               BuildableName = "AdaptiveArpRtiOS.app"
                BlueprintName = "AdaptiveArpRtiOS"
                ReferencedContainer = "container:adaptive-arp-rt.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C35FE4851AE6A4C7002B6C54"
-            BuildableName = "APP-NAME.app"
+            BuildableName = "AdaptiveArpRtiOS.app"
             BlueprintName = "AdaptiveArpRtiOS"
             ReferencedContainer = "container:adaptive-arp-rt.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C35FE4851AE6A4C7002B6C54"
-            BuildableName = "APP-NAME.app"
+            BuildableName = "AdaptiveArpRtiOS.app"
             BlueprintName = "AdaptiveArpRtiOS"
             ReferencedContainer = "container:adaptive-arp-rt.xcodeproj">
          </BuildableReference>
@@ -99,7 +99,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C35FE4851AE6A4C7002B6C54"
-            BuildableName = "APP-NAME.app"
+            BuildableName = "AdaptiveArpRtiOS.app"
             BlueprintName = "AdaptiveArpRtiOS"
             ReferencedContainer = "container:adaptive-arp-rt.xcodeproj">
          </BuildableReference>
