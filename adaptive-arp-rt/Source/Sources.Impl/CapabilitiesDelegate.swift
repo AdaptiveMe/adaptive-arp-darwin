@@ -510,7 +510,7 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
                     return true
                 case UIUserInterfaceIdiom.Unspecified:
                     return false
-                case UIUserInterfaceIdiom.TV:
+                default:
                     return false
                 }
             #endif
@@ -528,7 +528,7 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
                     return false
                 case UIUserInterfaceIdiom.Unspecified:
                     return false
-                case UIUserInterfaceIdiom.TV:
+                default:
                     return false
                 }
             #endif
@@ -546,7 +546,7 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
                     return true
                 case UIUserInterfaceIdiom.Unspecified:
                     return false
-                case UIUserInterfaceIdiom.TV:
+                default:
                     return true
                 }
             #endif
@@ -564,7 +564,7 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
                     return true
                 case UIUserInterfaceIdiom.Unspecified:
                     return false
-                case UIUserInterfaceIdiom.TV:
+                default:
                     return true
                 }
             #endif
@@ -641,7 +641,7 @@ public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
                 
             case UIUserInterfaceIdiom.Unspecified:
                 ret.append(ICapabilitiesOrientation.Unknown)
-            case UIUserInterfaceIdiom.TV:
+            default:
                 ret.append(ICapabilitiesOrientation.PortraitUp)
             }
         #endif
