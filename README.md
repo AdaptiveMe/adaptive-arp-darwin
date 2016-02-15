@@ -39,7 +39,7 @@ adaptive-arp-rt (Project & Build Settings)
 ├── AdaptiveArpRtiOS (AppDelegates & ViewControllers)
 ├── AdaptiveArpRtiOSTests (Unit Tests)
 ├── Frameworks (Result Frameworks)
-├── Pods (Cocoapods configuration)
+├── Pods (CocoaPods configuration)
 ├── Products (Result products)
 ├── Sources.Common
 │   ├── Compression (Compression utility classes)
@@ -48,14 +48,14 @@ adaptive-arp-rt (Project & Build Settings)
 │   ├── StreamUtils (Stream extensions)
 │   ├── Utils (Utility classes)
 ├── Sources.Impl (Implementation of ARP Bridges)
-Pods (Cocoapods project)
+Pods (CocoaPods project)
 ```
 ## Set-Up Environment
 
 ### Prerequisites
 
-- **[XCode](https://developer.apple.com/xcode/)** >= 7.0.1 (7A1001) with **[Swift](https://developer.apple.com/swift/)** 2.1 for compiling the project and building the application
-- **[Cocoapods](https://cocoapods.org/)** >= 0.39 Dependency manager for Swift. For installing cocoapods just follow the instructions provided [here](https://cocoapods.org/#install)
+- **[Xcode](https://developer.apple.com/xcode/)** >= 7.0.1 (7A1001) with **[Swift](https://developer.apple.com/swift/)** 2.1 for compiling the project and building the application
+- **[CocoaPods](https://cocoapods.org/)** >= 0.39 Dependency manager for Swift. For installing CocoaPods just follow the instructions provided [here](https://cocoapods.org/#install)
 
 ### Importing the project
 
